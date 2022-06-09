@@ -1,0 +1,102 @@
+@extends('frontend.layout.layout')
+
+@section('content')
+<div class="background-sub-slider">
+        <div class="position-relative">
+            <img src="{{ asset('frontend/image/about_us.png') }}" alt="">
+            <div class="about_us_background">
+                <div class="sub_heading mb-lg-3">Blog</div>
+                <div class="about_us_link">
+                    <a href="{{ URL('/') }}">home</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
+                        <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
+                        <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
+                    </svg>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+       
+    <div class="container">
+            <div class="blog_tabs my-5">
+                <div class="blog_filter_btn d-md-none">
+                    filter btn
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <ul class="nav nav-tabs blog_filter_btn_ul" id="myTab" role="tablist">
+                    <li class="nav-item category" >
+                        <button class="nav-link active common_selector"  data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
+                            <span class="ms-1">
+                                All Blogs
+                            </span>
+                        </button>
+                    </li>
+
+                    @foreach($Categories as $Category)
+                    <li class="nav-item category">
+                        <button class="nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
+                            <span class="ms-1">{{ $Category->category_name }}</span>
+                        </button>
+                    </li>
+                    @endforeach
+                    
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active mt-3 mt-xxl-5"  role="tabpanel" >
+                        <div class="row blogs-fetch">
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        $(document).ready(function(){
+            filter_data();
+            $("#sorting").change(function() {
+                filter_data();
+            });
+        
+            function filter_data()
+            {
+                $('.blogs-fetch').html('<div id="loading" style="" ></div>');
+                var action = 'fetch_data';
+                var category = get_filter('category');
+                $.ajax({
+                    url:"{{ url('/blogs-filter') }}",
+                    method:"POST",
+                    data:{action:action,category:category,_token: '{{ csrf_token() }}'},
+                    success:function(data){
+                        $('.blogs-fetch').html(data['output']);
+                    }
+                });
+            }
+        
+            function get_filter(class_name)
+            {
+                var cattab = $(".category .active");
+                var cattabval = cattab.attr("data-value");
+              
+                return cattabval;
+            }
+        
+            $('.common_selector').click(function(){
+                filter_data();
+            });
+
+            $(document).on('click','.cat-details',function(){
+                var cat_id = $(this).attr("data-value");
+                window.location.href = "{{ url('/blog/') }}" +'/'+ cat_id ;
+            });
+    
+        });
+        </script>
+
+@endsection
+
+  

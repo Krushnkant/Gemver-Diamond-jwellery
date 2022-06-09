@@ -1,0 +1,2342 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ :root {
+    --primary: #0B1727;
+    --secondary: #BB9761;
+}
+
+body {
+    position: relative;
+}
+
+:root {
+    scroll-behavior: auto;
+}
+
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1300px;
+}
+
+img {
+    width: 100%;
+}
+
+.row {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sacramento', cursive;
+}
+
+.background-slider {
+    /* height: 700px;
+background: url(../image/smoke.png) #0B1727 no-repeat;
+background-size: cover; */
+}
+
+.background-smoke-slider img {
+    width: 100%;
+}
+
+.logo-image {
+    max-width: 150px;
+    z-index: 1;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 70px;
+    z-index: 111;
+    transition: all 0.5s ease;
+}
+
+.header.sticky {
+    background: #fff;
+    padding: 0 70px;
+    box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
+}
+
+.header.sticky ul li a {
+    color: #0b1727;
+}
+
+.header ul li a:hover svg path {
+    fill: #BB9761;
+}
+
+.header.sticky ul li:hover>.mega-menu {
+    top: calc(100% + 0);
+}
+
+.header.sticky ul li {
+    padding: 28px 40px;
+}
+
+.header.sticky li a svg path {
+    fill: #0B1727;
+}
+
+.header ul li {
+    display: inline-block;
+    padding: 37px 40px;
+    position: relative;
+}
+
+.header ul li a {
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header ul li a:hover {
+    color: #BB9761;
+}
+
+.header ul li>.mega-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 183px;
+    background: #fff;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
+}
+
+.header ul li:last-child>.mega-menu {
+    left: auto;
+    transform: none;
+    right: 0;
+}
+
+.header ul li:hover>.mega-menu {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+    transition: all 0.5s ease;
+    z-index: 999;
+}
+
+.header ul li .mega-menu li {
+    padding: 10px 0px;
+    font-weight: 600;
+    display: block;
+}
+
+.header ul li .mega-menu li:first-child {
+    color: #BB9761;
+    font-size: 17px;
+}
+
+.header ul li .mega-menu li span {
+    text-transform: capitalize;
+}
+
+.header ul li .mega-menu li a {
+    color: #0B1727;
+    font-size: 15px;
+    transition: all 0.5s;
+}
+
+.header ul li .mega-menu li a:hover {
+    color: #BB9761;
+}
+
+.header ul li .mega-menu .mega-menu-four-part {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    min-width: 1500px;
+    text-align: left;
+    padding: 20px;
+}
+
+.header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {
+    display: inline-block;
+    text-transform: uppercase;
+    position: absolute;
+    font-size: 18px;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15%;
+}
+
+.header ul li .mega-menu .mega-menu-two-part {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-width: 600px;
+    text-align: left;
+    padding: 20px;
+}
+
+.mega-menu-img {
+    max-width: 22px;
+}
+
+.menus_title {
+    text-transform: uppercase;
+}
+
+.header ul li.active a {
+    color: #BB9761;
+}
+
+.line-image {
+    max-width: 180px;
+}
+
+.background-text-part {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-h1 {
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 146px;
+    color: #BB9761;
+}
+
+.paragraph {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.explore-ring-btn {
+    min-width: 213px;
+    min-height: 66px;
+    border: 1px solid #FFFFFF;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: none;
+    z-index: 0;
+}
+
+.btn-hover-effect:hover {
+    color: #BB9761;
+    border: 1px solid #BB9761;
+}
+
+.btn-hover-effect {
+    position: relative;
+}
+
+.btn-hover-effect,
+.btn-hover-effect::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-hover-effect::before,
+.btn-hover-effect::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+.btn-hover-effect {
+    overflow: hidden;
+}
+
+.btn-hover-effect::after {
+    height: 0;
+    left: 50%;
+    top: 50%;
+    width: 0;
+}
+
+.btn-hover-effect:hover:after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.btn-hover-effect-black:hover {
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
+.btn-hover-effect-black::before,
+.btn-hover-effect-black::after {
+    background: #BB9761;
+}
+
+.background-pendal {
+    position: absolute;
+    top: 0;
+    left: 7%;
+}
+
+.backgeound-ring {
+    position: absolute;
+    margin-top: 11%;
+    right: 8%;
+}
+
+.heading-h2 {
+    font-weight: 400;
+    font-size: 77px;
+    line-height: 112px;
+    color: #0B1727;
+    position: relative;
+    z-index: 1;
+}
+
+.explore-category-btn {
+    min-width: 268px;
+    min-height: 66px;
+    border: 1px solid #0B1727;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0B1727;
+    background: none;
+}
+
+.category-heading {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    z-index: 1;
+}
+
+.category-line-img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.shop_dimond_by_shape {
+    padding: 72px;
+    position: relative;
+    background: url(../image/black-bg.png) no-repeat;
+    background-size: cover;
+}
+
+.shop_dimond_by_shape .owl-item img {
+    margin: auto;
+}
+
+.shop_dimond_by_shape .owl-dots {
+    padding-left: 21px;
+    padding-top: 40px;
+    text-align: left !important;
+}
+
+.shop_dimond_by_shape .owl-nav span {
+    color: #fff !important;
+}
+
+.shop_dimond_by_shape .owl-nav {
+    position: absolute;
+    right: 21px;
+    padding-top: 20px;
+}
+
+.shop_dimond_by_shape .owl-nav .owl-prev img,
+.customer-stories .owl-nav .owl-prev img {
+    width: 8px;
+    margin-right: 25px;
+}
+
+.shop_dimond_by_shape .owl-dots .owl-dot span,
+.customer-stories .owl-dots .owl-dot span,
+.shop-by-style-slider .owl-dots .owl-dot span {
+    width: 7px !important;
+    height: 7px !important;
+}
+
+.shop_dimond_by_shape .owl-nav .owl-next img,
+.customer-stories .owl-nav .owl-next img {
+    width: 8px;
+}
+
+.customer-stories .owl-nav [class*=owl-]:hover,
+.shop-dimond-by-shape-slider .owl-nav [class*=owl-]:hover,
+.shop-by-style-slider .owl-nav [class*=owl-]:hover {
+    background: transparent !important;
+}
+
+.customer-stories .owl-dots .owl-dot.active span {
+    background: #0B1727 !important;
+}
+
+.shop-by-style-slider .owl-dots .owl-dot span {
+    background: #BB9761;
+    opacity: 0.2;
+}
+
+.shop-by-style-slider .owl-dots .owl-dot.active span {
+    background: #BB9761 !important;
+    opacity: 1;
+}
+
+.shop-by-style-slider .owl-dots {
+    position: absolute;
+    bottom: -70px;
+}
+
+.shop-by-style-slider .owl-prev {
+    margin-right: 25px !important;
+}
+
+.shop-by-style-slider .owl-nav {
+    margin-top: 32px !important;
+}
+
+.shop-by-style-slider .owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+}
+
+.shop-by-style-slider .owl-nav {
+    position: absolute;
+    right: 0;
+}
+
+.customer-stories .owl-dots {
+    position: absolute;
+    left: calc(0% - 71.666667%);
+    bottom: 0;
+}
+
+.customer-stories .owl-nav {
+    position: absolute;
+    left: calc(0% - 11.666667%);
+    bottom: 0;
+}
+
+.shop_by_category_hover {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.shop_by_category_hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.shop_by_category_hover img {
+    transform: scale(1);
+    transition: all 0.2s ease;
+}
+
+.shop_by_category_hover:hover img {
+    transform: scale(1.1);
+}
+
+.customer_stories_paragraph {
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #0B1727;
+    font-family: 'Jost', sans-serif;
+}
+
+.heading-h2-yellow-color {
+    color: #BB9761 !important;
+}
+
+.customer_stories {
+    padding: 72px;
+}
+
+.customer_stories .item {
+    border: 1px solid #BB9761;
+    border-radius: 70px 0px;
+    padding: 70px 50px;
+}
+
+.customer-stories-paragraph {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #0B1727;
+    font-family: 'Jost', sans-serif;
+}
+
+.customer-name {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.customer-country {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+}
+
+.customer-stories-quotes {
+    padding-left: 120px;
+    position: relative;
+}
+
+.customer-stories-quotes::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../image/quotes.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-position-x: 36px;
+}
+
+.engagement_ring_section {
+    padding: 72px 72px 150px 72px;
+    background: #0B1727;
+}
+
+.engagement_ring_box {
+    padding: 50px 50px 150px 50px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    height: 100%;
+}
+
+.engagement_ring_paragraph {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    font-family: 'Jost', sans-serif;
+}
+
+.engagement_ring_number {
+    font-weight: 900;
+    font-size: 220px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.engagement_ring_heading {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.customise_own_ring_section {
+    padding: 72px;
+}
+
+.gemver_diamonds_section {
+    padding: 72px;
+}
+
+.diamonds_heading {
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+
+.diamonds_paragraph {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    font-family: 'Jost', sans-serif;
+}
+
+.diamonds_part {
+    position: absolute;
+    top: 130px;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer-part-section {
+    padding: 72px;
+    background: #0B1727;
+}
+
+.footer-part-heading {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.footer-paragraph {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    font-family: 'Jost', sans-serif;
+}
+
+.email_input input {
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 23px 37px;
+    background: none;
+    border: 1px solid #fff;
+}
+
+.email_input input::placeholder {
+    color: #fff;
+}
+
+.submit_btn {
+    padding: 23px 37px;
+    line-height: 20px;
+    border: 1px solid #FFFFFF;
+    min-height: 66px;
+    min-width: 147px;
+    background: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #fff;
+}
+
+.footer-social-media-icons li {
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    background: #BB9761;
+    text-align: center;
+    line-height: 47px;
+}
+
+.footer-social-media-icons li {
+    margin-right: 15px;
+}
+
+.footer-part-section .line {
+    border: 1px #fff solid;
+    opacity: 0.5;
+}
+
+.footer-col .footer-heading {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.footer-col ul li a {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+.footer-col ul li a:hover {
+    color: #BB9761;
+    transition: all 0.5s ease;
+}
+
+.footer-col ul li {
+    margin-bottom: 5px;
+}
+
+.footer-copyright-text,
+.footer-copyright-text a {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-copyright-text {
+    opacity: 0.5;
+}
+
+.diamond-btn {
+    min-width: 312px;
+}
+
+.footer-logo {
+    max-width: 150px;
+}
+
+
+/* --------------------- about-us --------------------------------------- */
+
+.sub_header {
+    background: #0B1727;
+}
+
+.sub_header.header {
+    padding: 0 70px;
+}
+
+.about_us_background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.about_us_background .sub_heading {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.about_us_link a {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.background-sub-slider {
+    margin-top: 100px;
+}
+
+.about_us_product {
+    padding: 72px 0;
+}
+
+.about_us_product_row {
+    background: #FBF9F7;
+    padding: 72px;
+}
+
+.h3-heading {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 88px;
+    color: #0B1727;
+}
+
+.about_us_product_padding {
+    padding-right: 72px;
+}
+
+.about_us_product_row .about_us_product_padding:nth-child(odd) {
+    padding-left: 72px;
+}
+
+.about_box_bg {
+    background-color: #0B1727;
+    padding: 65px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+}
+
+.about_box_content {
+    z-index: 2;
+}
+
+.about_box_bg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../image/smoke.png);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about_us_sub_heading {
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 42px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+}
+
+.about_us_sub_paragraph {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+
+/* ----------------------- wire bangle page ----------------------------------- */
+
+.wire_bangle_page {
+    padding: 72px 0;
+}
+
+.wire_bangle_page .product_slider_item {
+    padding: 0px 40px;
+}
+
+.wire_bangle_page .product_slider_item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.wire_bangle_page .product_slider_main_item img {
+    height: 400px;
+    width: 600px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.wire_bangle_page .wire_bangle_heading {
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_page .wire_bangle_price {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-transform: capitalize;
+    color: #BB9761;
+}
+
+.wire_bangle_page .wire_bangle_dublicate_price {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration-line: line-through;
+    text-transform: capitalize;
+    color: #0B1727;
+    opacity: 0.2;
+}
+
+.wire_bangle_page .wire_bangle_paragraph {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_page .wire_bangle_paragraph a {
+    display: inline-block;
+    color: var(--secondary);
+}
+
+.wire_bangle_heading a {
+    display: inline-block;
+    color: var(--secondary);
+}
+
+
+/* --------------------------------------------------------- */
+
+.wire_bangle_number input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.wire_bangle_number input[type=number]::-webkit-inner-spin-button,
+.wire_bangle_number input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    display: inline-flex;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    outline: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 66px;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 0.6rem;
+    height: 1px;
+    background-color: var(--primary);
+    transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+    max-width: 54px;
+    padding: .5rem;
+    border: solid transparent;
+    border-width: 0 2px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.inquiry_now_btn button {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    min-width: 210px;
+    min-height: 66px;
+    background: #BB9761;
+    border: 0;
+}
+
+.wire_bangle_color_heading {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_color input {
+    width: 30px;
+    height: 30px;
+    border: 15px solid #EFD9A7;
+    border-radius: 70px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.wire_bangle_color input:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.wire_bangle_color .form-check:nth-child(1) input {
+    border-color: #D9DCDE;
+}
+
+.wire_bangle_color .form-check:nth-child(1) .form-check-input:checked {
+    background: transparent;
+    border-color: #D9DCDE;
+}
+
+.wire_bangle_color .form-check:nth-child(2) input {
+    border-color: #EFD9A7;
+}
+
+.wire_bangle_color .form-check:nth-child(2) .form-check-input:checked {
+    background: transparent;
+    border-color: #EFD9A7;
+}
+
+.wire_bangle_color .form-check:nth-child(3) input {
+    border-color: #F0BD9E;
+}
+
+.wire_bangle_color .form-check:nth-child(3) .form-check-input:checked {
+    background: transparent;
+    border-color: #F0BD9E;
+}
+
+.wire_bangle_color .form-check-input:checked:after {
+    opacity: 1;
+}
+
+.wire_bangle_color .form-check-input:focus {
+    border-color: none;
+    box-shadow: none;
+}
+
+.wire_bangle_color_img_part  input {
+    margin: 0 10px 0 0 !important;
+}
+
+.wire_bangle_color_img_part  span{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+.wire_bangle_color_img_part .wire_bangle_color_img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    border-radius: 50%;
+}
+.wire_bangle_color_img_part input ~ .wire_bangle_color_input_label{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+.wire_bangle_color_img_part input:checked ~ .wire_bangle_color_input_label{
+    opacity: 1;
+}
+
+.wire_bangle_carat input+.wire_bangle_carat_label {
+    position: relative;
+    padding: 10px 20px;
+    gap: 10px;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    border-radius: 0 !important;
+    text-align: center;
+    text-transform: capitalize;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.wire_bangle_carat input[type="radio"] {
+    display: none;
+}
+
+.wire_bangle_carat .form-check-input:checked+.wire_bangle_carat_label {
+    background: #BB9761;
+    border-color: #BB9761;
+}
+
+.wire_bangle_carat .form-check-input:focus {
+    box-shadow: none;
+}
+
+.wire_bangle_carat .form-check-input:checked+label {
+    color: #fff;
+}
+
+.wire_bangle_share {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #0B1727;
+}
+
+.wire_bangle_color_theme {
+    color: #BB9761;
+}
+
+.select_setting_btn {
+    min-width: 229px;
+    min-height: 66px;
+    border: 1px solid #BB9761;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+    background: none;
+}
+
+.wire_bangle_padding {
+    padding-right: 35px;
+}
+
+.wire_bangle_padding_2 {
+    padding-left: 35px;
+}
+
+.description_heading {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.description_paragraph {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #0B1727;
+    font-family: 'Jost', sans-serif;
+}
+
+.wire_bangle_accordion .accordion-header button {
+    background-color: transparent;
+    box-shadow: none !important;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #0B1727;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    padding: 34px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.wire_bangle_accordion .wire_bangle_share {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #0B1727;
+}
+
+.wire_bangle_accordion .wire_bangle_color_theme {
+    text-transform: capitalize;
+}
+
+.wire_bangle_accordion .accordion-body {
+    padding: 0 34px 34px 34px;
+}
+
+.wire_bangle_accordion .accordion-button::after {
+    background-image: url(../image/plus.svg);
+}
+
+.wire_bangle_accordion .accordion-button:not(.collapsed)::after {
+    background-image: url(../image/minus.svg);
+}
+
+.inquiry_now_modal .modal-content {
+    padding: 70px 60px;
+    min-width: 670px;
+    overflow-y: auto;
+}
+
+.inquiry_now_modal .product_heading {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.inquiry_now_modal .wire_bangle_input {
+    min-height: 66px;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    padding: 23px 37px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    color: var(--primary);
+    opacity: 0.5;
+    width: 100%;
+}
+
+.inquiry_now_modal .send_inquiry_btn {
+    padding: 23px 37px;
+    gap: 10px;
+    width: 548px;
+    height: 66px;
+    border: 1px solid #BB9761;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+    background: none;
+}
+
+.inquiry_now_modal .wire_bangle_input:focus {
+    color: #0B1727;
+    border: 1px solid #0B1727;
+    opacity: 1;
+}
+
+.inquiry_now_modal .wire_bangle_input:focus {
+    outline: 0;
+}
+
+
+/* ---------------------------- shop page ------------------------------------------ */
+
+.wire_bangle_line {
+    background: var(--primary);
+    opacity: 0.1;
+    height: 1px;
+}
+
+.wire_bangle_showing_text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_dropdown {
+    background: none;
+    border: 0;
+    text-transform: capitalize;
+    position: relative;
+    width: auto;
+}
+
+.main_wire_bangle_dropdown .dropdown-toggle::after {
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    text-indent: -9999px;
+    border-top: 2px solid #0B1727;
+    border-left: 2px solid #0B1727;
+    transition: all 250ms ease-in-out;
+    text-decoration: none;
+    color: transparent;
+    transform: rotate(-135deg) scale(0.16);
+    top: -8px;
+}
+
+.main_wire_bangle_dropdown .dropdown-toggle.show::after {
+    transform: rotate(45deg) scale(0.2);
+}
+
+.filter-btn {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: #0B1727;
+    width: 107px;
+    height: 40px;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    background: none;
+}
+
+.wire_bangle_heading {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #BB9761;
+}
+
+.wire_bangle_sub_heading {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.shop_page .wire_bangle_paragraph {
+    font-family: 'Jost', sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_price {
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.wire_bangle_box {
+    width: 59px;
+    height: 59px;
+    background: #FFFFFF;
+    text-align: center;
+    line-height: 59px;
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.wire_bangle_box:hover {
+    background: #BB9761;
+}
+
+.wire_bangle_box:hover svg path {
+    stroke: #fff;
+}
+
+.wire_bangle_box:hover svg path:nth-child(2) {
+    fill: #fff;
+}
+
+.wire_bangle_inquiry_btn {
+    min-width: 210px;
+    height: 66px;
+    background: #FFFFFF;
+    border: 1px solid #BB9761;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.wire_bangle_img {
+    overflow: hidden;
+}
+
+.wire_bangle_img:hover .wire_bangle_inquiry_btn {
+    opacity: 1;
+    bottom: 25px;
+}
+
+.wire_bangle_img:hover .wire_bangle_box {
+    opacity: 1;
+    left: 25px;
+}
+
+
+/* -------------------------- contact us page ---------------------------------------- */
+
+.contact_us_box {
+    border: 1px solid rgba(11, 23, 39, 0.1);
+}
+
+.contact_us_heading {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.contact_us_paragraph {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.contact_us_bg {
+    background: url(../image/black-bg.png) no-repeat;
+    height: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+.contact-google-map {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+}
+
+.contact_us_sub_heading {
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 25px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+.contact_us_sub_paragraph {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 27px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+
+/* ---------------------------------------------------------------- */
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #BB9761;
+}
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_price {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
+    padding: 23px 37px;
+    gap: 10px;
+    width: 300px;
+    height: 66px;
+    border: 1px solid #BB9761;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+    background: none;
+}
+
+.round_cut_lab_checkbox .shape_img {
+    position: absolute;
+    max-width: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.round_cut_lab_checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.round_cut_lab_checkbox .form-check-input:checked+.round_cut_lab_label {
+    background: var(--primary);
+    color: #fff;
+}
+
+.round_cut_lab_checkbox input+.round_cut_lab_label {
+    width: 100%;
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    padding-left: 70px;
+}
+
+.round_cut_lab_checkbox input+.round_cut_lab_label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: #BB9761;
+    line-height: 50px;
+}
+
+
+/* .round_cut_lab_range_slider [slider] {
+    position: relative;
+    height: 14px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 20px 0 10px 0;
+    cursor: pointer;
+}
+
+.round_cut_lab_range_slider [slider]>div>[inverse-left] {
+    position: absolute;
+    left: 0;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.round_cut_lab_range_slider [slider]>div>[inverse-right] {
+    position: absolute;
+    right: 0;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.round_cut_lab_range_slider [slider]>div>[range] {
+    position: absolute;
+    left: 0;
+    height: 10px;
+    border-radius: 14px;
+    background-color: #BB9761;
+    margin-left: -4px;
+    margin-right: 4px;
+}
+
+.round_cut_lab_range_slider [slider]>div>[thumb] {
+    position: absolute;
+    top: -4px;
+    z-index: 2;
+    height: 15px;
+    width: 15px;
+    text-align: left;
+    margin-left: -11px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    background-color: #BB9761;
+    border-radius: 50%;
+    outline: none;
+}
+
+.round_cut_lab_range_slider [slider]>input[type=range] {
+    position: absolute;
+    pointer-events: none;
+    -webkit-appearance: none;
+    z-index: 3;
+    height: 14px;
+    top: -2px;
+    width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-ms-track {
+    -webkit-appearance: none;
+    background: transparent;
+    color: transparent;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-moz-range-track {
+    -moz-appearance: none;
+    background: transparent;
+    color: transparent;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]:focus::-webkit-slider-runnable-track {
+    background: transparent;
+    border: transparent;
+}
+
+.round_cut_lab_range_slider .div[slider]>input[type=range]:focus {
+    outline: none;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-ms-thumb {
+    pointer-events: all;
+    width: 28px;
+    height: 28px;
+    border-radius: 0px;
+    border: 0 none;
+    background: red;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-moz-range-thumb {
+    pointer-events: all;
+    width: 28px;
+    height: 28px;
+    border-radius: 0px;
+    border: 0 none;
+    background: red;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 28px;
+    height: 28px;
+    border-radius: 0px;
+    border: 0 none;
+    background: red;
+    -webkit-appearance: none;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-ms-fill-lower {
+    background: transparent;
+    border: 0 none;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-ms-fill-upper {
+    background: transparent;
+    border: 0 none;
+}
+
+.round_cut_lab_range_slider div[slider]>input[type=range]::-ms-tooltip {
+    display: none;
+}
+
+.round_cut_lab_range_slider [slider]>div>[sign]>span {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_range_slider [slider]:hover>div>[sign] {
+    opacity: 1;
+} */
+
+.round_cut_lab_diamonds_price .ui-widget.ui-widget-content {
+    background-color: #eee;
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 15px;
+}
+
+.round_cut_lab_diamonds_price .ui-slider-range.ui-widget-header.ui-corner-all {
+    background-color: #BB9761;
+}
+
+.round_cut_lab_diamonds_price span.ui-slider-handle.ui-state-default.ui-corner-all {
+    position: absolute;
+    top: -4px;
+    z-index: 2;
+    height: 15px;
+    width: 15px;
+    text-align: left;
+    margin-left: -11px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 40%);
+    background-color: #BB9761;
+    border-radius: 50%;
+    outline: none;
+    border: 0;
+}
+
+.round_cut_lab_diamonds_price span.ui-slider-handle.ui-state-default.ui-corner-all {
+    position: absolute;
+    top: -4px;
+    z-index: 2;
+    height: 15px;
+    width: 15px;
+    text-align: left;
+    margin-left: -11px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 40%);
+    background-color: #BB9761;
+    border-radius: 50%;
+    outline: none;
+    border: 0;
+}
+
+.round_cut_lab_range_slider .price_value_min {
+    margin-left: 60px;
+    margin-right: 7.5px;
+}
+
+.round_cut_lab_range_slider .price_value_max {
+    margin-left: 7.5px;
+}
+
+.round_cut_lab_range_slider .price_value_min span {
+    margin-top: 25px;
+    display: inline-block;
+}
+
+.round_cut_lab_range_slider .price_value_max span {
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.round_cut_lab_range_slider .price_value_min,
+.round_cut_lab_range_slider .price_value_max {
+    display: inline-block;
+}
+
+.round_cut_lab_range_slider .form-group {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.round_cut_lab_range_slider .form-group input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.round_cut_lab_range_slider .form-group label {
+    position: relative;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: var(--primary);
+    opacity: 0.3;
+}
+
+.round_cut_lab_range_slider .form-group label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 27px;
+    height: 27px;
+}
+
+.round_cut_lab_range_slider .form-group input+label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 11px;
+    width: 6px;
+    height: 14px;
+    border: solid var(--primary);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.round_cut_lab_range_color .form-group label:after,
+.round_cut_lab_range_color .form-group label:before {
+    content: none !important;
+}
+
+.round_cut_lab_range_color .form-group label {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 27px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 5px;
+    min-width: 27px;
+}
+
+.round_cut_lab_range_color .form-group input:checked+label {
+    background: var(--primary);
+    color: #fff;
+}
+
+.round_cut_lab_range_slider .form-group input:checked+label:after {
+    border-color: #fff;
+    opacity: 1;
+}
+
+.round_cut_lab_range_slider .form-group input:checked+label:before {
+    background: var(--primary);
+    opacity: 1;
+}
+
+.round_cut_lab_range_slider .form-group input:checked+label {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.round_cut_lab_diamonds_page .clear_filter_btn {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+}
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_info_heading {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #BB9761;
+}
+
+.round_cut_lab_diamonds_info_main_heading {
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_diamonds_info_clarity {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 23px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_diamonds_info_price {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: capitalize;
+    color: #0B1727;
+}
+
+.round_cut_lab_diamonds_img {
+    position: relative;
+    overflow: hidden;
+}
+
+.round_cut_lab_diamonds_layer {
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    opacity: 0;
+}
+
+.round_cut_lab_diamonds_box.hover_on_mask:hover .round_cut_lab_diamonds_layer {
+    opacity: 1;
+    transition: all 0.5s ease;
+    bottom: 0;
+}
+
+.round_cut_lab_diamonds_layer li span:nth-child(2) {
+    color: #F9F7BF;
+    margin-left: 6px;
+}
+
+.round_cut_lab_diamonds_layer li {
+    color: #fff;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.round_cut_lab_checkbox a.showMore {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+    color: var(--secondary);
+    text-decoration: none;
+    text-align: right;
+}
+
+.round_cut_lab_checkbox a.showMore::after {
+    content: '+ VIEW MORE';
+}
+
+.round_cut_lab_checkbox a.showMore.showLess::after {
+    content: '- VIEW LESS';
+}
+
+
+/* ---------------------------------------------------------------- */
+
+.sub_heading_text {
+    color: #BB9761;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.policy_page_section p {
+    font-size: 18px;
+}
+
+.policy_page_heading {
+    color: #BB9761;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.policy_page_sub_heading {
+    color: #BB9761;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.policy_page_link {
+    color: #BB9761;
+}
+
+.policy_page_link:hover {
+    color: #BB9761;
+}
+
+
+/* ------------------------------------------------------------ */
+
+.spinner-border {
+    width: 20px;
+    height: 20px;
+}
+
+.right_side_panel {
+    position: fixed;
+    right: -100%;
+    padding: 60px 20px 20px 20px;
+    background-color: #fff;
+    box-shadow: 1px 3px 7px 2px hwb(0deg 0% 100% / 10%);
+    top: 0;
+    z-index: 999;
+    width: 320px;
+    height: 100%;
+    text-align: left;
+    overflow-y: auto;
+    transition: all 0.5s ease;
+}
+
+.right_side_open {
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+.right_side_panel .right_side_ul li:first-child {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.right_side_panel .right_side_ul {
+    margin-bottom: 20px;
+}
+
+.right_side_panel .right_side_ul li a {
+    color: var(--secondary);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.right_side_panel .wire_bangle_carat input+.wire_bangle_carat_label {
+    font-size: 15px;
+    padding: 7px 13px;
+}
+
+.right_side_ul .form-group label {
+    font-size: 16px;
+}
+
+.right_side_ul .form-group label:before,
+.right_side_ul .form-group label:after {
+    width: 24px;
+    height: 24px;
+}
+
+.right_side_ul .form-group input+label:after {
+    left: 9px;
+}
+
+.right_side_panel .close_icon_svg {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 15px;
+    position: absolute;
+    right: 15px;
+    top: 24px;
+    cursor: pointer;
+}
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #BB9761;
+}
+
+
+/* --------------------- blog-page --------------------------------------- */
+
+.blog_tabs .nav-tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.background-sub-slider {
+    position: relative;
+}
+
+.background-label-slide {
+    position: absolute;
+    bottom: 80px;
+    color: #0b1727;
+    background-color: #fff;
+    padding: 28px;
+    border-radius: 0 20px 20px 0;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.background-label-slide:hover {
+    background-color: #BB9761;
+    color: #fff;
+}
+
+.blog_tabs .nav-tabs .nav-item button img {
+    max-width: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.blog_tabs .nav-tabs .nav-item .nav-link {
+    border: 0;
+    background-color: var(--secondary);
+    color: #fff;
+    border-radius: 0;
+    font-family: 'Roboto', sans-serif;
+    padding: 9px 40px;
+    font-size: 16px;
+    text-align: left;
+    margin: 0 15px;
+}
+
+.blog_tabs .nav-tabs .nav-item .nav-link.active {
+    background-color: var(--primary)
+}
+
+.blog_tabs .nav-tabs .nav-item .nav-link span {
+    color: #fff;
+}
+
+.blog_tabs .nav-tabs {
+    border-bottom: 0;
+}
+
+.blog_tabs .nav-tabs span {
+    color: #495057;
+}
+
+.blog_tabs .nav-tabs span:hover {
+    color: #BB9761;
+}
+
+.blg_box_description .blog-icon-img {
+    max-width: 22px;
+}
+
+.blg_box_description .blog_box_date,
+.blg_box_description .blog_box_message {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.blg_box_description .blog_box_heading {
+    font-size: 20px;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.blg_box_description .blog_box_paragraph {
+    font-size: 16px;
+    color: var(--primary);
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 21px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.blg_box_description .read_more_btn {
+    min-width: 178px;
+    min-height: 52px;
+    font-size: 16px;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.blog_filter_btn {
+    max-width: 100%;
+    background-color: var(--primary);
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.blog_filter_btn svg {
+    float: right;
+}
+
+.home-page-slider {
+    position: relative;
+}
+
+.home-page-slider .owl-next,
+.home-page-slider .owl-prev {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: #BB9761 !important;
+    margin: 0 !important;
+}
+
+.home-page-slider .owl-nav {
+    margin: 0 !important;
+}
+
+.home-page-slider .owl-prev {
+    right: auto;
+    left: 30px;
+}
+
+.home-page-slider .owl-next svg,
+.home-page-slider .owl-prev svg {
+    width: 20px;
+    height: 20px;
+    padding: 25px;
+    fill: #fff;
+    padding: 0 !important;
+}
+
+.wire_bangle_select .select {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    width: 220px;
+    height: 40px;
+}
+
+.wire_bangle_select .select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+}
+
+.wire_bangle_select .select-styled {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary);
+    padding: 8px 15px;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.wire_bangle_select .select-styled:active,
+.wire_bangle_select .select-styled.active {
+    background-color: var(--secondary);
+}
+
+.wire_bangle_select .select-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    color: var(--primary);
+    border: 1px solid #eee;
+    display: none;
+}
+
+.wire_bangle_select .select-options li[rel="hide"] {
+    display: none;
+}
+
+.select-options li:hover,
+.select-options li.is-selected {
+    color: #fff;
+    background: var(--secondary);
+}
+
+.wire_bangle_select .select-options li {
+    margin: 0;
+    padding: 8px 0;
+    text-indent: 15px;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+    font-size: 15px;
+}
+
+.wire_bangle_select .select-styled:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+}
+
+.wire_bangle_select .select-styled:after {
+    border-color: #fff transparent transparent transparent;
+}
+
+.bottom-to-top-btn {
+    background-color: #BB9761;
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    bottom: 31px;
+    right: 25px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.bottom-to-top-btn svg {
+    width: 18px;
+    height: 18px;
+    transform: rotate(270deg);
+    margin: 0 !important;
+}
