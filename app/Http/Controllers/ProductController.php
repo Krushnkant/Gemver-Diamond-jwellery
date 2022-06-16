@@ -7,6 +7,7 @@ use App\Models\Attribute;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantVariant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Response;
 
 class ProductController extends Controller
@@ -230,4 +231,8 @@ class ProductController extends Controller
 
         }
     }
+
+
+      
+    
 }

@@ -11,7 +11,7 @@
                     <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about <br>sample sales, special deals, and new releases.</p>
                     <div>
                     <form action="test" method="post" id="NewsLatterForm">
-                        @CSRF
+                        @csrf
                         <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
                         </div>
                         <span class="email_input mb-3 mb-md-0 d-inline-block"> 

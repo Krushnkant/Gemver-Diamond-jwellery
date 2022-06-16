@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-use App\Http\Controllers\NewsLatter;
+use App\Models\NewsLatter;
 use App\Http\Controllers\Controller;
+use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 
 class NewsLatterController extends Controller
@@ -35,7 +36,6 @@ class NewsLatterController extends Controller
                 $totalData = NewsLatter::where('estatus',$estatus)->count();
             }
            
-
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
@@ -50,18 +50,18 @@ class NewsLatterController extends Controller
             if(empty($request->input('search.value')))
             {
                 
-                $contacts = NewsLatter::offset($start)
+                $newslatters = NewsLatter::offset($start)
                 ->limit($limit)
                 ->orderBy($order,$dir);
 
                 if (isset($estatus)){
-                    $contacts = $contacts->where('estatus',$estatus);
+                    $newslatters = $newslatters->where('estatus',$estatus);
                 }
-                $contacts = $contacts->get();
+                $newslatters = $newslatters->get();
             }
             else {
                 $search = $request->input('search.value');
-                $contacts =  NewsLatter::where(function($query) use($search){
+                $newslatters =  NewsLatter::where(function($query) use($search){
                     $query->where('id','LIKE',"%{$search}%")
                           ->orWhere('email', 'LIKE',"%{$search}%");
                     })
@@ -70,7 +70,7 @@ class NewsLatterController extends Controller
                     ->orderBy($order,$dir)
                     ->get();
                 if (isset($estatus)){
-                    $contacts = $contacts->where('estatus',$estatus)->where(function($query) use($search){
+                    $newslatters = $newslatters->where('estatus',$estatus)->where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
                               ->orWhere('email', 'LIKE',"%{$search}%");
                         })
@@ -93,16 +93,15 @@ class NewsLatterController extends Controller
             }
             $data = array();
 
-            if(!empty($contacts))
+            if(!empty($newslatters))
             {
-                foreach ($contacts as $contact)
+                foreach ($newslatters as $contact)
                 {
                     $page_id = ProjectPage::where('route_url','admin.users.list')->pluck('id')->first();
                     $newDate = date("d-m-Y", strtotime($contact->created_at));
                     $nestedData['email'] =$contact->email;
                     $nestedData['created_at'] = $newDate;
                     $data[] = $nestedData;
-
                 }
             }
 

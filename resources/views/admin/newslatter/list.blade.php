@@ -53,15 +53,15 @@
 
 
 $(document).ready(function() {
-    Contact_table(true);
+    NewsLatterform(true);
 });
 
-function Contact_table(is_clearState=false){
+function NewsLatterform(is_clearState=false){
     if(is_clearState){
-        $('#Contactform').DataTable().state.clear();
+        $('#NewsLatterform').DataTable().state.clear();
     }
 
-    $('#Contactform').DataTable({
+    $('#NewsLatterform').DataTable({
         "destroy": true,
         "processing": true,
         "serverSide": true,
@@ -74,18 +74,16 @@ function Contact_table(is_clearState=false){
             }
         },
         "ajax":{
-            "url": "{{ url('admin/allcontactslist') }}",
+            "url": "{{ url('admin/allnewslatterslist') }}",
             "dataType": "json",
             "type": "POST",
             "data":{ _token: '{{ csrf_token() }}'},
             // "dataSrc": ""
         },
         'columnDefs': [
-            { "width": "5%", "targets": 0 },
-            { "width": "20%", "targets": 1 },
-            { "width": "50%", "targets": 2 },
-            { "width": "10%", "targets": 3 },
-
+            { "width": "10%", "targets": 0 },
+            { "width": "50%", "targets": 1 },
+            { "width": "10%", "targets": 2 },
         ],
         "columns": [
             {data: 'id', user: 'id', class: "text-center", orderable: false,
@@ -93,10 +91,8 @@ function Contact_table(is_clearState=false){
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            {data: 'customer_info', name: 'customer_info',class: "text-left multirow"},
-            {data: 'message', name: 'message', class: "text-left multirow"},
+            {data: 'email', name: 'email', class: "text-left multirow" , orderable: false},
             {data: 'created_at', name: 'created_at', class: "text-left"},
-            // {data: 'action', name: 'action', orderable: false, searchable: false, class: "text-center"},
         ]
     });
 }

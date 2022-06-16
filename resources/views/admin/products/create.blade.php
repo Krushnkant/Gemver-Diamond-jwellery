@@ -115,6 +115,17 @@
                                         <div id="desc-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                    <label class="form-check-label">
+                                                    <input type="checkbox" name="is_custom" id="is_custom" class="form-check-input primaryBox" value="0">Do you want to add custom product?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

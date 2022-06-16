@@ -673,10 +673,10 @@
 
     function product_table(is_clearState=false){
         if(is_clearState){
-            $('#Product').DataTable().state.clear();
+            $('#CustomProduct').DataTable().state.clear();
         }
 
-        $('#Product').DataTable({
+        $('#CustomProduct').DataTable({
             "destroy": true,
             "processing": true,
             "serverSide": true,
@@ -689,7 +689,7 @@
                 }
             },
             "ajax":{
-                "url": "{{ url('admin/allproductlist') }}",
+                "url": "{{ url('admin/allcustomproductlist') }}",
                 "dataType": "json",
                 "type": "POST",
                 "data":{ _token: '{{ csrf_token() }}'},

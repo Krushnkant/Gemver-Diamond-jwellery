@@ -85,6 +85,15 @@ class ProjectPageSeeder extends Seeder
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.products.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete'
         ]);
+
+        ProjectPage::create([
+            'id' => 9,
+            'parent_menu' => 4,
+            'label' => 'Custom Product',
+            'route_url' => 'admin.customproducts.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.customproducts.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allcustomproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete'
+        ]);
         
 
         ProjectPage::create([
@@ -302,7 +311,25 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 1 
         ]);
 
-        
+        ProjectPage::create([ 
+            'id' => 32, 
+            'parent_menu' => 0, 
+            'label' => 'News latter', 
+            'route_url' => 'admin.newslatter.list', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.newslatter.list',
+            'icon_class' => 'fa fa-picture-o', 
+            'sr_no' => 20 
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 33, 
+            'parent_menu' => 4, 
+            'label' => 'Diamond', 
+            'route_url' => 'admin.diamond.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.diamond.list,admin.importview,admin.diamonds.save,admin.alldiamondlist',
+        ]);
 
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

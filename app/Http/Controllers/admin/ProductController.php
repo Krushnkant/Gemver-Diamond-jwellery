@@ -11,6 +11,8 @@ use App\Models\ProductVariantSpecification;
 use App\Models\ProductVariantVariant;
 use App\Models\ProjectPage;
 use App\Models\Settings;
+use App\Models\Diamond;
+use App\Models\DiamondVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -21,6 +23,10 @@ class ProductController extends Controller
 
     public function index(){
         return view('admin.products.list')->with('page',$this->page);
+    }
+
+    public function customproducts(){
+        return view('admin.products.customproductlist')->with('page',$this->page);
     }
 
     public function create(){
@@ -482,8 +488,7 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-       
-
+      
         $category_ids = explode(",",$request['categoryIds']);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
@@ -536,6 +541,7 @@ class ProductController extends Controller
         $product->attrid_for_variation = $request->attrid_for_variation;
         $product->attr_term_ids = $request->attr_term_ids;
         $product->note = isset($request->notes) ? $request->notes : null;
+        $product->is_custom = isset($request->is_custom) ? $request->is_custom : 0;
         $product->save();
 
         $not_removable_images = array();
@@ -567,6 +573,18 @@ class ProductController extends Controller
                 }
             }
             $product_variant->save();
+
+            if(isset($request->is_custom) && $request->is_custom == 1) {
+               $diamonds = Diamond::all();
+                foreach ($diamonds as $diamond) {
+                    $diamond_variant = new DiamondVariant();
+                    $diamond_variant->product_variant_id = $product_variant->id;
+                    $diamond_variant->product_id = $product->id;
+                    $diamond_variant->diamond_id = $diamond->id;
+                    $diamond_variant->save();
+                }  
+            }
+            
 
             if(isset($myValue['varVariation'])) {
                 $Variation = explode(",", $myValue['varVariation']);
@@ -659,7 +677,7 @@ class ProductController extends Controller
     }
 
     public function allproductlist(Request $request){
-//        dd($request->all());
+
         if ($request->ajax()) {
             $columns = array(
                 0 =>'id',
@@ -671,7 +689,10 @@ class ProductController extends Controller
                 6 => 'created_at',
                 7 => 'action',
             );
-            $totalData = ProductVariant::count();
+            $totalData = ProductVariant::with('product')
+            ->whereHas('product', function($q){
+                $q->where('is_custom', '=', '0');
+            })->count();
             $totalFiltered = $totalData;
             $limit = $request->input('length');
             $start = $request->input('start');
@@ -686,6 +707,9 @@ class ProductController extends Controller
             if(empty($request->input('search.value')))
             {
                 $products = ProductVariant::with('product.primary_category','product.attribute','attribute_term')
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '0');
+                    })
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
@@ -696,7 +720,9 @@ class ProductController extends Controller
                 $products =  ProductVariant::with('product.primary_category','product.attribute','attribute_term')
                     ->where('product_title','LIKE',"%{$search}%")
                     ->orWhere('sale_price','LIKE',"%{$search}%")
-                    
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '0');
+                    })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
                     })
@@ -707,7 +733,9 @@ class ProductController extends Controller
 
                 $totalFiltered = ProductVariant::where('product_title','LIKE',"%{$search}%")
                     ->orWhere('sale_price','LIKE',"%{$search}%")
-                   
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '0');
+                    })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
                     })
@@ -788,7 +816,152 @@ class ProductController extends Controller
                 "data" => $data,
             );
 
-//            return json_encode($json_data);
+
+            echo json_encode($json_data);
+        }
+    }
+
+    public function allcustomproductlist(Request $request){
+
+        if ($request->ajax()) {
+            $columns = array(
+                0 =>'id',
+                1 =>'image',
+                2 => 'product_title',
+                3 => 'categories',
+                4 => 'price',
+                5 => 'estatus',
+                6 => 'created_at',
+                7 => 'action',
+            );
+            $totalData = ProductVariant::with('product')
+            ->whereHas('product', function($q){
+                $q->where('is_custom', '=', '1');
+            })->count();
+            $totalFiltered = $totalData;
+            $limit = $request->input('length');
+            $start = $request->input('start');
+            $order = $columns[$request->input('order.0.column')];
+            $dir = $request->input('order.0.dir');
+
+            if($order == "id"){
+                $order = "created_at";
+                $dir = 'desc';
+            }
+
+            if(empty($request->input('search.value')))
+            {
+                $products = ProductVariant::with('product.primary_category','product.attribute','attribute_term')
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '1');
+                    })
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();    
+            }
+            else {
+                $search = $request->input('search.value');
+                $products =  ProductVariant::with('product.primary_category','product.attribute','attribute_term')
+                    ->where('product_title','LIKE',"%{$search}%")
+                    ->orWhere('sale_price','LIKE',"%{$search}%")
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '1');
+                    })
+                    ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
+                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                    })
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();
+
+                $totalFiltered = ProductVariant::where('product_title','LIKE',"%{$search}%")
+                    ->orWhere('sale_price','LIKE',"%{$search}%")
+                    ->whereHas('product', function($q){
+                        $q->where('is_custom', '=', '1');
+                    })
+                    ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
+                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                    })
+                    ->count();
+            }
+
+            $data = array();
+
+            if(!empty($products))
+            {
+                foreach ($products as $product)
+                {
+                    $page_id = ProjectPage::where('route_url','admin.products.list')->pluck('id')->first();
+
+                    if( $product->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
+                        $estatus = '<label class="switch"><input type="checkbox" id="ProductStatuscheck_'. $product->id .'" onchange="chageProductStatus('. $product->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
+                    }
+                    elseif ($product->estatus==1){
+                        $estatus = '<label class="switch"><input type="checkbox" id="ProductStatuscheck_'. $product->id .'" value="1" checked="checked"><span class="slider round"></span></label>';
+                    }
+
+                    if( $product->estatus==2 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
+                        $estatus = '<label class="switch"><input type="checkbox" id="ProductStatuscheck_'. $product->id .'" onchange="chageProductStatus('. $product->id .')" value="2"><span class="slider round"></span></label>';
+                    }
+                    elseif ($product->estatus==2){
+                        $estatus = '<label class="switch"><input type="checkbox" id="ProductStatuscheck_'. $product->id .'" value="2"><span class="slider round"></span></label>';
+                    }
+
+
+                    $action='';
+                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+                        $action .= '<button id="editProductBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$product->product_id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                    }
+                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
+                        $action .= '<button id="deleteProductBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteProductModal" onclick="" data-id="' .$product->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    }
+
+                    $images = explode(",",$product->images);
+
+                    $categories = $product->product->primary_category->category_name;
+                    
+                    $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
+                    
+                     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
+                        $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
+                      })->leftJoin('attribute_terms', function($join) {
+                        $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                      })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
+
+                    foreach($Productvariantvariants as $Productvariantvariant){
+                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span>';
+                    }
+                    
+                    $price = '<ul>';
+                    if(isset($product->regular_price)){
+                        $price .= '<li class="regularprice"><i class="fa fa-inr" aria-hidden="true"></i> '.$product->regular_price.'</li>';
+                    }
+                    if (isset($product->sale_price)){
+                        $price .= '<li><i class="fa fa-inr" aria-hidden="true"></i> '.$product->sale_price.'</li></ul>';
+                    }
+
+                    $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';
+                    $nestedData['product_title'] = $product_info;
+                    $nestedData['product_code'] = isset($product->product->hsn_code) ? $product->product->hsn_code : "-";
+                    $nestedData['categories'] = $categories;
+                    $nestedData['price'] = $price;
+                    $nestedData['estatus'] = $estatus;
+                    $nestedData['created_at'] = date('d-m-Y h:i A', strtotime($product->created_at));
+                    $nestedData['action'] = $action;
+                    $data[] = $nestedData;
+                }
+            }
+
+            $json_data = array(
+                "draw"            => intval($request->input('draw')),
+                "recordsTotal"    => intval($totalData),
+                "recordsFiltered" => intval($totalFiltered),
+                "data" => $data,
+            );
+
+
             echo json_encode($json_data);
         }
     }
@@ -900,4 +1073,7 @@ class ProductController extends Controller
         }
         return "true";
     }
+
+   
+    
 }
