@@ -331,6 +331,19 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.diamond.list,admin.importview,admin.diamonds.save,admin.alldiamondlist',
         ]);
 
+        ProjectPage::create([ 
+            'id' => 34, 
+            'parent_menu' => 0, 
+            'label' => 'Company', 
+            'route_url' => 'admin.company.list', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.company.list',
+            'icon_class' => 'fa fa-picture-o', 
+            'sr_no' => 21
+        ]);
+
+        
+
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();
         $project_page_ids2 = ProjectPage::where('parent_menu',"!=",0)->where('is_display_in_menu',1)->pluck('id')->toArray();

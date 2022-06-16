@@ -233,12 +233,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('newslatters',[\App\Http\Controllers\admin\NewsLatterController::class,'index'])->name('newslatter.list');
     Route::post('allnewslatterslist',[\App\Http\Controllers\admin\NewsLatterController::class,'allnewslatterslist'])->name('allnewslatterslist');
+
+    Route::get('compoanies',[\App\Http\Controllers\admin\CompanyController::class,'index'])->name('company.list');
+    Route::post('allcompoanieslist',[\App\Http\Controllers\admin\CompanyController::class,'allcompoanieslist'])->name('allcompoanieslist');
     
     Route::get('addDiamond',[\App\Http\Controllers\admin\DiamondController::class,'addDiamond'])->name('addDiamond');
-
     Route::get('diamond',[\App\Http\Controllers\admin\DiamondController::class,'index'])->name('diamond.list');
     Route::post('alldiamondlist',[\App\Http\Controllers\admin\DiamondController::class,'alldiamondlist'])->name('alldiamondlist');
-
     Route::get('file-import',[\App\Http\Controllers\admin\DiamondController::class,'importView'])->name('importview');
     Route::post('import',[\App\Http\Controllers\admin\DiamondController::class,'import'])->name('diamonds.save');
     
