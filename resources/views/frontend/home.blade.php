@@ -84,72 +84,72 @@
         <div>
             <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-2.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-3.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-4.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-5.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-6.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
                     </a>
                 </div>
                   <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-2.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-3.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-4.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-5.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-6.png') }}" alt="">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="">
+                    <a href="" class="shop-dimond-by-shape-img">
                         <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
                     </a>
                 </div>
@@ -245,7 +245,7 @@
                 <button class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn">start with a diamond</button>
             </div>
             <div class="col-md-5 mt-4 mt-md-0">
-                <div>
+                <div class="own_ring_img">
                     <img src="{{ asset('frontend/image/pink-image-ring.png') }}" alt="" width="100%">
                 </div>
             </div>
@@ -259,47 +259,47 @@
                 <div class="col-md-12 text-center">
                     <div class="owl-carousel owl-theme shop-by-style-slider">
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="">
+                            <a href="" class="engagement_ring_img">
                                 <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
                             </a>
                         </div>

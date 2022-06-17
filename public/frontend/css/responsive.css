@@ -1,3 +1,47 @@
+@media (max-width:767px) {
+    .customer-stories-img,
+    .customer-stories-img img {
+        height: 360px;
+        object-fit: contain;
+    }
+    .own_ring_img img {
+        height: auto;
+    }
+    .about_us_background .sub_heading {
+        line-height: 42px;
+        font-size: 20px !important;
+    }
+    /* --------------------- blog page--------------------------------- */
+    .blog_tabs ul li button {
+        margin: 0 0 15px 0 !important;
+        width: 100%;
+    }
+    .blog_tabs .nav-tabs {
+        display: block;
+    }
+    .blg_box_description .blog_box_date,
+    .blg_box_description .blog_box_message {
+        font-size: 14px;
+    }
+    .blg_box_description .blog-icon-img {
+        max-width: 18px;
+    }
+    .blg_box_description .blog_box_heading {
+        font-size: 16px;
+    }
+    .blg_box_description .blog_box_paragraph {
+        font-size: 14px;
+    }
+    .blg_box_description .read_more_btn {
+        min-width: 172px;
+        min-height: 44px;
+        font-size: 14px;
+    }
+    .blog_tabs .nav-tabs .nav-item .nav-link {
+        padding: 9px 20px;
+    }
+}
+
 @media (max-width:575px) {
     .about_us_sub_heading {
         font-size: 24px;
@@ -111,6 +155,21 @@
         padding: 5px 0;
     }
     .header ul li .mega-menu li:first-child {
+        font-size: 15px;
+    }
+    /* --------------------- blog detail page--------------------------------- */
+    .blog-detail-heading {
+        font-size: 35px;
+    }
+    .blog-detail-img img {
+        width: 40px;
+        height: 40px;
+    }
+    .blog-detail-paragraph a {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .blog-detail-paragraph p {
         font-size: 15px;
     }
 }
@@ -360,8 +419,56 @@
     .header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {
         font-size: 15px;
     }
+    .wire_bangle_edit_box {
+        padding: 15px;
+    }
+    .wire_bangle_select_size .select-styled {
+        font-size: 15px;
+    }
+    .add_matching_band_btn {
+        font-size: 13px;
+        width: 234px;
+        height: 50px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_heading {
+        font-size: 16px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_sub_heading {
+        font-size: 14px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_price {
+        font-size: 18px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_dublicate_price {
+        font-size: 13px;
+    }
+    .wire_bangle_edit_box .edit_box {
+        font-size: 14px;
+    }
+    /* ---------- step progress bar----------------------- */
+    .step-progressbar-side-heading {
+        font-size: 16px;
+    }
+    .step-progressbar .tab-steps--list li:before {
+        width: 40px;
+        height: 40px;
+    }
+    .step-progressbar .step-img {
+        top: 5px;
+        width: 28px;
+        height: 28px;
+    }
+    .step-progressbar .tab-steps--list li:after {
+        top: 20px;
+    }
+    .step-progressbar li .step-heading {
+        font-size: 14px;
+    }
+    .step-progressbar .step-heading-link {
+        font-size: 13px;
+    }
     /* --------------------- wire bangle -------------------------------------- */
-    .wire_bangle_page .wire_bangle_heading,  .wire_bangle_page .wire_bangle_heading a {
+    .wire_bangle_page .wire_bangle_heading {
         font-size: 22px;
     }
     .wire_bangle_page .wire_bangle_price {
@@ -410,13 +517,22 @@
     .wire_bangle_padding {
         padding-right: 15px;
     }
-    .wire_bangle_page .product_slider_main_item img {
-        width: 100%;
+    .wire_bangle_page .product_slider_main_item {
+        height: 300px;
+    }
+    .wire_bangle_page {
+        padding: 30px 0;
     }
     .wire_bangle_page .product_slider_item img {
         width: 50px;
         height: 50px;
-        margin: auto;
+    }
+    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3 {
+        width: 50px;
+    }
+    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3::before {
+        width: 30px;
+        height: 30px;
     }
     .wire_bangle_page .product_slider_item {
         padding: 0 10px;
@@ -465,13 +581,13 @@
         font-size: 14px;
     }
     /* --------------------- shop page --------------------------------- */
-    .wire_bangle_heading,.wire_bangle_heading a {
+    .wire_bangle_heading {
         font-size: 16px;
     }
     .wire_bangle_sub_heading {
         font-size: 20px;
     }
-    .shop_page .wire_bangle_paragraph {
+    .wire_bangle_paragraph {
         font-size: 16px;
     }
     .wire_bangle_price {
@@ -553,7 +669,7 @@
     .round_cut_lab_diamonds_page .clear_filter_btn {
         font-size: 14px;
     }
-    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_info_heading {
+    .round_cut_lab_diamonds_info_heading {
         font-size: 14px;
     }
     .round_cut_lab_diamonds_info_main_heading {
@@ -571,6 +687,27 @@
     }
     .policy_page_heading {
         font-size: 16px;
+    }
+    /* --------------------- testimonial page -------------------------------------- */
+    .testimonial-box-des .testimonial-paragraph {
+        width: 100%;
+    }
+    .testimonial-img img {
+        width: 100px;
+        height: 100px;
+        border: 4px #fff solid;
+    }
+    .testimonial-box-des {
+        padding: 65px 15px 50px 15px;
+    }
+    .testimonial-box-des .testimonial-heading {
+        font-size: 17px;
+    }
+    .testimonial-box-des .testimonial-sub-heading {
+        font-size: 15px;
+    }
+    .testimonial-box-des .testimonial-paragraph {
+        font-size: 15px;
     }
 }
 
@@ -628,7 +765,7 @@
         font-size: 39px;
     }
     .customer_stories .item {
-        width: 60%;
+        width: calc(100% - 2px);
         margin: auto;
     }
     .about_us_sub_heading {
@@ -636,6 +773,9 @@
     }
     .about_us_sub_paragraph {
         font-size: 15px;
+    }
+    .customer-product-img img {
+        height: 250px;
     }
 }
 
@@ -665,6 +805,28 @@
     .about_us_sub_paragraph {
         font-size: 18px;
     }
+    .own_ring_img img {
+        max-height: 300px;
+    }
+    /* ---------- step progress bar----------------------- */
+    .step-progressbar .tab-steps--list li:before {
+        width: 60px;
+        height: 60px;
+    }
+    .step-progressbar .step-img {
+        top: 8px;
+        width: 40px;
+        height: 40px;
+    }
+    .step-progressbar .tab-steps--list li:after {
+        top: 30px;
+    }
+    .step-progressbar li .step-heading {
+        font-size: 16px;
+    }
+    .step-progressbar .step-heading-link {
+        font-size: 14px;
+    }
     /* ------------------------------- shop page --------------------------------- */
     .wire_bangle_showing_text {
         font-size: 15px;
@@ -678,12 +840,33 @@
     .wire_bangle_carat .wire_bangle_carat_label {
         font-size: 16px;
     }
+    /* --------------------- blog page--------------------------------- */
+    .blog_tabs .nav-tabs .nav-item .nav-link {
+        margin-bottom: 15px;
+        font-size: 16px;
+        padding: 9px 24px;
+    }
+    .blg_box_description .blog-icon-img {
+        max-width: 17px;
+    }
+    .blg_box_description .blog_box_heading {
+        font-size: 15px;
+    }
+    .blg_box_description .blog_box_date,
+    .blg_box_description .blog_box_message {
+        font-size: 15px;
+    }
+    .blg_box_description .blog_box_paragraph {
+        font-size: 15px;
+    }
+    .blg_box_description .read_more_btn {
+        min-width: 157px;
+        min-height: 43px;
+        font-size: 14px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
-    .customer_stories .item {
-        width: 100%;
-    }
     .footer-social-media-icons li {
         width: 40px;
         height: 40px;
@@ -748,6 +931,15 @@
     }
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 800px;
+    }
+    .own_ring_img img {
+        max-height: 400px;
+    }
+    .blog-detail-paragraph a {
+        font-size: 15px;
+    }
+    .blog-detail-heading {
+        font-size: 32px;
     }
 }
 
@@ -888,6 +1080,9 @@
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
     }
+    .own_ring_img img {
+        max-height: 400px;
+    }
     /* ---------------------modal--------------------------------- */
     .inquiry_now_modal .modal-content {
         padding: 35px;
@@ -927,6 +1122,25 @@
     }
     .round_cut_lab_diamonds_info_price {
         font-size: 20px;
+    }
+    /* ----------------------- blog page------------------------------------ */
+    .blg_box_description .blog_box_date,
+    .blg_box_description .blog_box_message {
+        font-size: 17px;
+    }
+    .blg_box_description .blog-icon-img {
+        max-width: 18px;
+    }
+    .blg_box_description .blog_box_heading {
+        font-size: 17px;
+    }
+    .blg_box_description .read_more_btn {
+        min-width: 171px;
+        min-height: 46px;
+        font-size: 15px;
+    }
+    .blog_tabs .nav-tabs .nav-item .nav-link {
+        padding: 9px 32px;
     }
 }
 
@@ -973,5 +1187,24 @@
     }
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
+    }
+    /* ----------------------- blog page------------------------------------ */
+    .blg_box_description .blog_box_date,
+    .blg_box_description .blog_box_message {
+        font-size: 17px;
+    }
+    .blg_box_description .blog-icon-img {
+        max-width: 18px;
+    }
+    .blg_box_description .blog_box_heading {
+        font-size: 17px;
+    }
+    .blg_box_description .read_more_btn {
+        min-width: 171px;
+        min-height: 46px;
+        font-size: 15px;
+    }
+    .blog_tabs .nav-tabs .nav-item .nav-link {
+        padding: 9px 40px;
     }
 }

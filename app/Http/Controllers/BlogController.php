@@ -41,7 +41,7 @@ class BlogController extends Controller
                 $output .= '
                 <div class="col-md-6 col-lg-4 px-0 px-md-3 mb-4">
                     <div class="blog_box">
-                        <div>
+                        <div class="blog_box_img position-relative">
                             <img src="'.$row->blog_thumb.'" alt="">
                         </div>
                         <div class="blg_box_description">
