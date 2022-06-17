@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use Illuminate\Support\Collection;
 use App\Models\Diamond;
+use App\Models\Company;
 //use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -53,7 +54,14 @@ class ImportDiamond implements WithHeadingRow,ToCollection
             }else{
                 $Stone_No = $collection['stock_id'];
             }
-
+            
+            
+            $Company = Company::where('id',2)->first();
+            $company_per = $Company->company_percentage;
+            $company_per_amt = ($collection['final_price'] * $company_per)/100;
+            $sale_amt = $collection['final_price'] + $company_per_amt;
+            
+            
             $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
             if($Diamond){
                  Diamond::where('Stone_No', $Stone_No)
@@ -62,8 +70,9 @@ class ImportDiamond implements WithHeadingRow,ToCollection
                         ]);
             }else{ 
                    $data = ([
+                    'Company_id' => 2,  
                     'Stone_No' => $Stone_No,
-                    'StockStatus' => $collection['availability'],
+                    'StockStatus' => $availability,
                     'Shape' => $collection['shape'],
                     'Weight' => $collection['weight'],
                     'Color' => $collection['color'],
@@ -83,6 +92,7 @@ class ImportDiamond implements WithHeadingRow,ToCollection
                     'Discount' => $discount,
                     'Rate' => $collection['price_per_carat'],
                     'Amt' => $collection['final_price'],
+                    'Sale_Amt' => $sale_amt,
                     'Total_Depth_Per' => $collection['depth'],
                     'Table_Diameter_Per' => $collection['table'],
                     'GirdleThin_ID' => $collection['girdle_thin'],
@@ -105,6 +115,7 @@ class ImportDiamond implements WithHeadingRow,ToCollection
                     'Certificate_url' => $certfile,
                     'Video_url' => $collection['diamond_video'],
                     'Stone_Img_url' => $collection['diamond_image'],
+                    
                 ]);
                 Diamond::insert($data);
           }  

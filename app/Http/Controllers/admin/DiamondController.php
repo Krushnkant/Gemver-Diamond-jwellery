@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Diamond;
 use App\Models\ProjectPage;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Imports\ImportDiamond;
 use Excel;
@@ -206,7 +207,13 @@ class DiamondController extends Controller
 
         if($dimonds['ApiStatus'] == 'Success'){
            foreach($dimonds['StoneList'] as $par){
-            
+               $Company = Company::where('id',1)->first();
+               $company_per = $Company->company_percentage;
+               $company_per_amt = ($par['Amt'] * $company_per)/100;
+               $sale_amt =$par['Amt'] + $company_per_amt;
+               $par['Sale_Amt'] = $sale_amt;
+               $par['Company_id'] = 1;
+               //dd($par);
                $Diamond = Diamond::where('Stone_No',$par['Stone_No'])->first();
                if($Diamond){
                   Diamond::where('Stone_No', $par['Stone_No'])
@@ -214,7 +221,8 @@ class DiamondController extends Controller
                                 'Live_Rap_Rate' => $par['Live_Rap_Rate'],
                                 'Discount' => $par['Discount'],
                                 'Rate' => $par['Rate'],
-                                'Amt' => $par['Amt']
+                                'Amt' => $par['Amt'],
+                                'Sale_Amt' => $par['Sale_Amt']
                             ]);
                }else{
                   Diamond::create($par);

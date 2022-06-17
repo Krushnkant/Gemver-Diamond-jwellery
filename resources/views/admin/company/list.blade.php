@@ -36,7 +36,7 @@
                                     <td><span id="CompanyPerVal">{{ $company->company_percentage." %" }}</span></td>
                                     <td class="text-right">
                                         @if($canWrite == true)
-                                            <button id="editCompanyPerBtn" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CompanyPerModal">
+                                            <button id="editCompanyPerBtn" data-id="{{ $company->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#CompanyPerModal">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
                                         @endif
@@ -67,15 +67,16 @@
                 <div class="modal-body">
                     <div id="attr-cover-spin" class="cover-spin"></div>
                     <div class="form-group">
-                        <label class="col-form-label" for="user_discount_percentage">Comapny Percentage <span class="text-danger">*</span>
+                        <label class="col-form-label" for="company_percentage">Comapny Percentage <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control input-flat" id="user_discount_percentage" name="user_discount_percentage" placeholder="">
-                        <div id="user_discount_percentage-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                        <input type="hidden" class="form-control input-flat" id="company_id" name="company_id" placeholder="">
+                        <input type="number" class="form-control input-flat" id="company_percentage" name="company_percentage" placeholder="">
+                        <div id="company_percentage-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveUserDiscountPerBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                    <button type="button" class="btn btn-primary" id="saveCompanyPerBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                 </div>
                 </form>
             </div>
@@ -88,249 +89,69 @@
 @section('js')
 <!-- settings JS start -->
 <script type="text/javascript">
-    $('body').on('click', '#editUserDiscountPerBtn', function () {
-        $.get("{{ url('admin/settings/user_discount_percentage/edit') }}", function (data) {
-            $('#user_discount_percentage').val(data.user_discount_percentage);
+
+    $('body').on('click', '#editCompanyPerBtn', function () {
+        var company_id = $(this).attr('data-id');
+        $.get("{{ url('admin/company') }}" +'/' + company_id +'/edit', function (data) {
+           
+            $('#company_id').val(data.id);
+            $('#company_percentage').val(data.company_percentage);
         })
     });
-
-    $('body').on('click', '#editShippingCostBtn', function () {
-        $.get("{{ url('admin/settings/shipping_cost/edit') }}", function (data) {
-            $('#shipping_cost').val(data.shipping_cost);
-        })
-    });
-
-    $('body').on('click', '#editPremiumUserMembershipFeeBtn', function () {
-        $.get("{{ url('admin/settings/premium_user_membership_fee/edit') }}", function (data) {
-            $('#premium_user_membership_fee').val(data.premium_user_membership_fee);
-        })
-    });
-
-    $('body').on('click', '#saveUserDiscountPerBtn', function () {
-        $('#saveUserDiscountPerBtn').prop('disabled',true);
-        $('#saveUserDiscountPerBtn').find('.loadericonfa').show();
+    
+    
+    $('body').on('click', '#saveCompanyPerBtn', function () {
+        $('#saveCompanyPerBtn').prop('disabled',true);
+        $('#saveCompanyPerBtn').find('.loadericonfa').show();
         var formData = new FormData($("#UserDiscountPerForm")[0]);
 
         $.ajax({
             type: 'POST',
-            url: "{{ url('admin/updateUserDiscountPercentage') }}",
+            url: "{{ url('admin/updateCompanyPercentage') }}",
             data: formData,
             processData: false,
             contentType: false,
             success: function (res) {
                 if(res.status == 'failed'){
-                    $('#saveUserDiscountPerBtn').prop('disabled',false);
-                    $('#saveUserDiscountPerBtn').find('.loadericonfa').hide();
-                    if (res.errors.user_discount_percentage) {
-                        $('#user_discount_percentage-error').show().text(res.errors.user_discount_percentage);
+                    $('#saveCompanyPerBtn').prop('disabled',false);
+                    $('#saveCompanyPerBtn').find('.loadericonfa').hide();
+                    if (res.errors.company_percentage) {
+                        $('#company_percentage-error').show().text(res.errors.company_percentage);
                     } else {
-                        $('#user_discount_percentage-error').hide();
+                        $('#company_percentage-error').hide();
                     }
                 }
 
                 if(res.status == 200){
-                    $("#UserDiscountPerModal").modal('hide');
-                    $('#saveUserDiscountPerBtn').prop('disabled',false);
-                    $('#saveUserDiscountPerBtn').find('.loadericonfa').hide();
-                    $("#UserDiscountPerVal").html(res.user_discount_percentage + " %");
-                    toastr.success("Settings Updated",'Success',{timeOut: 5000});
+                    $("#CompanyPerModal").modal('hide');
+                    $('#saveCompanyPerBtn').prop('disabled',false);
+                    $('#saveCompanyPerBtn').find('.loadericonfa').hide();
+                   // $("#CompanyPerVal").html(res.company_percentage + " %");
+                    location.reload();
+                    toastr.success("Comapny Percentage Updated",'Success',{timeOut: 5000});
                 }
 
                 if(res.status == 400){
-                    $("#UserDiscountPerModal").modal('hide');
-                    $('#saveUserDiscountPerBtn').prop('disabled',false);
-                    $('#saveUserDiscountPerBtn').find('.loadericonfa').hide();
+                    $("#CompanyPerModal").modal('hide');
+                    $('#saveCompanyPerBtn').prop('disabled',false);
+                    $('#saveCompanyPerBtn').find('.loadericonfa').hide();
                     toastr.error("Please try again",'Error',{timeOut: 5000});
                 }
             },
             error: function (data) {
-                $("#UserDiscountPerModal").modal('hide');
-                $('#saveUserDiscountPerBtn').prop('disabled',false);
-                $('#saveUserDiscountPerBtn').find('.loadericonfa').hide();
+                $("#CompanyPerModal").modal('hide');
+                $('#saveCompanyPerBtn').prop('disabled',false);
+                $('#saveCompanyPerBtn').find('.loadericonfa').hide();
                 toastr.error("Please try again",'Error',{timeOut: 5000});
             }
         });
     });
 
-    $('body').on('click', '#saveShippingCostBtn', function () {
-        $('#saveShippingCostBtn').prop('disabled',true);
-        $('#saveShippingCostBtn').find('.loadericonfa').show();
-        var formData = new FormData($("#ShippingCostForm")[0]);
-
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('admin/updateShippingCost') }}",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (res) {
-                if(res.status == 'failed'){
-                    $('#saveShippingCostBtn').prop('disabled',false);
-                    $('#saveShippingCostBtn').find('.loadericonfa').hide();
-                    if (res.errors.shipping_cost) {
-                        $('#shipping_cost-error').show().text(res.errors.shipping_cost);
-                    } else {
-                        $('#shipping_cost-error').hide();
-                    }
-                }
-
-                if(res.status == 200){
-                    $("#ShippingCostModal").modal('hide');
-                    $('#saveShippingCostBtn').prop('disabled',false);
-                    $('#saveShippingCostBtn').find('.loadericonfa').hide();
-                    $("#ShippingCostVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.shipping_cost);
-                    toastr.success("Settings Updated",'Success',{timeOut: 5000});
-                }
-
-                if(res.status == 400){
-                    $("#ShippingCostModal").modal('hide');
-                    $('#saveShippingCostBtn').prop('disabled',false);
-                    $('#saveShippingCostBtn').find('.loadericonfa').hide();
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
-            },
-            error: function (data) {
-                $("#ShippingCostModal").modal('hide');
-                $('#saveShippingCostBtn').prop('disabled',false);
-                $('#saveShippingCostBtn').find('.loadericonfa').hide();
-                toastr.error("Please try again",'Error',{timeOut: 5000});
-            }
-        });
+    
+    $('#CompanyPerModal').on('shown.bs.modal', function (e) {
+        $("#company_percentage").focus();
     });
 
-    $('body').on('click', '#savePremiumUserMembershipFeeBtn', function () {
-        $('#savePremiumUserMembershipFeeBtn').prop('disabled',true);
-        $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').show();
-        var formData = new FormData($("#PremiumUserMembershipFeeForm")[0]);
-
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('admin/updatePremiumUserMembershipFee') }}",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (res) {
-                if(res.status == 'failed'){
-                    $('#savePremiumUserMembershipFeeBtn').prop('disabled',false);
-                    $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').hide();
-                    if (res.errors.premium_user_membership_fee) {
-                        $('#premium_user_membership_fee-error').show().text(res.errors.premium_user_membership_fee);
-                    } else {
-                        $('#premium_user_membership_fee-error').hide();
-                    }
-                }
-
-                if(res.status == 200){
-                    $("#PremiumUserMembershipFeeModal").modal('hide');
-                    $('#savePremiumUserMembershipFeeBtn').prop('disabled',false);
-                    $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').hide();
-                    $("#PremiumUserMembershipFeeVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.premium_user_membership_fee);
-                    toastr.success("Settings Updated",'Success',{timeOut: 5000});
-                }
-
-                if(res.status == 400){
-                    $("#PremiumUserMembershipFeeModal").modal('hide');
-                    $('#savePremiumUserMembershipFeeBtn').prop('disabled',false);
-                    $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').hide();
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
-            },
-            error: function (data) {
-                $("#PremiumUserMembershipFeeModal").modal('hide');
-                $('#savePremiumUserMembershipFeeBtn').prop('disabled',false);
-                $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').hide();
-                toastr.error("Please try again",'Error',{timeOut: 5000});
-            }
-        });
-    });
-
-    $('#UserDiscountPerModal').on('shown.bs.modal', function (e) {
-        $("#user_discount_percentage").focus();
-    });
-
-    $('#ShippingCostModal').on('shown.bs.modal', function (e) {
-        $("#shipping_cost").focus();
-    });
-
-    $('#PremiumUserMembershipFeeModal').on('shown.bs.modal', function (e) {
-        $("#premium_user_membership_fee").focus();
-    });
-
-    $('#UserDiscountPerModal').on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-        $('#user_discount_percentage-error').html("");
-    });
-
-    $('#ShippingCostModal').on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-        $('#shipping_cost-error').html("");
-    });
-
-    $('#PremiumUserMembershipFeeModal').on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-        $('#premium_user_membership_fee-error').html("");
-    });
-
-    $('body').on('click', '#editMinOrderAmountBtn', function () {
-        $.get("{{ url('admin/settings/min_order_amount/edit') }}", function (data) {
-            $('#min_order_amount').val(data.min_order_amount);
-        })
-    });
-
-    $('body').on('click', '#saveMinOrderAmountBtn', function () {
-        $('#saveMinOrderAmountBtn').prop('disabled',true);
-        $('#saveMinOrderAmountBtn').find('.loadericonfa').show();
-        var formData = new FormData($("#MinOrderAmountForm")[0]);
-
-        $.ajax({
-            type: 'POST',
-            url: "{{ url('admin/updateMinOrderAmount') }}",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (res) {
-                if(res.status == 'failed'){
-                    $('#saveMinOrderAmountBtn').prop('disabled',false);
-                    $('#saveMinOrderAmountBtn').find('.loadericonfa').hide();
-                    if (res.errors.min_order_amount) {
-                        $('#min_order_amount-error').show().text(res.errors.min_order_amount);
-                    } else {
-                        $('#min_order_amount-error').hide();
-                    }
-                }
-
-                if(res.status == 200){
-                    $("#MinOrderAmountModal").modal('hide');
-                    $('#saveMinOrderAmountBtn').prop('disabled',false);
-                    $('#saveMinOrderAmountBtn').find('.loadericonfa').hide();
-                    $("#MinOrderAmountVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.min_order_amount);
-                    toastr.success("Settings Updated",'Success',{timeOut: 5000});
-                }
-
-                if(res.status == 400){
-                    $("#MinOrderAmountModal").modal('hide');
-                    $('#saveMinOrderAmountBtn').prop('disabled',false);
-                    $('#saveMinOrderAmountBtn').find('.loadericonfa').hide();
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
-            },
-            error: function (data) {
-                $("#MinOrderAmountModal").modal('hide');
-                $('#saveMinOrderAmountBtn').prop('disabled',false);
-                $('#saveMinOrderAmountBtn').find('.loadericonfa').hide();
-                toastr.error("Please try again",'Error',{timeOut: 5000});
-            }
-        });
-    });
-
-    $('#MinOrderAmountModal').on('shown.bs.modal', function (e) {
-        $("#min_order_amount").focus();
-    });
-
-    $('#MinOrderAmountModal').on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-        $('#min_order_amount-error').html("");
-    });
 </script>
 <!-- settings JS end -->
 @endsection

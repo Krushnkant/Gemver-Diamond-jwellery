@@ -235,7 +235,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('allnewslatterslist',[\App\Http\Controllers\admin\NewsLatterController::class,'allnewslatterslist'])->name('allnewslatterslist');
 
     Route::get('compoanies',[\App\Http\Controllers\admin\CompanyController::class,'index'])->name('company.list');
-    Route::post('allcompoanieslist',[\App\Http\Controllers\admin\CompanyController::class,'allcompoanieslist'])->name('allcompoanieslist');
+    Route::post('updateCompanyPercentage',[\App\Http\Controllers\admin\CompanyController::class,'updateCompanyPercentage'])->name('company.updateCompanyPercentage');
+    Route::get('company/{id}/edit',[\App\Http\Controllers\admin\CompanyController::class,'editcompany'])->name('company.edit');
     
     Route::get('addDiamond',[\App\Http\Controllers\admin\DiamondController::class,'addDiamond'])->name('addDiamond');
     Route::get('diamond',[\App\Http\Controllers\admin\DiamondController::class,'index'])->name('diamond.list');

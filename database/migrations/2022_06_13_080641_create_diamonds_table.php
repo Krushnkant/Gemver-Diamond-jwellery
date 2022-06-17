@@ -15,6 +15,7 @@ class CreateDiamondsTable extends Migration
     {
         Schema::create('diamonds', function (Blueprint $table) {
             $table->id();
+            $table->integer('Company_id');
             $table->string('Stone_No',255)->nullable();
             $table->string('StockStatus',255)->nullable();
             $table->string('Shape',255)->nullable();
@@ -38,6 +39,7 @@ class CreateDiamondsTable extends Migration
             $table->string('Discount',255)->nullable();
             $table->float('Rate')->nullable();
             $table->float('Amt')->nullable();
+            $table->float('Sale_Amt')->nullable();
             $table->string('Measurement',255)->nullable();
             $table->float('Total_Depth_Per')->nullable();
             $table->float('Table_Diameter_Per')->nullable();

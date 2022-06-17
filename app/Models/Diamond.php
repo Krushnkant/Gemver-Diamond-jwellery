@@ -12,6 +12,7 @@ class Diamond extends Model
     protected $table = 'diamonds';
 
     protected $fillable = [
+        'Company_id',
         'Stone_No',
         'StockStatus',
         'Weight',
@@ -33,6 +34,7 @@ class Diamond extends Model
         'Live_Rap_Rate',
         'Discount',
         'Amt',
+        'Sale_Amt',
         'Measurement',
         'Total_Depth_Per',
         'Table_Diameter_Per',
