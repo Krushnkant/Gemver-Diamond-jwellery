@@ -31,11 +31,11 @@
                 <h5 class="blog-detail-heading mt-3">
                 {{ $blog->title }}
                 </h5>
-                <div class="blog-detail-img-date mt-3 d-flex align-items-center">
+                <div class="blog-detail-img-date d-flex align-items-center">
                     <!-- <span class="blog-detail-img"><img src="{{ asset('frontend/image/icon-1.png') }}" alt=""></span>                   -->
-                    <span class="blog-deatil-date ms-3">{{ date('d M, Y', strtotime($blog->created_at)) }}</span>
+                    <span class="blog-deatil-date">{{ date('d M, Y', strtotime($blog->created_at)) }}</span>
                 </div>
-                <div class="blog-detail-paragraph">
+                <div class="blog-detail-paragraph mt-2">
                     {!! $blog->description !!}
                 </div>
             </div>
@@ -45,13 +45,13 @@
                 </div>
 
                 @foreach($blogs as $lblog)
-                <div class="row mt-3 d-flex align-items-center">
-                    <div class="col-md-4 px-0">
-                        <div class="blog-detail-sidebar-img">
+                <div class="row mt-3 d-flex">
+                    <div class="col-2 col-lg-4 px-0">
+                        <div class="blog-detail-sidebar-img position-relative">
                             <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
                         </div>
                     </div>
-                    <div class="col-md-8 px-0 px-md-3 pe-md-3">
+                    <div class="col-10 col-lg-8 px-0 px-3 pe-3">
                         <div class="blog-detail-paragraph">
                             <a href=" {{ url('/blog/'.$lblog->id) }} ">{{ $lblog->title }}</a>
                         </div>

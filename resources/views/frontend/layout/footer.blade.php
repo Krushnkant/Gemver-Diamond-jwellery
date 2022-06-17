@@ -149,6 +149,10 @@
         </div>
     </footer>
 
+    <a class="bottom-to-top-btn scrollToTop" href="" style="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#fff"></path></svg>
+    </a>
+
 <script type="text/javascript">
 $( document ).ready(function() {    
 $('body').on('click', '#save_newNewsLatterBtn', function () {
