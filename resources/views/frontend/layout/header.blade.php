@@ -48,8 +48,8 @@
                                           }
                                         ?>
                                         </ul>
-                                        <ul>
-                                            <img src="{{ url($defalt_image) }}" alt=" ">
+                                        <ul class="">
+                                            <li class="menu-part-img"><img src="{{ url($defalt_image) }}" alt=" "></li>
                                         </ul>
                                     </div>
                                 </div>
