@@ -150,7 +150,7 @@ class ProductController extends Controller
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                 //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
                 $str .='<div class="col-md-6 px-0" >
-                        <div class="wire_bangle_share">
+                        <div class="mt-4 wire_bangle_share">
                         '.$product_attribute_specification->attribute_name .' &nbsp;:&nbsp;
                             <span class="wire_bangle_color_theme">'. $product_attribute_term_name .'</span>
                         </div>

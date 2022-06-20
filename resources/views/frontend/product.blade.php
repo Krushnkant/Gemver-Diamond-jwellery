@@ -77,7 +77,7 @@
  
                         </div>
 
-                        <p class="wire_bangle_paragraph mb-xl-4 pb-xxl-2">{!! Str::limit($Product->desc, 140, '...<a href="#description">read more </a>');  !!}</p>
+                        <p class="wire_bangle_paragraph mb-xl-4">{!! Str::limit($Product->desc, 140, '...<a href="#description">read more </a>');  !!}</p>
                         <div class="d-flex mb-md-4 flex-wrap mb-3 mb-md-0">
                             <span class="wire_bangle_input">
                                 <div class="wire_bangle_number number-input">
@@ -231,7 +231,7 @@
                             ?>
 
                             <div class="col-md-6 px-0" >
-                                <div class="wire_bangle_share">
+                                <div class="mt-4 wire_bangle_share">
                                     {{ $product_attribute_specification->attribute_name }} &nbsp;:&nbsp;
                                     <span class="wire_bangle_color_theme">{{ $product_attribute_term_name }}</span>
                                 </div>
