@@ -1,0 +1,183 @@
+@extends('frontend.layout.layout')
+
+@section('content')
+        <div class="background-sub-slider">
+            <div class="position-relative">
+                <img src="image/about_us.png" alt="">
+                <div class="about_us_background">
+                    <div class="sub_heading mb-lg-3">engagement ring setting</div>
+                    <div class="about_us_link">
+                        <a href="#">home</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
+                            <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
+                            <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
+                        </svg>
+                        <a href="#">engagement ring setting</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wire_bangle_page container">
+        <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
+            <div class="col-lg-2 text-center text-lg-start">
+                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your Ring</div>
+            </div>
+            <div class="col-lg-10">
+                <div class="flex-container step-progressbar">
+                    <div class="flex-row text-center">
+                        <div class="flex-col-xs-12">
+                            <ul class="tab-steps--list">
+                                <li class="active" data-step="1">
+                                    <div class="step-img">
+                                        <img src="{{ url('frontend/image/step-1.png') }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        choose setting
+                                    </div>
+                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
+                                </li>
+                                <li data-step="2">
+                                    <div class="step-img">
+                                        <img src="{{ url('frontend/image/step-2.png') }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        choose diamond
+                                    </div>
+                                </li>
+                                <li data-step="3">
+                                    <div class="step-img">
+                                        <img src="{{ url('frontend/image/step-3.png') }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        complete the ring
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 wire_bangle_padding mb-4">
+                <div class="">
+                    <div class="slider slider-single mb-5">
+                        <div class="product_slider_main_item">
+                            <img src="{{ $Diamond->Stone_Img_url }}" alt="">
+                        </div>
+                        <div class="product_slider_main_item">
+                            <iframe width="420" height="315" src="https://paldiam.in/Customer/VideoViewer?StoneNo=LA0151"></iframe>
+                        </div>
+                    </div>
+                    <div class="slider slider-nav">
+                        <div class="product_slider_item">
+                            <h3><img src="{{ $Diamond->Stone_Img_url }}" alt=""></h3>
+                        </div>
+                        <div class="product_slider_item">
+                            <h3><iframe width="420" height="315" src="https://paldiam.in/Customer/VideoViewer?StoneNo=LA0151"></iframe></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wire_bangle_padding_2">
+                <div class="wire_bangle_content">
+                    <div class="">
+                        <!-- <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2"></div> -->
+                        <div class="d-flex mb-2 pb-xxl-2">
+                            <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
+                                <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
+                            </span>
+
+                        </div>
+                        <form action="" class="mb-4 mb-lg-5">
+                            <div class="wire_bangle_share mb-4 mb-xxl-5">
+                                <div class="row">
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            carat &nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Sale_Amt }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            color&nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            cut grade&nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            clarity&nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Clarity }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            Certification&nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Lab }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">add to ring</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion wire_bangle_accordion mt-md-5" id="accordionExample">
+            <div class="accordion-item">
+                <div class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        diamond detail
+                    </button>
+                </div>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 px-0">
+                                <div class="wire_bangle_share">
+                                    stock number &nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Diamond->Stone_No }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-0">
+                                <div class="wire_bangle_share">
+                                    cut&nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 px-0">
+                                <div class="mt-4 wire_bangle_share">
+                                    carat weight &nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Diamond->Weight }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 px-0">
+                                <div class="mt-4 wire_bangle_share">
+                                    color &nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+    @endsection
+
+    
