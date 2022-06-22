@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Inquiry extends Model
+class Cart extends Model
 {
     use HasFactory;
-    protected $table = "inquiry";
+
     protected $fillable = [
-    	'name','mobile_no','email','SKU','stone_no','inquiry','specification_term_id'
+        'ip_address',
+        'category_id',
+        'diamond_id',
+        'veriant_id',
+        'specification_term_id',
     ];
 }

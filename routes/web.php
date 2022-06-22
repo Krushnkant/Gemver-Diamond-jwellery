@@ -12,6 +12,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OtherPageController;
 use App\Http\Controllers\NewsLatterController;
+use App\Http\Controllers\DiamondController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,8 +53,20 @@ Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('fronten
 Route::get('/blog/{id}',[BlogController::class,'blogdetails'])->name('frontend.blog.blog');
 
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
-
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');
+
+Route::get('/diamond-setting/{catid}',[DiamondController::class,'index']);
+Route::post('/diamonds',[DiamondController::class,'getDiamonds']);
+Route::get('/diamond-details/{catid}/{id}',[DiamondController::class,'getDiamondDetails']);
+Route::get('/product-setting/{id}',[DiamondController::class,'customproducts']);
+Route::post('/custom_products',[DiamondController::class,'getProducts']);
+Route::get('/custom-product-details/{catid}/{id}',[DiamondController::class,'getCustomProductDetails']);
+Route::get('/product_complete/{catid}',[DiamondController::class,'getProductComplete']);
+
+Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
+
+
+
 
 //Admin  Rpute
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');
