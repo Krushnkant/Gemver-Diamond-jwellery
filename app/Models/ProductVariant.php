@@ -37,6 +37,10 @@ class ProductVariant extends Model
         return $this->hasMany(ProductVariantSpecification::class,'product_variant_id','id');
     }
 
+    public function product_variant_variants(){
+        return $this->hasMany(ProductVariantVariant::class,'product_variant_id','id');
+    }
+
     public function attribute_term(){
         return $this->hasOne(AttributeTerm::class,'id','term_item_id');
     }

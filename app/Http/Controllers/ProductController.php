@@ -134,7 +134,7 @@ class ProductController extends Controller
                 }
             }
             
-            $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.regular_price','product_variants.SKU')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
             if($vatid > 0){
                 $query = $query->where('product_variants.id',$vatid);

@@ -352,7 +352,8 @@ $(document).ready(function(){
 
 
 <script type="text/javascript">
-$( document ).ready(function() {    
+$( document ).ready(function() {  
+      
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');
 });

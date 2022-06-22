@@ -5,14 +5,14 @@
             <div class="position-relative">
                 <img src="image/about_us.png" alt="">
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3">engagement ring setting</div>
+                    <div class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</div>
                     <div class="about_us_link">
-                        <a href="#">home</a>
+                        <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
                             <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
                             <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
                         </svg>
-                        <a href="#">engagement ring setting</a>
+                        <a href="#">{{ $Category->category_name }} setting</a>
                     </div>
                 </div>
             </div>
@@ -26,44 +26,73 @@
         </div>
         <div class="row mt-lg-5 pt-lg-5 mt-3 align-items-center step-progressbar-row">
             <div class="col-lg-2 text-center text-lg-start">
-                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your Ring</div>
+                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
             </div>
             <div class="col-lg-10">
                 <div class="flex-container step-progressbar">
                     <div class="flex-row text-center">
                         <div class="flex-col-xs-12">
+                        @if($check_diamond == 1)
                             <ul class="tab-steps--list">
-                                <li class="active" data-step="1">
+                                
+                                <li data-step="1">
                                     <div class="step-img">
-                                        <img src="{{ url('frontend/image/step-1.png') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
-                                </li>
-                                <li data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/step-2.png') }}" alt="">
+                                        <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
+                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                </li>
+                                <li class="active" data-step="2">
+                                    <div class="step-img">
+                                        <img src="{{ url($Category->category_thumb) }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        choose setting
+                                    </div>
                                 </li>
                                 <li data-step="3">
                                     <div class="step-img">
-                                        <img src="{{ url('frontend/image/step-3.png') }}" alt="">
+                                        <img src="{{ url($Category->category_thumb) }}" alt="">
                                     </div>
                                     <div class="step-heading mt-2">
-                                        complete the ring
+                                        complete the {{ $Category->category_name }}
                                     </div>
                                 </li>
                             </ul>
+                            @else
+                            <ul class="tab-steps--list">
+                                <li class="active" data-step="1">
+                                    <div class="step-img">
+                                        <img src="{{ url($Category->category_thumb) }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        choose setting
+                                    </div>
+                                </li>
+                                <li data-step="2">
+                                    <div class="step-img">
+                                        <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        choose diamond
+                                    </div>
+                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                </li>
+                                <li data-step="3">
+                                    <div class="step-img">
+                                        <img src="{{ url($Category->category_thumb) }}" alt="">
+                                    </div>
+                                    <div class="step-heading mt-2">
+                                        complete the {{ $Category->category_name }}
+                                    </div>
+                                </li>
+                            </ul>
+                            @endif
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="wire_bangle_line mt-4 mt-md-5"></div>
@@ -98,7 +127,7 @@
                     <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
                         <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
                         <div>    
-                                @foreach($attribute->attributeterm as $term)
+                            @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3">
                                         <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
                                         <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
@@ -106,7 +135,7 @@
                                 @endforeach 
                                   </div>
                                 </div>
-                            @else
+                                @else
                             <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
                                 <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
                                 <div>
@@ -120,10 +149,6 @@
                     </div>
                     @endif
                 @endforeach
-
-
-                
-                
                 <div class="mt-xxl-4 text-center mb-xxl-3 my-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
                         <path d="M9.09 0L5.5 3.59L1.91 0L0.5 1.41L4.09 5L0.5 8.59L1.91 10L5.5 6.41L9.09 10L10.5 8.59L6.91 5L10.5 1.41L9.09 0Z" fill="#BB9761"/>
@@ -207,20 +232,17 @@
             {
                 $('.filter_data').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
+                var catid  = '{{ $CatId }}';
                 var minimum_price = $('#hidden_minimum_price').val();
                 var maximum_price = $('#hidden_maximum_price').val();
-                var shape = get_filter('shape');
-                var color = get_filter('color');
-                var clarity = get_filter('clarity');
-                var cut = get_filter('cut');
+                var attribute = get_filter('attribute');
+                var specification = get_filter('specification');
                 var sorting = $('#sorting :selected').val();
-                var minimum_carat = $('#hidden_minimum_carat').val();
-                var maximum_carat = $('#hidden_maximum_carat').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/custom_products?page=" + page,
                     method:"POST",
-                    data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,_token: '{{ csrf_token() }}'},
+                    data:{action:action,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,attribute:attribute,sorting:sorting,specification:specification,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
