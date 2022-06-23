@@ -142,8 +142,24 @@ class ProductController extends Controller
             $result = $query->orderBy('products.created_at','ASC')->first();
 
           
+            
+
+
+            $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+            $variantstr = '';
+            foreach($product_attributes_variant as $product_attribute_variant){ 
+                $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
+                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-4">
+                                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+                                    <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                                </div>';
+            }
+
             $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
             $str = '';
+           
             foreach($product_attributes_specification as $product_attribute_specification){ 
                 $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
@@ -155,14 +171,19 @@ class ProductController extends Controller
                             <span class="wire_bangle_color_theme">'. $product_attribute_term_name .'</span>
                         </div>
                     </div>';
-           
+
+                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-4">
+                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+                    <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                </div>';  
+                
             }
 
             $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$vatid)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
             $spe = '';
             foreach($ProductVariantSpecification as $productvariants)
             {
-            
+
             $spe .='<span class="wire_bangle_select mb-3 me-3">
                       <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                         <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
@@ -181,9 +202,7 @@ class ProductController extends Controller
             $spe .='</select>
             </span>';
             }
-            
-            
-            
+
             $images = '';
             if($result->images !=""){
                 $images = explode(',',$result->images);
@@ -226,7 +245,7 @@ class ProductController extends Controller
             $spe_desc .='</div>';
             }
        
-            $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc ]; 
+            $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
             return \Response()->json($data);
 
         }

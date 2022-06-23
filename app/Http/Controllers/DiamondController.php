@@ -92,11 +92,17 @@ class DiamondController extends Controller
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
                 $url =  URL('/diamond-details/'.$data['catid'].'/'.$Diamond->id);
+                
+                if($Diamond->Stone_Img_url != ""){
+                    $Diamond_image = $Diamond->Stone_Img_url;
+                }else{
+                    $Diamond_image = url('frontend/image/edit_box_2.png');
+                }
                 $artilces.='
                 <div class="col-md-6 col-lg-4 mb-4">
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <div class="round_cut_lab_diamonds_img">
-                                <img src="'.$Diamond->Stone_Img_url .'" alt="">
+                                <img src="'.$Diamond_image .'" alt="">
                                 <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>

@@ -188,6 +188,7 @@
                             <div class="mb-4 " id="speci_multi">
                             </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
+                            
                             <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
                         </form>
                     </div>
@@ -272,6 +273,7 @@ $(document).ready(function(){
                 $('#vimage').html(data.vimage);
                 $('#spe_desc').html(data.spe_desc);
                 selectjs();
+                sliderjs();
             }
         });
     }
@@ -325,6 +327,65 @@ $(document).ready(function(){
         });
 
       });
+    }
+
+    function sliderjs(){ 
+        $('.slider-single').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            nav: false,
+            fade: false,
+            adaptiveHeight: true,
+            infinite: false,
+            useTransform: true,
+            speed: 400,
+            cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+        });
+        $('.slider-nav')
+        .on('init', function(event, slick) {
+            $('.slider-nav .slick-slide.slick-current').addClass('is-active');
+        })
+        .slick({
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            dots: false,
+            nav: false,
+            focusOnSelect: false,
+            infinite: false,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                }
+            }, {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                }
+            }, {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            }]
+        });
+        $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+            $('.slider-nav').slick('slickGoTo', currentSlide);
+            var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
+            $('.slider-nav .slick-slide.is-active').removeClass('is-active');
+            $(currrentNavSlideElem).addClass('is-active');
+        });
+
+        $('.slider-nav').on('click', '.slick-slide', function(event) {
+            event.preventDefault();
+            var goToSingleSlide = $(this).data('slick-index');
+
+            $('.slider-single').slick('slickGoTo', goToSingleSlide);
+        });
     }
 
     function get_filter(class_name)

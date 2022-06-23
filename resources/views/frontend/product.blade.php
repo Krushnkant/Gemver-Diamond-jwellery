@@ -82,7 +82,7 @@
                             <span class="wire_bangle_input">
                                 <div class="wire_bangle_number number-input">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" min="0" placeholder="0" name="quantity" value="1" type="number">
+                                    <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                 </div>
                             </span>
@@ -94,22 +94,9 @@
                                     <div class="modal-content">
                                         <div class="mb-xxl-5 mb-xl-4 mb-3 product_heading">product inquiry</div>
                                         <div class="alert alert-success" id="success-alert" style="display: none;">
-                                            Product have added to your wishlist.
                                         </div>
-                                        <!-- <div class="row">
-                                            <div class="d-flex align-items-center mb-4 col-md-4">
-                                                <span class="wire_bangle_color_heading  d-inline-block">color :</span>
-                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">Rose gold</span>
-                                            </div>
-                                            <div class="d-flex align-items-center mb-4 align-content-center col-md-4">
-                                                <span class="wire_bangle_color_heading  d-inline-block">carat :</span>
-                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">10kt</span>
-                                            </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-4">
-                                                <span class="wire_bangle_color_heading  d-inline-block">Prong Type :</span>
-                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">Round</span>
-                                            </div>
-                                        </div> -->
+                                        <div class="row" id="variantstr"> 
+                                        </div>
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
@@ -188,14 +175,8 @@
                                } 
                             }  
                             ?>
-
-
                             <div class="mb-4 " id="speci_multi">
-                           
                             </div>
-                            
-                            
-
                             <!--<button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>-->
                         </form>
                     </div>
@@ -270,7 +251,7 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                 console.log(data);
+                console.log(data);
                 $('.sale_price').html(data.result.sale_price);
                 $('.regular_price').html(data.result.regular_price); 
                 $('#SKU').val(data.result.SKU);
@@ -278,7 +259,10 @@ $(document).ready(function(){
                 $('#speci_multi').html(data.speci_multi);
                 $('#vimage').html(data.vimage);
                 $('#spe_desc').html(data.spe_desc);
+                $('#variantstr').html(data.variantstr);
                 selectjs();
+                sliderjs();
+                
             }
         });
     }
@@ -335,6 +319,65 @@ $(document).ready(function(){
       });
     }
 
+    function sliderjs(){ 
+        $('.slider-single').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            nav: false,
+            fade: false,
+            adaptiveHeight: true,
+            infinite: false,
+            useTransform: true,
+            speed: 400,
+            cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+        });
+        $('.slider-nav')
+        .on('init', function(event, slick) {
+            $('.slider-nav .slick-slide.slick-current').addClass('is-active');
+        })
+        .slick({
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            dots: false,
+            nav: false,
+            focusOnSelect: false,
+            infinite: false,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                }
+            }, {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                }
+            }, {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            }]
+        });
+        $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+            $('.slider-nav').slick('slickGoTo', currentSlide);
+            var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
+            $('.slider-nav .slick-slide.is-active').removeClass('is-active');
+            $(currrentNavSlideElem).addClass('is-active');
+        });
+
+        $('.slider-nav').on('click', '.slick-slide', function(event) {
+            event.preventDefault();
+            var goToSingleSlide = $(this).data('slick-index');
+
+            $('.slider-single').slick('slickGoTo', goToSingleSlide);
+        });
+    }
+
     function get_filter(class_name)
     {
         var filter = [];
@@ -380,8 +423,10 @@ function save_inquiry(btn,btn_type){
    })
    
     var dataspecification = dataarray.join(",");
-    formData.append('action',action);
+    
+    var qty = $('#qty').val();
     formData.append('specification_term_id',dataspecification);
+    formData.append('qty',qty);
      
     $.ajax({
         type: 'POST',
@@ -390,7 +435,7 @@ function save_inquiry(btn,btn_type){
         processData: false,
         contentType: false,
         success: function (res) {
-           
+            
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
