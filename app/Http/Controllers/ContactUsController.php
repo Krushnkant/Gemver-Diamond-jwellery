@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Settings;
 use App\Models\ContactUs;
 use App\Models\Inquiry;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
@@ -66,6 +67,11 @@ class ContactUsController extends Controller
         }else{
             $data = $request->all();
             $inquiry = Inquiry::Create($data);
+            if(isset($data['stone_no'])){
+                $ip_address = \Request::ip();
+                $cart = Cart::where(['ip_address'=>$ip_address]);
+                $cart->delete();
+            }
             if($inquiry != null){
                
                 $data1 = [

@@ -70,7 +70,7 @@
                         <?php
                         $images = explode(',',$Product->images); 
                         foreach($images as $image){
-                            $image = URL($images['0']);
+                            $image = URL($image);
                         ?>
                         <div class="product_slider_main_item">
                             <img src="{{ $image }}" alt="">
@@ -84,7 +84,7 @@
                         <?php
                         $images = explode(',',$Product->images); 
                         foreach($images as $image){
-                            $image = URL($images['0']);
+                            $image = URL($image);
                         ?>
                         <div class="product_slider_item">
                             <h3><img src="{{ $image }}" alt=""></h3>
@@ -116,16 +116,27 @@
                                         {{ $Product->product->product_title }}
                                     </div>
                                     <div class="wire_bangle_edit_box_sub_heading pb-2">
-                                        14kt white gold
+                                    <?php 
+                                           $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
+                                            $variantstr = '';
+                                            foreach($product_attributes_variant as $product_attribute_variant){ 
+                                                $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
+                                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                                                $variantstr .= $product_attribute_term_name .' '; 
+                                            }
+                                            echo $variantstr;
+                                            ?>    
+                                        
                                     </div>
                                     <div>
                                         <span class="wire_bangle_edit_box_price">${{ $Product->sale_price }}</span>
                                         <span class="wire_bangle_edit_box_dublicate_price ms-2">${{ $Product->regular_price }}</span>
                                     </div>
                                 </div>
-                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
                                     <a href="#" class="edit_box">edit</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="wire_bangle_edit_box  mb-3">
@@ -135,7 +146,7 @@
                                 </div>
                                 <div class="col-8 col-sm-9 col-md-8 col-lg-9 ps-md-0 ps-lg-4">
                                     <div class="wire_bangle_edit_box_heading pb-2">
-                                       {{ $Diamond->Weight }} ct Round Lab Diamond
+                                       {{ $Diamond->Weight }} ct {{ $Diamond->Shape }} Lab Diamond
                                     </div>
                                     <div class="wire_bangle_edit_box_sub_heading pb-2">
                                       {{ $Diamond->Color }} Color | {{ $Diamond->Clarity }} Clarity | {{ $Diamond->Cut }} Cut
@@ -145,9 +156,9 @@
                                         <!-- <span class="wire_bangle_edit_box_dublicate_price ms-2">$480</span> -->
                                     </div>
                                 </div>
-                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
                                     <a href="#" class="edit_box">edit</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         
@@ -191,6 +202,39 @@
                                         <div class="alert alert-success" id="success-alert" style="display: none;">
                                           
                                         </div>
+                                        <div class="row">
+                                        <?php 
+                                           $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
+                                            $variantstr = '';
+                                            foreach($product_attributes_variant as $product_attribute_variant){ 
+                                                $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
+                                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                                                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-4">
+                                                                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+                                                                    <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                                                                </div>';
+                                            }
+                                            echo $variantstr;
+
+                                            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
+                                            $str = '';
+                                            foreach($product_attributes_specification as $product_attribute_specification){ 
+                                                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+                                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                                                
+                                                $str .='<div class="d-flex align-items-center mb-4 col-md-4">
+                                                            <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+                                                            <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                                                        </div>';    
+                                        
+                                            }
+                                            echo $str;
+                                        ?>
+                                            
+                                           
+                                        </div>
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="{{ $Product->SKU }}">
@@ -211,7 +255,6 @@
                                             <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block mb-3 wire_bangle_input">
                                             <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
- 
                                         <button class="send_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
                                             <div class="spinner-border loadericonfa" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
@@ -221,8 +264,17 @@
                                     </div>
                                 </div>
                             </div>
-                
-                            <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+
+                            <span class="wire_bangle_input">
+                                <div class="wire_bangle_number number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                    <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                </div>
+                            </span>
+                            <span class="inquiry_now_btn ms-3 ms-md-5">
+                                <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                            </span>
                     
                     </div>
                 </div>
@@ -293,7 +345,6 @@
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Clarity }}</span>
                                 </div>
                             </div>
-                         
                             <div class="col-md-6 px-0">
                                 <div class="mt-4 wire_bangle_share">
                                     carat weight &nbsp;:&nbsp;
@@ -328,24 +379,15 @@ function save_inquiry(btn,btn_type){
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
     var formData = new FormData($("#InquiryCreateForm")[0]);
-    //var dataspecification = $("input:radio.specification:checked").val();
-    // $(".specification").each(function( index ) {
-    //  console.log( index + ": " + $( this ).text() );
-    // });
 
     var dataarray = [];
-
-    // $('.specification').each(function (index) {
-    //     if(this.selected){
-    //         dataarray.push($(this).val());
-    //     }
-    //  });
     $(".specification").each(function () {
       dataarray.push($(this).val());
    })
    
     var dataspecification = dataarray.join(",");
-    formData.append('action',action);
+    var qty = $('#qty').val();
+    formData.append('qty',qty);
     formData.append('specification_term_id',dataspecification);
      
     $.ajax({
@@ -395,6 +437,8 @@ function save_inquiry(btn,btn_type){
                 $('#success-alert').text(success_message);
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
                   $("#success-alert").slideUp(1000);
+                  //location.reload();
+                  window.location.href = "{{ url('/') }}";
                 });
             }
 

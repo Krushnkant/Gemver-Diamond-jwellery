@@ -5,6 +5,7 @@ use App\Models\Inquiry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProjectPage;
+use App\Models\Diamond;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantVariant;
 use App\Models\AttributeTerm;
@@ -33,10 +34,12 @@ class InquiryController extends Controller
             $columns = array(
                 0 =>'id',
                 1 =>'product_info',
-                2=> 'spe_info',
-                3=> 'customer_info',
-                4=> 'message',
-                5=> 'created_at',
+                2 =>'diamond_info',
+                3=> 'spe_info',
+                4=> 'customer_info',
+                5=> 'qty',
+                6=> 'message',
+                7=> 'created_at',
                
             );
 
@@ -125,13 +128,10 @@ class InquiryController extends Controller
                         $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$inquiry->mobile_no .'</span>';
                         
                     }
-                    
-                    $product = ProductVariant::with('product')->where('SKU',$inquiry->sku)->first();
-                    
+                 
+                    $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->sku)->first();
                     if($product){
-
                     $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
-
                     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
                         $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
                       })->leftJoin('attribute_terms', function($join) {
@@ -144,6 +144,18 @@ class InquiryController extends Controller
                     }else{
                         $product_info = '-';
                     }
+
+                    $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
+                    if($diamond){
+                       $diamond_info = '<span>'.$diamond->Stone_No.'</span>
+                                        <span> Weight: '.$diamond->Weight.'</span>
+                                        <span> Color: '.$diamond->Color.'</span>
+                                        <span> Clarity: '.$diamond->Clarity.'</span>
+                                        <span> Weight: '.$diamond->Cut.'</span>';
+                    }else{
+                       $diamond_info = '-';
+                    }
+
                     $message = '';
                     if (isset($inquiry->inquiry)){
                         $message .= '<span> ' .$inquiry->inquiry .'</span>';
@@ -175,7 +187,9 @@ class InquiryController extends Controller
                     $nestedData['customer_info'] = $customer_info;
                     $nestedData['spe_info'] = $spe_info;
                     $nestedData['product_info'] = $product_info;
+                    $nestedData['diamond_info'] = $diamond_info;
                     $nestedData['message'] = $message;
+                    $nestedData['qty'] = $inquiry->qty;
                     $nestedData['created_at'] = $newDate;
                    // $nestedData['action'] = $action;
                     $data[] = $nestedData;

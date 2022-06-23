@@ -419,6 +419,7 @@
             }
             $('#name').val(data.name);
             $('#position').val(data.position);
+            $('#country').val(data.country);
             $('#description').summernote('code', data.description);
         })
     });

@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="col-lg-2 col-sm-2 actionbox ml-auto text-right"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>
                                         <?php if ($VariantCnt!=1){
-                                        echo '<span data-id="'.$attr_array[$VariantCnt - 1].'" class="close-icon RemoveBox"></span>';
+                                        echo '<span data-id="'.$attr_array[$VariantCnt - 1].'" class="close-icon RemoveBox"><i class="fa fa-window-close" aria-hidden="true"></i></span>';
                                         }
                                         ?>
                                        

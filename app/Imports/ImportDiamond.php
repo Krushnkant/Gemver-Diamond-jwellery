@@ -66,7 +66,8 @@ class ImportDiamond implements WithHeadingRow,ToCollection
             if($Diamond){
                  Diamond::where('Stone_No', $Stone_No)
                         ->update([
-                            'Amt' => $collection['final_price']
+                            'Amt' => $collection['final_price'],
+                            'Sale_Amt' => $sale_amt,
                         ]);
             }else{ 
                    $data = ([

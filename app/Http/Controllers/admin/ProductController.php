@@ -234,7 +234,7 @@ class ProductController extends Controller
         $html .= '</div>';
         $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
         if($term_id != 1){
-           $html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"></span>';
+           $html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"><i class="fa fa-window-close" aria-hidden="true"></i></span>';
         }
         $html .='<div id=""></div></div>';
         $html .= '</div>';
@@ -574,16 +574,16 @@ class ProductController extends Controller
             }
             $product_variant->save();
 
-            if(isset($request->is_custom) && $request->is_custom == 1) {
-               $diamonds = Diamond::all();
-                foreach ($diamonds as $diamond) {
-                    $diamond_variant = new DiamondVariant();
-                    $diamond_variant->product_variant_id = $product_variant->id;
-                    $diamond_variant->product_id = $product->id;
-                    $diamond_variant->diamond_id = $diamond->id;
-                    $diamond_variant->save();
-                }  
-            }
+            // if(isset($request->is_custom) && $request->is_custom == 1) {
+            //    $diamonds = Diamond::all();
+            //     foreach ($diamonds as $diamond) {
+            //         $diamond_variant = new DiamondVariant();
+            //         $diamond_variant->product_variant_id = $product_variant->id;
+            //         $diamond_variant->product_id = $product->id;
+            //         $diamond_variant->diamond_id = $diamond->id;
+            //         $diamond_variant->save();
+            //     }  
+            // }
             
 
             if(isset($myValue['varVariation'])) {
