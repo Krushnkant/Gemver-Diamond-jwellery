@@ -14,6 +14,7 @@ use App\Http\Controllers\OtherPageController;
 use App\Http\Controllers\NewsLatterController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\TestimonialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::post('/product-details-filter',[ProductController::class,'fetchproductdet
 Route::get('/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
 Route::get('/blog/{id}',[BlogController::class,'blogdetails'])->name('frontend.blog.blog');
+
+Route::get('/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
 
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');

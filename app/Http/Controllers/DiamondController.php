@@ -114,6 +114,10 @@ class DiamondController extends Controller
                                             <span>CARATE  :</span>
                                             <span>'. $Diamond->Weight .' </span>
                                         </li>
+                                        <li>
+                                            <span>SHAPE :</span>
+                                            <span>'. $Diamond->Shape .' </span>
+                                        </li>
                                        
                                         <li>
                                             <span>COLOR  :</span>
@@ -224,11 +228,9 @@ class DiamondController extends Controller
     public function getProducts(Request $request)
     {
         $data = $request->all();
-       
         if(isset($data["action"]))
         {
            
-            
             $query = Product::select('products.*','product_variants.images','product_variants.sale_price')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
             
             // if($request->keyword){
@@ -256,7 +258,7 @@ class DiamondController extends Controller
                 $query = $query->where('product_variant_specifications.estatus',1);
             }
 
-             if(isset($data["sorting"])){ 
+            if(isset($data["sorting"])){ 
                 if($data["sorting"]== "date")   
                 {
                     $result = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(12);  
@@ -271,36 +273,35 @@ class DiamondController extends Controller
                 }else{
                     $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);  
                 }
-           }else{
-               
+           }else{ 
             $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
            }
            
-           $artilces = '';
-        if ($request->ajax()) {
-            foreach ($result as $product){
-                $images = explode(",",$product->images);
-                $image = URL($images['0']);
-                $sale_price = $product->sale_price;
-                $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id);
-                $artilces.='
-                <div class="col-sm-6 col-lg-4 col-xl-4 mt-3 mt-md-4">
-                <div class="wire_bangle_img mb-3 position-relative">
-                     <img src="'.  $image  .'" alt="'. $product->product_title .'">
-                </div>
-                <div class="wire_bangle_description">
-                    <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
-                    <div class="wire_bangle_sub_heading mb-2 mb-md-3"><a href="'.$url.'">'.$product->product_title .'</a></div>
-                    <div class="wire_bangle_paragraph mb-2 mb-md-3">
-                        '.$product->desc.'
+            $artilces = '';
+            if ($request->ajax()) {
+                foreach ($result as $product){
+                    $images = explode(",",$product->images);
+                    $image = URL($images['0']);
+                    $sale_price = $product->sale_price;
+                    $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id);
+                    $artilces.='
+                    <div class="col-sm-6 col-lg-4 col-xl-4 mt-3 mt-md-4">
+                    <div class="wire_bangle_img mb-3 position-relative">
+                        <img src="'.  $image  .'" alt="'. $product->product_title .'">
                     </div>
-                    <div class="wire_bangle_price">
-                    $'.$sale_price .'
+                    <div class="wire_bangle_description">
+                        <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
+                        <div class="wire_bangle_sub_heading mb-2 mb-md-3"><a href="'.$url.'">'.$product->product_title .'</a></div>
+                        <div class="wire_bangle_paragraph mb-2 mb-md-3">
+                            '.$product->desc.'
+                        </div>
+                        <div class="wire_bangle_price">
+                        $'.$sale_price .'
+                        </div>
                     </div>
-                </div>
-            </div>';
+                </div>';
+                }
             }
-        }
 
         $TotalDiamond = Product::where('products.is_custom',1)->where('products.estatus',1)->get();
         $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($result) * $_GET['page']];   

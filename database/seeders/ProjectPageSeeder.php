@@ -318,7 +318,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => 'admin.newslatter.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.newslatter.list',
-            'icon_class' => 'fa fa-picture-o', 
+            'icon_class' => 'fa fa-newspaper-o', 
             'sr_no' => 20 
         ]);
 
@@ -338,7 +338,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => 'admin.company.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.company.list',
-            'icon_class' => 'fa fa-picture-o', 
+            'icon_class' => 'fa fa-building-o', 
             'sr_no' => 21
         ]);
 

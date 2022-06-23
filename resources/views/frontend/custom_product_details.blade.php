@@ -31,7 +31,6 @@
                         <div class="flex-col-xs-12">
                             @if($check_diamond == 1)
                             <ul class="tab-steps--list">
-                                
                                 <li data-step="1">
                                     <div class="step-img">
                                         <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="choose diamond">
