@@ -137,38 +137,70 @@
                             </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
-                        <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
+                        <img src="{{ url('frontend/image/diamod_shape_2.png') }}" alt="" class="shape_img ms-4">
                                 <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" id="flexRadioDefault13">
                                 <label class="form-check-label round_cut_lab_label" for="flexRadioDefault13">
                                     oval
                                 </label>
                             </span>
                     <span class="form-check position-relative  ps-0 mb-2 pb-1 pb-2">
-                        <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
+                        <img src="{{ url('frontend/image/diamod_shape_3.png') }}" alt="" class="shape_img ms-4">
                             <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" id="flexRadioDefault14">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault14">
                                 emerald
                             </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
-                        <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
+                        <img src="{{ url('frontend/image/diamod_shape_4.png') }}" alt="" class="shape_img ms-4">
                             <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]" id="flexRadioDefault15">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault15">
                                 princess
                         </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
+                    <img src="{{ url('frontend/image/diamod_shape_5.png') }}" alt="" class="shape_img ms-4">
                             <input class="form-check-input shape common_selector" type="checkbox" name="shape[]" id="flexRadioDefault16">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault16">
                                 cushion
                         </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
+                    <img src="{{ url('frontend/image/diamod_shape_6.png') }}" alt="" class="shape_img ms-4">
                             <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]" id="flexRadioDefault17">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault17">
                                 marquise
+                        </label>
+                    </span>
+
+                    <span class="form-check position-relative ps-0 mb-2 pb-1">
+                    <img src="{{ url('frontend/image/diamod_shape_7.png') }}" alt="" class="shape_img ms-4">
+                            <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]" id="flexRadioDefault170">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault170">
+                                pear
+                        </label>
+                    </span>
+
+                    <span class="form-check position-relative ps-0 mb-2 pb-1">
+                    <img src="{{ url('frontend/image/diamod_shape_8.png') }}" alt="" class="shape_img ms-4">
+                            <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" id="flexRadioDefault171">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault171">
+                            heart
+                        </label>
+                    </span>
+
+                    <span class="form-check position-relative ps-0 mb-2 pb-1">
+                    <img src="{{ url('frontend/image/asscher.png') }}" alt="" class="shape_img ms-4">
+                            <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" id="flexRadioDefault172">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault172">
+                            asscher
+                        </label>
+                    </span>
+
+                    <span class="form-check position-relative ps-0 mb-2 pb-1">
+                    <img src="{{ url('frontend/image/radiant.png') }}" alt="" class="shape_img ms-4">
+                            <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" id="flexRadioDefault173">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault173">
+                            radiant
                         </label>
                     </span>
                     
@@ -425,7 +457,8 @@
                                 $('.auto-load').hide();
                                 return;
                             }
-                            $("#data-wrapper").html(response['artilces']);   
+                            $("#data-wrapper").html(response['artilces']);  
+                            $('.auto-load').hide(); 
                         }  
                         
                     }

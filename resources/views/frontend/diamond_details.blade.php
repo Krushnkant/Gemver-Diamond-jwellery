@@ -121,7 +121,7 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <!-- <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2"></div> -->
+                        <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
                                 <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
@@ -141,6 +141,12 @@
                                         <div class="mt-4 wire_bangle_share">
                                             color&nbsp;:&nbsp;
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-4 wire_bangle_share">
+                                            shape&nbsp;:&nbsp;
+                                            <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 ps-md-0">
@@ -192,6 +198,9 @@
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
+
+                           
+                            
                             
                             <div class="col-md-6 px-0">
                                 <div class="mt-4 wire_bangle_share">
@@ -203,6 +212,13 @@
                                 <div class="mt-4 wire_bangle_share">
                                     color &nbsp;:&nbsp;
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 px-0">
+                                <div class="mt-4 wire_bangle_share">
+                                    shape&nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
                                 </div>
                             </div>
                          

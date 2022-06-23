@@ -251,7 +251,7 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 $('.sale_price').html(data.result.sale_price);
                 $('.regular_price').html(data.result.regular_price); 
                 $('#SKU').val(data.result.SKU);
@@ -270,7 +270,7 @@ $(document).ready(function(){
     function selectjs(){ 
     $('select').each(function() {
         var $this = $(this),
-            numberOfOptions = $(this).children('option').length;
+        numberOfOptions = $(this).children('option').length;
 
         $this.addClass('select-hidden');
         $this.wrap('<div class="select"></div>');

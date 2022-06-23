@@ -262,7 +262,8 @@
                                 $('.auto-load').hide();
                                 return;
                             }
-                            $("#data-wrapper").html(response['artilces']);   
+                            $("#data-wrapper").html(response['artilces']);
+                            $('.auto-load').hide();   
                         }  
                         
                     }

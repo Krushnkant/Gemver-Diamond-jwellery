@@ -15,6 +15,7 @@ class Diamond extends Model
         'Company_id',
         'Stone_No',
         'StockStatus',
+        'Shape',
         'Weight',
         'Color',
         'Clarity',
