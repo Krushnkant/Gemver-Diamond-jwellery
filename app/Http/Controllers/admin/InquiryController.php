@@ -40,7 +40,7 @@ class InquiryController extends Controller
                 5=> 'qty',
                 6=> 'message',
                 7=> 'created_at',
-               
+                8=> 'action',
             );
 
             $totalData = Inquiry::count();
@@ -161,6 +161,12 @@ class InquiryController extends Controller
                         $message .= '<span> ' .$inquiry->inquiry .'</span>';
                     }
 
+                    $action='';
+                    
+                    $action .= '<a href="mailto:'.$inquiry->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
+                    
+                    $action .= '<a href="https://api.whatsapp.com/send?phone='.$inquiry->mobile_no.'" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
+
                     $spe_info ='';
 
                     if($inquiry->specification_term_id != ""){
@@ -191,7 +197,7 @@ class InquiryController extends Controller
                     $nestedData['message'] = $message;
                     $nestedData['qty'] = $inquiry->qty;
                     $nestedData['created_at'] = $newDate;
-                   // $nestedData['action'] = $action;
+                    $nestedData['action'] = $action;
                     $data[] = $nestedData;
 
                 }

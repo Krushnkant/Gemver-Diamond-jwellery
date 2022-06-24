@@ -38,8 +38,10 @@ class CreateDiamondsTable extends Migration
             $table->string('Live_Rap_Rate',255)->nullable();
             $table->string('Discount',255)->nullable();
             $table->float('Rate')->nullable();
-            $table->float('Amt')->nullable();
-            $table->float('Sale_Amt')->nullable();
+            //$table->float('Amt')->nullable();
+            $table->float('Amt', 10, 2);
+            //$table->float('Sale_Amt')->nullable();
+            $table->float('Sale_Amt', 10, 2);
             $table->string('Measurement',255)->nullable();
             $table->float('Total_Depth_Per')->nullable();
             $table->float('Table_Diameter_Per')->nullable();

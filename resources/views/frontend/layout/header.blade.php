@@ -4,7 +4,7 @@
                         <div class="row mt-0 mb-0">
                             <div class="col-md-4 text-center">
                                 <div class="home-page-header">
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us : 1234567890</span>
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us : {{ $settings->company_mobile_no }}</a></span>
                                 </div>
                             </div>
                             <div class="col-md-4 text-center">
@@ -14,8 +14,8 @@
                             </div>
                             <div class="col-md-4 text-center">
                                 <div class="home-page-header">
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email : abc@email.com</span>
-                                    <span class="ms-3 header-icon"><i class="fa-solid fa-comment-dots me-2"></i>Chat</span>
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email : {{ $settings->company_email }}</span>
+                                    <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="ms-3 header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
                                 </div>
                             </div>
                         </div>

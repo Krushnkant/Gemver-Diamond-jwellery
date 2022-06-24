@@ -96,15 +96,15 @@ class ProjectPageSeeder extends Seeder
         ]);
         
 
-        ProjectPage::create([
-            'id' => 8,
-            'parent_menu' =>17,
-            'label' => 'Faqs',
-            'route_url' => 'admin.faqs.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.edit,admin.faqs.delete,admin.faqs.changeFaqsstatus',
-            'sr_no' => 6
-        ]);
+        // ProjectPage::create([
+        //     'id' => 8,
+        //     'parent_menu' =>17,
+        //     'label' => 'Faqs',
+        //     'route_url' => 'admin.faqs.list',
+        //     'is_display_in_menu' => 1,
+        //     'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.edit,admin.faqs.delete,admin.faqs.changeFaqsstatus',
+        //     'sr_no' => 6
+        // ]);
     
         ProjectPage::create([
             'id' => 10,
@@ -125,25 +125,25 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.infopage.list,admin.infopage.editAboutus,admin.infopage.updateAboutus',
             'sr_no' => 7
         ]);
-        ProjectPage::create([
-            'id' => 12,
-            'parent_menu' => 17,
-            'label' => 'Team Member',
-            'route_url' => 'admin.teammembers.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.teammembers.list,admin.teammembers.addorupdateteam,admin.allteamslist,admin.users.changeteamstatus,admin.teammembers.edit,admin.teammembers.delete',
-            'sr_no' => 8
-        ]);
+        // ProjectPage::create([
+        //     'id' => 12,
+        //     'parent_menu' => 17,
+        //     'label' => 'Team Member',
+        //     'route_url' => 'admin.teammembers.list',
+        //     'is_display_in_menu' => 1,
+        //     'inner_routes' => 'admin.teammembers.list,admin.teammembers.addorupdateteam,admin.allteamslist,admin.users.changeteamstatus,admin.teammembers.edit,admin.teammembers.delete',
+        //     'sr_no' => 8
+        // ]);
     
-        ProjectPage::create([
-            'id' => 14,
-            'parent_menu' => 17,
-            'label' => 'Partner',
-            'route_url' => 'admin.partners.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.partners.list,admin.partners.addorupdatepartner,admin.allpartnerslist,admin.users.changepartnerstatus,admin.partners.edit,admin.partners.delete',
-            'sr_no' => 11
-        ]);
+        // ProjectPage::create([
+        //     'id' => 14,
+        //     'parent_menu' => 17,
+        //     'label' => 'Partner',
+        //     'route_url' => 'admin.partners.list',
+        //     'is_display_in_menu' => 1,
+        //     'inner_routes' => 'admin.partners.list,admin.partners.addorupdatepartner,admin.allpartnerslist,admin.users.changepartnerstatus,admin.partners.edit,admin.partners.delete',
+        //     'sr_no' => 11
+        // ]);
         ProjectPage::create([
             'id' => 15,
             'parent_menu' => 17,

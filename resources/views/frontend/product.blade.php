@@ -77,7 +77,7 @@
  
                         </div>
 
-                        <p class="wire_bangle_paragraph mb-xl-4">{!! Str::limit($Product->desc, 140, '...<a href="#description">read more </a>');  !!}</p>
+                        <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p>
                         <div class="d-flex mb-md-4 flex-wrap mb-3 mb-md-0">
                             <span class="wire_bangle_input">
                                 <div class="wire_bangle_number number-input">

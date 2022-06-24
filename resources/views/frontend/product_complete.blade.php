@@ -28,25 +28,24 @@
                     <div class="flex-row text-center">
                         <div class="flex-col-xs-12">
                             <ul class="tab-steps--list">
-                                <li  data-step="1">
+                                <li class="active" data-step="1">
                                     <div class="step-img">
                                         <img src="{{ url($Category->category_thumb) }}" alt="choose setting">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose setting
                                     </div>
-                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
+                                    <span><a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    
                                 </li>
-                                <li data-step="2">
+                                <li class="active" data-step="2">
                                     <div class="step-img">
                                         <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="choose diamond">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
+                                    <span><a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="3">
                                     <div class="step-img">
@@ -134,9 +133,9 @@
                                         <span class="wire_bangle_edit_box_dublicate_price ms-2">${{ $Product->regular_price }}</span>
                                     </div>
                                 </div>
-                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
-                                    <a href="#" class="edit_box">edit</a>
-                                </div> -->
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                    <a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="edit_box">edit</a>
+                                </div>
                             </div>
                         </div>
                         <div class="wire_bangle_edit_box  mb-3">
@@ -156,9 +155,9 @@
                                         <!-- <span class="wire_bangle_edit_box_dublicate_price ms-2">$480</span> -->
                                     </div>
                                 </div>
-                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
-                                    <a href="#" class="edit_box">edit</a>
-                                </div> -->
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                    <a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="edit_box">edit</a>
+                                </div>
                             </div>
                         </div>
                         
@@ -210,7 +209,7 @@
                                                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                                                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-4">
+                                                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
                                                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                                 </div>';
@@ -224,7 +223,7 @@
                                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                                                 
-                                                $str .='<div class="d-flex align-items-center mb-4 col-md-4">
+                                                $str .='<div class="d-flex align-items-center mb-4 col-md-6">
                                                             <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
                                                             <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                         </div>';    

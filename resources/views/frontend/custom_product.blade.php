@@ -35,14 +35,14 @@
                         @if($check_diamond == 1)
                             <ul class="tab-steps--list">
                                 
-                                <li data-step="1">
+                                <li class="active" data-step="1">
                                     <div class="step-img">
                                         <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                    <span><a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="2">
                                     <div class="step-img">
@@ -78,7 +78,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                    <a href="{{ url('/diamond-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
                                 </li>
                                 <li data-step="3">
                                     <div class="step-img">
@@ -128,14 +128,14 @@
                         <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
                         <div>    
                             @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach 
-                                  </div>
-                                </div>
-                                @else
+                            <div class="form-group mb-3">
+                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                            </div>
+                            @endforeach 
+                            </div>
+                            </div>
+                            @else
                             <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
                                 <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
                                 <div>
@@ -150,9 +150,9 @@
                     @endif
                 @endforeach
                 <div class="mt-xxl-4 text-center mb-xxl-3 my-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
                         <path d="M9.09 0L5.5 3.59L1.91 0L0.5 1.41L4.09 5L0.5 8.59L1.91 10L5.5 6.41L9.09 10L10.5 8.59L6.91 5L10.5 1.41L9.09 0Z" fill="#BB9761"/>
-                        </svg>
+                        </svg> -->
                     <span class="ms-3 clear_filter_btn">clear filter</span>
                 </div>
                 <!-- <div class="text-center text-lg-start">

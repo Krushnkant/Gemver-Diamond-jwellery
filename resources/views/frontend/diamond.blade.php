@@ -35,15 +35,15 @@
                             @if($check_variant == 1)
                             <ul class="tab-steps--list">
                                
-                                <li  data-step="1">
+                                <li class="active" data-step="1">
                                     <div class="step-img">
                                         <img src="{{ url($Category->category_thumb) }}" alt="">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose setting
                                     </div>
-                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
+                                    <span><a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <!-- <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span> -->
                                 </li>
 
                                 <li class="active" data-step="2">
@@ -81,8 +81,7 @@
                                     <div class="step-heading mt-2">
                                         choose setting
                                     </div>
-                                    <span><a href="#" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span>
+                                    <a href="{{ url('/product-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
                                 </li>
                                 
                                 <li data-step="3">
@@ -340,9 +339,9 @@
                     </div>
                 </div>
                 <div class="mt-xxl-4 text-center mb-xxl-3 my-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
                         <path d="M9.09 0L5.5 3.59L1.91 0L0.5 1.41L4.09 5L0.5 8.59L1.91 10L5.5 6.41L9.09 10L10.5 8.59L6.91 5L10.5 1.41L9.09 0Z" fill="#BB9761"/>
-                        </svg>
+                        </svg> -->
                     <span class="ms-3 clear_filter_btn">clear filter</span>
                 </div>
                 <!-- <div class="text-center text-lg-start">
@@ -403,7 +402,7 @@
             var ENDPOINT = "{{ url('/') }}";
             var page = 1;
             $(window).scroll(function () {
-                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
                     page++;
                     var scroll = 1;
                     filter_data(page,scroll);

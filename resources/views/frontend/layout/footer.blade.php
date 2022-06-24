@@ -84,7 +84,7 @@
                             <a href="#">customer values</a>
                         </li>
                         <li>
-                            <a href="#">testimonials</a>
+                            <a href="{{ Route('frontend.testimonials') }}">testimonials</a>
                         </li>
                         <li>
                             <a href="{{ Route('frontend.blogs') }}">our blogs</a>

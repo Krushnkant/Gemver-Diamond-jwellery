@@ -208,6 +208,7 @@
                         $("#TestimonialModel").modal('hide');
                         $(btn).prop('disabled',false);
                         $(btn).find('.loadericonfa').hide();
+                        $('#description').summernote('code', '');
                         $("#TestimonialModel").find('form').trigger('reset');
                         if(res.action == 'add'){
                             testimonial_page_tabs(tab_type,true);
@@ -395,7 +396,9 @@
     }
 
     $('body').on('click', '#AddTestimonialBtn', function (e) {
+
         $("#TestimonialModel").find('.modal-title').html("Add Testimonial");
+        $('#description').summernote('code', '');
     });
 
     $('body').on('click', '#editTestimonialBtn', function () {
