@@ -38,7 +38,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                    <span><a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="2">
                                     <div class="step-img">
@@ -74,7 +74,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <a href="#" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                    <a href="{{ url('/diamond-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
                                 </li>
                                 <li data-step="3">
                                     <div class="step-img">
@@ -134,7 +134,7 @@
                                 @endif
                             </span>
                         </div>
-                        <p class="wire_bangle_paragraph mb-xl-4">{!! Str::limit($Product->desc, 140, '...<a href="#description">read more </a>');  !!}</p>
+                        <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p>
                        
                         <form action="" class="mb-4 mb-lg-5">
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">

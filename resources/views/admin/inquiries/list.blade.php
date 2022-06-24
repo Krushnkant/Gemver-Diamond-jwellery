@@ -32,7 +32,7 @@
                                         <th>Qty</th>
                                         <th>Inquiry Message</th>
                                         <th>Date</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
@@ -45,7 +45,7 @@
                                         <th>Qty</th>
                                         <th>Inquiry Message</th>
                                         <th>Date</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -115,8 +115,9 @@ function Inquiry_table(is_clearState=false){
             { "width": "10%", "targets": 3 },
             { "width": "15%", "targets": 4 },
             { "width": "5%", "targets": 5 },
-            { "width": "25%", "targets": 6 },
+            { "width": "15%", "targets": 6 },
             { "width": "10%", "targets": 7 },
+            { "width": "10%", "targets": 8 },
 
         ],
         "columns": [
@@ -132,7 +133,7 @@ function Inquiry_table(is_clearState=false){
             {data: 'qty', name: 'qty', class: "text-left", orderable: false},
             {data: 'message', name: 'message', class: "text-left multirow", orderable: false},
             {data: 'created_at', name: 'created_at', class: "text-left"},
-            // {data: 'action', name: 'action', orderable: false, searchable: false, class: "text-center"},
+            {data: 'action', name: 'action', orderable: false, searchable: false, class: "text-center"},
         ]
     });
 }

@@ -113,8 +113,7 @@ class FaqController extends Controller
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
                         $action .= '<button id="editFaqBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$Faq->id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                     }
-                    
-                        $action .= '<button id="deleteFaqBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteFaqModal" data-id="' .$Faq->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    $action .= '<button id="deleteFaqBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteFaqModal" data-id="' .$Faq->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     
                     $nestedData['question'] = $Faq->question;
                     $nestedData['answer'] = $Faq->answer;
