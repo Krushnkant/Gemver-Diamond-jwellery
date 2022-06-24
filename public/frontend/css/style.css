@@ -4,6 +4,7 @@
  :root {
     --primary: #0B1727;
     --secondary: #BB9761;
+    --white-secondary: #f0f2e9;
 }
 
 body {
@@ -64,6 +65,10 @@ background-size: cover; */
     width: 100%;
 }
 
+.background-smoke-slider {
+    height: 800px;
+}
+
 .logo-image {
     max-width: 150px;
     z-index: 1;
@@ -71,19 +76,21 @@ background-size: cover; */
 }
 
 .header {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 70px;
+    padding: 40px 70px; */
     z-index: 111;
     transition: all 0.5s ease;
 }
 
 .header.sticky {
+    /* position: fixed;
+    top: 0;
     background: #fff;
     padding: 0 70px;
-    box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
+    box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%); */
 }
 
 .header.sticky ul li a {
@@ -99,7 +106,7 @@ background-size: cover; */
 }
 
 .header.sticky ul li {
-    padding: 28px 40px;
+    padding: 0 40px 20px 40px;
 }
 
 .header.sticky li a svg path {
@@ -108,15 +115,19 @@ background-size: cover; */
 
 .header ul li {
     display: inline-block;
-    padding: 37px 40px;
+    padding: 0 40px 20px 40px;
     position: relative;
+}
+
+.header ul li svg path {
+    fill: var(--primary);
 }
 
 .header ul li a {
     font-size: 17px;
     line-height: 20px;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
+    color: var(--primary);
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -180,7 +191,7 @@ background-size: cover; */
 .header ul li .mega-menu .mega-menu-four-part {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    min-width: 1500px;
+    min-width: 1300px;
     text-align: left;
     padding: 20px;
 }
@@ -259,26 +270,26 @@ background-size: cover; */
     font-weight: 400;
     font-size: 100px;
     line-height: 146px;
-    color: #BB9761;
+    color: var(--primary);
 }
 
 .paragraph {
     font-weight: 500;
     font-size: 30px;
     line-height: 36px;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .explore-ring-btn {
     min-width: 213px;
     min-height: 66px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--primary);
     font-weight: 700;
     font-size: 17px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--primary);
     background: none;
     z-index: 0;
 }
@@ -292,6 +303,11 @@ background-size: cover; */
     position: relative;
 }
 
+.explore-ring-btn:hover {
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
 .btn-hover-effect,
 .btn-hover-effect::after {
     -webkit-transition: all 0.3s;
@@ -302,7 +318,7 @@ background-size: cover; */
 
 .btn-hover-effect::before,
 .btn-hover-effect::after {
-    background: #fff;
+    background: var(--primary) !important;
     content: '';
     position: absolute;
     z-index: -1;
@@ -352,7 +368,7 @@ background-size: cover; */
     font-weight: 400;
     font-size: 77px;
     line-height: 112px;
-    color: #0B1727;
+    color: var(--primary) !important;
     position: relative;
     z-index: 1;
 }
@@ -391,12 +407,14 @@ background-size: cover; */
 .shop_dimond_by_shape {
     padding: 72px;
     position: relative;
-    background: url(../image/black-bg.png) no-repeat;
+    /* background: url(../image/black-bg.png) no-repeat; */
+    background: var(--white-secondary);
     background-size: cover;
 }
 
 .shop_dimond_by_shape .owl-item img {
     margin: auto;
+    border: 1px solid #dfdfdf;
 }
 
 .shop_dimond_by_shape .owl-dots {
@@ -449,7 +467,7 @@ background-size: cover; */
 }
 
 .shop-by-style-slider .owl-dots .owl-dot.active span {
-    background: #BB9761 !important;
+    background: var(--primary) !important;
     opacity: 1;
 }
 
@@ -501,7 +519,7 @@ background-size: cover; */
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     pointer-events: none;
 }
 
@@ -553,7 +571,7 @@ background-size: cover; */
 }
 
 .customer_stories .item {
-    border: 1px solid #BB9761;
+    border: 1px solid var(--secondary);
     border-radius: 70px 0px;
     padding: 70px 50px;
 }
@@ -636,12 +654,12 @@ background-size: cover; */
 
 .engagement_ring_section {
     padding: 72px 72px 150px 72px;
-    background: #0B1727;
+    background: var(--white-secondary);
 }
 
 .engagement_ring_box {
     padding: 50px 50px 150px 50px;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgb(11 23 39 / 3%);
     overflow: hidden;
     height: 100%;
 }
@@ -653,7 +671,7 @@ background-size: cover; */
     text-align: center;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #FFFFFF;
+    color: var(--primary);
     font-family: 'Jost', sans-serif;
 }
 
@@ -663,7 +681,7 @@ background-size: cover; */
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #FFFFFF;
+    color: var(--primary);
     opacity: 0.05;
     pointer-events: none;
 }
@@ -674,7 +692,7 @@ background-size: cover; */
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .customise_own_ring_section {
@@ -690,7 +708,7 @@ background-size: cover; */
     font-size: 27px;
     line-height: 32px;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .diamonds_paragraph {
@@ -698,8 +716,14 @@ background-size: cover; */
     font-size: 17px;
     line-height: 25px;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
+    color: var(--primary);
     font-family: 'Jost', sans-serif;
+}
+
+.gemver_diamods_bg {
+    background: var(--white-secondary);
+    min-height: auto;
+    height: 100%;
 }
 
 .diamonds_part {
@@ -712,7 +736,7 @@ background-size: cover; */
 
 .footer-part-section {
     padding: 72px;
-    background: #0B1727;
+    background: var(--white-secondary);
 }
 
 .footer-part-heading {
@@ -721,7 +745,7 @@ background-size: cover; */
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .footer-paragraph {
@@ -729,7 +753,7 @@ background-size: cover; */
     font-size: 17px;
     line-height: 25px;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
+    color: var(--primary);
     font-family: 'Jost', sans-serif;
 }
 
@@ -738,43 +762,43 @@ background-size: cover; */
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
-    padding: 23px 37px;
+    color: var(--primary);
+    padding: 16px 37px;
     background: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--primary);
 }
 
 .email_input input::placeholder {
-    color: #fff;
+    color: var(--primary);
 }
 
 .submit_btn {
-    padding: 23px 37px;
+    padding: 16px 37px;
     line-height: 20px;
-    border: 1px solid #FFFFFF;
-    min-height: 66px;
+    border: 1px solid var(--primary);
+    min-height: 53px;
     min-width: 147px;
     background: none;
     text-transform: uppercase;
-    font-size: 17px;
-    color: #fff;
+    font-size: 16px;
+    color: var(--primary);
 }
 
 .footer-social-media-icons li {
     display: inline-block;
     width: 51px;
     height: 51px;
-    background: #BB9761;
+    background: var(--primary);
     text-align: center;
     line-height: 47px;
 }
 
 .footer-social-media-icons li {
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .footer-part-section .line {
-    border: 1px #fff solid;
+    border: 1px var(--primary) solid;
     opacity: 0.5;
 }
 
@@ -784,7 +808,7 @@ background-size: cover; */
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .footer-col ul li a {
@@ -793,7 +817,7 @@ background-size: cover; */
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #FFFFFF;
+    color: var(--primary);
 }
 
 .footer-col ul li a:hover {
@@ -813,7 +837,7 @@ background-size: cover; */
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: var(--primary);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -832,7 +856,8 @@ background-size: cover; */
 }
 
 .shop-by-style-slider .engagement_ring_img img {
-    height: 400px;
+    height: 300px;
+    object-fit: cover;
 }
 
 .wire_bangle_color_img_part input {
@@ -879,11 +904,11 @@ background-size: cover; */
 /* --------------------- about-us --------------------------------------- */
 
 .sub_header {
-    background: #0B1727;
+    background: transparent;
 }
 
 .sub_header.header {
-    padding: 0 70px;
+    padding: 0;
 }
 
 .about_us_background {
@@ -912,7 +937,7 @@ background-size: cover; */
 }
 
 .background-sub-slider {
-    margin-top: 100px;
+    margin-top: 0;
 }
 
 .about_us_product {
@@ -2372,7 +2397,7 @@ background-size: cover; */
     right: 30px;
     width: 40px;
     height: 40px;
-    background-color: #BB9761 !important;
+    background-color: var(--primary) !important;
     margin: 0 !important;
 }
 
@@ -2596,6 +2621,7 @@ background-size: cover; */
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .wire_bangle_shop .select-styled:active,
@@ -2938,4 +2964,21 @@ span#amount {
 
 .testimonial-star .star-blank {
     color: var(--primary);
+}
+
+.home-page-slider-header .header-logo {
+    max-width: 130px;
+    cursor: pointer;
+}
+
+.header-icon {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.home-page-bg {
+    padding: 10px 0;
+    border-bottom: 1px #eee solid;
+    background-color: var(--white-secondary);
+    color: var(--primary)
 }

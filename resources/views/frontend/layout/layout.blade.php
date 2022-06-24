@@ -18,6 +18,7 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     
 </head>
@@ -33,7 +34,8 @@ $settings = \App\Models\Settings::first();
 <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/slick.js') }}"></script>        
+<script src="{{ asset('frontend/js/slick.js') }}"></script>   
+<script src="{{ asset('frontend/js/all.min.js') }}"></script>     
 
 </body>
 </html>
