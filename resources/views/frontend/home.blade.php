@@ -309,7 +309,7 @@
         </div>
     </div>
 
-    <div class="gemver_diamonds_section">
+    <div class="gemver_diamonds_section px-0">
         <div class="px-3">
             <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">why gemver diamonds?</h2>
             <div class="customer_stories_paragraph mb-3 mb-md-5 text-center text-md-start">We offer eco-friendly, sustainable gems at budget-friendly rates when <br> creating your own engagement ring & other fine jewelry.</div>

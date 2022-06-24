@@ -124,7 +124,7 @@ background-size: cover; */
 }
 
 .header ul li a {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     color: var(--primary);
@@ -741,7 +741,7 @@ background-size: cover; */
 
 .footer-part-heading {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -750,7 +750,7 @@ background-size: cover; */
 
 .footer-paragraph {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.1em;
     color: var(--primary);
@@ -766,6 +766,7 @@ background-size: cover; */
     padding: 16px 37px;
     background: none;
     border: 1px solid var(--primary);
+    outline: 0;
 }
 
 .email_input input::placeholder {
@@ -804,7 +805,7 @@ background-size: cover; */
 
 .footer-col .footer-heading {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -813,7 +814,7 @@ background-size: cover; */
 
 .footer-col ul li a {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -833,7 +834,7 @@ background-size: cover; */
 .footer-copyright-text a {
     display: inline-block;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1035,7 +1036,7 @@ background-size: cover; */
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3::before {
+.wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item.video-player-btn h3::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -1053,6 +1054,12 @@ background-size: cover; */
     display: flex !important;
     align-items: center;
     justify-content: center;
+    border: 1px #eee solid;
+}
+
+.wire_bangle_page .product_slider_main_item iframe {
+    width: 100%;
+    height: 1000px !important;
 }
 
 .wire_bangle_page .product_slider_main_item img {
@@ -1289,21 +1296,23 @@ background-size: cover; */
     color: #0B1727;
 }
 
-.wire_bangle_color_theme {
+.wire_bangle_color_theme,
+.wire_bangle_color_theme a {
     color: #BB9761;
 }
 
 .select_setting_btn {
-    min-width: 229px;
-    min-height: 66px;
+    min-width: 199px;
+    min-height: 60px;
     border: 1px solid #BB9761;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #BB9761;
     background: none;
+    padding: 0 20px;
 }
 
 .wire_bangle_padding {
@@ -1354,7 +1363,8 @@ background-size: cover; */
     color: #0B1727;
 }
 
-.wire_bangle_accordion .wire_bangle_color_theme {
+.wire_bangle_accordion .wire_bangle_color_theme,
+.wire_bangle_accordion .wire_bangle_color_theme a {
     text-transform: capitalize;
 }
 
@@ -1371,7 +1381,7 @@ background-size: cover; */
 }
 
 .inquiry_now_modal .modal-content {
-    padding: 70px 60px;
+    padding: 20px;
     min-width: 670px;
     overflow-y: auto;
 }
@@ -2522,17 +2532,19 @@ background-size: cover; */
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: var(--secondary);
+    background-color: transparent;
+    color: var(--secondary);
     padding: 8px 15px;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    border: 1px solid rgba(11, 23, 39, 0.1);
 }
 
 .wire_bangle_select .select-styled:active,
 .wire_bangle_select .select-styled.active {
-    background-color: var(--secondary);
+    background-color: transparent;
 }
 
 .wire_bangle_select .select-options {
@@ -2579,15 +2591,15 @@ background-size: cover; */
     content: "";
     width: 0;
     height: 0;
-    border: 7px solid transparent;
-    border-color: #fff transparent transparent transparent;
+    border: 6px solid transparent;
+    border-color: var(--secondary) transparent transparent transparent;
     position: absolute;
     top: 16px;
     right: 10px;
 }
 
 .wire_bangle_select .select-styled:after {
-    border-color: #fff transparent transparent transparent;
+    border-color: var(--secondary) transparent transparent transparent;
 }
 
 .wire_bangle_shop .select-styled:after {
@@ -2837,10 +2849,17 @@ span#amount {
 .step-progressbar .step-img {
     position: absolute;
     left: 50%;
-    top: 15px;
-    width: 50px;
-    height: 50px;
+    top: 0;
+    width: 80px;
+    height: 80px;
     transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.step-progressbar .step-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 .step-progressbar li .step-heading {
@@ -2974,6 +2993,7 @@ span#amount {
 .header-icon {
     font-weight: 700;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .home-page-bg {
@@ -2981,4 +3001,22 @@ span#amount {
     border-bottom: 1px #eee solid;
     background-color: var(--white-secondary);
     color: var(--primary)
+}
+
+.header-loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+.spinner-border {
+    width: 34px;
+    height: 34px;
+    color: var(--secondary);
+}
+
+.inquiry_now_modal_iframe iframe {
+    height: 1000px;
 }

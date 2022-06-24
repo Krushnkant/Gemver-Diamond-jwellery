@@ -504,10 +504,12 @@
     }
     /* --------------------- wire bangle -------------------------------------- */
     .wire_bangle_page .wire_bangle_heading {
-        font-size: 22px;
+        font-size: 19px;
+        line-height: normal;
     }
     .wire_bangle_page .wire_bangle_price {
-        font-size: 28px;
+        font-size: 20px;
+        line-height: normal;
     }
     .wire_bangle_page .wire_bangle_dublicate_price {
         font-size: 15px;
