@@ -1,15 +1,36 @@
-
-        <div class="header @if(Request::route()->getName() != 'frontend.home') sub_header @endif">
-            <div class="row align-items-center">
-                <div class="col-4 col-md-3 col-lg-2 col-xl-3">
-                    <div class="logo-image">
+    <div class="home-page-slider-header @if(Request::route()->getName() != 'frontend.home') sub_header @endif">
+        <div class="home-page-bg">
+                    <div class="container">
+                        <div class="row mt-0 mb-0">
+                            <div class="col-md-4 text-center">
+                                <div class="home-page-header">
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us : 1234567890</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="home-page-header">
+                                    <span class="me-3 header-icon">Special Offers! - Get 50% Off On jewellery</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="home-page-header">
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email : abc@email.com</span>
+                                    <span class="ms-3 header-icon"><i class="fa-solid fa-comment-dots me-2"></i>Chat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row align-items-center position-relative">
+                <div class="col-6 col-lg-12">
+                    <div class="logo-image header-logo mx-lg-auto">
                         <a href="{{ URL('/') }}">
-                        <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
+                            <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
                         </a>
                     </div>
                 </div>
-                <div class="col-8 col-md-9 col-lg-10 col-xl-9 text-center">
-                    <div class="mobile-menu text-end text-md-center">
+                <div class="col-6 col-lg-12 text-center header">
+                    <div class="mobile-menu text-end text-lg-center">
                         <div id="nav-icon1" class="d-block d-lg-none">
                             <span></span>
                             <span></span>

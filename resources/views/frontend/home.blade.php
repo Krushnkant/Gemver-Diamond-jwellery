@@ -26,7 +26,7 @@
                     <div class="background-smoke-slider position-relative ">
                         <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
                         <div class="background-text-part ">
-                            <!-- <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none d-md-block mx-auto "> -->
+                            <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none d-md-block mx-auto ">
                             <h1 class="heading-h1 m-0 mt-md-3 ">{{ $banner->title }}</h1>
                             <div class="paragraph mt-0 mt-md-3 ">
                             {{ $banner->description }}
@@ -316,8 +316,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative ">
-                <div>
-                    <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%">
+                <div class="gemver_diamods_bg">
+                    <!-- <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%"> -->
                     <div class="diamonds_part">
                         <div class="diamonds_heading mb-3">
                             Customize Your Jewelry
@@ -327,18 +327,18 @@
                 </div>
             </div>
             <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative">
-                <div>
+                <div class="gemver_diamods_bg">
                     <img src="{{ asset('frontend/image/smoke-bg-2.png') }}" alt="" width="100%">
                 </div>
             </div>
             <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
-                <div>
+                <div class="gemver_diamods_bg">
                     <img src="{{ asset('frontend/image/smoke-bg-3.png') }}" alt="" width="100%">
                 </div>
             </div>
             <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
-                <div>
-                    <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%">
+                <div class="gemver_diamods_bg">
+                    <!-- <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%"> -->
                     <div class="diamonds_part">
                         <div class="diamonds_heading mb-3">
                             Book Your Virtual Appointment

@@ -550,7 +550,7 @@ background-size: cover; */
 
 .engagement_ring_section {
     padding: 72px 72px 150px 72px;
-    background: #0B1727;
+    background: var(--secondary);
 }
 
 .engagement_ring_box {
@@ -744,6 +744,8 @@ background-size: cover; */
 .footer-logo {
     max-width: 150px;
 }
+
+
 /* --------------------- about-us --------------------------------------- */
 
 .sub_header {
@@ -849,6 +851,8 @@ background-size: cover; */
     text-transform: capitalize;
     color: #FFFFFF;
 }
+
+
 /* ----------------------- wire bangle page ----------------------------------- */
 
 .wire_bangle_page {
@@ -915,6 +919,8 @@ background-size: cover; */
     display: inline-block;
     color: var(--secondary);
 }
+
+
 /* --------------------------------------------------------- */
 
 .wire_bangle_number input[type="number"] {
@@ -1231,6 +1237,8 @@ background-size: cover; */
 .inquiry_now_modal .wire_bangle_input:focus {
     outline: 0;
 }
+
+
 /* ---------------------------- shop page ------------------------------------------ */
 
 .wire_bangle_line {
@@ -1382,6 +1390,8 @@ background-size: cover; */
     opacity: 1;
     left: 25px;
 }
+
+
 /* -------------------------- contact us page ---------------------------------------- */
 
 .contact_us_box {
@@ -1413,7 +1423,7 @@ background-size: cover; */
     position: relative;
 }
 
-.contact-google-map{
+.contact-google-map {
     position: absolute;
     bottom: -6px;
     left: 0;
@@ -1513,6 +1523,8 @@ background-size: cover; */
     color: #BB9761;
     line-height: 50px;
 }
+
+
 /* .round_cut_lab_range_slider [slider] {
     position: relative;
     height: 14px;
@@ -1657,7 +1669,7 @@ background-size: cover; */
     background-color: #eee;
     border-radius: 10px;
     height: 10px;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 .round_cut_lab_diamonds_price .ui-slider-range.ui-widget-header.ui-corner-all {
@@ -1907,6 +1919,8 @@ background-size: cover; */
 .round_cut_lab_checkbox a.showMore.showLess::after {
     content: '- VIEW LESS';
 }
+
+
 /* ---------------------------------------------------------------- */
 
 .sub_heading_text {
@@ -1940,6 +1954,8 @@ background-size: cover; */
 .policy_page_link:hover {
     color: #BB9761;
 }
+
+
 /* ------------------------------------------------------------ */
 
 .spinner-border {
@@ -2027,6 +2043,8 @@ background-size: cover; */
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #BB9761;
 }
+
+
 /* --------------------- blog-page --------------------------------------- */
 
 .blog_tabs .nav-tabs {
