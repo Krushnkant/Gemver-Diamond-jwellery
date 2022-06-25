@@ -224,7 +224,7 @@ class ProductController extends Controller
 
         $html = '';
         $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
-        $html .= '<div class="variation-selection-box row panel-heading active">';
+        $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
         $html .= '<b><span class="VariantCnt">';
@@ -232,7 +232,7 @@ class ProductController extends Controller
         $html .= '</span></b>';
         $html .= '</label>';
         $html .= '</div>';
-        $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
+        $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right d-flex align-items-center justify-content-end"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
         if($term_id != 1){
            $html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"><i class="fa fa-window-close" aria-hidden="true"></i></span>';
         }
