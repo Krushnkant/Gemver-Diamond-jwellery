@@ -25,8 +25,8 @@
                         <div class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
                     </div>
                     <div class="col-sm-7 col-md-6 text-center text-sm-end mb-sm-0 d-sm-flex justify-content-sm-end">
-                        <span class="wire_bangle_select text-start wire_bangle_shop">
-                            <select name="sorting" id="sorting">
+                        <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort">
+                            <select name="sorting" id="sorting" class="">
                                 <option value="">default sorting</option>
                                 <option value="date">Sort by newness</option>
                                 <option value="price">Sort by price: low to high</option>

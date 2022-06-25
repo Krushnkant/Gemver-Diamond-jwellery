@@ -21,16 +21,16 @@
 
     <div class="container">
         <div class="row my-3 my-lg-5 d-flex align-items-start">
-            <div class="col-lg-8 px-0 px-lg-3">
+            <div class="col-lg-9 px-0 px-lg-3">
                 <div class="blog-detail-main-img">
                     <img src="{{ asset($blog->blog_thumb)  }}" alt="{{ $blog->category->category_name }}">
                 </div>
                 <div class="blog-detail-sub-heading mt-2">
                 {{ $blog->category->category_name }}
                 </div>
-                <h5 class="blog-detail-heading mt-3">
+                <div class="blog-detail-heading my-2">
                 {{ $blog->title }}
-                </h5>
+                </div>
                 <div class="blog-detail-img-date d-flex align-items-center">
                     <!-- <span class="blog-detail-img"><img src="{{ asset('frontend/image/icon-1.png') }}" alt=""></span>                   -->
                     <span class="blog-deatil-date">{{ date('d M, Y', strtotime($blog->created_at)) }}</span>
@@ -39,7 +39,7 @@
                     {!! $blog->description !!}
                 </div>
             </div>
-            <div class="col-lg-4 blog-detail-sidebar px-0 px-lg-3">
+            <div class="col-lg-3 blog-detail-sidebar px-0 px-lg-3">
                 <div class="blog-detail-post-heading">
                     Recent Post
                 </div>

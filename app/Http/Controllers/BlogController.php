@@ -54,12 +54,12 @@ class BlogController extends Controller
                                 </span>
                             </div>
                             <div class="blog_box_heading mb-2">
-                                '.$row->title.'
+                               <a href="#"> '.$row->title.'</a>
                             </div>
                             <p class="blog_box_paragraph">
                                 '. $description .'
                             </p>
-                            <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-3 mb-md-0 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
+                            <button class="explore-category-btn mb-3 mb-md-0 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
                         </div>
                     </div>
                 </div>

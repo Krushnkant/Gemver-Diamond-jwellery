@@ -39,7 +39,7 @@ $(document).ready(function() {
                 items: 5
             },
             1800: {
-                items: 10
+                items: 7
             }
         }
     });
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 items: 2
             },
             1200: {
-                items: 4
+                items: 3
             }
         }
     });
@@ -88,6 +88,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         arrows: true,
         nav: false,
+        adaptiveHeight: true,
         fade: false,
         adaptiveHeight: true,
         infinite: false,
