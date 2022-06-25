@@ -480,6 +480,13 @@
     .wire_bangle_edit_box .edit_box {
         font-size: 14px;
     }
+    .wire_diamond_heading {
+        font-size: 16px;
+    }
+    .wire_diamond_pargraph {
+        font-size: 18px;
+        line-height: 30px;
+    }
     /* ---------- step progress bar----------------------- */
     .step-progressbar-side-heading {
         font-size: 16px;
@@ -706,7 +713,7 @@
     .round_cut_lab_diamonds_page .clear_filter_btn {
         font-size: 14px;
     }
-    .round_cut_lab_diamonds_info_heading {
+    .round_cut_lab_diamonds_info_heading a {
         font-size: 14px;
     }
     .round_cut_lab_diamonds_info_main_heading {

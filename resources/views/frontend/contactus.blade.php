@@ -50,7 +50,7 @@
                                 <textarea type="text" rows="8" name="message" id="message" placeholder="your message" class="d-block wire_bangle_input w-100"></textarea>
                                 <div id="message-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
-                            <button type="submit" id="save_newContactBtn" class="send_inquiry_btn w-100 btn-hover-effect btn-hover-effect-black d-flex align-items-center justify-content-center">send 
+                            <button type="submit" id="save_newContactBtn" class="send_inquiry_btn btn-hover-effect btn-hover-effect-black d-flex align-items-center justify-content-center">send 
                             <div class="spinner-border loadericonfa" role="status" style="display:none;">
                                 <span class="visually-hidden">Loading...</span>
                                 </div>

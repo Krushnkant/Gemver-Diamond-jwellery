@@ -64,7 +64,7 @@
                             <ul class="tab-steps--list">
                                 <li class="active" data-step="1">
                                     <div class="step-img">
-                                        <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="">
+                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose diamond
@@ -107,8 +107,12 @@
                         <div class="product_slider_item">
                             <h3><img src="{{ $Diamond->Stone_Img_url }}" alt=""></h3>
                         </div>
+                        <div class="product_slider_item video-player-btn">
+                            <!-- <h3><iframe width="420" height="315" src="https://paldiam.in/Customer/VideoViewer?StoneNo=LA0151"></iframe></h3> -->
+                                <h3><img src="{{ $Diamond->Stone_Img_url }}" alt=""></h3>
+                        </div>
                     </div>
-                      <div class="view_360_btn text-center mt-3">
+                      <!-- <div class="view_360_btn text-center mt-3">
                         <button class="select_setting_btn btn-hover-effect btn-hover-effect-black" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view in 360 degree</button>
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
@@ -118,7 +122,7 @@
                                     </div>
                                 </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">

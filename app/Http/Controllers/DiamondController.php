@@ -157,7 +157,9 @@ class DiamondController extends Controller
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part">
                                 
-                                    <div class="round_cut_lab_diamonds_info_heading mb-2">'.$Diamond->Shape.'</div>
+                                    <div class="round_cut_lab_diamonds_info_heading mb-2">
+                                        <a href="#">'.$Diamond->Shape.'</a>
+                                    </div>
                              
                                 <div class="round_cut_lab_diamonds_info_main_heading mb-2">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">

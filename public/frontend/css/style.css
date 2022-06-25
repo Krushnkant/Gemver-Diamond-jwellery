@@ -22,9 +22,10 @@ li {
     padding: 0;
 }
 
-.container {
+
+/* .container {
     max-width: 1300px;
-}
+} */
 
 img {
     width: 100%;
@@ -282,10 +283,10 @@ background-size: cover; */
 
 .explore-ring-btn {
     min-width: 213px;
-    min-height: 66px;
+    min-height: 63px;
     border: 1px solid var(--primary);
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -366,7 +367,7 @@ background-size: cover; */
 
 .heading-h2 {
     font-weight: 400;
-    font-size: 77px;
+    font-size: 58px;
     line-height: 112px;
     color: var(--primary) !important;
     position: relative;
@@ -375,10 +376,10 @@ background-size: cover; */
 
 .explore-category-btn {
     min-width: 268px;
-    min-height: 66px;
+    min-height: 63px;
     border: 1px solid #0B1727;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -388,13 +389,13 @@ background-size: cover; */
 
 .category-heading {
     font-weight: 500;
-    font-size: 30px;
+    font-size: 22px;
     line-height: 36px;
     letter-spacing: 0.1em;
     color: #FFFFFF;
     position: absolute;
-    bottom: 40px;
-    left: 50px;
+    bottom: 25px;
+    left: 25px;
     z-index: 1;
 }
 
@@ -549,7 +550,7 @@ background-size: cover; */
 
 .customer_stories_paragraph {
     font-weight: 600;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -567,7 +568,7 @@ background-size: cover; */
 }
 
 .customer_stories {
-    padding: 72px;
+    padding: 72px 0;
 }
 
 .customer_stories .item {
@@ -609,7 +610,7 @@ background-size: cover; */
 
 .customer-stories-paragraph {
     font-weight: 600;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -619,7 +620,7 @@ background-size: cover; */
 
 .customer-name {
     font-weight: 500;
-    font-size: 27px;
+    font-size: 20px;
     line-height: 32px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -628,7 +629,7 @@ background-size: cover; */
 
 .customer-country {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -658,7 +659,7 @@ background-size: cover; */
 }
 
 .engagement_ring_box {
-    padding: 50px 50px 150px 50px;
+    padding: 50px 30px 30px 50px;
     background: rgb(11 23 39 / 3%);
     overflow: hidden;
     height: 100%;
@@ -666,7 +667,7 @@ background-size: cover; */
 
 .engagement_ring_paragraph {
     font-weight: 500;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 30px;
     text-align: center;
     letter-spacing: 0.1em;
@@ -688,7 +689,7 @@ background-size: cover; */
 
 .engagement_ring_heading {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -696,7 +697,7 @@ background-size: cover; */
 }
 
 .customise_own_ring_section {
-    padding: 72px;
+    padding: 72px 0;
 }
 
 .gemver_diamonds_section {
@@ -705,15 +706,15 @@ background-size: cover; */
 
 .diamonds_heading {
     font-weight: 700;
-    font-size: 27px;
+    font-size: 20px;
     line-height: 32px;
     letter-spacing: 0.1em;
     color: var(--primary);
 }
 
 .diamonds_paragraph {
-    font-weight: 700;
-    font-size: 17px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.1em;
     color: var(--primary);
@@ -769,6 +770,11 @@ background-size: cover; */
     outline: 0;
 }
 
+.email_input input::placeholder,
+.email_input input {
+    font-size: 16px;
+}
+
 .email_input input::placeholder {
     color: var(--primary);
 }
@@ -814,7 +820,7 @@ background-size: cover; */
 
 .footer-col ul li a {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -834,7 +840,7 @@ background-size: cover; */
 .footer-copyright-text a {
     display: inline-block;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -849,7 +855,7 @@ background-size: cover; */
 }
 
 .diamond-btn {
-    min-width: 312px;
+    min-width: 294px;
 }
 
 .footer-logo {
@@ -1082,7 +1088,7 @@ background-size: cover; */
     font-size: 36px;
     line-height: 43px;
     text-transform: capitalize;
-    color: #BB9761;
+    color: #000;
 }
 
 .wire_bangle_page .wire_bangle_dublicate_price {
@@ -1325,7 +1331,7 @@ background-size: cover; */
 
 .description_heading {
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
     line-height: 34px;
     text-transform: capitalize;
     color: #0B1727;
@@ -1333,7 +1339,7 @@ background-size: cover; */
 
 .description_paragraph {
     font-weight: 400;
-    font-size: 23px;
+    font-size: 20px;
     line-height: 33px;
     text-transform: capitalize;
     color: #0B1727;
@@ -1344,12 +1350,12 @@ background-size: cover; */
     background-color: transparent;
     box-shadow: none !important;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 26px;
     text-transform: capitalize;
     color: #0B1727;
     border: 1px solid rgba(11, 23, 39, 0.1);
-    padding: 34px;
+    padding: 20px 30px;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
@@ -1357,7 +1363,7 @@ background-size: cover; */
 
 .wire_bangle_accordion .wire_bangle_share {
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 23px;
     text-transform: uppercase;
     color: #0B1727;
@@ -1382,8 +1388,12 @@ background-size: cover; */
 
 .inquiry_now_modal .modal-content {
     padding: 20px;
-    min-width: 670px;
+    min-width: 800px;
     overflow-y: auto;
+}
+
+.modal-dialog-centered {
+    justify-content: center;
 }
 
 .inquiry_now_modal .product_heading {
@@ -1396,11 +1406,11 @@ background-size: cover; */
 }
 
 .inquiry_now_modal .wire_bangle_input {
-    min-height: 66px;
+    min-height: 40px;
     border: 1px solid rgba(11, 23, 39, 0.1);
-    padding: 23px 37px;
+    padding: 17px 21px;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: lowercase;
@@ -1410,18 +1420,24 @@ background-size: cover; */
 }
 
 .inquiry_now_modal .send_inquiry_btn {
-    padding: 23px 37px;
+    padding: 15px 32px;
     gap: 10px;
-    width: 548px;
-    height: 66px;
+    width: 200px;
+    height: 51px;
     border: 1px solid #BB9761;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #BB9761;
     background: none;
+    transition: all 0.5s ease;
+}
+
+.inquiry_now_modal .send_inquiry_btn:hover {
+    background-color: #BB9761;
+    color: #fff;
 }
 
 .inquiry_now_modal .wire_bangle_input:focus {
@@ -1501,10 +1517,10 @@ background-size: cover; */
 
 .wire_bangle_sub_heading {
     font-weight: 300;
-    font-size: 25px;
+    font-size: 21px;
     line-height: 30px;
     text-transform: capitalize;
-    min-height: 60px;
+    min-height: auto;
     color: #0B1727;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1514,11 +1530,11 @@ background-size: cover; */
 
 .wire_bangle_paragraph {
     font-family: 'Jost', sans-serif;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
     font-weight: 400;
     min-height: 52px;
     font-size: 18px;
@@ -1529,7 +1545,7 @@ background-size: cover; */
 
 .wire_bangle_price {
     font-weight: 300;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 38px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2042,7 +2058,7 @@ background-size: cover; */
     color: #BB9761;
 }
 
-.round_cut_lab_diamonds_info_heading {
+.round_cut_lab_diamonds_info_heading a {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -2318,7 +2334,7 @@ background-size: cover; */
 }
 
 .blg_box_description .blog-icon-img {
-    max-width: 22px;
+    max-width: 16px;
 }
 
 .blog_box .blog_box_img img {
@@ -2352,13 +2368,18 @@ background-size: cover; */
     font-size: 20px;
 }
 
-.blg_box_description .blog_box_heading {
+.blg_box_description .blog_box_date {
+    font-size: 16px;
+    color: gray;
+}
+
+.blg_box_description .blog_box_heading a {
     font-size: 20px;
     color: var(--secondary);
     font-weight: 700;
-    min-height: 30px;
+    min-height: 60px;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -2366,7 +2387,7 @@ background-size: cover; */
 .blg_box_description .blog_box_paragraph {
     font-size: 16px;
     color: var(--primary);
-    font-weight: 700;
+    font-weight: 500;
     min-height: 48px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -2375,11 +2396,12 @@ background-size: cover; */
 }
 
 .blg_box_description .read_more_btn {
-    min-width: 178px;
-    min-height: 52px;
+    min-width: auto;
+    min-height: auto;
     font-size: 16px;
-    border: 1px solid var(--secondary);
+    border: 0;
     color: var(--secondary);
+    padding: 0;
 }
 
 .blog_filter_btn {
@@ -2409,6 +2431,12 @@ background-size: cover; */
     height: 40px;
     background-color: var(--primary) !important;
     margin: 0 !important;
+    transition: all 0.5s ease;
+}
+
+.home-page-slider .owl-next:hover,
+.home-page-slider .owl-prev:hover {
+    background-color: var(--secondary) !important;
 }
 
 .home-page-slider .owl-nav {
@@ -2533,7 +2561,7 @@ background-size: cover; */
     bottom: 0;
     left: 0;
     background-color: transparent;
-    color: var(--secondary);
+    color: #000;
     padding: 8px 15px;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
@@ -2599,7 +2627,7 @@ background-size: cover; */
 }
 
 .wire_bangle_select .select-styled:after {
-    border-color: var(--secondary) transparent transparent transparent;
+    border-color: #000 transparent transparent transparent;
 }
 
 .wire_bangle_shop .select-styled:after {
@@ -2635,6 +2663,11 @@ background-size: cover; */
     text-transform: capitalize;
     text-align: center;
 }
+
+
+/* .wire_bangle_select_box_sort .select-styled {
+    border: 0;
+} */
 
 .wire_bangle_shop .select-styled:active,
 .wire_bangle_shop .select-styled.active {
@@ -2677,7 +2710,7 @@ span#amount {
 }
 
 .blog-detail-heading {
-    font-size: 40px;
+    font-size: 20px;
     color: var(--secondary);
 }
 
@@ -2694,7 +2727,8 @@ span#amount {
 
 .blog-detail-paragraph a {
     font-weight: 500;
-    color: var(--secondary);
+    color: #000;
+    font-size: 15px;
 }
 
 .blog-detail-sidebar {
@@ -2860,6 +2894,7 @@ span#amount {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .step-progressbar li .step-heading {
@@ -3019,4 +3054,18 @@ span#amount {
 
 .inquiry_now_modal_iframe iframe {
     height: 1000px;
+}
+
+.wire_diamond_heading {
+    color: #BB9761;
+    font-size: 19px;
+}
+
+.wire_diamond_pargraph {
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.btn-close:focus {
+    box-shadow: none;
 }
