@@ -102,8 +102,8 @@
                         <div class="product_slider_main_item">
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">
                         </div>
-                        <div class="product_slider_main_item">
-                            <iframe width="420" height="315" src="https://paldiam.in/Customer/VideoViewer?StoneNo=LA0151"></iframe>
+                        <div class="product_slider_main_item video-player-btn-item">
+                            <iframe src="https://paldiam.in/Customer/VideoViewer?StoneNo=LA0151"></iframe>
                         </div>
                     </div>
                     <div class="slider slider-nav">

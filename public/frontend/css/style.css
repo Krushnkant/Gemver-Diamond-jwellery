@@ -1058,9 +1058,12 @@ background-size: cover; */
 .wire_bangle_page .product_slider_main_item {
     height: 400px;
     display: flex !important;
-    align-items: center;
     justify-content: center;
     border: 1px #eee solid;
+}
+
+.wire_bangle_page .video-player-btn-item {
+    height: 722px;
 }
 
 .wire_bangle_page .product_slider_main_item iframe {
@@ -1188,7 +1191,7 @@ background-size: cover; */
 .inquiry_now_btn button {
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1363,7 +1366,7 @@ background-size: cover; */
 
 .wire_bangle_accordion .wire_bangle_share {
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 23px;
     text-transform: uppercase;
     color: #0B1727;
@@ -1509,7 +1512,7 @@ background-size: cover; */
 
 .wire_bangle_heading {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
     text-transform: uppercase;
     color: #BB9761;
@@ -1517,7 +1520,7 @@ background-size: cover; */
 
 .wire_bangle_sub_heading {
     font-weight: 300;
-    font-size: 21px;
+    font-size: 20px;
     line-height: 30px;
     text-transform: capitalize;
     min-height: auto;
@@ -1530,14 +1533,14 @@ background-size: cover; */
 
 .wire_bangle_paragraph {
     font-family: 'Jost', sans-serif;
-    /* overflow: hidden; */
-    /* text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; */
+    -webkit-box-orient: vertical;
     font-weight: 400;
     min-height: 52px;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 26px;
     text-transform: capitalize;
     color: #0B1727;
@@ -1545,7 +1548,7 @@ background-size: cover; */
 
 .wire_bangle_price {
     font-weight: 300;
-    font-size: 26px;
+    font-size: 23px;
     line-height: 38px;
     text-transform: capitalize;
     color: #0B1727;
@@ -1701,7 +1704,7 @@ background-size: cover; */
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 24px;
     text-transform: uppercase;
     color: #BB9761;
@@ -1974,7 +1977,7 @@ background-size: cover; */
     position: relative;
     cursor: pointer;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     text-transform: uppercase;
     color: var(--primary);
@@ -1992,18 +1995,18 @@ background-size: cover; */
     vertical-align: middle;
     cursor: pointer;
     margin-right: 10px;
-    width: 27px;
-    height: 27px;
+    width: 23px;
+    height: 23px;
 }
 
 .round_cut_lab_range_slider .form-group input+label:after {
     content: '';
     display: block;
     position: absolute;
-    top: 5px;
-    left: 11px;
-    width: 6px;
-    height: 14px;
+    top: 6px;
+    left: 9px;
+    width: 5px;
+    height: 13px;
     border: solid var(--primary);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
@@ -2051,7 +2054,7 @@ background-size: cover; */
 
 .round_cut_lab_diamonds_page .clear_filter_btn {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2069,7 +2072,7 @@ background-size: cover; */
 
 .round_cut_lab_diamonds_info_main_heading {
     font-weight: 300;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 28px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2086,7 +2089,7 @@ background-size: cover; */
 
 .round_cut_lab_diamonds_info_price {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 19px;
     line-height: 32px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2568,6 +2571,7 @@ background-size: cover; */
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     border: 1px solid rgba(11, 23, 39, 0.1);
+    font-size: 15px;
 }
 
 .wire_bangle_select .select-styled:active,
@@ -2770,7 +2774,7 @@ span#amount {
 
 .step-progressbar-side-heading {
     font-weight: 400;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 23px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2900,14 +2904,14 @@ span#amount {
 .step-progressbar li .step-heading {
     color: var(--primary);
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 23px;
     text-transform: capitalize;
 }
 
 .step-progressbar .step-heading-link {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
     text-transform: capitalize;
     text-decoration-line: underline;
