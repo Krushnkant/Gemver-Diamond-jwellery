@@ -47,7 +47,7 @@ class ContactUsController extends Controller
                 ]; 
                 $templateName = 'email.mailData';
                 $mail_sending = Helpers::MailSending($templateName, $data2, $contact->email, $contact->subject);
-                $mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $contact->subject);
+                //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $contact->subject);
                 return response()->json(['status' => '200']); 
             }
         }
@@ -74,18 +74,18 @@ class ContactUsController extends Controller
             }
             if($inquiry != null){
                
-                $data1 = [
-                    'SKU' => $data['SKU'],
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'mobile_no' => $data['mobile_no'],
-                    'message1' => $inquiry->inquiry
-                ];
+                // $data1 = [
+                //     'SKU' => $data['SKU'],
+                //     'name' => $data['name'],
+                //     'email' => $data['email'],
+                //     'mobile_no' => $data['mobile_no'],
+                //     'message1' => $inquiry->inquiry
+                // ];
                 
-                $data2 = [
-                    'message1' => 'Thank You For Product Inquiry'
-                ]; 
-                $templateName = 'email.mailData';
+                // $data2 = [
+                //     'message1' => 'Thank You For Product Inquiry'
+                // ]; 
+                // $templateName = 'email.mailData';
                 //$mail_sending = Helpers::MailSending($templateName, $data2, $inquiry->email, $inquiry->subject);
                 //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
                 return response()->json(['status' => '200']); 

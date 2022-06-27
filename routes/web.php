@@ -71,8 +71,9 @@ Route::get('/diamond-setting/{id}/edit',[DiamondController::class,'editdiamondse
 
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 
-
-
+Route::get('/lad-diamond/{shap}',[DiamondController::class,'laddiamond']);
+Route::post('/alllad-diamond',[DiamondController::class,'getLadDiamonds']);
+Route::get('/laddiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
 
 //Admin  Rpute
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');

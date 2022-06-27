@@ -5,14 +5,14 @@
             <div class="position-relative">
                 <img src="{{ asset('frontend/image/about_us.png') }}" alt="">
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</div>
+                    <div class="sub_heading mb-lg-3"> Lad Diamond</div>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
                             <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
                             <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
                         </svg>
-                        <a href="#">{{ $Category->category_name }} setting</a>
+                        <a href="#">Lad Diamond </a>
                     </div>
                 </div>
             </div>
@@ -21,85 +21,6 @@
     </div>
 
     <div class="container round_cut_lab_diamonds_page">
-        <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
-            Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
-        </div>
-        <div class="row mt-lg-5 pt-lg-5 mt-3 align-items-center step-progressbar-row">
-            <div class="col-lg-2 text-center text-lg-start">
-                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
-            </div>
-            <div class="col-lg-10">
-                <div class="flex-container step-progressbar">
-                    <div class="flex-row text-center">
-                        <div class="flex-col-xs-12">
-                            @if($check_variant == 1)
-                            <ul class="tab-steps--list">
-                               
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <span><a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <!-- <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span> -->
-                                </li>
-
-                                <li class="active" data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                </li>
-                                
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @else
-                            <ul class="tab-steps--list">
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                </li>
-                                <li  data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <a href="{{ url('/product-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
-                                </li>
-                                
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <div class="wire_bangle_line mt-4 mt-md-5"></div>
         <div class="row align-items-center d-flex justify-content-center">
             <div class="col-sm-5 col-md-6">
@@ -130,42 +51,42 @@
                     <div class="round_cut_lab_diamonds_heading mb-4">shape</div>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                         <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" id="flexRadioDefault12">
+                            <input class="form-check-input shape common_selector" value="round" type="checkbox" <?php if($shap == 'round'){ echo 'checked'; } ?> name="shape[]" id="flexRadioDefault12">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault12">
                                 round
                             </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                         <img src="{{ url('frontend/image/diamod_shape_2.png') }}" alt="" class="shape_img ms-4">
-                                <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" id="flexRadioDefault13">
+                                <input class="form-check-input shape common_selector" value="oval" <?php if($shap == 'oval'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault13">
                                 <label class="form-check-label round_cut_lab_label" for="flexRadioDefault13">
                                     oval
                                 </label>
                             </span>
                     <span class="form-check position-relative  ps-0 mb-2 pb-1 pb-2">
                         <img src="{{ url('frontend/image/diamod_shape_3.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" id="flexRadioDefault14">
+                            <input class="form-check-input shape common_selector" value="emerald" <?php if($shap == 'emerald'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault14">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault14">
                                 emerald
                             </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                         <img src="{{ url('frontend/image/diamod_shape_4.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]" id="flexRadioDefault15">
+                            <input class="form-check-input shape common_selector" value="princess" <?php if($shap == 'princess'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault15">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault15">
                                 princess
                         </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/diamod_shape_5.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="cushion" type="checkbox" name="shape[]" id="flexRadioDefault16">
+                            <input class="form-check-input shape common_selector" value="cushion" <?php if($shap == 'cushion'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault16">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault16">
                                 cushion
                         </label>
                     </span>
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/diamod_shape_6.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]" id="flexRadioDefault17">
+                            <input class="form-check-input shape common_selector" value="marquise" <?php if($shap == 'marquise'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault17">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault17">
                                 marquise
                         </label>
@@ -173,7 +94,7 @@
 
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/diamod_shape_7.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]" id="flexRadioDefault170">
+                            <input class="form-check-input shape common_selector" value="pear"  <?php if($shap == 'pear'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault170">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault170">
                                 pear
                         </label>
@@ -181,7 +102,7 @@
 
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/diamod_shape_8.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" id="flexRadioDefault171">
+                            <input class="form-check-input shape common_selector" value="heart" <?php if($shap == 'heart'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault171">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault171">
                             heart
                         </label>
@@ -189,7 +110,7 @@
 
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/asscher.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" id="flexRadioDefault172">
+                            <input class="form-check-input shape common_selector" value="asscher" <?php if($shap == 'asscher'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault172">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault172">
                             asscher
                         </label>
@@ -197,7 +118,7 @@
 
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                     <img src="{{ url('frontend/image/radiant.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" id="flexRadioDefault173">
+                            <input class="form-check-input shape common_selector" <?php if($shap == 'radiant'){ echo 'checked'; } ?> value="radiant" type="checkbox" name="shape[]" id="flexRadioDefault173">
                             <label class="form-check-label round_cut_lab_label" for="flexRadioDefault173">
                             radiant
                         </label>
@@ -342,7 +263,7 @@
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
                         <path d="M9.09 0L5.5 3.59L1.91 0L0.5 1.41L4.09 5L0.5 8.59L1.91 10L5.5 6.41L9.09 10L10.5 8.59L6.91 5L10.5 1.41L9.09 0Z" fill="#BB9761"/>
                         </svg> -->
-                    <span class="ms-3 clear_filter_btn">clear filter</span>
+                    <span style="display:none;" class="ms-3 clear_filter_btn">clear filter</span>
                 </div>
                 <!-- <div class="text-center text-lg-start">
                     <button class="round_cut_lab_diamonds_filter_btn  btn-hover-effect btn-hover-effect-black mt-3">
@@ -421,7 +342,6 @@
             {
                 $('.filter_data').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
-                var catid  = '{{ $CatId }}';
                 var minimum_price = $('#hidden_minimum_price').val();
                 var maximum_price = $('#hidden_maximum_price').val();
                 var shape = get_filter('shape');
@@ -434,9 +354,9 @@
                 var maximum_carat = $('#hidden_maximum_carat').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
-                    url: ENDPOINT + "/diamonds?page=" + page,
+                    url: ENDPOINT + "/alllad-diamond?page=" + page,
                     method:"POST",
-                    data:{action:action,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,report:report,_token: '{{ csrf_token() }}'},
+                    data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,report:report,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },

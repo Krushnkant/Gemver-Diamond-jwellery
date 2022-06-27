@@ -124,7 +124,7 @@
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block mb-3 wire_bangle_input">
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                        </div>
+                                            </div>
                                         </div>
  
                                         <button class="send_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
@@ -238,7 +238,7 @@
         </div>
 
         <div class="gemver_diamonds_section p-0" id="spe_desc">
-        
+          
         </div>
     </div>
 
@@ -248,6 +248,8 @@ $(document).ready(function(){
     $("#sorting").change(function() {
         filter_data();
     });
+
+
     
     function filter_data()
     {
@@ -404,7 +406,19 @@ $(document).ready(function(){
 
 
 <script type="text/javascript">
-$( document ).ready(function() {  
+$( document ).ready(function() {
+    
+// $('body').on('click', '.save_newInquiryBtn', function () {
+//     $(this).find('.specReq').each(function() {
+//         var thi = $(this);
+//         var this_err = $(thi).attr('name') + "-error";
+//         if($(thi).val()=="" || $(thi).val()==null) {
+//             $(this_form).find("#"+this_err).html("Please select any value");
+//             $(this_form).find("#"+this_err).show();
+//             valid = false;
+//         }
+//     })
+// });    
       
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');

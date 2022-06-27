@@ -98,7 +98,29 @@ class DiamondController extends Controller
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
-                    $Diamond_image = url('frontend/image/edit_box_2.png');
+                    if($Diamond->Shape == strtoupper('round')){
+                        $Diamond_image = url('frontend/image/diamod_shape_1.png');    
+                    }elseif($Diamond->Shape == strtoupper('oval')){
+                        $Diamond_image = url('frontend/image/diamod_shape_2.png');
+                    }elseif($Diamond->Shape == strtoupper('emerald')){
+                        $Diamond_image = url('frontend/image/diamod_shape_3.png');
+                    }elseif($Diamond->Shape == strtoupper('princess')){
+                        $Diamond_image = url('frontend/image/diamod_shape_4.png');
+                    }elseif($Diamond->Shape == strtoupper('cushion')){
+                        $Diamond_image = url('frontend/image/diamod_shape_5.png');
+                    }elseif($Diamond->Shape == strtoupper('marquise')){
+                        $Diamond_image = url('frontend/image/diamod_shape_6.png');
+                    }elseif($Diamond->Shape == strtoupper('pear')){
+                        $Diamond_image = url('frontend/image/diamod_shape_7.png');
+                    }elseif($Diamond->Shape == strtoupper('HEART')){
+                        $Diamond_image = url('frontend/image/diamod_shape_8.png');
+                    }elseif($Diamond->Shape == strtoupper('asscher')){
+                        $Diamond_image = url('frontend/image/asscher.png');
+                    }elseif($Diamond->Shape == strtoupper('radiant')){
+                        $Diamond_image = url('frontend/image/radiant.png');
+                    }else{
+                        $Diamond_image = url('frontend/image/edit_box_2.png');
+                    }
                 }
                 $artilces.='
                 <div class="col-md-6 col-lg-4 mb-4">
@@ -158,7 +180,7 @@ class DiamondController extends Controller
                             <div class="mt-4 round_cut_lab_diamonds_layer_part">
                                 
                                     <div class="round_cut_lab_diamonds_info_heading mb-2">
-                                        <a href="#">'.$Diamond->Shape.'</a>
+                                        <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                     </div>
                              
                                 <div class="round_cut_lab_diamonds_info_main_heading mb-2">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</div>
@@ -370,9 +392,175 @@ class DiamondController extends Controller
         return redirect('/diamond-setting/'.$catid);
     }
 
+    public function laddiamond($shap = "")
+    {
+        $Maxprice = Diamond::max('Sale_Amt');
+        return view('frontend.laddiamond',compact('shap','Maxprice'));
+    }
 
+    public function getLadDiamonds(Request $request)
+    {
+        $data = $request->all();
+        $query = Diamond::where('estatus',1);
+        if($data["minimum_price"] && $data["maximum_price"]){
+            $query = $query->where('Sale_Amt','>=',$data["minimum_price"]);
+            $query = $query->where('Sale_Amt','<=',$data["maximum_price"]);
+        }
+
+        if($data["minimum_carat"] && $data["maximum_carat"]){
+            $query = $query->where('Weight','>=',$data["minimum_carat"]);
+            $query = $query->where('Weight','<=',$data["maximum_carat"]);
+        }
+
+        if(isset($data["color"])){
+            $colors = $data["color"];
+            $query = $query->whereIn('Color',$colors);
+        }
+
+        if(isset($data["shape"])){
+            $shapes = $data["shape"];
+            $query = $query->whereIn('Shape',$shapes);
+        }
+
+        if(isset($data["clarity"])){
+            $clarities = $data["clarity"];
+            $query = $query->whereIn('Clarity',$clarities);
+        }
+
+        if(isset($data["cut"])){
+            $cuts = $data["cut"];
+            $query = $query->whereIn('Cut',$cuts);
+        }
+        if(isset($data["report"])){
+            $reports = $data["report"];
+            $query = $query->whereIn('Lab',$reports);
+        }
+        
+        if($data["sorting"] == "price")
+        {
+            $results = $query->orderBy('Sale_Amt','asc')->paginate(18); 
+        }
+        elseif($data["sorting"]=="price-desc"){
+            $results = $query->orderBy('Sale_Amt','desc')->paginate(18); 
+        }else{
+            $results  = $query->paginate(18);
+        }
+
+        $artilces = '';
+        if ($request->ajax()) {
+            foreach ($results as $Diamond) {
+                $url =  URL('/laddiamond-details/'.$Diamond->id);
+                if($Diamond->Stone_Img_url != ""){
+                    $Diamond_image = $Diamond->Stone_Img_url;
+                }else{
+                    if($Diamond->Shape == strtoupper('round')){
+                        $Diamond_image = url('frontend/image/diamod_shape_1.png');    
+                    }elseif($Diamond->Shape == strtoupper('oval')){
+                        $Diamond_image = url('frontend/image/diamod_shape_2.png');
+                    }elseif($Diamond->Shape == strtoupper('emerald')){
+                        $Diamond_image = url('frontend/image/diamod_shape_3.png');
+                    }elseif($Diamond->Shape == strtoupper('princess')){
+                        $Diamond_image = url('frontend/image/diamod_shape_4.png');
+                    }elseif($Diamond->Shape == strtoupper('cushion')){
+                        $Diamond_image = url('frontend/image/diamod_shape_5.png');
+                    }elseif($Diamond->Shape == strtoupper('marquise')){
+                        $Diamond_image = url('frontend/image/diamod_shape_6.png');
+                    }elseif($Diamond->Shape == strtoupper('pear')){
+                        $Diamond_image = url('frontend/image/diamod_shape_7.png');
+                    }elseif($Diamond->Shape == strtoupper('HEART')){
+                        $Diamond_image = url('frontend/image/diamod_shape_8.png');
+                    }elseif($Diamond->Shape == strtoupper('asscher')){
+                        $Diamond_image = url('frontend/image/asscher.png');
+                    }elseif($Diamond->Shape == strtoupper('radiant')){
+                        $Diamond_image = url('frontend/image/radiant.png');
+                    }else{
+                        $Diamond_image = url('frontend/image/edit_box_2.png');
+                    }
+                }
+                $artilces.='
+                <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="round_cut_lab_diamonds_box hover_on_mask">
+                            <div class="round_cut_lab_diamonds_img">
+                                <img src="'.$Diamond_image .'" alt="">
+                                <a href="'.$url.'">
+                                <div class="round_cut_lab_diamonds_layer">
+                                    <ul>
+                                        <li>
+                                            <span>LOT :</span>
+                                            <span>'. $Diamond->Stone_No .' </span>
+                                        </li>
+                                        <li>
+                                            <span>CARATE  :</span>
+                                            <span>'. $Diamond->Weight .' </span>
+                                        </li>
+                                        <li>
+                                            <span>SHAPE :</span>
+                                            <span>'. $Diamond->Shape .' </span>
+                                        </li>
+                                       
+                                        <li>
+                                            <span>COLOR  :</span>
+                                            <span>'. $Diamond->Color .' </span>
+                                        </li>
+                                        <li>
+                                            <span> CLARITY :</span>
+                                            <span>'. $Diamond->Clarity .' </span>
+                                        </li>
+                                        <li>
+                                            <span> CUT  :</span>
+                                            <span>'. $Diamond->Cut .' </span>
+                                        </li>
+                                        <li>
+                                            <span> POLISH  :</span>
+                                            <span>'. $Diamond->Polish .' </span>
+                                        </li>
+                                        <li>
+                                            <span> SYMMETRY  :</span>
+                                            <span>'. $Diamond->Symm .' </span>
+                                        </li>
+                                        
+                                        <li>
+                                            <span> MEASUREMENT   :</span>
+                                            <span>'. $Diamond->Measurement .' </span>
+                                        </li>
+                                        <li>
+                                            <span> LAB   :</span>
+                                            <span>'. $Diamond->Lab .' </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </a>
+                            </div>
+
+                            <div class="mt-4 round_cut_lab_diamonds_layer_part">
+                                <div class="round_cut_lab_diamonds_info_heading mb-2">
+                                    <a href="'.$url.'">'.$Diamond->Shape.'</a>
+                                </div>
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-2">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</div>
+                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                                    <span>'. $Diamond->Clarity .' |</span>
+                                    <span>'. $Diamond->Color .'</span>
+                                </div>
+                                <div class="round_cut_lab_diamonds_info_price">
+                                    $'. $Diamond->Sale_Amt .'
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
+            }
+        }
+
+        $TotalDiamond = Diamond::get();
+        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']];   
+        return $data;
+      
+    }
+
+    public function getLadDiamondDetails($id){
      
-
-
+        $Category = Category::where(['estatus' => 1])->limit(3)->get();
+        $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
+        return view('frontend.laddiamond_details',compact('Diamond','Category'));
+    }
 
 }
