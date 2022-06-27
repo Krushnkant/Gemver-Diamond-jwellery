@@ -2,6 +2,6 @@
 
 return [
 	"abc" => "abc",
-	'from_email' => 'poojawebvedant@gmail.com',
-	'from_name' => 'pooja web vedant'
+	'from_email' => 'gemver@matoresell.com',
+	'from_name' => 'web vedant'
 ];

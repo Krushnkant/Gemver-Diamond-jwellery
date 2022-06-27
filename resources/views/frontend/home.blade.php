@@ -88,75 +88,36 @@
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/round') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/oval') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-2.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/princess') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-3.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/cushion') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-4.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/marquise') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-5.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lad-diamond/pear') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-6.png') }}" alt="">
                         </a>
                     </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-2.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-3.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-4.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-5.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-6.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
-                        </a>
-                    </div>
+                   
                 </div>
             </div>
         </div>

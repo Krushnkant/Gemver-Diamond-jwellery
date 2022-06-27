@@ -40,7 +40,7 @@
                                 </li>
                                 <li class="active" data-step="2">
                                     <div class="step-img">
-                                        <img src="{{ url('frontend/image/edit_box_2.png') }}" alt="choose diamond">
+                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="choose diamond">
                                     </div>
                                     <div class="step-heading mt-2">
                                         choose diamond

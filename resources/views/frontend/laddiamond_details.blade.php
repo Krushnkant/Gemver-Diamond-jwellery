@@ -5,14 +5,14 @@
             <div class="position-relative">
                 <img src="{{ asset('frontend/image/about_us.png') }}" alt="">
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</div>
+                    <div class="sub_heading mb-lg-3">Diamond Details</div>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
                             <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
                             <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
                         </svg>
-                        <a href="#">{{ $Category->category_name }} setting</a>
+                        <a href="#">Diamond Details</a>
                     </div>
                 </div>
             </div>
@@ -21,80 +21,7 @@
     </div>
 
     <div class="wire_bangle_page container">
-        <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
-            <div class="col-lg-2 text-center text-lg-start">
-                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
-            </div>
-            <div class="col-lg-10">
-                <div class="flex-container step-progressbar">
-                    <div class="flex-row text-center">
-                        <div class="flex-col-xs-12">
-                        @if($check_variant == 1)
-                            <ul class="tab-steps--list">
-                            
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <span><a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                </li>
-
-                                <li class="active" data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                </li>
-                                
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @else
-                            <ul class="tab-steps--list">
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                </li>
-                                <li  data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <a href="{{ url('/product-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
-                                </li>
-                                
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-6 wire_bangle_padding mb-4">
                 <div class="">
@@ -141,7 +68,7 @@
                             </span>
 
                         </div>
-                        <form action="" class="mb-4 mb-lg-5">
+                    
                             <div class="wire_bangle_share mb-4 mb-xxl-5">
                                 <div class="row">
                                     <div class="col-xl-6 ps-md-0">
@@ -187,8 +114,81 @@
                                 </div>
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
-                            <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>
-                        </form>
+                            <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="mb-xxl-5 mb-xl-4 mb-3 product_heading">Diamond inquiry</div>
+                                        <div class="alert alert-success" id="success-alert" style="display: none;">
+                                          
+                                        </div>
+                                        <div class="row">
+                                        <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Amount :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Sale_Amt }}</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Stone No :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Stone_No }}</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Shape :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Shape }}</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Weight :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Weight }}</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Color :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Color }}</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                                <span class="wire_bangle_color_heading  d-inline-block">Clarity :</span>
+                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Clarity }}</span>
+                                            </div>
+                                        </div>
+                                        <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                        @csrf
+            
+                                        <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
+                                        
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block mb-3 wire_bangle_input">
+                                                <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block mb-3 wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block mb-3 wire_bangle_input">
+                                                <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block mb-3 wire_bangle_input">
+                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                            </div>
+                                            </div>  
+                                            <button class="send_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
+                                            <div class="spinner-border loadericonfa" role="status" style="display:none;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                           </button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+                           
+                            <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                            @foreach($Category as $cat)
+                            
+                            <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mt-1 save_addToCart">add to {{ $cat->category_name }}</button>
+
+                            @endforeach
+                       
                     </div>
                 </div>
             </div>
@@ -215,10 +215,6 @@
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
-
-                           
-                            
-                            
                             <div class="col-md-6 px-0">
                                 <div class="mt-4 wire_bangle_share">
                                     carat weight &nbsp;:&nbsp;
@@ -247,19 +243,20 @@
         </div>
     </div>
 
+
 <script type="text/javascript">
 $( document ).ready(function() {    
-$('body').on('click', '#save_newProductBtn', function () {
-    save_cart($(this),'save_new');
+$('body').on('click', '.save_addToCart', function () {
+    var category_id = $(this).attr("data-id");
+    save_cart($(this),category_id);
 });
 
-function save_cart(btn,btn_type){
+function save_cart(btn,category_id){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
-
+   
     var diamond_id = $('#diamond_id').val();
     var ip_address = '{{ \Request::ip(); }}';
-    var category_id = '{{ $Category->id }}';
     
     $.ajax({
         type: 'POST',
@@ -272,13 +269,7 @@ function save_cart(btn,btn_type){
                 $(btn).find('.loadericonfa').hide();    
             }
             if(res.status == 200){
-                var check_variant = '{{ $check_variant }}';
-                if(check_variant == 0){
-                    $url = "{{ url('product-setting') }}" +'/' + category_id
-                }else{
-                    $url = "{{ url('product_complete') }}" +'/' + category_id
-                }
-                
+                $url = "{{ url('product-setting') }}" +'/' + category_id
                 window.location = $url;
             }
         },
@@ -289,6 +280,80 @@ function save_cart(btn,btn_type){
         }
     });
 }
+
+
+$('body').on('click', '#save_newInquiryBtn', function () {
+    save_inquiry($(this),'save_new');
+});
+
+function save_inquiry(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#InquiryCreateForm")[0]);
+    
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.inquiry.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+           
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+
+                if (res.errors.name) {
+                    $('#name-error').show().text(res.errors.name);
+                } else {
+                    $('#name-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#email-error').show().text(res.errors.email);
+                } else {
+                    $('#email-error').hide();
+                }
+
+                if (res.errors.mobile_no) {
+                    $('#mobile_no-error').show().text(res.errors.mobile_no);
+                } else {
+                    $('#mobile_no-error').hide();
+                }
+                if (res.errors.inquiry) {
+                    $('#inquiry-error').show().text(res.errors.inquiry);
+                } else {
+                    $('#inquiry-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#inquiry-error').hide();
+                $('#mobile_no-error').hide();
+                $('#email-error').hide();
+                $('#name-error').hide();
+                document.getElementById("InquiryCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Diamond Inquiry';
+                $('#success-alert').text(success_message);
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                  $("#success-alert").slideUp(1000);
+                  //location.reload();
+                  //window.location.href = "{{ url('/') }}";
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+
 });
 </script>
 @endsection

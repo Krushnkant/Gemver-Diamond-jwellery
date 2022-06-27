@@ -128,7 +128,9 @@ class InquiryController extends Controller
                         $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$inquiry->mobile_no .'</span>';
                         
                     }
-                 
+
+
+                    if($inquiry->sku != ''){
                     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->sku)->first();
                     if($product){
                     $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
@@ -144,6 +146,9 @@ class InquiryController extends Controller
                     }else{
                         $product_info = '-';
                     }
+                    }else{
+                        $product_info = '-';
+                    }
 
                     $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
                     if($diamond){
@@ -151,7 +156,7 @@ class InquiryController extends Controller
                                         <span> Weight: '.$diamond->Weight.'</span>
                                         <span> Color: '.$diamond->Color.'</span>
                                         <span> Clarity: '.$diamond->Clarity.'</span>
-                                        <span> Weight: '.$diamond->Cut.'</span>';
+                                        <span> Cut: '.$diamond->Cut.'</span>';
                     }else{
                        $diamond_info = '-';
                     }
@@ -187,8 +192,6 @@ class InquiryController extends Controller
                        $spe_info ='-';   
                     }
                     
-                    
-                   
                     $newDate = date("d-m-Y", strtotime($inquiry->created_at));
                     $nestedData['customer_info'] = $customer_info;
                     $nestedData['spe_info'] = $spe_info;
