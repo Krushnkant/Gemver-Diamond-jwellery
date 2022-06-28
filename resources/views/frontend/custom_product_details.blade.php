@@ -239,7 +239,7 @@
             </div>
         </div>
 
-        <div class="gemver_diamonds_section" id="spe_desc">
+        <div class="" id="spe_desc">
         
         </div>
     </div>
