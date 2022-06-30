@@ -97,7 +97,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="section_why_gemver_description">Section Why Gemver Description 
                                 </label>
-                                <textarea  id="section_why_gemver_description" class="form-control" name="section_why_gemver_description">{{ $homesettings->section_why_gemver_title }}</textarea>
+                                <textarea  id="section_why_gemver_description" class="form-control" name="section_why_gemver_description">{{ $homesettings->section_why_gemver_description }}</textarea>
                                 <div id="section_why_gemver_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -109,9 +109,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-form-label" for="section_why_gemver_description">Section Why Gemver Description 1
+                                <label class="col-form-label" for="section_why_gemver_description1">Section Why Gemver Description 1
                                 </label>
-                                <textarea  id="section_why_gemver_description" class="form-control" name="section_why_gemver_description">{{ $homesettings->section_why_gemver_description }}</textarea>
+                                <textarea  id="section_why_gemver_description1" class="form-control" name="section_why_gemver_description1">{{ $homesettings->section_why_gemver_description1 }}</textarea>
                                 <div id="section_why_gemver_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
