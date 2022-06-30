@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative mt-5">
                     <div>
-                        <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">Shop by category</h2>
+                        <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">{{ $homesetting->section_category_title }}</h2>
                         <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
                     </div>
                     <div class="category-line-img d-none d-md-block">
@@ -84,7 +84,7 @@
     @endif
     <div class="shop_dimond_by_shape">
         <div class="container">
-            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-4 text-center text-white">Shop dimond by shape</h2>
+            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-4 text-center text-white">{{ $homesetting->section_diamond_title }}</h2>
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                     <div class="item">
@@ -130,8 +130,8 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="">
-                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">Customer Stories</h2>
-                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start">don’t take our word for it, trust our <br> customers.</div>
+                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
+                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start">{{ $homesetting->section_stories_description }}</div>
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -165,43 +165,39 @@
     @endif
     <div class="engagement_ring_section">
         <div class="container">
-            <h2 class="heading-h2 text-center text-white">how to buy your diamond engagement ring?</h2>
-            <div class="engagement_ring_paragraph mb-3 pb-0 mb-xl-4 mb-xxl-5 pb-xxl-5">Creating your lab grown diamond jewelry is simple. Follow the steps mentioned below when customizing your engagement ring.</div>
+            <h2 class="heading-h2 text-center text-white">{{ strtolower($step->main_title) }}</h2>
+            <div class="engagement_ring_paragraph mb-3 pb-0 mb-xl-4 mb-xxl-5 pb-xxl-5">{{ $step->main_shotline }}</div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="engagement_ring_box">
                         <div class="engagement_ring_number">1</div>
-                        <div class="engagement_ring_heading mb-4">set a budget</div>
-                        <p class="engagement_ring_paragraph text-start">Plan your budget before buying diamond jewelry, especially if it's your engagement ring.</p>
+                        <a href="{{ url('/step/'.$step->slug.'/one'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step1_title }}</div></a>
+                        <p class="engagement_ring_paragraph text-start">{{ $step->step1_shotline }}</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="engagement_ring_box">
                         <div class="engagement_ring_number">2</div>
-                        <div class="engagement_ring_heading mb-4">choose a diamond</div>
-                        <p class="engagement_ring_paragraph text-start">Choose a lab diamond based on its 4C's: Cut, Color, Clarity and Carat Weight.</p>
+                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step2_title }}</div></a>
+                        <p class="engagement_ring_paragraph text-start">{{ $step->step2_shotline }}</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="engagement_ring_box">
                         <div class="engagement_ring_number">3</div>
-                        <div class="engagement_ring_heading mb-4">choose a ring setting</div>
-                        <p class="engagement_ring_paragraph text-start">Choose various styles and settings ranging from halos, solitaires and three stones.</p>
+                        <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step3_title }}</div></a>
+                        <p class="engagement_ring_paragraph text-start">{{ $step->step3_shotline }}</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
                     <div class="engagement_ring_box">
                         <div class="engagement_ring_number">4</div>
-                        <div class="engagement_ring_heading mb-4">complate your ring</div>
-                        <p class="engagement_ring_paragraph text-start">Select your ring size, customize it with an engraving according to your preference and complete your ring.</p>
+                        <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step4_title }}</div></a>
+                        <p class="engagement_ring_paragraph text-start">{{ $step->step4_shotline }}</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <button class="explore-ring-btn mt-3 mb-4 mt-md-5 mb-md-0 btn-hover-effect btn-hover-effect-black mobile-btn-effect">
-                    learn more
-                </button>
-            </div>
+
         </div>
     </div>
 
@@ -209,13 +205,13 @@
         <div class="customise_own_ring_section">
             <div class="row">
                 <div class="col-md-7 text-center text-md-start">
-                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">Customise Your Own Ring</h2>
-                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">Let the promises be true for all the times to come. All the times that <br> your very own magnificent solitaire ring will bear witness to.</div>
+                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
+                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
                     <button class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn">start with a diamond</button>
                 </div>
                 <div class="col-md-5 mt-4 mt-md-0">
                     <div class="own_ring_img">
-                        <img src="{{ asset('frontend/image/pink-image-ring.png') }}" alt="" width="100%">
+                        <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
                     </div>
                 </div>
             </div>
@@ -282,8 +278,8 @@
     <div class="container">
         <div class="gemver_diamonds_section px-0">
             <div class="px-3">
-                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">why gemver diamonds?</h2>
-                <div class="customer_stories_paragraph mb-3 mb-md-5 text-center text-md-start">We offer eco-friendly, sustainable gems at budget-friendly rates when <br> creating your own engagement ring & other fine jewelry.</div>
+                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_why_gemver_title }}</h2>
+                <div class="customer_stories_paragraph mb-3 mb-md-5 text-center text-md-start">{{ $homesetting->section_why_gemver_description }}</div>
             </div>
             <div class="row">
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative ">
@@ -291,30 +287,30 @@
                         <!-- <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%"> -->
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
-                                Customize Your Jewelry
+                                 {{ $homesetting->section_why_gemver_title1 }}
                             </div>
-                            <p class="diamonds_paragraph">Follow a four-step process to create a one-of-a-kind jewelry piece according to your preference and style.</p>
+                            <p class="diamonds_paragraph">{{ $homesetting->section_why_gemver_description1 }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ asset('frontend/image/smoke-bg-2.png') }}" alt="" width="100%">
+                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%">
                     </div>
                 </div>
                 <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ asset('frontend/image/smoke-bg-3.png') }}" alt="" width="100%">
+                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
                     </div>
                 </div>
                 <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
                     <div class="gemver_diamods_bg">
-                        <!-- <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%"> -->
+
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
-                                Book Your Virtual Appointment
+                            {{ $homesetting->section_why_gemver_title2 }}
                             </div>
-                            <p class="diamonds_paragraph">Consult with a qualified gemologist at absolutely no extra cost to handpick the perfect jewelry.</p>
+                            <p class="diamonds_paragraph">{{ $homesetting->section_why_gemver_description2 }}</p>
                         </div>
                     </div>
                 </div>

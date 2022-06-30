@@ -15,6 +15,7 @@ use App\Http\Controllers\NewsLatterController;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\StepController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,12 +76,16 @@ Route::get('/lad-diamond/{shap}',[DiamondController::class,'laddiamond']);
 Route::post('/alllad-diamond',[DiamondController::class,'getLadDiamonds']);
 Route::get('/laddiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
 
+Route::get('/step/{slug}/one',[StepController::class,'stepone']);
+Route::get('/step/{slug}/two',[StepController::class,'steptwo']);
+Route::get('/step/{slug}/three',[StepController::class,'stepthree']);
+Route::get('/step/{slug}/four',[StepController::class,'stepfour']);
+
 //Admin  Rpute
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');
 Route::post('adminpostlogin', [\App\Http\Controllers\admin\AuthController::class, 'postLogin'])->name('admin.postlogin');
 Route::get('logout', [\App\Http\Controllers\admin\AuthController::class, 'logout'])->name('admin.logout');
 Route::get('admin/403_page',[\App\Http\Controllers\admin\AuthController::class,'invalid_page'])->name('admin.403_page');
-
 
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'admin.'],function () {
@@ -153,6 +158,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('settings',[\App\Http\Controllers\admin\SettingsController::class,'index'])->name('settings.list');
     Route::post('updateInvoiceSetting',[\App\Http\Controllers\admin\SettingsController::class,'updateInvoiceSetting'])->name('settings.updateInvoiceSetting');
     Route::get('settings/edit',[\App\Http\Controllers\admin\SettingsController::class,'editSettings'])->name('settings.edit');
+
+    Route::get('homesettings',[\App\Http\Controllers\admin\HomeSettingController::class,'index'])->name('homesettings.create');
+    Route::post('homesettings/edit',[\App\Http\Controllers\admin\HomeSettingController::class,'editHomeSettings'])->name('homesettings.edit');
 
     Route::get('infopage',[\App\Http\Controllers\admin\InfopageController::class,'index'])->name('infopage.list');
     Route::get('infopage/aboutus/edit',[\App\Http\Controllers\admin\InfopageController::class,'editAboutus'])->name('infopage.editAboutus');
@@ -264,6 +272,25 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('alldiamondlist',[\App\Http\Controllers\admin\DiamondController::class,'alldiamondlist'])->name('alldiamondlist');
     Route::get('file-import',[\App\Http\Controllers\admin\DiamondController::class,'importView'])->name('importview');
     Route::post('import',[\App\Http\Controllers\admin\DiamondController::class,'import'])->name('diamonds.save');
+
+
+    Route::get('steps',[\App\Http\Controllers\admin\StepController::class,'index'])->name('steps.list');
+    Route::get('steps/create',[\App\Http\Controllers\admin\StepController::class,'create'])->name('steps.add');
+    Route::post('steps/save',[\App\Http\Controllers\admin\StepController::class,'save'])->name('steps.save');
+    Route::post('stepone/save',[\App\Http\Controllers\admin\StepController::class,'savestepone'])->name('stepone.save');
+    Route::post('steptwo/save',[\App\Http\Controllers\admin\StepController::class,'savesteptwo'])->name('steptwo.save');
+    Route::post('stepthree/save',[\App\Http\Controllers\admin\StepController::class,'savestepthree'])->name('stepthree.save');
+    Route::post('stepfour/save',[\App\Http\Controllers\admin\StepController::class,'savestepfour'])->name('stepfour.save');
+    Route::post('allsteplist',[\App\Http\Controllers\admin\StepController::class,'allsteplist'])->name('allsteplist');
+    Route::get('changestepstatus/{id}',[\App\Http\Controllers\admin\StepController::class,'changestepstatus'])->name('steps.changestepstatus');
+    Route::get('steps/{id}/delete',[\App\Http\Controllers\admin\StepController::class,'deletestep'])->name('steps.delete');
+    Route::get('steps/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editstep'])->name('steps.edit');
+    Route::get('stepone/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editstepone'])->name('stepone.edit');
+    Route::get('steptwo/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editsteptwo'])->name('steptwo.edit');
+    Route::get('stepthree/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editstepthree'])->name('stepthree.edit');
+    Route::get('stepfour/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editstepfour'])->name('stepfour.edit');
+    Route::post('steps/uploadfile',[\App\Http\Controllers\admin\StepController::class,'uploadfile'])->name('steps.uploadfile');
+    Route::post('steps/removefile',[\App\Http\Controllers\admin\StepController::class,'removefile'])->name('steps.removefile');
     
 });
 
