@@ -28,6 +28,8 @@ class CartController extends Controller
             $cart->specification_term_id = isset($request->specification) ? $request->specification : $cart->specification_term_id;
             $cart->save();
         }else{
+            $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
+            $cartdelete->delete();
 
             $cart = new Cart();
             $cart->ip_address = $request->ip_address;

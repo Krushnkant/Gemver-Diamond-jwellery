@@ -110,6 +110,7 @@
                                 </a>
                                 <div class="mega-menu ">
                                     <div class="mega-menu-four-part ">
+                                        <div>
                                     <?php 
                                          
                                          $img_no = 1;
@@ -134,7 +135,10 @@
                                                 <a href="{{ URL('/diamond-setting/'.$car->id)}}"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-2 ">Start with a Lab Diamond</span></a>
                                             </li>
                                         </ul>
+
+                                        
                                         <?php $cat_no++; } } ?>
+                                        </div>
                                         <ul>
                                             <img src="{{ url($defalt_image) }}" alt=" ">
                                         </ul>

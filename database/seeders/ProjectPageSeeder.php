@@ -116,6 +116,7 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.settings.list,admin.settings.edit',
             'sr_no' => 15
         ]);
+
         ProjectPage::create([
             'id' => 11,
             'parent_menu' => 17,
@@ -341,6 +342,31 @@ class ProjectPageSeeder extends Seeder
             'icon_class' => 'fa fa-building-o', 
             'sr_no' => 21
         ]);
+
+
+        ProjectPage::create([ 
+            'id' => 35, 
+            'parent_menu' => 0, 
+            'label' => 'Steps', 
+            'route_url' => 'admin.steps.list', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.steps.list,admin.steps.add,admin.steps.save,admin.allsteplist,admin.steps.changestepstatus,admin.steps.delete,admin.steps.edit,admin.steps.uploadfile,admin.steps.removefile',
+            'icon_class' => 'fas fa-step-forward',
+            'sr_no' => 22 
+        ]);
+
+        ProjectPage::create([
+            'id' => 36,
+            'parent_menu' => 0,
+            'label' => 'Home Page Settings',
+            'route_url' => 'admin.homesettings.create',
+            'icon_class' => 'fa fa-cog',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit',
+            'sr_no' => 23
+        ]);
+
+        
 
         
 

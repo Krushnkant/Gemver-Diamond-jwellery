@@ -753,6 +753,62 @@
     .testimonial-box-des .testimonial-paragraph {
         font-size: 15px;
     }
+    /* -------------------------------- step 1 design ------------------------------------------------ */
+    .ste_1_paragraph {
+        color: var(--primary);
+    }
+    .where_to_start_section {
+        padding: 40px 0;
+    }
+    .where_to_start_section .jewellery-paragraph-box {
+        padding-right: 15px;
+    }
+    .maximise-your-budget-background {
+        padding: 50px 0;
+    }
+    .maximise_your_budget_heading,
+    .where_to_start_section .where_to_start_heading,
+    .lets_create_your_dream_heading {
+        font-size: 34px;
+    }
+    .create_your_dream_section {
+        padding: 50px 0;
+    }
+    .maximise_your_budget_box .category-heading {
+        font-size: 16px;
+    }
+    .where_to_start_section .jewellery-paragraph-box {
+        padding-right: 0;
+    }
+    /* -------------------------------- step 2 design ------------------------------------------------ */
+    .step_two_design .jewellery-paragraph-box {
+        text-align: center;
+    }
+    .step_two_design .cut_shape_heading {
+        font-size: 19px;
+    }
+    .step_two_design .jewellery-diamond-shape {
+        text-align: center;
+    }
+    .step_two_heading {
+        font-size: 17px;
+    }
+    .step_two_design .shop-dimond-by-shape-slider img {
+        max-width: 250px;
+        margin: auto;
+    }
+    .step_two_design .shape_heading {
+        font-size: 16px;
+    }
+    .step_two_design .where_to_start_section {
+        padding: 20px 0;
+    }
+    .step_two_design .cut_shape_heading {
+        font-size: 16px;
+    }
+    .step_two_design .choose_setting_heading {
+        font-size: 20px;
+    }
 }
 
 @media (max-width:1600px) {
@@ -820,6 +876,19 @@
     }
     .customer-product-img img {
         height: 250px;
+    }
+    /* -------------------------------- step 2 design ------------------------------------------------ */
+    .step_two_design .cut_shape_heading {
+        font-size: 18px;
+    }
+    .step_two_design .choose_setting_heading {
+        font-size: 24px;
+    }
+    .step_two_heading {
+        font-size: 20px;
+    }
+    .step_two_design .step_two_heading {
+        font-size: 22px;
     }
 }
 
