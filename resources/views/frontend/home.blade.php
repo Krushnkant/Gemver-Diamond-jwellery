@@ -224,51 +224,13 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="owl-carousel owl-theme shop-by-style-slider">
+                        @foreach($shopbystyle as $shopby)
                         <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
+                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id) }} @else {{ url('diamond-setting/'.$shopby->category_id) }} @endif " class="engagement_ring_img">
+                                <img src="{{ url($shopby->image) }}" alt="">
                             </a>
                         </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-1.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-2.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" class="engagement_ring_img">
-                                <img src="{{ asset('frontend/image/shop-3.png') }}" alt="">
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

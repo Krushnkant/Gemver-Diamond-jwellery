@@ -291,7 +291,19 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('stepfour/{id}/edit',[\App\Http\Controllers\admin\StepController::class,'editstepfour'])->name('stepfour.edit');
     Route::post('steps/uploadfile',[\App\Http\Controllers\admin\StepController::class,'uploadfile'])->name('steps.uploadfile');
     Route::post('steps/removefile',[\App\Http\Controllers\admin\StepController::class,'removefile'])->name('steps.removefile');
-    
+
+
+    Route::get('shopbystyle',[\App\Http\Controllers\admin\ShopByStyleController::class,'index'])->name('shopbystyle.list');
+    Route::get('shopbystyle/create',[\App\Http\Controllers\admin\ShopByStyleController::class,'create'])->name('shopbystyle.add');
+    Route::post('shopbystyle/save',[\App\Http\Controllers\admin\ShopByStyleController::class,'save'])->name('shopbystyle.save');
+    Route::post('allshopbystylelist',[\App\Http\Controllers\admin\ShopByStyleController::class,'allshopbystylelist'])->name('allshopbystylelist');
+    Route::get('changeshopbystylestatus/{id}',[\App\Http\Controllers\admin\ShopByStyleController::class,'changeshopbystylestatus'])->name('shopbystyle.changeshopbystylestatus');
+    Route::get('shopbystyle/{id}/delete',[\App\Http\Controllers\admin\ShopByStyleController::class,'deleteshopbystyle'])->name('shopbystyle.delete');
+    Route::get('shopbystyle/{id}/edit',[\App\Http\Controllers\admin\ShopByStyleController::class,'editshopbystyle'])->name('shopbystyle.edit');
+    Route::post('shopbystyle/uploadfile',[\App\Http\Controllers\admin\ShopByStyleController::class,'uploadfile'])->name('shopbystyle.uploadfile');
+    Route::post('shopbystyle/removefile',[\App\Http\Controllers\admin\ShopByStyleController::class,'removefile'])->name('shopbystyle.removefile');
+    Route::get('shopbystyle/checkparentcat/{id}',[\App\Http\Controllers\admin\ShopByStyleController::class,'checkparentcat'])->name('shopbystyle.checkparentcat');
+    Route::get('shopbystyle/getterm/{id}', [\App\Http\Controllers\admin\ShopByStyleController::class, 'loadterm'])->name('shopbystyle.checkparentcat');
 });
 
 

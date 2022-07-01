@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Testimonial;
 use App\Models\Step;
 use App\Models\HomeSetting;
+use App\Models\ShopByStyle;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,6 +17,7 @@ class HomeController extends Controller
         $banners = Banner::where('estatus',1)->get();
         $step = Step::where('estatus',1)->first();
         $homesetting = HomeSetting::first();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting'));
+        $shopbystyle = ShopByStyle::where('estatus',1)->get();
+        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle'));
     }
 }

@@ -185,7 +185,7 @@ class TestimonialController extends Controller
                 'profile_pic' => 'image|mimes:jpeg,png,jpg',
                 'name' => 'required',
                 'country' => 'required',
-                'description' => 'required',
+                'description' => 'required|max:200',
             ], $messages);
         }
         else{
@@ -193,7 +193,7 @@ class TestimonialController extends Controller
                 'profile_pic' => 'image|mimes:jpeg,png,jpg',
                 'name' => 'required',
                 'country' => 'required',
-                'description' => 'required',
+                'description' => 'required|max:200',
             ], $messages);
         }
 

@@ -84,6 +84,30 @@
                                 </label>
                                 <input type="file" name="files[]" id="homeIconFiles" multiple="multiple">
                                 <input type="hidden" name="homeImg" id="homeImg" value="">
+                                <?php
+                                if( isset($homesettings) && isset($homesettings->section_customise_image) ){
+                                ?>
+                                    <div class="jFiler-items jFiler-row oldImgDisplayBox">
+                                        <ul class="jFiler-items-list jFiler-items-grid">
+                                            <li id="ImgBox" class="jFiler-item" data-jfiler-index="1" style="">
+                                                <div class="jFiler-item-container">
+                                                    <div class="jFiler-item-inner">
+                                                        <div class="jFiler-item-thumb">
+                                                            <div class="jFiler-item-status"></div>
+                                                            <div class="jFiler-item-thumb-overlay"></div>
+                                                            <div class="jFiler-item-thumb-image"><img src="{{ url($homesettings->section_customise_image) }}" draggable="false"></div>
+                                                        </div>
+                                                        <div class="jFiler-item-assets jFiler-row">
+                                                            <ul class="list-inline pull-right">
+                                                                <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBox', 'catImg','<?php echo $homesettings->section_customise_image;?>');"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                <?php } ?>
                                 <div id="homethumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -120,11 +144,32 @@
                                 </label>
                                 <input type="file" name="files[]" id="homeIconFiles1" multiple="multiple">
                                 <input type="hidden" name="homeImg1" id="homeImg1" value="">
+                                <?php
+                                if( isset($homesettings) && isset($homesettings->section_why_gemver_image1) ){
+                                ?>
+                                    <div class="jFiler-items jFiler-row oldImgDisplayBox">
+                                        <ul class="jFiler-items-list jFiler-items-grid">
+                                            <li id="ImgBox" class="jFiler-item" data-jfiler-index="1" style="">
+                                                <div class="jFiler-item-container">
+                                                    <div class="jFiler-item-inner">
+                                                        <div class="jFiler-item-thumb">
+                                                            <div class="jFiler-item-status"></div>
+                                                            <div class="jFiler-item-thumb-overlay"></div>
+                                                            <div class="jFiler-item-thumb-image"><img src="{{ url($homesettings->section_why_gemver_image1) }}" draggable="false"></div>
+                                                        </div>
+                                                        <div class="jFiler-item-assets jFiler-row">
+                                                            <ul class="list-inline pull-right">
+                                                                <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBox', 'catImg','<?php echo $homesettings->section_why_gemver_image1;?>');"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                <?php } ?>
                                 <div id="homethumb1-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
-
-
-
                             <div class="form-group">
                                 <label class="col-form-label" for="section_why_gemver_title2">Section Why Gemver Title 2
                                 </label>
@@ -144,6 +189,30 @@
                                 </label>
                                 <input type="file" name="files[]" id="homeIconFiles2" multiple="multiple">
                                 <input type="hidden" name="homeImg2" id="homeImg2" value="">
+                                <?php
+                                if( isset($homesettings) && isset($homesettings->section_why_gemver_image2) ){
+                                ?>
+                                    <div class="jFiler-items jFiler-row oldImgDisplayBox">
+                                        <ul class="jFiler-items-list jFiler-items-grid">
+                                            <li id="ImgBox" class="jFiler-item" data-jfiler-index="1" style="">
+                                                <div class="jFiler-item-container">
+                                                    <div class="jFiler-item-inner">
+                                                        <div class="jFiler-item-thumb">
+                                                            <div class="jFiler-item-status"></div>
+                                                            <div class="jFiler-item-thumb-overlay"></div>
+                                                            <div class="jFiler-item-thumb-image"><img src="{{ url($homesettings->section_why_gemver_image2) }}" draggable="false"></div>
+                                                        </div>
+                                                        <div class="jFiler-item-assets jFiler-row">
+                                                            <ul class="list-inline pull-right">
+                                                                <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBox', 'catImg','<?php echo $homesettings->section_why_gemver_image2;?>');"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                <?php } ?>
                                 <div id="homethumb2-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -164,8 +233,6 @@
 @section('js')
 <script src="{{ url('js/HomeSettingImgJs.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-
-
 
 $('body').on('click', '#save_closeHomeBtn', function () {
     save_home($(this),'save_close');

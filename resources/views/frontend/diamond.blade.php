@@ -105,9 +105,9 @@
             <div class="col-sm-5 col-md-6">
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
             </div>
-            <div class="col-sm-7 col-md-6 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
+            <div class="col-sm-3 col-md-3 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
                 <span class="wire_bangle_select text-start">
-                    <select name="sorting" id="sorting">
+                    <select class="form-control" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>
@@ -508,8 +508,8 @@
               values: [ 0, maxPrice],
               slide: function( event, ui ) {
                 $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#hidden_minimum_price_carat" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_price_carat" ).val(ui.values[ 1 ]);
+                $( "#hidden_minimum_carat" ).val(ui.values[ 0 ]);
+                $( "#hidden_maximum_carat" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });

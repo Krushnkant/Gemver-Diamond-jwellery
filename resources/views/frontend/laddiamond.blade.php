@@ -26,13 +26,28 @@
             <div class="col-sm-5 col-md-6">
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
             </div>
-            <div class="col-sm-7 col-md-6 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
+            <div class="col-sm-3 col-md-3 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
+                <!-- <span class="wire_bangle_select text-start">
+                    <select  name="sorting" id="sorting">
+                        <option value="price">Sort by price: low to high</option>
+                        <option value="price-desc">Sort by price: high to low</option>
+                    </select>
+                </span> -->
                 <span class="wire_bangle_select text-start">
-                    <select name="sorting" id="sorting">
+                    <select class="form-control"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>
                 </span>
+                <!-- <span class="d-inline-block ms-4">
+                    <button class="filter-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
+                        </svg>
+                        <span>filter</span>
+                    </button>
+                </span> -->
+                
             </div>
         </div>
         <div class="wire_bangle_line mb-md-5"></div>
@@ -427,9 +442,10 @@
               step: 0.1,
               values: [ 0, maxPrice],
               slide: function( event, ui ) {
+                
                 $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#hidden_minimum_price_carat" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_price_carat" ).val(ui.values[ 1 ]);
+                $( "#hidden_minimum_carat" ).val(ui.values[ 0 ]);
+                $( "#hidden_maximum_carat" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });

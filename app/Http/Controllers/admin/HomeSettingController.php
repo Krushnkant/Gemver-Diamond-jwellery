@@ -31,15 +31,15 @@ class HomeSettingController extends Controller
         $Settings->section_customise_title = $request->section_customise_title;
         $Settings->section_customise_description = $request->section_customise_description;
         $Settings->section_customise_link = $request->button_url;
-        $Settings->section_customise_image = $request->homeImg;
+        $Settings->section_customise_image = ($request->homeImg != "") ? $request->homeImg :$Settings->section_customise_image;
         $Settings->section_why_gemver_title = $request->section_why_gemver_title;
         $Settings->section_why_gemver_description = $request->section_why_gemver_description;
         $Settings->section_why_gemver_title1 = $request->section_why_gemver_title1;   
         $Settings->section_why_gemver_description1 = $request->section_why_gemver_description1;   
-        $Settings->section_why_gemver_image1 = $request->homeImg1;   
+        $Settings->section_why_gemver_image1 = ($request->homeImg1 != "") ? $request->homeImg1 :$Settings->section_why_gemver_image1;  
         $Settings->section_why_gemver_title2 = $request->section_why_gemver_title2;   
         $Settings->section_why_gemver_description2 = $request->section_why_gemver_description2;   
-        $Settings->section_why_gemver_image2 = $request->homeImg2;   
+        $Settings->section_why_gemver_image2 = ($request->homeImg2 != "") ? $request->homeImg2 :$Settings->section_why_gemver_image2;  
        
         $Settings->save();
         return response()->json(['status' => '200','Settings' => $Settings]);

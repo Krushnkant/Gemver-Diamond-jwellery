@@ -103,7 +103,7 @@
                         <div class="form-group ">
                             <label class="col-form-label" for="description">Description <span class="text-danger">*</span>
                             </label>
-                            <textarea class="summernote" id="description" name="description"></textarea>
+                            <textarea  class="form-control input-flat" id="description" name="description"></textarea>
                             <div id="description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         
@@ -196,7 +196,7 @@
                     }
 
                     if (res.errors.description) {
-                        $('#description-error').show().text(res.errors.country);
+                        $('#description-error').show().text(res.errors.description);
                     } else {
                         $('#description-error').hide();
                     }
@@ -208,7 +208,7 @@
                         $("#TestimonialModel").modal('hide');
                         $(btn).prop('disabled',false);
                         $(btn).find('.loadericonfa').hide();
-                        $('#description').summernote('code', '');
+                        //$('#description').summernote('code', '');
                         $("#TestimonialModel").find('form').trigger('reset');
                         if(res.action == 'add'){
                             testimonial_page_tabs(tab_type,true);
@@ -398,7 +398,7 @@
     $('body').on('click', '#AddTestimonialBtn', function (e) {
 
         $("#TestimonialModel").find('.modal-title').html("Add Testimonial");
-        $('#description').summernote('code', '');
+       // $('#description').summernote('code', '');
     });
 
     $('body').on('click', '#editTestimonialBtn', function () {
@@ -423,7 +423,7 @@
             $('#name').val(data.name);
             $('#position').val(data.position);
             $('#country').val(data.country);
-            $('#description').summernote('code', data.description);
+            $('#description').val(data.description);
         })
     });
 
