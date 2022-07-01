@@ -99,21 +99,21 @@ class DiamondController extends Controller
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
                     if($Diamond->Shape == strtoupper('round')){
-                        $Diamond_image = url('frontend/image/diamod_shape_1.png');    
+                        $Diamond_image = url('frontend/image/1.png');    
                     }elseif($Diamond->Shape == strtoupper('oval')){
-                        $Diamond_image = url('frontend/image/diamod_shape_2.png');
+                        $Diamond_image = url('frontend/image/2.png');
                     }elseif($Diamond->Shape == strtoupper('emerald')){
-                        $Diamond_image = url('frontend/image/diamod_shape_3.png');
+                        $Diamond_image = url('frontend/image/3.png');
                     }elseif($Diamond->Shape == strtoupper('princess')){
-                        $Diamond_image = url('frontend/image/diamod_shape_4.png');
+                        $Diamond_image = url('frontend/image/6.png');
                     }elseif($Diamond->Shape == strtoupper('cushion')){
-                        $Diamond_image = url('frontend/image/diamod_shape_5.png');
+                        $Diamond_image = url('frontend/image/7.png');
                     }elseif($Diamond->Shape == strtoupper('marquise')){
-                        $Diamond_image = url('frontend/image/diamod_shape_6.png');
+                        $Diamond_image = url('frontend/image/8.png');
                     }elseif($Diamond->Shape == strtoupper('pear')){
-                        $Diamond_image = url('frontend/image/diamod_shape_7.png');
+                        $Diamond_image = url('frontend/image/9.png');
                     }elseif($Diamond->Shape == strtoupper('HEART')){
-                        $Diamond_image = url('frontend/image/diamod_shape_8.png');
+                        $Diamond_image = url('frontend/image/10.png');
                     }elseif($Diamond->Shape == strtoupper('asscher')){
                         $Diamond_image = url('frontend/image/asscher.png');
                     }elseif($Diamond->Shape == strtoupper('radiant')){
@@ -400,6 +400,7 @@ class DiamondController extends Controller
 
     public function getLadDiamonds(Request $request)
     {
+        //dd($request->all());
         $data = $request->all();
         $query = Diamond::where('estatus',1);
         if($data["minimum_price"] && $data["maximum_price"]){
@@ -454,21 +455,21 @@ class DiamondController extends Controller
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
                     if($Diamond->Shape == strtoupper('round')){
-                        $Diamond_image = url('frontend/image/diamod_shape_1.png');    
+                        $Diamond_image = url('frontend/image/1.png');    
                     }elseif($Diamond->Shape == strtoupper('oval')){
-                        $Diamond_image = url('frontend/image/diamod_shape_2.png');
+                        $Diamond_image = url('frontend/image/2.png');
                     }elseif($Diamond->Shape == strtoupper('emerald')){
-                        $Diamond_image = url('frontend/image/diamod_shape_3.png');
+                        $Diamond_image = url('frontend/image/3.png');
                     }elseif($Diamond->Shape == strtoupper('princess')){
-                        $Diamond_image = url('frontend/image/diamod_shape_4.png');
+                        $Diamond_image = url('frontend/image/6.png');
                     }elseif($Diamond->Shape == strtoupper('cushion')){
-                        $Diamond_image = url('frontend/image/diamod_shape_5.png');
+                        $Diamond_image = url('frontend/image/7.png');
                     }elseif($Diamond->Shape == strtoupper('marquise')){
-                        $Diamond_image = url('frontend/image/diamod_shape_6.png');
+                        $Diamond_image = url('frontend/image/8.png');
                     }elseif($Diamond->Shape == strtoupper('pear')){
-                        $Diamond_image = url('frontend/image/diamod_shape_7.png');
+                        $Diamond_image = url('frontend/image/9.png');
                     }elseif($Diamond->Shape == strtoupper('HEART')){
-                        $Diamond_image = url('frontend/image/diamod_shape_8.png');
+                        $Diamond_image = url('frontend/image/10.png');
                     }elseif($Diamond->Shape == strtoupper('asscher')){
                         $Diamond_image = url('frontend/image/asscher.png');
                     }elseif($Diamond->Shape == strtoupper('radiant')){

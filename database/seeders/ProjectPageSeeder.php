@@ -366,9 +366,17 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 23
         ]);
 
-        
+        ProjectPage::create([
+            'id' => 37,
+            'parent_menu' => 0,
+            'label' => 'Shop By Style',
+            'route_url' => 'admin.shopbystyle.list',
+            'icon_class' => 'fa fa-cog',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.shopbystyle.list,admin.shopbystyle.add,admin.shopbystyle.save,admin.allshopbystylelist,admin.shopbystyle.changeshopbystylestatus,admin.shopbystyle.delete,admin.shopbystyle.edit,admin.shopbystyle.uploadfile,admin.shopbystyle.removefile,admin.shopbystyle.checkparentcat',
+            'sr_no' => 23
+        ]);
 
-        
 
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

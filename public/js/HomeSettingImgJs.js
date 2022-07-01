@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
             }
         ];
     }
-  console.log(FileforEdit);
+ 
     if (homeImg1!=''){
         FileforEdit1 = [
             {
