@@ -78,7 +78,9 @@ class DiamondController extends Controller
                 $search = $request->input('search.value');
                 $diamonds =  Diamond::where(function($query) use($search){
                     $query->where('id','LIKE',"%{$search}%")
-                          ->orWhere('email', 'LIKE',"%{$search}%");
+                          ->orWhere('Stone_No', 'LIKE',"%{$search}%")
+                          ->orWhere('Shape', 'LIKE',"%{$search}%")
+                          ->orWhere('Clarity', 'LIKE',"%{$search}%");
                     })
                     ->offset($start)
                     ->limit($limit)
@@ -87,7 +89,9 @@ class DiamondController extends Controller
                 if (isset($estatus)){
                     $diamonds = $diamonds->where('estatus',$estatus)->where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
-                              ->orWhere('email', 'LIKE',"%{$search}%");
+                              ->orWhere('Stone_No', 'LIKE',"%{$search}%")
+                              ->orWhere('Shape', 'LIKE',"%{$search}%")
+                              ->orWhere('Clarity', 'LIKE',"%{$search}%");
                         })
                         ->offset($start)
                         ->limit($limit)
@@ -97,12 +101,16 @@ class DiamondController extends Controller
 
                 $totalFiltered = Diamond::where(function($query) use($search){
                     $query->where('id','LIKE',"%{$search}%")
-                         ->orWhere('email', 'LIKE',"%{$search}%");
+                         ->orWhere('Stone_No', 'LIKE',"%{$search}%")
+                         ->orWhere('Shape', 'LIKE',"%{$search}%")
+                         ->orWhere('Clarity', 'LIKE',"%{$search}%");
                     })->count();
                 if (isset($estatus)){
                     $totalFiltered = $totalFiltered->where('estatus',$estatus)->where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
-                             ->orWhere('email', 'LIKE',"%{$search}%");
+                             ->orWhere('Stone_No', 'LIKE',"%{$search}%")
+                             ->orWhere('Shape', 'LIKE',"%{$search}%")
+                             ->orWhere('Clarity', 'LIKE',"%{$search}%");
                         })->count();
                 }
             }
@@ -114,14 +122,14 @@ class DiamondController extends Controller
                 {
 
                     if( $diamond->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                        $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageBlogStatus('. $diamond->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
+                        $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageDiamondStatus('. $diamond->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
                     elseif ($diamond->estatus==1){
                         $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
 
                     if( $diamond->estatus==2 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                        $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageBlogStatus('. $diamond->id .')" value="2"><span class="slider round"></span></label>';
+                        $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageDiamondStatus('. $diamond->id .')" value="2"><span class="slider round"></span></label>';
                     }
                     elseif ($diamond->estatus==2){
                         $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" value="2"><span class="slider round"></span></label>';
@@ -233,6 +241,20 @@ class DiamondController extends Controller
             return response()->json(array('success'=>false,'status_code' => 0, 'message' => 'Api Now Working'));  
         } 
     } 
+
+    public function changediamondstatus($id){
+        $diamond = Diamond::find($id);
+        if ($diamond->estatus==1){
+            $diamond->estatus = 2;
+            $diamond->save();
+            return response()->json(['status' => '200','action' =>'deactive']);
+        }
+        if ($diamond->estatus==2){
+            $diamond->estatus = 1;
+            $diamond->save();
+            return response()->json(['status' => '200','action' =>'active']);
+        }
+    }
 
     
 }

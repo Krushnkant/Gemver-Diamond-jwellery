@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">News Latter</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">News Letter</a></li>
             </ol>
         </div>
     </div>
@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
-                        NewsLatter List
+                        Newsletter List
                         </h4>
                         @if(isset($action) && $action=='list')
                             <div class="table-responsive">

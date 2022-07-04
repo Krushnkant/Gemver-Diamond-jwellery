@@ -137,9 +137,8 @@ function save_banner(btn,btn_type){
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
-                alert(res.errors.title);
+               
                 if (res.errors.title) {
-                  
                     $('#title-error').show().text(res.errors.title);
                 } else {
                     $('#title-error').hide();

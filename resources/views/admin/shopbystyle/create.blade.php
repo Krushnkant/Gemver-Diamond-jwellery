@@ -75,8 +75,9 @@
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation Term <span class="text-danger">*</span>
         </label>
         <select id='attribute_id_diamond_term' name="attribute_id_variation_term" class="">
-             <option value="round">Round</option>
-             <option value="oval">Oval</option>
+            @foreach($diamondshap as $shape)
+            <option value="{{ $shape }}">{{ $shape }}</option>
+            @endforeach
         </select>
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>

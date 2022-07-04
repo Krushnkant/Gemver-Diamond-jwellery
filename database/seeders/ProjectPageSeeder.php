@@ -315,7 +315,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([ 
             'id' => 32, 
             'parent_menu' => 0, 
-            'label' => 'News latter', 
+            'label' => 'News letter', 
             'route_url' => 'admin.newslatter.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.newslatter.list',
@@ -351,7 +351,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => 'admin.steps.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.steps.list,admin.steps.add,admin.steps.save,admin.allsteplist,admin.steps.changestepstatus,admin.steps.delete,admin.steps.edit,admin.steps.uploadfile,admin.steps.removefile',
-            'icon_class' => 'fas fa-step-forward',
+            'icon_class' => 'fa fa-step-forward',
             'sr_no' => 22 
         ]);
 
@@ -371,7 +371,7 @@ class ProjectPageSeeder extends Seeder
             'parent_menu' => 0,
             'label' => 'Shop By Style',
             'route_url' => 'admin.shopbystyle.list',
-            'icon_class' => 'fa fa-cog',
+            'icon_class' => 'fa fa-shopping-cart',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.shopbystyle.list,admin.shopbystyle.add,admin.shopbystyle.save,admin.allshopbystylelist,admin.shopbystyle.changeshopbystylestatus,admin.shopbystyle.delete,admin.shopbystyle.edit,admin.shopbystyle.uploadfile,admin.shopbystyle.removefile,admin.shopbystyle.checkparentcat',
             'sr_no' => 23

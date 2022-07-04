@@ -129,7 +129,7 @@
                         <div>    
                             @foreach($attribute->attributeterm as $term)
                             <div class="form-group mb-3">
-                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                <input type="checkbox" class="common_selector attribute" {{ ($ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
                                 <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                             </div>
                             @endforeach 
@@ -141,7 +141,7 @@
                                 <div>
                                 @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector specification" name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                        <input type="checkbox" class="common_selector specification" {{ ($ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="specification[]"  value="{{ $term->id }}" id="{{ $ShopBy->attribute_terms }}">
                                         <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                                     </div>
                                 @endforeach 

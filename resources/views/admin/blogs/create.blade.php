@@ -5,14 +5,15 @@
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     
     <div class="form-group"  id="category_id">
-        <label class="col-form-label" for="category_id">Select Category
+        <label class="col-form-label" for="category_id">Select Category <span class="text-danger">*</span>
         </label>
         <select id='category_id' name="category_id" class="form-control">
-        <option >Select Category</option>
+        <option value="">Select Category</option>
             @foreach($blogcategory as $blog)
                 <option value="{{ $blog['id'] }}">{{ $blog['category_name'] }}</option>
             @endforeach
         </select>
+        <div id="category-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
     <div class="form-group">

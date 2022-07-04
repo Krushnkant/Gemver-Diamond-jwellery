@@ -228,7 +228,7 @@ class UserController extends Controller
                         $profile_pic = $user->profile_pic;
                     }
                     else{
-                        $profile_pic = url('public/images/default_avatar.jpg');
+                        $profile_pic = url('images/default_avatar.jpg');
                     }
 
                     $contact_info = '';

@@ -8,6 +8,7 @@ use App\Models\Attribute;
 use App\Models\AttributeTerm;
 use App\Models\ProjectPage;
 use App\Models\Category;
+use App\Models\Diamond;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,7 +27,8 @@ class ShopByStyleController extends Controller
         $shopbystyle = ShopByStyle::where('estatus',1)->get()->toArray();
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
         $categories = Category::where('estatus',1)->get()->toArray();
-        return view('admin.shopbystyle.list',compact('action','shopbystyle','attributes','categories'))->with('page',$this->page);
+        $diamondshap = Diamond::groupBy('Shape')->pluck('Shape');
+        return view('admin.shopbystyle.list',compact('action','shopbystyle','attributes','categories','diamondshap'))->with('page',$this->page);
     }
 
     public function save(Request $request){
