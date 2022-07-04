@@ -115,34 +115,39 @@
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content">
-                                        <div class="mb-xxl-5 mb-xl-4 mb-3 product_heading">Diamond inquiry</div>
-                                        <div class="alert alert-success" id="success-alert" style="display: none;">
-                                          
-                                        </div>
                                         <div class="row">
-                                        <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading">Diamond inquiry</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-success" id="success-alert" style="display: none;"></div>
+                                        <div class="row">
+                                        <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Amount :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Sale_Amt }}</span>
                                             </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Stone No :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Stone_No }}</span>
                                             </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Shape :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Shape }}</span>
                                             </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Weight :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Weight }}</span>
                                             </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Color :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Color }}</span>
                                             </div>
-                                            <div class="d-flex align-items-center mb-4 col-md-6">
+                                            <div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                 <span class="wire_bangle_color_heading  d-inline-block">Clarity :</span>
                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">{{ $Diamond->Clarity }}</span>
                                             </div>
@@ -152,26 +157,26 @@
             
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
                                         
-                                        <div class="row">
+                                        <div class="row mb-0 mb-xxl-4">
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your name" class="d-block mb-3 wire_bangle_input">
-                                                <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block mb-3 wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block mb-3 wire_bangle_input">
-                                                <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block mb-3 wire_bangle_input">
-                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
+                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             </div>  
-                                            <button class="send_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
-                                            <div class="spinner-border loadericonfa" role="status" style="display:none;">
+                                            <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                            </button>
@@ -182,10 +187,10 @@
 
                           
                            
-                            <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                            <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                             @foreach($Category as $cat)
                             
-                            <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mt-1 save_addToCart">add to {{ $cat->category_name }}</button>
+                            <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
 
                             @endforeach
                        

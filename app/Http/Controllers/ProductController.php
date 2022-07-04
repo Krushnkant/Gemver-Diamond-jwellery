@@ -98,7 +98,7 @@ class ProductController extends Controller
                         <div class="wire_bangle_description">
 
                             <div class="wire_bangle_heading mb-2 mb-md-3"><a href="'.$url.'">'.$row->primary_category->category_name .'</a></div>
-                            <div class="wire_bangle_sub_heading mb-2 mb-md-3">'. $row->product_title .'</div>
+                            <div class="wire_bangle_sub_heading mb-2 mb-md-3"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="wire_bangle_paragraph mb-2 mb-md-3">
                             '. $row->desc .'
                             </div>
@@ -151,7 +151,7 @@ class ProductController extends Controller
                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
+                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';
@@ -172,7 +172,7 @@ class ProductController extends Controller
                         </div>
                     </div>';
 
-                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
+                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                 </div>';  
