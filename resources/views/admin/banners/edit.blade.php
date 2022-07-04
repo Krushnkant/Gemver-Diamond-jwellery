@@ -49,7 +49,8 @@
             </ul>
         </div>
         <?php } ?>
-
+        <div id="catthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+        
         <div class="form-group">
         <label class="col-form-label" for="button_name">Button Name 
         </label>

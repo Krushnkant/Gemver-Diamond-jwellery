@@ -135,6 +135,12 @@ function save_blog(btn,btn_type){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
 
+                if (res.errors.category_id){
+                    $('#category-error').show().text(res.errors.category_id);
+                } else {
+                    $('#category-error').hide();
+                }
+
                 if (res.errors.title) {
                     $('#title-error').show().text(res.errors.title);
                 } else {

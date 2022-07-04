@@ -87,7 +87,7 @@
                                 </div>
                             </span>
                             <span class="inquiry_now_btn ms-3 ms-md-5">
-                                <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                                <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
                             </span>
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
@@ -121,8 +121,9 @@
                                                 <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0 mb-3">
-                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
+                                            <div class="mb-3 col-md-12 ps-0 mb-3">
+                                                <textarea  name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
+                                                <!-- <input type="text" name="inquiry" id="inquiry" placeholder="Message" class="d-block wire_bangle_input"> -->
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                         </div>
@@ -408,17 +409,26 @@ $(document).ready(function(){
 <script type="text/javascript">
 $( document ).ready(function() {
     
-// $('body').on('click', '.save_newInquiryBtn', function () {
-//     $(this).find('.specReq').each(function() {
-//         var thi = $(this);
-//         var this_err = $(thi).attr('name') + "-error";
-//         if($(thi).val()=="" || $(thi).val()==null) {
-//             $(this_form).find("#"+this_err).html("Please select any value");
-//             $(this_form).find("#"+this_err).show();
-//             valid = false;
-//         }
-//     })
-// });    
+$('body').on('click', '.select_setting_btn', function () {
+    var valid = false;
+    $(document).find('.specification').each(function() {
+        var thi = $(this);
+        var this_err = $(thi).attr('name') + "-error";
+        if($(thi).val()=="" || $(thi).val()==null){
+            $("#"+this_err).html("Please select any value");
+            $("#"+this_err).show();
+            valid = false;
+        }else{
+            $("#"+this_err).hide();
+            valid = true;
+        }
+        
+    })
+
+    if(valid){
+        jQuery("#exampleModal").modal('show');
+    }
+});    
       
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');

@@ -25,11 +25,11 @@ $settings = \App\Models\Settings::first();
 <body>
 
 
-<!-- <div class="header-loader">
+<div class="header-loader" style="display:none;">
     <div class="spinner-border loader-btn" role="status">
     <span class="sr-only">Loading...</span>
     </div>
-</div> -->
+</div>
 
 <div class="">
 @include('frontend.layout.header')

@@ -146,7 +146,7 @@
             <div class="col-md-12">
                 <div class="card variantCard" id="variantProductBox" style="display: none;">
                     <div class="card-body">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-check">
@@ -155,7 +155,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="panel-group col-md-12">
                             <div class="row variation-box" id="variant-data">

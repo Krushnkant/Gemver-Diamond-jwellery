@@ -216,6 +216,30 @@ function save_diamond(btn,btn_type){
     });
 }
 
+
+function chageDiamondStatus(diamond_id) {
+    
+    $.ajax({
+        type: 'GET',
+        url: "{{ url('admin/changediamondstatus') }}" +'/' + diamond_id,
+        success: function (res) {
+            if(res.status == 200 && res.action=='deactive'){
+                $("#DiamondStatuscheck_"+diamond_id).val(2);
+                $("#DiamondStatuscheck_"+diamond_id).prop('checked',false);
+                toastr.success("Diamond Deactivated",'Success',{timeOut: 5000});
+            }
+            if(res.status == 200 && res.action=='active'){
+                $("#DiamondStatuscheck_"+diamond_id).val(1);
+                $("#DiamondStatuscheck_"+diamond_id).prop('checked',true);
+                toastr.success("Diamond activated",'Success',{timeOut: 5000});
+            }
+        },
+        error: function (data) {
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
 </script>
 <!-- blog JS end -->
 @endsection

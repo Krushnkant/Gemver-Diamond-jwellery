@@ -371,11 +371,13 @@
     $(document).on('change', '.specReq', function() {
         var isPrimary = $("#copyAppBtn").val();
         var specReq = $(this).val();
-        var this_name = $(this).attr('name');
+        var this_name = $(this).attr('id-data');
 
         // alert(specReq);
         if($(this).hasClass("primaryBox") && isPrimary != 0) {
+            
             $("select[name=" + this_name + "]").each(function () {
+                
                 var this_select = $(this);
                 if (!$(this_select).hasClass('primaryBox')) {
                     $(this_select).val(specReq);
@@ -617,7 +619,7 @@
 
             $(this).find('.specReq').each(function() {
                 var thi = $(this);
-                var this_err = $(thi).attr('name') + "-error";
+                var this_err = $(thi).attr('id-data') + "-error";
                 if($(thi).val()=="" || $(thi).val()==null) {
                     $(this_form).find("#"+this_err).html("Please select any value");
                     $(this_form).find("#"+this_err).show();

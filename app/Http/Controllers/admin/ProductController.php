@@ -158,7 +158,7 @@ class ProductController extends Controller
 
                 }else{
 
-                    $html_required_specification .= '<select class="form-control specReq" id="" name="specReq'.$required_specification['id'].'[]" multiple >';
+                    $html_required_specification .= '<select class="form-control specReq" id="" id-data="specReq'.$required_specification['id'].'" name="specReq'.$required_specification['id'].'[]" multiple >';
                     $html_required_specification .= '<option></option>';
                     foreach ($required_specification['attributeterm'] as $term){
                         $html_required_specification .= '<option value="';
@@ -234,7 +234,7 @@ class ProductController extends Controller
         $html .= '</div>';
         $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right d-flex align-items-center justify-content-end"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
         if($term_id != 1){
-           $html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"><i class="fa fa-window-close" aria-hidden="true"></i></span>';
+           $html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"><i class="fa fa-times" aria-hidden="true"></i></span>';
         }
         $html .='<div id=""></div></div>';
         $html .= '</div>';

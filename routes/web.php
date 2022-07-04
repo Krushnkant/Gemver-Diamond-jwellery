@@ -59,10 +59,10 @@ Route::get('/testimonials',[TestimonialsController::class,'index'])->name('front
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');
 
-Route::get('/diamond-setting/{catid}',[DiamondController::class,'index']);
+Route::get('/diamond-setting/{catid}/{id?}',[DiamondController::class,'index']);
 Route::post('/diamonds',[DiamondController::class,'getDiamonds']);
 Route::get('/diamond-details/{catid}/{id}',[DiamondController::class,'getDiamondDetails']);
-Route::get('/product-setting/{id}',[DiamondController::class,'customproducts']);
+Route::get('/product-setting/{catid}/{id?}',[DiamondController::class,'customproducts']);
 Route::post('/custom_products',[DiamondController::class,'getProducts']);
 Route::get('/custom-product-details/{catid}/{id}',[DiamondController::class,'getCustomProductDetails']);
 Route::get('/product_complete/{catid}',[DiamondController::class,'getProductComplete']);
@@ -272,6 +272,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('alldiamondlist',[\App\Http\Controllers\admin\DiamondController::class,'alldiamondlist'])->name('alldiamondlist');
     Route::get('file-import',[\App\Http\Controllers\admin\DiamondController::class,'importView'])->name('importview');
     Route::post('import',[\App\Http\Controllers\admin\DiamondController::class,'import'])->name('diamonds.save');
+    Route::get('changediamondstatus/{id}',[\App\Http\Controllers\admin\DiamondController::class,'changediamondstatus'])->name('diamonds.changediamondstatus');
 
 
     Route::get('steps',[\App\Http\Controllers\admin\StepController::class,'index'])->name('steps.list');

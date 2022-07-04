@@ -33,7 +33,7 @@ class ProductController extends Controller
         {
            
             $attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
-            $query = Product::select('products.*','product_variants.images','product_variants.sale_price')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.sale_price')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',0)->where('products.estatus',1);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -200,7 +200,7 @@ class ProductController extends Controller
                    }
                 }   
             $spe .='</select>
-            </span>';
+            </span> <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>';
             }
 
             $images = '';

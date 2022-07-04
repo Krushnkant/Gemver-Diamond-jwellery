@@ -226,7 +226,7 @@
                     <div class="owl-carousel owl-theme shop-by-style-slider">
                         @foreach($shopbystyle as $shopby)
                         <div class="item">
-                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id) }} @else {{ url('diamond-setting/'.$shopby->category_id) }} @endif " class="engagement_ring_img">
+                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id.'/'.$shopby->id) }} @else {{ url('diamond-setting/'.$shopby->category_id.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
                             </a>
                         </div>

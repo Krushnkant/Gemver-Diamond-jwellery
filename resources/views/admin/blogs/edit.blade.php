@@ -6,14 +6,15 @@
     <input type="hidden" name="blog_id" value="{{ isset($blog)?($blog->id):'' }}">
 
     <div class="form-group"  id="category_id">
-        <label class="col-form-label" for="category_id">Select Category
+        <label class="col-form-label" for="category_id">Select Category <span class="text-danger">*</span>
         </label>
         <select id='category_id' name="category_id" class="form-control">
-        <option >Select Category</option>
+        <option value="">Select Category</option>
             @foreach($blogcategory as $blogs)
                 <option value="{{ $blogs['id'] }}" @if(isset($blogs) && $blogs['id'] == $blog->category_id) selected @endif >{{ $blogs['category_name'] }}</option>
             @endforeach
         </select>
+        <div id="category-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
     <div class="form-group">

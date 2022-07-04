@@ -8,6 +8,7 @@ use App\Models\Diamond;
 use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\ProductVariant;
+use App\Models\ShopByStyle;
 use App\Models\ProductVariantVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -15,7 +16,7 @@ use Response;
 
 class DiamondController extends Controller
 {
-    public function index($id){
+    public function index($id,$shopbyid = 0){
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_variant = 0;
@@ -34,10 +35,17 @@ class DiamondController extends Controller
             $cart->delete();
         }
         $CatId = $id;
+        $ShopBy = ShopByStyle::where(['estatus' => 1,'id' => $shopbyid])->first();
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = Diamond::max('Sale_Amt');
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id'));
+        $MaxCarat = Diamond::max('Weight');
+        $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
+        $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
+        $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
+        $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+        $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport'));
     } 
 
     public function getDiamonds(Request $request)
@@ -228,7 +236,7 @@ class DiamondController extends Controller
         return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId'));
     }
 
-    public function customproducts($id){
+    public function customproducts($id,$shopbyid = 0){
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_diamond = 0;
@@ -245,10 +253,11 @@ class DiamondController extends Controller
             $cart->delete();
         }  
         $CatId = $id;
+        $ShopBy = ShopByStyle::where(['estatus' => 1,'id' => $shopbyid])->first();
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
-        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond'));
+        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy'));
     }
 
 
@@ -395,7 +404,13 @@ class DiamondController extends Controller
     public function laddiamond($shap = "")
     {
         $Maxprice = Diamond::max('Sale_Amt');
-        return view('frontend.laddiamond',compact('shap','Maxprice'));
+        $MaxCarat = Diamond::max('Weight');
+        $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
+        $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
+        $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
+        $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+        $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
+        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport'));
     }
 
     public function getLadDiamonds(Request $request)
