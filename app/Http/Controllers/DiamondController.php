@@ -183,7 +183,7 @@ class DiamondController extends Controller
                                         <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                     </div>
                              
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</div>
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' |</span>
                                     <span>'. $Diamond->Color .'</span>
@@ -537,7 +537,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</div>
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' |</span>
                                     <span>'. $Diamond->Color .'</span>

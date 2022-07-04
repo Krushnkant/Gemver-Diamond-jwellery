@@ -618,7 +618,6 @@
         font-size: 14px;
         width: 100%;
         height: 50px;
-        padding: 15px;
         line-height: normal;
     }
     .wire_bangle_color_heading {
@@ -628,7 +627,7 @@
     .wire_bangle_heading {
         font-size: 16px;
     }
-    .wire_bangle_sub_heading {
+    .wire_bangle_sub_heading a {
         font-size: 20px;
     }
     .wire_bangle_paragraph {
@@ -716,7 +715,7 @@
     .round_cut_lab_diamonds_info_heading a {
         font-size: 14px;
     }
-    .round_cut_lab_diamonds_info_main_heading {
+    .round_cut_lab_diamonds_info_main_heading a {
         font-size: 17px;
     }
     .round_cut_lab_diamonds_info_clarity {
@@ -1059,6 +1058,9 @@
     }
     .header-icon {
         font-size: 14px;
+    }
+    .inquiry_now_modal .modal-content {
+        min-width: 800px;
     }
 }
 
