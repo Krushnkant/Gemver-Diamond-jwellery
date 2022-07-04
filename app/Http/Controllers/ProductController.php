@@ -97,7 +97,7 @@ class ProductController extends Controller
                         </div>
                         <div class="wire_bangle_description">
 
-                            <div class="wire_bangle_heading mb-2 mb-md-3"><a href="'.$url.'">'.$row->primary_category->category_name .'</a></div>
+                            <div class="wire_bangle_heading mb-2 mb-md-3">'.$row->primary_category->category_name .'</div>
                             <div class="wire_bangle_sub_heading mb-2 mb-md-3"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="wire_bangle_paragraph mb-2 mb-md-3">
                             '. $row->desc .'
