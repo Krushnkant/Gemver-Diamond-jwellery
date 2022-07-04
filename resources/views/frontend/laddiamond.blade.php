@@ -22,11 +22,11 @@
 
     <div class="container round_cut_lab_diamonds_page">
         <div class="wire_bangle_line mt-4 mt-md-5"></div>
-        <div class="row align-items-center d-flex justify-content-center">
+        <div class="row align-items-center">
             <div class="col-sm-5 col-md-6">
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
             </div>
-            <div class="col-sm-3 col-md-3 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
+            <div class="col-sm-3 col-md-6 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
                 <!-- <span class="wire_bangle_select text-start">
                     <select  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
