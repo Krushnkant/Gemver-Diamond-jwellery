@@ -411,6 +411,7 @@ $( document ).ready(function() {
     
 $('body').on('click', '.select_setting_btn', function () {
     var valid = false;
+    var arrspe = [];
     $(document).find('.specification').each(function() {
         var thi = $(this);
         var this_err = $(thi).attr('name') + "-error";
@@ -419,13 +420,19 @@ $('body').on('click', '.select_setting_btn', function () {
             $("#"+this_err).show();
             valid = false;
         }else{
+            arrspe.push({'key' : 'size' },{'value' : $(thi).val() });
             $("#"+this_err).hide();
             valid = true;
         }
         
     })
+     console.log(arrspe);
+     
 
     if(valid){
+        $.map(arrspe, function(value ) {
+         console.log(value);
+     });
         jQuery("#exampleModal").modal('show');
     }
 });    

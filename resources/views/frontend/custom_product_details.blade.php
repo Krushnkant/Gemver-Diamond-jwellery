@@ -188,7 +188,7 @@
                             </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
-                            <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
+                            <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
                         </form>
                     </div>
                 </div>
@@ -405,8 +405,28 @@ $(document).ready(function(){
 
 <script type="text/javascript">
 $( document ).ready(function() {    
+// $('body').on('click', '#save_newProductBtn', function () {
+//     save_cart($(this),'save_new');
+// });
+
 $('body').on('click', '#save_newProductBtn', function () {
-    save_cart($(this),'save_new');
+    var valid = false;
+    $(document).find('.specification').each(function() {
+        var thi = $(this);
+        var this_err = $(thi).attr('name') + "-error";
+        if($(thi).val()=="" || $(thi).val()==null){
+            $("#"+this_err).html("Please select any value");
+            $("#"+this_err).show();
+            valid = false;
+        }else{
+            $("#"+this_err).hide();
+            valid = true;
+        } 
+    })
+
+    if(valid){
+        save_cart($(this),'save_new');
+    }
 });
 
 function save_cart(btn,btn_type){
