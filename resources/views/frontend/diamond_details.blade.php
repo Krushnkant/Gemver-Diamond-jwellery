@@ -162,12 +162,14 @@
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
+                                    @if($Diamond->Cut != "")
                                     <div class="col-xl-6 ps-md-0">
                                         <div class="mt-4 wire_bangle_share">
                                             cut grade&nbsp;:&nbsp;
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="col-xl-6 ps-md-0">
                                         <div class="mt-4 wire_bangle_share">
                                             clarity&nbsp;:&nbsp;
@@ -209,16 +211,14 @@
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
+                            @if($Diamond->Cut != "")
                             <div class="col-md-6 px-0">
                                 <div class="wire_bangle_share">
                                     cut&nbsp;:&nbsp;
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
-
-                           
-                            
-                            
+                            @endif
                             <div class="col-md-6 px-0">
                                 <div class="mt-4 wire_bangle_share">
                                     carat weight &nbsp;:&nbsp;

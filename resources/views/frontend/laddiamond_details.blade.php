@@ -89,12 +89,14 @@
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
+                                    @if($Diamond->Cut != "")
                                     <div class="col-xl-6 ps-md-0">
                                         <div class="mt-4 wire_bangle_share">
                                             cut grade&nbsp;:&nbsp;
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="col-xl-6 ps-md-0">
                                         <div class="mt-4 wire_bangle_share">
                                             clarity&nbsp;:&nbsp;
@@ -170,8 +172,9 @@
                                                 <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
+                                            <div class="mb-6 col-md-12 ps-0">
+            
+                                                <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             </div>  
