@@ -104,6 +104,8 @@
                                         </div>
                                         <div class="row" id="variantstr"> 
                                         </div>
+                                        <div class="row" id="specificationstr"> 
+                                        </div>
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
@@ -412,6 +414,7 @@ $( document ).ready(function() {
 $('body').on('click', '.select_setting_btn', function () {
     var valid = false;
     var arrspe = [];
+    $('#specificationstr').html('');
     $(document).find('.specification').each(function() {
         var thi = $(this);
         var this_err = $(thi).attr('name') + "-error";
@@ -420,19 +423,20 @@ $('body').on('click', '.select_setting_btn', function () {
             $("#"+this_err).show();
             valid = false;
         }else{
-            arrspe.push({'key' : 'size' },{'value' : $(thi).val() });
+            var element = $(this).find('option:selected'); 
+            var DataSpe = element.attr("data-spe");
+            var DataTerm = element.attr("data-term");
+            arrspe.push({'key' : DataSpe,'value' : DataTerm });
             $("#"+this_err).hide();
             valid = true;
         }
-        
     })
-     console.log(arrspe);
-     
 
     if(valid){
-        $.map(arrspe, function(value ) {
-         console.log(value);
-     });
+        $.map(arrspe, function(value) {
+            var html = '<div class="d-flex align-items-center mb-3 col-md-6 px-0"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
+           $('#specificationstr').append(html);
+        });
         jQuery("#exampleModal").modal('show');
     }
 });    

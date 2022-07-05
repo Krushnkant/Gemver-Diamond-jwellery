@@ -102,7 +102,7 @@
             </div>
             <div class="col-sm-7 col-md-6 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
                 <span class="wire_bangle_select text-center text-md-end">
-                    <select name="sorting" id="sorting">
+                    <select class="form-control" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>

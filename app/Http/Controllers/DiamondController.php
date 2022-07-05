@@ -158,12 +158,14 @@ class DiamondController extends Controller
                                         <li>
                                             <span> CLARITY :</span>
                                             <span>'. $Diamond->Clarity .' </span>
-                                        </li>
-                                        <li>
+                                        </li>';
+                                        if($Diamond->Cut != ""){
+                                        $artilces.='<li>
                                             <span> CUT  :</span>
                                             <span>'. $Diamond->Cut .' </span>
-                                        </li>
-                                        <li>
+                                        </li>';
+                                        }
+                                        $artilces.='<li>
                                             <span> POLISH  :</span>
                                             <span>'. $Diamond->Polish .' </span>
                                         </li>
@@ -323,7 +325,7 @@ class DiamondController extends Controller
                     $artilces.='
                     <div class="col-sm-6 col-lg-4 col-xl-4 mt-3 mt-md-4">
                     <div class="wire_bangle_img mb-3 position-relative">
-                        <img src="'.  $image  .'" alt="'. $product->product_title .'">
+                      <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
                     </div>
                     <div class="wire_bangle_description">
                         <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
@@ -374,15 +376,12 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
-
-
         $Product= ProductVariant::with('product')->where(['estatus' => 1,'id' => $cart->variant_id])->first();
         $Diamond = Diamond::where(['id' => $cart->diamond_id])->first();
-        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId'));
+        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart'));
     }
 
     public function editproductsetting($catid){
-
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
         $cart->variant_id = 0;
@@ -501,6 +500,7 @@ class DiamondController extends Controller
                                 <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
+                                        
                                         <li>
                                             <span>LOT :</span>
                                             <span>'. $Diamond->Stone_No .' </span>
@@ -521,12 +521,14 @@ class DiamondController extends Controller
                                         <li>
                                             <span> CLARITY :</span>
                                             <span>'. $Diamond->Clarity .' </span>
-                                        </li>
-                                        <li>
+                                        </li>';
+                                        if($Diamond->Cut != ""){
+                                        $artilces.='<li>
                                             <span> CUT  :</span>
                                             <span>'. $Diamond->Cut .' </span>
-                                        </li>
-                                        <li>
+                                        </li>';
+                                        }
+                                        $artilces.='<li>
                                             <span> POLISH  :</span>
                                             <span>'. $Diamond->Polish .' </span>
                                         </li>
@@ -550,7 +552,7 @@ class DiamondController extends Controller
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part">
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
-                                    <a href="'.$url.'">'.$Diamond->Shape.'</a>
+                                    '.$Diamond->Shape.'
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">

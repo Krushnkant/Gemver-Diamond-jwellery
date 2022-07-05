@@ -194,7 +194,7 @@ class ProductController extends Controller
                     $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                     $v = 1;
                     foreach($product_attributes as $term){
-                    $spe .='<option value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                    $spe .='<option data-spe="'.$productvariants->attribute->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
                     
                    }
                 }   

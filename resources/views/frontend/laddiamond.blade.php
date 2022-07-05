@@ -63,123 +63,28 @@
                     </div>
                 </div>
                 <div class="round_cut_lab_checkbox mb-xxl-5 mb-4">
-                    <div class="round_cut_lab_diamonds_heading mb-4">shape</div>
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                        <img src="{{ url('frontend/image/diamod_shape_1.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="round" type="checkbox" <?php if($shap == 'round'){ echo 'checked'; } ?> name="shape[]" id="flexRadioDefault12">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault12">
-                                round
-                            </label>
-                    </span>
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                        <img src="{{ url('frontend/image/diamod_shape_2.png') }}" alt="" class="shape_img ms-4">
-                                <input class="form-check-input shape common_selector" value="oval" <?php if($shap == 'oval'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault13">
-                                <label class="form-check-label round_cut_lab_label" for="flexRadioDefault13">
-                                    oval
-                                </label>
-                            </span>
-                    <span class="form-check position-relative  ps-0 mb-2 pb-1 pb-2">
-                        <img src="{{ url('frontend/image/diamod_shape_3.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="emerald" <?php if($shap == 'emerald'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault14">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault14">
-                                emerald
-                            </label>
-                    </span>
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                        <img src="{{ url('frontend/image/diamod_shape_4.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="princess" <?php if($shap == 'princess'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault15">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault15">
-                                princess
-                        </label>
-                    </span>
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_5.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="cushion" <?php if($shap == 'cushion'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault16">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault16">
-                                cushion
-                        </label>
-                    </span>
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_6.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="marquise" <?php if($shap == 'marquise'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault17">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault17">
-                                marquise
-                        </label>
-                    </span>
-
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_7.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="pear"  <?php if($shap == 'pear'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault170">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault170">
-                                pear
-                        </label>
-                    </span>
-
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/diamod_shape_8.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="heart" <?php if($shap == 'heart'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault171">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault171">
-                            heart
-                        </label>
-                    </span>
-
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/asscher.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="asscher" <?php if($shap == 'asscher'){ echo 'checked'; } ?> type="checkbox" name="shape[]" id="flexRadioDefault172">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault172">
-                            asscher
-                        </label>
-                    </span>
-
-                    <span class="form-check position-relative ps-0 mb-2 pb-1">
-                    <img src="{{ url('frontend/image/radiant.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" <?php if($shap == 'radiant'){ echo 'checked'; } ?> value="radiant" type="checkbox" name="shape[]" id="flexRadioDefault173">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault173">
-                            radiant
-                        </label>
-                    </span>
+                    <div class="round_cut_lab_diamonds_heading mb-4">shape </div>
                     
+                    @foreach($diamondshape as $shape)  
+                    <span class="form-check position-relative ps-0 mb-2 pb-1">
+                        <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="" class="shape_img ms-4">
+                            <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( strtoupper($shap) ==  strtoupper($shape)  ) ? 'checked' : '' }}  id="flexRadioDefault{{ $shape }}">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $shape }}">
+                               {{ $shape }}
+                            </label>
+                    </span>
+                    @endforeach
 
                 </div>
                 <div class="round_cut_lab_range_slider mb-4  mb-xxl-5 round_cut_lab_range_color">
                     <div class="round_cut_lab_diamonds_heading mb-4">color</div>
                     <div>
+                        @foreach($diamondcolor as $color) 
                         <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox"  value="M" name="color[]" class="color common_selector" id="9">
-                            <label for="9">M</label>
+                            <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
+                            <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="L" name="color[]" class="color common_selector" id="10">
-                            <label for="10">L</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="K" name="color[]" class="color common_selector" id="11">
-                            <label for="11">K</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="I" name="color[]" class="color common_selector" id="12">
-                            <label for="12">I</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="H" name="color[]" class="color common_selector" id="13">
-                            <label for="13">H</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="G" name="color[]" class="color common_selector" id="14">
-                            <label for="14">G</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="F" name="color[]" class="color common_selector" id="15">
-                            <label for="15">F</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="E" name="color[]" class="color common_selector" id="16">
-                            <label for="16">E</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="17">
-                            <label for="17">D</label>
-                        </div>
+                         @endforeach
                     </div>
                 </div>
 
@@ -198,80 +103,34 @@
                     <div class="round_cut_lab_diamonds_heading mb-4">clarity</div>
              
                     <div>
+                        @foreach($diamondclarity as $clarity) 
                         <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="I1" name="clarity[]" class="clarity common_selector" id="18">
-                            <label for="18">I1</label>
+                            <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
+                            <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
                         </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="SI2" name="clarity[]" class="clarity common_selector" id="19">
-                            <label for="19">SI2</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="SI1" name="clarity[]" class="claritycommon_selector" id="20">
-                            <label for="20">SI1</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="VS2" name="clarity[]" class="clarity common_selector" id="21">
-                            <label for="21">VS2</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="VS1" name="clarity[]" class="clarity common_selector" id="22">
-                            <label for="22">VS1</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="VVS2" name="clarity[]" class="clarity common_selector" id="23">
-                            <label for="23">VVS2</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="VVS1" name="clarity[]" class="clarity common_selector" id="24">
-                            <label for="24">VVS1</label>
-                        </div>
-                        <div class="form-group mb-3 me-2 d-inline-block">
-                            <input type="checkbox" value="IF" name="clarity[]" class="clarity common_selector" id="25">
-                            <label for="25">IF</label>
-                        </div>
+                         @endforeach
                     </div>
                 </div>
                 <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
                     <div class="round_cut_lab_diamonds_heading mb-4">cut</div>
                     <div>
+                        @foreach($diamondcut as $cut) 
                         <div class="form-group mb-3">
-                            <input type="checkbox" value="FA" class="cut common_selector" name="cut[]" id="1">
-                            <label for="1">fair</label>
+                            <input type="checkbox" value="{{ $cut }}" class="cut common_selector" name="cut[]" id="cut{{ $cut }}">
+                            <label for="cut{{ $cut }}">{{ $cut }}</label>
                         </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" value="GO" class="cut common_selector" name="cut[]" id="2">
-                            <label for="2">good</label>
-                        </div>
-                        <div class="form-group mb-3"> 
-                            <input type="checkbox" value="VE" class="cut common_selector" name="cut[]" id="3">
-                            <label for="3">very good</label>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="4">
-                            <label for="4">excellent</label>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="5">
-                            <label for="5">ideal</label>
-                        </div>
+                         @endforeach
                     </div>
                 </div>
                 <div class="round_cut_lab_range_slider mb-3 mb-xxl-5">
                     <div class="round_cut_lab_diamonds_heading mb-4">report</div>
                     <div>
+                        @foreach($diamondreport as $report) 
                         <div class="form-group mb-3">
-                            <input type="checkbox" name="report[]" value="gia" class="report common_selector" id="6">
-                            <label for="6">gia</label>
+                            <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
+                            <label for="report{{ $report }}">{{ $report }}</label>
                         </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" name="report[]" value="igi" class="report common_selector" id="7">
-                            <label for="7">igi</label>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" name="report[]" value="gcal" class="report common_selector" id="8">
-                            <label for="8">gcal</label>
-                        </div>
+                         @endforeach
                     </div>
                 </div>
                 <div class="mt-xxl-4 text-center mb-xxl-3 my-2">
