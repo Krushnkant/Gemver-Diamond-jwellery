@@ -26,9 +26,11 @@ $settings = \App\Models\Settings::first();
 <body>
 
 
-<div class="header-loader" style="display:none;">
-    <div class="spinner-border loader-btn" role="status">
-    <span class="sr-only">Loading...</span>
+<div class="header-loader">
+    <!-- <div class="spinner-border loader-btn" role="status"> -->
+    <div class="loader-btn" role="status"> 
+    <!-- <span class="sr-only">Loading...</span> -->
+    <img src="{{ asset('frontend/image/loader.gif') }}" alt="">
     </div>
 </div>
 

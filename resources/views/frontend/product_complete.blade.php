@@ -198,9 +198,16 @@
                             </div>
 
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content">
-                                        <div class="mb-xxl-5 mb-xl-4 mb-3 product_heading">product inquiry</div>
+                                        <div class="row">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading">product inquiry</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
                                         <div class="alert alert-success" id="success-alert" style="display: none;">
                                           
                                         </div>
@@ -212,7 +219,7 @@
                                                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                                                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
+                                                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                                 </div>';
@@ -226,7 +233,7 @@
                                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                                                 
-                                                $str .='<div class="d-flex align-items-center mb-4 col-md-6">
+                                                $str .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
                                                             <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
                                                             <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                         </div>';    
@@ -240,24 +247,26 @@
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="{{ $Product->SKU }}">
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
-                                        <div class="mb-3">
-                                            <input type="text" name="name" placeholder="your name" class="d-block mb-3 wire_bangle_input">
-                                            <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                        <div class="row mb-0">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
+                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block mb-3 wire_bangle_input">
-                                            <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block mb-3 wire_bangle_input">
-                                            <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block mb-3 wire_bangle_input">
-                                            <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                        </div>
-                                        <button class="send_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
-                                            <div class="spinner-border loadericonfa" role="status" style="display:none;">
+                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </button>
@@ -266,16 +275,18 @@
                                 </div>
                             </div>
 
-                            <span class="wire_bangle_input">
-                                <div class="wire_bangle_number number-input">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                                </div>
-                            </span>
-                            <span class="inquiry_now_btn ms-3 ms-md-5">
-                                <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
-                            </span>
+                            <div class="d-flex mb-md-4 flex-wrap mb-3 mb-md-0">
+                                <span class="wire_bangle_input">
+                                    <div class="wire_bangle_number number-input">
+                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                        <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
+                                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                    </div>
+                                </span>
+                                <span class="inquiry_now_btn ms-3 ms-md-5">
+                                    <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                                </span>
+                            </div>
                     
                     </div>
                 </div>
@@ -313,7 +324,7 @@
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item mt-3">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Diamond Details

@@ -131,7 +131,7 @@ class DiamondController extends Controller
                     }
                 }
                 $artilces.='
-                <div class="col-md-6 col-lg-4 mb-4">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <div class="round_cut_lab_diamonds_img">
                                 <img src="'.$Diamond_image .'" alt="">
@@ -493,7 +493,7 @@ class DiamondController extends Controller
                     }
                 }
                 $artilces.='
-                <div class="col-md-6 col-lg-4 mb-4">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <div class="round_cut_lab_diamonds_img">
                                 <img src="'.$Diamond_image .'" alt="">

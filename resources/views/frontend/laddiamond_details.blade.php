@@ -159,7 +159,7 @@
             
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
                                         
-                                        <div class="row mb-0 mb-xxl-4">
+                                        <div class="row mb-0 mb-xxl-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
