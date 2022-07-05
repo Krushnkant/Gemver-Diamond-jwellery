@@ -110,16 +110,16 @@
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
             
-                                        <div class="row mb-0 mb-xxl-4">
-                                            <div class="mb-3 col-md-6 ps-0 mb-3">
+                                        <div class="row mb-0">
+                                            <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0 mb-3">
+                                            <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0 mb-3">
+                                            <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
@@ -149,7 +149,7 @@
                              if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             ?>
                             <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_color mb-xxl-4 pb-md-2 wire_bangle_color_img_part">
+                                <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part">
                                 <?php 
                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
                                 $ia = 1;
