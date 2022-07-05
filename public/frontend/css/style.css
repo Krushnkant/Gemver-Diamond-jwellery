@@ -1388,7 +1388,7 @@ background-size: cover;
 }
 
 .wire_bangle_accordion .accordion-body {
-    padding: 0 34px 34px 34px;
+    padding: 0 30px 34px 30px;
 }
 
 .wire_bangle_accordion .accordion-button::after {

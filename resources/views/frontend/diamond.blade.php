@@ -106,7 +106,7 @@
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
             </div>
             <div class="col-sm-3 col-md-3 text-sm-end mb-3 mb-sm-0 text-center text-sm-start">
-                <span class="wire_bangle_select text-start">
+                <span class="wire_bangle_select text-center">
                     <select class="form-control" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>

@@ -33,8 +33,8 @@
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>
                 </span> -->
-                <span class="wire_bangle_select text-start">
-                    <select class="form-control"  name="sorting" id="sorting">
+                <span class="wire_bangle_select text-center text-md-end">
+                    <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>

@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
-                <div class="wire_bangle_content">
+                <div class="wire_bangle_content mb-4 mb-md-0">
                     <div class="">
                         <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
                         <div class="d-flex mb-2 pb-xxl-2">
@@ -190,7 +190,7 @@
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                             @foreach($Category as $cat)
                             
-                            <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
+                            <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 mb-lg-0 mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
 
                             @endforeach
                        
