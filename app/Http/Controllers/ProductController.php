@@ -92,8 +92,7 @@ class ProductController extends Controller
                 $output .= '
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <img src="'.  $image  .'" alt="">
-
+                            <a href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
                         </div>
                         <div class="wire_bangle_description">
 
@@ -184,7 +183,7 @@ class ProductController extends Controller
             foreach($ProductVariantSpecification as $productvariants)
             {
 
-            $spe .='<span class="wire_bangle_select mb-3 me-3">
+            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
                       <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                         <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                
@@ -200,7 +199,8 @@ class ProductController extends Controller
                    }
                 }   
             $spe .='</select>
-            </span> <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>';
+                <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+            </span> ';
             }
 
             $images = '';
