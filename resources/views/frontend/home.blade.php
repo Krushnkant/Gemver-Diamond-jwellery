@@ -87,6 +87,17 @@
             <h2 class="heading-h2 mb-4 mb-md-0 pb-md-4 text-center text-white">{{ $homesetting->section_diamond_title }}</h2>
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
+                    
+                <!-- <?php $shape_no = 1;  ?>
+                    @foreach($diamondshape as $shape)  
+                    <div class="item">
+                        <a href="{{ url('/lad-diamond/'.$shape) }}" class="shop-dimond-by-shape-img">
+                            <img src="{{ url('frontend/image/dimond-'.$shape_no.'.png') }}" alt="{{ $shape }}" title="{{ $shape }}">
+                        </a>
+                    </div>
+                    <?php $shape_no++;  ?>
+                    @endforeach -->
+
                     <div class="item">
                         <a href="{{ url('/lad-diamond/round') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/dimond-1.png') }}" alt="">
