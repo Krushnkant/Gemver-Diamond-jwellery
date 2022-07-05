@@ -163,29 +163,32 @@
                         
                         
                             <div class="wire_bangle_carat">
-                            <div class="mb-4 " >    
+                            <div class="mb-4">    
                             <?php     
                             $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$Product->id)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
                             $spe = '';
                             foreach($ProductVariantSpecification as $productvariants)
                             {
-                            
-                            $spe .='<span class="wire_bangle_select mb-3 me-3">
-                                    <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                        <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
+                            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
+                                    <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                             
                                 $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$Product->id)->groupBy('attribute_term_id')->get();
-                                    
+                                $term_ids = explode(',',$cart->specification_term_id);  
                                 foreach($product_attribute as $attribute_term){
                                     $term_array = explode(',',$attribute_term->attribute_term_id);
                                     $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                                     $v = 1;
                                     foreach($product_attributes as $term){
-                                    $spe .='<option value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
-                                    
-                                }
+                                        $spe .='<option value="'. $term->id .'"';
+                                        if(in_array($term->id, $term_ids)){
+                                            $spe .=' selected ';
+                                        }
+                                        $spe .='>'.$term->attrterm_name .'</option>'; 
+                                    }
                                 }   
                             $spe .='</select>
+                            <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>';
                             echo $spe;
                             }
@@ -232,7 +235,6 @@
                                             echo $str;
                                         ?>
                                             
-                                           
                                         </div>
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
@@ -272,7 +274,7 @@
                                 </div>
                             </span>
                             <span class="inquiry_now_btn ms-3 ms-md-5">
-                                <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                                <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
                             </span>
                     
                     </div>
@@ -368,6 +370,30 @@
 
 <script type="text/javascript">
 $( document ).ready(function() {  
+
+$('body').on('click', '.select_setting_btn', function () {
+var valid = false;
+var arrspe = [];
+$(document).find('.specification').each(function() {
+    var thi = $(this);
+    var this_err = $(thi).attr('name') + "-error";
+    if($(thi).val()=="" || $(thi).val()==null){
+        $("#"+this_err).html("Please select any value");
+        $("#"+this_err).show();
+        valid = false;
+    }else{
+        $("#"+this_err).hide();
+        valid = true;
+    }
+    })
+    if(valid){
+        $.map(arrspe, function(value) {
+            var html = '<div class="d-flex align-items-center mb-3 col-md-6 px-0"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
+        $('#specificationstr').append(html);
+        });
+        jQuery("#exampleModal").modal('show');
+    }
+});    
       
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');

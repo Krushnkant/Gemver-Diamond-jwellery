@@ -128,16 +128,16 @@
                 </div>
                 <div class="round_cut_lab_checkbox mb-xxl-5 mb-4">
                     <div class="round_cut_lab_diamonds_heading mb-4">shape</div>
-                    <?php $no_shap = 1;  ?>
+                   
                     @foreach($diamondshape as $shape)  
                     <span class="form-check position-relative ps-0 mb-2 pb-1">
                         <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="" class="shape_img ms-4">
-                            <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ? 'checked' : '' }}  id="flexRadioDefault{{ $no_shap }}">
-                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $no_shap }}">
+                            <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ? 'checked' : '' }}  id="flexRadioDefault{{ $shape }}">
+                            <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $shape }}">
                                {{ $shape }}
                             </label>
                     </span>
-                    <?php $no_shap++;  ?>
+                    
                     @endforeach
                     
                     
