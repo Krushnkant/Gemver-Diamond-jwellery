@@ -89,7 +89,7 @@
                                             <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->Cut != ""){
+                                    @if($Diamond->Cut != "")
                                     <div class="col-xl-6 ps-md-0">
                                         <div class="mt-4 wire_bangle_share">
                                             cut grade&nbsp;:&nbsp;
