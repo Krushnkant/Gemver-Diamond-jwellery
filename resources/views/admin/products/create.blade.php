@@ -141,11 +141,11 @@
             </div>
         </div>
         </form>
-        <button class="AddBox btn btn-primary" id="AddBox" style="display: none"> Add Box</button>
         <div class="row">
             <div class="col-md-12">
                 <div class="card variantCard" id="variantProductBox" style="display: none;">
                     <div class="card-body">
+                        <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Box</button>
                         <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

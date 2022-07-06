@@ -1070,6 +1070,7 @@ background-size: cover;
     display: flex !important;
     justify-content: center;
     border: 1px #eee solid;
+    width: calc(100% - 1px);
 }
 
 .wire_bangle_page .video-player-btn-item {
@@ -1612,6 +1613,49 @@ background-size: cover;
     overflow: hidden;
     position: relative;
     border: 1px #eee solid;
+}
+
+.hover_effect_part .wire_bangle_img a {
+    display: block;
+    overflow: hidden;
+}
+
+.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:after {
+    bottom: 0;
+    left: 30%;
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgb(0 0 0 / 20%);
+}
+
+.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:hover:after {
+    opacity: 1;
+    left: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:before {
+    bottom: 0;
+    right: 30%;
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgb(0 0 0 / 20%);
+}
+
+.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:hover:before {
+    opacity: 1;
+    right: 50%;
+    transition: all 0.6s ease-in-out;
+}
+
+.hover_effect_part .wire_bangle_img img {
+    z-index: -1;
 }
 
 .wire_bangle_img:before {
@@ -2496,6 +2540,34 @@ background-size: cover;
     color: #fff;
     width: 220px;
     height: 40px;
+}
+
+.select_box_option select {
+    border: 1px solid rgba(11, 23, 39, 0.1) !important;
+    border-radius: 0;
+    padding: 8px 32px 8px 15px;
+    text-transform: capitalize;
+}
+
+.select_box_option {
+    position: relative;
+}
+
+.select_box_option:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    right: 10px;
+    border-color: #000 transparent transparent transparent;
+}
+
+.select_box_option select:focus {
+    outline: 0;
+    box-shadow: none;
 }
 
 .wire_bangle_select_size .select {
