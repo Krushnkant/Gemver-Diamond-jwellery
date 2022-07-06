@@ -90,9 +90,9 @@ class ProductController extends Controller
                 $sale_price = $row->sale_price;
                 $url =  URL('/product-details/'.$row->id);
                 $output .= '
-                <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4">
+                <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <a href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
+                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
                         </div>
                         <div class="wire_bangle_description">
 

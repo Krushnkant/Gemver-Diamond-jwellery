@@ -168,7 +168,7 @@
                                 $iv = 1;
                             ?>
                                  <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_carat">
+                                <div class="wire_bangle_carat mb-2">
                                 <?php 
                                  $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
                                 ?>    

@@ -323,7 +323,7 @@ class DiamondController extends Controller
                     $sale_price = $product->sale_price;
                     $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id);
                     $artilces.='
-                    <div class="col-sm-6 col-lg-4 col-xl-4 mt-3 mt-md-4">
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">
                     <div class="wire_bangle_img mb-3 position-relative">
                       <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
                     </div>
