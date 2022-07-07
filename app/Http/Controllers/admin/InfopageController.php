@@ -12,6 +12,15 @@ class InfopageController extends Controller
 {
     private $page = "Infopage";
 
+    public function page(){
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.infopage.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.page',compact('canWrite'))->with('page',$this->page);
+    }
+
     public function index(){
         $Infopages = Infopage::first();
         $canWrite = false;

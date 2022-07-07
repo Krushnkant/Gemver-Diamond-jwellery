@@ -46,9 +46,10 @@ Route::get('/payment-options',[OtherPageController::class,'paymentoptions'])->na
 Route::get('/return-days',[OtherPageController::class,'returndays'])->name('frontend.returndays');
 
 Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop');
-Route::get('/product-details/{id}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
+Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
+Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');
 
 Route::get('/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
@@ -161,6 +162,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('homesettings',[\App\Http\Controllers\admin\HomeSettingController::class,'index'])->name('homesettings.create');
     Route::post('homesettings/edit',[\App\Http\Controllers\admin\HomeSettingController::class,'editHomeSettings'])->name('homesettings.edit');
+
+    Route::get('page',[\App\Http\Controllers\admin\InfopageController::class,'page'])->name('infopage.page');
 
     Route::get('infopage',[\App\Http\Controllers\admin\InfopageController::class,'index'])->name('infopage.list');
     Route::get('infopage/aboutus/edit',[\App\Http\Controllers\admin\InfopageController::class,'editAboutus'])->name('infopage.editAboutus');
