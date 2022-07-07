@@ -15,7 +15,7 @@
                             </div>
                         @endif
 
-                        <h4>Jawelry Admin</h4>
+                        <h4>Gemver Admin</h4>
 
                         <form method="post" action="" class="mt-5 mb-5 login-input" id="LoginForm">
                             {{ csrf_field() }}

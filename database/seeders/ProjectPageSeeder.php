@@ -147,29 +147,41 @@ class ProjectPageSeeder extends Seeder
         // ]);
         ProjectPage::create([
             'id' => 15,
-            'parent_menu' => 17,
+            'parent_menu' => 0,
             'label' => 'Testimonial',
+            'icon_class' => 'fa fa-users',
             'route_url' => 'admin.testimonials.list',
-            'is_display_in_menu' => 1,
+            'is_display_in_menu' => 0,
             'inner_routes' => 'admin.testimonials.list,admin.testimonials.addorupdatetestimonial,admin.alltestimonialslist,admin.users.changetestimonialstatus,admin.testimonials.edit,admin.testimonials.delete',
             'sr_no' => 12
         ]);
         ProjectPage::create([
             'id' => 16,
             'parent_menu' => 0,
-            'label' => 'Contacts',
+            'label' => 'Contact Inquiry',
             'route_url' => 'admin.contacts.list',
             'icon_class' => 'fa fa-address-book',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.contacts.list,admin.contacts.delete',
             'sr_no' => 14
         ]);
+        // ProjectPage::create([
+        //     'id' => 17,
+        //     'parent_menu' => 0,
+        //     'label' => 'Pages',
+        //     'icon_class' => 'fa fa-file',
+        //     'is_display_in_menu' => 1,
+        //     'sr_no' => 10
+        // ]);
+
         ProjectPage::create([
             'id' => 17,
             'parent_menu' => 0,
             'label' => 'Pages',
+            'route_url' => 'admin.infopage.page',
             'icon_class' => 'fa fa-file',
-            'is_display_in_menu' => 1,
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.infopage.page',
             'sr_no' => 10
         ]);
 
@@ -376,6 +388,8 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.shopbystyle.list,admin.shopbystyle.add,admin.shopbystyle.save,admin.allshopbystylelist,admin.shopbystyle.changeshopbystylestatus,admin.shopbystyle.delete,admin.shopbystyle.edit,admin.shopbystyle.uploadfile,admin.shopbystyle.removefile,admin.shopbystyle.checkparentcat',
             'sr_no' => 23
         ]);
+
+      
 
 
         $users = User::where('role',"!=",1)->get();

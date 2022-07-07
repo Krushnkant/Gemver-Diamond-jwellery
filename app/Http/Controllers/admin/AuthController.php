@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    private $page = "Jewelry Admin";
+    private $page = "Gemver Admin";
 
     public function index()
     {

@@ -21,9 +21,16 @@ class ProductController extends Controller
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'));
     }
 
-    public function product_detail($id){
-        $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.product',compact('Product'));
+    public function product_detail($id,$variantid){
+
+        $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
+        //dd($attribute_term_ids);
+        //\DB::enableQueryLog();
+        // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
+        $Product = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        
+        //dd(\DB::getQueryLog());
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids'));
     }
 
     public function fetchproduct(Request $request){
@@ -33,7 +40,7 @@ class ProductController extends Controller
         {
            
             $attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
-            $query = Product::select('products.*','product_variants.images','product_variants.sale_price')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',0)->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -88,7 +95,7 @@ class ProductController extends Controller
                 $images = explode(",",$row->images);
                 $image = URL($images['0']);
                 $sale_price = $row->sale_price;
-                $url =  URL('/product-details/'.$row->id);
+                $url =  URL('/product-details/'.$row->id.'/'.$row->variant_id);
                 $output .= '
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part">
                         <div class="wire_bangle_img mb-3 position-relative">
@@ -139,10 +146,6 @@ class ProductController extends Controller
                 $query = $query->where('product_variants.id',$vatid);
             }
             $result = $query->orderBy('products.created_at','ASC')->first();
-
-          
-            
-
 
             $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
             $variantstr = '';
@@ -244,9 +247,54 @@ class ProductController extends Controller
             }
             $spe_desc .='</div>';
             }
-       
+                    
             $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
             return \Response()->json($data);
+
+        }
+    }
+
+
+    public function fetchvariants(Request $request){
+    $data = $request->all();
+    $variants=$data["variant"];
+    $terms_id=$data["terms_id"];
+    
+    $product_id=$data["product_id"];
+        if(isset($data["action"]))
+        {
+            $product_attributes_variant_ids = \App\Models\ProductVariantVariant::where('attribute_term_id',$variants[0])->where('product_id',$product_id)->get()->pluck('product_variant_id');
+
+            $variantmulti = '';
+            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->whereIn('product_variant_id',$product_attributes_variant_ids)->groupBy('attribute_id')->get();
+            foreach($ProductVariantVariant as $productvariants){
+                if($productvariants->attribute_terms['0']->attrterm_thumb == ''){
+           
+         
+            $variantmulti .='<div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->attribute_name .'</div>
+            <div class="wire_bangle_carat">';
+           
+            $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->whereIn('product_variant_id',$product_attributes_variant_ids)->groupBy('attribute_term_id')->get();
+            $iv = 1; 
+
+            foreach($product_attribute as $attribute_term){
+            $check = (in_array( $attribute_term->attribute_terms[0]->id , $terms_id)) ? "checked" : ""; 
+            $variantmulti .='<span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
+            <input class="form-check-input variant" '.$check.'  value="'. $attribute_term->attribute_terms[0]->id .'"  type="radio" name="AtributeVariant'. $productvariants->attribute->attribute_name .'" id="AtributeVariant'. $attribute_term->attribute_terms[0]->id .'">
+            <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant'.$attribute_term->attribute_terms[0]->id .'">
+            '.$attribute_term->attribute_terms[0]->attrterm_name.'
+                </label>
+                </span>';
+             $iv++;    
+            }
+            $variantmulti .='</div>';
+            
+            }
+           }
+
+        $variantmulti .='</div>';                        
+        $data = ['variantmulti' => $variantmulti ]; 
+        return \Response()->json($data);
 
         }
     }

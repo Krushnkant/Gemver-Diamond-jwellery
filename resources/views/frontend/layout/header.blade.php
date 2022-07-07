@@ -38,6 +38,7 @@
                         </div>
                         <ul class="mobile-sub-menu">
                             <li class="active"><a href="{{ URL('/') }}">home</a></li>
+                            <li><a href="{{ Route('frontend.aboutus')}}">about us</a></li>
                             <li><a href="#">jewellery
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
@@ -102,7 +103,7 @@
                             <!--        </div>-->
                             <!--    </div>-->
                             <!--</li>-->
-                            <li><a href="{{ Route('frontend.aboutus')}}">about us</a></li>
+                            
                             <li><a href="# ">create your own
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>

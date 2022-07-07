@@ -10,93 +10,130 @@
         </div>
     </div>
     <!-- row -->
+    <form class="form-valide" action="" id="AboutusForm" method="post">
+    <div id="cover-spin" class="cover-spin"></div>
+    {{ csrf_field() }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                       
+                        <div class="row col-lg-12">
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                              <div class="form-group">
+                               <label class="col-form-label" for="Logo"> Image <span class="text-danger">*</span>
+                               </label>
+                               <input type="file" class="form-control-file" id="first_section_image" name="first_section_image" placeholder="">
+                              <div id="first_section-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                  <img src="{{ url('images/placeholder_image.png') }}" class="" id="first_section_image_show" height="200px" width="200px"   style="margin-top: 5px">
+                              </div>
+                            </div> 
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center"> 
+                              <div class="form-group">
+                                <label class="col-form-label" for="first_section_title">First Section Title <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control input-flat" id="first_section_title" name="first_section_title" >
+                                <div id="first_section_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </div>
+
+                               <div class="form-group">
+                                <label class="col-form-label" for="first_section_contant">First Section Contant <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="summernote" id="first_section_contant" name="first_section_contant"></textarea>
+                                <div id="first_section_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        {{--<h4 class="card-title">
-                            About Us
-                        </h4>--}}
-                        <div class="col-lg-12">
-
-
-                        <form class="form-valide" action="" id="AboutusForm" method="post">
-                            <div id="cover-spin" class="cover-spin"></div>
-                            {{ csrf_field() }}
-
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                              <div class="form-group">
-                               <label class="col-form-label" for="Logo">First Section Image <span class="text-danger">*</span>
-                               </label>
-                               <input type="file" class="form-control-file" id="first_section_image" name="first_section_image" placeholder="">
-                              <div id="first_section-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                  <img src="{{ url('images/placeholder_image.png') }}" class="" id="first_section_image_show" height="50px" width="50px" style="margin-top: 5px">
-                              </div>
-                              
-                              <div class="form-group">
-                                <label class="col-form-label" for="first_section_title">First Section Title <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control input-flat" id="first_section_title" name="first_section_title" >
-                                <div id="first_section_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-
-                             <div class="form-group">
-                                <label class="col-form-label" for="first_section_contant">First Section Contant <span class="text-danger">*</span>
-                                </label>
-                                <textarea class="summernote" id="first_section_contant" name="first_section_contant"></textarea>
-                                <div id="first_section_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-
-                             <div class="form-group">
-                               <label class="col-form-label" for="Logo">Second Section Image <span class="text-danger">*</span>
-                               </label>
-                               <input type="file" class="form-control-file" id="second_section_image" name="second_section_image" placeholder="">
-                              <div id="second_section-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                  <img src="{{ url('images/placeholder_image.png') }}" class="" id="second_section_image_show" height="50px" width="50px" style="margin-top: 5px">
-                              </div>
-
+                      
+                        <div class="row col-lg-12">
+                        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
                                 <label class="col-form-label" for="second_section_title">Second Section Title <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" class="form-control input-flat" id="second_section_title" name="second_section_title" >
                                 <div id="second_section_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
+                             
                              <div class="form-group">
                                 <label class="col-form-label" for="second_section_contant">Second Section Contant <span class="text-danger">*</span>
                                 </label>
                                 <textarea class="summernote" id="second_section_contant" name="second_section_contant"></textarea>
                                 <div id="second_section_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
-                             <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                             </div>
+                           <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="form-group">
+                               <label class="col-form-label" for="Logo">Second Section Image <span class="text-danger">*</span>
+                               </label>
+                               <input type="file" class="form-control-file" id="second_section_image" name="second_section_image" placeholder="">
+                              <div id="second_section-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                <img src="{{ url('images/placeholder_image.png') }}" class="" id="second_section_image_show" height="200px" width="200px"  style="margin-top: 5px">
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                      
+                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  justify-content-center">
+                           <div class="form-group row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="col-form-label" for="">Title </label>
                                     <input type="text" class="form-control input-flat" id="title1" name="title1" placeholder="Enter Title">
-                                </div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="col-form-label" for="">Title </label>
+                                    <input type="text" class="form-control input-flat" id="title2" name="title2" placeholder="Enter Title">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                     <label class="col-form-label" for="">Title </label>
+                                    <input type="text" class="form-control input-flat" id="title3" name="title3" placeholder="Enter Title">
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                     <label class="col-form-label" for="">Title </label>
+                                    <input type="text" class="form-control input-flat" id="title4" name="title4" placeholder="Enter Title">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">  
+                                    <label class="col-form-label" for="">Value </label>
                                     <input type="text" class="form-control input-flat" id="value1" placeholder="Enter Value" name="value1">
                                 </div> 
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control input-flat" id="title2" name="title2" placeholder="Enter Title">
-                                </div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> 
+                                    <label class="col-form-label" for="">Value </label> 
                                     <input type="text" class="form-control input-flat" id="value2" placeholder="Enter Value" name="value2">
                                 </div> 
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control input-flat" id="title3" name="title3" placeholder="Enter Title">
-                                </div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">   
+                                    <label class="col-form-label" for="">Value </label> 
                                     <input type="text" class="form-control input-flat" id="value3" placeholder="Enter Value" name="value3">
-                                </div> 
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control input-flat" id="title4" name="title4" placeholder="Enter Title">
-                                </div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">  
+                                    <label class="col-form-label" for="">Value </label>
                                     <input type="text" class="form-control input-flat" id="value4" placeholder="Enter Value" name="value4">
-                                </div> 
+                                </div>
                             </div>
+                            
                             <div id="title1-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -104,15 +141,14 @@
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
                                <button type="button" class="btn btn-primary" id="saveAboutusBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                             </div>
-                        </form>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    </form>
 
    
  

@@ -33,35 +33,35 @@
     <div class="wire_bangle_page container">
         <div class="row" >
             <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
-                    <div class="slider slider-single mb-5">
-                        <?php 
-                        foreach($Product->product_variant as $variant){
-                            $images = explode(",",$variant->images);
-                            foreach($images as $image){
-                        ?>
-                        <div class="product_slider_main_item">
-                            <img src="{{ URL($image) }}" alt="">
-                        </div>     
-                        <?php 
-                            }
-                        }
-                        ?> 
-                    </div>
-                    <div class="slider slider-nav">
+                <div class="slider slider-single mb-5">
                     <?php 
-                        foreach($Product->product_variant as $variant){
-                            $images = explode(",",$variant->images);
-                            foreach($images as $image){
-                        ?>
-                        
-                        <div class="product_slider_item">
-                            <h3><img src="{{ URL($image) }}" alt=""></h3>
-                        </div>    
-                        <?php 
-                            }
+                    foreach($Product->product_variant as $variant){
+                        $images = explode(",",$variant->images);
+                        foreach($images as $image){
+                    ?>
+                    <div class="product_slider_main_item">
+                        <img src="{{ URL($image) }}" alt="">
+                    </div>     
+                    <?php 
                         }
-                        ?>
-                    </div>
+                    }
+                    ?> 
+                </div>
+                <div class="slider slider-nav">
+                <?php 
+                    foreach($Product->product_variant as $variant){
+                        $images = explode(",",$variant->images);
+                        foreach($images as $image){
+                    ?>
+                    
+                    <div class="product_slider_item">
+                        <h3><img src="{{ URL($image) }}" alt=""></h3>
+                    </div>    
+                    <?php 
+                        }
+                    }
+                    ?>
+                </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
@@ -142,21 +142,23 @@
                         </div>
                         <form action="" class="mb-4 mb-lg-5" >
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
+                           
                            <?php
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
                                // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
                              if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             ?>
-                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                            <div class="col-md-6 wire_bangle_padding mb-4">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part">
                                 <?php 
                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
                                 $ia = 1;
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
+                                
                                     <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant"  {{ $ia == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <input class="form-check-input variant variantfirst"  {{ (in_array( $attribute_term->attribute_terms[0]->id , $attribute_term_ids)) ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
                                         <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
@@ -165,8 +167,9 @@
                             </div>
                             <?php 
                                 }else{ 
-                                $iv = 1;
+                               
                             ?>
+<<<<<<< Updated upstream
                                  <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_carat mb-2">
                                 <?php 
@@ -181,12 +184,18 @@
                                     </span>
                                     <?php $iv++ ?>    
                                 @endforeach    
+=======
+>>>>>>> Stashed changes
                                 
-                            </div>
                             <?php 
                                } 
                             }  
                             ?>
+
+
+                            <div class="variantmulti" id="variantmulti">
+
+                            </div>
                             <div class="mb-4 " id="speci_multi">
                             </div>
                             <!--<button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>-->
@@ -245,12 +254,31 @@
         </div>
     </div>
 
-<script>    
+<script> 
+
+
+
 $(document).ready(function(){
+
+    filter_data_variant();
     filter_data();
-    $("#sorting").change(function() {
-        filter_data();
-    });
+    
+    function filter_data_variant()
+    {
+        var action = 'fetch_data';
+        var variant = get_filter('variant');
+        var product_id = $('#product_id').val();
+        var terms_id = <?php echo json_encode($attribute_term_ids); ?>;
+        $.ajax({
+            url:"{{ url('/product-details-variants') }}",
+            method:"POST",
+            data:{action:action,variant:variant,terms_id:terms_id,product_id:product_id,_token: '{{ csrf_token() }}'},
+            success:function(data){ 
+            $('#variantmulti').html(data.variantmulti);
+              filter_data();  
+            }
+        }); 
+    }
 
 
     
@@ -265,7 +293,6 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                //console.log(data);
                 $('.sale_price').html(data.result.sale_price);
                 $('.regular_price').html(data.result.regular_price); 
                 $('#SKU').val(data.result.SKU);
@@ -276,7 +303,6 @@ $(document).ready(function(){
                 $('#variantstr').html(data.variantstr);
                 selectjs();
                 sliderjs();
-                
             }
         });
     }
@@ -400,11 +426,20 @@ $(document).ready(function(){
         });
         return filter;
     }
-    $('.variant').click(function(){
+    //$('.variant').click(function(){
+    $('body').on('click', '.variant', function () {    
         filter_data();
     });
 
+    $('body').on('click', '.variantfirst', function () {    
+        filter_data_variant();
+    });
+
 });
+
+
+
+
 </script>
 
 
