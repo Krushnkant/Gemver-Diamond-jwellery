@@ -1228,6 +1228,7 @@ background-size: cover;
     border-radius: 70px;
     margin-right: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .wire_bangle_color input:after {
@@ -1272,6 +1273,26 @@ background-size: cover;
 
 .wire_bangle_color .form-check-input:checked:after {
     opacity: 1;
+}
+
+.wire_bangle_shop_radio {
+    position: relative;
+}
+
+.wire_bangle_shop_radio .wire_bangle_color {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    opacity: 0;
+}
+
+.wire_bangle_shop_radio:hover .wire_bangle_color {
+    position: initial;
+    left: 0;
+    transform: none;
+    opacity: 1;
+    transition: all 0.5s ease-in;
 }
 
 .wire_bangle_color .form-check-input:focus {
@@ -1525,12 +1546,11 @@ background-size: cover;
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
-    text-transform: uppercase;
     color: #BB9761;
 }
 
 .wire_bangle_sub_heading a {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 20px;
     line-height: 30px;
     text-transform: capitalize;
@@ -1540,6 +1560,12 @@ background-size: cover;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.wire_bangle_description a {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .wire_bangle_paragraph {
@@ -1563,6 +1589,10 @@ background-size: cover;
     line-height: 38px;
     text-transform: capitalize;
     color: #0B1727;
+}
+
+.wire_bangle_price_part {
+    font-size: 20px;
 }
 
 .wire_bangle_box {
@@ -1613,49 +1643,6 @@ background-size: cover;
     overflow: hidden;
     position: relative;
     border: 1px #eee solid;
-}
-
-.hover_effect_part .wire_bangle_img a {
-    display: block;
-    overflow: hidden;
-}
-
-.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:after {
-    bottom: 0;
-    left: 30%;
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 100%;
-    opacity: 0;
-    background-color: rgb(0 0 0 / 20%);
-}
-
-.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:hover:after {
-    opacity: 1;
-    left: 50%;
-    transition: all 0.6s ease-in-out;
-}
-
-.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:before {
-    bottom: 0;
-    right: 30%;
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 100%;
-    opacity: 0;
-    background-color: rgb(0 0 0 / 20%);
-}
-
-.hover_effect_part .wire_bangle_img .wire_bangle_hover_a:hover:before {
-    opacity: 1;
-    right: 50%;
-    transition: all 0.6s ease-in-out;
-}
-
-.hover_effect_part .wire_bangle_img img {
-    z-index: -1;
 }
 
 .wire_bangle_img:before {
@@ -2547,6 +2534,7 @@ background-size: cover;
     border-radius: 0;
     padding: 8px 32px 8px 15px;
     text-transform: capitalize;
+    appearance: none;
 }
 
 .select_box_option {

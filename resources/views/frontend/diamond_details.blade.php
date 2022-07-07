@@ -104,7 +104,7 @@
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">
                         </div>
                         @endif
-                        <div class="product_slider_main_item video-player-btn-item">
+                        <div class="product_slider_main_item video-player-btn-item video-player-diamond-btn">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
                     </div>
@@ -206,14 +206,14 @@
                     <div class="accordion-body">
                         <div class="row">
                             <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
+                                <div class="mt-4 wire_bangle_share">
                                     stock number &nbsp;:&nbsp;
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
                             @if($Diamond->Cut != "")
                             <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
+                                <div class="mt-4 wire_bangle_share">
                                     cut&nbsp;:&nbsp;
                                     <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
                                 </div>

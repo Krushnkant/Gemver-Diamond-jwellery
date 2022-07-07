@@ -163,13 +163,13 @@
                         
                         
                             <div class="wire_bangle_carat">
-                            <div class="mb-4">    
+                            <div class="mb-0">    
                             <?php     
                             $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$Product->id)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
                             $spe = '';
                             foreach($ProductVariantSpecification as $productvariants)
                             {
-                            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block select_box_option">
                                 <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                                     <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                             
