@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="container where_to_start_section pt-0">
-			<div class="row align-items-center py-5">
+			<div class="row align-items-center">
 				<div class="col-md-5">
 					<div>
 						<img src="{{ url('images/steps/'.$Step->step4_section2_image) }}" alt="">
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center py-5">
+			<div class="row align-items-center ">
 				<div class="col-md-5">
 					<div>
 						<img src="{{ url('images/steps/'.$Step->step4_section3_image) }}" alt="">
@@ -158,15 +158,15 @@
 			<div class="container">
 				<div class="">
 					<div class="text-center">
-						<h2 class="lets_create_your_dream_heading mb-md-5">{{ $Step->step4_section11_title }}
-						</h2>
+						<div class="cut_shape_heading mb-md-5">{{ $Step->step4_section11_title }}
+						</div>
 						<div class="row">
 							<div class="col-md-6 text-end mb-3 mb-md-0">
 								<a href="{{ url('product-setting/'.$Step->category_id) }}" class="maximise_your_budget_box">
 									<div>
 										<img src="{{ url('images/steps/'.$Step->step4_section11_image1) }}" alt="" class="maximise_your_budget_img">
 									</div>
-									<div class="category-heading ps-2 ps-md-4">
+									<div class="category-heading category-heading-part ps-2 ps-md-4">
                                     {{ $Step->step4_section11_title1 }}
 									</div>
                                 </a>
@@ -174,7 +174,7 @@
 							<div class="col-md-6 text-end">
 							    <a href="{{ url('diamond-setting/'.$Step->category_id) }}" class="maximise_your_budget_box">
 									<img src="{{ url('images/steps/'.$Step->step4_section11_image2) }}" alt="" class="maximise_your_budget_img">
-									<div class="category-heading ps-2 ps-md-4">
+									<div class="category-heading category-heading-part ps-2 ps-md-4">
                                     {{ $Step->step4_section11_title2 }}
 									</div>
                                 </a>

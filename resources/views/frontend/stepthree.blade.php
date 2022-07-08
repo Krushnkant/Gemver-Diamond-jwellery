@@ -312,7 +312,7 @@
 					</div>
 					<div class="col-md-7 mb-4 mb-md-0">
 						<div class="jewellery-paragraph-box text-center text-md-start">
-							<div class="mb-3 choose_setting_heading">{{ $Step->step4_title }}</div>
+							<div class="mb-3 cut_shape_heading">{{ $Step->step4_title }}</div>
 							<p class="customer_stories_paragraph">{{ $Step->step4_shotline }}</p>
 							<a href="{{ url('/step/'.$Step->slug.'/four'); }}" class="explore-ring-btn btn-hover-effect banner-url d-inline-block text-center know_more_btn">know more</a>
 						</div>

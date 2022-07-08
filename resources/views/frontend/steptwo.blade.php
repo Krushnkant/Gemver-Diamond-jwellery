@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0">
+        <div class="container where_to_start_section">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div>
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0">
+        <div class="container where_to_start_section">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0">
+        <div class="container where_to_start_section">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -88,7 +88,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0">
+        <div class="container where_to_start_section">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <!-- <div class="container where_to_start_section pt-0">
+        <!-- <div class="container where_to_start_section">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -120,9 +120,9 @@
             </div>
         </div> -->
 
-        <div class="container pt-4 pt-md-0 mb-5 pb-md-5">
+        <div class="container where_to_start_section">
             <div class="">
-                <div class="step_two_heading text-center text-md-start mb-3">SHOP LAB DIAMONDS BY SHAPE </div>
+                <div class="cut_shape_heading  text-center text-md-start mb-3">SHOP LAB DIAMONDS BY SHAPE </div>
                 <div>
                     <div class="owl-carousel owl-theme shop-dimond-by-shape-slider shop-lab-diamonds-by-shape-slider">
                         <div class="item">
@@ -168,7 +168,7 @@
         </div>
 
         <div class="choose_setting_section">
-            <div class="container where_to_start_section pt-0">
+            <div class="container where_to_start_section">
                 <div class="row position-relative align-items-center">
                     <div class="col-md-5 mb-4">
                         <div class="where_to_start_img">
@@ -177,7 +177,7 @@
                     </div>
                     <div class="col-md-7 mb-4 mb-md-0">
                         <div class="jewellery-paragraph-box text-center text-md-start">
-                            <div class="mb-3 choose_setting_heading">{{ $Step->step3_title }}</div>
+                            <div class="mb-3 cut_shape_heading ">{{ $Step->step3_title }}</div>
                             <p class="customer_stories_paragraph">{{ $Step->step3_shotline }}</p>
                             <a href="{{ url('/step/'.$Step->slug.'/three'); }}" class="explore-ring-btn btn-hover-effect banner-url d-inline-block text-center know_more_btn">know more</a>
                         </div>
