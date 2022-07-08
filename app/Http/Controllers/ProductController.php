@@ -98,28 +98,31 @@ class ProductController extends Controller
                 $url =  URL('/product-details/'.$row->id.'/'.$row->variant_id);
                 $output .= '
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
-                        <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
-                        </div>
-                        <div class="wire_bangle_description">
-                            <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
-                                <span class="form-check d-inline-block">
-                                    <input class="form-check-input variant" checked="" value="1" type="radio" name="AtributeVariantMetal Type" id="" title="Gold">
-                                    <img src="http://127.0.0.1:8000/images/attrTermThumb/attrTermThumb_9250281655907116.jpg" alt="Gold" class="wire_bangle_color_img">
-                                    <div class="wire_bangle_color_input_label"></div>
-                                </span>
-
-                                <span class="form-check d-inline-block">
-                                    <input class="form-check-input variant" value="2" type="radio" name="AtributeVariantMetal Type" id="" title="Silver">
-                                    <img src="http://127.0.0.1:8000/images/attrTermThumb/attrTermThumb_4115191655907106.jpg" alt="Silver" class="wire_bangle_color_img">
-                                    <div class="wire_bangle_color_input_label"></div>
-                                </span>
-
+                        <div class="wire_bangle_img_radio_button"> 
+                            <div class="wire_bangle_img mb-3 position-relative">
+                                <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
                             </div>
-                            <div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
-                            <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
-                            <div class="wire_bangle_price wire_bangle_price_part">
-                                $'. $sale_price .'
+                            <div class="wire_bangle_description p-3">
+                                <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
+                                    <div class="wire_bangle_color_part">
+                                        <span class="form-check d-inline-block">
+                                            <input class="form-check-input variant" checked="" value="1" type="radio" name="AtributeVariantMetal Type" id="" title="Gold">
+                                            <img src="http://192.168.0.18:8000/images/attrTermThumb/attrTermThumb_9250281655907116.jpg" alt="Gold" class="wire_bangle_color_img">
+                                            <div class="wire_bangle_color_input_label"></div>
+                                        </span>
+                                        <span class="form-check d-inline-block">
+                                            <input class="form-check-input variant" value="2" type="radio" name="AtributeVariantMetal Type" id="" title="Silver">
+                                            <img src="http://192.168.0.18:8000/images/attrTermThumb/attrTermThumb_4115191655907106.jpg" alt="Silver" class="wire_bangle_color_img">
+                                            <div class="wire_bangle_color_input_label"></div>
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
+                                <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
+                                <div class="wire_bangle_price wire_bangle_price_part">
+                                    $'. $sale_price .'
+                                </div>
                             </div>
                         </div>
                     </div>
