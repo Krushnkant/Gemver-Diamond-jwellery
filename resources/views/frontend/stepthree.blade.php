@@ -302,7 +302,7 @@
 			</div> -->
 		</div>
 
-		<div class="choose_setting_section">
+		<div class="choose_setting_section where_to_start_section_2">
 			<div class="container where_to_start_section pt-0">
 				<div class="row position-relative align-items-center">
 					<div class="col-md-5 mb-4">

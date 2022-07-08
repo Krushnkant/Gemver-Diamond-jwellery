@@ -42,7 +42,7 @@
         </div>
     </div> -->
 
-    <div class="pb-5 create_your_dream_section">
+    <div class="where_to_start_section">
         <div class="container">
             <div class="">
                 <div class="text-center">
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <div class="container where_to_start_section pt-0">
+    <div class="container where_to_start_section where_to_start_section_2">
         <div class="row position-relative align-items-center">
             <div class="col-md-5">
                 <div class="where_to_start_img">

@@ -154,7 +154,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="pb-5 where_to_start_section">
+		<div class="pb-5 where_to_start_section where_to_start_section_2">
 			<div class="container">
 				<div class="">
 					<div class="text-center">
