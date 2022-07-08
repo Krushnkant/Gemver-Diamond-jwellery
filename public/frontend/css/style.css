@@ -1279,27 +1279,13 @@ background-size: cover;
     position: relative;
 }
 
-.wire_bangle_shop_radio .wire_bangle_color {
-    transition: max-height 1s;
-    max-height: 0px;
-    opacity: 0;
-}
-
 .wire_bangle_color_part {
     opacity: 0;
-    transform: translateY(-40px);
-}
-
-.wire_bangle_shop_radio:hover .wire_bangle_color {
-    max-height: 200px;
-    opacity: 1;
-    transition: max-height 1s;
+    transition: all 0.5s ease;
 }
 
 .wire_bangle_shop_radio:hover .wire_bangle_color_part {
     opacity: 1;
-    transform: translateY(0px);
-    transition: all 0.5s ease;
 }
 
 .wire_bangle_color .form-check-input:focus {
@@ -2352,6 +2338,11 @@ background-size: cover;
     position: relative;
 }
 
+.background-sub-slider img {
+    height: 300px;
+    object-fit: cover;
+}
+
 .background-label-slide {
     position: absolute;
     bottom: 80px;
@@ -3205,7 +3196,7 @@ span#amount {
 }
 
 .where_to_start_section {
-    padding: 100px 0;
+    padding-top: 100px;
 }
 
 .where_to_start_section .jewellery-paragraph-box {
@@ -3259,7 +3250,7 @@ span#amount {
     padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
 
 .maximise_your_budget_box .maximise_your_budget_img {
@@ -3336,12 +3327,18 @@ span#amount {
 /* ----------------------------------- step 3 ----------------------------------- */
 
 .step_four_design .cut_shape_heading,
-.step_three_design .cut_shape_heading {
+.step_three_design .cut_shape_heading,
+.step_one_design .cut_shape_heading,
+.step_two_design .cut_shape_heading {
     font-weight: 600;
     font-size: 22px;
     line-height: normal;
     color: #BB9761;
-    text-transform: capitalize;
+    text-transform: uppercase;
+}
+
+.category-heading-part {
+    color: var(--primary);
 }
 
 .step_four_design .choose_setting_heading,
