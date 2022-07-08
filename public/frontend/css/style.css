@@ -1293,6 +1293,7 @@ background-size: cover;
 .wire_bangle_shop_radio:hover .wire_bangle_color {
     max-height: 200px;
     opacity: 1;
+    transition: max-height 1s;
 }
 
 .wire_bangle_shop_radio:hover .wire_bangle_color_part {

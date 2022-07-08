@@ -109,7 +109,7 @@ class ProductController extends Controller
                                             <input class="form-check-input variant" checked="" value="1" type="radio" name="AtributeVariantMetal Type" id="" title="Gold">
                                             <img src="http://192.168.0.18:8000/images/attrTermThumb/attrTermThumb_9250281655907116.jpg" alt="Gold" class="wire_bangle_color_img">
                                             <div class="wire_bangle_color_input_label"></div>
-                                        </span>
+                                        </span> 
                                         <span class="form-check d-inline-block">
                                             <input class="form-check-input variant" value="2" type="radio" name="AtributeVariantMetal Type" id="" title="Silver">
                                             <img src="http://192.168.0.18:8000/images/attrTermThumb/attrTermThumb_4115191655907106.jpg" alt="Silver" class="wire_bangle_color_img">
