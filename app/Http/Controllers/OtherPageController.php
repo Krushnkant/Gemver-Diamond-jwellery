@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Infopage;
+use App\Models\DiamondAnatomy;
 use Illuminate\Http\Request;
 
 class OtherPageController extends Controller
@@ -41,8 +42,6 @@ class OtherPageController extends Controller
         return view('frontend.returndays',compact('Infopage'));
     }
 
-    
-
     public function customervalues(){
         $Infopage= Infopage::first();
         return view('frontend.customervalues',compact('Infopage'));
@@ -59,8 +58,8 @@ class OtherPageController extends Controller
     }
 
     public function diamondanatomy(){
-        $Infopage= Infopage::first();
-        return view('frontend.diamondanatomy',compact('Infopage'));
+        $DiamondAnatomy= DiamondAnatomy::first();
+        return view('frontend.diamondanatomy',compact('DiamondAnatomy'));
     }
 
     public function learnaboutlabmadediamonds(){

@@ -634,23 +634,23 @@
 
                 if(res.status == 200){
                     $("#UserAboutModal").modal('hide');
-                    $('#saveAboutusBtn').prop('disabled',false);
-                    $('#saveAboutusBtn').find('.loadericonfa').hide();
+                    $('#saveDiamondAnatomyBtn').prop('disabled',false);
+                    $('#saveDiamondAnatomyBtn').find('.loadericonfa').hide();
                     $("#UserDiscountPerVal").html(res.aboutus_contant + " %");
                     toastr.success("Diamond Anatomy Updated",'Success',{timeOut: 5000});
                 }
 
                 if(res.status == 400){
                     $("#UserAboutModal").modal('hide');
-                    $('#saveAboutusBtn').prop('disabled',false);
-                    $('#saveAboutusBtn').find('.loadericonfa').hide();
+                    $('#saveDiamondAnatomyBtn').prop('disabled',false);
+                    $('#saveDiamondAnatomyBtn').find('.loadericonfa').hide();
                     toastr.error("Please try again",'Error',{timeOut: 5000});
                 }
             },
             error: function (data) {
                 $("#UserAboutModal").modal('hide');
-                $('#saveAboutusBtn').prop('disabled',false);
-                $('#saveAboutusBtn').find('.loadericonfa').hide();
+                $('#saveDiamondAnatomyBtn').prop('disabled',false);
+                $('#saveDiamondAnatomyBtn').find('.loadericonfa').hide();
                 toastr.error("Please try again",'Error',{timeOut: 5000});
             }
         });

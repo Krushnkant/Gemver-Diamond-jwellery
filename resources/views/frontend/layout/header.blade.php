@@ -68,16 +68,16 @@
                                                 <span class="menus_title">Diamond Anatomy </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}"> <span class="">Cut</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#cut"> <span class="ms-2 ">Cut</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}"><span class="">Color</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#color"><span class="ms-2 ">Color</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}"><span class="">Clarity</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#clarity"><span class="ms-2 ">Clarity</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}"><span class="">Carat</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#carat"><span class="ms-2 ">Carat</span></a>
                                             </li>
                                         </ul>
 
@@ -111,7 +111,7 @@
                                             
                                         </ul>
                                         <ul>
-                                            <img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" ">
+                                            <img src="{{ url('frontend/image/category-1.png') }}" alt=" ">
                                         </ul>
                                     </div>
                                 </div>
