@@ -50,7 +50,7 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
                                     <th style="width: 50%">Terms & Condition</th>
                                     <td class="text-right">
@@ -60,9 +60,8 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
-
                                     <th style="width: 50%">Free Engraving</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
@@ -71,7 +70,7 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
                                     <th style="width: 50%">Free Resizing</th>
                                     <td class="text-right">
@@ -81,9 +80,8 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
-
                                     <th style="width: 50%">Free Shipping</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
@@ -92,9 +90,8 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
-
                                     <th style="width: 50%">Lifetime Upgrade</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
@@ -103,9 +100,8 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
-
                                     <th style="width: 50%">Lifetime Warranty</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
@@ -114,7 +110,7 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
 
                                     <th style="width: 50%">Payment Options</th>
@@ -125,9 +121,8 @@
                                             </a>
                                         @endif
                                     </td>
-                                    </tr>
+                                </tr>
                                 <tr>
-
                                     <th style="width: 50%">Return Days</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
@@ -136,9 +131,71 @@
                                             </a>
                                         @endif
                                     </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 50%">Customer Value</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.customer_value.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <th style="width: 50%">Market Need</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.market_need.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <th style="width: 50%">Why Friendly</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.why_friendly.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <th style="width: 50%">Learn About Lab Made Diamonds</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.learn_about_lab_made_diamonds.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th style="width: 50%">Conflict Free Diamonds</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.conflict_free_diamonds.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th style="width: 50%">Diamond Anatomy</th>
+                                    <td class="text-right">
+                                        @if($canWrite == true)
+                                            <a href="{{ route('admin.diamond_anatomy.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                    </td>
                                 </tr>
                                 
                                 </tbody>

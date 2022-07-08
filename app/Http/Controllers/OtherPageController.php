@@ -41,4 +41,38 @@ class OtherPageController extends Controller
         return view('frontend.returndays',compact('Infopage'));
     }
 
+    
+
+    public function customervalues(){
+        $Infopage= Infopage::first();
+        return view('frontend.customervalues',compact('Infopage'));
+    }
+
+    public function marketneed(){
+        $Infopage= Infopage::first();
+        return view('frontend.marketneed',compact('Infopage'));
+    }
+
+    public function ethicaledge(){
+        $Infopage= Infopage::first();
+        return view('frontend.ethicaledge',compact('Infopage'));
+    }
+
+    public function diamondanatomy(){
+        $Infopage= Infopage::first();
+        return view('frontend.diamondanatomy',compact('Infopage'));
+    }
+
+    public function learnaboutlabmadediamonds(){
+        $Infopage= Infopage::first();
+        return view('frontend.learnaboutlabmadediamonds',compact('Infopage'));
+    }
+
+    public function conflictfreediamonds(){
+        $Infopage= Infopage::first();
+        return view('frontend.conflictfreediamonds',compact('Infopage'));
+    }
+
+   
+
 }

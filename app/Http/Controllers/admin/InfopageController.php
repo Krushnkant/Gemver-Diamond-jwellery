@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProjectPage;
 use App\Models\Infopage;
+use App\Models\DiamondAnatomy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -461,6 +462,390 @@ class InfopageController extends Controller
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+    public function customer_value(){
+        $Infopages = Infopage::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.customer_value.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.customer_value',compact('Infopages','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateCustomerValue(Request $request){
+        $messages = [
+            'customer_value_contant.required' =>'Please provide a customer value contant',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'customer_value_contant' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $Infopages = Infopage::find(1);
+        if(!$Infopages){
+            return response()->json(['status' => '400']);
+        }
+        $Infopages->customer_value = $request->customer_value_contant;
+
+        $Infopages->save();
+        return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+    public function market_need(){
+        $Infopages = Infopage::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.market_need.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.market_need',compact('Infopages','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateMarketNeed(Request $request){
+        $messages = [
+            'market_need_contant.required' =>'Please provide a customer value contant',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'market_need_contant' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $Infopages = Infopage::find(1);
+        if(!$Infopages){
+            return response()->json(['status' => '400']);
+        }
+        $Infopages->market_need = $request->market_need_contant;
+
+        $Infopages->save();
+        return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+
+    public function why_friendly(){
+        $Infopages = Infopage::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.why_friendly.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.why_friendly',compact('Infopages','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateWhyFriendly(Request $request){
+        $messages = [
+            'why_friendly_contant.required' =>'Please provide a why friendly contant',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'why_friendly_contant' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $Infopages = Infopage::find(1);
+        if(!$Infopages){
+            return response()->json(['status' => '400']);
+        }
+        $Infopages->why_friendly = $request->why_friendly_contant;
+
+        $Infopages->save();
+        return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+    public function learn_about_lab_made_diamonds(){
+        $Infopages = Infopage::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.learn_about_lab_made_diamonds.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.learn_about_lab_made_diamonds',compact('Infopages','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateLearnAboutLabMadeDiamonds(Request $request){
+        $messages = [
+            'learn_about_lab_made_diamonds_contant.required' =>'Please provide a learn about lab made diamonds contant',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'learn_about_lab_made_diamonds_contant' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $Infopages = Infopage::find(1);
+        if(!$Infopages){
+            return response()->json(['status' => '400']);
+        }
+        $Infopages->learn_about_lab_made_diamonds = $request->learn_about_lab_made_diamonds_contant;
+
+        $Infopages->save();
+        return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+    public function conflict_free_diamonds(){
+        $Infopages = Infopage::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.conflict_free_diamonds.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.conflict_free_diamonds',compact('Infopages','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateConflictFreeDiamonds(Request $request){
+        $messages = [
+            'conflict_free_diamonds_contant.required' =>'Please provide a conflict free diamonds contant',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'conflict_free_diamonds_contant' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $Infopages = Infopage::find(1);
+        if(!$Infopages){
+            return response()->json(['status' => '400']);
+        }
+        $Infopages->conflict_free_diamonds = $request->conflict_free_diamonds_contant;
+
+        $Infopages->save();
+        return response()->json(['status' => '200','Infopages' => $Infopages]);
+    }
+
+    public function diamond_anatomy(){
+        $DiamondAnatomy = DiamondAnatomy::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.diamond_anatomy.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.diamond_anatomy',compact('DiamondAnatomy','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateDiamondAnatomy(Request $request){
+
+        $messages = [
+            'header_title.required' =>'Please provide a conflict header_title',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'header_title' => 'required',
+            'header_shotline' => 'required',
+            //'header_image' => 'required',
+            'section1_title' => 'required',
+            'section1_description' => 'required',
+            'section2_title' => 'required',
+            'section2_description' => 'required',
+           // 'section2_image' => 'required',
+            'section3_title' => 'required',
+            'section3_description' => 'required',
+           // 'section3_image' => 'required',
+            'section4_title' => 'required',
+            'section4_description' => 'required',
+           // 'section4_image' => 'required',
+            //'section5_image' => 'required',
+            'section6_title' => 'required',
+            'section6_description' => 'required',
+            //'section6_image' => 'required',
+            'section7_title' => 'required',
+            'section7_description' => 'required',
+            //'section7_image' => 'required',
+            //'section7_image2' => 'required',
+            'section8_title' => 'required',
+            'section8_description' => 'required',
+            //'section8_image' => 'required',
+            'section9_title' => 'required',
+            'section9_description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $DiamondAnatomy = DiamondAnatomy::find(1);
+        if(!$DiamondAnatomy){
+            $DiamondAnatomy = New DiamondAnatomy;
+        }
+        $DiamondAnatomy->header_title = $request->header_title;
+        $DiamondAnatomy->header_shotline = $request->header_shotline;
+        $DiamondAnatomy->section1_title = $request->section1_title;
+        $DiamondAnatomy->section1_description = $request->section1_description;
+        $DiamondAnatomy->section2_title = $request->section2_title;
+        $DiamondAnatomy->section2_description = $request->section2_description;
+        $DiamondAnatomy->section3_title = $request->section3_title;
+        $DiamondAnatomy->section3_description = $request->section3_description;
+        $DiamondAnatomy->section4_title = $request->section4_title;
+        $DiamondAnatomy->section4_description = $request->section4_description;
+        $DiamondAnatomy->section6_title = $request->section6_title;
+        $DiamondAnatomy->section6_description = $request->section6_description;
+        $DiamondAnatomy->section7_title = $request->section7_title;
+        $DiamondAnatomy->section7_description = $request->section7_description;
+        $DiamondAnatomy->section8_title = $request->section8_title;
+        $DiamondAnatomy->section8_description = $request->section8_description;
+        $DiamondAnatomy->section9_title = $request->section9_title;
+        $DiamondAnatomy->section9_description = $request->section9_description;
+
+        $old_header_image = $DiamondAnatomy->header_image;
+        if ($request->hasFile('header_image')) {
+            $image = $request->file('header_image');
+            $image_name = 'header_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_header_image)) {
+                $old_header_image = public_path('images/aboutus/' . $old_header_image);
+                if (file_exists($old_header_image)) {
+                    unlink($old_header_image);
+                }
+            }
+            $DiamondAnatomy->header_image = $image_name;
+        }
+
+        $old_section2_image = $DiamondAnatomy->section2_image;
+        if ($request->hasFile('section2_image')) {
+            $image = $request->file('section2_image');
+            $image_name = 'section2_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section2_image)) {
+                $old_section2_image = public_path('images/aboutus/' . $old_section2_image);
+                if (file_exists($old_section2_image)) {
+                    unlink($old_section2_image);
+                }
+            }
+            $DiamondAnatomy->section2_image = $image_name;
+        }
+
+        $old_section3_image = $DiamondAnatomy->section3_image;
+        if ($request->hasFile('section3_image')) {
+            $image = $request->file('section3_image');
+            $image_name = 'section3_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section3_image)) {
+                $old_section3_image = public_path('images/aboutus/' . $old_section3_image);
+                if (file_exists($old_section3_image)) {
+                    unlink($old_section3_image);
+                }
+            }
+            $DiamondAnatomy->section3_image = $image_name;
+        }
+
+        $old_section4_image = $DiamondAnatomy->section4_image;
+        if ($request->hasFile('section4_image')) {
+            $image = $request->file('section4_image');
+            $image_name = 'section4_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section4_image)) {
+                $old_section4_image = public_path('images/aboutus/' . $old_section4_image);
+                if (file_exists($old_section4_image)) {
+                    unlink($old_section4_image);
+                }
+            }
+            $DiamondAnatomy->section4_image = $image_name;
+        }
+
+        $old_section5_image = $DiamondAnatomy->section5_image;
+        if ($request->hasFile('section5_image')) {
+            $image = $request->file('section5_image');
+            $image_name = 'section5_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section5_image)) {
+                $old_section5_image = public_path('images/aboutus/' . $old_section5_image);
+                if (file_exists($old_section5_image)) {
+                    unlink($old_section5_image);
+                }
+            }
+            $DiamondAnatomy->section5_image = $image_name;
+        }
+
+        $old_section6_image = $DiamondAnatomy->section6_image;
+        if ($request->hasFile('section6_image')) {
+            $image = $request->file('section6_image');
+            $image_name = 'section6_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section6_image)) {
+                $old_section6_image = public_path('images/aboutus/' . $old_section6_image);
+                if (file_exists($old_section6_image)) {
+                    unlink($old_section6_image);
+                }
+            }
+            $DiamondAnatomy->section6_image = $image_name;
+        }
+
+        $old_section7_image = $DiamondAnatomy->section7_image;
+        if ($request->hasFile('section7_image')) {
+            $image = $request->file('section7_image');
+            $image_name = 'section7_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section7_image)) {
+                $old_section7_image = public_path('images/aboutus/' . $old_section7_image);
+                if (file_exists($old_section7_image)) {
+                    unlink($old_section7_image);
+                }
+            }
+            $DiamondAnatomy->section7_image = $image_name;
+        }
+
+        $old_section7_image2 = $DiamondAnatomy->section7_image2;
+        if ($request->hasFile('section7_image2')) {
+            $image = $request->file('section7_image2');
+            $image_name = 'section7_image2_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section7_image2)) {
+                $old_section7_image2 = public_path('images/aboutus/' . $old_section7_image2);
+                if (file_exists($old_section7_image2)) {
+                    unlink($old_section7_image2);
+                }
+            }
+            $DiamondAnatomy->section7_image2 = $image_name;
+        }
+
+        $old_section8_image = $DiamondAnatomy->section8_image;
+        if ($request->hasFile('section8_image')) {
+            $image = $request->file('section8_image');
+            $image_name = 'section8_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section8_image)) {
+                $old_section8_image = public_path('images/aboutus/' . $old_section8_image);
+                if (file_exists($old_section8_image)) {
+                    unlink($old_section8_image);
+                }
+            }
+            $DiamondAnatomy->section8_image = $image_name;
+        }
+
+
+        $DiamondAnatomy->save();
+        return response()->json(['status' => '200','DiamondAnatomy' => $DiamondAnatomy]);
+    }
+
+    public function editDiamondAnatomy(){
+        $DiamondAnatomy = DiamondAnatomy::find(1);
+        return response()->json($DiamondAnatomy);
     }
 
 }
