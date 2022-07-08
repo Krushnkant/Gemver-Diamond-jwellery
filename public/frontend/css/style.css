@@ -174,7 +174,8 @@ background-size: cover;
     display: block;
 }
 
-.header ul li .mega-menu li:first-child {
+.header ul li .mega-menu li:first-child,
+.header ul li .mega-menu li:first-child a {
     color: #BB9761;
     font-size: 17px;
 }
