@@ -17,6 +17,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StepController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,15 @@ Route::get('/lifetime-upgrade',[OtherPageController::class,'lifetimeupgrade'])->
 Route::get('/lifetime-warranty',[OtherPageController::class,'lifetimewarranty'])->name('frontend.lifetimewarranty');
 Route::get('/payment-options',[OtherPageController::class,'paymentoptions'])->name('frontend.paymentoptions');
 Route::get('/return-days',[OtherPageController::class,'returndays'])->name('frontend.returndays');
+
+
+Route::get('/customer-values',[OtherPageController::class,'customervalues'])->name('frontend.customervalues');
+Route::get('/market-need',[OtherPageController::class,'marketneed'])->name('frontend.marketneed');
+Route::get('/ethical-edge',[OtherPageController::class,'ethicaledge'])->name('frontend.ethicaledge');
+Route::get('/diamond-anatomy',[OtherPageController::class,'diamondanatomy'])->name('frontend.diamondanatomy');
+Route::get('/learn-about-lab-made-diamonds',[OtherPageController::class,'learnaboutlabmadediamonds'])->name('frontend.learnaboutlabmadediamonds');
+Route::get('/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
+
 
 Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop');
 Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
@@ -229,6 +239,25 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('return_days',[\App\Http\Controllers\admin\InfopageController::class,'return_days'])->name('return_days.list');
     Route::post('updateReturnDays',[\App\Http\Controllers\admin\InfopageController::class,'updateReturnDays'])->name('return_days.updateReturnDays');
     Route::get('return_days/return_days/edit',[\App\Http\Controllers\admin\InfopageController::class,'editReturnDays'])->name('return_days.editReturnDays');
+
+    Route::get('customer_value',[\App\Http\Controllers\admin\InfopageController::class,'customer_value'])->name('customer_value.list');
+    Route::post('updateCustomerValue',[\App\Http\Controllers\admin\InfopageController::class,'updateCustomerValue'])->name('customer_value.updateCustomerValue');
+
+    Route::get('market_need',[\App\Http\Controllers\admin\InfopageController::class,'market_need'])->name('market_need.list');
+    Route::post('updateMarketNeed',[\App\Http\Controllers\admin\InfopageController::class,'updateMarketNeed'])->name('market_need.updateMarketNeed');
+
+    Route::get('why_friendly',[\App\Http\Controllers\admin\InfopageController::class,'why_friendly'])->name('why_friendly.list');
+    Route::post('updateWhyFriendly',[\App\Http\Controllers\admin\InfopageController::class,'updateWhyFriendly'])->name('market_need.updateWhyFriendly');
+    
+    Route::get('learn_about_lab_made_diamonds',[\App\Http\Controllers\admin\InfopageController::class,'learn_about_lab_made_diamonds'])->name('learn_about_lab_made_diamonds.list');
+    Route::post('updateLearnAboutLabMadeDiamonds',[\App\Http\Controllers\admin\InfopageController::class,'updateLearnAboutLabMadeDiamonds'])->name('market_need.updateLearnAboutLabMadeDiamonds');
+
+    Route::get('conflict_free_diamonds',[\App\Http\Controllers\admin\InfopageController::class,'conflict_free_diamonds'])->name('conflict_free_diamonds.list');
+    Route::post('updateConflictFreeDiamonds',[\App\Http\Controllers\admin\InfopageController::class,'updateConflictFreeDiamonds'])->name('market_need.updateConflictFreeDiamonds');
+
+    Route::get('diamond_anatomy',[\App\Http\Controllers\admin\InfopageController::class,'diamond_anatomy'])->name('diamond_anatomy.list');
+    Route::get('infopage/diamond_anatomies/edit',[\App\Http\Controllers\admin\InfopageController::class,'editDiamondAnatomy'])->name('infopage.editDiamondAnatomy');
+    Route::post('updateDiamondAnatomy',[\App\Http\Controllers\admin\InfopageController::class,'updateDiamondAnatomy'])->name('infopage.updateDiamondAnatomy');
 
     Route::get('inquiries',[\App\Http\Controllers\admin\InquiryController::class,'index'])->name('inquiries.list');
     Route::post('allinquirieslist',[\App\Http\Controllers\admin\InquiryController::class,'allinquirieslist'])->name('allinquirieslist');

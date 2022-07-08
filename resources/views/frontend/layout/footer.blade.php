@@ -16,7 +16,7 @@
                             <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
                             </div>
                             <span class="email_input mb-3 mb-md-0 d-inline-block"> 
-                                <input type="text" name="newslatteremail" id="newslatteremail" placeholder="email address">
+                                <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
                             </span>
                             <span class="ms-md-2">
                                 <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
@@ -81,7 +81,7 @@
                             <a href="#">our 3 pillars</a>
                         </li>
                         <li>
-                            <a href="#">customer values</a>
+                            <a href="{{ Route('frontend.customervalues')}}">customer values</a>
                         </li>
                         <li>
                             <a href="{{ Route('frontend.testimonials') }}">testimonials</a>

@@ -51,8 +51,8 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
-        $.get("{{ url('admin/returns_days/returns_days/edit') }}", function (data) {
-           $('#returns_days_contant').summernote('code', data.returns_days);
+        $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
+           $('#returns_days_contant').summernote('code', data.return_days);
         
         })
     });
