@@ -21,7 +21,7 @@
 
 	<div class="step_four_design">
 
-		<div class="container where_to_start_section">
+		<div class="container where_to_start_section where_to_start_section_2">
 			<div class="row position-relative align-items-center">
 				<div class="col-md-12 order-2 order-md-1">
 					<div class="jewellery-paragraph-box text-center text-md-start">
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="container where_to_start_section pt-0">
-			<div class="row align-items-center">
+			<div class="row align-items-center where_to_start_section_2">
 				<div class="col-md-5">
 					<div>
 						<img src="{{ url('images/steps/'.$Step->step4_section2_image) }}" alt="">
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center ">
+			<div class="row align-items-center">
 				<div class="col-md-5">
 					<div>
 						<img src="{{ url('images/steps/'.$Step->step4_section3_image) }}" alt="">
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center py-5">
+			<div class="row align-items-center where_to_start_section">
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">
@@ -119,7 +119,7 @@
 			</div>
 		</div>
 
-		<div class="container where_to_start_section">
+		<div class="container where_to_start_section where_to_start_section_2">
 			<div class="row position-relative align-items-center">
 				<div class="col-md-12 order-2 order-md-1">
 					<div class="jewellery-paragraph-box text-center text-md-start">
@@ -154,7 +154,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="pb-5 create_your_dream_section">
+		<div class="pb-5 where_to_start_section where_to_start_section_2">
 			<div class="container">
 				<div class="">
 					<div class="text-center">
