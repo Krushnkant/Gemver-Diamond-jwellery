@@ -101,7 +101,7 @@
 
 		<div class="container where_to_start_section">
 			<div class="row position-relative align-items-center">
-				<div class="col-md-12 order-2 order-md-1">
+				<div class="col-md-12 order-2 order-md-1 where_to_start_section_2">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section7_title }}</div>
 						<p class="customer_stories_paragraph">{{ $Step->step3_section7_description }}

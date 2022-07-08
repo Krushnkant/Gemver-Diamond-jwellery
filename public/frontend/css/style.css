@@ -3196,7 +3196,11 @@ span#amount {
 }
 
 .where_to_start_section {
-    padding-top: 100px;
+    padding-top: 60px;
+}
+
+.where_to_start_section_2 {
+    padding-bottom: 60px;
 }
 
 .where_to_start_section .jewellery-paragraph-box {
