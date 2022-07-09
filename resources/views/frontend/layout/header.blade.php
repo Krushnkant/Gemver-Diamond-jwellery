@@ -226,6 +226,37 @@
                                     </div>
                                 </div>
                             </li>
+
+                            <li class="{{ (request()->segment(1) == 'lad-diamond') ? 'active' : '' }}" ><a href="# ">Lab Diamonds
+                                <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
+                                    <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
+                                    </svg>
+                                </a>
+                                <div class="mega-menu ">
+                                    <div class="mega-menu-four-part ">
+                                        <div>
+                                        <ul>
+                                            <li>
+                                                <span class="menus_title">loose lab diamonds</span>
+                                            </li>
+                                            <?php
+                                               $diamondshapes = \App\Models\Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->orderBy('id', 'asc')->pluck('Shape');
+                                            ?>
+                                            @foreach($diamondshapes as $shape)
+                                            <li>
+                                                <a href="{{ url('/lad-diamond/'.$shape) }}">
+                                                   <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "><span class="ms-2">{{ $shape }}</span>
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        </div>
+                                        <ul>
+                                            <img src="{{ url('frontend/image/category-1.png') }}" alt="">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
