@@ -246,7 +246,7 @@
                                                     @foreach($diamondshapes as $shape)
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/'.$shape) }}">
-                                                        <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "><span class="ms-2">{{ $shape }}</span>
+                                                        <img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "><span class="ms-2">{{ $shape }}</span>
                                                         </a>
                                                     </li>
                                                     @endforeach
