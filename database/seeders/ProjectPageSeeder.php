@@ -389,6 +389,17 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 23
         ]);
 
+        ProjectPage::create([
+            'id' => 38,
+            'parent_menu' => 0,
+            'label' => 'Import Excel',
+            'route_url' => 'admin.importview',
+            'icon_class' => 'fa fa-file-excel-o',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.importview,admin.diamonds.save',
+            'sr_no' => 24
+        ]);
+
       
 
 

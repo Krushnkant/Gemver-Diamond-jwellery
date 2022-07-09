@@ -27,14 +27,14 @@
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     
     <div class="form-group">
-        <input type="file" name="file" class="custom-file-input" id="customFile">
+        <input type="file" name="file" class="form-control input-flat" id="customFile">
         <label class="custom-file-label" for="customFile">Choose file</label>
         <div id="file-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
-
-     <button type="button" class="btn btn-outline-primary" id="save_newDiamondBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-     <button type="button" class="btn btn-primary" id="save_closeDiamondBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
-
+    
+     <button type="button" class="btn btn-outline-primary mt-4" id="save_newDiamondBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+     <button type="button" class="btn btn-primary mt-4" id="save_closeDiamondBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+     
     </div>
 </form>
 

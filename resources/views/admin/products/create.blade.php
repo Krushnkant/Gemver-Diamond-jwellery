@@ -171,8 +171,8 @@
                 <div class="card" id="">
                     <div class="card-body newcard-body row">
                         <div class="col-lg-6 col-sm-6">
-                            <button type="button" id="SubmitProductBtn" name="SubmitProductBtn" class="btn btn-primary mr-2">Submit Product <i class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
-{{--                            <button type="button" id="saveDraftBtn" name="saveDraftBtn" class="btn btn-outline-primary">Save As Draft <i class="fa fa-circle-o-notch fa-spin draftloader" style="display:none;"></i></button>--}}
+                            <button type="button" id="SubmitProductBtn" name="SubmitProductBtn" class="btn btn-primary mr-2 mt-4">Submit Product <i class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
+{{--                            <button type="button" id="saveDraftBtn" name="saveDraftBtn" class="btn btn-outline-primary mt-4">Save As Draft <i class="fa fa-circle-o-notch fa-spin draftloader" style="display:none;"></i></button>--}}
                         </div>
                         <div class="col-lg-6 col-sm-6 text-right">
 {{--                            <button type="button" id="discardBtn" name="discardBtn" class="btn btn-outline-primary" onclick="discardCatalog()">Discard <i class="fa fa-circle-o-notch fa-spin discardLoader" style="display:none;"></i></button>--}}
