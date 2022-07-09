@@ -655,9 +655,11 @@ class StepController extends Controller
         if ($request->hasFile('step4_header_image')) {
             $image = $request->file('step4_header_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step4_header_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 70);
+            //$d = compressImage($imageTemp, $destinationPath, 70);
+            $image->move($destinationPath, $image_name);
+        
             $step->step4_header_image = $image_name;
         }else{
             $step->step4_header_image = $step->step4_header_image;
@@ -670,9 +672,10 @@ class StepController extends Controller
         if ($request->hasFile('step4_section2_image')) {
             $image = $request->file('step4_section2_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step4_section2_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 70);
+            $image->move($destinationPath, $image_name);
+            //$d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section2_image = $image_name;
         }else{
             $step->step4_section2_image = $step->step4_section2_image;
@@ -683,9 +686,10 @@ class StepController extends Controller
         if ($request->hasFile('step4_section3_image')) {
             $image = $request->file('step4_section3_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step4_section3_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 70);
+            //$d = compressImage($imageTemp, $destinationPath, 70);
+            $image->move($destinationPath, $image_name);
             $step->step4_section3_image = $image_name;
         }else{
             $step->step4_section3_image = $step->step4_section3_image;
@@ -698,9 +702,10 @@ class StepController extends Controller
         if ($request->hasFile('step4_section5_image')) {
             $image = $request->file('step4_section5_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step4_section5_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 70);
+            $image->move($destinationPath, $image_name);
+            //$d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section5_image = $image_name;
         }else{
             $step->step4_section5_image = $step->step4_section5_image;
@@ -717,9 +722,10 @@ class StepController extends Controller
         if ($request->hasFile('step4_section9_image')) {
             $image = $request->file('step4_section9_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step4_section9_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 70);
+            $image->move($destinationPath, $image_name);
+            //$d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section9_image = $image_name;
         }else{
             $step->step4_section9_image = $step->step4_section9_image;
