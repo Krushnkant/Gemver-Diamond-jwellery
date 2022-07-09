@@ -174,10 +174,12 @@ background-size: cover;
     display: block;
 }
 
-.header ul li .mega-menu li:first-child,
-.header ul li .mega-menu li:first-child a {
+.header ul li .mega-menu li .menus_title,
+.header ul li .mega-menu .menus_title {
     color: #BB9761;
     font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 600;
 }
 
 .header ul li .mega-menu li span {
@@ -198,6 +200,18 @@ background-size: cover;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     min-width: 1300px;
+    text-align: left;
+    padding: 20px;
+}
+
+.header ul li .mega-menu .mega-menu-three-part .mega-menu-diamond-part {
+    column-count: 2;
+}
+
+.header ul li .mega-menu .mega-menu-three-part {
+    display: grid;
+    grid-template-columns: 66.66% 33.33%;
+    min-width: 600px;
     text-align: left;
     padding: 20px;
 }
@@ -258,6 +272,10 @@ background-size: cover;
 
 .header ul li.active a {
     color: #BB9761;
+}
+
+.header ul li.active svg path {
+    fill: #BB9761;
 }
 
 .line-image {

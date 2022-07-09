@@ -233,27 +233,28 @@
                                     </svg>
                                 </a>
                                 <div class="mega-menu ">
-                                    <div class="mega-menu-four-part ">
+                                    <div class="mega-menu-three-part">
                                         <div>
-                                        <ul>
-                                            <li>
-                                                <span class="menus_title">loose lab diamonds</span>
-                                            </li>
-                                            <?php
-                                               $diamondshapes = \App\Models\Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->orderBy('id', 'asc')->pluck('Shape');
-                                            ?>
-                                            @foreach($diamondshapes as $shape)
-                                            <li>
-                                                <a href="{{ url('/lad-diamond/'.$shape) }}">
-                                                   <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "><span class="ms-2">{{ $shape }}</span>
-                                                </a>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                        </div>
-                                        <ul>
-                                            <img src="{{ url('frontend/image/category-1.png') }}" alt="">
-                                        </ul>
+                                                <div class="d-block">
+                                                    <span class="menus_title">loose lab diamonds</span>
+                                                </div>
+                                                <ul class="mega-menu-diamond-part">
+                                                
+                                                    <?php
+                                                    $diamondshapes = \App\Models\Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->orderBy('id', 'asc')->pluck('Shape');
+                                                    ?>
+                                                    @foreach($diamondshapes as $shape)
+                                                    <li>
+                                                        <a href="{{ url('/lad-diamond/'.$shape) }}">
+                                                        <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "><span class="ms-2">{{ $shape }}</span>
+                                                        </a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <ul>
+                                                <img src="{{ url('frontend/image/category-1.png') }}" alt="">
+                                            </ul>
                                     </div>
                                 </div>
                             </li>
