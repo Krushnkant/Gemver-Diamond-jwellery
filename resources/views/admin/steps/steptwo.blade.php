@@ -222,7 +222,7 @@
 
     </div>
  
-    <button type="button" class="btn btn-primary" id="save_closeStepTwoBtn" data-action="@if(isset($step->step2_title) && $step->step2_title != '') update @else add @endif">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    <button type="button" class="btn btn-primary mt-4" id="save_closeStepTwoBtn" data-action="@if(isset($step->step2_title) && $step->step2_title != '') update @else add @endif">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 
     </div>
 </form> 

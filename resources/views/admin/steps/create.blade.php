@@ -30,8 +30,8 @@
         <div id="main_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <button type="button" class="btn btn-outline-primary" id="save_newStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary" id="save_closeStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    <button type="button" class="btn btn-outline-primary mt-4" id="save_newStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary mt-4" id="save_closeStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 
     </div>
 </form>

@@ -73,8 +73,8 @@
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <button type="button" class="btn btn-outline-primary" id="save_newShopByStyleBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary" id="save_closeShopByStyleBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    <button type="button" class="btn btn-outline-primary mt-4" id="save_newShopByStyleBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary mt-4" id="save_closeShopByStyleBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
     </div>
 </form>
 

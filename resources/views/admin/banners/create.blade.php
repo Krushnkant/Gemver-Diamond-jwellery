@@ -52,8 +52,8 @@
     </div>
 
 
-    <button type="button" class="btn btn-outline-primary" id="save_newBannerBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary" id="save_closeBannerBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary mt-4" id="save_closeBannerBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 
     </div>
 </form>

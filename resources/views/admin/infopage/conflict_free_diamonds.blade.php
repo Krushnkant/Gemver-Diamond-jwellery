@@ -32,7 +32,7 @@
 
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
-                               <button type="button" class="btn btn-primary" id="saveConflictFreeDiamondsBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                               <button type="button" class="btn btn-primary mt-4" id="saveConflictFreeDiamondsBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                             </div>
                         </form>
 
