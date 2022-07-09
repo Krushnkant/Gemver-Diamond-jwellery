@@ -119,7 +119,8 @@ background-size: cover;
 .header ul li {
     display: inline-block;
     padding: 0 40px 20px 40px;
-    /* position: relative; */
+    position: relative;
+    cursor: pointer;
 }
 
 .header ul li svg path {
@@ -211,7 +212,7 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 66.66% 33.33%;
-    min-width: 600px;
+    min-width: 800px;
     text-align: left;
     padding: 20px;
 }
@@ -1620,8 +1621,8 @@ background-size: cover;
 }
 
 .wire_bangle_price {
-    font-weight: 300;
-    font-size: 23px;
+    font-weight: normal;
+    font-size: 20px;
     line-height: 38px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2142,6 +2143,10 @@ background-size: cover;
     color: #BB9761;
 }
 
+.round_cut_lab_diamonds_layer_part {
+    padding: 0 10px 10px 10px;
+}
+
 .round_cut_lab_diamonds_info_heading a,
 .round_cut_lab_diamonds_info_heading {
     font-style: normal;
@@ -2170,8 +2175,8 @@ background-size: cover;
 }
 
 .round_cut_lab_diamonds_info_price {
-    font-weight: 300;
-    font-size: 19px;
+    font-weight: normal;
+    font-size: 20px;
     line-height: 32px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2180,6 +2185,7 @@ background-size: cover;
 .round_cut_lab_diamonds_img {
     position: relative;
     overflow: hidden;
+    margin: 10px;
 }
 
 .round_cut_lab_diamonds_box {
