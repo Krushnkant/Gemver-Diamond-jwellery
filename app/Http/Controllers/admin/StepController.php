@@ -361,9 +361,10 @@ class StepController extends Controller
         if ($request->hasFile('step2_section2_image')) {
             $image = $request->file('step2_section2_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step2_section2_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 90);
+            $image->move($destinationPath, $image_name);
+            //$d = compressImage($imageTemp, $destinationPath, 90);
             $step->step2_section2_image = $image_name;
         }else{
             $step->step2_section2_image = $step->step2_section2_image;
