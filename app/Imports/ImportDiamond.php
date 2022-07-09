@@ -74,7 +74,7 @@ class ImportDiamond implements WithHeadingRow,ToCollection
                     'Company_id' => 2,  
                     'Stone_No' => $Stone_No,
                     'StockStatus' => $availability,
-                    'Shape' => $collection['shape'],
+                    'Shape' => ltrim($collection['shape'],' '),
                     'Weight' => $collection['weight'],
                     'Color' => $collection['color'],
                     'Clarity' => $collection['clarity'],
