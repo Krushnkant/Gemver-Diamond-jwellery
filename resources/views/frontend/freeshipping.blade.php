@@ -19,7 +19,7 @@
 
         </div>
         <div class="container">
-            <div class="policy_page_section mt-3 mt-md-5">
+            <div class="policy_page_section mt-3 mt-md-5 mb-md-5">
               {!! $Infopage->free_shipping !!} 
             </div>
         </div>

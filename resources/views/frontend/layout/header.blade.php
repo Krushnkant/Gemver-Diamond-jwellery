@@ -37,9 +37,9 @@
                             <span></span>
                         </div>
                         <ul class="mobile-sub-menu">
-                            <li class="active"><a href="{{ URL('/') }}">home</a></li>
+                            <li class="{{ (request()->is('/')) ? 'active' : '' }}" ><a href="{{ URL('/') }}">home</a></li>
                             <!-- <li><a href="{{ Route('frontend.aboutus')}}">about us</a></li> -->
-                            <li>
+                            <li class="{{ (request()->is('infopage*')) ? 'active' : '' }}">
                                 <a href="#">about us
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
@@ -49,9 +49,8 @@
                                     <div class="mega-menu-four-part ">
                                         <ul>
                                             <li>
-                                                <a href="{{ Route('frontend.aboutus')}}" class="menus_title"><span class="">About Us </span></a>
+                                                <span class="menus_title">About Us </span>
                                             </li>
-                                        
                                             <li>
                                                 <a href="{{ Route('frontend.customervalues')}}"><span class="">Customer Values</span></a>
                                             </li>
@@ -100,6 +99,9 @@
                                                 <span class="menus_title">Pages </span>
                                             </li>
                                             <li>
+                                                <a href="{{ Route('frontend.aboutus')}}"> <span class="">About Us</span></a>
+                                            </li>
+                                            <li>
                                                 <a href="{{ Route('frontend.testimonials')}}"> <span class="">Testimonials</span></a>
                                             </li>
                                             <li>
@@ -117,7 +119,7 @@
                                 </div>
                                 
                             </li>
-                            <li><a href="#">jewellery
+                            <li class="{{ (request()->segment(1) == 'shop' || request()->segment(1) == 'product-details') ? 'active' : '' }}" ><a href="#">jewellery 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
@@ -182,7 +184,7 @@
                             <!--    </div>-->
                             <!--</li>-->
                             
-                            <li><a href="# ">create your own
+                            <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="# ">create your own
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                     </svg>

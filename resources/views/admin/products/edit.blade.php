@@ -124,7 +124,7 @@
             <div class="col-md-12">
                 <div class="card variantCard" id="variantProductBox">
                     <div class="card-body">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-check">
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="panel-group col-md-12">
                             <div class="row variation-box" id="variant-data">
@@ -151,7 +151,7 @@
                                     
                                     ?>
                                     <?php $term = \App\Models\AttributeTerm::find($product_variant['term_item_id']); ?>
-                                <div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
+                                    <div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
                                     <div class="variation-selection-box row panel-heading active">
                                         <div class="col-lg-10 col-sm-8">
                                             <label class="col-form-label"><b><span class="VariantCnt"></span></b></label>
