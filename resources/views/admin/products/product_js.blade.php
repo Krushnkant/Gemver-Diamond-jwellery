@@ -440,6 +440,7 @@
         $(this).prop('disabled',true);
         $(this).find('.submitloader').show();
         var btn = $(this);
+        var is_custom = $('#check_id').val();
 
         var valid_product = validateProductForm();
         var valid_variants = validateVariantsForm();
@@ -482,7 +483,12 @@
                 success: function (res) {
                    // console.log(res);
                     if(res['status']==200){
-                        location.href = "{{ route('admin.products.list') }}";
+                        if(is_custom == 1){
+                            location.href = "{{ route('admin.customproducts.list') }}";
+                        }else{
+                            location.href = "{{ route('admin.products.list') }}";
+                        }
+                        
                         toastr.success("Product Added",'Success',{timeOut: 5000});
                     }
                 },
