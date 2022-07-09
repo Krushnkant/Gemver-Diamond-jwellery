@@ -683,9 +683,9 @@
         var file = this.files[0];
       
         var fileType = file["type"];
-        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/svg+xml"];
         if ($.inArray(fileType, validImageTypes) < 0) {
-            $('#section2_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            $('#section2_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png .svg)");
             var default_image = "{{ url('public/images/placeholder_image.png') }}";
             $('#section2_image_show').attr('src', default_image);
         }
@@ -705,9 +705,9 @@
         var file = this.files[0];
       
         var fileType = file["type"];
-        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/svg+xml"];
         if ($.inArray(fileType, validImageTypes) < 0) {
-            $('#section3_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            $('#section3_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png .svg)");
             var default_image = "{{ url('public/images/placeholder_image.png') }}";
             $('#section3_image_show').attr('src', default_image);
         }
@@ -726,9 +726,9 @@
         var file = this.files[0];
       
         var fileType = file["type"];
-        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/svg+xml"];
         if ($.inArray(fileType, validImageTypes) < 0) {
-            $('#section4_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            $('#section4_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png .svg)");
             var default_image = "{{ url('public/images/placeholder_image.png') }}";
             $('#section4_image_show').attr('src', default_image);
         }

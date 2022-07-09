@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0">
+        <div class="container where_to_start_section pt-0 mt-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0" id="color">
+        <div class="container where_to_start_section pt-0 mt-5" id="color">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0" id="clarity">
+        <div class="container where_to_start_section pt-0 mt-5" id="clarity">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0" id="carat">
+        <div class="container where_to_start_section pt-0 mt-5" id="carat">
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <div class="container where_to_start_section pt-0" >
+        <div class="container where_to_start_section pt-0 mt-5" >
             <div class="row position-relative align-items-center">
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">

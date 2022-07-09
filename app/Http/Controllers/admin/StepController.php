@@ -223,7 +223,7 @@ class StepController extends Controller
         //     $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
         //     $destinationPath = public_path('images/steps/'.$image_name);
         //     $imageTemp = $_FILES["step1_icon"]["tmp_name"];
-        //     $d = compressImage($imageTemp, $destinationPath, 50);
+        //     $d = compressImage($imageTemp, $destinationPath, 70);
         //     $step->step1_icon = $image_name;
         // }else{
         //     $step->step1_icon = $step->step1_icon; 
@@ -234,7 +234,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step1_header_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step1_header_image = $image_name;
         }else{
             $step->step1_header_image = $step->step1_header_image;
@@ -247,7 +247,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step1_section1_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step1_section1_image = $image_name;
         }else{
             $step->step1_section1_image = $step->step1_section1_image;
@@ -259,7 +259,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/');
             // $imageTemp = $_FILES["step1_section2_image1"]["tmp_name"];
-            // $d = compressImage($imageTemp, $destinationPath, 50);
+            // $d = compressImage($imageTemp, $destinationPath, 70);
             $image->move($destinationPath, $image_name);
             $step->step1_section2_image1 = $image_name;
         }else{
@@ -273,7 +273,7 @@ class StepController extends Controller
             $destinationPath = public_path('images/steps/');
             $image->move($destinationPath, $image_name);
             // $imageTemp = $_FILES["step1_section2_image2"]["tmp_name"];
-            // $d = compressImage($imageTemp, $destinationPath, 50);
+            // $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step1_section2_image2 = $image_name;
         }else{
             $step->step1_section2_image2 = $step->step1_section2_image2;
@@ -327,7 +327,7 @@ class StepController extends Controller
         //     $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
         //     $destinationPath = public_path('images/steps/'.$image_name);
         //     $imageTemp = $_FILES["step2_icon"]["tmp_name"];
-        //     $d = compressImage($imageTemp, $destinationPath, 50);
+        //     $d = compressImage($imageTemp, $destinationPath, 70);
         //     $step->step2_icon = $image_name;
         // }else{
         //     $step->step2_icon = $step->step2_icon;
@@ -338,7 +338,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step2_header_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step2_header_image = $image_name;
         }else{
             $step->step2_header_image = $step->step2_header_image;
@@ -349,9 +349,10 @@ class StepController extends Controller
         if ($request->hasFile('step2_section1_image')) {
             $image = $request->file('step2_section1_image');
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/steps/'.$image_name);
+            $destinationPath = public_path('images/steps/');
             $imageTemp = $_FILES["step2_section1_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $image->move($destinationPath, $image_name);
+           // $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step2_section1_image = $image_name;
         }else{
             $step->step2_section1_image = $step->step2_section1_image;
@@ -362,7 +363,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step2_section2_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 90);
             $step->step2_section2_image = $image_name;
         }else{
             $step->step2_section2_image = $step->step2_section2_image;
@@ -381,7 +382,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step2_section3_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step2_section3_image = $image_name;
         }else{
             $step->step2_section3_image = $step->step2_section3_image;
@@ -394,7 +395,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step2_section4_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step2_section4_image = $image_name;
         }else{
             $step->step2_section4_image = $step->step2_section4_image;
@@ -407,7 +408,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step2_section5_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step2_section5_image = $image_name;
         }else{
             $step->step2_section5_image = $step->step2_section5_image;
@@ -459,7 +460,7 @@ class StepController extends Controller
             //     $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             //     $destinationPath = public_path('images/steps/'.$image_name);
             //     $imageTemp = $_FILES["step3_icon"]["tmp_name"];
-            //     $d = compressImage($imageTemp, $destinationPath, 50);
+            //     $d = compressImage($imageTemp, $destinationPath, 70);
             //     $step->step3_icon = $image_name;
             // }else{
             //     $step->step3_icon = $step->step3_icon;
@@ -470,7 +471,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_header_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_header_image = $image_name;
             }else{
                 $step->step3_header_image = $step->step3_header_image;
@@ -485,7 +486,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section2_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section2_image = $image_name;
             }else{
                 $step->step3_section2_image = $step->step3_section2_image;
@@ -498,7 +499,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section3_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section3_image = $image_name;
             }else{
                 $step->step3_section3_image = $step->step3_section3_image;
@@ -511,7 +512,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section4_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section4_image = $image_name;
             }else{
                 $step->step3_section4_image = $step->step3_section4_image;
@@ -524,7 +525,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section5_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section5_image = $image_name;
             }else{
                 $step->step3_section5_image = $step->step3_section5_image;
@@ -539,7 +540,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section6_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section6_image = $image_name;
             }else{
                 $step->step3_section6_image = $step->step3_section6_image;
@@ -554,7 +555,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section8_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section8_image = $image_name;
             }else{
                 $step->step3_section8_image = $step->step3_section8_image;
@@ -567,7 +568,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section9_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section9_image = $image_name;
             }else{
                 $step->step3_section9_image = $step->step3_section9_image;
@@ -580,7 +581,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section10_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section10_image = $image_name;
             }else{
                 $step->step3_section10_image = $step->step3_section10_image;
@@ -593,7 +594,7 @@ class StepController extends Controller
                 $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images/steps/'.$image_name);
                 $imageTemp = $_FILES["step3_section11_image"]["tmp_name"];
-                $d = compressImage($imageTemp, $destinationPath, 50);
+                $d = compressImage($imageTemp, $destinationPath, 70);
                 $step->step3_section11_image = $image_name;
             }else{
                 $step->step3_section11_image = $step->step3_section11_image;
@@ -645,7 +646,7 @@ class StepController extends Controller
         //     $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
         //     $destinationPath = public_path('images/steps/'.$image_name);
         //     $imageTemp = $_FILES["step4_icon"]["tmp_name"];
-        //     $d = compressImage($imageTemp, $destinationPath, 50);
+        //     $d = compressImage($imageTemp, $destinationPath, 70);
         //     $step->step4_icon = $image_name;
         // }else{
         //     $step->step4_icon = $step->step4_icon;
@@ -656,7 +657,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step4_header_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_header_image = $image_name;
         }else{
             $step->step4_header_image = $step->step4_header_image;
@@ -671,7 +672,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step4_section2_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section2_image = $image_name;
         }else{
             $step->step4_section2_image = $step->step4_section2_image;
@@ -684,7 +685,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step4_section3_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section3_image = $image_name;
         }else{
             $step->step4_section3_image = $step->step4_section3_image;
@@ -699,7 +700,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step4_section5_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section5_image = $image_name;
         }else{
             $step->step4_section5_image = $step->step4_section5_image;
@@ -718,7 +719,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/'.$image_name);
             $imageTemp = $_FILES["step4_section9_image"]["tmp_name"];
-            $d = compressImage($imageTemp, $destinationPath, 50);
+            $d = compressImage($imageTemp, $destinationPath, 70);
             $step->step4_section9_image = $image_name;
         }else{
             $step->step4_section9_image = $step->step4_section9_image;
@@ -732,7 +733,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/');
             // $imageTemp = $_FILES["step4_section11_image1"]["tmp_name"];
-            // $d = compressImage($imageTemp, $destinationPath, 50);
+            // $d = compressImage($imageTemp, $destinationPath, 70);
             $image->move($destinationPath, $image_name);
             $step->step4_section11_image1 = $image_name;
         }else{
@@ -745,7 +746,7 @@ class StepController extends Controller
             $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/steps/');
             // $imageTemp = $_FILES["step4_section11_image2"]["tmp_name"];
-            // $d = compressImage($imageTemp, $destinationPath, 50);
+            // $d = compressImage($imageTemp, $destinationPath, 70);
             $image->move($destinationPath, $image_name);
             $step->step4_section11_image2 = $image_name;
         }else{

@@ -822,9 +822,9 @@ $('#step2_section1_image').change(function(){
         $('#step2_section1_image-error').hide();
         var file = this.files[0];
         var fileType = file["type"];
-        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg", , "image/svg+xml"];
         if ($.inArray(fileType, validImageTypes) < 0) {
-            $('#step2_section1_image-error').show().text("Please provide a Valid Extension Image(e.g: .jpg .png)");
+            $('#step2_section1_image-error').show().text("Please provide a Valid Extension Image(e.g: .jpg .png ,svg)");
             var default_image = "{{ asset('images/default_avatar.jpg') }}";
             $('#step2_section1_image_show').attr('src', default_image);
         }

@@ -32,8 +32,8 @@ use App\Http\Controllers\StepController;
 //Frontend Route
 
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
-Route::get('/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
-Route::get('/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
+Route::get('infopage/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
+Route::get('infopage/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
 Route::post('contact-us',[ContactUsController::class,'save'])->name('frontend.contact.save');
 Route::get('/privacy-policy',[PrivacyPolicyController::class,'index'])->name('frontend.privacypolicy');
 Route::get('/term-condition',[TermConditionController::class,'index'])->name('frontend.termcondition');
@@ -47,12 +47,12 @@ Route::get('/payment-options',[OtherPageController::class,'paymentoptions'])->na
 Route::get('/return-days',[OtherPageController::class,'returndays'])->name('frontend.returndays');
 
 
-Route::get('/customer-values',[OtherPageController::class,'customervalues'])->name('frontend.customervalues');
-Route::get('/market-need',[OtherPageController::class,'marketneed'])->name('frontend.marketneed');
-Route::get('/ethical-edge',[OtherPageController::class,'ethicaledge'])->name('frontend.ethicaledge');
-Route::get('/diamond-anatomy',[OtherPageController::class,'diamondanatomy'])->name('frontend.diamondanatomy');
-Route::get('/learn-about-lab-made-diamonds',[OtherPageController::class,'learnaboutlabmadediamonds'])->name('frontend.learnaboutlabmadediamonds');
-Route::get('/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
+Route::get('infopage/customer-values',[OtherPageController::class,'customervalues'])->name('frontend.customervalues');
+Route::get('infopage/market-need',[OtherPageController::class,'marketneed'])->name('frontend.marketneed');
+Route::get('infopage/ethical-edge',[OtherPageController::class,'ethicaledge'])->name('frontend.ethicaledge');
+Route::get('infopage/diamond-anatomy',[OtherPageController::class,'diamondanatomy'])->name('frontend.diamondanatomy');
+Route::get('infopage/learn-about-lab-made-diamonds',[OtherPageController::class,'learnaboutlabmadediamonds'])->name('frontend.learnaboutlabmadediamonds');
+Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
 
 
 Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop');
@@ -61,11 +61,11 @@ Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
 Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');
 
-Route::get('/blogs',[BlogController::class,'index'])->name('frontend.blogs');
+Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
 Route::get('/blog/{id}',[BlogController::class,'blogdetails'])->name('frontend.blog.blog');
 
-Route::get('/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
+Route::get('infopage/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
 
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');
