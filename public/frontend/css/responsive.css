@@ -91,6 +91,7 @@
     }
     .mobile-sub-menu li {
         display: block !important;
+        pointer-events: auto;
     }
     .header ul li a {
         color: #0B1727;
@@ -145,11 +146,24 @@
         transform: scale(0.7);
     }
     .header ul li .mega-menu .mega-menu-four-part,
-    .header ul li .mega-menu .mega-menu-two-part {
+    .header ul li .mega-menu .mega-menu-two-part,
+    .header ul li .mega-menu .mega-menu-three-part {
         display: block;
         min-width: auto;
         padding: 0;
         min-width: auto !important;
+    }
+    .header ul li .mega-menu .mega-menu-four-part div {
+        display: block;
+    }
+    .header ul li .mega-menu .mega-menu-four-part div ul {
+        width: 100%;
+    }
+    .header ul li .mega-menu .mega-menu-four-part>ul {
+        width: 100%;
+    }
+    .header ul li .mega-menu .mega-menu-three-part .mega-menu-diamond-part {
+        column-count: auto;
     }
     .header ul li>.mega-menu {
         box-shadow: none;
@@ -628,13 +642,13 @@
         font-size: 16px;
     }
     .wire_bangle_sub_heading a {
-        font-size: 20px;
+        font-size: 18px;
     }
     .wire_bangle_paragraph {
         font-size: 16px;
     }
     .wire_bangle_price {
-        font-size: 25px;
+        font-size: 20px;
     }
     .wire_bangle_color input:after {
         transform: translate(-50%, -50%) scale(0.3);
