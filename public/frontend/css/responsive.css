@@ -157,7 +157,7 @@
     .header ul li .mega-menu li {
         padding: 5px 0;
     }
-    .header ul li .mega-menu li:first-child {
+    .header ul li .mega-menu li .menus_title {
         font-size: 15px;
     }
     .background-smoke-slider {
