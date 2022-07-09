@@ -108,7 +108,7 @@ class ProductController extends Controller
                            
                             $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
-                            <div class="d-flex justify-content-between pt-2">
+                            <div class="d-flex justify-content-between pt-2 align-items-center">
                                 <span class="wire_bangle_price wire_bangle_price_part">
                                     $'. $sale_price .'
                                 </span>';
@@ -118,7 +118,7 @@ class ProductController extends Controller
                                 foreach($ProductVariantVariant as $productvariants){
                                 if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             
-                                $output .= '<span class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">';
+                                $output .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">';
                                 
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$row->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;

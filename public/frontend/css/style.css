@@ -1232,6 +1232,26 @@ background-size: cover;
     cursor: pointer;
 }
 
+.wire_bangle_color_part .wire_bangle_color_img,
+.wire_bangle_color_part input,
+.wire_bangle_color_part span {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    min-height: auto;
+}
+
+.wire_bangle_color_img_part {
+    margin-top: 6px;
+}
+
+.wire_bangle_color_img_part .wire_bangle_color_part input~.wire_bangle_color_input_label {
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+}
+
 .wire_bangle_color input:after {
     content: "";
     position: absolute;
@@ -1560,6 +1580,10 @@ background-size: cover;
     font-family: 'Jost', sans-serif;
     font-size: 18px;
     font-weight: 400;
+}
+
+.wire_bangle_product_setting {
+    border: 1px #eee solid;
 }
 
 .wire_bangle_paragraph {
@@ -2100,7 +2124,8 @@ background-size: cover;
     color: #BB9761;
 }
 
-.round_cut_lab_diamonds_info_heading a {
+.round_cut_lab_diamonds_info_heading a,
+.round_cut_lab_diamonds_info_heading {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -2137,6 +2162,10 @@ background-size: cover;
 .round_cut_lab_diamonds_img {
     position: relative;
     overflow: hidden;
+}
+
+.round_cut_lab_diamonds_box {
+    border: 1px #eee solid;
 }
 
 .round_cut_lab_diamonds_img:before {
@@ -3173,7 +3202,7 @@ span#amount {
 }
 
 .wire_diamond_pargraph {
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 0;
 }
 

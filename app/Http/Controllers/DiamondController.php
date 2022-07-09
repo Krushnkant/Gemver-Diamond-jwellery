@@ -187,7 +187,7 @@ class DiamondController extends Controller
                                 </a>
                             </div>
 
-                            <div class="mt-4 round_cut_lab_diamonds_layer_part">
+                            <div class="mt-4 round_cut_lab_diamonds_layer_part p-3 pt-0">
                                 
                                     <div class="round_cut_lab_diamonds_info_heading mb-2">
                                         <a href="'.$url.'">'.$Diamond->Shape.'</a>
@@ -324,19 +324,21 @@ class DiamondController extends Controller
                     $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id);
                     $artilces.='
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">
-                    <div class="wire_bangle_img mb-3 position-relative">
-                      <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
-                    </div>
-                    <div class="wire_bangle_description">
-                        <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
-                        <div class="wire_bangle_sub_heading mb-2 mb-md-3" ><a style="color:#BB9761;" href="'.$url.'">'.$product->product_title .'</a></div>
-                        <div class="wire_bangle_paragraph mb-2 mb-md-3">
-                            '.$product->desc.'
+                        <div class="wire_bangle_product_setting">
+                            <div class="wire_bangle_img mb-3 position-relative">
+                            <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
+                            </div>
+                            <div class="wire_bangle_description p-3 pt-0">
+                                <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
+                                <div class="wire_bangle_sub_heading mb-2 mb-md-3" ><a style="color:#BB9761;" href="'.$url.'">'.$product->product_title .'</a></div>
+                                <div class="wire_bangle_paragraph mb-2 mb-md-3">
+                                    '.$product->desc.'
+                                </div>
+                                <div class="wire_bangle_price">
+                                $'.$sale_price .'
+                                </div>
+                            </div>
                         </div>
-                        <div class="wire_bangle_price">
-                        $'.$sale_price .'
-                        </div>
-                    </div>
                 </div>';
                 }
             }
@@ -550,7 +552,7 @@ class DiamondController extends Controller
                                 </a>
                             </div>
 
-                            <div class="mt-4 round_cut_lab_diamonds_layer_part">
+                            <div class="mt-4 round_cut_lab_diamonds_layer_part p-3 pt-0">
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     '.$Diamond->Shape.'
                                 </div>
