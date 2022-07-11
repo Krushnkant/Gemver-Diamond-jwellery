@@ -161,6 +161,10 @@ class InquiryController extends Controller
                        $diamond_info = '-';
                     }
 
+                    if($inquiry->stone_no == "" && $inquiry->sku == ""){
+                        $product_info = 'bulk order inquiry'; 
+                    }
+
                     $message = '';
                     if (isset($inquiry->inquiry)){
                         $message .= '<span> ' .$inquiry->inquiry .'</span>';

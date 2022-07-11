@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             StateSeeder::class,
             CitiesTableSeeder::class,
             PageInfoSeeder::class,
-            SettingsSeeder::class
+            SettingsSeeder::class,
+            attributeSeeder::class
         ]);
     }
 }

@@ -27,10 +27,11 @@
                         <div class="action-section">
                             <div class="d-flex">
                             <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.diamonds.list')->pluck('id')->first(); ?>
+                            @if(isset($action) && $action!='create')
                             @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
                                 <button type="button" class="btn btn-primary" id="AddDiamondBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             @endif
-
+                            @endif
                             </div>
                         </div>
                         @if(isset($action) && $action=='list')

@@ -134,6 +134,12 @@
         </div>
     </div>
 
+<!-- TrustBox widget - Micro Review Count -->
+<!-- <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="62c983102471e7d05580c27e" data-style-height="24px" data-style-width="100%" data-theme="light" data-min-review-count="10" data-without-reviews-preferred-string-id="1">
+  <a href="https://www.trustpilot.com/review/matoresell.com" target="_blank" rel="noopener">Trustpilot</a>
+</div> -->
+<!-- End TrustBox widget -->
+
     @if(count($testimonials) > 0)
     
     <div class="container">
@@ -239,6 +245,9 @@
                         <div class="item">
                             <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id.'/'.$shopby->id) }} @else {{ url('diamond-setting/'.$shopby->category_id.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
+                                <div class="category-heading">
+                                {{ $shopby->title }}
+                            </div>
                             </a>
                         </div>
                         @endforeach
@@ -281,14 +290,63 @@
 
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
-                            <!-- {{ $homesetting->section_why_gemver_title2 }} -->
-                                Inquiry for bulb order 
+                            {{ $homesetting->section_why_gemver_title2 }}
+                                <!-- Inquiry for bulb order  -->
                             </div>
                             <p class="diamonds_paragraph">
                                 {{ $homesetting->section_why_gemver_description2 }}
                             </p>
-                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds">inquiry now</button>
+                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                         </div>
+
+                        <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                                    <div class="modal-content">
+                                        <div class="row">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading">bulb order inquiry</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-success" id="success-alert" style="display: none;"></div>
+                                        <div class="row">
+                                      
+                                        <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                        @csrf
+            
+                                        
+                                        
+                                        <div class="row mb-0 mb-xxl-4">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-12 ps-0">
+                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-6 col-md-12 ps-0">
+            
+                                                <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
+                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            </div>  
+                                            <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                           </button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -303,6 +361,77 @@
                 var banner_url = $(this).attr("data-value");
                 window.location.href = banner_url;
             });
+
+            $('body').on('click', '#save_newInquiryBtn', function () {
+    save_inquiry($(this),'save_new');
+});
+
+function save_inquiry(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#InquiryCreateForm")[0]);
+    
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.inquiry.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+           
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+
+                if (res.errors.name) {
+                    $('#name-error').show().text(res.errors.name);
+                } else {
+                    $('#name-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#email-error').show().text(res.errors.email);
+                } else {
+                    $('#email-error').hide();
+                }
+
+                if (res.errors.mobile_no) {
+                    $('#mobile_no-error').show().text(res.errors.mobile_no);
+                } else {
+                    $('#mobile_no-error').hide();
+                }
+                if (res.errors.inquiry) {
+                    $('#inquiry-error').show().text(res.errors.inquiry);
+                } else {
+                    $('#inquiry-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#inquiry-error').hide();
+                $('#mobile_no-error').hide();
+                $('#email-error').hide();
+                $('#name-error').hide();
+                document.getElementById("InquiryCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Bulb Order Inquiry';
+                $('#success-alert').text(success_message);
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                  $("#success-alert").slideUp(1000);
+                  //location.reload();
+                  //window.location.href = "{{ url('/') }}";
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
     
         });
         </script>

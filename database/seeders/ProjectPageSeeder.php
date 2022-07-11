@@ -400,6 +400,17 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 24
         ]);
 
+        ProjectPage::create([
+            'id' => 39,
+            'parent_menu' => 0,
+            'label' => 'Offer',
+            'route_url' => 'admin.offers.list',
+            'icon_class' => 'fa fa-gif',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.offers.list,admin.offers.add,admin.offers.save,admin.allofferlist,admin.offers.changeofferstatus,admin.offers.delete,admin.offers.edit',
+            'sr_no' => 25
+        ]);
+
       
 
 
