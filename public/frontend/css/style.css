@@ -1816,6 +1816,7 @@ background-size: cover;
     line-height: 18px;
     text-transform: capitalize;
     color: #0B1727;
+    max-width: 100%;
 }
 
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
@@ -1841,14 +1842,14 @@ background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
 }
 
 .round_cut_lab_checkbox input[type="checkbox"] {
     opacity: 0;
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -1866,8 +1867,8 @@ background-size: cover;
 .round_cut_lab_checkbox input+.shape_img {
     width: 100%;
     width: 100%;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 38px;
+    min-height: 38px;
     border: 1px solid rgba(11, 23, 39, 0.1);
     padding: 5px;
 }
