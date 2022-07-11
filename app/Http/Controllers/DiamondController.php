@@ -189,12 +189,12 @@ class DiamondController extends Controller
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                                 
-                                    <div class="round_cut_lab_diamonds_info_heading mb-2">
+                                    <div class="round_cut_lab_diamonds_info_heading">
                                         <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                     </div>
                              
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
-                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                                <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_clarity">
                                     <span>'. $Diamond->Clarity .' |</span>
                                     <span>'. $Diamond->Color .'</span>
                                 </div>
@@ -576,11 +576,11 @@ class DiamondController extends Controller
                             </div>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                                <div class="round_cut_lab_diamonds_info_heading mb-2">
+                                <div class="round_cut_lab_diamonds_info_heading mb-1">
                                     '.$Diamond->Shape.'
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
-                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-1"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_clarity mb-1">
                                     <span>'. $Diamond->Clarity .' |</span>
                                     <span>'. $Diamond->Color .'</span>
                                 </div>

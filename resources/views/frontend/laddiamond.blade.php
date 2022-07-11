@@ -64,7 +64,7 @@
                                 <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="" class="shape_img ms-4">
                                     <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( strtoupper($shap) ==  strtoupper($shape)  ) ? 'checked' : '' }}  id="flexRadioDefault{{ $shape }}">
                                     <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $shape }}">
-                                    {{ $shape }}
+                                        {{ $shape }}
                                     </label>
                             </span>
                             @endforeach
