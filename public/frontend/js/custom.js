@@ -39,7 +39,7 @@ $(document).ready(function() {
                 items: 5
             },
             1800: {
-                items: 7
+                items: 8
             }
         }
     });
@@ -142,18 +142,19 @@ $(document).ready(function() {
         $('.slider-single').slick('slickGoTo', goToSingleSlide);
     });
 
-    var $this = $('.round_cut_lab_checkbox');
-    if ($this.find('span').length > 2) {
-        $('.round_cut_lab_checkbox').append('<div><a href="javascript:;" class="showMore"></a></div>');
-    }
+    // var $this = $('.round_cut_lab_checkbox');
+    // if ($this.find('span').length > 2) {
+    //     $('.round_cut_lab_checkbox').append('<div><a href="javascript:;" class="showMore"></a></div>');
+    // }
 
-    // If more than 2 Education items, hide the remaining
-    $('.round_cut_lab_checkbox .form-check').slice(0, 3).addClass('shown');
-    $('.round_cut_lab_checkbox .form-check').not('.shown').hide();
-    $('.round_cut_lab_checkbox .showMore').on('click', function() {
-        $('.round_cut_lab_checkbox .form-check').not('.shown').toggle(300);
-        $(this).toggleClass('showLess');
-    });
+    // $('.round_cut_lab_checkbox .form-check').slice(0, 3).addClass('shown');
+    // $('.round_cut_lab_checkbox .form-check').not('.shown').hide();
+    // $('.round_cut_lab_checkbox .showMore').on('click', function() {
+    //     $('.round_cut_lab_checkbox .form-check').not('.shown').toggle(300);
+    //     $(this).toggleClass('showLess');
+    // });
+
+
     $(".filter-btn").click(function() {
         $(".right_side_panel").toggleClass("right_side_open");
     });
@@ -256,4 +257,8 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     $('.loader-btn').fadeOut(); // will first fade out the loading animation 
     $('.header-loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
     $('body').delay(350).css({ 'overflow': 'visible' });
-})
+});
+
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+});
