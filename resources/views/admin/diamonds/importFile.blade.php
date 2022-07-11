@@ -20,14 +20,14 @@
 
 
 
-    <form class="form-valide" action="" id="DiamondCreateForm" method="post" enctype="multipart/form-data">
+<form class="form-valide" action="" id="DiamondCreateForm" method="post" enctype="multipart/form-data">
 
     <div id="attr-cover-spin" class="cover-spin"></div>
     {{ csrf_field() }}
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     
     <div class="form-group">
-        <input type="file" name="file" class="form-control input-flat" id="customFile">
+        <input type="file" name="file" class="form-control" id="customFile">
         <label class="custom-file-label" for="customFile">Choose file</label>
         <div id="file-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>

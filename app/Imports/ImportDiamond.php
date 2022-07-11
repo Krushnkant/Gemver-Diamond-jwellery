@@ -59,7 +59,7 @@ class ImportDiamond implements WithHeadingRow,ToCollection
             $Company = Company::where('id',2)->first();
             $company_per = $Company->company_percentage;
             $company_per_amt = ($collection['final_price'] * $company_per)/100;
-            $sale_amt = $collection['final_price'] + $company_per_amt;
+            $sale_amt = round($collection['final_price'] + $company_per_amt);
             
             
             $Diamond = Diamond::where('Stone_No',$Stone_No)->first();

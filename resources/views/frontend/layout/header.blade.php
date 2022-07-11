@@ -11,7 +11,14 @@
                             </div>
                             <div class="col-md-6 text-end">
                                 <div class="home-page-header">
-                                    <span class="header-icon">Special Offers! - Get 50% Off On jewellery</span>
+                                  <?php 
+                                      $offers = \App\Models\Offer::where('estatus',1)->get();
+                                  ?>
+                                    <marquee>
+                                        @foreach($offers as $offer)
+                                        <span class="me-3 header-icon" style="padding-right:300px;" >{{ $offer->title }}</span>
+                                        @endforeach
+                                    </marquee>
                                 </div>
                             </div>
                         </div>

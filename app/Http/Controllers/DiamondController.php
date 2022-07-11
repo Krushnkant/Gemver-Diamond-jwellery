@@ -62,6 +62,21 @@ class DiamondController extends Controller
             $query = $query->where('Weight','<=',$data["maximum_carat"]);
         }
 
+        if($data["minimum_depth"] && $data["maximum_depth"]){
+            $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
+            $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
+        }
+
+        if($data["minimum_ratio"] && $data["maximum_ratio"]){
+            $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
+            $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
+        }
+
+        if($data["minimum_table"] && $data["maximum_table"]){ 
+            $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
+            $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
+        }
+
         if(isset($data["color"])){
             $colors = $data["color"];
             $query = $query->whereIn('Color',$colors);
@@ -87,15 +102,24 @@ class DiamondController extends Controller
             $query = $query->whereIn('Lab',$reports);
         }
 
-        
+        if(isset($data["polish"])){
+            $polishs = $data["polish"];
+            $query = $query->whereIn('Polish',$polishs);
+        }
+
+        if(isset($data["symm"])){
+            $symms = $data["symm"];
+            $query = $query->whereIn('Symm',$symms);
+        }
+
         if($data["sorting"] == "price")
         {
-            $results = $query->orderBy('Sale_Amt','asc')->paginate(18); 
+            $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
         }
         elseif($data["sorting"]=="price-desc"){
-            $results = $query->orderBy('Sale_Amt','desc')->paginate(18); 
+            $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
         }else{
-            $results  = $query->paginate(18);
+            $results  = $query->paginate(20);
         }
 
         $artilces = '';
@@ -138,13 +162,14 @@ class DiamondController extends Controller
                                 <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
-                                        <li>
-                                            <span>LOT :</span>
-                                            <span>'. $Diamond->Stone_No .' </span>
-                                        </li>
+                                        
                                         <li>
                                             <span>CARATE  :</span>
                                             <span>'. $Diamond->Weight .' </span>
+                                        </li>
+                                        <li>
+                                            <span> CLARITY :</span>
+                                            <span>'. $Diamond->Clarity .' </span>
                                         </li>
                                         <li>
                                             <span>SHAPE :</span>
@@ -154,10 +179,6 @@ class DiamondController extends Controller
                                         <li>
                                             <span>COLOR  :</span>
                                             <span>'. $Diamond->Color .' </span>
-                                        </li>
-                                        <li>
-                                            <span> CLARITY :</span>
-                                            <span>'. $Diamond->Clarity .' </span>
                                         </li>';
                                         if($Diamond->Cut != ""){
                                         $artilces.='<li>
@@ -175,12 +196,16 @@ class DiamondController extends Controller
                                         </li>
                                         
                                         <li>
-                                            <span> MEASUREMENT   :</span>
+                                            <span> MEASUREMENT  :</span>
                                             <span>'. $Diamond->Measurement .' </span>
                                         </li>
                                         <li>
-                                            <span> LAB   :</span>
+                                            <span> CERTIFICATE :</span>
                                             <span>'. $Diamond->Lab .' </span>
+                                        </li>
+                                        <li>
+                                            <span>LOT :</span>
+                                            <span>'. $Diamond->Stone_No .' </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -188,18 +213,16 @@ class DiamondController extends Controller
                             </div>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                                
-                                    <div class="round_cut_lab_diamonds_info_heading">
-                                        <a href="'.$url.'">'.$Diamond->Shape.'</a>
-                                    </div>
-                             
+                                <div class="round_cut_lab_diamonds_info_heading">
+                                    <a href="'.$url.'">'.$Diamond->Shape.'</a>
+                                </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity">
                                     <span>'. $Diamond->Clarity .' |</span>
                                     <span>'. $Diamond->Color .'</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price">
-                                    $'. $Diamond->Sale_Amt .'
+                                    $'. $Diamond->Sale_Amt .' <span  class="comparesave" title="Compare" data-id="'.$Diamond->id.'"><i class="fa fa-balance-scale"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -478,12 +501,12 @@ class DiamondController extends Controller
         
         if($data["sorting"] == "price")
         {
-            $results = $query->orderBy('Sale_Amt','asc')->paginate(18); 
+            $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
         }
         elseif($data["sorting"]=="price-desc"){
-            $results = $query->orderBy('Sale_Amt','desc')->paginate(18); 
+            $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
         }else{
-            $results  = $query->paginate(18);
+            $results  = $query->paginate(20);
         }
 
         $artilces = '';
@@ -525,14 +548,13 @@ class DiamondController extends Controller
                                 <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
-                                        
-                                        <li>
-                                            <span>LOT :</span>
-                                            <span>'. $Diamond->Stone_No .' </span>
-                                        </li>
                                         <li>
                                             <span>CARATE  :</span>
                                             <span>'. $Diamond->Weight .' </span>
+                                        </li>
+                                        <li>
+                                            <span> CLARITY :</span>
+                                            <span>'. $Diamond->Clarity .' </span>
                                         </li>
                                         <li>
                                             <span>SHAPE :</span>
@@ -542,10 +564,6 @@ class DiamondController extends Controller
                                         <li>
                                             <span>COLOR  :</span>
                                             <span>'. $Diamond->Color .' </span>
-                                        </li>
-                                        <li>
-                                            <span> CLARITY :</span>
-                                            <span>'. $Diamond->Clarity .' </span>
                                         </li>';
                                         if($Diamond->Cut != ""){
                                         $artilces.='<li>
@@ -567,8 +585,12 @@ class DiamondController extends Controller
                                             <span>'. $Diamond->Measurement .' </span>
                                         </li>
                                         <li>
-                                            <span> LAB   :</span>
+                                            <span> CERTIFICATE   :</span>
                                             <span>'. $Diamond->Lab .' </span>
+                                        </li>
+                                        <li>
+                                            <span>LOT :</span>
+                                            <span>'. $Diamond->Stone_No .' </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -585,7 +607,7 @@ class DiamondController extends Controller
                                     <span>'. $Diamond->Color .'</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price">
-                                    $'. $Diamond->Sale_Amt .'
+                                    $'. $Diamond->Sale_Amt .' <span  class="comparesave"  title="Compare"   data-id="'.$Diamond->id.'"><i class="fa fa-balance-scale"></i></span>
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StepController;
+use App\Http\Controllers\CompareController;
 
 
 /*
@@ -82,6 +83,9 @@ Route::get('/product-setting/{id}/edit',[DiamondController::class,'editproductse
 Route::get('/diamond-setting/{id}/edit',[DiamondController::class,'editdiamondsetting']);
 
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
+Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');
+Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
+Route::get('/compareladdiamond',[CompareController::class,'compareladdiamond'])->name('frontend.compareladdiamond.list');
 
 Route::get('/lad-diamond/{shap}',[DiamondController::class,'laddiamond']);
 Route::post('/alllad-diamond',[DiamondController::class,'getLadDiamonds']);
@@ -337,6 +341,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('shopbystyle/removefile',[\App\Http\Controllers\admin\ShopByStyleController::class,'removefile'])->name('shopbystyle.removefile');
     Route::get('shopbystyle/checkparentcat/{id}',[\App\Http\Controllers\admin\ShopByStyleController::class,'checkparentcat'])->name('shopbystyle.checkparentcat');
     Route::get('shopbystyle/getterm/{id}', [\App\Http\Controllers\admin\ShopByStyleController::class, 'loadterm'])->name('shopbystyle.checkparentcat');
+
+    Route::get('offers',[\App\Http\Controllers\admin\OfferController::class,'index'])->name('offers.list');
+    Route::post('addorupdateoffer',[\App\Http\Controllers\admin\OfferController::class,'addorupdateoffer'])->name('offers.addorupdate');
+    Route::post('allofferlist',[\App\Http\Controllers\admin\OfferController::class,'allofferlist'])->name('allofferlist');
+    Route::get('offers/{id}/edit',[\App\Http\Controllers\admin\OfferController::class,'editoffer'])->name('offers.edit');
+    Route::get('offers/{id}/delete',[\App\Http\Controllers\admin\OfferController::class,'deleteoffer'])->name('offers.delete');
+    Route::get('chageofferstatus/{id}',[\App\Http\Controllers\admin\OfferController::class,'chageofferstatus'])->name('offers.chageofferstatus');
 });
 
 

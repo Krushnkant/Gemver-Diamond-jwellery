@@ -178,50 +178,108 @@
             <div class="col-md-4 col-lg-3 text-start">
                
             </div>
-            <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0 px-md-3">
-                <div class="row" id="data-wrapper">
-                    <!-- Results -->
+            <div id="exTab1" class="container">	
+            <ul  class="nav nav-tabs mb-5" id="myTab" role="tablist">
+                <li class="active nav-item">
+                    <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
+                </li>
+                <li>
+                    <a class="nav-link " href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+			    <div class="tab-pane active" id="1a">
+                    <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0 px-md-3">
+                        <div class="row" id="data-wrapper">
+                            <!-- Results -->
+                        </div>
+                        <!-- Data Loader -->
+                        <div class="auto-load text-center">
+                            <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                                <path fill="#000"
+                                    d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                                        from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div> 
+                <div class="tab-pane" id="2a">
+                    <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="table-active">
+                            <th>Image</th>
+                            <th>Shape</th>
+                            <th>Carat</th>
+                            <th>Cut</th>
+                            <th>Color</th>
+                            <th>Clarity</th>
+                            <th>Certificate</th>
+                            <th>Price</th>
+                            <th>Compare</th>
+                        </tr>
+                    </thead>
+                    <tbody class="comparelist">
+                        
+                    </tbody>  
+                    </table>
                 </div>
-                <!-- Data Loader -->
-                <div class="auto-load text-center">
-                    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-                        <path fill="#000"
-                            d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
-                                from="0 50 50" to="360 50 50" repeatCount="indefinite" />
-                        </path>
-                    </svg>
                 </div>
-            </div>
+        </div>   
+
         </div>
     </div>
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-    
-        // function infinteLoadMore(page) {
-        //     $.ajax({
-        //             url: ENDPOINT + "/diamonds?page=" + page,
-        //             datatype: "html",
-        //             type: "get",
-        //             beforeSend: function () {
-        //                 $('.auto-load').show();
-        //             }
-        //         })
-        //         .done(function (response) {
-        //             if (response.length == 0) {
-        //                 $('.auto-load').html("We don't have more data to display :(");
-        //                 return;
-        //             }
-        //             $('.auto-load').hide();
-        //             $("#data-wrapper").append(response);
-        //         })
-        //         .fail(function (jqXHR, ajaxOptions, thrownError) {
-        //             console.log('Server error occured');
-        //         });
-        // }
+   
+    <script type="text/javascript">
+    $(document).ready(function() { 
+        compare_data();
+        function compare_data()
+        {
+            var ENDPOINT = "{{ url('/compareladdiamond/') }}";
+            $.ajax({
+                type: 'GET',
+                url: ENDPOINT,
+                success:function(response){ 
+                     $(".totlecpmpare").text(response.totalcompare);    
+                     $(".comparelist").html(response.artilces);    
+                }   
+            });
+        }    
+
+    $('body').on('click', '.comparesave', function () {
+        save_compare($(this));
+    });
+
+    function save_compare(btn){
+        var diamond_id = $(btn).attr('data-id');
+        var ip_address = '{{ \Request::ip(); }}';
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('frontend.compare.save') }}",
+            data: {diamond_id:diamond_id,ip_address:ip_address,_token: '{{ csrf_token() }}'},
+
+            success: function (res) {
+                if(res.status == 'failed'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();    
+                }
+                if(res.status == 200){
+                    compare_data();
+                }
+            },
+            error: function (data) {
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                toastr.error("Please try again",'Error',{timeOut: 5000});
+            }
+        });
+    }
+    });
     </script>
 
     <script>
