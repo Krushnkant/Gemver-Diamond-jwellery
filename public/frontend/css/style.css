@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --primary: #0B1727;
     --secondary: #BB9761;
@@ -53,7 +54,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Sacramento', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -293,9 +294,10 @@ background-size: cover;
 
 .heading-h1 {
     font-weight: 400;
-    font-size: 100px;
+    font-size: 60px;
     line-height: 146px;
     color: var(--primary);
+    text-transform: capitalize;
 }
 
 .paragraph {
@@ -394,12 +396,13 @@ background-size: cover;
 }
 
 .heading-h2 {
-    font-weight: 400;
-    font-size: 58px;
-    line-height: 112px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: normal;
     color: var(--primary) !important;
     position: relative;
     z-index: 1;
+    text-transform: capitalize;
 }
 
 .explore-category-btn {
@@ -413,6 +416,21 @@ background-size: cover;
     text-transform: uppercase;
     color: #0B1727;
     background: none;
+    display: inline-block;
+}
+
+.inquiry_btn_gemver_diamonds {
+    min-width: 181px;
+    min-height: 48px;
+    font-size: 13px;
+}
+
+.explore-category-btn a {
+    color: #0B1727;
+}
+
+.explore-category-btn:hover a {
+    color: #fff;
 }
 
 .category-heading {
@@ -435,10 +453,10 @@ background-size: cover;
 }
 
 .shop_dimond_by_shape {
-    padding: 72px;
+    padding: 50px 72px;
     position: relative;
     /* background: url(../image/black-bg.png) no-repeat; */
-    background: var(--white-secondary);
+    background: #fff;
     background-size: cover;
 }
 
@@ -598,7 +616,7 @@ background-size: cover;
 }
 
 .customer_stories {
-    padding: 72px 0;
+    padding: 50px 0;
 }
 
 .customer_stories .item {
@@ -684,8 +702,8 @@ background-size: cover;
 }
 
 .engagement_ring_section {
-    padding: 72px 72px 150px 72px;
-    background: var(--white-secondary);
+    padding: 50px 72px 50px 72px;
+    background: #fff;
 }
 
 .engagement_ring_box {
@@ -727,11 +745,11 @@ background-size: cover;
 }
 
 .customise_own_ring_section {
-    padding: 72px 0;
+    padding: 50px 0;
 }
 
 .gemver_diamonds_section {
-    padding: 72px;
+    padding: 50px 0;
 }
 
 .diamonds_heading {
@@ -759,10 +777,10 @@ background-size: cover;
 
 .diamonds_part {
     position: absolute;
-    top: 130px;
+    top: 50%;
     width: 60%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 }
 
 .footer-part-section {
@@ -958,7 +976,7 @@ background-size: cover;
 
 .about_us_background .sub_heading {
     font-weight: 700;
-    font-size: 50px;
+    font-size: 35px;
     line-height: 60px;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -966,7 +984,7 @@ background-size: cover;
 
 .about_us_link a {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -1816,36 +1834,52 @@ background-size: cover;
 }
 
 .round_cut_lab_checkbox .shape_img {
-    position: absolute;
-    max-width: 30px;
+    /* position: absolute; */
+    /* max-width: 30px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
 }
 
 .round_cut_lab_checkbox input[type="checkbox"] {
-    display: none;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-.round_cut_lab_checkbox .form-check-input:checked+.round_cut_lab_label {
+.round_cut_lab_checkbox input:checked+.shape_img {
     background: var(--primary);
     color: #fff;
 }
 
-.round_cut_lab_checkbox input+.round_cut_lab_label {
-    width: 100%;
-    width: 100%;
-    min-height: 50px;
-    border: 1px solid rgba(11, 23, 39, 0.1);
-    padding-left: 70px;
+.round_cut_lab_checkbox .round_checkbox_part {
+    display: inline-block;
 }
 
-.round_cut_lab_checkbox input+.round_cut_lab_label {
+.round_cut_lab_checkbox input+.shape_img {
+    width: 100%;
+    width: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    border: 1px solid rgba(11, 23, 39, 0.1);
+    padding: 5px;
+}
+
+.round_cut_lab_checkbox input+.shape_img {
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
     text-transform: capitalize;
     color: #BB9761;
     line-height: 50px;
+    pointer-events: none;
 }
 
 
@@ -2153,22 +2187,32 @@ background-size: cover;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: #BB9761;
+}
+
+.round_cut_lab_diamonds_info_heading a::first-letter,
+.round_cut_lab_diamonds_info_heading::first-letter {
+    text-transform: capitalize;
 }
 
 .round_cut_lab_diamonds_info_main_heading a {
     font-weight: normal;
     font-size: 16px;
     line-height: 28px;
-    text-transform: capitalize;
+    text-transform: lowercase;
     color: #0B1727;
+    display: inline-block;
+}
+
+.round_cut_lab_diamonds_info_main_heading a::first-letter {
+    text-transform: capitalize;
 }
 
 .round_cut_lab_diamonds_info_clarity {
     font-family: 'Jost';
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 23px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2219,7 +2263,7 @@ background-size: cover;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 10px;
     opacity: 0;
 }
 
@@ -2237,7 +2281,7 @@ background-size: cover;
 .round_cut_lab_diamonds_layer li {
     color: #fff;
     font-size: 13px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .round_cut_lab_checkbox a.showMore {
@@ -2393,7 +2437,7 @@ background-size: cover;
 }
 
 .background-sub-slider img {
-    height: 300px;
+    height: 250px;
     object-fit: cover;
 }
 

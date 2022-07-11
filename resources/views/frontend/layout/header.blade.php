@@ -2,20 +2,16 @@
         <div class="home-page-bg">
                     <div class="container">
                         <div class="row mt-0 mb-0">
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-6 text-start">
                                 <div class="home-page-header">
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us : {{ $settings->company_mobile_no }}</a></span>
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us </a></span>
+                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span>
+                                    <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
                                 </div>
                             </div>
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-6 text-end">
                                 <div class="home-page-header">
-                                    <span class="me-3 header-icon">Special Offers! - Get 50% Off On jewellery</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <div class="home-page-header">
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email : {{ $settings->company_email }}</span>
-                                    <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="ms-3 header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
+                                    <span class="header-icon">Special Offers! - Get 50% Off On jewellery</span>
                                 </div>
                             </div>
                         </div>
