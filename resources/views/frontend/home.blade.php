@@ -28,7 +28,7 @@
                             <div class="container">
                                 <div class="background-text-part ">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none d-md-block mx-auto ">
-                                    <h1 class="heading-h1 m-0 mt-md-3 ">{{ $banner->title }}</h1>
+                                    <h1 class="heading-h1 m-0 mb-2 mt-md-3 ">{{ $banner->title }}</h1>
                                     <div class="paragraph mt-0 mt-md-3 ">
                                     {{ $banner->description }}
                                     </div>
@@ -60,7 +60,7 @@
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
                     </div>
                 </div>
-                <div class="col-md-12 pe-md-0 mb-5 mb-md-0 mx-auto">
+                <!-- <div class="col-md-12 pe-md-0 mb-5 mb-md-0 mx-auto">
                     <div class="row">
                     <?php
                     $col = 6;
@@ -76,6 +76,38 @@
                             </div>
                         </a>
                     @endforeach 
+                    </div>
+                </div> -->
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
+                        <span class="catrgery_heading">Couple Band</span>
+                        <span class="catrgory_img">
+                            <img src="{{ asset('frontend/image/category_1.png') }}" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
+                        <span class="catrgery_heading">Stud Errings</span>
+                        <span class="catrgory_img">
+                            <img src="{{ asset('frontend/image/category_2.png') }}" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
+                        <span class="catrgery_heading">Eternity Errings</span>
+                        <span class="catrgory_img">
+                            <img src="{{ asset('frontend/image/category_3.png') }}" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
+                        <span class="catrgery_heading">Tennis Bracelates</span>
+                        <span class="catrgory_img">
+                            <img src="{{ asset('frontend/image/category_4.png') }}" alt="">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -352,6 +384,125 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- <div class="container">
+        <div class="owl-carousel owl-theme excellent-slider mb-5">
+        <div class="item">
+            <div class="excellent_slider">
+                <div class="row">
+                    <div class="col-md-6 star mb-2">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="col-md-6 text-end mb-2">
+                        <div class="date_part">4 days ago</div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good. They had a wonderful selection of rings or earring or anyth...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="excellent_slider">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="col-md-6 text-end mb-2">
+                            <div class="date_part">4 days ago</div>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            Everything was good
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            Everything was good. They had a wonderful selection of rings or earring or anyth...
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+        <div class="item">
+            <div class="excellent_slider">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="col-md-6 text-end mb-2">
+                            <div class="date_part">4 days ago</div>
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            Everything was good
+                        </div>
+                        <div class="col-md-12 mb-2">
+                            Everything was good. They had a wonderful selection of rings or earring or anyth...
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="item">
+            <div class="excellent_slider">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="col-md-6 text-end mb-2">
+                        <div class="date_part">May 23</div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good. They had a wonderful selection of rings or earring or anyth...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="excellent_slider">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="col-md-6 text-end mb-2">
+                        <div class="date_part">May 23</div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        Everything was good. They had a wonderful selection of rings or earring or anyth...
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div> -->
+    
     
      <script>
         

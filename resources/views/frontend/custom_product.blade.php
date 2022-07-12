@@ -174,7 +174,7 @@
         </div>
         <div class="wire_bangle_line mb-md-5"></div>
         <div class="row mb-5">
-            <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0 px-md-3">
+            <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
                 <div class="row" id="data-wrapper">
                     <!-- Results -->
                 </div>

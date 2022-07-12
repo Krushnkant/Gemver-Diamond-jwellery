@@ -179,7 +179,7 @@
                
             </div>
             <div id="exTab1" class="container px-0">	
-            <ul  class="nav nav-tabs mb-5" id="myTab" role="tablist">
+            <ul  class="nav nav-tabs mb-5 wire_bangle_tabs_part" id="myTab" role="tablist">
                 <li class="active nav-item">
                     <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
                 </li>
@@ -189,7 +189,7 @@
             </ul>
             <div class="tab-content clearfix">
 			    <div class="tab-pane active" id="1a">
-                    <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0 px-md-3">
+                    <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
                         <div class="row" id="data-wrapper">
                             <!-- Results -->
                         </div>
