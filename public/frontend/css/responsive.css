@@ -96,7 +96,7 @@
     .header ul li a {
         color: #0B1727;
     }
-    .header.sticky ul li {
+    /* .header.sticky ul li {
         padding: 0;
     }
     .header.sticky {
@@ -104,7 +104,7 @@
     }
     .header.sticky #nav-icon1 span {
         background: var(--primary);
-    }
+    } */
     .sub_header.header {
         padding: 0 0;
     }
@@ -238,7 +238,7 @@
         color: #0B1727;
     }
     .heading-h1 {
-        font-size: 45px;
+        font-size: 24px;
         line-height: normal;
     }
     .explore-ring-btn {
@@ -247,7 +247,7 @@
         font-size: 12px;
     }
     .heading-h2 {
-        font-size: 44px;
+        font-size: 24px;
         line-height: normal;
     }
     .explore-category-btn {
@@ -334,13 +334,19 @@
         padding: 20px;
     }
     .diamonds_heading {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .catrgery_heading {
+        font-size: 16px;
     }
     .diamonds_paragraph {
-        font-size: 15px;
+        font-size: 14px;
     }
     .footer-part-section {
         padding: 15px;
+    }
+    .shop-by-style-slider .engagement_ring_img img {
+        height: 150px;
     }
     .btn-hover-effect::before,
     .btn-hover-effect::after {
@@ -909,6 +915,9 @@
 }
 
 @media (min-width:768px) and (max-width:1199px) {
+    .shop-by-style-slider .engagement_ring_img img {
+        height: 200px;
+    }
     .category-heading {
         font-size: 16px;
         bottom: 17px;
@@ -1020,9 +1029,9 @@
     .header ul li {
         padding: 10px 22px;
     }
-    .header.sticky ul li {
+    /* .header.sticky ul li {
         padding: 10px 22px;
-    }
+    } */
     .header {
         padding: 0;
     }
@@ -1038,14 +1047,17 @@
     .category-heading {
         font-size: 17px;
     }
+    .catrgery_heading {
+        font-size: 18px;
+    }
     .heading-h1 {
-        font-size: 53px;
+        font-size: 38px;
     }
     .paragraph {
         font-size: 18px;
     }
     .heading-h2 {
-        font-size: 51px;
+        font-size: 28px;
     }
     .customer_stories_paragraph {
         font-size: 15px;
@@ -1061,7 +1073,7 @@
         min-height: 216px;
     }
     .header ul li .mega-menu .mega-menu-four-part {
-        min-width: 800px;
+        min-width: 784px;
     }
     .own_ring_img img {
         max-height: 400px;
@@ -1080,6 +1092,14 @@
     }
     .inquiry_now_modal .modal-content {
         min-width: 800px;
+    }
+    .shop_by_style_heading {
+        font-size: 15px;
+    }
+    .header ul li:last-child .mega-menu {
+        right: 0;
+        left: auto;
+        transform: none;
     }
 }
 
@@ -1115,6 +1135,9 @@
 }
 
 @media (min-width:1200px) and (max-width:1400px) {
+    .catrgery_heading {
+        font-size: 17px;
+    }
     .header ul li {
         padding: 10px 20px;
     }
@@ -1122,7 +1145,7 @@
         font-size: 16px;
     }
     .heading-h1 {
-        font-size: 76px;
+        font-size: 46px;
         line-height: 112px;
     }
     .paragraph {
@@ -1152,7 +1175,7 @@
         bottom: 66px;
     }
     .engagement_ring_box {
-        padding: 25px 25px 50px 25px;
+        padding: 25px 25px 0 25px;
     }
     .engagement_ring_heading {
         font-size: 16px;
@@ -1165,11 +1188,8 @@
         min-height: 60px;
         font-size: 15px;
     }
-    .engagement_ring_section {
-        padding: 72px 72px 88px 72px;
-    }
     .heading-h2 {
-        font-size: 59px;
+        font-size: 34px;
     }
     .customer_stories_paragraph {
         font-size: 17px;
@@ -1179,10 +1199,6 @@
         font-size: 16px;
         line-height: 20px;
         min-height: 61px;
-    }
-    .diamonds_part {
-        top: 60px;
-        width: 84%;
     }
     .footer-col ul li a {
         font-size: 15px;
@@ -1214,14 +1230,17 @@
         padding: 50px;
         min-height: 250px;
     }
-    .header.sticky ul li {
-        padding: 28px 8px;
-    }
     .header ul li .mega-menu .mega-menu-four-part {
-        min-width: 1000px;
+        min-width: 900px;
+    }
+    .header ul li .mega-menu .mega-menu-three-part {
+        min-width: 500px;
     }
     .own_ring_img img {
         max-height: 400px;
+    }
+    .shop-by-style-slider .engagement_ring_img img {
+        height: 200px;
     }
     /* ---------------------modal--------------------------------- */
     .inquiry_now_modal .modal-content {
@@ -1300,25 +1319,25 @@
 }
 
 @media (min-width:1401px) and (max-width:1700px) {
-    .heading-h1 {
+    /* .heading-h1 {
         font-size: 91px;
-    }
+    } */
     .header ul li {
         padding: 10px 20px;
     }
     .engagement_ring_box {
         padding: 40px 40px 90px 40px;
     }
-    .heading-h2 {
+    /* .heading-h2 {
         font-size: 72px;
-    }
+    } */
     .diamonds_part {
         top: 93px;
         left: 45%;
     }
-    .header.sticky ul li {
+    /* .header.sticky ul li {
         padding: 28px 20px;
-    }
+    } */
     .h3-heading {
         font-size: 55px;
     }

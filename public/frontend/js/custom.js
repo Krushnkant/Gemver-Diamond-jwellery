@@ -27,10 +27,10 @@ $(document).ready(function() {
                 items: 1
             },
             576: {
-                items: 2
+                items: 3
             },
             650: {
-                items: 3
+                items: 4
             },
             992: {
                 items: 4
@@ -67,11 +67,32 @@ $(document).ready(function() {
             0: {
                 items: 1
             },
-            600: {
-                items: 2
+            576: {
+                items: 2,
+            },
+            768: {
+                items: 3,
             },
             1200: {
                 items: 3
+            }
+        }
+    });
+
+    $('.excellent-slider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
             }
         }
     });
