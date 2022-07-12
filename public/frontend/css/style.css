@@ -1044,8 +1044,8 @@ background-size: cover;
 
 .h3-heading {
     font-weight: 400;
-    font-size: 60px;
-    line-height: 88px;
+    font-size: 30px;
+    line-height: normal;
     color: #0B1727;
 }
 
