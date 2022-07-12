@@ -245,9 +245,9 @@
                         <div class="item">
                             <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id.'/'.$shopby->id) }} @else {{ url('diamond-setting/'.$shopby->category_id.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
-                                <div class="category-heading">
-                                {{ $shopby->title }}
-                            </div>
+                                <div class="shop_by_style_heading">
+                                    {{ $shopby->title }}
+                                </div>
                             </a>
                         </div>
                         @endforeach
@@ -313,7 +313,7 @@
                                         <div class="alert alert-success" id="success-alert" style="display: none;"></div>
                                         <div class="row">
                                       
-                                        <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                        <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm" class="px-0">
                                         @csrf
             
                                         

@@ -397,7 +397,7 @@ background-size: cover;
 
 .heading-h2 {
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     line-height: normal;
     color: var(--primary) !important;
     position: relative;
@@ -444,6 +444,16 @@ background-size: cover;
     z-index: 1;
     bottom: 20px;
     left: 22px;
+}
+
+.shop_by_style_heading {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    text-align: left;
 }
 
 .category-line-img {
@@ -1804,15 +1814,15 @@ background-size: cover;
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 24px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #BB9761;
 }
 
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_price {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 18px;
     text-transform: capitalize;
     color: #0B1727;
