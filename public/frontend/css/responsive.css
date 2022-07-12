@@ -250,6 +250,10 @@
         font-size: 24px;
         line-height: normal;
     }
+    .h3-heading {
+        font-size: 24px;
+        line-height: normal;
+    }
     .explore-category-btn {
         min-width: 164px;
         min-height: 47px;
@@ -846,10 +850,6 @@
     .about_us_product_padding {
         padding-right: 0;
     }
-    .h3-heading {
-        font-size: 45px;
-        line-height: normal;
-    }
     .background-sub-slider {
         margin-top: 85px;
     }
@@ -1338,9 +1338,9 @@
     /* .header.sticky ul li {
         padding: 28px 20px;
     } */
-    .h3-heading {
+    /* .h3-heading {
         font-size: 55px;
-    }
+    } */
     .about_box_bg {
         padding: 50px;
     }
