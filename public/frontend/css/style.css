@@ -142,6 +142,10 @@ background-size: cover;
     color: #BB9761;
 }
 
+.header ul li a:hover svg path {
+    fill: var(--secondary);
+}
+
 .header ul li>.mega-menu {
     position: absolute;
     top: 50%;
@@ -2141,14 +2145,14 @@ background-size: cover;
     line-height: 24px;
     text-transform: capitalize;
     color: var(--primary);
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .round_cut_lab_range_slider .form-group label:before {
     content: '';
     -webkit-appearance: none;
     background-color: transparent;
-    border: 2px solid var(--primary);
+    border: 1px solid var(--primary);
     border-radius: 6px;
     display: inline-block;
     position: relative;
@@ -2168,7 +2172,7 @@ background-size: cover;
     width: 5px;
     height: 13px;
     border: solid var(--primary);
-    border-width: 0 2px 2px 0;
+    border-width: 0 1px 1px 0;
     transform: rotate(45deg);
 }
 
@@ -2179,7 +2183,7 @@ background-size: cover;
 
 .round_cut_lab_range_color .form-group label {
     background-color: transparent;
-    border: 2px solid var(--primary);
+    border: 1px solid var(--primary);
     border-radius: 6px;
     display: inline-block;
     vertical-align: middle;

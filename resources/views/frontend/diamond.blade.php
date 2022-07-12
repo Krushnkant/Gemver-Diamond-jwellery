@@ -28,7 +28,7 @@
         </div>
         <div class="mt-4 mt-md-5"></div>
         <div class="row">
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                     <div class="round_cut_lab_checkbox row">
                         <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">shape</div>
                         <div class="col-md-10">
@@ -46,23 +46,23 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
-                    <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">price</div>
-                    <div class="round_cut_lab_diamonds_price mb-4 col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-2">price</div>
+                    <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range"></div>
-                        <p> Price : <span id="amount"></span></p>
+                        <p class="mb-0"> Price : <span id="amount"></span></p>
                         <input type="hidden" id="hidden_minimum_price" />
                         <input type="hidden" id="hidden_maximum_price" />
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="round_cut_lab_range_slider mb-4 round_cut_lab_range_color row">
-                    <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">color</div>
+                <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
+                    <div class="round_cut_lab_diamonds_heading col-md-2">color</div>
                     <div class="col-md-10">
                         @foreach($diamondcolor as $color) 
-                        <div class="form-group mb-3 me-2 d-inline-block">
+                        <div class="form-group mb-3 d-inline-block">
                             <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
                             <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
@@ -73,22 +73,22 @@
             </div>
             <div class="col-md-6">
                 <div class="round_cut_lab_range_slider row">
-                    <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">carat</div>
-                    <div class="round_cut_lab_diamonds_price mb-4 col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-2">carat</div>
+                    <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range-carat"></div>
-                        <p> Carat : <span id="carat"></span></p>
+                        <p class="mb-0"> Carat : <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
                         <input type="hidden" id="hidden_maximum_carat" />
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-md-0">
+            <div class="col-md-6 mb-md-0">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                        <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">clarity</div>
+                        <div class="round_cut_lab_diamonds_heading col-md-2">clarity</div>
                 
                         <div class="col-md-10">
                             @foreach($diamondclarity as $clarity) 
-                            <div class="form-group mb-3 me-2 d-inline-block">
+                            <div class="form-group mb-3 d-inline-block">
                                 <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
                                 <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
                             </div>
@@ -98,8 +98,8 @@
                     </div>
             </div>
             <div class="col-md-6">
-                <div class="round_cut_lab_range_slider mb-3 mb-xxl-4 row">
-                        <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">report</div>
+                <div class="round_cut_lab_range_slider row">
+                        <div class="round_cut_lab_diamonds_heading col-md-2">report</div>
                         <div class="col-md-10">
                             @foreach($diamondreport as $report) 
                             <div class="form-group mb-3 d-inline-block me-3">
@@ -111,7 +111,7 @@
                         </div>
                     </div> 
             </div>
-            <div class="col-md-6 mb-4 collapse" id="collapseExample">
+            <div class="col-md-6 collapse" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <div class="round_cut_lab_diamonds_heading col-md-2">cut</div>
                     <div class="col-md-10">
@@ -239,8 +239,8 @@
             </div>
             <div class="col-md-6 text-end">
                 <span class="d-inline-block">
-                    <div class="round_cut_lab_range_slider text-end">
-                        <div class="form-group mb-3 me-2 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <div class="round_cut_lab_range_slider text-end me-3">
+                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div>

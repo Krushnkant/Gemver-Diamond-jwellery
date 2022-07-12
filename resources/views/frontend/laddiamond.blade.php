@@ -23,7 +23,7 @@
     <div class="container round_cut_lab_diamonds_page">
         <div class="mt-4 mt-md-5"></div>
         <div class="row">
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <div class="round_cut_lab_checkbox row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">shape </span>
                     <div class="col-md-10">
@@ -39,20 +39,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <div class="row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">price</span>
+                    <span class="round_cut_lab_diamonds_heading col-md-2">price</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range"></div>
-                        <p> <span id="amount"></span></p>
+                        <p class="mb-0"> <span id="amount"></span></p>
                         <input type="hidden" id="hidden_minimum_price" />
                         <input type="hidden" id="hidden_maximum_price" />
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading mb-3 mb-md-0 col-md-2">color</span>
+                    <span class="round_cut_lab_diamonds_heading col-md-2">color</span>
                     <span class="col-md-10">
                         @foreach($diamondcolor as $color) 
                         <div class="form-group d-inline-block">
@@ -68,18 +68,18 @@
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">carat</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range-carat"></div>
-                        <p> <span id="carat"></span></p>
+                        <p class="mb-0"> <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
                         <input type="hidden" id="hidden_maximum_carat" />
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 mb-md-0">
+            <div class="col-md-6">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading mb-4 col-md-2">clarity</span>
+                    <span class="round_cut_lab_diamonds_heading col-md-2">clarity</span>
                     <span class="col-md-10">
                         @foreach($diamondclarity as $clarity) 
-                        <div class="form-group d-inline-block mb-2">
+                        <div class="form-group d-inline-block">
                             <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
                             <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
                         </div>
@@ -87,12 +87,12 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
+            <div class="col-md-6">
                 <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading mb-4 d-inline-block col-md-2">report</span>
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">report</span>
                     <span class="col-md-10">
                         @foreach($diamondreport as $report) 
-                        <div class="form-group mb-3 d-inline-block">
+                        <div class="form-group d-inline-block">
                             <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
                             <label for="report{{ $report }}">{{ $report }}</label>
                         </div>
@@ -100,8 +100,8 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6">
-                    <div class="round_cut_lab_range_slider mb-4 row">
+            <div class="col-md-6 collapse" id="collapseExample">
+                    <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">cut</span>
                         <span class="col-md-10">
                             @foreach($diamondcut as $cut) 
@@ -116,77 +116,40 @@
            
         </div>
         <div class="wire_bangle_line "></div>
-        <div class="row align-items-center">
-            <div class="col-sm-5 col-md-6">
-                <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
+
+        <div class="row my-4">
+            <div class="col-md-6 text-start">
+                <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
+                    <li class="active nav-item">
+                        <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
+                    </li>
+                    <li>
+                        <a class="nav-link " href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-sm-3 col-md-6 text-center text-sm-end mb-3 d-flex justify-content-center justify-content-sm-end">
-                <span class="wire_bangle_select text-center text-md-end select_box_option">
+            <div class="col-md-6 text-end">
+                <span class="d-inline-block">
+                    <div class="round_cut_lab_range_slider text-end me-3">
+                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <label for="checkbox_1">advanced filters</label>
+                        </div>
+                    </div>
+                </span>
+                <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
                     </select>
                 </span>
-                <span class="d-inline-block ms-4">
-                    <!-- <button class="filter-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
-                        </svg>
-                        <span>filter</span>
-                    </button> -->
-                </span>
-                <!-- <div class="right_side_panel scrollbar" id="style-1">
-                        <span> 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x close_icon_svg" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
-                            </svg>
-                        </span>
-                        <div class="round_cut_lab_range_slider mb-xxl-5 mb-4 mt-3 mt-md-0">
-                            
-                            
-                        </div>
-                        <div class="round_cut_lab_checkbox mb-xxl-5 mb-4">
-
-                        </div>
-                        <div class="round_cut_lab_range_slider mb-4  mb-xxl-5 round_cut_lab_range_color">
-                           
-                        </div>
-
-                        <div class="round_cut_lab_range_slider mb-xxl-5 mb-4 mt-3 mt-md-0">
-                          
-                        </div>
-
-                    
-                        <div class="round_cut_lab_range_slider mb-xxl-5 mb-3 round_cut_lab_range_color">
-
-                        </div>
-                        <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
-                          
-                        </div>
-                        <div class="round_cut_lab_range_slider mb-3 mb-xxl-5">
-                           
-                        </div>
-                        <div class="mt-xxl-4 text-center mb-xxl-3 my-2">
-                            
-                            <span style="display:none;" class="ms-3 clear_filter_btn">clear filter</span>
-                        </div>
-                </div> -->
             </div>
         </div>
-        <div class="wire_bangle_line mb-md-5"></div>
         <div class="row mb-5">
-            <div class="col-md-4 col-lg-3 text-start">
-               
-            </div>
+            
+            <div class="wire_bangle_line mb-md-5"></div>
             <div id="exTab1" class="container px-0">	
-            <ul  class="nav nav-tabs mb-5 wire_bangle_tabs_part" id="myTab" role="tablist">
-                <li class="active nav-item">
-                    <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
-                </li>
-                <li>
-                    <a class="nav-link " href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
-                </li>
-            </ul>
+
             <div class="tab-content clearfix">
 			    <div class="tab-pane active" id="1a">
                     <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
