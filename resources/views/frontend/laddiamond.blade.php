@@ -128,12 +128,12 @@
                     </select>
                 </span>
                 <span class="d-inline-block ms-4">
-                    <button class="filter-btn">
+                    <!-- <button class="filter-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
                         </svg>
                         <span>filter</span>
-                    </button>
+                    </button> -->
                 </span>
                 <!-- <div class="right_side_panel scrollbar" id="style-1">
                         <span> 
@@ -178,7 +178,7 @@
             <div class="col-md-4 col-lg-3 text-start">
                
             </div>
-            <div id="exTab1" class="container">	
+            <div id="exTab1" class="container px-0">	
             <ul  class="nav nav-tabs mb-5" id="myTab" role="tablist">
                 <li class="active nav-item">
                     <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
