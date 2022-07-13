@@ -192,6 +192,10 @@ background-size: cover;
 }
 
 .header ul li .mega-menu li span {
+    text-transform: lowercase;
+}
+
+.header ul li .mega-menu li span::first-letter {
     text-transform: capitalize;
 }
 
