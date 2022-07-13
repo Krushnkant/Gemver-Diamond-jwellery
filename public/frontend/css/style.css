@@ -178,7 +178,7 @@ background-size: cover;
 }
 
 .header ul li .mega-menu li {
-    padding: 10px 0px;
+    padding: 6px 0px;
     font-weight: 600;
     display: block;
 }
@@ -186,13 +186,13 @@ background-size: cover;
 .header ul li .mega-menu li .menus_title,
 .header ul li .mega-menu .menus_title {
     color: #BB9761;
-    font-size: 17px;
+    font-size: 16px;
     text-transform: capitalize;
     font-weight: 600;
 }
 
 .header ul li .mega-menu li span {
-    text-transform: lowercase;
+    text-transform: capitalize;
 }
 
 .header ul li .mega-menu li span::first-letter {
@@ -212,7 +212,7 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-four-part {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    min-width: 1300px;
+    min-width: 1100px;
     text-align: left;
     padding: 20px;
 }
@@ -224,7 +224,7 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 66.66% 33.33%;
-    min-width: 701px;
+    min-width: 650px;
     text-align: left;
     padding: 20px;
 }
@@ -419,8 +419,8 @@ background-size: cover;
 .catrgery_box {
     background: #FFFFFF;
     padding: 15px;
-    box-shadow: -1px 2px 7px 0px rgb(0 0 0 / 25%);
-    margin-bottom: 5px;
+    box-shadow: 0px 1px 7px 0px rgb(0 0 0 / 25%);
+    margin: 5px;
 }
 
 .catrgery_heading {
@@ -476,12 +476,13 @@ background-size: cover;
 
 .shop_by_style_heading {
     color: var(--primary);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     line-height: 36px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
     text-align: left;
+    font-family: 'Jost', sans-serif;
 }
 
 .category-line-img {
@@ -500,7 +501,7 @@ background-size: cover;
 
 .shop_dimond_by_shape .owl-item img {
     margin: auto;
-    border: 1px solid #dfdfdf;
+    /* border: 1px solid #dfdfdf; */
 }
 
 .shop_dimond_by_shape .owl-dots {
@@ -690,8 +691,9 @@ background-size: cover;
 }
 
 .shop-dimond-by-shape-img img {
-    height: 100%;
-    border: 1px #eee solid;
+    width: 100px !important;
+    height: 100px;
+    /* border: 1px #eee solid; */
 }
 
 .customer-stories-paragraph {
@@ -3627,4 +3629,32 @@ span#amount {
 
 .header ul li .mega-menu .mega-menu-four-part div ul:nth-child(n+4) {
     margin-top: 30px;
+}
+
+.shop-by-category .owl-next {
+    background-color: var(--secondary) !important;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -45px;
+}
+
+.shop-by-category .owl-next svg path {
+    fill: #fff;
+}
+
+.shop-by-category .owl-prev svg path {
+    fill: #fff;
+}
+
+.shop-by-category .owl-prev {
+    background-color: var(--secondary) !important;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -45px;
 }

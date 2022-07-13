@@ -34,9 +34,9 @@
                         <div class="col-md-10">
                             <?php $no_shap = 1;  ?>
                             @foreach($diamondshape as $shape)  
-                            <span class="form-check position-relative ps-0 mb-2 pb-1 round_checkbox_part" data-toggle="tooltip" data-placement="top" title="This is a Tooltip">
+                            <span class="form-check position-relative ps-0 mb-2 pb-1 round_checkbox_part" data-toggle="tooltip" data-placement="top" title="{{ $shape }}">
                                     <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ? 'checked' : '' }}  id="flexRadioDefault{{ $no_shap }}">
-                                    <img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="" class="shape_img">
+                                    <img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="" class="shape_img">
                                     <!-- <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $no_shap }}">
                                     {{ $shape }}
                                     </label> -->
