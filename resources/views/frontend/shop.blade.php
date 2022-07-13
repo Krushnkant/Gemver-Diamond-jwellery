@@ -18,94 +18,105 @@
             </div>
 
         </div>
-        <div class="container shop_page">
-           
-                <div class="row align-items-center my-3">
-                    <div class="col-sm-5 col-md-6">
-                        <div class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
-                    </div>
-                    <div class="col-sm-3 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-center justify-content-sm-end">
-                        <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option">
-                            <select class="form-control" name="sorting" id="sorting" class="">
-                                <option value="">default sorting</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
-                            </select>
-                        </span>
-                       
-                        <span class="d-inline-block ms-4">
-                            <button class="filter-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
-                                </svg>
-                                <span>filter</span>
-                        </button>
-                        </span>
-                        <form method="post" name="ProductFilter" id="ProductFilter" action="{{ Route('frontend.product.productfilter') }}">
-                           @csrf 
-                        <div class="right_side_panel scrollbar" id="style-1">
-                            <div class="wire_bangle_carat my-3 text-start">
-                                @foreach($Categories as $category)
-                                <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
-                                        <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
-                                        <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
-                                            {{ $category->category_name }}
-                                    </label>
-                                </span>
-                                @endforeach
-                            </div>
-                            <span> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x close_icon_svg" viewBox="0 0 16 16">
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
+        <div class="container shop_page round_cut_lab_diamonds_page">
+                
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="wire_bangle_carat mb-3 text-start">
+                            @foreach($Categories as $category)
+                            <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
+                                    <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
+                                    <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
+                                        {{ $category->category_name }}
+                                </label>
                             </span>
-
-                            <!-- <ul class="right_side_ul">
-                                <li>Category</li>
-                                <li><a href="#">Couple Bands</a></li>
-                                <li><a href="#">Stud Earrings</a></li>
-                                <li><a href="#">Eternity Rings</a></li>
-                                <li><a href="#">Tennis Bracelets</a></li>
-                            </ul> -->
-                            <div class="round_cut_lab_range_slider mb-xxl-4 mb-4 mt-3 mt-md-0">
-                            
-                            <div class="round_cut_lab_diamonds_price mb-2">
-                                <div id="slider-range"></div>
-                                  <p> Price : <span id="amount"></span></p>
-                                  <input type="hidden" id="hidden_minimum_price"  />
-                                  <input type="hidden" id="hidden_maximum_price"  />
-                                </div>
-                             </div>
-                            @foreach($Attributes as $attribute)
-                            @if($attribute->is_specification == 0)
-                            <ul class="right_side_ul round_cut_lab_range_slider">
-                                <li>{{ $attribute->attribute_name }}</li>
-                                @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach 
-                            </ul>
-                            @else
-                            <ul class="right_side_ul round_cut_lab_range_slider">
-                                <li>{{ $attribute->attribute_name }}</li>
-                                @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector specification" name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach 
-                            </ul>
-                            @endif
-                           @endforeach    
+                            @endforeach
                         </div>
-                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
+                            <div class="round_cut_lab_diamonds_heading col-md-2">price</div>
+                            <div class="round_cut_lab_diamonds_price col-md-10">
+                                <div id="slider-range"></div>
+                                <p class="mb-0"> Price : <span id="amount"></span></p>
+                                <input type="hidden" id="hidden_minimum_price" />
+                                <input type="hidden" id="hidden_maximum_price" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="round_cut_lab_range_slider mb-xxl-4 mb-4 mt-3 mt-md-0">
+                                    @foreach($Attributes as $attribute)
+                                    @if($attribute->is_specification == 0)
+                                    <ul class="right_side_ul round_cut_lab_range_slider row">
+                                        <li class="round_cut_lab_diamonds_heading col-md-2">{{ $attribute->attribute_name }}</li>
+                                        <div class="col-md-10">
+                                            @foreach($attribute->attributeterm as $term)
+                                                <div class="form-group mb-3 d-inline-block me-3">
+                                                    <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                    <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                                </div>
+                                            @endforeach 
+                                        </div>
+                                    </ul>
+                                    @else
+                                    <ul class="right_side_ul round_cut_lab_range_slider">
+                                        <li class="col-md-6">{{ $attribute->attribute_name }}</li>
+                                        @foreach($attribute->attributeterm as $term)
+                                            <div class="form-group mb-3 d-inline-block">
+                                                <input type="checkbox" class="common_selector specification" name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                            </div>
+                                        @endforeach 
+                                    </ul>
+                                    @endif
+                                @endforeach    
+                        </div>
+                    </div>
+                        
+                </div>
+                
+                <div class="container">
+                    <div class="wire_bangle_line"></div>
+                    <div class="row align-items-center">
+                        <div class="col-sm-5 col-md-6">
+                            <div class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
+                        </div>
+                        <div class="col-sm-3 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-center justify-content-sm-end">
+                            <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option">
+                                <select class="form-control" name="sorting" id="sorting" class="">
+                                    <option value="">default sorting</option>
+                                    <option value="date">Sort by newness</option>
+                                    <option value="price">Sort by price: low to high</option>
+                                    <option value="price-desc">Sort by price: high to low</option>
+                                </select>
+                            </span>
+                        
+                            <span class="d-inline-block">
+                                <!-- <button class="filter-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
+                                    </svg>
+                                    <span>filter</span>
+                            </button> -->
+                            </span>
+                            <form method="post" name="ProductFilter" id="ProductFilter" action="{{ Route('frontend.product.productfilter') }}">
+                            @csrf 
+                            <!-- <div class="right_side_panel scrollbar" id="style-1">
+                            
+                                <span> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x close_icon_svg" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </span>
+                                
+                           
+                             </div> -->
+                            </form>
                     </div>
                 </div>
             
-            <div class="wire_bangle_line mb-md-5"></div>
+            <div class="wire_bangle_line"></div>
             <div class="row mt-3 mb-5 filter_data">
                 <!-- @foreach($Products as $product)
 

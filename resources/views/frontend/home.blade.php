@@ -78,36 +78,38 @@
                     @endforeach 
                     </div>
                 </div> -->
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
-                        <span class="catrgery_heading">Couple Band</span>
-                        <span class="catrgory_img">
-                            <img src="{{ asset('frontend/image/category_1.png') }}" alt="">
-                        </span>
+                <div class="owl-carousel owl-theme shop-by-category">
+                    <div class="item">
+                        <div class="catrgery_box d-flex align-items-center justify-content-between">
+                            <span class="catrgery_heading">Couple Band</span>
+                            <span class="catrgory_img">
+                                <img src="{{ asset('frontend/image/category_1.png') }}" alt="">
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
-                        <span class="catrgery_heading">Stud Errings</span>
-                        <span class="catrgory_img">
-                            <img src="{{ asset('frontend/image/category_2.png') }}" alt="">
-                        </span>
+                    <div class="item">
+                        <div class="catrgery_box d-flex align-items-center justify-content-between">
+                            <span class="catrgery_heading">Stud Errings</span>
+                            <span class="catrgory_img">
+                                <img src="{{ asset('frontend/image/category_2.png') }}" alt="">
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
-                        <span class="catrgery_heading">Eternity Errings</span>
-                        <span class="catrgory_img">
-                            <img src="{{ asset('frontend/image/category_3.png') }}" alt="">
-                        </span>
+                    <div class="item">
+                        <div class="catrgery_box d-flex align-items-center justify-content-between">
+                            <span class="catrgery_heading">Eternity Errings</span>
+                            <span class="catrgory_img">
+                                <img src="{{ asset('frontend/image/category_3.png') }}" alt="">
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="catrgery_box d-flex align-items-center justify-content-between mb-3">
-                        <span class="catrgery_heading">Tennis Bracelates</span>
-                        <span class="catrgory_img">
-                            <img src="{{ asset('frontend/image/category_4.png') }}" alt="">
-                        </span>
+                    <div class="item">
+                        <div class="catrgery_box d-flex align-items-center justify-content-between">
+                            <span class="catrgery_heading">Tennis Bracelates</span>
+                            <span class="catrgory_img">
+                                <img src="{{ asset('frontend/image/category_4.png') }}" alt="">
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,8 +253,8 @@
     </div>
 
     <div class="container">
-        <div class="customise_own_ring_section">
-            <div class="row">
+        <div class="customise_own_ring_section pb-0">
+            <div class="row align-items-center">
                 <div class="col-md-7 text-center text-md-start">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                     <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
@@ -336,7 +338,7 @@
                                     <div class="modal-content">
                                         <div class="row">
                                             <div class="col-6 ps-0 text-start">
-                                                <div class="mb-xl-4 mb-3 product_heading">bulb order inquiry</div>
+                                                <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div>
                                             </div>
                                             <div class="col-6 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -566,7 +568,7 @@ function save_inquiry(btn,btn_type){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
                 //location.href="{{ route('frontend.contactus')}}";
-                var success_message = 'Thank You For Bulb Order Inquiry';
+                var success_message = 'Thank You For Bulk Order Inquiry';
                 $('#success-alert').text(success_message);
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
                   $("#success-alert").slideUp(1000);

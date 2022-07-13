@@ -2,14 +2,14 @@
         <div class="home-page-bg">
                     <div class="container">
                         <div class="row mt-0 mb-0">
-                            <div class="col-md-6 text-start">
+                            <div class="col-md-3 text-start">
                                 <div class="home-page-header">
                                     <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us </a></span>
                                     <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span>
                                     <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
                                 </div>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-9 text-end">
                                 <div class="home-page-header">
                                   <?php 
                                       $offers = \App\Models\Offer::where('estatus',1)->get();
@@ -212,11 +212,11 @@
                                                 <span class="menus_title ">create your own {{ $car->category_name }}</span>
                                             </li>
                                             <li>
-                                                <a href="{{ URL('/product-setting/'.$car->id)}}">
+                                                <a href="{{ URL('/product-setting/'.$car->id)}}" class="d-flex">
                                                     <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img "> <span class="ms-2 ">Start with a Setting</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ URL('/diamond-setting/'.$car->id)}}"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-2 ">Start with a Lab Diamond</span></a>
+                                                <a href="{{ URL('/diamond-setting/'.$car->id)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-2 ">Start with a Lab Diamond</span></a>
                                             </li>
                                         </ul>
 
@@ -250,7 +250,7 @@
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/'.$shape) }}" class="d-flex">
                                                             <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "></span>
-                                                            <span class="ms-2 d-inline-block">{{ $shape }}</span>
+                                                            <span class="ms-2 d-inline-block">{{ strtolower($shape) }}</span>
                                                         </a>
                                                     </li>
                                                     @endforeach
