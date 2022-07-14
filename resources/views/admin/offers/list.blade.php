@@ -81,6 +81,7 @@
                             <label class="col-form-label" for="expiry_date" id="label_expiry_date">Expiry Date
                             </label>
                             <input type="date" class="form-control input-flat" id="expiry_date" name="expiry_date" placeholder="">
+                            <div id="expiry_date-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         
                     </div>

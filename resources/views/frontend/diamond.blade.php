@@ -67,7 +67,7 @@
                             <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
                         @endforeach
-                        
+    
                     </div>
                 </div>
             </div>
