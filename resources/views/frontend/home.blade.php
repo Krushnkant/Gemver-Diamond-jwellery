@@ -79,11 +79,11 @@
                     </div>
                 </div> -->
              
-                <div class="owl-carousel owl-theme shop-by-category">
+                <div class="owl-carousel owl-theme shop-by-category mb-5">
                     @foreach($categories as $category)
                     <a href="{{ URL('/shop/'.$category->id)}}">
                         <div class="item">
-                            <div class="catrgery_box d-flex align-items-center justify-content-between">
+                            <div class="catrgery_box">
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                                 <span class="catrgory_img">
                                     <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}">
@@ -172,7 +172,7 @@
     @if(count($testimonials) > 0)
     
     <div class="container">
-        <div class="customer_stories">
+        <div class="customer_stories pt-0">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="">
@@ -209,8 +209,8 @@
     </div>
 
     @endif
-    <div class="engagement_ring_section">
-        <div class="container">
+    <div class="engagement_ring_section px-0">
+        <!-- <div class="container">
             <h2 class="heading-h2 text-center text-white">{{ strtolower($step->main_title) }}</h2>
             <div class="engagement_ring_paragraph mb-3 pb-0 mb-xl-4 mb-xxl-5 pb-xxl-5">{{ $step->main_shotline }}</div>
             <div class="row">
@@ -244,11 +244,73 @@
                 </div>
             </div>
 
+        </div> -->
+        <div class="container engagement_diamond_section">
+            <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="engagement_diamond_img">
+                            <img src="{{ asset('frontend/image/how_to_img.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <h2 class="mb-md-4 engagement_diamond_heading">How to Buy Your Diamond Engagement Ring?</h2>
+                        <p class="engagement_diamond_paragraph_part mb-md-4">
+                            Creating your lab grown diamond jewelry is simple. Follow the steps mentioned below when customizing your engagement ring.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="position-relative">
+                                    <div class="engagement_diamond_box mb-3">
+                                        <img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="">
+                                    </div> 
+                                    <div class="engagement_diamond_sub_heading mt-2">SET A BUDGET</div>
+                                </div>
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph">
+                                    Plan your budget before buying diamond jewelry, especially if it's your engagement ring.
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                            <div class="position-relative">
+                                <div class="engagement_diamond_box mb-3">
+                                        <img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="">
+                                    </div> 
+                                    <div class="engagement_diamond_sub_heading mt-2">cHOOSE A dIAMOND</div>
+                            </div>
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph">
+                                    Choose a lab diamond based on its 4C's: Cut, Color, Clarity and Carat Weight.
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="position-relative">
+                                    <div class="engagement_diamond_box mb-3">
+                                        <img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="">
+                                    </div> 
+                                    <div class="engagement_diamond_sub_heading mt-2">choose a ring setting</div>
+                                </div>
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph">
+                                    Choose various styles and settings ranging from halos, solitaires and three stones.
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="position-relative">
+                                    <div class="engagement_diamond_box mb-3">
+                                        <img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="">
+                                    </div>
+                                    <div class="engagement_diamond_sub_heading mt-2">Complete Your ring</div>
+                                </div>
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph">
+                                    Select your ring size, customize it with an engraving according to your preference and complete your ring.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="customise_own_ring_section pb-0">
+        <div class="customise_own_ring_section pt-0 pb-0">
             <div class="row align-items-center">
                 <div class="col-md-7 text-center text-md-start">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
