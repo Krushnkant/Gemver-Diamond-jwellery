@@ -648,13 +648,17 @@ background-size: cover;
 }
 
 .customer_stories_paragraph {
-    font-weight: 600;
+    font-weight: normal;
     font-size: 16px;
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
     color: #0B1727;
     font-family: 'Jost', sans-serif;
+}
+
+.engagement_diamond_heading {
+    text-transform: capitalize;
 }
 
 .engagement_diamond_paragraph_part {
@@ -711,7 +715,7 @@ background-size: cover;
 .customer_stories .item {
     border: 1px solid var(--secondary);
     border-radius: 70px 0px;
-    padding: 70px 50px;
+    padding: 40px 50px;
 }
 
 .customer-stories-img,
@@ -720,15 +724,13 @@ background-size: cover;
     display: block;
 }
 
-.customer-stories-img:after,
-.shop-dimond-by-shape-img:after {
+.customer-stories-img:after {
     content: "";
     display: block;
     padding-bottom: 100%;
 }
 
-.customer-stories-img img,
-.shop-dimond-by-shape-img img {
+.customer-stories-img img {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -741,8 +743,8 @@ background-size: cover;
 }
 
 .shop-dimond-by-shape-img img {
-    width: 80px !important;
-    height: 80px;
+    width: 100px !important;
+    height: 100px;
     /* border: 1px #eee solid; */
 }
 

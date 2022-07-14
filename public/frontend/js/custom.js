@@ -47,12 +47,12 @@ $(document).ready(function() {
         loop: true,
         margin: 10,
         nav: true,
-        autoHeight: true,
         responsive: {
             0: {
-                items: 1
+                items: 1,
+                autoHeight: true,
             },
-            600: {
+            768: {
                 items: 1
             },
             1000: {
