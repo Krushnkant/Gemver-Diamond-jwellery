@@ -58,8 +58,8 @@ class ImportDiamond implements WithHeadingRow,ToCollection
             
             $Company = Company::where('id',2)->first();
             $company_per = $Company->company_percentage;
-            $company_per_amt = ($collection['final_price'] * $company_per)/100;
-            $sale_amt = round($collection['final_price'] + $company_per_amt);
+            $company_per_amt = ((int)$collection['final_price'] * $company_per)/100;
+            $sale_amt = round((int)$collection['final_price'] + $company_per_amt);
             
             
             $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
@@ -74,13 +74,13 @@ class ImportDiamond implements WithHeadingRow,ToCollection
                     'Company_id' => 2,  
                     'Stone_No' => $Stone_No,
                     'StockStatus' => $availability,
-                    'Shape' => ltrim($collection['shape'],' '),
+                    'Shape' => ltrim(strtolower($collection['shape']),' '),
                     'Weight' => $collection['weight'],
                     'Color' => $collection['color'],
                     'Clarity' => $collection['clarity'],
                     'Cut' => $collection['cut'],
-                    'Polish' => $collection['polish'],
-                    'Symm' => $collection['symmetry'],
+                    'Polish' => ltrim($collection['polish'],' '),
+                    'Symm' => ltrim($collection['symmetry'],' '),
                     'FlrIntens' => $collection['fluorescence_intensity'],
                     'FlrColor' => $collection['fluorescence_color'],
                     'Measurement' => $collection['measurements'],
