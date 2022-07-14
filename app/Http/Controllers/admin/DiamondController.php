@@ -221,7 +221,9 @@ class DiamondController extends Controller
                $sale_amt =$par['Amt'] + $company_per_amt;
                $par['Sale_Amt'] = round($sale_amt);
                $par['Company_id'] = 1;
-               $par['Shape'] = ltrim($par['Shape'],' ');
+               $par['Shape'] = strtolower(ltrim($par['Shape'],' '));
+               $par['Polish'] = ltrim($par['Polish'],' ');
+               $par['Symm'] = ltrim($par['Symm'],' ');
 
                $Diamond = Diamond::where('Stone_No',$par['Stone_No'])->first();
                if($Diamond){

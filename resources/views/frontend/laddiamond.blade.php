@@ -27,15 +27,54 @@
                 <div class="round_cut_lab_checkbox row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">shape </span>
                     <div class="col-md-10">
-                        @foreach($diamondshape as $shape)  
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="This is a Tooltip">
-                                    <input class="form-check-input shape common_selector" value="{{ $shape }}" type="checkbox" name="shape[]" {{ ( strtoupper($shap) ==  strtoupper($shape)  ) ? 'checked' : '' }}  id="flexRadioDefault{{ $shape }}">
-                                    <img src="{{ url('frontend/image/'.strtolower(ltrim($shape,' ')).'.png') }}" alt="" class="shape_img">
-                                    <!-- <label class="form-check-label round_cut_lab_label" for="flexRadioDefault{{ $shape }}">
-                                        {{ $shape }}
-                                    </label> -->
+                         
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="round">
+                                    <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
+                                    <img src="{{ url('frontend/image/round.png') }}" alt="round" class="shape_img">
                             </span>
-                            @endforeach 
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="princess">
+                                    <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]"  {{ ( strtolower($shap) ==  'princess'  ) ? 'checked' : '' }} id="flexRadioDefaultprincess">
+                                    <img src="{{ url('frontend/image/princess.png') }}" alt="princess" class="shape_img">
+                            </span>
+
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="cushion">
+                                    <input class="form-check-input shape common_selector" value="cushion" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'cushion'  ) ? 'checked' : '' }}  id="flexRadioDefaultcushion">
+                                    <img src="{{ url('frontend/image/cushion.png') }}" alt="cushion" class="shape_img">
+                            </span>
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="asscher">
+                                    <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'asscher'  ) ? 'checked' : '' }} id="flexRadioDefaultasscher">
+                                    <img src="{{ url('frontend/image/asscher.png') }}" alt="asscher" class="shape_img">
+                            </span>
+
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="emerald">
+                                    <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'emerald'  ) ? 'checked' : '' }}   id="flexRadioDefaultemerald">
+                                    <img src="{{ url('frontend/image/emerald.png') }}" alt="emerald" class="shape_img">
+                            </span>
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="oval">
+                                    <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'oval'  ) ? 'checked' : '' }}   id="flexRadioDefaultoval">
+                                    <img src="{{ url('frontend/image/oval.png') }}" alt="oval" class="shape_img">
+                            </span>
+
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="radiant">
+                                    <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'radiant'  ) ? 'checked' : '' }}  id="flexRadioDefaultradiant">
+                                    <img src="{{ url('frontend/image/radiant.png') }}" alt="radiant" class="shape_img">
+                            </span>
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="marquise">
+                                    <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]"  {{ ( strtolower($shap) ==  'marquise'  ) ? 'checked' : '' }}  id="flexRadioDefaultmarquise">
+                                    <img src="{{ url('frontend/image/marquise.png') }}" alt="marquise" class="shape_img">
+                            </span>
+
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="heart">
+                                    <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'heart'  ) ? 'checked' : '' }}  id="flexRadioDefaultrheart">
+                                    <img src="{{ url('frontend/image/heart.png') }}" alt="heart" class="shape_img">
+                            </span>
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="pear">
+                                    <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]"  {{ ( strtolower($shap) ==  'pear'  ) ? 'checked' : '' }}  id="flexRadioDefaultpear">
+                                    <img src="{{ url('frontend/image/pear.png') }}" alt="pear" class="shape_img">
+                            </span>
+                            
+
+                            
                     </div>
                 </div>
             </div>
@@ -113,6 +152,72 @@
                         </span>
                     </div>
             </div>
+
+            <div class="col-md-6 collapse" id="collapseExample">
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Depth %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-10">
+                        <div id="slider-range-depth"></div>
+                        <p class="mb-0"> <span id="depth"></span></p>
+                        <input type="hidden" id="hidden_minimum_depth" />
+                        <input type="hidden" id="hidden_maximum_depth" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 collapse" id="collapseExample">
+                    <div class="round_cut_lab_range_slider row">
+                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Polish</span>
+                        <span class="col-md-10">
+                            @foreach($diamondpolish as $polish) 
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="{{ $polish }}" class="polish common_selector" name="polish[]" id="polish{{ $polish }}">
+                                <label for="polish{{ $polish }}">{{ $polish }}</label>
+                            </div>
+                            @endforeach
+                        </span>
+                    </div>
+            </div>
+
+            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">L/W Ratio</span>
+                    <span class="round_cut_lab_diamonds_price col-md-10">
+                        <div id="slider-range-ratio"></div>
+                        <p class="mb-0"> <span id="ratio"></span></p>
+                        <input type="hidden" id="hidden_minimum_ratio" />
+                        <input type="hidden" id="hidden_maximum_ratio" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 collapse" id="collapseExample">
+                    <div class="round_cut_lab_range_slider row">
+                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Sym.</span>
+                        <span class="col-md-10">
+                            @foreach($diamondsymm as $symm) 
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="{{ $symm }}" class="symm common_selector" name="symm[]" id="symm{{ $symm }}">
+                                <label for="symm{{ $symm }}">{{ $symm }}</label>
+                            </div>
+                            @endforeach
+                        </span>
+                    </div>
+            </div>
+
+            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Table %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-10">
+                        <div id="slider-range-table"></div>
+                        <p class="mb-0"> <span id="table"></span></p>
+                        <input type="hidden" id="hidden_minimum_table" />
+                        <input type="hidden" id="hidden_maximum_table" />
+                    </span>
+                </div>
+            </div>
+
+            
            
         </div>
         <div class="wire_bangle_line "></div>
@@ -132,7 +237,7 @@
                 <span class="d-inline-block">
                     <div class="round_cut_lab_range_slider text-end me-3">
                         <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <input type="checkbox" value="" name="advance" class=" common_selector1" id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div>
                     </div>
@@ -277,14 +382,26 @@
                 var clarity = get_filter('clarity');
                 var cut = get_filter('cut');
                 var report = get_filter('report');
+                var polish = get_filter('polish');
+                var symm = get_filter('symm');
                 var sorting = $('#sorting :selected').val();
                 var minimum_carat = $('#hidden_minimum_carat').val();
                 var maximum_carat = $('#hidden_maximum_carat').val();
+
+                var minimum_depth = $('#hidden_minimum_depth').val();
+                var maximum_depth = $('#hidden_maximum_depth').val();
+
+                var minimum_ratio = $('#hidden_minimum_ratio').val();
+                var maximum_ratio = $('#hidden_maximum_ratio').val();
+
+                var minimum_table = $('#hidden_minimum_table').val();
+                var maximum_table = $('#hidden_maximum_table').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/alllad-diamond?page=" + page,
                     method:"POST",
-                    data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,report:report,_token: '{{ csrf_token() }}'},
+                    data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
+                        ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
@@ -366,6 +483,73 @@
              " - " + $( "#slider-range-carat" ).slider( "values", 1 ) );
              
           });
+
+          $(function() {
+             var maxDepth = '{{ $MaxDepth  }}';
+             
+            $( "#slider-range-depth" ).slider({
+              range: true,
+              min: 40,
+              max: maxDepth,
+              step: 0.1,
+              values: [ 0, maxDepth],
+              slide: function( event, ui ) {
+                
+                $( "#depth" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#hidden_minimum_depth" ).val(ui.values[ 0 ]);
+                $( "#hidden_maximum_depth" ).val(ui.values[ 1 ]);
+                filter_data(page);
+              }
+            });
+            $( "#depth" ).html($( "#slider-range-depth" ).slider( "values", 0 ) +
+             " - " + $( "#slider-range-depth" ).slider( "values", 1 ) );
+             
+          });
+
+          $(function() {
+             var maxRatio = 3;
+             
+            $( "#slider-range-ratio" ).slider({
+              range: true,
+              min: 0,
+              max: maxRatio,
+              step: 0.1,
+              values: [ 0, maxRatio],
+              slide: function( event, ui ) {
+                
+                $( "#ratio" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#hidden_minimum_ratio" ).val(ui.values[ 0 ]);
+                $( "#hidden_maximum_ratio" ).val(ui.values[ 1 ]);
+                filter_data(page);
+              }
+            });
+            $( "#ratio" ).html($( "#slider-range-ratio" ).slider( "values", 0 ) +
+             " - " + $( "#slider-range-ratio" ).slider( "values", 1 ) );
+             
+          });
+
+          $(function() {
+             var maxTable = '{{ $MaxTable  }}';
+             
+            $( "#slider-range-table" ).slider({
+              range: true,
+              min: 40,
+              max: maxTable,
+              step: 0.1,
+              values: [ 0, maxTable],
+              slide: function( event, ui ) {
+                
+                $( "#table" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#hidden_minimum_table" ).val(ui.values[ 0 ]);
+                $( "#hidden_maximum_table" ).val(ui.values[ 1 ]);
+                filter_data(page);
+              }
+            });
+            $( "#table" ).html($( "#slider-range-table" ).slider( "values", 0 ) +
+             " - " + $( "#slider-range-table" ).slider( "values", 1 ) );
+             
+          });
+
         });
    </script>
 

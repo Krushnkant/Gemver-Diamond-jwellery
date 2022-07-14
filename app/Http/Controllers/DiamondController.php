@@ -40,12 +40,17 @@ class DiamondController extends Controller
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = Diamond::max('Sale_Amt');
         $MaxCarat = Diamond::max('Weight');
+        $MaxDepth = Diamond::max('Total_Depth_Per');
+        $MaxRatio = Diamond::max('Ratio');
+        $MaxTable = Diamond::max('Table_Diameter_Per');
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
         $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+        $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
+        $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport'));
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm'));
     } 
 
     public function getDiamonds(Request $request)
@@ -62,25 +67,25 @@ class DiamondController extends Controller
             $query = $query->where('Weight','<=',$data["maximum_carat"]);
         }
 
-        // if($data["minimum_depth"] && $data["maximum_depth"]){
-        //     $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
-        //     $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
-        // }
+        if($data["minimum_depth"] && $data["maximum_depth"]){
+            $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
+            $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
+        }
 
-        // if($data["minimum_ratio"] && $data["maximum_ratio"]){
-        //     $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
-        //     $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
-        // }
+        if($data["minimum_ratio"] && $data["maximum_ratio"]){
+            $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
+            $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
+        }
 
-        // if($data["minimum_table"] && $data["maximum_table"]){ 
-        //     $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
-        //     $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
-        // }
+        if($data["minimum_table"] && $data["maximum_table"]){ 
+            $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
+            $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
+        }
 
-        // if(isset($data["color"])){
-        //     $colors = $data["color"];
-        //     $query = $query->whereIn('Color',$colors);
-        // }
+        if(isset($data["color"])){
+            $colors = $data["color"];
+            $query = $query->whereIn('Color',$colors);
+        }
 
         if(isset($data["shape"])){
             $shapes = $data["shape"];
@@ -102,15 +107,15 @@ class DiamondController extends Controller
             $query = $query->whereIn('Lab',$reports);
         }
 
-        // if(isset($data["polish"])){
-        //     $polishs = $data["polish"];
-        //     $query = $query->whereIn('Polish',$polishs);
-        // }
+        if(isset($data["polish"])){
+            $polishs = $data["polish"];
+            $query = $query->whereIn('Polish',$polishs);
+        }
 
-        // if(isset($data["symm"])){
-        //     $symms = $data["symm"];
-        //     $query = $query->whereIn('Symm',$symms);
-        // }
+        if(isset($data["symm"])){
+            $symms = $data["symm"];
+            $query = $query->whereIn('Symm',$symms);
+        }
 
         if($data["sorting"] == "price")
         {
@@ -456,12 +461,17 @@ class DiamondController extends Controller
     {
         $Maxprice = Diamond::max('Sale_Amt');
         $MaxCarat = Diamond::max('Weight');
+        $MaxDepth = Diamond::max('Total_Depth_Per');
+        $MaxRatio = Diamond::max('Ratio');
+        $MaxTable = Diamond::max('Table_Diameter_Per');
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
         $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+        $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
+        $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport'));
+        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm'));
     }
 
     public function getLadDiamonds(Request $request)
@@ -477,6 +487,31 @@ class DiamondController extends Controller
         if($data["minimum_carat"] && $data["maximum_carat"]){
             $query = $query->where('Weight','>=',$data["minimum_carat"]);
             $query = $query->where('Weight','<=',$data["maximum_carat"]);
+        }
+
+        if($data["minimum_depth"] && $data["maximum_depth"]){
+            $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
+            $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
+        }
+
+        if($data["minimum_ratio"] && $data["maximum_ratio"]){
+            $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
+            $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
+        }
+
+        if($data["minimum_table"] && $data["maximum_table"]){ 
+            $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
+            $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
+        }
+
+        if(isset($data["polish"])){
+            $polishs = $data["polish"];
+            $query = $query->whereIn('Polish',$polishs);
+        }
+
+        if(isset($data["symm"])){
+            $symms = $data["symm"];
+            $query = $query->whereIn('Symm',$symms);
         }
 
         if(isset($data["color"])){
