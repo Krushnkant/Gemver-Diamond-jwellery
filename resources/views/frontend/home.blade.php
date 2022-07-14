@@ -582,5 +582,6 @@ function save_inquiry(btn,btn_type){
     
         });
         </script>
+        <!-- dfbvnfjfdbfddfjkldfj -->
  @endsection
    
