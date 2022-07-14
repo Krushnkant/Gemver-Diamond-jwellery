@@ -418,7 +418,7 @@ background-size: cover;
 
 .catrgery_box {
     background: #FFFFFF;
-    padding: 15px;
+    padding: 30px;
     box-shadow: 0px 1px 7px 0px rgb(0 0 0 / 25%);
     margin: 5px;
 }
@@ -431,6 +431,11 @@ background-size: cover;
     line-height: 24px;
     color: #111112;
     min-width: 156px;
+}
+
+.catrgery_box .catrgory_img img {
+    height: 130px;
+    min-width: 154px;
 }
 
 .explore-category-btn {
@@ -531,6 +536,7 @@ background-size: cover;
 .shop-by-style-slider .owl-dots .owl-dot span {
     width: 7px !important;
     height: 7px !important;
+    background: #9d9999 !important;
 }
 
 .shop_dimond_by_shape .owl-nav .owl-next img,
@@ -691,8 +697,8 @@ background-size: cover;
 }
 
 .shop-dimond-by-shape-img img {
-    width: 100px !important;
-    height: 100px;
+    width: 80px !important;
+    height: 80px;
     /* border: 1px #eee solid; */
 }
 
@@ -3632,29 +3638,30 @@ span#amount {
 }
 
 .shop-by-category .owl-next {
-    background-color: var(--secondary) !important;
+    background-color: transparent !important;
     width: 30px;
     height: 30px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: -45px;
+    border-radius: 50% !important;
 }
 
-.shop-by-category .owl-next svg path {
-    fill: #fff;
-}
-
-.shop-by-category .owl-prev svg path {
-    fill: #fff;
+.shop-by-category .owl-next svg,
+.shop-by-category .owl-prev svg {
+    fill: var(--primary);
+    width: 15px;
+    height: 15px;
 }
 
 .shop-by-category .owl-prev {
-    background-color: var(--secondary) !important;
-    width: 30px;
-    height: 30px;
+    background-color: transparent !important;
+    width: 35px;
+    height: 35px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: -45px;
+    border-radius: 50% !important;
 }

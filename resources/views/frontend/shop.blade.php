@@ -22,7 +22,7 @@
                 
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="wire_bangle_carat mb-3 text-start">
+                        <div class="wire_bangle_carat mb-3 text-center">
                             @foreach($Categories as $category)
                             <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
                                     <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
