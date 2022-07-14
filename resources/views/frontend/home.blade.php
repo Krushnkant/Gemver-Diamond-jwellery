@@ -247,59 +247,61 @@
         </div> -->
         <div class="container engagement_diamond_section">
             <div class="row align-items-center">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 pe-lg-4">
                         <div class="engagement_diamond_img">
                             <img src="{{ asset('frontend/image/how_to_img.png') }}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <h2 class="mb-md-4 engagement_diamond_heading">How to Buy Your Diamond Engagement Ring?</h2>
+                        <h2 class="mb-md-4 engagement_diamond_heading">{{ strtolower($step->main_title) }}</h2>
                         <p class="engagement_diamond_paragraph_part mb-md-4">
-                            Creating your lab grown diamond jewelry is simple. Follow the steps mentioned below when customizing your engagement ring.
+                            {{ $step->main_shotline }}
                         </p>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="">
+                                        <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
                                     </div> 
-                                    <div class="engagement_diamond_sub_heading mt-2">SET A BUDGET</div>
+                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}">
+                                        <div class="engagement_diamond_sub_heading mt-2">{{ $step->step1_title }}</div>
+                                    </a>
                                 </div>
                                 <p class="customer_stories_paragraph engagement_diamond_paragraph">
-                                    Plan your budget before buying diamond jewelry, especially if it's your engagement ring.
+                                    {{ $step->step1_shotline }}
                                 </p>
                             </div>
                             <div class="col-md-6 mb-3">
-                            <div class="position-relative">
-                                <div class="engagement_diamond_box mb-3">
-                                        <img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="">
-                                    </div> 
-                                    <div class="engagement_diamond_sub_heading mt-2">cHOOSE A dIAMOND</div>
-                            </div>
+                                <div class="position-relative">
+                                        <div class="engagement_diamond_box mb-3">
+                                            <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
+                                        </div> 
+                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-2">{{ $step->step2_title }}</div></a>
+                                </div>
                                 <p class="customer_stories_paragraph engagement_diamond_paragraph">
-                                    Choose a lab diamond based on its 4C's: Cut, Color, Clarity and Carat Weight.
+                                    {{ $step->step2_shotline }}
                                 </p>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="">
+                                        <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
                                     </div> 
-                                    <div class="engagement_diamond_sub_heading mt-2">choose a ring setting</div>
+                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-2">{{ $step->step3_title }}</div></a>
                                 </div>
                                 <p class="customer_stories_paragraph engagement_diamond_paragraph">
-                                    Choose various styles and settings ranging from halos, solitaires and three stones.
+                                {{ $step->step3_shotline }}
                                 </p>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="">
+                                        <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
                                     </div>
-                                    <div class="engagement_diamond_sub_heading mt-2">Complete Your ring</div>
+                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-2">{{ $step->step4_title }}</div></a>
                                 </div>
                                 <p class="customer_stories_paragraph engagement_diamond_paragraph">
-                                    Select your ring size, customize it with an engraving according to your preference and complete your ring.
+                                    {{ $step->step4_shotline }}
                                 </p>
                             </div>
                         </div>
