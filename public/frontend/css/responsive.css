@@ -279,6 +279,9 @@
     .customer-stories-quotes {
         padding-left: 25px;
     }
+    .engagement_diamond_heading {
+        font-size: 24px;
+    }
     .customer-stories-paragraph {
         font-size: 14px;
         text-indent: 55px;
@@ -288,6 +291,9 @@
     }
     .customer-country {
         font-size: 13px;
+    }
+    .engagement_diamond_paragraph {
+        width: 100%;
     }
     .customer-stories-quotes::after {
         top: 12px;
@@ -300,7 +306,14 @@
         margin-bottom: 20px;
     }
     .engagement_ring_section {
-        padding: 15px;
+        padding: 0;
+    }
+    .engagement_diamond_paragraph_part {
+        font-size: 16px;
+        line-height: 23px;
+    }
+    .engagement_diamond_sub_heading {
+        font-size: 14px;
     }
     .engagement_ring_paragraph {
         font-size: 14px;
@@ -469,8 +482,20 @@
         padding: 50px;
         min-height: 200px;
     }
+    .shop-by-category .owl-nav {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%)
+    }
     .shop_dimond_by_shape .owl-nav {
+        padding-top: 0;
         position: initial;
+    }
+    .shop-by-category .owl-prev {
+        left: -40px;
+    }
+    .shop-by-category .owl-next {
+        right: -40px;
     }
     .shop_dimond_by_shape .owl-dots {
         text-align: center !important;
@@ -1192,7 +1217,13 @@
         font-size: 34px;
     }
     .customer_stories_paragraph {
-        font-size: 17px;
+        font-size: 16px;
+    }
+    .engagement_diamond_paragraph_part {
+        font-size: 18px;
+    }
+    .engagement_diamond_paragraph {
+        width: 100%;
     }
     .diamond-btn {
         min-width: 277px;
