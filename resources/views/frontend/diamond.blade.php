@@ -306,7 +306,7 @@
             <span class="d-inline-block float-end">
                     <div class="round_cut_lab_range_slider text-end me-3">
                         <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <input type="checkbox" value="" name="" class=" common_selector1" id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div>
                     </div>
