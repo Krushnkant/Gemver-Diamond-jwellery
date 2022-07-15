@@ -23,7 +23,7 @@
     <div class="container round_cut_lab_diamonds_page">
         <div class="mt-4 mt-md-5"></div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_checkbox row mb-2">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">shape </span>
                     <div class="col-md-10">
@@ -71,7 +71,7 @@
                 </div>
                 
             </div>
-            <div class="col-md-6 mb-2">
+            <div class="col-lg-6 mb-3 mb-lg-2">
                 <div class="row">
                     <span class="round_cut_lab_diamonds_heading col-md-2">price</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -82,7 +82,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-2">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                     <span class="round_cut_lab_diamonds_heading col-md-2">color</span>
                     <span class="col-md-10">
@@ -95,7 +95,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-2">
+            <div class="col-lg-6 mb-3 mb-lg-2">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">carat</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -106,7 +106,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-lg-6 mb-3 mb-lg-3">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                     <span class="round_cut_lab_diamonds_heading col-md-2">clarity</span>
                     <span class="col-md-10">
@@ -119,7 +119,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-2">
+            <div class="col-lg-6 mb-3 mb-lg-2">
                 <div class="round_cut_lab_range_slider row"> 
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">report</span>
                     <span class="col-md-10">
@@ -132,7 +132,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-6 mb-2 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">cut</span>
                         <span class="col-md-10">
@@ -146,7 +146,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 mb-2 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -158,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 mb-2 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Polish</span>
                         <span class="col-md-10">
@@ -172,7 +172,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 mb-2 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -184,7 +184,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 mb-3 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-3 collapse" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Sym.</span>
                         <span class="col-md-10">
@@ -198,7 +198,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 mb-3 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-3 collapse" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
