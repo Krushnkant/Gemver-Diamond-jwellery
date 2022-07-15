@@ -249,13 +249,8 @@
                                                     @foreach($diamondshapes as $shape)
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/'.$shape) }}" class="d-flex">
-<<<<<<< Updated upstream
                                                             <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "></span>
                                                             <span class="ms-2 d-inline-block">{{ strtolower($shape) }}</span>
-=======
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim($shape,' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "></span>
-                                                            <span class="ms-2 d-inline-block">{{ $shape }}</span>
->>>>>>> Stashed changes
                                                         </a>
                                                     </li>
                                                     @endforeach
