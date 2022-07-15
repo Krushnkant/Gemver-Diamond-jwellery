@@ -663,7 +663,7 @@ background-size: cover;
 
 .engagement_diamond_paragraph_part {
     font-weight: 500;
-    font-size: 21px;
+    font-size: 16px;
     line-height: 30px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -2341,6 +2341,11 @@ background-size: cover;
 
 .round_cut_lab_diamonds_info_price svg {
     cursor: pointer;
+    fill: #8f8f8f;
+}
+
+.round_cut_lab_diamonds_info_price svg path {
+    fill: gray;
 }
 
 .round_cut_lab_diamonds_img {

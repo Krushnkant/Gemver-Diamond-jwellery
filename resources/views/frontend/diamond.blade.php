@@ -302,6 +302,16 @@
 
             </div>
         </div>
+
+            <span class="d-inline-block float-end">
+                    <div class="round_cut_lab_range_slider text-end me-3">
+                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <label for="checkbox_1">advanced filters</label>
+                        </div>
+                    </div>
+                </span>
+
         <div class="wire_bangle_line mt-4 mt-md-5"></div>
         <!-- <div class="row align-items-center">
             <div class="col-sm-5 col-md-6">
@@ -337,14 +347,7 @@
                 </ul>
             </div>
             <div class="col-md-6 text-end">
-                <span class="d-inline-block">
-                    <div class="round_cut_lab_range_slider text-end me-3">
-                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
-                            <label for="checkbox_1">advanced filters</label>
-                        </div>
-                    </div>
-                </span>
+               
                 <span class="wire_bangle_select text-center select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
@@ -353,7 +356,7 @@
                 </span>
             </div>
         </div>
-        <div class="wire_bangle_line mb-md-5"></div>
+        <!-- <div class="wire_bangle_line mb-md-5"></div> -->
        
         <div class="tab-content clearfix">
 			<div class="tab-pane active" id="1a">
