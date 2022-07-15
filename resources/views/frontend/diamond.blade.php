@@ -32,49 +32,47 @@
                     <div class="round_cut_lab_checkbox row">
                         <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">shape</div>
                         <div class="col-md-10">
-                            
-
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="round">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                                     <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
                                     <img src="{{ url('frontend/image/round.png') }}" alt="round" class="shape_img">
                             </span>
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="princess">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Princess">
                                     <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'princess'  ) ? 'checked' : '' }} id="flexRadioDefaultprincess">
                                     <img src="{{ url('frontend/image/princess.png') }}" alt="princess" class="shape_img">
                             </span>
 
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="cushion">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Cushion">
                                     <input class="form-check-input shape common_selector" value="cushion" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'cushion'  ) ? 'checked' : '' }}  id="flexRadioDefaultcushion">
                                     <img src="{{ url('frontend/image/cushion.png') }}" alt="cushion" class="shape_img">
                             </span>
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="asscher">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Asscher">
                                     <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'asscher'  ) ? 'checked' : '' }} id="flexRadioDefaultasscher">
                                     <img src="{{ url('frontend/image/asscher.png') }}" alt="asscher" class="shape_img">
                             </span>
 
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="emerald">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Emerald">
                                     <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'emerald'  ) ? 'checked' : '' }}   id="flexRadioDefaultemerald">
                                     <img src="{{ url('frontend/image/emerald.png') }}" alt="emerald" class="shape_img">
                             </span>
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="oval">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Oval">
                                     <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'oval'  ) ? 'checked' : '' }}   id="flexRadioDefaultoval">
                                     <img src="{{ url('frontend/image/oval.png') }}" alt="oval" class="shape_img">
                             </span>
 
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="radiant">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Radiant">
                                     <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'radiant'  ) ? 'checked' : '' }}  id="flexRadioDefaultradiant">
                                     <img src="{{ url('frontend/image/radiant.png') }}" alt="radiant" class="shape_img">
                             </span>
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="marquise">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Marquise">
                                     <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'marquise'  ) ? 'checked' : '' }}  id="flexRadioDefaultmarquise">
                                     <img src="{{ url('frontend/image/marquise.png') }}" alt="marquise" class="shape_img">
                             </span>
 
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="heart">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Heart">
                                     <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'heart'  ) ? 'checked' : '' }}  id="flexRadioDefaultrheart">
                                     <img src="{{ url('frontend/image/heart.png') }}" alt="heart" class="shape_img">
                             </span>
-                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="pear">
+                            <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Pear">
                                     <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'pear'  ) ? 'checked' : '' }}  id="flexRadioDefaultpear">
                                     <img src="{{ url('frontend/image/pear.png') }}" alt="pear" class="shape_img">
                             </span>
@@ -82,22 +80,24 @@
                     </div>
                 </div>
             <div class="col-md-6">
-                <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
+                <div class="round_cut_lab_range_slider mt-3 mt-md-0 row mb-3">
                     <div class="round_cut_lab_diamonds_heading col-md-2">price</div>
                     <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range"></div>
-                        <p class="mb-0"> Price : <span id="amount"></span></p>
+                        <p class="mb-0">
+                             <span id="amount" class="ps-0"></span>
+                        </p>
                         <input type="hidden" id="hidden_minimum_price" />
                         <input type="hidden" id="hidden_maximum_price" />
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
+                <div class="round_cut_lab_range_slider round_cut_lab_range_color row mb-3">
                     <div class="round_cut_lab_diamonds_heading col-md-2">color</div>
                     <div class="col-md-10">
                         @foreach($diamondcolor as $color) 
-                        <div class="form-group mb-3 d-inline-block">
+                        <div class="form-group d-inline-block mb-0">
                             <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
                             <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
@@ -111,19 +111,19 @@
                     <div class="round_cut_lab_diamonds_heading col-md-2">carat</div>
                     <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range-carat"></div>
-                        <p class="mb-0"> Carat : <span id="carat"></span></p>
+                        <p class="mb-0"> <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
                         <input type="hidden" id="hidden_maximum_carat" />
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-md-0">
+            <div class="col-md-6">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                         <div class="round_cut_lab_diamonds_heading col-md-2">clarity</div>
                 
                         <div class="col-md-10">
                             @foreach($diamondclarity as $clarity) 
-                            <div class="form-group mb-3 d-inline-block">
+                            <div class="form-group d-inline-block mb-0">
                                 <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
                                 <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
                             </div>
