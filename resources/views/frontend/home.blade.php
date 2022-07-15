@@ -99,7 +99,7 @@
     @endif
     <div class="shop_dimond_by_shape">
         <div class="container">
-            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-4 text-center text-white">{{ $homesetting->section_diamond_title }}</h2>
+            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-5 text-center text-white">{{ $homesetting->section_diamond_title }}</h2>
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                     

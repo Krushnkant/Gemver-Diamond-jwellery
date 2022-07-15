@@ -69,6 +69,7 @@
                             </span>
                     </div>
                 </div>
+                
             </div>
             <div class="col-md-6 mb-2">
                 <div class="row">
@@ -209,7 +210,14 @@
                 </div>
             </div>
 
-            
+            <span class="d-inline-block">
+                <div class="round_cut_lab_range_slider text-end me-3">
+                    <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <input type="checkbox" value="" name="advance" class=" common_selector1" id="checkbox_1">
+                        <label for="checkbox_1">advanced filters</label>
+                    </div>
+                </div>
+            </span>
            
         </div>
         <div class="wire_bangle_line "></div>
@@ -226,14 +234,7 @@
                 </ul>
             </div>
             <div class="col-md-6 text-end">
-                <span class="d-inline-block">
-                    <div class="round_cut_lab_range_slider text-end me-3">
-                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="" name="advance" class=" common_selector1" id="checkbox_1">
-                            <label for="checkbox_1">advanced filters</label>
-                        </div>
-                    </div>
-                </span>
+               
                 <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
@@ -244,7 +245,9 @@
         </div>
         <div class="row mb-5">
             
-            <div class="wire_bangle_line mb-md-5"></div>
+            <!-- <div class="wire_bangle_line mb-md-5"></div> -->
+
+            
             <div id="exTab1" class="container px-0">	
 
             <div class="tab-content clearfix">
