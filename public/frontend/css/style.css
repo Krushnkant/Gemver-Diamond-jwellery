@@ -224,11 +224,8 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 66.66% 33.33%;
-<<<<<<< Updated upstream
     min-width: 650px;
-=======
     min-width: 800px;
->>>>>>> Stashed changes
     text-align: left;
     padding: 20px;
 }
@@ -698,7 +695,7 @@ background-size: cover;
 
 .engagement_diamond_box {
     width: 127px;
-    height: 94px;
+    height: 103px;
     background: #F0F0F0;
     padding-left: 25px;
     padding-top: 15px;
@@ -712,7 +709,7 @@ background-size: cover;
     text-transform: capitalize;
     color: #0B1727;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 25px;
 }
 
