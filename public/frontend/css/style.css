@@ -224,7 +224,11 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 66.66% 33.33%;
+<<<<<<< Updated upstream
     min-width: 650px;
+=======
+    min-width: 800px;
+>>>>>>> Stashed changes
     text-align: left;
     padding: 20px;
 }
