@@ -22,15 +22,18 @@
                 
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="wire_bangle_carat mb-3 text-center">
-                            @foreach($Categories as $category)
-                            <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
-                                    <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
-                                    <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
-                                        {{ $category->category_name }}
-                                </label>
-                            </span>
-                            @endforeach
+                        <div class="row">
+                            <div class="round_cut_lab_diamonds_heading col-md-1">category</div>
+                            <div class="wire_bangle_carat mb-3 col-md-9">
+                                @foreach($Categories as $category)
+                                <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
+                                        <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
+                                        <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
+                                            {{ $category->category_name }}
+                                    </label>
+                                </span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -80,7 +83,7 @@
                     <div class="wire_bangle_line"></div>
                     <div class="row align-items-center">
                         <div class="col-sm-5 col-md-6">
-                            <div class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
+                            <div class="my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
                         </div>
                         <div class="col-sm-3 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-center justify-content-sm-end">
                             <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option">
@@ -116,8 +119,8 @@
                     </div>
                 </div>
             
-            <div class="wire_bangle_line"></div>
-            <div class="row mt-3 mb-5 filter_data">
+            <!-- <div class="wire_bangle_line"></div> -->
+            <div class="row mt-0 mb-5 filter_data">
                 <!-- @foreach($Products as $product)
 
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4">
