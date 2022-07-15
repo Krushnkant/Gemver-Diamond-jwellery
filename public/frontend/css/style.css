@@ -1467,7 +1467,7 @@ background-size: cover;
 
 .wire_bangle_carat input+.wire_bangle_carat_label {
     position: relative;
-    padding: 10px 20px;
+    padding: 10px 16px;
     gap: 10px;
     border: 1px solid rgba(11, 23, 39, 0.1);
     border-radius: 0 !important;
@@ -1475,9 +1475,11 @@ background-size: cover;
     text-transform: capitalize;
     line-height: 19px;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.wire_bangle_carat input[type="radio"] {
+.wire_bangle_carat input[type="radio"],
+.wire_bangle_carat input[type="checkbox"] {
     display: none;
 }
 

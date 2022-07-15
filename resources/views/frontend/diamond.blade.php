@@ -224,6 +224,15 @@
                     </span>
                 </div>
             </div>
+
+            <span class="d-inline-block float-end">
+                    <div class="round_cut_lab_range_slider text-end me-3">
+                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <label for="checkbox_1">advanced filters</label>
+                        </div>
+                    </div>
+                </span>
            
         </div>
         <div class="row align-items-center step-progressbar-row mt-4">
@@ -303,16 +312,9 @@
             </div>
         </div>
 
-            <span class="d-inline-block float-end">
-                    <div class="round_cut_lab_range_slider text-end me-3">
-                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
-                            <label for="checkbox_1">advanced filters</label>
-                        </div>
-                    </div>
-                </span>
+           
 
-        <div class="wire_bangle_line mt-4 mt-md-5"></div>
+        <!-- <div class="wire_bangle_line mt-4 mt-md-5"></div> -->
         <!-- <div class="row align-items-center">
             <div class="col-sm-5 col-md-6">
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>

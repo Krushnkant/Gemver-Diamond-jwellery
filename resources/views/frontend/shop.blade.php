@@ -27,7 +27,7 @@
                             <div class="wire_bangle_carat col-lg-9">
                                 @foreach($Categories as $category)
                                 <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
-                                        <input class="form-check-input category common_selector" type="radio" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
+                                        <input class="form-check-input category common_selector" type="checkbox" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
                                         <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
                                             {{ $category->category_name }}
                                     </label>
