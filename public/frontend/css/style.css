@@ -647,6 +647,23 @@ background-size: cover;
     transform: scale(1.1);
 }
 
+.customer_stories_bg {
+    position: relative;
+}
+
+.customer_stories_img::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 100%;
+    background: url(../image/customer_stories.png) no-repeat;
+    background-size: 47%;
+    opacity: 0.2;
+}
+
 .customer_stories_paragraph {
     font-weight: normal;
     font-size: 16px;
@@ -2509,12 +2526,12 @@ background-size: cover;
 
 .right_side_ul .form-group label:before,
 .right_side_ul .form-group label:after {
-    width: 24px;
-    height: 24px;
+    width: 19px;
+    height: 19px;
 }
 
 .right_side_ul .form-group input+label:after {
-    left: 10px;
+    left: 8px;
 }
 
 .right_side_panel .close_icon_svg {

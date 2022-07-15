@@ -174,10 +174,13 @@
     <div class="container">
         <div class="customer_stories pt-0">
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-5 customer_stories_bg">
                     <div class="">
                         <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
-                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start">{{ $homesetting->section_stories_description }}</div>
+                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
+                        <div class="customer_stories_img">
+                            <!-- <img src="{{ asset('frontend/image/customer_stories.png') }}" alt=""> -->
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-7">

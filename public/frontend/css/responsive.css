@@ -730,7 +730,7 @@
         font-size: 14px;
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
-        font-size: 17px;
+        font-size: 16px;
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
         width: 183px;
@@ -1289,17 +1289,17 @@
     }
     /* --------------------- round cut lab diamonds -------------------------------------- */
     .round_cut_lab_range_slider .form-group label:before {
-        width: 24px;
-        height: 24px;
+        /* width: 24px;
+        height: 24px; */
     }
     .round_cut_lab_range_slider .form-group input+label:after {
-        top: 6px;
+        /* top: 6px;
         left: 10px;
         width: 6px;
-        height: 14px;
+        height: 14px; */
     }
     .round_cut_lab_range_slider .form-group label {
-        font-size: 17px;
+        /* font-size: 17px; */
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
         padding: 0;
@@ -1308,7 +1308,7 @@
         width: 250px;
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
-        font-size: 18px;
+        /* font-size: 18px; */
     }
     .round_cut_lab_diamonds_info_price {
         font-size: 20px;

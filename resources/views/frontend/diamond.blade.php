@@ -28,9 +28,9 @@
         </div>
         <div class="mt-4 mt-md-5"></div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                     <div class="round_cut_lab_checkbox row">
-                        <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">shape</div>
+                        <div class="round_cut_lab_diamonds_heading mb-3 col-md-2">shape</div>
                         <div class="col-md-10">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                                     <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $shape) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
@@ -79,9 +79,9 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_range_slider mt-3 mt-md-0 row mb-3">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">price</div>
+                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">price</div>
                     <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range"></div>
                         <p class="mb-0">
@@ -92,9 +92,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row mb-3">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">color</div>
+                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">color</div>
                     <div class="col-md-10">
                         @foreach($diamondcolor as $color) 
                         <div class="form-group d-inline-block mb-0">
@@ -106,9 +106,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_range_slider row">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">carat</div>
+                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">carat</div>
                     <div class="round_cut_lab_diamonds_price col-md-10">
                         <div id="slider-range-carat"></div>
                         <p class="mb-0"> <span id="carat"></span></p>
@@ -117,9 +117,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                        <div class="round_cut_lab_diamonds_heading col-md-2">clarity</div>
+                        <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">clarity</div>
                 
                         <div class="col-md-10">
                             @foreach($diamondclarity as $clarity) 
@@ -132,9 +132,9 @@
                         </div>
                     </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 mb-3 mb-lg-0">
                 <div class="round_cut_lab_range_slider row">
-                        <div class="round_cut_lab_diamonds_heading col-md-2">report</div>
+                        <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">report</div>
                         <div class="col-md-10">
                             @foreach($diamondreport as $report) 
                             <div class="form-group mb-3 d-inline-block me-3">
@@ -146,9 +146,9 @@
                         </div>
                     </div> 
             </div>
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">cut</div>
+                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">cut</div>
                     <div class="col-md-10">
                         @foreach($diamondcut as $cut) 
                         <div class="form-group mb-3 d-inline-block me-3">
@@ -161,7 +161,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -173,7 +173,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Polish</span>
                         <span class="col-md-10">
@@ -187,7 +187,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Sym.</span>
                         <span class="col-md-10">
@@ -213,7 +213,7 @@
                     </div>
             </div>
 
-            <div class="col-md-6 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-10">
@@ -231,7 +231,7 @@
                 <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
             </div>
             <div class="col-lg-10">
-                <div class="flex-container step-progressbar">
+                <div class="flex-container step-progressbar my-4">
                     <div class="flex-row text-center">
                         <div class="flex-col-xs-12">
                             @if($check_variant == 1)
@@ -328,7 +328,7 @@
                 </span>
             </div>
         </div> -->
-        <div class="row mb-5">
+        <div class=" mb-5">
         <div class="col-md-4 col-lg-3 text-start">
            
         </div>
@@ -336,8 +336,8 @@
          
        <div id="exTab1" class="container px-0">	
         <div class="row my-4">
-            <div class="col-md-6">
-                <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
+            <div class="col-sm-6">
+                <ul  class="nav wire_bangle_tabs_part justify-content-center justify-content-md-start" id="myTab" role="tablist">
                     <li class="active nav-item">
                         <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
                     </li>
@@ -346,7 +346,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-sm-6 text-center text-md-end">
                
                 <span class="wire_bangle_select text-center select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto" name="sorting" id="sorting">

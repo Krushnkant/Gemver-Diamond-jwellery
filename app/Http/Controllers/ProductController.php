@@ -97,7 +97,7 @@ class ProductController extends Controller
                 $sale_price = $row->sale_price;
                 $url =  URL('/product-details/'.$row->id.'/'.$row->variant_id);
                 $output .= '
-                <div class="col-sm-6 col-lg-4 col-xl-3 mt-0 mt-md-4 hover_effect_part wire_bangle_shop_radio">
+                <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
