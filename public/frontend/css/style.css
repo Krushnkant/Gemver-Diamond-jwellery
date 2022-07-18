@@ -1674,6 +1674,10 @@ background-size: cover;
     color: var(--primary);
 }
 
+.table_part_product svg path {
+    fill: #8f8f8f;
+}
+
 .wire_bangle_showing_text {
     font-weight: 400;
     font-size: 16px;
