@@ -1,18 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<title>mail sending</title>
-</head>
-<body>
-	@if(isset($name))
-	<h3>Name :  <span>{{$name}}</span></h3> 
-	<h3>Mobile Number :  <span>{{$mobile_no}}</span></h3> 
-	<h3>Email Address :  <span>{{$email}}</span></h3> 
-	@endif
-	
-	<h4>{{$message1}}</h4>
-</body>
-</html> -->
 
 <!doctype html>
 <html>
@@ -29,7 +14,7 @@
                 <img src="{{ url('frontend/images/logo-transparent.png') }}" alt="" width="100% " style="width: 300px; ">
             </div>
             <div style="background-color: #fff;padding: 50px;min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%);">
-                <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for contact us</div>
+                <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for inquiry</div>
                 <!-- <div style="margin-bottom: 25px;font-size: 13px;">
                     Thank you for contact us for Deep Therapy! Please click the ink below to confirm your email address.
                 </div> -->
