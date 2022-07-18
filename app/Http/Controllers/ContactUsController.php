@@ -82,11 +82,11 @@ class ContactUsController extends Controller
                 //     'message1' => $inquiry->inquiry
                 // ];
                 
-                // $data2 = [
-                //     'message1' => 'Thank You For Product Inquiry'
-                // ]; 
-                // $templateName = 'email.mailData';
-                //$mail_sending = Helpers::MailSending($templateName, $data2, $inquiry->email, $inquiry->subject);
+                $data2 = [
+                    'message1' => 'Thank You For Product Inquiry'
+                ]; 
+                $templateName = 'email.mailDatainquiry';
+                $mail_sending = Helpers::MailSending($templateName, $data2, $inquiry->email, $inquiry->subject);
                 //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
                 return response()->json(['status' => '200']); 
             }
