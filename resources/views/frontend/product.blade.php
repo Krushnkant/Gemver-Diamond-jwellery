@@ -88,6 +88,7 @@
                             </span>
                             <span class="inquiry_now_btn ms-3 ms-md-5">
                                 <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
+                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
@@ -143,7 +144,7 @@
                         <form action="" class="mb-4 mb-lg-5" >
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
                            
-                           <?php
+                           <!-- <?php
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
                                // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
@@ -170,6 +171,52 @@
                                
                             ?>
                                 
+                            <?php 
+                               } 
+                            }  
+                            ?> -->
+
+                            <?php
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
+                            foreach($ProductVariantVariant as $productvariants){
+                               // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
+                             if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                            ?>
+                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_color mb-xxl-4 pb-md-2 wire_bangle_color_img_part">
+                                <?php 
+                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                $ia = 1;
+                                ?>    
+                                @foreach($product_attribute as $attribute_term)
+                                    <span class="form-check d-inline-block">
+                                        <input class="form-check-input variant"  {{ $ia == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <div class="wire_bangle_color_input_label"></div>
+                                    </span>
+                                <?php $ia++ ?>    
+                                @endforeach
+                            </div>
+                            <?php 
+                            }else{ 
+                             $iv = 1;
+                            ?>
+                                <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_carat">
+                                <?php 
+                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                ?>    
+                                @foreach($product_attribute as $attribute_term)
+                                <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
+                                        <input class="form-check-input variant" {{ $iv == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        {{ $attribute_term->attribute_terms[0]->attrterm_name }}
+                                    </label>
+                                    </span>
+                                    <?php $iv++ ?>    
+                                @endforeach    
+                                
+                            </div>
                             <?php 
                                } 
                             }  
@@ -243,10 +290,10 @@
 
 $(document).ready(function(){
 
-    filter_data_variant();
+    //filter_data_variant();
     filter_data();
     
-    function filter_data_variant()
+    function filter_data_variant1()
     {
         var action = 'fetch_data';
         var variant = get_filter('variant');
@@ -276,16 +323,28 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                $('.sale_price').html(data.result.sale_price);
-                $('.regular_price').html(data.result.regular_price); 
-                $('#SKU').val(data.result.SKU);
-                $('#specification').html(data.speci);
-                $('#speci_multi').html(data.speci_multi);
-                $('#vimage').html(data.vimage);
-                $('#spe_desc').html(data.spe_desc);
-                $('#variantstr').html(data.variantstr);
-                selectjs();
-                sliderjs();
+                //console.log(data);
+                if(data.result == 'data not found'){
+                    $("#inquiry-error").html("product not available");
+                    $("#inquiry-error").show();
+                    $(".select_setting_btn").prop('disabled', true);
+                }else{
+                    $("#inquiry-error").html("");
+                    $("#inquiry-error").hide();
+                    $(".select_setting_btn").prop('disabled', false);
+
+                    $('.sale_price').html(data.result.sale_price);
+                    $('.regular_price').html(data.result.regular_price); 
+                    $('#SKU').val(data.result.SKU);
+                    $('#specification').html(data.speci);
+                    $('#speci_multi').html(data.speci_multi);
+                    $('#vimage').html(data.vimage);
+                    $('#spe_desc').html(data.spe_desc);
+                    $('#variantstr').html(data.variantstr);
+                
+                    selectjs();
+                    sliderjs();
+                } 
             }
         });
     }
@@ -415,7 +474,7 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.variantfirst', function () {    
-        filter_data_variant();
+        //filter_data_variant();
     });
 
 });
@@ -452,7 +511,7 @@ $('body').on('click', '.select_setting_btn', function () {
 
     if(valid){
         $.map(arrspe, function(value) {
-            var html = '<div class="d-flex align-items-center mb-3 col-md-6 px-0"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
+            var html = '<div class="d-flex align-items-center mb-3 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
            $('#specificationstr').append(html);
         });
         jQuery("#exampleModal").modal('show');
