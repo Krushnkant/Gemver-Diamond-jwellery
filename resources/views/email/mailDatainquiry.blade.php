@@ -15,9 +15,12 @@
             </div>
             <div style="background-color: #fff;padding: 50px;min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%);">
                 <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for inquiry</div>
-                <!-- <div style="margin-bottom: 25px;font-size: 13px;">
-                    Thank you for contact us for Deep Therapy! Please click the ink below to confirm your email address.
-                </div> -->
+                <div style="margin-bottom: 25px;font-size: 13px;">
+                     Our Representative will contact you soon.
+                </div>
+                {{ $product_info }}
+                {{ $diamond_info }}
+                {{ $spe_info }}
                 <!-- <button style="margin-bottom: 25px;color: #fff;background-color: #1a5db6; border: 0;padding: 13px 30px;border-radius: 5px; font-size: 13px;">Confirm email</button>
                 <div style="margin-bottom: 5px; font-size: 13px;">
                     Link not working? Try this:
