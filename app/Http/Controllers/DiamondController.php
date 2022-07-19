@@ -439,7 +439,6 @@ class DiamondController extends Controller
     }
 
     public function editproductsetting($catid){
-        dd($catid);
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
         $cart->variant_id = 0;
