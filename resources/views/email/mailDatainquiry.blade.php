@@ -18,9 +18,9 @@
                 <div style="margin-bottom: 25px;font-size: 13px;">
                      Our Representative will contact you soon.
                 </div>
-                {{ $product_info }}
+                <!-- {{ $product_info }}
                 {{ $diamond_info }}
-                {{ $spe_info }}
+                {{ $spe_info }} -->
                 <!-- <button style="margin-bottom: 25px;color: #fff;background-color: #1a5db6; border: 0;padding: 13px 30px;border-radius: 5px; font-size: 13px;">Confirm email</button>
                 <div style="margin-bottom: 5px; font-size: 13px;">
                     Link not working? Try this:
