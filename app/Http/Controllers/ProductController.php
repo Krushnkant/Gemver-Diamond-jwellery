@@ -152,6 +152,137 @@ class ProductController extends Controller
     }
 
 
+    // public function fetchproductdetails(Request $request){
+    //     $data = $request->all();
+    //     $variants=$data["variant"];
+    //     dd($variants);
+    //     $product_id=$data["product_id"];
+    //     if(isset($data["action"]))
+    //     {
+    //         $product_variants = ProductVariant::where('product_id',$product_id)->where('estatus',1)->get();
+    //         $vatid = 0;
+    //         foreach($product_variants as $product_variant){
+                
+    //             $product_variant_variants = ProductVariantVariant::where('product_variant_id',$product_variant->id)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
+    //             if($product_variant_variants == $variants){
+    //                 $vatid = $product_variant->id;
+    //             }
+    //         }
+            
+    //         $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
+            
+    //         if($vatid > 0){
+    //             $query = $query->where('product_variants.id',$vatid);
+    //         }
+    //         $result = $query->orderBy('products.created_at','ASC')->first();
+
+    //         $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+    //         $variantstr = '';
+    //         foreach($product_attributes_variant as $product_attribute_variant){ 
+    //             $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
+    //             $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+    //             $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+    //             $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
+    //                                 <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+    //                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+    //                             </div>';
+    //         }
+
+    //         $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+    //         $str = '';
+           
+    //         foreach($product_attributes_specification as $product_attribute_specification){ 
+    //             $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+    //             $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+    //             $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+    //             //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+    //             $str .='<div class="col-md-6 px-0" >
+    //                     <div class="mt-4 wire_bangle_share">
+    //                     '.$product_attribute_specification->attribute_name .' &nbsp;:&nbsp;
+    //                         <span class="wire_bangle_color_theme">'. $product_attribute_term_name .'</span>
+    //                     </div>
+    //                 </div>';
+
+    //             $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
+    //                 <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+    //                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+    //             </div>';  
+                
+    //         }
+
+    //         $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$vatid)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
+    //         $spe = '';
+    //         foreach($ProductVariantSpecification as $productvariants)
+    //         {
+
+    //         $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+    //                   <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
+    //                     <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
+               
+    //             $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$vatid)->groupBy('attribute_term_id')->get();
+                    
+    //             foreach($product_attribute as $attribute_term){
+    //                 $term_array = explode(',',$attribute_term->attribute_term_id);
+    //                 $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+    //                 $v = 1;
+    //                 foreach($product_attributes as $term){
+    //                 $spe .='<option data-spe="'.$productvariants->attribute->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                    
+    //                }
+    //             }   
+    //         $spe .='</select>
+    //             <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+    //         </span> ';
+    //         }
+
+    //         $images = '';
+    //         if($result->images !=""){
+    //             $images = explode(',',$result->images);
+    //         }
+    //         $vimage = '';
+    //         $vimage .='<div class="slider slider-single mb-5">'; 
+    //                 foreach($images as $image){
+    //                    $vimage .='<div class="product_slider_main_item">
+    //                                   <img src="'.URL($image).'" alt="">
+    //                               </div>';
+    //                 }
+    //         $vimage .='</div>
+    //                 <div class="slider slider-nav">';
+    //                 foreach($images as $image){
+    //                     $vimage .='<div class="product_slider_item">
+    //                         <h3><img src="'.URL($image).'" alt=""></h3>
+    //                     </div>';     
+    //                 }   
+    //         $vimage .='</div>';
+
+    //     $spe_desc ='';
+    //     $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('is_description',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+    //     foreach($product_attributes_specification as $product_attribute_specification){  
+    //         $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+    //         $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+    //         $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
+    //         $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
+        
+    //     $spe_desc .='<div class="px-0 mt-3">
+    //             <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
+    //         </div>
+    //         <div class="row">';
+    //         foreach($product_attributes_term_des as $attrterm_description){  
+    //             $spe_desc .='<div class="col-md-6 mt-2 mt-md-0 px-0 position-relative">
+    //                 <div>
+    //                     <p class="wire_diamond_pargraph">'.$attrterm_description.'</p>
+    //                 </div>
+    //             </div>';
+    //         }
+    //         $spe_desc .='</div>';
+    //         }
+                    
+    //         $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
+    //         return \Response()->json($data);
+
+    //     }
+    // }
+
     public function fetchproductdetails(Request $request){
         $data = $request->all();
         $variants=$data["variant"];
@@ -167,7 +298,8 @@ class ProductController extends Controller
                     $vatid = $product_variant->id;
                 }
             }
-            
+          
+            if($vatid != 0){
             $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
             if($vatid > 0){
@@ -175,13 +307,15 @@ class ProductController extends Controller
             }
             $result = $query->orderBy('products.created_at','ASC')->first();
 
+          
+    
             $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
             $variantstr = '';
             foreach($product_attributes_variant as $product_attribute_variant){ 
                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
+                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';
@@ -202,7 +336,7 @@ class ProductController extends Controller
                         </div>
                     </div>';
 
-                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
+                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                 </div>';  
@@ -210,74 +344,82 @@ class ProductController extends Controller
             }
 
             $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$vatid)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
-            $spe = '';
-            foreach($ProductVariantSpecification as $productvariants)
-            {
-
-            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
-                      <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                        <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
-               
-                $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$vatid)->groupBy('attribute_term_id')->get();
+                $spe = '';
+                foreach($ProductVariantSpecification as $productvariants)
+                {
+    
+                $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                            <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
+                            <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                     
-                foreach($product_attribute as $attribute_term){
-                    $term_array = explode(',',$attribute_term->attribute_term_id);
-                    $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
-                    $v = 1;
-                    foreach($product_attributes as $term){
-                    $spe .='<option data-spe="'.$productvariants->attribute->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
-                    
-                   }
-                }   
-            $spe .='</select>
-                <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-            </span> ';
-            }
-
-            $images = '';
-            if($result->images !=""){
-                $images = explode(',',$result->images);
-            }
-            $vimage = '';
-            $vimage .='<div class="slider slider-single mb-5">'; 
-                    foreach($images as $image){
-                       $vimage .='<div class="product_slider_main_item">
-                                      <img src="'.URL($image).'" alt="">
-                                  </div>';
-                    }
-            $vimage .='</div>
-                    <div class="slider slider-nav">';
-                    foreach($images as $image){
-                        $vimage .='<div class="product_slider_item">
-                            <h3><img src="'.URL($image).'" alt=""></h3>
-                        </div>';     
+                    $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$vatid)->groupBy('attribute_term_id')->get();
+                        
+                    foreach($product_attribute as $attribute_term){
+                        $term_array = explode(',',$attribute_term->attribute_term_id);
+                        $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                        $v = 1;
+                        foreach($product_attributes as $term){
+                        $spe .='<option data-spe="'.$productvariants->attribute->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                        
+                        }
                     }   
-            $vimage .='</div>';
+                $spe .='</select>
+                    <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                </span> ';
+                }
+    
+                $images = '';
+                if($result->images !=""){
+                    $images = explode(',',$result->images);
+                }
+                $vimage = '';
+                $vimage .='<div class="slider slider-single mb-5">'; 
+                        foreach($images as $image){
+                            $vimage .='<div class="product_slider_main_item">
+                                            <img src="'.URL($image).'" alt="">
+                                        </div>';
+                        }
+                $vimage .='</div>
+                        <div class="slider slider-nav">';
+                        foreach($images as $image){
+                            $vimage .='<div class="product_slider_item">
+                                <h3><img src="'.URL($image).'" alt=""></h3>
+                            </div>';     
+                        }   
+                $vimage .='</div>';
+    
+            $spe_desc ='';
+            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('is_description',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
+            foreach($product_attributes_specification as $product_attribute_specification){  
+                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
+                $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
+            
+            $spe_desc .='<div class="px-0 mt-3">
+                    <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
+                </div>
+                <div class="row">';
+                foreach($product_attributes_term_des as $attrterm_description){  
+                    $spe_desc .='<div class="col-md-6 mt-2 mt-md-0 px-0 position-relative">
+                        <div>
+                            <p class="wire_diamond_pargraph">'.$attrterm_description.'</p>
+                        </div>
+                    </div>';
+                }
+                $spe_desc .='</div>';
+                }
 
-        $spe_desc ='';
-        $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('is_description',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
-        foreach($product_attributes_specification as $product_attribute_specification){  
-            $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
-            $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-            $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
-            $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
-        
-        $spe_desc .='<div class="px-0 mt-3">
-                <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
-            </div>
-            <div class="row">';
-            foreach($product_attributes_term_des as $attrterm_description){  
-                $spe_desc .='<div class="col-md-6 mt-2 mt-md-0 px-0 position-relative">
-                    <div>
-                        <p class="wire_diamond_pargraph">'.$attrterm_description.'</p>
-                    </div>
-                </div>';
-            }
-            $spe_desc .='</div>';
-            }
-                    
-            $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
-            return \Response()->json($data);
+                        
+                $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
+                return \Response()->json($data);
+            
+            }else{
+
+                $data = ['result' => 'data not found']; 
+                return \Response()->json($data);  
+
+            }    
 
         }
     }

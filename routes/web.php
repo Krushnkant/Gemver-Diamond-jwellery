@@ -79,8 +79,8 @@ Route::post('/custom_products',[DiamondController::class,'getProducts']);
 Route::get('/custom-product-details/{catid}/{id}',[DiamondController::class,'getCustomProductDetails']);
 Route::get('/product_complete/{catid}',[DiamondController::class,'getProductComplete']);
 
-Route::get('/product-setting/{id}/edit',[DiamondController::class,'editproductsetting']);
-Route::get('/diamond-setting/{id}/edit',[DiamondController::class,'editdiamondsetting']);
+Route::get('/product-setting/{id}/edit1',[DiamondController::class,'editproductsetting']);
+Route::get('/diamond-setting/{id}/edit1',[DiamondController::class,'editdiamondsetting']);
 
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');

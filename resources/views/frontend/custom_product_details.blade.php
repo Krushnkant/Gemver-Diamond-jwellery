@@ -189,6 +189,7 @@
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
                             <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
+                            <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>
                     </div>
                 </div>
@@ -263,16 +264,27 @@ $(document).ready(function(){
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
                 //console.log(data);
-                $('#variant_id').val(data.result.variant_id);
-                $('.sale_price').html(data.result.sale_price);
-                $('.regular_price').html(data.result.regular_price); 
-                $('#SKU').val(data.result.SKU);
-                $('#specification').html(data.speci);
-                $('#speci_multi').html(data.speci_multi);
-                $('#vimage').html(data.vimage);
-                $('#spe_desc').html(data.spe_desc);
-                selectjs();
-                sliderjs();
+                if(data.result == 'data not found'){
+                    $("#inquiry-error").html("product not available");
+                    $("#inquiry-error").show();
+                    $(".select_setting_btn").prop('disabled', true);
+                }else{
+                    $("#inquiry-error").html("");
+                    $("#inquiry-error").hide();
+                    $(".select_setting_btn").prop('disabled', false);
+
+                    $('#variant_id').val(data.result.variant_id);
+                    $('.sale_price').html(data.result.sale_price);
+                    $('.regular_price').html(data.result.regular_price); 
+                    $('#SKU').val(data.result.SKU);
+                    $('#specification').html(data.speci);
+                    $('#speci_multi').html(data.speci_multi);
+                    $('#vimage').html(data.vimage);
+                    $('#spe_desc').html(data.spe_desc);
+                    selectjs();
+                    sliderjs();
+                }    
+                
             }
         });
     }

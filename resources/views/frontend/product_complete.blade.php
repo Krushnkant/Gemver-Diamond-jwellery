@@ -133,9 +133,9 @@
                                         <span class="wire_bangle_edit_box_dublicate_price ms-2">${{ $Product->regular_price }}</span>
                                     </div>
                                 </div>
-                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
                                     <a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="edit_box">edit</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="wire_bangle_edit_box  mb-3">
@@ -155,9 +155,9 @@
                                         <!-- <span class="wire_bangle_edit_box_dublicate_price ms-2">$480</span> -->
                                     </div>
                                 </div>
-                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
+                                <!-- <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
                                     <a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="edit_box">edit</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         
