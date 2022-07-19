@@ -768,7 +768,7 @@ background-size: cover;
 }
 
 .customer-stories-paragraph {
-    font-weight: 600;
+    font-weight: normal;
     font-size: 16px;
     line-height: 30px;
     letter-spacing: 0.1em;
