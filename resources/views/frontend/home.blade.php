@@ -84,10 +84,10 @@
                     <a href="{{ URL('/shop/'.$category->id)}}">
                         <div class="item">
                             <div class="catrgery_box">
-                                <span class="catrgery_heading">{{ $category->category_name }}</span>
                                 <span class="catrgory_img">
                                     <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}">
                                 </span>
+                                <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
                         </div>
                     </a>

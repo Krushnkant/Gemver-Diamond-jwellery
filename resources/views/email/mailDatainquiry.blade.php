@@ -20,8 +20,8 @@
                 </div>
                 <div style="margin-bottom: 5px; font-size: 13px;">
                     {!! $product_info !!}
-                {!! $diamond_info !!}
-                {!! $spe_info !!}
+                    {!! $diamond_info !!}
+                    {!! $spe_info !!}
                 </div>
                 
                 <!-- <button style="margin-bottom: 25px;color: #fff;background-color: #1a5db6; border: 0;padding: 13px 30px;border-radius: 5px; font-size: 13px;">Confirm email</button>
