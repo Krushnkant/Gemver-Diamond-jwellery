@@ -42,7 +42,7 @@ class BlogController extends Controller
                 <div class="col-md-6 col-lg-4 px-0 px-md-3 mb-4">
                     <div class="blog_box">
                         <div class="blog_box_img position-relative">
-                            <img src="'.$row->blog_thumb.'" alt="">
+                        <img src="'.url('/').'/'.$row->blog_thumb.'" alt="">
                         </div>
                         <div class="blg_box_description">
                             <div class="blg_box_date my-3">
@@ -54,7 +54,7 @@ class BlogController extends Controller
                                 </span>
                             </div>
                             <div class="blog_box_heading mb-2">
-                               <a href="#"> '.$row->title.'</a>
+                               <a href="'.url("/").'/blog/'.$row->id.'"> '.$row->title.'</a>
                             </div>
                             <p class="blog_box_paragraph">
                                 '. $description .'
