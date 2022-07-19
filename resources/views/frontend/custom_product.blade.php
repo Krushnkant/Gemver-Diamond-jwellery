@@ -84,7 +84,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <span><a href="{{ url('/diamond-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span><a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="2">
                                     <div class="step-img">

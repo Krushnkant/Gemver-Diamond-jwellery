@@ -39,7 +39,7 @@
                                     <div class="step-heading mt-2">
                                         choose setting
                                     </div>
-                                    <span><a href="{{ url('/product-setting/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span><a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
 
                                 <li class="active" data-step="2">
