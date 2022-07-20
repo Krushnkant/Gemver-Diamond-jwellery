@@ -1129,6 +1129,12 @@
         left: auto;
         transform: none;
     }
+    .header ul li .mega-menu .mega-menu-three-part{
+        min-width: 600px;
+    }
+    .header ul li .mega-menu .mega-menu-two-part{
+        min-width: 500px;
+    }
 }
 
 @media (min-width:992px) {

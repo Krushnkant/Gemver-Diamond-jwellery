@@ -212,7 +212,7 @@ background-size: cover;
 .header ul li .mega-menu .mega-menu-four-part {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    min-width: 800px;
+    min-width: 1100px;
     text-align: left;
     padding: 20px;
 }
