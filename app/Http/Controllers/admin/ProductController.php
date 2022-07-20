@@ -462,8 +462,8 @@ class ProductController extends Controller
                                 <div class="form-group row">
                                     <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control input-default SKU" id="" name="SKU" value="">
-                                        <label id="SKU-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
+                                        <input type="text" class="form-control input-default SKU" id-data="SKU-'.$term_id.'" id="" name="SKU" value="">
+                                        <label id="SKU-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
                                     </div>
                                 </div>
                             </div>
