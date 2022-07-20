@@ -104,6 +104,19 @@
                                             <div id="desc-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                     </div>
+
+                                    <div class="row" style="display:none;">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                    <label class="form-check-label">
+                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($product) && ($product->is_custom == 1) ) checked @endif class="form-check-input primaryBox" value="{{ isset($product)?($product->is_custom):0 }}">Do you want to add custom product?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 </div>
                             </div>
                         </div>

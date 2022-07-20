@@ -49,7 +49,7 @@
                                     </svg>
                                 </a>
                                 <?php 
-                                    $categories = \App\Models\Category::where('estatus',1)->get();
+                                    $categories = \App\Models\Category::where('estatus',1)->where('is_custom',0)->get();
                                     if(count($categories) > 0){
                                 ?>
                                 <div class="mega-menu">
@@ -117,12 +117,12 @@
                                     <div class="mega-menu-four-part ">
                                         <div>
                                     <?php 
-                                         
+                                         $categories = \App\Models\Category::where('estatus',1)->where('is_custom',1)->get();
                                          $img_no = 1;
                                          $cat_no = 1;
                                          foreach($categories as $car)
                                          {
-                                            if($cat_no < 4){
+                                            
                                             if($img_no == 1){
                                                $defalt_image = $car->category_thumb;
                                             }
@@ -142,7 +142,7 @@
                                         </ul>
 
                                         
-                                        <?php $cat_no++; } } ?>
+                                        <?php $cat_no++;  } ?>
                                         </div>
                                         <ul>
                                             <img src="{{ url($defalt_image) }}" alt=" ">

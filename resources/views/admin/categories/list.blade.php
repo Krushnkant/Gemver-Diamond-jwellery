@@ -434,6 +434,18 @@ $("#attribute_id_req_spec").on("select2:select select2:unselect", function (e) {
 $("#attribute_id_opt_spec").on("select2:select select2:unselect", function (e) {
     attribute_id_opt_spec($(this).val());
 });
+
+
+$(document).on('change', '#is_custom', function() {
+    if ($(this).is(':checked')) {
+        $(this).val(1);
+        $(this).attr('checked', true);
+    }
+    else {
+        $(this).val(0);
+        $(this).attr('checked', false);
+    }
+});
 </script>
 <!-- category JS end -->
 @endsection

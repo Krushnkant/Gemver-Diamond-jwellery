@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $categories = Category::where('estatus',1)->take(4)->get();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
         $banners = Banner::where('estatus',1)->get();
         $step = Step::where('estatus',1)->first();

@@ -135,6 +135,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('products',[\App\Http\Controllers\admin\ProductController::class,'index'])->name('products.list');
     Route::get('products/create',[\App\Http\Controllers\admin\ProductController::class,'create'])->name('products.add');
+    Route::get('customproducts/custom',[\App\Http\Controllers\admin\ProductController::class,'create'])->name('customproducts.add');
     Route::get('getAttrVariation/{id}',[\App\Http\Controllers\admin\ProductController::class,'getAttrVariation'])->name('getAttrVariation');
     Route::get('addVariantbox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addVariantbox'])->name('addVariantbox');
     Route::post('products/save',[\App\Http\Controllers\admin\ProductController::class,'save'])->name('products.save');

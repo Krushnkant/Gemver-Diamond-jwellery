@@ -26,8 +26,9 @@
    @endif
     
 
-    $('body').on('click', '#AddProductBtn', function () {
-        location.href = "{{ route('admin.products.add') }}";
+   $('body').on('click', '#AddProductBtn', function () {
+        //location.href = "{{ route('admin.products.add') }}";
+        location.href = "{{ route('admin.customproducts.add') }}";
     });
 
     $('.dropdown-item').click( function() {

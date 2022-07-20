@@ -57,6 +57,17 @@
             @endforeach
         </select>
     </div>
+
+    <div class="row mt-3 mb-3">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($category) && ($category->is_custom) ) checked @endif  class="form-check-input primaryBox" value="{{ isset($category)?($category->is_custom):0 }}">Do you want to add custom category?</label>
+                </div>
+            </div>
+        </div>
+    </div>
  
 
 

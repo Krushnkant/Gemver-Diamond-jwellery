@@ -30,14 +30,20 @@ class ProductController extends Controller
     }
 
     public function create(){
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $segment = request()->segment(3); 
+
+        if($segment == "custom"){
+            $categories = Category::where('estatus',1)->where('is_custom',1)->get()->toArray();
+        }else{
+            $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        }
+        
         $catArray = array();
         foreach ($categories as $category){
-            
             array_push($catArray,$category);
         }
        
-        return view('admin.products.create',compact('catArray'))->with('page',$this->page);
+        return view('admin.products.create',compact('catArray','segment'))->with('page',$this->page);
     }
 
     public function getAttrVariation($id){
