@@ -223,7 +223,7 @@ background-size: cover;
 
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
-    grid-template-columns: 66.66% 33.33%;
+    grid-template-columns: 33.33% 33.33% 33.33%;
     min-width: 800px;
     text-align: left;
     padding: 20px;
