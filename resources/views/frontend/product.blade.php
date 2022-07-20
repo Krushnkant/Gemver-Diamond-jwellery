@@ -235,16 +235,16 @@
             </div>
         </div>
         <div class="row mt-xl-5 pt-xxl-5 mb-xxl-4" id="description">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="description_heading">
                     description
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspeci" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -336,7 +336,13 @@ $(document).ready(function(){
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
-                    $('#specification').html(data.speci);
+                    if(data.speci != ""){
+                        $(".detailsspeci").show();
+                        $('#specification').html(data.speci);
+                    }else{
+                        $(".detailsspeci").hide();
+                    }
+                    
                     $('#speci_multi').html(data.speci_multi);
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
