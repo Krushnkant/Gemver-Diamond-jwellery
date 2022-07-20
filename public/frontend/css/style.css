@@ -221,12 +221,16 @@ background-size: cover;
     column-count: 2;
 }
 
+
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     min-width: 800px;
     text-align: left;
     padding: 20px;
+}
+.header ul li .mega-menu .mega-menu-two-three-part{
+    grid-template-columns: 66%  33.33%;
 }
 
 .header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {

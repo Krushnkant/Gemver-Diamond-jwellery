@@ -51,19 +51,40 @@
                                 <?php 
                                     $categories = \App\Models\Category::where('estatus',1)->where('is_custom',0)->get();
                                     if(count($categories) > 0){
+                                        if(count($categories) > 4){
+                                            $sizecat = 'three';
+                                        }else{
+                                            $sizecat = 'two';
+                                        }
                                 ?>
                                 <div class="mega-menu">
-                                    <div class="mega-menu-two-part ">
-                                        <ul>
+                                    <div class="mega-menu-{{ $sizecat }}-part ">
+                                        
                                         <?php 
                                          
                                           $img_no = 1;
+                                          $cat_no = 1;
                                           foreach($categories as $car)
                                           {
                                              if($img_no == 1){
                                                 $defalt_image = $car->category_thumb;
                                              }
                                              $img_no++; 
+
+                                             if($cat_no == 1){
+                                            ?>
+                                            
+                                                <ul>
+                                                <?php        
+                                             }else if($cat_no > 4){
+                                            ?>
+                                            </ul>
+                                            <ul>
+                                            <?php 
+
+                                             }
+                                             
+
                                              ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->id)}}">
@@ -71,9 +92,13 @@
                                                 </a>
                                             </li>
                                             <?php 
+                                            
+                                            $cat_no++;
                                           }
                                         ?>
                                         </ul>
+                                        
+                                        
                                         <ul class="">
                                             <li class="menu-part-img"><img src="{{ url($defalt_image) }}" alt=" "></li>
                                         </ul>
@@ -157,7 +182,7 @@
                                     </svg>
                                 </a>
                                 <div class="mega-menu ">
-                                    <div class="mega-menu-three-part">
+                                    <div class="mega-menu-two-three-part mega-menu-three-part">
                                         <div>
                                                 <div class="d-block">
                                                     <span class="menus_title">loose lab diamonds</span>
