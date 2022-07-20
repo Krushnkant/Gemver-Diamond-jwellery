@@ -539,24 +539,29 @@
        // $('.SKU').change(function(){
     $('body').on('change', '.SKU', function () {
             var skuvalue = this.value;
+            var thi = $(this);
+            var this_err = $(thi).attr('id-data') + "-error";
             $.ajax({
-                        type:"POST",
-                        async: false,
-                        url: "{{ url('admin/products/checksku') }}", // script to validate in server side
-                        data: {username: skuvalue,_token: '{{csrf_token()}}'},
-                        success: function(data) {
-                           
-                            result = (data == "true") ? true : false;
-                           // alert(result);
-                            if(result == false){
-                                $("#SKU-error").html("This sku code is already taken! Try another.");
-                                $("#SKU-error").show();
-                            }else{
-                                $("#SKU-error").html("");
-                                $("#SKU-error").hide(); 
-                            }
-                        }
-                    });
+                type:"POST",
+                async: false,
+                url: "{{ url('admin/products/checksku') }}", // script to validate in server side
+                data: {username: skuvalue,_token: '{{csrf_token()}}'},
+                success: function(data) {
+                    
+                    result = (data == "true") ? true : false;
+
+                    if(result == false){
+                        $("#"+this_err).html("This sku code is already taken! Try another.");
+                        $("#"+this_err).show();
+
+                        // $("#SKU-error").html("This sku code is already taken! Try another.");
+                        // $("#SKU-error").show();
+                    }else{
+                        $("#"+this_err).html("");
+                        $("#"+this_err).hide(); 
+                    }
+                }
+            });
         });
     });
 
@@ -611,6 +616,7 @@
         var valid = true;
         var datavari = [];
         var datavari1 = [];
+        SKUs = [];
         $('.variantForm').each(function () {
             var this_form = $(this);
             if (!$(this).valid()) {
@@ -632,6 +638,21 @@
                     valid = false;
                 }
             })
+           
+            $(this).find('.SKU').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                var check = SKUs.includes($(thi).val());
+                SKUs.push($(thi).val());
+                if(check){
+                $("#"+this_err).html("This sku code is already taken! Try another.");
+                $("#"+this_err).show();
+                valid = false;
+                }
+              
+            })
+
+          
 
             $(this).find('.Variation').each(function() {
                 var thi = $(this);
