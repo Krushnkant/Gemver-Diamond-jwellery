@@ -55,6 +55,9 @@
 }
 
 @media (max-width:991px) {
+    .customer_stories_img::after {
+        content: none;
+    }
     .mobile-sub-menu {
         position: absolute;
         top: 0%;
