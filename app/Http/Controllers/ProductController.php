@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index($id){
         $CatId = $id;
         $Products= Product::with('primary_category','product_variant')->where(['estatus' => 1])->get();
-        $Categories = Category::where(['estatus' => 1])->get();
+        $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'));

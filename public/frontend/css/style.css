@@ -283,6 +283,12 @@ background-size: cover;
     object-fit: cover;
 }
 
+.diamond-mega-menu-img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+}
+
 .menus_title {
     text-transform: uppercase;
 }
