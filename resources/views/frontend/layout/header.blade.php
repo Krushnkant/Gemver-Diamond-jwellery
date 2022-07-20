@@ -195,7 +195,7 @@
                                                     @foreach($diamondshapes as $shape)
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/'.$shape) }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 d-inline-block">{{ strtolower($shape) }}</span>
                                                         </a>
                                                     </li>
