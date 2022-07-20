@@ -77,6 +77,7 @@ class CategoryController extends Controller
 
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
+            $category->is_custom = $request->is_custom;
 
             if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
                 $attribute_id_variation = implode(",",$request->attribute_id_variation);
@@ -107,6 +108,7 @@ class CategoryController extends Controller
             $category = new Category();
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
+            $category->is_custom = $request->is_custom;
             $category->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $category->category_thumb = $request->catImg;
          

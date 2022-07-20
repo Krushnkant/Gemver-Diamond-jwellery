@@ -52,8 +52,14 @@
         </select>
     </div>
 
-
-
+   
+    <div class="form-group mt-3 mb-3">
+        <div class="form-check">
+                <label class="form-check-label">
+                <input type="checkbox" name="is_custom" id="is_custom" class="form-check-input primaryBox" value="0">Do you want to add custom category?</label>
+        </div>
+    </div>
+       
 
     <div class="form-group">
         <label class="col-form-label" for="Thumbnail">Thumbnail  <span class="text-danger">*</span>
@@ -70,4 +76,7 @@
 
     </div>
 </form>
+
+
+
 
