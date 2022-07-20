@@ -202,6 +202,7 @@ background-size: cover;
     color: #0B1727;
     font-size: 14px;
     transition: all 0.5s;
+    align-items: center;
 }
 
 .header ul li .mega-menu li a:hover {
@@ -273,8 +274,8 @@ background-size: cover;
 }
 
 .mega-menu-img {
-    width: 22px;
-    height: 22px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 }
 
