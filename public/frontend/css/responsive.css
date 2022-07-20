@@ -1124,11 +1124,6 @@
     .shop_by_style_heading {
         font-size: 15px;
     }
-    .header ul li:last-child .mega-menu {
-        right: 0;
-        left: auto;
-        transform: none;
-    }
     .header ul li .mega-menu .mega-menu-three-part{
         min-width: 600px;
     }
@@ -1269,12 +1264,6 @@
     .about_box_bg {
         padding: 50px;
         min-height: 250px;
-    }
-    .header ul li .mega-menu .mega-menu-four-part {
-        min-width: 900px;
-    }
-    .header ul li .mega-menu .mega-menu-three-part {
-        min-width: 500px;
     }
     .own_ring_img img {
         max-height: 400px;
