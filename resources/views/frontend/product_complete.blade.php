@@ -66,9 +66,6 @@
             <ul class="d-block d-lg-flex ">
                 <li class="step-progressbar-part">
                     <div class="step-progressbar-step-part">
-                        <!-- <span class="step-progressbar-heading">
-                                1
-                        </span>  -->
                         <span class="step-progressbar-img ms-3">
                             <img src="{{ url('frontend/image/step_1.png') }}" alt="">
                         </span>
@@ -78,7 +75,7 @@
                                 </span>
                                 <div class="d-flex edit_price_text mt-1">
                                     <span class="me-2">
-                                        <a href="#" class="edit_text">Edit</a>
+                                        <a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="edit_text">Edit</a>
                                     </span>
                                     <span>
                                         |
@@ -88,7 +85,7 @@
                                             price:
                                         </span>
                                         <span class="price_part">
-                                            $1,385
+                                            ${{ $Diamond->Sale_Amt }}
                                         </span>
                                     </div>
                                 </div>
@@ -98,9 +95,6 @@
                 </li>
                 <li class="step-progressbar-part active">
                     <div class="step-progressbar-step-part">
-                        <!-- <span class="step-progressbar-heading">
-                            2
-                        </span>  -->
                         <span class="step-progressbar-img ms-3">
                             <img src="{{ url('frontend/image/step_2.png') }}" alt="">
                         </span>
@@ -110,7 +104,7 @@
                             </span> 
                             <div class="d-flex edit_price_text mt-1">
                                 <span class="me-2">
-                                    <a href="#" class="edit_text">Edit</a>
+                                    <a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="edit_text">Edit</a>
                                 </span>
                                 <span>
                                     |
@@ -120,7 +114,7 @@
                                         price:
                                     </span>
                                     <span class="price_part">
-                                        $1,385
+                                        ${{ $Product->sale_price }}
                                     </span>
                                 </div>
                             </div>
@@ -130,26 +124,14 @@
                 </li>
                 <li class="step-progressbar-part">
                     <div class="step-progressbar-step-part">
-                        <!-- <span class="step-progressbar-heading">
-                            3
-                        </span> -->
                         <span class="step-progressbar-img ms-3">
                             <img src="{{ url('frontend/image/step_3.png') }}" alt="">
                         </span>
                         <div>
                             <span class="step-progressbar-text">
-                                review your engagement ring
+                            complete the {{ $Category->category_name }}
                             </span>
-                            <div class="d-flex edit_price_text mt-1">
-                                <div class="d-flex">
-                                    <span class="price_text me-2">
-                                        price:
-                                    </span>
-                                    <span class="price_part">
-                                        $1,385
-                                    </span>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                    
