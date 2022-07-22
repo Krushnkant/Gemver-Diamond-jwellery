@@ -23,10 +23,10 @@
     <div class="container round_cut_lab_diamonds_page">
         <div class="mt-4 mt-md-5"></div>
         <div class="row">
-            <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_checkbox row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">shape </span>
-                    <div class="col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">shape </span>
+                    <div class="col-md-12">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                                     <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
                                     <img src="{{ url('frontend/image/round.png') }}" alt="round" class="shape_img">
@@ -71,10 +71,10 @@
                 </div>
                 
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-2">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2">price</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range"></div>
                         <p class="mb-0"> <span id="amount" class="ps-0"></span></p>
                         <input type="hidden" id="hidden_minimum_price" />
@@ -82,12 +82,12 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-2">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2">color</span>
-                    <span class="col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</span>
+                    <span class="col-md-12">
                         @foreach($diamondcolor as $color) 
-                        <div class="form-group d-inline-block mb-0">
+                        <div class="form-group d-inline-block mb-2">
                             <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
                             <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
@@ -95,10 +95,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-2">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">carat</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-carat"></div>
                         <p class="mb-0"> <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
@@ -106,10 +106,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-3">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2">clarity</span>
-                    <span class="col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</span>
+                    <span class="col-md-12">
                         @foreach($diamondclarity as $clarity) 
                         <div class="form-group d-inline-block mb-0">
                             <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
@@ -119,12 +119,12 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-2">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">report</span>
-                    <span class="col-md-10">
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
+                    <span class="col-md-12">
                         @foreach($diamondreport as $report) 
-                        <div class="form-group d-inline-block mb-0">
+                        <div class="form-group d-inline-block mb-2">
                             <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
                             <label for="report{{ $report }}">{{ $report }}</label>
                         </div>
@@ -132,10 +132,10 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">cut</span>
-                        <span class="col-md-10">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</span>
+                        <span class="col-md-12">
                             @foreach($diamondcut as $cut) 
                             <div class="form-group d-inline-block me-3 mb-0">
                                 <input type="checkbox" value="{{ $cut }}" class="cut common_selector" name="cut[]" id="cut{{ $cut }}">
@@ -146,10 +146,10 @@
                     </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Depth %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-depth"></div>
                         <p class="mb-0"> <span id="depth"></span></p>
                         <input type="hidden" id="hidden_minimum_depth" />
@@ -158,10 +158,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Polish</span>
-                        <span class="col-md-10">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
+                        <span class="col-md-12">
                             @foreach($diamondpolish as $polish) 
                             <div class="form-group d-inline-block me-3 mb-0">
                                 <input type="checkbox" value="{{ $polish }}" class="polish common_selector" name="polish[]" id="polish{{ $polish }}">
@@ -172,10 +172,10 @@
                     </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-2 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">L/W Ratio</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-ratio"></div>
                         <p class="mb-0"> <span id="ratio"></span></p>
                         <input type="hidden" id="hidden_minimum_ratio" />
@@ -183,11 +183,11 @@
                     </span>
                 </div>
             </div>
-
-            <div class="col-lg-6 mb-3 mb-lg-3 collapse" id="collapseExample">
+ 
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Sym.</span>
-                        <span class="col-md-10">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
+                        <span class="col-md-12">
                             @foreach($diamondsymm as $symm) 
                             <div class="form-group d-inline-block me-3">
                                 <input type="checkbox" value="{{ $symm }}" class="symm common_selector" name="symm[]" id="symm{{ $symm }}">
@@ -198,10 +198,10 @@
                     </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-3 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Table %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-table"></div>
                         <p class="mb-0"> <span id="table"></span></p>
                         <input type="hidden" id="hidden_minimum_table" />
