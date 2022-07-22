@@ -21,6 +21,7 @@ class DiamondController extends Controller
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_variant = 0;
         $check_variant_id = 0;
+        $ProductVariantPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
                 return redirect('product_complete/'.$id); 
@@ -28,6 +29,11 @@ class DiamondController extends Controller
                 if($cart->variant_id != 0){
                     $check_variant = 1;
                     $check_variant_id = $cart->variant_id;
+                    $ProductVariantPrices = ProductVariant::where(['estatus' => 1,'id' => $check_variant_id])->first();
+                    if($ProductVariantPrices){
+                        $ProductVariantPrice =  $ProductVariantPrices->sale_price;
+                    }
+
                 }
             }
         }else{
@@ -50,7 +56,7 @@ class DiamondController extends Controller
         $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm'));
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice'));
     } 
 
     public function getDiamonds(Request $request)
@@ -251,12 +257,17 @@ class DiamondController extends Controller
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
        
         $check_variant = 0;
+        $ProductVariantPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
                 return redirect('product_complete/'.$catid); 
             }else{
                 if($cart->variant_id != 0){
                     $check_variant = 1;
+                    $ProductVariantPrices = ProductVariant::where(['estatus' => 1,'id' => $cart->variant_id])->first();
+                    if($ProductVariantPrices){
+                        $ProductVariantPrice =  $ProductVariantPrices->sale_price;
+                    }
                 }
             }
         }else{
@@ -267,19 +278,24 @@ class DiamondController extends Controller
 
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId'));
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice'));
     }
 
     public function customproducts($id,$shopbyid = 0){
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_diamond = 0;
+        $DiamondPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
                 return redirect('product_complete/'.$id); 
             }else{
                 if($cart->diamond_id != 0){
                     $check_diamond = 1;
+                    $DiamondPrices = Diamond::where(['estatus' => 1,'id' => $cart->diamond_id])->first();
+                    if($DiamondPrices){
+                        $DiamondPrice =  $DiamondPrices->Sale_Amt;
+                    }
                 }
             }
         }else{
@@ -291,7 +307,7 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
-        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy'));
+        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice'));
     }
 
 
@@ -410,12 +426,17 @@ class DiamondController extends Controller
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
         $check_diamond = 0;
+        $DiamondPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
                 return redirect('product_complete/'.$catid); 
             }else{
                 if($cart->diamond_id != 0){
                     $check_diamond = 1;
+                    $DiamondPrices = Diamond::where(['estatus' => 1,'id' => $cart->diamond_id])->first();
+                    if($DiamondPrices){
+                        $DiamondPrice =  $DiamondPrices->Sale_Amt;
+                    }
                 }
             }
         }else{
@@ -425,7 +446,7 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         //$Product= ProductVariant::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId'));
+        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice'));
     }
 
     public function getProductComplete($catid){
@@ -433,7 +454,7 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
-        $Product= ProductVariant::with('product')->where(['estatus' => 1,'id' => $cart->variant_id])->first();
+        $Product = ProductVariant::with('product')->where(['estatus' => 1,'id' => $cart->variant_id])->first();
         $Diamond = Diamond::where(['id' => $cart->diamond_id])->first();
         return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart'));
     }
