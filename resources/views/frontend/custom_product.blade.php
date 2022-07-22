@@ -24,49 +24,8 @@
         <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
             Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
         </div>
-        <div class="row mt-5">
-            <div class="col-md-6">
-               <div class="row">
-                    <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">price</div>
-                    <div class="round_cut_lab_diamonds_price mb-4 col-md-10">
-                        <div id="slider-range"></div>
-                        <p> Price : <span id="amount"></span></p>
-                        <input type="hidden" id="hidden_minimum_price" />
-                        <input type="hidden" id="hidden_maximum_price" />
-                    </div>
-               </div>
-            </div>
-            <div class="col-md-6">
-                @foreach($Attributes as $attribute)
-                @if($attribute->is_specification == 0)      
-                        <div class="round_cut_lab_range_slider row">
-                                <div class="round_cut_lab_diamonds_heading mb-4 col-md-2">{{ $attribute->attribute_name }}</div>
-                                <div class="col-md-10">    
-                                    @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group me-3 d-inline-block">
-                                        <input type="checkbox" class="common_selector attribute" {{ (isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                    @endforeach 
-                                </div>
-                        </div>
-                        @else
-                        <div class="round_cut_lab_range_slider mb-4 mb-xxl-5">
-                            <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
-                            <div>
-                                @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector specification" {{ ($ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="specification[]"  value="{{ $term->id }}" id="{{ $ShopBy->attribute_terms }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach 
-                            </div>
-                        </div>
-                        @endif
-                    @endforeach
-            </div>
-        </div>
-        <div class="row align-items-center step-progressbar-row">
+       
+        <!-- <div class="row align-items-center step-progressbar-row">
             <div class="col-lg-2 text-center text-lg-start">
                 <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
             </div>
@@ -136,8 +95,144 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="row mt-5">
+            <ul class="d-block d-lg-flex ">
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                    1
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                        choose diamonds
+                                    </span>
+                                    <div class="d-flex edit_price_text mt-1">
+                                        <span class="me-2">
+                                            <a href="#" class="edit_text">Edit</a>
+                                        </span>
+                                        <span>
+                                            |
+                                        </span>
+                                        <div class="d-flex ms-2">
+                                            <span class="price_text me-2">
+                                                price:
+                                            </span>
+                                            <span class="price_part">
+                                                $1,385
+                                            </span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                    <li class="step-progressbar-part active">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                2
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    choose settings
+                                </span> 
+                                <div class="d-flex edit_price_text mt-1">
+                                    <span class="me-2">
+                                        <a href="#" class="edit_text">Edit</a>
+                                    </span>
+                                    <span>
+                                        |
+                                    </span>
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                3
+                            </span> -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    review your engagement ring
+                                </span>
+                                <div class="d-flex edit_price_text mt-1">
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                </ul>
         </div>
-        <div class="wire_bangle_line mt-4 mt-md-5"></div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+               <div class="row">
+                    <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
+                    <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
+                        <div id="slider-range"></div>
+                        <p> Price : <span id="amount"></span></p>
+                        <input type="hidden" id="hidden_minimum_price" />
+                        <input type="hidden" id="hidden_maximum_price" />
+                    </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+                @foreach($Attributes as $attribute)
+                @if($attribute->is_specification == 0)      
+                        <div class="round_cut_lab_range_slider row">
+                                <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
+                                <div class="col-md-12">    
+                                    @foreach($attribute->attributeterm as $term)
+                                    <div class="form-group me-3 d-inline-block">
+                                        <input type="checkbox" class="common_selector attribute" {{ (isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                    </div>
+                                    @endforeach 
+                                </div>
+                        </div>
+                        @else
+                        <div class="round_cut_lab_range_slider mb-2 mb-xxl-5">
+                            <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
+                            <div>
+                                @foreach($attribute->attributeterm as $term)
+                                    <div class="form-group mb-3">
+                                        <input type="checkbox" class="common_selector specification" {{ ($ShopBy->attribute_terms == $term->id ) ? 'checked' : '' }} name="specification[]"  value="{{ $term->id }}" id="{{ $ShopBy->attribute_terms }}">
+                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                    </div>
+                                @endforeach 
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+            </div>
+        </div>
+        <div class="wire_bangle_line"></div>
         <div class="row align-items-center d-flex justify-content-center">
             <div class="col-sm-5 col-md-6">
                 <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>

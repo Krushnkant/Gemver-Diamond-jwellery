@@ -22,16 +22,114 @@
         </div>
     </div>
 
+    
+
     <div class="container round_cut_lab_diamonds_page">
         <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
             Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
         </div>
-        <div class="mt-4 mt-md-5"></div>
-        <div class="row">
-            <div class="col-lg-6 mb-3 mb-lg-0">
+
+
+        <div class="row mt-5">
+            <ul class="d-block d-lg-flex ">
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                    1
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                        choose diamonds
+                                    </span>
+                                    <div class="d-flex edit_price_text mt-1">
+                                        <span class="me-2">
+                                            <a href="#" class="edit_text">Edit</a>
+                                        </span>
+                                        <span>
+                                            |
+                                        </span>
+                                        <div class="d-flex ms-2">
+                                            <span class="price_text me-2">
+                                                price:
+                                            </span>
+                                            <span class="price_part">
+                                                $1,385
+                                            </span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                    <li class="step-progressbar-part active">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                2
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    choose settings
+                                </span> 
+                                <div class="d-flex edit_price_text mt-1">
+                                    <span class="me-2">
+                                        <a href="#" class="edit_text">Edit</a>
+                                    </span>
+                                    <span>
+                                        |
+                                    </span>
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                3
+                            </span> -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    review your engagement ring
+                                </span>
+                                <div class="d-flex edit_price_text mt-1">
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                </ul>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_checkbox row">
-                        <div class="round_cut_lab_diamonds_heading mb-3 col-md-2">shape</div>
-                        <div class="col-md-10">
+                        <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape</div>
+                        <div class="col-md-12">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                                     <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
                                     <img src="{{ url('frontend/image/round.png') }}" alt="round" class="shape_img">
@@ -79,10 +177,10 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-lg-6 mb-3 mb-lg-0">
-                <div class="round_cut_lab_range_slider mt-3 mt-md-0 row mb-3">
-                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">price</div>
-                    <div class="round_cut_lab_diamonds_price col-md-10">
+            <div class="col-lg-6 round_cut_lab_filter">
+                <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
+                    <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</div>
+                    <div class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range"></div>
                         <p class="mb-0">
                              <span id="amount" class="ps-0"></span>
@@ -92,10 +190,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row mb-3">
-                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">color</div>
-                    <div class="col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</div>
+                    <div class="col-md-12">
                         @foreach($diamondcolor as $color) 
                         <div class="form-group d-inline-block mb-0">
                             <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
@@ -106,10 +204,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
-                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">carat</div>
-                    <div class="round_cut_lab_diamonds_price col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</div>
+                    <div class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-carat"></div>
                         <p class="mb-0"> <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
@@ -117,11 +215,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                        <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">clarity</div>
+                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
                 
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             @foreach($diamondclarity as $clarity) 
                             <div class="form-group d-inline-block mb-0">
                                 <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
@@ -132,12 +230,12 @@
                         </div>
                     </div>
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
-                        <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">report</div>
-                        <div class="col-md-10">
+                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">report</div>
+                        <div class="col-md-12">
                             @foreach($diamondreport as $report) 
-                            <div class="form-group mb-3 d-inline-block me-3">
+                            <div class="form-group d-inline-block me-3 mb-2">
                                 <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
                                 <label for="report{{ $report }}">{{ $report }}</label>
                             </div>
@@ -146,12 +244,12 @@
                         </div>
                     </div> 
             </div>
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
-                    <div class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">cut</div>
-                    <div class="col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</div>
+                    <div class="col-md-12">
                         @foreach($diamondcut as $cut) 
-                        <div class="form-group mb-3 d-inline-block me-3">
+                        <div class="form-group d-inline-block me-3">
                             <input type="checkbox" value="{{ $cut }}" class="cut common_selector" name="cut[]" id="cut{{ $cut }}">
                             <label for="cut{{ $cut }}">{{ $cut }}</label>
                         </div>
@@ -161,10 +259,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Depth %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-depth"></div>
                         <p class="mb-0"> <span id="depth"></span></p>
                         <input type="hidden" id="hidden_minimum_depth" />
@@ -173,10 +271,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Polish</span>
-                        <span class="col-md-10">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
+                        <span class="col-md-12">
                             @foreach($diamondpolish as $polish) 
                             <div class="form-group d-inline-block me-3">
                                 <input type="checkbox" value="{{ $polish }}" class="polish common_selector" name="polish[]" id="polish{{ $polish }}">
@@ -187,10 +285,10 @@
                     </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">L/W Ratio</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-ratio"></div>
                         <p class="mb-0"> <span id="ratio"></span></p>
                         <input type="hidden" id="hidden_minimum_ratio" />
@@ -199,10 +297,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse round_cut_lab_filter" id="collapseExample">
                     <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Sym.</span>
-                        <span class="col-md-10">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
+                        <span class="col-md-12">
                             @foreach($diamondsymm as $symm) 
                             <div class="form-group d-inline-block me-3">
                                 <input type="checkbox" value="{{ $symm }}" class="symm common_selector" name="symm[]" id="symm{{ $symm }}">
@@ -213,10 +311,10 @@
                     </div>
             </div>
 
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse" id="collapseExample">
+            <div class="col-lg-6 mb-3 mb-lg-0 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-3 mb-md-0">Table %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div id="slider-range-table"></div>
                         <p class="mb-0"> <span id="table"></span></p>
                         <input type="hidden" id="hidden_minimum_table" />
@@ -235,7 +333,9 @@
                 </span>
            
         </div>
-        <div class="row align-items-center step-progressbar-row mt-4">
+        <div class="mt-4 mt-md-5"></div>
+       
+        <!-- <div class="row align-items-center step-progressbar-row mt-4">
             <div class="col-lg-2 text-center text-lg-start">
                 <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
             </div>
@@ -254,7 +354,6 @@
                                         choose setting
                                     </div>
                                     <span><a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    <!-- <span> <a href="#" class="step-heading-link mt-2 d-inline-block ms-4">view</a></span> -->
                                 </li>
 
                                 <li class="active" data-step="2">
@@ -310,16 +409,18 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
-            <span class="d-inline-block float-end">
+       
+
+            <!-- <span class="d-inline-block float-end">
                     <div class="round_cut_lab_range_slider text-end me-3">
                         <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             <input type="checkbox" value="" name="" class=" common_selector1" id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div>
                     </div>
-                </span>
+                </span> -->
 
         <!-- <div class="wire_bangle_line mt-4 mt-md-5"></div> -->
         <!-- <div class="row align-items-center">

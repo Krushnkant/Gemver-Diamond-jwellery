@@ -21,7 +21,7 @@
     </div>
 
     <div class="wire_bangle_page container">
-        <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
+        <!-- <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
             <div class="col-lg-2 text-center text-lg-start">
                 <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
             </div>
@@ -92,6 +92,100 @@
                 </div>
 
             </div>
+        </div> -->
+        <div class="row mb-lg-5 mb-4">
+            <ul class="d-block d-lg-flex ">
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                    1
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                        choose diamonds
+                                    </span>
+                                    <div class="d-flex edit_price_text mt-1">
+                                        <span class="me-2">
+                                            <a href="#" class="edit_text">Edit</a>
+                                        </span>
+                                        <span>
+                                            |
+                                        </span>
+                                        <div class="d-flex ms-2">
+                                            <span class="price_text me-2">
+                                                price:
+                                            </span>
+                                            <span class="price_part">
+                                                $1,385
+                                            </span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                    <li class="step-progressbar-part active">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                2
+                            </span>  -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    choose settings
+                                </span> 
+                                <div class="d-flex edit_price_text mt-1">
+                                    <span class="me-2">
+                                        <a href="#" class="edit_text">Edit</a>
+                                    </span>
+                                    <span>
+                                        |
+                                    </span>
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li class="step-progressbar-part">
+                        <div class="step-progressbar-step-part">
+                            <!-- <span class="step-progressbar-heading">
+                                3
+                            </span> -->
+                            <span class="step-progressbar-img ms-3">
+                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                            </span>
+                            <div>
+                                <span class="step-progressbar-text">
+                                    review your engagement ring
+                                </span>
+                                <div class="d-flex edit_price_text mt-1">
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
+                                        </span>
+                                        <span class="price_part">
+                                            $1,385
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </li>
+                </ul>
         </div>
         <div class="row" >
             <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">

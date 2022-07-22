@@ -1946,7 +1946,7 @@ background-size: cover;
 
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     text-transform: capitalize;
@@ -3762,4 +3762,118 @@ span#amount {
     transform: translateY(-50%);
     left: -56px;
     border-radius: 50% !important;
+}
+
+.step-progressbar-ul {
+    width: 100%;
+}
+
+.step-progressbar-part {
+    border: 2px #ddd solid;
+    padding: 13px 15px 13px 10px;
+    border-radius: 0 30px 30px 0;
+    background-color: #F0F0F0;
+    width: calc(33.33% + 20px);
+    margin-right: -33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step-progressbar-step-part {
+    display: flex;
+    align-items: center;
+}
+
+.step-progressbar-part.active {
+    border-bottom: 2px #000 solid;
+    background: #fff;
+}
+
+.step-progressbar-part:first-child {
+    z-index: 2;
+}
+
+.step-progressbar-part:nth-child(2) {
+    z-index: 1;
+    padding-left: 40px;
+}
+
+.step-progressbar-part:last-child {
+    z-index: 0;
+    padding-left: 40px;
+}
+
+.step-progressbar-part .step-progressbar-heading {
+    font-size: 35px;
+    color: #000;
+    font-weight: 700;
+}
+
+.step-progressbar-text {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+}
+
+.step-progressbar-img {
+    max-width: 35px;
+}
+
+.round_cut_lab_filter {
+    margin-bottom: 8px;
+}
+
+.edit_price_text {
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+.edit_price_text .edit_text {
+    color: var(--primary);
+}
+
+.edit_price_text .price_text {
+    text-transform: capitalize;
+    font-size: 13px;
+}
+
+.edit_price_text .price_part {
+    font-size: 13px;
+}
+
+.order-include-img img {
+    border-radius: 11px;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.order-includes-heading {
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 48px;
+    color: #000000;
+}
+
+.order-box-part .order-box {
+    background: #F9F9F9;
+    box-shadow: 3px 4px 12px rgb(0 0 0 / 25%);
+    border-radius: 10px;
+    padding: 13px 25px;
+    display: flex;
+    align-items: center;
+}
+
+.order-box-part .order-img img {
+    width: auto;
+}
+
+.order-box-part .order-text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
 }

@@ -23,8 +23,8 @@
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="round_cut_lab_diamonds_heading col-lg-1 mb-3 mb-lg-0">category</div>
-                            <div class="wire_bangle_carat col-lg-9">
+                            <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">category</div>
+                            <div class="wire_bangle_carat col-lg-12">
                                 @foreach($Categories as $category)
                                 <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
                                         <input class="form-check-input category common_selector" type="checkbox" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
@@ -38,8 +38,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
-                            <div class="round_cut_lab_diamonds_heading col-lg-2 mb-3 mb-lg-0">price</div>
-                            <div class="round_cut_lab_diamonds_price col-lg-10">
+                            <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
+                            <div class="round_cut_lab_diamonds_price col-lg-12">
                                 <div id="slider-range"></div>
                                 <p class="mb-0"> Price : <span id="amount"></span></p>
                                 <input type="hidden" id="hidden_minimum_price" />
@@ -52,8 +52,8 @@
                                     @foreach($Attributes as $attribute)
                                     @if($attribute->is_specification == 0)
                                     <ul class="right_side_ul round_cut_lab_range_slider row">
-                                        <li class="round_cut_lab_diamonds_heading col-lg-2 mb-3 mb-lg-0">{{ $attribute->attribute_name }}</li>
-                                        <div class="col-lg-10">
+                                        <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
+                                        <div class="col-lg-12">
                                             @foreach($attribute->attributeterm as $term)
                                                 <div class="form-group mb-3 d-inline-block me-3">
                                                     <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">

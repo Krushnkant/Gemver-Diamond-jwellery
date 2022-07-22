@@ -55,6 +55,24 @@
 }
 
 @media (max-width:991px) {
+    .step-progressbar-part {
+        border-radius: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .step-progressbar-part:nth-child(2),
+    .step-progressbar-part:last-child {
+        padding-left: 15px;
+    }
+    .step-progressbar-part .step-progressbar-heading {
+        font-size: 26px;
+    }
+    .step-progressbar-text {
+        font-size: 11px;
+    }
+    .step-progressbar-img {
+        max-width: 28px;
+    }
     .customer_stories_img::after {
         content: none;
     }
@@ -222,6 +240,16 @@
     }
     .blog-detail-paragraph p {
         font-size: 15px;
+    }
+    /* ----------------------------------------------------------------------------- */
+    .order-includes-heading {
+        font-size: 21px;
+    }
+    .order-box-part .order-text {
+        font-size: 15px;
+    }
+    .order-box-part .order-img img {
+        max-height: 26px;
     }
 }
 
@@ -1032,6 +1060,12 @@
         min-height: 43px;
         font-size: 14px;
     }
+    .step-progressbar-img {
+        max-width: 28px;
+    }
+    .step-progressbar-part .step-progressbar-heading {
+        font-size: 29px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1124,10 +1158,10 @@
     .shop_by_style_heading {
         font-size: 15px;
     }
-    .header ul li .mega-menu .mega-menu-three-part{
+    .header ul li .mega-menu .mega-menu-three-part {
         min-width: 600px;
     }
-    .header ul li .mega-menu .mega-menu-two-part{
+    .header ul li .mega-menu .mega-menu-two-part {
         min-width: 500px;
     }
 }
