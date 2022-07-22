@@ -282,8 +282,81 @@
         <div class="gemver_diamonds_section p-0" id="spe_desc">
           
         </div>
-    </div>
+       
 
+    
+ 
+    </div>
+           
+    @if(count($ProductRelated) > 0)
+    <div class="container">
+        <div class="shop_by_category">
+            <div class="row">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative mt-5">
+                    <div>
+                        <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">Related Product </h2>
+                    </div>
+                    <!-- <div class="category-line-img d-none d-md-block">
+                        <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
+                    </div> -->
+                </div>
+                <div class="owl-carousel owl-theme product-detail mb-5">
+                    @foreach($ProductRelated as $Related)
+                    <?php
+                   // dd($ProductRelated);
+                     $images = explode(",",$Related->images);
+                     $image = URL($images['0']);
+                     $sale_price = $Related->sale_price;
+                     $url =  URL('/product-details/'.$Related->id.'/'.$Related->variant_id); 
+                    
+                    ?>
+                    <div class="hover_effect_part wire_bangle_shop_radio">
+                    <div class="wire_bangle_img_radio_button">
+                        <div class="wire_bangle_img mb-3 position-relative">
+                            <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
+                        </div>
+                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
+                            <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
+                            <div class="d-flex justify-content-between pt-2 align-items-center">
+                                <span class="wire_bangle_price wire_bangle_price_part">
+                                    $ {{ $sale_price }}
+                                </span>
+                                <?php 
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
+                                foreach($ProductVariantVariant as $productvariants){
+                                if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                ?>
+                                <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">
+                                <?php
+                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
+                                    $ia = 1;
+                                    foreach($product_attribute as $attribute_term){
+                                ?>
+                                    <span class="form-check d-inline-block">
+                                        <input class="form-check-input variant variantfirst"   value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <div class="wire_bangle_color_input_label"></div>
+                                    </span>
+                                <?php        
+                                    $ia++;    
+                                }
+                                ?>
+                                </div></span>
+                                <?php
+                                    } 
+                                }
+                                ?>
+                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach 
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 <script> 
 
 
