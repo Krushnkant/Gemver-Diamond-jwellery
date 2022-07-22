@@ -175,7 +175,7 @@
                                     review your engagement ring
                                 </span>
                                 <div class="d-flex edit_price_text mt-1">
-                                    <div class="d-flex ms-2">
+                                    <div class="d-flex">
                                         <span class="price_text me-2">
                                             price:
                                         </span>

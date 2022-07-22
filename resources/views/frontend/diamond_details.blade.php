@@ -177,7 +177,7 @@
                                     <span class="me-2">
                                         <a href="#" class="edit_text">Edit</a>
                                     </span>
-                                    <div class="d-flex ms-2">
+                                    <div class="d-flex">
                                         <span class="price_text me-2">
                                             price:
                                         </span>
