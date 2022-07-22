@@ -28,9 +28,12 @@ class ProductController extends Controller
         //\DB::enableQueryLog();
         // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        //$ProductRelated= Product::with('primary_category','product_variant')->where(['estatus' => 1,'primary_category_id' => $id])->get();
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $id])->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         
+        //dd($ProductRelated);
         //dd(\DB::getQueryLog());
-        return view('frontend.product',compact('Product','variantid','attribute_term_ids'));
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated'));
     }
 
     public function fetchproduct(Request $request){
@@ -104,8 +107,6 @@ class ProductController extends Controller
                         </div>
                         <div class="wire_bangle_description p-3">';
                         
-                             
-                           
                             $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
