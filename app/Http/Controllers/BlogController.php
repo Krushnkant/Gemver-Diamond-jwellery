@@ -39,13 +39,13 @@ class BlogController extends Controller
                 $description = Str::limit($taglessBody, 100, "...");
                 
                 $output .= '
-                <div class="col-md-6 col-lg-4 px-0 px-md-3 mb-4">
+                <div class="col-md-6 col-lg-6 col-xl-4 px-0 px-md-3 mb-md-4">
                     <div class="blog_box">
                         <div class="blog_box_img position-relative">
                         <img src="'.url('/').'/'.$row->blog_thumb.'" alt="">
                         </div>
                         <div class="blg_box_description">
-                            <div class="blg_box_date my-3">
+                            <div class="blg_box_date my-2">
                                 <span class="me-2"> 
                                     <img src="'. url('frontend/image/icon-1.png') .' " alt="" class="blog-icon-img">
                                 </span>
@@ -53,13 +53,13 @@ class BlogController extends Controller
                                     '.date('d M, Y', strtotime($row->created_at)).'
                                 </span>
                             </div>
-                            <div class="blog_box_heading mb-2">
+                            <div class="blog_box_heading">
                                <a href="'.url("/").'/blog/'.$row->id.'"> '.$row->title.'</a>
                             </div>
                             <p class="blog_box_paragraph">
                                 '. $description .'
                             </p>
-                            <button class="explore-category-btn mb-3 mb-md-0 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
+                            <button class="explore-category-btn mb-0 mb-md-3 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
                         </div>
                     </div>
                 </div>

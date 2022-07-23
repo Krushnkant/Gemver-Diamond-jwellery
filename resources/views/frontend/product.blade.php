@@ -282,19 +282,96 @@
         <div class="gemver_diamonds_section p-0" id="spe_desc">
           
         </div>
-       
+
+        <div class="order-includes-heading mb-md-3 mb-xl-4 mb-2 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+            Your Order Includes
+        </div>
+
+        <div class="row mt-md-0 mt-xl-5 align-items-center">
+                <div class="col-md-6 col-lg-4 pe-4">
+                    <div class="order-include-img">
+                        <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-8 col-lg-6">
+                    <div class="order-includes-heading mb-lg-4 mb-2 px-3 mt-lg-3 mt-2 text-center text-lg-start d-none d-xl-block">
+                        Your Order Includes
+                    </div>
+                    <div class="row mt-4 mt-md-0">
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_1.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    Qulity packaging
+                            </span>
+                            </div>    
+                        </div>
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_2.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    Free Shipping
+                            </span>
+                            </div>   
+                        </div>
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_3.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    30 Days free returns
+                            </span>
+                            </div>    
+                        </div>
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_4.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    Valuation certificate
+                            </span>
+                            </div>      
+                        </div>
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_5.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    Lifetime warrenty
+                            </span>
+                            </div>      
+                        </div>
+                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                            <div class="order-box">
+                            <span class="order-img">
+                                <img src="{{ url('frontend/image/order_6.png') }}" alt="">   
+                            </span>
+                            <span class="order-text text-start">
+                                    Concierge Service
+                            </span>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
- 
-    </div>
-           
     @if(count($ProductRelated) > 0)
     <div class="container">
         <div class="shop_by_category">
             <div class="row">
-                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative mt-5">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div>
-                        <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">Related Product </h2>
+                        <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Product </h2>
                     </div>
                     <!-- <div class="category-line-img d-none d-md-block">
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
@@ -357,6 +434,9 @@
         </div>
     </div>
     @endif
+
+    <div>
+   
 <script> 
 
 
