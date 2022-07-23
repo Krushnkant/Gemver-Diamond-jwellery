@@ -141,9 +141,10 @@ $(document).ready(function() {
     $(".blog_filter_btn").click(function() {
         $(".blog_filter_btn_ul").slideToggle();
     });
-    $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function() {
+    $('#nav-icon1').click(function() {
         $(this).toggleClass('open');
         $(".mobile-sub-menu").toggleClass("active");
+        $("body").toggleClass("mobile-sub-menu-active");
     });
     $(".mobile-sub-menu>li>a").click(function() {
         $(this).parent(".mobile-sub-menu>li").find(".mega-menu").toggleClass("slide_up_menu");
