@@ -2,14 +2,14 @@
         <div class="home-page-bg">
                     <div class="container">
                         <div class="row mt-0 mb-0">
-                            <div class="col-md-3 text-start">
+                            <div class="col-md-4 col-lg-3 text-center">
                                 <div class="home-page-header">
                                     <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us </a></span>
                                     <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span>
                                     <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
                                 </div>
                             </div>
-                            <div class="col-md-9 text-end">
+                            <div class="col-md-8 col-lg-9 text-end">
                                 <div class="home-page-header">
                                   <?php 
                                       $offers = \App\Models\Offer::where('estatus',1)->get();
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-            <div class="row align-items-center position-relative">
+            <div class="row align-items-center header_row">
                 <div class="col-6 col-lg-12 mb-md-3">
                     <div class="logo-image header-logo mx-lg-auto">
                         <a href="{{ URL('/') }}">

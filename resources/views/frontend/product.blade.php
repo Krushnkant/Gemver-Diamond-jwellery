@@ -234,7 +234,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-xl-5 pt-xxl-5 mb-xxl-4" id="description">
+        <div class="row mt-xl-0 pt-xxl-0 mb-xxl-4" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description

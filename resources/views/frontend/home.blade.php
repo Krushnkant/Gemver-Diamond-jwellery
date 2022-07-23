@@ -249,13 +249,13 @@
 
         </div> -->
         <div class="container engagement_diamond_section">
-            <div class="row align-items-center">
-                    <div class="col-lg-4 pe-lg-4">
+            <div class="row">
+                    <div class="col-lg-5 col-xl-4 pe-lg-4">
                         <div class="engagement_diamond_img">
                             <img src="{{ asset('frontend/image/how_to_img.png') }}" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-7 col-xl-8">
                         <h2 class="mb-md-4 engagement_diamond_heading">{{ strtolower($step->main_title) }}</h2>
                         <p class="engagement_diamond_paragraph_part mb-md-4">
                             {{ $step->main_shotline }}

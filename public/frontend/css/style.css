@@ -10,6 +10,7 @@
 
 body {
     position: relative;
+    overflow: hidden;
 }
 
 :root {
@@ -157,6 +158,10 @@ background-size: cover;
     visibility: hidden;
     box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
     pointer-events: none;
+}
+
+.header_row {
+    position: relative;
 }
 
 
@@ -709,6 +714,17 @@ background-size: cover;
     background: #F0F0F0;
     padding-left: 25px;
     padding-top: 15px;
+}
+
+.engagement_diamond_img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.engagement_diamond_img img {
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 5px 4px 7px rgb(0 0 0 / 8%);
 }
 
 .engagement_diamond_sub_heading {
