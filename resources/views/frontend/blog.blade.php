@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="row my-3 my-lg-5 d-flex align-items-start">
-            <div class="col-lg-9 px-0 px-lg-3">
+            <div class="col-lg-8 col-xl-9 px-0 px-lg-3">
                 <div class="blog-detail-main-img">
                     <img src="{{ asset($blog->blog_thumb)  }}" alt="{{ $blog->category->category_name }}">
                 </div>
@@ -39,27 +39,86 @@
                     {!! $blog->description !!}
                 </div>
             </div>
-            <div class="col-lg-3 blog-detail-sidebar px-0 px-lg-3">
+            <div class="col-lg-4 col-xl-3 blog-detail-sidebar px-0 px-lg-3">
                 <div class="blog-detail-post-heading">
                     Recent Post
                 </div>
 
                 @foreach($blogs as $lblog)
-                <div class="row mt-3 d-flex">
-                    <div class="col-2 col-lg-4 px-0">
+                <div class="row mt-3 d-flex align-items-center">
+                    <div class="col-3 col-lg-4 px-0">
                         <div class="blog-detail-sidebar-img position-relative">
                             <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
                         </div>
                     </div>
-                    <div class="col-10 col-lg-8 px-0 px-3 pe-3">
+                    <div class="col-9 col-lg-8 px-0 px-3 pe-3">
                         <div class="blog-detail-paragraph">
                             <a href=" {{ url('/blog/'.$lblog->id) }} ">{{ $lblog->title }}</a>
                         </div>
                     </div>
                 </div>
+                <div class="mt-3">
+                        <img src="{{ asset('frontend/image/blog-sidebar.png') }}" alt="">
+                    </div>
+                    <div class="blog-detail-post-heading mt-4">
+                        Top Selling
+                    </div>
+                    <div class="mt-3 d-flex align-items-center">
+                        <div class="px-0">
+                            <div class="blog-sidebar-top-selling position-relative">
+                                <img src="{{ asset('frontend/image/top_selling_1.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-8 px-0 ms-3">
+                            <div class="blog-detail-paragraph">
+                                <a href="#" class="top_selling_heading mb-2 d-inline-block">Unique Diamond Pendant</a>
+                                <div class="top_selling_price">$ 1490</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex align-items-center">
+                        <div class="px-0">
+                            <div class="blog-sidebar-top-selling position-relative">
+                                <img src="{{ asset('frontend/image/top_selling_2.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-8 px-0 ms-3">
+                            <div class="blog-detail-paragraph">
+                                <a href=" # " class="top_selling_heading mb-2 d-inline-block">Fancy Gold Bracelet</a>
+                                <div class="top_selling_price">$ 2,845</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex align-items-center">
+                        <div class="px-0">
+                            <div class="blog-sidebar-top-selling position-relative">
+                                <img src="{{ asset('frontend/image/top_selling_3.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-8 px-0 ms-3">
+                            <div class="blog-detail-paragraph">
+                                <a href="#" class="top_selling_price mb-2 d-inline-block">Moissanite Rose Ring </a>
+                                <div class="top_selling_price">$ 860</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex align-items-center">
+                        <div class="px-0">
+                            <div class="blog-sidebar-top-selling position-relative">
+                                <img src="{{ asset('frontend/image/top_selling_4.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-8 px-0 ms-3">
+                            <div class="blog-detail-paragraph">
+                                <a href="#" class="top_selling_price mb-2 d-inline-block">lakshmi Bangles</a>
+                                <div class="top_selling_price">$ 2,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <img src="{{ asset('frontend/image/blog-sidebar-2.png') }}" alt="">
+                    </div>
                 @endforeach
-            
-                
             </div>
         </div>
     </div>

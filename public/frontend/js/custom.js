@@ -108,11 +108,11 @@ $(document).ready(function() {
             0: {
                 items: 1
             },
-            576: {
-                items: 1,
-            },
-            768: {
+            500: {
                 items: 2,
+            },
+            992: {
+                items: 3,
             },
             1200: {
                 items: 4
@@ -138,6 +138,9 @@ $(document).ready(function() {
         }
     });
 
+    $(".blog_filter_btn").click(function() {
+        $(".blog_filter_btn_ul").slideToggle();
+    });
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function() {
         $(this).toggleClass('open');
         $(".mobile-sub-menu").toggleClass("active");

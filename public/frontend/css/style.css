@@ -221,7 +221,6 @@ background-size: cover;
     column-count: 2;
 }
 
-
 .header ul li .mega-menu .mega-menu-three-part {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
@@ -229,8 +228,9 @@ background-size: cover;
     text-align: left;
     padding: 20px;
 }
-.header ul li .mega-menu .mega-menu-two-three-part{
-    grid-template-columns: 66%  33.33%;
+
+.header ul li .mega-menu .mega-menu-two-three-part {
+    grid-template-columns: 66% 33.33%;
 }
 
 .header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {
@@ -2624,10 +2624,10 @@ background-size: cover;
     color: #fff;
     border-radius: 0;
     font-family: 'Roboto', sans-serif;
-    padding: 9px 40px;
-    font-size: 16px;
+    padding: 9px 30px;
+    font-size: 14px;
     text-align: left;
-    margin: 0 15px;
+    margin: 0 6px;
 }
 
 .blog_tabs .nav-tabs .nav-item .nav-link.active {
@@ -2659,24 +2659,9 @@ background-size: cover;
     object-fit: cover;
 }
 
-.blog-detail-sidebar-img:before {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
-
 .blog-detail-sidebar-img img {
-    transform: scale(1);
-    transition: all 0.2s ease;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 80px;
+    height: 80px;
 }
 
 .blg_box_description .blog_box_date,
@@ -2686,15 +2671,15 @@ background-size: cover;
 }
 
 .blg_box_description .blog_box_date {
-    font-size: 16px;
+    font-size: 15px;
     color: gray;
 }
 
 .blg_box_description .blog_box_heading a {
-    font-size: 20px;
+    font-size: 17px;
     color: var(--secondary);
     font-weight: 700;
-    min-height: 60px;
+    min-height: 55px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -2702,7 +2687,7 @@ background-size: cover;
 }
 
 .blg_box_description .blog_box_paragraph {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--primary);
     font-weight: 500;
     min-height: 48px;
@@ -2715,7 +2700,7 @@ background-size: cover;
 .blg_box_description .read_more_btn {
     min-width: auto;
     min-height: auto;
-    font-size: 16px;
+    font-size: 14px;
     border: 0;
     color: var(--secondary);
     padding: 0;
@@ -3851,8 +3836,8 @@ span#amount {
 }
 
 .order-includes-heading {
-    font-weight: 500;
-    font-size: 33px;
+    font-weight: 600;
+    font-size: 30px;
     line-height: 48px;
     color: #000000;
 }
@@ -3864,10 +3849,15 @@ span#amount {
     padding: 13px 25px;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .order-box-part .order-img img {
     width: auto;
+}
+
+.order-box-part .order-img {
+    min-width: 70px;
 }
 
 .order-box-part .order-text {
@@ -3876,4 +3866,24 @@ span#amount {
     line-height: 22px;
     text-align: center;
     color: #000000;
+}
+
+.top_selling_heading {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #212529;
+}
+
+.top_selling_price {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    color: #212529;
+}
+
+.blog-sidebar-top-selling img {
+    width: 80px;
+    height: 80px;
+    box-shadow: 4px 4px 12px rgb(0 0 0 / 25%);
 }
