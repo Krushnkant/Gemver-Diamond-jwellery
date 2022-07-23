@@ -39,7 +39,17 @@
                             <span></span>
                             <span></span>
                         </div>
+                        <!-- <div class="sub-pack">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                            </svg>
+                        </div> -->
                         <ul class="mobile-sub-menu">
+                            <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
                             <li class="{{ (request()->is('/')) ? 'active' : '' }}" ><a href="{{ URL('/') }}">home</a></li>
                             <!-- <li><a href="{{ Route('frontend.aboutus')}}">about us</a></li> -->
                            
@@ -58,6 +68,16 @@
                                         }
                                 ?>
                                 <div class="mega-menu">
+                                    <div class="sub-pack">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <div class="mega-menu-{{ $sizecat }}-part ">
                                         
                                         <?php 
@@ -88,7 +108,7 @@
                                              ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->id)}}">
-                                                    <img src="{{ url($car->category_thumb) }}" alt="{{ $car->category_name }}" class="mega-menu-img "> <span class="ms-2 ">{{ $car->category_name }}</span>
+                                                    <img src="{{ url($car->category_thumb) }}" alt="{{ $car->category_name }}" class="mega-menu-img "> <span class="ms-0 ms-md-2">{{ $car->category_name }}</span>
                                                 </a>
                                             </li>
                                             <?php 
@@ -139,6 +159,16 @@
                                     </svg>
                                 </a>
                                 <div class="mega-menu ">
+                                    <div class="sub-pack">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <div class="mega-menu-four-part ">
                                         <div>
                                     <?php 
@@ -159,10 +189,10 @@
                                             </li>
                                             <li>
                                                 <a href="{{ URL('/product-setting/'.$car->id)}}" class="d-flex">
-                                                    <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img "> <span class="ms-2 ">Start with a Setting</span></a>
+                                                    <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img "> <span class="ms-0 ms-md-2">Start with a Setting</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ URL('/diamond-setting/'.$car->id)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-2 ">Start with a Lab Diamond</span></a>
+                                                <a href="{{ URL('/diamond-setting/'.$car->id)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-0 ms-md-2">Start with a Lab Diamond</span></a>
                                             </li>
                                         </ul>
 
@@ -182,10 +212,20 @@
                                     </svg>
                                 </a>
                                 <div class="mega-menu ">
+                                    <div class="sub-pack">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <div class="mega-menu-two-three-part mega-menu-three-part">
                                         <div>
                                                 <div class="d-block">
-                                                    <span class="menus_title">loose lab diamonds</span>
+                                                    <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                 </div>
                                                 <ul class="mega-menu-diamond-part">
                                                 
@@ -196,7 +236,7 @@
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/'.$shape) }}" class="d-flex">
                                                             <span class="d-inline-block"><img src="{{ url('frontend/image/'.ltrim(strtolower($shape),' ').'.png') }}" alt="{{ $shape }}" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 d-inline-block">{{ strtolower($shape) }}</span>
+                                                            <span class="ms-2 ms-md-2 d-inline-block">{{ strtolower($shape) }}</span>
                                                         </a>
                                                     </li>
                                                     @endforeach
@@ -215,6 +255,16 @@
                                 </svg>
                                 </a>
                                 <div class="mega-menu ">
+                                    <div class="sub-pack">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                     <div class="mega-menu-four-part ">
                                         <ul>
                                             <li>
@@ -236,16 +286,16 @@
                                                 <span class="menus_title">Diamond Anatomy </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#cut"> <span class="ms-2 ">Cut</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#cut"> <span class="ms-0 ms-md-2">Cut</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#color"><span class="ms-2 ">Color</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#color"><span class="ms-0 ms-md-2 ">Color</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#clarity"><span class="ms-2 ">Clarity</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#clarity"><span class="ms-0 ms-md-2">Clarity</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#carat"><span class="ms-2 ">Carat</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#carat"><span class="ms-0 ms-md-2">Carat</span></a>
                                             </li>
                                         </ul>
 

@@ -160,6 +160,11 @@ background-size: cover;
     pointer-events: none;
 }
 
+.sub-pack {
+    pointer-events: none;
+    opacity: 0;
+}
+
 .header_row {
     position: relative;
 }
@@ -2693,7 +2698,7 @@ background-size: cover;
 
 .blg_box_description .blog_box_heading a {
     font-size: 17px;
-    color: var(--secondary);
+    color: var(--primary);
     font-weight: 700;
     min-height: 55px;
     display: -webkit-box;
@@ -2704,13 +2709,14 @@ background-size: cover;
 
 .blg_box_description .blog_box_paragraph {
     font-size: 15px;
-    color: var(--primary);
+    color: gray;
     font-weight: 500;
     min-height: 48px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 .blg_box_description .read_more_btn {

@@ -19,7 +19,7 @@
     </div>
        
     <div class="container my-5">
-            <div class="row">
+            <div class="row d-flex align-items-start">
                 <div class="col-lg-8 col-xl-9 px-0 mb-3">
                     <div class="blog_tabs">
                         <div class="blog_filter_btn d-md-none">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-xl-3 blog-detail-sidebar px-0 px-lg-3 mt-4">
+                <div class="col-lg-4 col-xl-3 blog-detail-sidebar px-0 px-lg-3 mt-0">
                     <div class="blog-detail-post-heading">
                         Recent Post
                     </div>
