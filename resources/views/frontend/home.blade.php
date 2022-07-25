@@ -399,10 +399,10 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content">
                                         <div class="row">
-                                            <div class="col-6 ps-0 text-start">
+                                            <div class="col-8 col-sm-6 ps-0 text-start">
                                                 <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div>
                                             </div>
-                                            <div class="col-6 text-end pe-0">
+                                            <div class="col-4 col-sm-6 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
@@ -414,7 +414,7 @@
             
                                         
                                         
-                                        <div class="row mb-0 mb-xxl-4">
+                                        <div class="row mb-4 mb-xxl-4">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>

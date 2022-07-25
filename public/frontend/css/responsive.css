@@ -275,6 +275,10 @@
         min-height: auto;
         height: 100%;
     }
+    .gemver_diamods_bg img {
+        height: 100%;
+        object-fit: cover;
+    }
     .diamonds_part {
         position: initial !important;
         transform: none !important;
