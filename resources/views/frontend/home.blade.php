@@ -255,7 +255,7 @@
                             <img src="{{ asset('frontend/image/how_to_img_2.png') }}" alt="">
                         </div>
                     </div>
-                    <div class="col-lg-7 col-xl-8">
+                    <div class="col-lg-7 col-xl-8 mt-4 mt-lg-0">
                         <h2 class="mb-md-4 engagement_diamond_heading">{{ strtolower($step->main_title) }}</h2>
                         <p class="engagement_diamond_paragraph_part mb-md-4">
                             {{ $step->main_shotline }}

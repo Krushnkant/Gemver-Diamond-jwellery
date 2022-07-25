@@ -316,9 +316,11 @@
 
 @media (max-width:1199px) {
     .background-text-part {
-        position: initial;
-        transform: none;
-        margin-top: 0;
+        top: 50%;
+        width: 100%;
+    }
+    .customer-stories img {
+        height: 160px;
     }
     .paragraph {
         color: #0B1727;
@@ -334,16 +336,16 @@
         line-height: normal;
     }
     .explore-ring-btn {
-        min-width: 164px;
-        min-height: 47px;
-        font-size: 12px;
+        min-width: 130px;
+        min-height: 42px;
+        font-size: 11px;
     }
     .heading-h2 {
-        font-size: 24px;
+        font-size: 22px;
         line-height: normal;
     }
     .h3-heading {
-        font-size: 24px;
+        font-size: 22px;
         line-height: normal;
     }
     .explore-category-btn {
@@ -372,7 +374,7 @@
         padding-left: 25px;
     }
     .engagement_diamond_heading {
-        font-size: 24px;
+        font-size: 22px;
     }
     .customer-stories-paragraph {
         font-size: 14px;
@@ -405,7 +407,7 @@
         line-height: 23px;
     }
     .engagement_diamond_sub_heading {
-        font-size: 14px;
+        font-size: 13px;
     }
     .engagement_ring_paragraph {
         font-size: 14px;
@@ -611,7 +613,11 @@
         transform: rotate(-135deg);
     }
     .shop_dimond_by_shape .owl-item img {
-        width: auto !important;
+        width: 66% !important;
+        object-fit: contain;
+    }
+    .shop_by_style_heading {
+        font-size: 14px;
     }
     .about_box_bg {
         padding: 50px;
@@ -904,7 +910,7 @@
         font-size: 14px;
     }
     .round_cut_lab_diamonds_info_main_heading a {
-        font-size: 17px;
+        font-size: 15px;
     }
     .round_cut_lab_diamonds_info_clarity {
         font-size: 14px;
