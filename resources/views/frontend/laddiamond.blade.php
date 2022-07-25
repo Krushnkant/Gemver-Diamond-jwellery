@@ -223,8 +223,8 @@
         <div class="wire_bangle_line "></div>
 
         <div class="row my-4">
-            <div class="col-md-6 text-start">
-                <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
+            <div class="col-sm-6 text-center text-sm-start">
+                <ul  class="nav wire_bangle_tabs_part justify-content-center justify-sm-content-center" id="myTab" role="tablist">
                     <li class="active nav-item">
                         <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
                     </li>
@@ -233,7 +233,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-sm-6 text-center text-sm-end">
                
                 <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
