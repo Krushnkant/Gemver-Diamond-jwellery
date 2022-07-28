@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantVariant;
+use App\Models\OrderIncludes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Response;
@@ -33,7 +34,8 @@ class ProductController extends Controller
         
         //dd($ProductRelated);
         //dd(\DB::getQueryLog());
-        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated'));
+        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes'));
     }
 
     public function fetchproduct(Request $request){

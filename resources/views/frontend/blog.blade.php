@@ -57,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 <div class="mt-3">
                         <img src="{{ asset('frontend/image/blog-sidebar.png') }}" alt="">
                     </div>
@@ -64,11 +65,23 @@
                         Top Selling
                     </div>
                     <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_1.png') }}" alt="">
-                            </div>
-                        </div>
+                    @if(isset($BlogBanners) && $BlogBanners != "")
+                    <?php 
+                        $url = "";
+                        if($BlogBanners['0']['dropdown_id'] == 1){
+                            $url = url('/shop/'.$BlogBanners['0']['value']); 
+                        }elseif($BlogBanners['0']['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
+                            $cat_id = $Product->primary_category_id;
+                            $var_id = $Product->product_variant[0]->id;
+                            $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                        }
+                    ?>
+                    <div class="mt-3">
+                        <a href="{{ $url }}"><img src="{{ url($BlogBanners['0']['banner_thumb']) }}" alt=""></a>
+                    </div>
+                    
+                    @endif
                         <div class="col-9 col-lg-8 px-0 ms-3">
                             <div class="blog-detail-paragraph">
                                 <a href="#" class="top_selling_heading mb-2 d-inline-block">Unique Diamond Pendant</a>
@@ -115,10 +128,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4">
-                        <img src="{{ asset('frontend/image/blog-sidebar-2.png') }}" alt="">
-                    </div>
-                @endforeach
+                    @if(isset($BlogBanners) && $BlogBanners != "")
+                        @foreach($BlogBanners as $key => $BlogBanner)
+                            <?php 
+                            $url = "";
+                            if($BlogBanner['dropdown_id'] == 1){
+                             $url = url('/shop/'.$BlogBanner['value']); 
+                            }elseif($BlogBanner['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
+                             //dd($Product->product_variant[0]->id);
+                             $cat_id = $Product->primary_category_id;
+                             $var_id = $Product->product_variant[0]->id;
+                             $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                            }
+                            
+                            ?>
+                            @if($key != 0)
+                                <div class="mt-4">
+                                    <a href="{{ $url }}"><img src="{{ url($BlogBanner['banner_thumb']) }}" alt=""></a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                
             </div>
         </div>
     </div>

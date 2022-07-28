@@ -349,6 +349,29 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('offers/{id}/edit',[\App\Http\Controllers\admin\OfferController::class,'editoffer'])->name('offers.edit');
     Route::get('offers/{id}/delete',[\App\Http\Controllers\admin\OfferController::class,'deleteoffer'])->name('offers.delete');
     Route::get('chageofferstatus/{id}',[\App\Http\Controllers\admin\OfferController::class,'chageofferstatus'])->name('offers.chageofferstatus');
+
+    Route::get('order_includes',[\App\Http\Controllers\admin\OrderIncludesController::class,'index'])->name('order_includes.list');
+    Route::get('order_includes/create',[\App\Http\Controllers\admin\OrderIncludesController::class,'create'])->name('order_includes.add');
+    Route::post('order_includes/save',[\App\Http\Controllers\admin\OrderIncludesController::class,'save'])->name('order_includes.save');
+    Route::post('allorderinludeslist',[\App\Http\Controllers\admin\OrderIncludesController::class,'allorderinludeslist'])->name('allorderinludeslist');
+    Route::get('changeorder_includesstatus/{id}',[\App\Http\Controllers\admin\OrderIncludesController::class,'changeorder_includestatus'])->name('order_includes.changeshopbystylestatus');
+    Route::get('order_includes/{id}/delete',[\App\Http\Controllers\admin\OrderIncludesController::class,'deleteorder_includes'])->name('order_includes.delete');
+    Route::get('order_includes/{id}/edit',[\App\Http\Controllers\admin\OrderIncludesController::class,'editorder_includes'])->name('order_includes.edit');
+    Route::post('order_includes/uploadfile',[\App\Http\Controllers\admin\OrderIncludesController::class,'uploadfile'])->name('order_includes.uploadfile');
+    Route::post('order_includes/removefile',[\App\Http\Controllers\admin\OrderIncludesController::class,'removefile'])->name('order_includes.removefile');
+    Route::get('order_includes/checkparentcat/{id}',[\App\Http\Controllers\admin\OrderIncludesController::class,'checkparentcat'])->name('order_includes.checkparentcat');
+    Route::get('order_includes/getterm/{id}', [\App\Http\Controllers\admin\OrderIncludesController::class, 'loadterm'])->name('order_includes.checkparentcat');
+
+    Route::get('blogbanners',[\App\Http\Controllers\admin\BlogBannerController::class,'index'])->name('blogbanners.list');
+    Route::get('blogbanners/create',[\App\Http\Controllers\admin\BlogBannerController::class,'create'])->name('blogbanners.add');
+    Route::post('blogbanners/save',[\App\Http\Controllers\admin\BlogBannerController::class,'save'])->name('blogbanners.save');
+    Route::post('allblogbannerlist',[\App\Http\Controllers\admin\BlogBannerController::class,'allblogbannerlist'])->name('allblogbannerlist');
+    Route::get('changeblogbannerstatus/{id}',[\App\Http\Controllers\admin\BlogBannerController::class,'changeblogbannerstatus'])->name('blogbanners.changeblogbannerstatus');
+    Route::get('blogbanners/{id}/delete',[\App\Http\Controllers\admin\BlogBannerController::class,'deletebanner'])->name('blogbanners.delete');
+    Route::get('blogbanners/{id}/edit',[\App\Http\Controllers\admin\BlogBannerController::class,'editbanner'])->name('blogbanners.edit');
+    Route::post('blogbanners/uploadfile',[\App\Http\Controllers\admin\BlogBannerController::class,'uploadfile'])->name('blogbanners.uploadfile');
+    Route::post('blogbanners/removefile',[\App\Http\Controllers\admin\BlogBannerController::class,'removefile'])->name('blogbanners.removefile');
+    Route::post('blogbanners/getBannerInfoVal',[\App\Http\Controllers\admin\BlogBannerController::class,'getBannerInfoVal'])->name('blogbanners.getBannerInfoVal');
 });
 
 
