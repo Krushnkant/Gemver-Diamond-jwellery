@@ -2683,6 +2683,7 @@ background-size: cover;
 .blog-detail-sidebar-img img {
     width: 80px;
     height: 80px;
+    object-fit: cover;
 }
 
 .blg_box_description .blog_box_date,
