@@ -314,6 +314,16 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         ProjectPage::create([ 
+            'id' => 41, 
+            'parent_menu' => 28, 
+            'label' => 'Blog Banners', 
+            'route_url' => 'admin.blogbanners.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
+           
+        ]);
+
+        ProjectPage::create([ 
             'id' => 31, 
             'parent_menu' => 0, 
             'label' => 'Banners', 
@@ -405,14 +415,24 @@ class ProjectPageSeeder extends Seeder
             'parent_menu' => 0,
             'label' => 'Offer',
             'route_url' => 'admin.offers.list',
-            'icon_class' => 'fa fa-gif',
+            'icon_class' => 'fa fa-gift',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.offers.list,admin.offers.add,admin.offers.save,admin.allofferlist,admin.offers.changeofferstatus,admin.offers.delete,admin.offers.edit',
             'sr_no' => 25
         ]);
 
-      
+        ProjectPage::create([
+            'id' => 40,
+            'parent_menu' => 0,
+            'label' => 'Order Includes',
+            'route_url' => 'admin.order_includes.add',
+            'icon_class' => 'fa fa-first-order',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.order_includes.list,admin.order_includes.add,admin.order_includes.save,admin.allorder_includeslist,admin.order_includes.changeorder_includestatus,admin.order_includes.delete,admin.order_includes.edit',
+            'sr_no' => 26
+        ]);
 
+        
 
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

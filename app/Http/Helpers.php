@@ -4,6 +4,7 @@ namespace App\Http;
 
 use Mail;
 use Config;
+use Illuminate\Support\Str;
 
 class Helpers{
 	
@@ -22,7 +23,7 @@ class Helpers{
         $imageName = Str::random().'.'.$image->getClientOriginalExtension();
         // dump($imageName);
         // $path = Storage::disk('public')->putFileAs($path, $image,$imageName);
-        $path = $image->move(public_path($path), $imageName);
+        $path = $image->move($path, $imageName);
         // dump($path);
         if($path == true){
             return $imageName;

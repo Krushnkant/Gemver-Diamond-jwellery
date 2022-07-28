@@ -282,9 +282,9 @@
         <div class="gemver_diamonds_section p-0" id="spe_desc">
           
         </div>
-
+        @if(isset($OrderIncludes->orderincludesdata))
         <div class="order-includes-heading mb-md-3 mb-xl-4 mb-2 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
-            Your Order Includes
+             {{ $OrderIncludes->title }}
         </div>
 
         <div class="row mt-md-0 mt-xl-5 align-items-center">
@@ -295,73 +295,27 @@
                 </div>
                 <div class="col-md-6 col-lg-8 col-lg-6">
                     <div class="order-includes-heading mb-lg-4 mb-2 px-3 mt-lg-3 mt-2 text-center text-lg-start d-none d-xl-block">
-                        Your Order Includes
+                        {{ $OrderIncludes->title }}
                     </div>
                     <div class="row mt-4 mt-md-0">
+                        @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
                         <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
                             <div class="order-box">
                             <span class="order-img">
-                                <img src="{{ url('frontend/image/order_1.png') }}" alt="">   
+                                <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
                             </span>
                             <span class="order-text text-start">
-                                    Qulity packaging
+                                    {{ $orderincludesdata->title }}
                             </span>
                             </div>    
                         </div>
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
-                            <div class="order-box">
-                            <span class="order-img">
-                                <img src="{{ url('frontend/image/order_2.png') }}" alt="">   
-                            </span>
-                            <span class="order-text text-start">
-                                    Free Shipping
-                            </span>
-                            </div>   
-                        </div>
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
-                            <div class="order-box">
-                            <span class="order-img">
-                                <img src="{{ url('frontend/image/order_3.png') }}" alt="">   
-                            </span>
-                            <span class="order-text text-start">
-                                    30 Days free returns
-                            </span>
-                            </div>    
-                        </div>
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
-                            <div class="order-box">
-                            <span class="order-img">
-                                <img src="{{ url('frontend/image/order_4.png') }}" alt="">   
-                            </span>
-                            <span class="order-text text-start">
-                                    Valuation certificate
-                            </span>
-                            </div>      
-                        </div>
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
-                            <div class="order-box">
-                            <span class="order-img">
-                                <img src="{{ url('frontend/image/order_5.png') }}" alt="">   
-                            </span>
-                            <span class="order-text text-start">
-                                    Lifetime warrenty
-                            </span>
-                            </div>      
-                        </div>
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
-                            <div class="order-box">
-                            <span class="order-img">
-                                <img src="{{ url('frontend/image/order_6.png') }}" alt="">   
-                            </span>
-                            <span class="order-text text-start">
-                                    Concierge Service
-                            </span>
-                            </div>   
-                        </div>
+                        @endforeach
+                       
                     </div>
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     

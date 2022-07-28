@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\BlogBanner;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -10,7 +12,9 @@ class BlogController extends Controller
 {
     public function index(){
         $Categories = BlogCategory::where(['estatus' => 1])->get();
-        return view('frontend.blogs',compact('Categories'));
+        $BlogBanners = BlogBanner::where(['estatus' => 1])->get()->ToArray();
+        $blogs = Blog::where(['estatus' => 1])->inRandomOrder()->limit(4)->orderBy('id', 'DESC')->get();
+        return view('frontend.blogs',compact('Categories','BlogBanners','blogs'));
     }
 
     public function fetchblogs(Request $request){
@@ -59,14 +63,12 @@ class BlogController extends Controller
                             <p class="blog_box_paragraph">
                                 '. $description .'
                             </p>
-                            <button class="explore-category-btn mb-0 mb-md-3 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
+                            <button class="explore-category-btn mb-0 mb-md-3 mt-3 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
                         </div>
                     </div>
                 </div>
                 ';
             }
-            }else{
-                $output .= 'Data Not Found';  
             } 
             $data = ['output' => $output,'datacount' => count($result)];   
             return $data;
@@ -76,6 +78,7 @@ class BlogController extends Controller
     public function blogdetails($id){
         $blog = Blog::with('category')->where(['id' => $id,'estatus' => 1])->first();
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
-        return view('frontend.blog',compact('blog','blogs'));
+        $BlogBanners = Blogbanner::where(['estatus' => 1])->get()->ToArray();
+        return view('frontend.blog',compact('blog','blogs','BlogBanners'));
     }
 }
