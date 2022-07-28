@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
-use App\Models\Blogbanner;
+use App\Models\BlogBanner;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -12,7 +12,7 @@ class BlogController extends Controller
 {
     public function index(){
         $Categories = BlogCategory::where(['estatus' => 1])->get();
-        $BlogBanners = Blogbanner::where(['estatus' => 1])->get()->ToArray();
+        $BlogBanners = BlogBanner::where(['estatus' => 1])->get()->ToArray();
         $blogs = Blog::where(['estatus' => 1])->inRandomOrder()->limit(4)->orderBy('id', 'DESC')->get();
         return view('frontend.blogs',compact('Categories','BlogBanners','blogs'));
     }
