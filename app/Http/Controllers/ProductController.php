@@ -57,7 +57,7 @@ class ProductController extends Controller
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price"]);
             }
             if(isset($data["category"])){
-                $query = $query->where('primary_category_id',$data["category"]);
+                $query = $query->whereIn('primary_category_id',$data["category"]);
             }
             
             if(isset($data["attribute"])){
@@ -351,7 +351,7 @@ class ProductController extends Controller
                 foreach($ProductVariantSpecification as $productvariants)
                 {
     
-                $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                $spe .='<span class="wire_bangle_select mb-2 me-3 d-inline-block">
                             <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                             <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                     
@@ -411,9 +411,7 @@ class ProductController extends Controller
                     </div>';
                 }
                 $spe_desc .='</div>';
-                }
-
-                        
+                }     
                 $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
                 return \Response()->json($data);
             

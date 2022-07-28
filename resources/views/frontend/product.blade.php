@@ -67,8 +67,8 @@
                 <div class="wire_bangle_content">
                     <div class="">
                         
-                        <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2">{{ $Product->product_title }}</div>
-                        <div class="d-flex mb-2 mb-xl-4 pb-xxl-2">
+                        <div class="wire_bangle_heading mb-2 mb-xl-2 pb-xxl-2">{{ $Product->product_title }}</div>
+                        <div class="d-flex mb-2 mb-xl-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
                                 <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
@@ -77,16 +77,108 @@
  
                         </div>
 
-                        <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p>
-                        <div class="d-flex mb-md-4 flex-wrap mb-3 mb-md-0">
-                            <span class="wire_bangle_input">
+                        <!-- <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p> -->
+                        <div class="d-flex  flex-wrap mb-2 mb-md-0" >
+                            <span class="wire_bangle_input" style="display:none;">
                                 <div class="wire_bangle_number number-input">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
                                     <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                 </div>
                             </span>
-                            <span class="inquiry_now_btn ms-3 ms-md-5">
+                        </div>
+                        <form action="" class="mb-2 mb-lg-4" >
+                            <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
+                           
+                           <!-- <?php
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
+                            foreach($ProductVariantVariant as $productvariants){
+                               // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
+                             if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                            ?>
+                            <div class="col-md-6 wire_bangle_padding mb-4">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part">
+                                <?php 
+                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                $ia = 1;
+                                ?>    
+                                @foreach($product_attribute as $attribute_term)
+                                
+                                    <span class="form-check d-inline-block">
+                                        <input class="form-check-input variant variantfirst"  {{ (in_array( $attribute_term->attribute_terms[0]->id , $attribute_term_ids)) ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <div class="wire_bangle_color_input_label"></div>
+                                    </span>
+                                <?php $ia++ ?>    
+                                @endforeach
+                            </div>
+                            <?php 
+                                }else{ 
+                               
+                            ?>
+                                
+                            <?php 
+                               } 
+                            }  
+                            ?> -->
+
+                            <?php
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
+                            foreach($ProductVariantVariant as $productvariants){
+                               // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
+                             if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                            ?>
+                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_color mb-xxl-2 pb-md-2 wire_bangle_color_img_part">
+                                <?php 
+                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                $ia = 1;
+                                ?>    
+                                @foreach($product_attribute as $attribute_term)
+                                    <span class="form-check d-inline-block">
+                                        <input class="form-check-input variant"  {{ $ia == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <div class="wire_bangle_color_input_label"></div>
+                                    </span>
+                                <?php $ia++ ?>    
+                                @endforeach
+                            </div>
+                            <?php 
+                            }else{ 
+                             $iv = 1;
+                            ?>
+                                <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_carat">
+                                <?php 
+                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                ?>    
+                                @foreach($product_attribute as $attribute_term)
+                                <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
+                                        <input class="form-check-input variant" {{ $iv == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        {{ $attribute_term->attribute_terms[0]->attrterm_name }}
+                                    </label>
+                                    </span>
+                                    <?php $iv++ ?>    
+                                @endforeach    
+                                
+                            </div>
+                            <?php 
+                               } 
+                            }  
+                            ?>
+
+
+                            <div class="variantmulti" id="variantmulti">
+                            </div>
+                            <div class="" id="speci_multi">
+                            </div>
+                            <div class="" id="specificationproduct">
+                            </div>
+                            </form>
+                            
+                            
+                            <span class="inquiry_now_btn">
                                 <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
@@ -140,96 +232,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <form action="" class="mb-4 mb-lg-5" >
-                            <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
-                           
-                           <!-- <?php
-                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
-                            foreach($ProductVariantVariant as $productvariants){
-                               // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
-                             if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
-                            ?>
-                            <div class="col-md-6 wire_bangle_padding mb-4">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_color mb-xxl-0 pb-md-2 wire_bangle_color_img_part">
-                                <?php 
-                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
-                                $ia = 1;
-                                ?>    
-                                @foreach($product_attribute as $attribute_term)
-                                
-                                    <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant variantfirst"  {{ (in_array( $attribute_term->attribute_terms[0]->id , $attribute_term_ids)) ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
-                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
-                                        <div class="wire_bangle_color_input_label"></div>
-                                    </span>
-                                <?php $ia++ ?>    
-                                @endforeach
-                            </div>
-                            <?php 
-                                }else{ 
-                               
-                            ?>
-                                
-                            <?php 
-                               } 
-                            }  
-                            ?> -->
-
-                            <?php
-                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
-                            foreach($ProductVariantVariant as $productvariants){
-                               // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
-                             if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
-                            ?>
-                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_color mb-xxl-4 pb-md-2 wire_bangle_color_img_part">
-                                <?php 
-                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
-                                $ia = 1;
-                                ?>    
-                                @foreach($product_attribute as $attribute_term)
-                                    <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant"  {{ $ia == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
-                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
-                                        <div class="wire_bangle_color_input_label"></div>
-                                    </span>
-                                <?php $ia++ ?>    
-                                @endforeach
-                            </div>
-                            <?php 
-                            }else{ 
-                             $iv = 1;
-                            ?>
-                                <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_carat">
-                                <?php 
-                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
-                                ?>    
-                                @foreach($product_attribute as $attribute_term)
-                                <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
-                                        <input class="form-check-input variant" {{ $iv == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
-                                        <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
-                                        {{ $attribute_term->attribute_terms[0]->attrterm_name }}
-                                    </label>
-                                    </span>
-                                    <?php $iv++ ?>    
-                                @endforeach    
-                                
-                            </div>
-                            <?php 
-                               } 
-                            }  
-                            ?>
-
-
-                            <div class="variantmulti" id="variantmulti">
-
-                            </div>
-                            <div class="mb-4 " id="speci_multi">
-                            </div>
                             <!--<button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>-->
-                        </form>
+                       
                     </div>
                 </div>
             </div>
@@ -446,6 +450,7 @@ $(document).ready(function(){
                     if(data.speci != ""){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
+                        $('#specificationproduct').html(data.speci);
                     }else{
                         $(".detailsspeci").hide();
                     }
