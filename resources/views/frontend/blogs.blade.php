@@ -56,23 +56,40 @@
                 </div>
                 <div class="col-lg-4 col-xl-3 blog-detail-sidebar px-0 px-lg-3 mt-0">
                     <div class="blog-detail-post-heading">
-                        Recent Post
+                        Popular Post
                     </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_2.png') }}" alt="">
+                    @foreach($blogs as $lblog)
+                    <div class="row mt-3 d-flex align-items-center">
+                        <div class="col-3 col-lg-4 px-0">
+                            <div class="blog-detail-sidebar-img position-relative">
+                                <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
                             </div>
                         </div>
-                        <div class="px-0 ms-3">
+                        <div class="col-9 col-lg-8 px-0 px-3 pe-3">
                             <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_heading mb-2 d-inline-block">Unique Diamond Pendant</a>
+                                <a href=" {{ url('/blog/'.$lblog->id) }} ">{{ $lblog->title }}</a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    @if(isset($BlogBanners) && $BlogBanners != "")
+                    <?php 
+                        $url = "";
+                        if($BlogBanners['0']['dropdown_id'] == 1){
+                            $url = url('/shop/'.$BlogBanners['0']['value']); 
+                        }elseif($BlogBanners['0']['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
+                            $cat_id = $Product->primary_category_id;
+                            $var_id = $Product->product_variant[0]->id;
+                            $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                        }
+                    ?>
                     <div class="mt-3">
-                        <img src="{{ asset('frontend/image/blog-sidebar.png') }}" alt="">
+                        <a href="{{ $url }}"><img src="{{ url($BlogBanners['0']['banner_thumb']) }}" alt=""></a>
                     </div>
+                    
+                    @endif
+
                     <div class="blog-detail-post-heading mt-4">
                         Top Selling
                     </div>
@@ -128,9 +145,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4">
-                        <img src="{{ asset('frontend/image/blog-sidebar-2.png') }}" alt="">
-                    </div>
+                    @if(isset($BlogBanners) && $BlogBanners != "")
+                        @foreach($BlogBanners as $key => $BlogBanner)
+                            <?php 
+                            $url = "";
+                            if($BlogBanner['dropdown_id'] == 1){
+                             $url = url('/shop/'.$BlogBanner['value']); 
+                            }elseif($BlogBanner['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
+                             //dd($Product->product_variant[0]->id);
+                             $cat_id = $Product->primary_category_id;
+                             $var_id = $Product->product_variant[0]->id;
+                             $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                            }
+                            
+                            ?>
+                            @if($key != 0)
+                                <div class="mt-4">
+                                    <a href="{{ $url }}"><img src="{{ url($BlogBanner['banner_thumb']) }}" alt=""></a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
             </div>
           
@@ -140,22 +176,41 @@
     <script>
         
         $(document).ready(function(){
-            filter_data();
+        
+            var page = 1;
+            filter_data(page);
             $("#sorting").change(function() {
-                filter_data();
+                filter_data(page);
+            });
+            $(window).scroll(function () {
+                if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
+                    page++;
+                    var scroll = 1;
+                    filter_data(page,scroll);
+                }
             });
         
-            function filter_data()
+            function filter_data(page,scroll=0)
             {
-                $('.blogs-fetch').html('<div id="loading" style="" ></div>');
+                // $('.blogs-fetch').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var category = get_filter('category');
                 $.ajax({
-                    url:"{{ url('/blogs-filter') }}",
+                    url:"{{ url('/blogs-filter?page=') }}"+ page,
+                    //url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
                     data:{action:action,category:category,_token: '{{ csrf_token() }}'},
                     success:function(data){
-                        $('.blogs-fetch').html(data['output']);
+                         //alert(scroll);
+                        // console.log(data);
+                        if (data['output'] != "") {
+                            //alert(scroll);
+                            if(scroll == 1){
+                                $('.blogs-fetch').append(data['output']); 
+                            }else{
+                                $('.blogs-fetch').html(data['output']); 
+                            }
+                       }
                     }
                 });
             }
@@ -169,7 +224,7 @@
             }
         
             $('.common_selector').click(function(){
-                filter_data();
+                filter_data(page);
             });
 
             $(document).on('click','.cat-details',function(){
