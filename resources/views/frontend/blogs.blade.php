@@ -156,7 +156,7 @@
                              //dd($Product->product_variant[0]->id);
                              $cat_id = $Product->primary_category_id;
                              $var_id = $Product->product_variant[0]->id;
-                             $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                             $url = url('/product-details/'.$BlogBanner['value'].'/'.$var_id);
                             }
                             
                             ?>

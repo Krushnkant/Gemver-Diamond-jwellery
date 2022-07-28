@@ -74,7 +74,7 @@
                             $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
                             $cat_id = $Product->primary_category_id;
                             $var_id = $Product->product_variant[0]->id;
-                            $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                            $url = url('/product-details/'.$BlogBanners['0']['value'].'/'.$var_id);
                         }
                     ?>
                     <div class="mt-3">
