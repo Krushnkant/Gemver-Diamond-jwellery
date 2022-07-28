@@ -2645,7 +2645,7 @@ background-size: cover;
     color: #fff;
     border-radius: 0;
     font-family: 'Roboto', sans-serif;
-    padding: 9px 30px;
+    padding: 9px 18px;
     font-size: 14px;
     text-align: left;
     margin: 0 6px;
@@ -2672,7 +2672,7 @@ background-size: cover;
 }
 
 .blg_box_description .blog-icon-img {
-    max-width: 16px;
+    max-width: 13px;
 }
 
 .blog_box .blog_box_img img {
@@ -2692,7 +2692,7 @@ background-size: cover;
 }
 
 .blg_box_description .blog_box_date {
-    font-size: 15px;
+    font-size: 13px;
     color: gray;
 }
 
@@ -3055,6 +3055,10 @@ background-size: cover;
 
 span#amount {
     padding-left: 10px;
+}
+
+.blog_filter_btn_ul li.nav-item {
+    margin-bottom: 10px;
 }
 
 
