@@ -238,15 +238,15 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2">{{ $Product->product_title }}</div>
-                        <div class="d-flex mb-2 mb-xl-4 pb-xxl-2">
+                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Product->product_title }}</div>
+                        <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
                                 <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
                                 @endif
                             </span>
                         </div>
-                        <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p>
+                        <!-- <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p> -->
                        
                         <form action="" class="mb-4 mb-lg-4">
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
@@ -257,7 +257,7 @@
                              if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             ?>
                             <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_color mb-xxl-4 pb-md-2 wire_bangle_color_img_part">
+                                <div class="wire_bangle_color pb-md-2 wire_bangle_color_img_part">
                                 <?php 
                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
                                 $ia = 1;
@@ -352,7 +352,7 @@
             </div>
         </div>
 
-        <div class="px-3" id="spe_desc">
+        <div class="" id="spe_desc">
         
         </div>
     </div>

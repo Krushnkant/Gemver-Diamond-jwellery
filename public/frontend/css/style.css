@@ -3444,12 +3444,13 @@ span#amount {
 
 .wire_diamond_heading {
     color: #BB9761;
-    font-size: 19px;
+    font-size: 17px;
 }
 
 .wire_diamond_pargraph {
     font-size: 16px;
     margin-bottom: 0;
+    font-family: 'Jost', sans-serif;
 }
 
 .btn-close:focus {
