@@ -173,11 +173,7 @@
                             </div>
                             <div class="d-flex flex-wrap" id="speci_multi">
                             </div>
-                            <div class="row" id="specificationproduct1">
-                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                    <span class="d-block col-6 col-sm-3 col-md-6 col-lg-3 ps-0">dfgdbdf gffdf</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-9">fghgfh hh hhfhgf</span>
-                                </div>
+                            <div class="row" id="specificationproduct">
                             </div>
                             </form>
                             
@@ -443,10 +439,12 @@ $(document).ready(function(){
                     $("#inquiry-error").html("product not available");
                     $("#inquiry-error").show();
                     $(".select_setting_btn").prop('disabled', true);
+                    $(".select_setting_btn").css("background-color", "#808080");
                 }else{
                     $("#inquiry-error").html("");
                     $("#inquiry-error").hide();
                     $(".select_setting_btn").prop('disabled', false);
+                    $(".select_setting_btn").css("background-color", "");
 
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
@@ -454,7 +452,7 @@ $(document).ready(function(){
                     if(data.speci != ""){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
-                        $('#specificationproduct').html(data.speci);
+                        $('#specificationproduct').html(data.specificationstr);
                     }else{
                         $(".detailsspeci").hide();
                     }
