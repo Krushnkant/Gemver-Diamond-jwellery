@@ -195,22 +195,20 @@
                 // $('.blogs-fetch').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var category = get_filter('category');
+                //alert(category);
                 $.ajax({
                     url:"{{ url('/blogs-filter?page=') }}"+ page,
                     //url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
                     data:{action:action,category:category,_token: '{{ csrf_token() }}'},
                     success:function(data){
-                         //alert(scroll);
-                        // console.log(data);
-                        if (data['output'] != "") {
-                            //alert(scroll);
-                            if(scroll == 1){
+                        if(scroll == 1){
+                            if(data['output'] != ""){
                                 $('.blogs-fetch').append(data['output']); 
-                            }else{
-                                $('.blogs-fetch').html(data['output']); 
                             }
-                       }
+                        }else{
+                            $('.blogs-fetch').html(data['output']); 
+                        }
                     }
                 });
             }

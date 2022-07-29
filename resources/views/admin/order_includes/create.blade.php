@@ -73,13 +73,14 @@
         <div class="row col-lg-12">
             <div class="col-lg-4 ">
                 <div class="form-group ">
-                    <input type="file" class="form-control-file" id="image[]" onchange="" name="image[]">
+                    <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $orderincludedata->id }}"> 
+                    <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
                     <img src="{{ asset('images/order_image/'.$orderincludedata->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                 </div>
             </div>
             <div class="col-lg-4 ">
                 <div class="form-group">
-                    <input type="text" class="form-control input-flat" id="subtitle" value="{{ $orderincludedata->title }}" name="subtitle[]">
+                    <input type="text" class="form-control input-flat" id="subtitleold" value="{{ $orderincludedata->title }}" name="subtitleold[]">
                     <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     
                 </div>
