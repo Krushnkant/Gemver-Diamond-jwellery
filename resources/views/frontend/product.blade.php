@@ -287,7 +287,7 @@
             </div>
         </div>
 
-        <div class="gemver_diamonds_section p-0" id="spe_desc">
+        <div class="gemver_diamonds_section p-0 dbdfbdf" id="spe_desc">
           
         </div>
         @if(isset($OrderIncludes->orderincludesdata))
