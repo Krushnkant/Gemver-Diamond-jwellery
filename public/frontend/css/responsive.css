@@ -11,6 +11,9 @@
         line-height: 42px;
         font-size: 20px !important;
     }
+    .custom_product_detail .custom_product_des {
+        padding-right: 0 !important;
+    }
     /* --------------------- blog page--------------------------------- */
     .blog_tabs ul li button {
         margin: 0 0 15px 0 !important;
