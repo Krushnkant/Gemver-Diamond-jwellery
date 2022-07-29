@@ -3457,6 +3457,10 @@ span#amount {
     box-shadow: none;
 }
 
+.custom_product_detail .custom_product_des {
+    padding-right: 15px !important;
+}
+
 
 /* ------------------------------- step 1 -------------------------------------------- */
 
