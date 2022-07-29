@@ -296,7 +296,7 @@
                             }  
                             ?>
 
-                            <div class="mb-3" id="speci_multi">
+                            <div class="mb-3 d-flex flex-wrap" id="speci_multi">
                             </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
