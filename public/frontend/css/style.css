@@ -3450,6 +3450,7 @@ span#amount {
 .wire_diamond_pargraph {
     font-size: 16px;
     margin-bottom: 0;
+    font-family: 'Jost', sans-serif;
 }
 
 .btn-close:focus {
