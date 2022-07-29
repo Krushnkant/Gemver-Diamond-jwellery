@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HomeSetting;
 use App\Models\Category;
+use App\Models\Product;
 
 class HomeSettingController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeSettingController extends Controller
         $action = "add";
         $homesettings = HomeSetting::first();
         $categories = Category::where('estatus',1)->get()->toArray();
-        return view('admin.homesetting.create',compact('action','homesettings','categories'))->with('page',$this->page);
+        $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        return view('admin.homesetting.create',compact('action','homesettings','categories','products'))->with('page',$this->page);
     }
 
     public function editHomeSettings(Request $request){
@@ -39,7 +41,8 @@ class HomeSettingController extends Controller
         $Settings->section_why_gemver_image1 = ($request->homeImg1 != "") ? $request->homeImg1 :$Settings->section_why_gemver_image1;  
         $Settings->section_why_gemver_title2 = $request->section_why_gemver_title2;   
         $Settings->section_why_gemver_description2 = $request->section_why_gemver_description2;   
-        $Settings->section_why_gemver_image2 = ($request->homeImg2 != "") ? $request->homeImg2 :$Settings->section_why_gemver_image2;  
+        $Settings->section_why_gemver_image2 = ($request->homeImg2 != "") ? $request->homeImg2 :$Settings->section_why_gemver_image2; 
+        $Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
        
         $Settings->save();
         return response()->json(['status' => '200','Settings' => $Settings]);
