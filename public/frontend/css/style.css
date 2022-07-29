@@ -3874,8 +3874,13 @@ span#amount {
 }
 
 .order-includes-heading {
+<<<<<<< Updated upstream
     font-weight: 600;
     font-size: 30px;
+=======
+    font-weight: 500;
+    font-size: 33px;
+>>>>>>> Stashed changes
     line-height: 48px;
     color: #000000;
 }
@@ -3887,6 +3892,7 @@ span#amount {
     padding: 13px 25px;
     display: flex;
     align-items: center;
+<<<<<<< Updated upstream
     height: 100%;
 }
 
@@ -3898,6 +3904,12 @@ span#amount {
 
 .order-box-part .order-img {
     min-width: 70px;
+=======
+}
+
+.order-box-part .order-img img {
+    width: auto;
+>>>>>>> Stashed changes
 }
 
 .order-box-part .order-text {
@@ -3906,6 +3918,7 @@ span#amount {
     line-height: 22px;
     text-align: center;
     color: #000000;
+<<<<<<< Updated upstream
 }
 
 .top_selling_heading {
@@ -3931,4 +3944,6 @@ span#amount {
 .customer-stories img {
     height: 230px;
     object-fit: cover;
+=======
+>>>>>>> Stashed changes
 }
