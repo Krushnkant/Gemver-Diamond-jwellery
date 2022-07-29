@@ -352,7 +352,7 @@
             </div>
         </div>
 
-        <div class="px-3" id="spe_desc">
+        <div class="" id="spe_desc">
         
         </div>
     </div>

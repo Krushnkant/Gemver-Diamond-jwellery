@@ -401,10 +401,10 @@ class ProductController extends Controller
             $spe_desc .='<div class="px-0 mt-3">
                     <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
                 </div>
-                <div class="row">';
+                <div class="row custom_product_detail">';
                 foreach($product_attributes_term_des as $attrterm_description){  
                     $spe_desc .='<div class="col-md-6 mt-2 mt-md-0 px-0 position-relative">
-                        <div>
+                        <div class="custom_product_des">
                             <p class="wire_diamond_pargraph">'.$attrterm_description.'</p>
                         </div>
                     </div>';
