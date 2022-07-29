@@ -317,7 +317,7 @@ class DiamondController extends Controller
         if(isset($data["action"]))
         {
            
-            $query = Product::select('products.*','product_variants.images','product_variants.sale_price')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -362,14 +362,14 @@ class DiamondController extends Controller
            }else{ 
             $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
            }
-           
+           //dd($result);
             $artilces = '';
             if ($request->ajax()) {
                 foreach ($result as $product){
                     $images = explode(",",$product->images);
                     $image = URL($images['0']);
                     $sale_price = $product->sale_price;
-                    $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id);
+                    $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id.'/'.$product->variant_id);
                     $artilces.='
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4 wire_bangle_shop_radio">
                         <div class="wire_bangle_product_setting">
@@ -421,7 +421,7 @@ class DiamondController extends Controller
         }
     }
 
-    public function getCustomProductDetails($catid,$id){
+    public function getCustomProductDetails($catid,$id,$vid){
         $CatId = $catid;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
@@ -446,7 +446,9 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         //$Product= ProductVariant::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice'));
+        $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$vid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
+       // dd($attribute_term_ids);
+        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids'));
     }
 
     public function getProductComplete($catid){

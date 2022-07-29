@@ -76,7 +76,7 @@ Route::post('/diamonds',[DiamondController::class,'getDiamonds']);
 Route::get('/diamond-details/{catid}/{id}',[DiamondController::class,'getDiamondDetails']);
 Route::get('/product-setting/{catid}/{id?}',[DiamondController::class,'customproducts']);
 Route::post('/custom_products',[DiamondController::class,'getProducts']);
-Route::get('/custom-product-details/{catid}/{id}',[DiamondController::class,'getCustomProductDetails']);
+Route::get('/custom-product-details/{catid}/{id}/{vid}',[DiamondController::class,'getCustomProductDetails']);
 Route::get('/product_complete/{catid}',[DiamondController::class,'getProductComplete']);
 
 Route::get('/product-setting-edit/{id}/edit',[DiamondController::class,'editproductsetting']);
