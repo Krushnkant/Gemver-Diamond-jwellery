@@ -298,6 +298,8 @@
 
                             <div class="mb-3 d-flex flex-wrap" id="speci_multi">
                             </div>
+                            <div class="row mb-3" id="specificationproduct">
+                            </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
                             <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
@@ -397,6 +399,7 @@ $(document).ready(function(){
                         $(".detailsspeci").hide();
                     }
                     $('#speci_multi').html(data.speci_multi);
+                    $('#specificationproduct').html(data.specificationstr);
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
                     selectjs();
