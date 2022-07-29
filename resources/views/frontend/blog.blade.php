@@ -58,13 +58,7 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="mt-3">
-                        <img src="{{ asset('frontend/image/blog-sidebar.png') }}" alt="">
-                    </div>
-                    <div class="blog-detail-post-heading mt-4">
-                        Top Selling
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
+                    
                     @if(isset($BlogBanners) && $BlogBanners != "")
                     <?php 
                         $url = "";
@@ -78,56 +72,39 @@
                         }
                     ?>
                     <div class="mt-3">
-                        <a href="{{ $url }}"><img src="{{ url($BlogBanners['0']['banner_thumb']) }}" alt=""></a>
+                       <a href="{{ $url }}"><img src="{{ url($BlogBanners['0']['banner_thumb']) }}" alt=""></a>
                     </div>
                     
                     @endif
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_heading mb-2 d-inline-block">Unique Diamond Pendant</a>
-                                <div class="top_selling_price">$ 1490</div>
+
+
+            
+                    @if(isset($mostviewproducts) && $mostviewproducts != "")
+                        <div class="blog-detail-post-heading mt-4">
+                            Most Viewed
+                        </div>
+                        @foreach($mostviewproducts as $key => $mostviewproduct)
+                        <?php 
+                          $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
+                          $producturl = url('product-details/'.$mostviewproduct->id.'/'.$mostviewproduct->product_variant[0]->id); 
+                        ?>
+                        <div class="mt-3 d-flex align-items-center">
+                            <div class="px-0">
+                                <div class="blog-sidebar-top-selling position-relative">
+                                    <img src="{{ asset($productimages['0']) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-9 col-lg-8 px-0 ms-3">
+                                <div class="blog-detail-paragraph">
+                                    <a href="{{ $producturl }}" class="top_selling_heading mb-2 d-inline-block">{{ $mostviewproduct->product_title }}</a>
+                                    <div class="top_selling_price">$ {{ $mostviewproduct->product_variant[0]->sale_price }}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_2.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href=" # " class="top_selling_heading mb-2 d-inline-block">Fancy Gold Bracelet</a>
-                                <div class="top_selling_price">$ 2,845</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_3.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_price mb-2 d-inline-block">Moissanite Rose Ring </a>
-                                <div class="top_selling_price">$ 860</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_4.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_price mb-2 d-inline-block">lakshmi Bangles</a>
-                                <div class="top_selling_price">$ 2,500</div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
+                    
+                   
                     @if(isset($BlogBanners) && $BlogBanners != "")
                         @foreach($BlogBanners as $key => $BlogBanner)
                             <?php 

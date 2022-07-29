@@ -90,11 +90,12 @@
                     
                     @endif
 
-                    <div class="blog-detail-post-heading mt-4">
-                        Most Viewed
-                    </div>
+                    
                    
                     @if(isset($mostviewproducts) && $mostviewproducts != "")
+                        <div class="blog-detail-post-heading mt-4">
+                            Most Viewed
+                        </div>
                         @foreach($mostviewproducts as $key => $mostviewproduct)
                         <?php 
                           $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
@@ -148,12 +149,11 @@
     <script>
         
         $(document).ready(function(){
-        
             var page = 1;
             filter_data(page);
-            $("#sorting").change(function() {
-                filter_data(page);
-            });
+            // $("#sorting").change(function() {
+            //     filter_data(page);
+            // });
             $(window).scroll(function () {
                 if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
                     page++;
@@ -167,14 +167,17 @@
                 // $('.blogs-fetch').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var category = get_filter('category');
-                //alert(category);
+             
                 $.ajax({
                     url:"{{ url('/blogs-filter?page=') }}"+ page,
                     //url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
                     data:{action:action,category:category,_token: '{{ csrf_token() }}'},
                     success:function(data){
+                        console.log(data);
+                        
                         if(scroll == 1){
+                            console.log('scroll');
                             if(data['output'] != ""){
                                 $('.blogs-fetch').append(data['output']); 
                             }
@@ -194,6 +197,7 @@
             }
         
             $('.common_selector').click(function(){
+                var page = 1;
                 filter_data(page);
             });
 
