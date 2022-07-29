@@ -46,7 +46,11 @@ class OrderIncludesController extends Controller
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
 
+        $neworderids = $request->orderdataid;
+
         $order = OrderIncludes::find($request->orderincludes_id);
+
+        $orderdataidold = OrderIncludesData::where('order_id',1)->get()->pluck('id');
 
         if(!$order){
             return response()->json(['status' => '400']);
@@ -67,17 +71,48 @@ class OrderIncludesController extends Controller
         if($order){
             if (isset($request->subtitle) && !empty($request->subtitle)){
                 foreach($request->subtitle as $key => $subtitle){
-                    $orderdata = new OrderIncludesData();
-                    $orderdata->order_id = $order->id;
-                    $orderdata->title = $subtitle;
-                    $path = public_path("images/order_image/");
-                    if(isset($request->image[$key]) && $request->image[$key] != ""){
-                         $result = Helpers::UploadImage($request->image[$key], $path);
-                    }
-                    $orderdata->image = $result;
-                    $orderdata->save();
+                    if($subtitle != ""){
+                        $orderdata = new OrderIncludesData();
+                        $orderdata->order_id = $order->id;
+                        $orderdata->title = $subtitle;
+                        $path = public_path("images/order_image/");
+                        if(isset($request->image[$key]) && $request->image[$key] != ""){
+                            $result = Helpers::UploadImage($request->image[$key], $path);
+                            $orderdata->image = $result;
+                        }
+                        $orderdata->save();
+                        
+                        //array_push($neworderids,$orderdata->id);
+                    } 
+                    
                 }
             }
+
+            if (isset($request->subtitleold) && !empty($request->subtitleold)){
+                foreach($request->subtitleold as $key => $subtitleold){
+                    
+                    if($subtitleold != ""){
+                    $orderdataold = OrderIncludesData::find($request->orderdataid[$key]);
+                    $orderdataold->title = $subtitleold;
+                    $path = public_path("images/order_image/");
+                    if(isset($request->imageold[$key]) && $request->imageold[$key] != ""){
+                        //dd($request->imageold[$key]);
+                         $result = Helpers::UploadImage($request->imageold[$key], $path);
+                         $orderdataold->image = $result;
+                    }
+                    
+                    $orderdataold->save();
+                    }
+                }
+            }
+
+            foreach($orderdataidold as $orderdataids){
+                if(!in_array($orderdataids,$neworderids)){
+                     OrderIncludesData::where('id',$orderdataids)->delete();  
+                }
+            }
+
+
         }
 
         return response()->json(['status' => '200']);
