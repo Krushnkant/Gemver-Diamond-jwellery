@@ -30,7 +30,7 @@ class ProductController extends Controller
         // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
         //$ProductRelated= Product::with('primary_category','product_variant')->where(['estatus' => 1,'primary_category_id' => $id])->get();
-        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $id])->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $Product->primary_category_id])->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         
         //dd($ProductRelated);
         //dd(\DB::getQueryLog());
@@ -57,7 +57,7 @@ class ProductController extends Controller
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price"]);
             }
             if(isset($data["category"])){
-                $query = $query->where('primary_category_id',$data["category"]);
+                $query = $query->whereIn('primary_category_id',$data["category"]);
             }
             
             if(isset($data["attribute"])){
@@ -351,7 +351,7 @@ class ProductController extends Controller
                 foreach($ProductVariantSpecification as $productvariants)
                 {
     
-                $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                $spe .='<span class="wire_bangle_select mb-2 me-3 d-inline-block">
                             <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                             <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                     
@@ -411,9 +411,7 @@ class ProductController extends Controller
                     </div>';
                 }
                 $spe_desc .='</div>';
-                }
-
-                        
+                }     
                 $data = ['result' => $result,'speci' => $str,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr ]; 
                 return \Response()->json($data);
             

@@ -91,60 +91,32 @@
                     @endif
 
                     <div class="blog-detail-post-heading mt-4">
-                        Top Selling
+                        Most Viewed
                     </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_1.png') }}" alt="">
+                   
+                    @if(isset($mostviewproducts) && $mostviewproducts != "")
+                        @foreach($mostviewproducts as $key => $mostviewproduct)
+                        <?php 
+                          $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
+                          $producturl = url('product-details/'.$mostviewproduct->id.'/'.$mostviewproduct->product_variant[0]->id); 
+                        ?>
+                        <div class="mt-3 d-flex align-items-center">
+                            <div class="px-0">
+                                <div class="blog-sidebar-top-selling position-relative">
+                                    <img src="{{ asset($productimages['0']) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-9 col-lg-8 px-0 ms-3">
+                                <div class="blog-detail-paragraph">
+                                    <a href="{{ $producturl }}" class="top_selling_heading mb-2 d-inline-block">{{ $mostviewproduct->product_title }}</a>
+                                    <div class="top_selling_price">$ {{ $mostviewproduct->product_variant[0]->sale_price }}</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_heading mb-2 d-inline-block">Unique Diamond Pendant</a>
-                                <div class="top_selling_price">$ 1490</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_2.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href=" # " class="top_selling_heading mb-2 d-inline-block">Fancy Gold Bracelet</a>
-                                <div class="top_selling_price">$ 2,845</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_3.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_price mb-2 d-inline-block">Moissanite Rose Ring </a>
-                                <div class="top_selling_price">$ 860</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3 d-flex align-items-center">
-                        <div class="px-0">
-                            <div class="blog-sidebar-top-selling position-relative">
-                                <img src="{{ asset('frontend/image/top_selling_4.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
-                            <div class="blog-detail-paragraph">
-                                <a href="#" class="top_selling_price mb-2 d-inline-block">lakshmi Bangles</a>
-                                <div class="top_selling_price">$ 2,500</div>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
+
+                    
                     @if(isset($BlogBanners) && $BlogBanners != "")
                         @foreach($BlogBanners as $key => $BlogBanner)
                             <?php 
@@ -156,7 +128,7 @@
                              //dd($Product->product_variant[0]->id);
                              $cat_id = $Product->primary_category_id;
                              $var_id = $Product->product_variant[0]->id;
-                             $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                             $url = url('/product-details/'.$BlogBanner['value'].'/'.$var_id);
                             }
                             
                             ?>
@@ -195,22 +167,20 @@
                 // $('.blogs-fetch').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var category = get_filter('category');
+                //alert(category);
                 $.ajax({
                     url:"{{ url('/blogs-filter?page=') }}"+ page,
                     //url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
                     data:{action:action,category:category,_token: '{{ csrf_token() }}'},
                     success:function(data){
-                         //alert(scroll);
-                        // console.log(data);
-                        if (data['output'] != "") {
-                            //alert(scroll);
-                            if(scroll == 1){
+                        if(scroll == 1){
+                            if(data['output'] != ""){
                                 $('.blogs-fetch').append(data['output']); 
-                            }else{
-                                $('.blogs-fetch').html(data['output']); 
                             }
-                       }
+                        }else{
+                            $('.blogs-fetch').html(data['output']); 
+                        }
                     }
                 });
             }

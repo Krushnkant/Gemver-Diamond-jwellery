@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogBanner;
-
+use App\Models\HomeSetting;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -14,7 +15,10 @@ class BlogController extends Controller
         $Categories = BlogCategory::where(['estatus' => 1])->get();
         $BlogBanners = BlogBanner::where(['estatus' => 1])->get()->ToArray();
         $blogs = Blog::where(['estatus' => 1])->inRandomOrder()->limit(4)->orderBy('id', 'DESC')->get();
-        return view('frontend.blogs',compact('Categories','BlogBanners','blogs'));
+        $homesetting = HomeSetting::first();
+        $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
+        $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
+        return view('frontend.blogs',compact('Categories','BlogBanners','blogs','homesetting','mostviewproducts'));
     }
 
     public function fetchblogs(Request $request){
@@ -22,10 +26,8 @@ class BlogController extends Controller
        
         if(isset($data["action"]))
         {
-           
             $category = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             $query = Blog::where('estatus',1);
-            
             // if($request->keyword){
             //     // This will only execute if you received any keyword
             //     $query = $query->where('name','like','%'.$keyword.'%');
@@ -79,6 +81,7 @@ class BlogController extends Controller
         $blog = Blog::with('category')->where(['id' => $id,'estatus' => 1])->first();
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
         $BlogBanners = Blogbanner::where(['estatus' => 1])->get()->ToArray();
-        return view('frontend.blog',compact('blog','blogs','BlogBanners'));
+        $homesetting = HomeSetting::first();
+        return view('frontend.blog',compact('blog','blogs','BlogBanners','homesetting'));
     }
 }

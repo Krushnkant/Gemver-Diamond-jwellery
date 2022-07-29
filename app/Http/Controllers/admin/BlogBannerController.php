@@ -214,7 +214,7 @@ class BlogBannerController extends Controller
         $action = "edit";
         $banner = BlogBanner::find($id);
         $categories = Category::where('estatus',1)->get();
-        $products = Product::where('estatus',1)->get();
+        $products = Product::where('estatus',1)->where('is_custom',0)->get();
         return view('admin.blogbanners.list',compact('action','banner','categories','products'))->with('page',$this->page);
     }
 
@@ -245,8 +245,8 @@ class BlogBannerController extends Controller
 
     function getBannerInfoVal(Request $request){
         
-        $categories = Category::where('estatus',1)->orderBy('created_at','DESC')->get();
-        $products = Product::where('estatus',1)->orderBy('created_at','DESC')->get();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->orderBy('created_at','DESC')->get();
+        $products = Product::where('estatus',1)->where('is_custom',0)->orderBy('created_at','DESC')->get();
         $html = '';
         if ($request->bannerInfo == 1){
             $html .= '<div class="form-group">

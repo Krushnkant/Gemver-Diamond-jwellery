@@ -216,6 +216,18 @@
                                 <div id="homethumb2-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
+                            <div class="form-group" >
+                                <label class="col-form-label" for="button_url">Select Most View Product
+                                </label>
+                                <?php $most_viewed_product_ids = explode(',',$homesettings->most_viewed_product_id); ?>
+                                <select id='most_viewed_product_id' name="most_viewed_product_id[]" class="js-example-basic-multiple form-control" multiple="multiple">
+                                <option value="">Select Product</option>
+                                    @foreach($products as $product)
+                                        <option value="{{ $product['id'] }}" @if(in_array($product["id"],$most_viewed_product_ids)) selected @endif >{{ $product['product_title'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <button type="button" class="btn btn-outline-primary mt-4" id="save_newHomeBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
                             <button type="button" class="btn btn-primary mt-4" id="save_closeHomeBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 
@@ -233,7 +245,7 @@
 @section('js')
 <script src="{{ url('js/HomeSettingImgJs.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-
+$('.js-example-basic-multiple').select2();
 $('body').on('click', '#save_closeHomeBtn', function () {
     save_home($(this),'save_close');
 });
