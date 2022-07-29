@@ -136,7 +136,7 @@
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                     <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant"  {{ $ia == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <input class="form-check-input variant"  @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
                                         <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
@@ -154,7 +154,7 @@
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
-                                        <input class="form-check-input variant" {{ $iv == "1" ? "checked" : ""  }} value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         {{ $attribute_term->attribute_terms[0]->attrterm_name }}
                                     </label>
