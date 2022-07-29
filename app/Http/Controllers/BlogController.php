@@ -82,6 +82,8 @@ class BlogController extends Controller
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
         $BlogBanners = Blogbanner::where(['estatus' => 1])->get()->ToArray();
         $homesetting = HomeSetting::first();
-        return view('frontend.blog',compact('blog','blogs','BlogBanners','homesetting'));
+        $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
+        $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
+        return view('frontend.blog',compact('blog','blogs','BlogBanners','mostviewproducts'));
     }
 }
