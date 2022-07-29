@@ -546,10 +546,10 @@ background-size: cover;
 }
 
 .shop_dimond_by_shape .owl-nav,
-.shop-by-category .owl-nav {
+.shop-by-category .owl-nav,
+.product-detail .owl-nav {
     position: absolute;
     right: 21px;
-    padding-top: 20px;
 }
 
 .shop_dimond_by_shape .owl-nav .owl-prev img,
@@ -1385,13 +1385,13 @@ background-size: cover;
 .inquiry_now_btn button {
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #FFFFFF;
-    min-width: 210px;
-    min-height: 66px;
+    min-width: 197px;
+    min-height: 56px;
     background: #BB9761;
     border: 0;
 }
@@ -1535,6 +1535,10 @@ background-size: cover;
     color: #0B1727;
 }
 
+.wire_bangle_share_part {
+    text-transform: capitalize;
+}
+
 .wire_bangle_color_theme,
 .wire_bangle_color_theme a {
     color: #BB9761;
@@ -1588,7 +1592,7 @@ background-size: cover;
     text-transform: capitalize;
     color: #0B1727;
     border: 1px solid rgba(11, 23, 39, 0.1);
-    padding: 20px 30px;
+    padding: 15px 20px;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
@@ -1598,7 +1602,7 @@ background-size: cover;
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #0B1727;
 }
 
@@ -1608,7 +1612,7 @@ background-size: cover;
 }
 
 .wire_bangle_accordion .accordion-body {
-    padding: 0 30px 34px 30px;
+    padding: 0 15px 20px 15px;
 }
 
 .wire_bangle_accordion .accordion-button::after {
@@ -3747,7 +3751,8 @@ span#amount {
     margin-top: 30px;
 }
 
-.shop-by-category .owl-next {
+.shop-by-category .owl-next,
+.product-detail .owl-next {
     background-color: transparent !important;
     width: 30px;
     height: 30px;
@@ -3765,7 +3770,8 @@ span#amount {
     height: 15px;
 }
 
-.shop-by-category .owl-prev {
+.shop-by-category .owl-prev,
+.product-detail .owl-prev {
     background-color: transparent !important;
     width: 35px;
     height: 35px;
@@ -3880,7 +3886,9 @@ span#amount {
 }
 
 .order-box-part .order-img img {
-    width: auto;
+    width: 38px;
+    height: 44px;
+    object-fit: cover;
 }
 
 .order-box-part .order-img {

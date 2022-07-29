@@ -248,7 +248,7 @@
                         </div>
                         <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p>
                        
-                        <form action="" class="mb-4 mb-lg-5">
+                        <form action="" class="mb-4 mb-lg-4">
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
                             <?php
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
@@ -296,7 +296,7 @@
                             }  
                             ?>
 
-                            <div class="mb-4 " id="speci_multi">
+                            <div class="mb-3" id="speci_multi">
                             </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
@@ -307,7 +307,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-xl-5 pt-xxl-5 mb-xxl-4" id="description">
+        <div class="row mb-xxl-0" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description
@@ -352,7 +352,7 @@
             </div>
         </div>
 
-        <div class="" id="spe_desc">
+        <div class="px-3" id="spe_desc">
         
         </div>
     </div>

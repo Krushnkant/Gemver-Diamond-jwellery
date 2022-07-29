@@ -224,7 +224,7 @@
 
         <div class="row my-4">
             <div class="col-sm-6 text-center text-sm-start">
-                <ul  class="nav wire_bangle_tabs_part justify-content-center justify-sm-content-center" id="myTab" role="tablist">
+                <ul  class="nav wire_bangle_tabs_part justify-content-center justify-content-sm-start" id="myTab" role="tablist">
                     <li class="active nav-item">
                         <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
                     </li>

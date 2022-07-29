@@ -332,12 +332,12 @@ class ProductController extends Controller
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                 //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
-                $str .='<div class="col-md-6 px-0" >
-                        <div class="mt-4 wire_bangle_share">
-                        '.$product_attribute_specification->attribute_name .' &nbsp;:&nbsp;
-                            <span class="wire_bangle_color_theme">'. $product_attribute_term_name .'</span>
+                $str .='<div class="col-md-6 px-0">
+                        <div class="wire_bangle_share wire_bangle_share_part row mt-2"> 
+                            <span class="d-block col-6 col-sm-3 col-md-6 col-lg-3 ps-0">'.$product_attribute_specification->attribute_name .'</span>
+                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-9">'. strtolower($product_attribute_term_name) .'</span>
                         </div>
-                    </div>';
+                    </div>';    
 
                 $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
@@ -350,8 +350,7 @@ class ProductController extends Controller
                 $spe = '';
                 foreach($ProductVariantSpecification as $productvariants)
                 {
-    
-                $spe .='<span class="wire_bangle_select mb-2 me-3 d-inline-block">
+                $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">Title</div><span class="wire_bangle_select d-inline-block">
                             <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                             <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
                     
@@ -368,7 +367,7 @@ class ProductController extends Controller
                     }   
                 $spe .='</select>
                     <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                </span> ';
+                </span> </div>';
                 }
     
                 $images = '';

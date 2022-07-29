@@ -679,8 +679,9 @@
         font-size: 16px;
     }
     .wire_diamond_pargraph {
-        font-size: 18px;
-        line-height: 30px;
+        font-size: 16px;
+        line-height: normal;
+        font-family: 'Jost', sans-serif;
     }
     .email_input input::placeholder,
     .email_input input {

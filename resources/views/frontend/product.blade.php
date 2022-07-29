@@ -171,9 +171,13 @@
 
                             <div class="variantmulti" id="variantmulti">
                             </div>
-                            <div class="" id="speci_multi">
+                            <div class="d-flex flex-wrap" id="speci_multi">
                             </div>
-                            <div class="" id="specificationproduct">
+                            <div class="row" id="specificationproduct1">
+                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                    <span class="d-block col-6 col-sm-3 col-md-6 col-lg-3 ps-0">dfgdbdf gffdf</span>
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-9">fghgfh hh hhfhgf</span>
+                                </div>
                             </div>
                             </form>
                             
@@ -238,7 +242,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-xl-0 pt-xxl-0 mb-xxl-4" id="description">
+        <div class="row mt-xl-0 pt-xxl-0 mb-xxl-4 mt-3" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description
