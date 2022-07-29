@@ -109,7 +109,7 @@
                                 
 
                                 <div class="row form-group">
-                                    <label class="col-lg-12 col-form-label" for="Desc">Description</label>
+                                    <label class="col-lg-12 col-form-label" for="Desc">Description {{ $segment }}</label>
                                     <div class="col-lg-12">
                                         <textarea type="text" class="form-control input-default" id="desc" name="desc"></textarea>
                                         <div id="desc-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -121,7 +121,7 @@
                                         <div class="form-group">
                                             <div class="form-check">
                                                     <label class="form-check-label">
-                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input primaryBox" value="0">Do you want to add custom product?</label>
+                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input primaryBox" value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
                                             </div>
                                         </div>
                                     </div>

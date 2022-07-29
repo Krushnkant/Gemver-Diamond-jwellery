@@ -440,8 +440,8 @@
         $(this).prop('disabled',true);
         $(this).find('.submitloader').show();
         var btn = $(this);
-        var is_custom = $('#check_id').val();
-
+        var is_custom = $('#is_custom').val();
+       
         var valid_product = validateProductForm();
         var valid_variants = validateVariantsForm();
 
