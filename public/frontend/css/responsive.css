@@ -1134,6 +1134,12 @@
     .wire_bangle_share {
         font-size: 15px;
     }
+    .order-part .order-include-col:first-child {
+        padding-left: 15px !important;
+    }
+    .order-part .order-include-col:last-child {
+        padding-right: 15px !important;
+    }
     /* ---------- step progress bar----------------------- */
     .step-progressbar .tab-steps--list li:before {
         width: 60px;
@@ -1503,6 +1509,15 @@
     }
     .blog_tabs .nav-tabs .nav-item .nav-link {
         padding: 9px 32px;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1399px) {
+    .order-part .order-include-col:first-child {
+        padding-left: 15px !important;
+    }
+    .order-part .order-include-col:last-child {
+        padding-right: 15px !important;
     }
 }
 

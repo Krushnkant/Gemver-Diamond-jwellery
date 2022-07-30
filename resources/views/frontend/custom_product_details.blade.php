@@ -298,7 +298,7 @@
 
                             <div class="mb-3 d-flex flex-wrap" id="speci_multi">
                             </div>
-                            <div class="row mb-3" id="specificationproduct">
+                            <div class="row mb-4" id="specificationproduct">
                             </div>
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
@@ -309,7 +309,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mb-xxl-0" id="description">
+        <div class="row mt-4 mb-xxl-4" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description
