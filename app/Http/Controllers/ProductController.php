@@ -365,7 +365,7 @@ class ProductController extends Controller
                         }
                     }   
                 $spe .='</select>
-                    <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                    <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown mt-2" style="display: none;"></div>
                 </span> </div>';
                 }
     
