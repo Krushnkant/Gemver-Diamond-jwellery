@@ -292,12 +292,12 @@
         </div>
 
         <div class="row mt-md-0 mt-xl-5 align-items-center">
-                <div class="col-md-6 col-lg-4 pe-4">
+                <!-- <div class="col-md-6 col-lg-4 pe-4">
                     <div class="order-include-img">
                         <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-8 col-lg-6">
+                </div> -->
+                <div class="col-md-12 col-lg-12 col-lg-12">
                     <div class="order-includes-heading mb-lg-4 mb-2 px-3 mt-lg-3 mt-2 text-center text-lg-start d-none d-xl-block">
                         {{ $OrderIncludes->title }}
                     </div>
