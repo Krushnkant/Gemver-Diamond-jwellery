@@ -219,7 +219,7 @@
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <!-- <input type="text" name="inquiry" id="inquiry" placeholder="Message" class="d-block wire_bangle_input"> -->
-                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;">Please select any value</div>
                                             </div>
                                         </div>
  
@@ -238,7 +238,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-xl-0 pt-xxl-0 mb-xxl-4 mt-3" id="description">
+        <div class="row mt-xl-3 pt-xxl-0 mb-xxl-4 mt-3" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description
