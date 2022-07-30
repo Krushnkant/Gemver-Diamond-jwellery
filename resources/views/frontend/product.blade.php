@@ -287,7 +287,7 @@
           
         </div>
         @if(isset($OrderIncludes->orderincludesdata))
-        <div class="order-includes-heading mb-md-3 mb-xl-4 mb-2 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+        <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
              {{ $OrderIncludes->title }}
         </div>
 
@@ -301,14 +301,14 @@
                     <div class="order-includes-heading mb-lg-4 mb-2 px-3 mt-lg-3 mt-2 text-center text-lg-start d-none d-xl-block">
                         {{ $OrderIncludes->title }}
                     </div>
-                    <div class="row mt-4 mt-md-0">
+                    <div class="row mt-2 mt-md-0">
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
-                        <div class="col-lg-6 order-box-part mb-3 px-0 px-md-3">
+                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3">
                             <div class="order-box">
-                            <span class="order-img">
+                            <span class="order-img d-block mb-2">
                                 <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
                             </span>
-                            <span class="order-text text-start">
+                            <span class="order-text text-center d-block">
                                     {{ $orderincludesdata->title }}
                             </span>
                             </div>    

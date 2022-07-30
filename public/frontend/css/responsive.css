@@ -309,12 +309,10 @@
     /* ----------------------------------------------------------------------------- */
     .order-includes-heading {
         font-size: 21px;
+        line-height: normal;
     }
     .order-box-part .order-text {
         font-size: 15px;
-    }
-    .order-box-part .order-img img {
-        max-width: 26px;
     }
     .order-box-part .order-img {
         min-width: 50px;
@@ -1300,7 +1298,7 @@
         font-size: 15px;
     }
     .order-includes-heading {
-        font-size: 28px;
+        font-size: 26px;
     }
 }
 
