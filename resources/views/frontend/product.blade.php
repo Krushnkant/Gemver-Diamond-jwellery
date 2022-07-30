@@ -609,7 +609,7 @@ $(document).ready(function(){
 $( document ).ready(function() {
     
 $('body').on('click', '.select_setting_btn', function () {
-    var valid = false;
+    var valid = true;
     var arrspe = [];
     $('#specificationstr').html('');
     $(document).find('.specification').each(function() {
