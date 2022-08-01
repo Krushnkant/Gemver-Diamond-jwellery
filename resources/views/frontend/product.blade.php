@@ -368,7 +368,7 @@
                                     foreach($product_attribute as $attribute_term){
                                 ?>
                                     <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant variantfirst"   value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        
                                         <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
@@ -403,6 +403,10 @@ $(document).ready(function(){
 
     //filter_data_variant();
     filter_data();
+
+    $('body').on('click', '.wire_bangle_color_input_label', function () {    
+        alert();
+    });
     
     function filter_data_variant1()
     {
@@ -593,9 +597,7 @@ $(document).ready(function(){
         filter_data();
     });
 
-    $('body').on('click', '.variantfirst', function () {    
-        //filter_data_variant();
-    });
+    
 
 });
 
@@ -609,7 +611,7 @@ $(document).ready(function(){
 $( document ).ready(function() {
     
 $('body').on('click', '.select_setting_btn', function () {
-    var valid = false;
+    var valid = true;
     var arrspe = [];
     $('#specificationstr').html('');
     $(document).find('.specification').each(function() {
@@ -727,6 +729,8 @@ function save_inquiry(btn,btn_type){
         }
     });
 }
+
+
 });
 </script>
 

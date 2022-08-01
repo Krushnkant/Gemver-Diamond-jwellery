@@ -543,7 +543,7 @@ $( document ).ready(function() {
 // });
 
 $('body').on('click', '#save_newProductBtn', function () {
-    var valid = false;
+    var valid = true;
     $(document).find('.specification').each(function() {
         var thi = $(this);
         var this_err = $(thi).attr('name') + "-error";
