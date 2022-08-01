@@ -127,7 +127,7 @@
                             <a href="{{ Route('frontend.contactus') }}">Contact Us</a>
                         </li>
                         <li>
-                            <a href="tel:{{ $settings->phone_no }}">Call us</a>
+                            <a href="tel:{{ $settings->company_mobile_no }}">Call us</a>
                         </li>
                         <li>
                             <a href="#">Chat with us</a>
