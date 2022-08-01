@@ -77,9 +77,9 @@
                         <li>
                             <a href="#">our story</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">our 3 pillars</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{ Route('frontend.customervalues')}}">customer values</a>
                         </li>

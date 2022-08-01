@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="step_two_design">
+    <div class="step_two_design mt-md-5 mb-md-5">
 
         <div class="container where_to_start_section" id="cut">
             <div class="row position-relative align-items-center">

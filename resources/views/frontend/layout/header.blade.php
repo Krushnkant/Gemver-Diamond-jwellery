@@ -4,9 +4,9 @@
                         <div class="row mt-0 mb-0 align-items-center">
                             <div class="col-md-4 col-lg-3 text-center">
                                 <div class="home-page-header">
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i>Call Us </a></span>
-                                    <span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span>
-                                    <a style="color:#0b1727;" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
+                                    <a class="header-icon-part" href="tel:{{ $settings->phone_no }}" ><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
+                                    <a class="header-icon-part" href="mailto:{{ $settings->company_email }}" ><span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span></a>
+                                    <a class="header-icon-part" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-9 text-end">
