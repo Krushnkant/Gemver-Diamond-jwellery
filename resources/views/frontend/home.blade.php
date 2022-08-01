@@ -23,8 +23,8 @@
             @foreach($banners as $banner)  
             <div class="item">
                     <div class="background-slider ">
-                        <div class="background-smoke-slider position-relative ">
-                            <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                        <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
+                            <!-- <img src="{{ asset($banner->banner_thumb) }}" alt=" "> -->
                             <div class="container">
                                 <div class="background-text-part ">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none d-md-block mx-auto ">
