@@ -1592,7 +1592,7 @@ background-size: cover;
 .description_paragraph {
     font-weight: 400;
     font-size: 16px;
-    line-height: 33px;
+    line-height: 25px;
     text-transform: capitalize;
     color: #0B1727;
     font-family: 'Jost', sans-serif;
@@ -3473,7 +3473,7 @@ span#amount {
 }
 
 .custom_product_detail .custom_product_des {
-    padding-right: 15px !important;
+    padding-right: 30px !important;
 }
 
 
@@ -3924,6 +3924,14 @@ span#amount {
 
 .order-box-part .order-img {
     min-width: 70px;
+}
+
+.order-part .order-include-col:first-child {
+    padding-left: 0 !important;
+}
+
+.order-part .order-include-col:last-child {
+    padding-right: 0 !important;
 }
 
 .order-box-part .order-text {

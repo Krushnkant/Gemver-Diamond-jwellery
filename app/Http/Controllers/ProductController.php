@@ -397,7 +397,7 @@ class ProductController extends Controller
                 $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
             
-            $spe_desc .='<div class="px-0 mt-3">
+            $spe_desc .='<div class="px-0 mt-4 pt-xl-2">
                     <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
                 </div>
                 <div class="row custom_product_detail">';
