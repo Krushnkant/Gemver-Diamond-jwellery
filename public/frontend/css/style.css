@@ -71,6 +71,9 @@ background-size: cover;
 
 .background-smoke-slider {
     height: 800px;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 .logo-image {
@@ -318,7 +321,7 @@ background-size: cover;
 .background-text-part {
     position: absolute;
     left: 50%;
-    top: 58%;
+    top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }

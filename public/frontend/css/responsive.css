@@ -258,7 +258,7 @@
         padding: 8px 30px;
     }
     .background-smoke-slider {
-        height: auto;
+        height: 300px;
     }
     .header-icon {
         font-size: 14px;
@@ -1052,7 +1052,7 @@
 @media (min-width:576px) and (max-width:1199px) {
     .background-text-part {
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -1139,6 +1139,9 @@
     }
     .order-part .order-include-col:last-child {
         padding-right: 15px !important;
+    }
+    .background-smoke-slider {
+        height: 400px;
     }
     /* ---------- step progress bar----------------------- */
     .step-progressbar .tab-steps--list li:before {
