@@ -366,10 +366,12 @@
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                ?>
+                                        $attributeurl =  URL('/product-details/'.$Related->id.'/'.$attribute_term->product_variant_id); 
+                                     ?>
                                     <span class="form-check d-inline-block">
-                                        
-                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <a href="'.$attributeurl.'">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
+                                        </a>
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
                                 <?php        

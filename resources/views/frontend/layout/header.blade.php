@@ -282,6 +282,12 @@
                                                             <span class="ms-2 ms-md-3 d-inline-block">asscher</span>
                                                         </a>
                                                     </li>
+                                                    <li>
+                                                        <a href="{{ url('/lad-diamond/RADIANT') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">radiant</span>
+                                                        </a>
+                                                    </li>
 
                                                     
                                                 </ul>
