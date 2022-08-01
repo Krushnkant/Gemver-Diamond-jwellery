@@ -396,8 +396,7 @@ class DiamondController extends Controller
                                     $attributeurl =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id.'/'.$attribute_term->product_variant_id); 
                                     $artilces .= '<span class="form-check d-inline-block">
                                             <a href="'.$attributeurl.'">
-                                            <input class="form-check-input variant variantfirst"   value="'.$attribute_term->attribute_terms[0]->id .'"  type="radio" name="AtributeVariant'.$productvariants->attribute->attribute_name .'" id="" title="'.$attribute_term->attribute_terms[0]->attrterm_name .'">
-                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->attrterm_name .'"  class="wire_bangle_color_img">
+                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->attrterm_name .'"  class="wire_bangle_color_img pe-auto">
                                             </a>
                                             <div class="wire_bangle_color_input_label"></div>
                                         </span>';
