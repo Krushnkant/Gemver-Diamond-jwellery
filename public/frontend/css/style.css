@@ -3973,3 +3973,7 @@ span#amount {
 .header-icon-part {
     color: #0b1727;
 }
+
+.header-icon-part:hover {
+    color: var(--secondary);
+}
