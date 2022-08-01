@@ -369,7 +369,7 @@
                                         $attributeurl =  URL('/product-details/'.$Related->id.'/'.$attribute_term->product_variant_id); 
                                      ?>
                                     <span class="form-check d-inline-block">
-                                        <a href="'.$attributeurl.'">
+                                        <a href="{{ $attributeurl }}">
                                         <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
                                         </a>
                                         <div class="wire_bangle_color_input_label"></div>
