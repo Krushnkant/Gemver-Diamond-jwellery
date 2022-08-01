@@ -227,10 +227,11 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
-                                    <span>'. $Diamond->Clarity .' |</span>
-                                    <span>'. $Diamond->Color .'</span>
+                                    <span>'. $Diamond->Clarity .' clarity |</span>
+                                    <span>'. $Diamond->Color .' color</span>
+                                    <span>'. $Diamond->Lab .' certificate</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
                                     $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block" title="Compare" data-id="'.$Diamond->id.'">
@@ -664,10 +665,11 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_heading mb-1">
                                     '.$Diamond->Shape.'
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-1"><a href="'.$url.'">'. $Diamond->Shape .' '. $Diamond->Weight .' ct</a></div>
-                                <div class="round_cut_lab_diamonds_info_clarity mb-1">
-                                    <span>'. $Diamond->Clarity .' |</span>
-                                    <span>'. $Diamond->Color .'</span>
+                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                                    <span>'. $Diamond->Clarity .' clarity |</span>
+                                    <span>'. $Diamond->Color .' color</span>
+                                    <span>'. $Diamond->Lab .' certificate</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
                                     $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">
