@@ -1068,9 +1068,9 @@
     .logo-image {
         max-width: 100px;
     }
-    .heading-h1 {
+    /* .heading-h1 {
         font-size: 39px;
-    }
+    } */
     .customer_stories .item {
         width: calc(100% - 2px);
         margin: auto;
