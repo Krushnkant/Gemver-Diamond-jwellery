@@ -14,6 +14,12 @@
     .custom_product_detail .custom_product_des {
         padding-right: 0 !important;
     }
+    .home-page-slider-header .header-logo {
+        max-width: 90px;
+    }
+    .footer-logo {
+        max-width: 90px;
+    }
     /* --------------------- blog page--------------------------------- */
     .blog_tabs ul li button {
         margin: 0 0 15px 0 !important;

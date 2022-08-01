@@ -2,7 +2,7 @@
     <div class="container">
             <div class="row mb-md-5 pb-4 pb-md-3">
                 <div class="col-lg-3">
-                    <div class="footer-logo">
+                    <div class="footer-logo mb-3">
                         <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
                     </div>
                 </div>
