@@ -324,6 +324,7 @@ background-size: cover;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 100%;
 }
 
 .heading-h1 {
@@ -3969,6 +3970,11 @@ span#amount {
     height: 230px;
     object-fit: cover;
 }
-.header-icon-part{
-    color:#0b1727;
+
+.header-icon-part {
+    color: #0b1727;
+}
+
+.header-icon-part:hover {
+    color: var(--secondary);
 }
