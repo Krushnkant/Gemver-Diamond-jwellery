@@ -230,61 +230,61 @@
                                                 
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/ROUND') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">round</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/HEART') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">heart</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/PRINCESS') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">princess</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/PEAR') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">pear</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/OVAL') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">oval</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/CUSHION') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">cushion</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/EMERALD') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">emerald</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/MARQUISE') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">marquise</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/ASSCHER') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">asscher</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/RADIANT') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img "></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img "></span>
                                                             <span class="ms-2 ms-md-3 d-inline-block">radiant</span>
                                                         </a>
                                                     </li>
