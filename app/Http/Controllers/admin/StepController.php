@@ -130,6 +130,7 @@ class StepController extends Controller
             'main_title.required' =>'Please provide a Title',
             'category_id.required' =>'Please Select Category',
             'main_shotline.required' =>'Please provide a shotline',
+            'main_image.required' =>'Please provide a main image',
         ];
 
         if(isset($request->action) && $request->action=="update"){
@@ -137,6 +138,7 @@ class StepController extends Controller
                 'main_title' =>'required',
                 'category_id' =>'required',
                 'main_shotline' =>'required',
+                
             ], $messages);
         }
         else{
@@ -144,6 +146,7 @@ class StepController extends Controller
                 'main_title' =>'required',
                 'category_id' =>'required',
                 'main_shotline' =>'required',
+                'main_image' =>'required',
             ], $messages);
         }
          
@@ -163,6 +166,17 @@ class StepController extends Controller
             $step->slug =  Str::slug($request->main_title);
             $step->main_shotline = $request->main_shotline;
             $step->category_id = $request->category_id;
+
+            if ($request->hasFile('main_image')) {
+                $image = $request->file('main_image');
+                $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('images/steps/'.$image_name);
+                $imageTemp = $_FILES["main_image"]["tmp_name"];
+                $d = compressImage($imageTemp, $destinationPath, 70);
+                $step->main_image = $image_name;
+            }else{
+                $step->main_image = $step->main_image;
+            }
         }
         else{
             $action = "add";
@@ -171,8 +185,19 @@ class StepController extends Controller
             $step->slug =  Str::slug($request->main_title);
             $step->main_shotline = $request->main_shotline;
             $step->category_id = $request->category_id;
+            if ($request->hasFile('main_image')) {
+                $image = $request->file('main_image');
+                $image_name = 'Step_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('images/steps/'.$image_name);
+                $imageTemp = $_FILES["main_image"]["tmp_name"];
+                $d = compressImage($imageTemp, $destinationPath, 70);
+                $step->main_image = $image_name;
+            }else{
+                $step->main_image = $step->main_image;
+            }
             $step->step1_title = $request->step1_title;
             $step->step1_shotline = $request->step1_shotline;
+
             $step->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
         }
         $step->save();

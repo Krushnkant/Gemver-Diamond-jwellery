@@ -252,7 +252,7 @@
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
                         <div class="engagement_diamond_img">
-                            <img src="{{ asset('frontend/image/how_to_img_2.png') }}" alt="">
+                            <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-7 col-xl-8 mt-4 mt-lg-0">
