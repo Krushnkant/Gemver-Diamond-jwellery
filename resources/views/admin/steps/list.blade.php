@@ -674,6 +674,7 @@ $('#main_image').change(function(){
             $('#main_image_show').attr('src', default_image);
         }
         else {
+           
             let reader = new FileReader();
             reader.onload = (e) => {
                 $('#main_image_show').attr('src', e.target.result);

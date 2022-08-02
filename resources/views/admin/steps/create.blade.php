@@ -30,6 +30,16 @@
         <div id="main_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+            <label class="col-form-label" for="main_image">Main Image <span class="text-danger">*</span>
+            </label>
+            <input type="file" class="form-control-image" name="main_image" id="main_image" >
+            <div id="main_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+            <img src="@if(isset($step) && !empty($step->main_image))  {{ url('images/steps/'.$step->main_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="main_image_show" height="50px" width="50px" style="margin-top: 5px">
+        </div>
+    </div>
+
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
     <button type="button" class="btn btn-primary mt-4" id="save_closeStepBtn" data-action="{{ isset($step)?'update':'add'}}">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 
