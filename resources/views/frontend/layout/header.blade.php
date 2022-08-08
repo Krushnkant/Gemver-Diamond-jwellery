@@ -44,12 +44,7 @@
                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
                             </svg>
                         </div> -->
-                        <?php 
-                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',1)->first();
-                                
-                                //dd($megamenu->sub_menu);
-                                    
-                                ?>
+                      
                         <ul class="mobile-sub-menu">
                             <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                 <span></span>
@@ -140,8 +135,6 @@
                                                             <span class="ms-2 ms-md-3 d-inline-block">radiant</span>
                                                         </a>
                                                     </li>
-
-                                                    
                                                 </ul>
                                             </div>
                                             <ul>
@@ -151,7 +144,7 @@
                                 </div>
                             </li>
                            
-                            <li class="{{ (request()->segment(1) == 'shop' || request()->segment(1) == 'product-details') ? 'active' : '' }}" ><a href="#">Engagement Ring 
+                            <li class="" ><a href="#">Engagement Ring 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
@@ -172,15 +165,34 @@
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <div class="mega-menu-three-part ">
+                                    <?php
+                                        $menu_no = 1;
+                                        foreach($megamenu->sub_menu as $sub1)
+                                        {
+                                            if(count($sub1->sub_category) > 0){
+                                                if($menu_no == 1){
+                                                    $menu_colum = "two"; 
+                                                }else if($menu_no == 2){
+                                                    $menu_colum = "three";
+                                                }else if($menu_no == 3){
+                                                    $menu_colum = "four";
+                                                }else{
+                                                    $menu_colum = "four";
+                                                }
+                                                $menu_no = ++$menu_no;
+                                            }
+                                        }
+                                       
+                                    ?>
+                                    <div class="mega-menu-{{ $menu_colum }}-part {{$menu_no}}">
                                         <?php
                                         foreach($megamenu->sub_menu as $sub)
                                         {
-                                           if(count($sub->sub_category) > 0){
+                                        if(count($sub->sub_category) > 0){
                                         ?>
                                         <ul>
                                             <li>
-                                                <span class="menus_title">{{ $sub->title }} </span>
+                                                <span class="menus_title">{{ $sub->title }}</span>
                                             </li>   
                                         <?php 
                                           foreach($sub->sub_category as $car)
@@ -196,6 +208,7 @@
                                         ?>
                                         </ul>
                                         <?php
+                                         
                                         }
                                          }
                                         ?>
@@ -208,7 +221,7 @@
                             </li>
 
 
-                            <li class="{{ (request()->segment(1) == 'shop' || request()->segment(1) == 'product-details') ? 'active' : '' }}" ><a href="#">Wedding Ring 
+                            <li class="" ><a href="#">Wedding Ring 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
@@ -229,7 +242,26 @@
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <div class="mega-menu-two-part ">
+                                    <?php
+                                        $menu_no = 1;
+                                        foreach($megamenu->sub_menu as $sub1)
+                                        {
+                                            if(count($sub1->sub_category) > 0){
+                                                if($menu_no == 1){
+                                                    $menu_colum = "two"; 
+                                                }else if($menu_no == 2){
+                                                    $menu_colum = "three";
+                                                }else if($menu_no == 3){
+                                                    $menu_colum = "four";
+                                                }else{
+                                                    $menu_colum = "four";
+                                                }
+                                                $menu_no = ++$menu_no;
+                                            }
+                                        }
+                                       
+                                    ?>
+                                    <div class="mega-menu-{{ $menu_colum }}-part ">
                                         <?php
                                         foreach($megamenu->sub_menu as $sub)
                                         {
@@ -265,7 +297,7 @@
                                 <?php } ?>
                             </li>
 
-                            <li class="{{ (request()->segment(1) == 'shop' || request()->segment(1) == 'product-details') ? 'active' : '' }}" ><a href="#">Fine Jewelry 
+                            <li class="" ><a href="#">Fine Jewelry 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
@@ -286,7 +318,26 @@
                                         <span></span>
                                         <span></span>
                                     </div>
-                                    <div class="mega-menu-two-part ">
+                                    <?php
+                                        $menu_no = 1;
+                                        foreach($megamenu->sub_menu as $sub1)
+                                        {
+                                            if(count($sub1->sub_category) > 0){
+                                                if($menu_no == 1){
+                                                    $menu_colum = "two"; 
+                                                }else if($menu_no == 2){
+                                                    $menu_colum = "three";
+                                                }else if($menu_no == 3){
+                                                    $menu_colum = "four";
+                                                }else{
+                                                    $menu_colum = "four";
+                                                }
+                                                $menu_no = ++$menu_no;
+                                            }
+                                        }
+                                       
+                                    ?>
+                                    <div class="mega-menu-{{ $menu_colum }}-part ">
                                         <?php
                                         foreach($megamenu->sub_menu as $sub)
                                         {
@@ -297,22 +348,21 @@
                                                 <span class="menus_title">{{ $sub->title }} </span>
                                             </li>   
                                         <?php 
-                                          foreach($sub->sub_category as $car)
-                                          {
-                                            ?>
+                                        foreach($sub->sub_category as $car)
+                                        {
+                                        ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->category_id)}}">
                                                     <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                 </a>
                                             </li>
-                                            <?php 
-                                            
-                                          }
+                                        <?php 
+                                        }
                                         ?>
                                         </ul>
                                         <?php
                                         }
-                                         }
+                                        }
                                         ?>
                                         <ul class="">
                                             <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
