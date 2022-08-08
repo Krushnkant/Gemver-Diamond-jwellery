@@ -769,6 +769,12 @@
         min-height: 47px;
         font-size: 12px;
     }
+
+    .select_contact_btn {
+        min-width: 164px;
+        min-height: 47px;
+        font-size: 12px;
+    }
     .description_heading {
         font-size: 20px;
     }

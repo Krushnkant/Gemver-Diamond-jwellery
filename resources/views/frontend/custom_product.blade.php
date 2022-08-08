@@ -448,7 +448,18 @@
 
           
         });
+
+        
    </script>
+
+<script>
+$(document).ready(function() {
+    if ($.cookie('pop') == null) {
+        $('#myStep').modal('show');
+        $.cookie('pop', '1');
+    }
+});
+</script>  
 
 
 

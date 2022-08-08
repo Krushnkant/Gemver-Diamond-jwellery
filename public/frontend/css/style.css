@@ -1577,6 +1577,20 @@ background-size: cover;
     padding: 0 20px;
 }
 
+.select_contact_btn {
+    min-width: 199px;
+    min-height: 60px;
+    border: 1px solid #BB9761;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #BB9761;
+    background: none;
+    padding: 0 20px;
+}
+
 .wire_bangle_padding {
     padding-right: 35px;
 }
