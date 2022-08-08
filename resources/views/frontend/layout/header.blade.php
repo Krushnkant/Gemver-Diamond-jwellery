@@ -279,7 +279,7 @@
                                             ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->category_id)}}">
-                                                    <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                    <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                 </a>
                                             </li>
                                             <?php 
@@ -356,7 +356,7 @@
                                         ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->category_id)}}">
-                                                    <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                    <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                 </a>
                                             </li>
                                         <?php 
