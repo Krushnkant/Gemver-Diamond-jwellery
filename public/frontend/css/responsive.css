@@ -80,6 +80,17 @@
         border-radius: 15px;
         margin-bottom: 15px;
         width: 100%;
+        clip-path: none !important;
+        margin: 0 !important;
+        border: 1px #ddd solid;
+        margin-bottom: 15px !important;
+        padding: 15px 0 !important;
+        box-sizing: border-box !important;
+        height: auto;
+    }
+    .progressbar_ul {
+        border: 0;
+        background: none;
     }
     .step-progressbar-part:nth-child(2),
     .step-progressbar-part:last-child {

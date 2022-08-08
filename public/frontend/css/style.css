@@ -2029,14 +2029,14 @@ background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 38px;
-    height: 38px;
+    width: 42px !;
+    height: 42px;
 }
 
 .round_cut_lab_checkbox input[type="checkbox"] {
     opacity: 0;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -2305,7 +2305,7 @@ background-size: cover;
     height: 19px;
 }
 
-.round_cut_lab_range_slider .form-group input+label:after {
+.round_cut_lab_range_slider .form-group input:checked+label:after {
     content: '';
     display: block;
     position: absolute;
@@ -2331,11 +2331,11 @@ background-size: cover;
     vertical-align: middle;
     cursor: pointer;
     margin-right: 10px;
-    height: 23px;
+    height: 24px;
     text-align: center;
     font-size: 14px;
     padding: 0 5px;
-    min-width: 19px;
+    min-width: 24px;
     line-height: 22px;
 }
 
@@ -3811,15 +3811,18 @@ span#amount {
 }
 
 .step-progressbar-part {
-    border: 2px #ddd solid;
-    padding: 13px 15px 13px 10px;
-    border-radius: 0 30px 30px 0;
-    background-color: #F0F0F0;
-    width: calc(33.33% + 20px);
-    margin-right: -33px;
+    margin-left: -2.5%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    background: #fff;
+    width: 33%;
+    padding: 1% 2% 1% 3%;
+    height: 45px;
+    position: relative;
+    -webkit-clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
+    clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
+    box-sizing: revert!important;
+    box-sizing: border-box;
 }
 
 .step-progressbar-step-part {
@@ -3828,22 +3831,30 @@ span#amount {
 }
 
 .step-progressbar-part.active {
-    border-bottom: 2px #000 solid;
-    background: #fff;
+    background: #F0F0F0;
+    -webkit-clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
+    clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
+    border: none;
 }
 
 .step-progressbar-part:first-child {
-    z-index: 2;
+    -webkit-clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 0 50%, 0 0);
+    clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 0 50%, 0 0);
+    margin-left: 0;
 }
 
-.step-progressbar-part:nth-child(2) {
-    z-index: 1;
-    padding-left: 40px;
+.progressbar_ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    border: 2px solid #F0F0F0;
+    background: #F0F0F0;
 }
 
 .step-progressbar-part:last-child {
-    z-index: 0;
-    padding-left: 40px;
+    -webkit-clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0 100%, 8% 50%, 0 0);
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0 100%, 8% 50%, 0 0);
 }
 
 .step-progressbar-part .step-progressbar-heading {

@@ -95,7 +95,7 @@
         </div> -->
         <div class="row mb-lg-5 mb-4">
         @if($check_diamond == 1)
-            <ul class="d-block d-lg-flex ">
+            <ul class="d-block d-lg-flex progressbar_ul">
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part ">
                             <span class="step-progressbar-img ms-3">
@@ -154,7 +154,7 @@
                     </li>
             </ul>
                 @else  
-                <ul class="d-block d-lg-flex ">
+                <ul class="d-block d-lg-flex progressbar_ul">
                     
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">

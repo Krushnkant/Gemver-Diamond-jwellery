@@ -30,9 +30,9 @@
         </div>
 
 
-        <div class="row mt-5">
+        <div class="mt-5">
         @if($check_variant == 1)
-            <ul class="d-block d-lg-flex ">
+            <ul class="d-block d-lg-flex progressbar_ul">
                    <li class="step-progressbar-part ">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
@@ -97,7 +97,7 @@
                     </li>
             </ul>
                 @else  
-                <ul class="d-block d-lg-flex ">
+                <ul class="d-block d-lg-flex  progressbar_ul">
                    <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
         
