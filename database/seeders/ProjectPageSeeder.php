@@ -432,6 +432,17 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 26
         ]);
 
+        ProjectPage::create([
+            'id' => 42,
+            'parent_menu' => 0,
+            'label' => 'Mega Menu',
+            'route_url' => 'admin.megamenus.list',
+            'icon_class' => 'fa fa-first-order',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.megamenus.list',
+            'sr_no' => 27
+        ]);
+
         
 
         $users = User::where('role',"!=",1)->get();

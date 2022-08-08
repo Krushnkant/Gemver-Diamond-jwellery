@@ -10,6 +10,13 @@
         <div id="srno-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
+    <div class="form-group mt-3 mb-3">
+        <div class="form-check">
+                <label class="form-check-label">
+                <input type="checkbox" name="is_custom" id="is_custom" class="form-check-input primaryBox"  value="0">Do you want to add customized product category?</label>
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="col-form-label" for="category_name">Category Name <span class="text-danger">*</span>
         </label>
@@ -17,7 +24,7 @@
         <div id="categoryname-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <div class="form-group"  id="attribute_variation">
+    <!-- <div class="form-group"  id="attribute_variation">
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation
         </label>
         <select id='attribute_id_variation' name="attribute_id_variation[]" class="">
@@ -26,11 +33,25 @@
                 <option value="{{ $attr['id'] }}">{{ $attr['attribute_name'] }}</option>
             @endforeach
         </select>
+    </div> -->
+
+    @if(isset($categories) && !empty($categories))
+    <div class="form-group parent_category" >
+        <label class="col-form-label" for="parent_category_id">Parent Category
+        </label>
+        <select id='parent_category_id'  name="parent_category_id" class="form-control">
+            <option></option>
+            @foreach($categories as $cat)
+                <option value="{{ $cat['id'] }}">{{ $cat['category_name'] }}</option>
+            @endforeach
+        </select>
+        
     </div>
+    @endif
 
 
 
-    <div class="form-group" id="attribute_required_specification">
+    <!-- <div class="form-group" id="attribute_required_specification">
         <label class="col-form-label" for="attribute_required_specification">Select Attribute for Required Specification
         </label>
         <select id='attribute_id_req_spec' name="attribute_id_req_spec[]" class="">
@@ -50,15 +71,10 @@
                 <option value="{{ $spec['id'] }}">{{ $spec['attribute_name'] }}</option>
             @endforeach
         </select>
-    </div>
+    </div> -->
 
    
-    <div class="form-group mt-3 mb-3">
-        <div class="form-check">
-                <label class="form-check-label">
-                <input type="checkbox" name="is_custom" id="is_custom" class="form-check-input primaryBox" value="0">Do you want to add custom category?</label>
-        </div>
-    </div>
+    
        
 
     <div class="form-group">

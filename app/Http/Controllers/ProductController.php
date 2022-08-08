@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\ProductVariant;
+use App\Models\ProductAttribute;
 use App\Models\ProductVariantVariant;
 use App\Models\OrderIncludes;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class ProductController extends Controller
 {
     public function index($id){
         $CatId = $id;
-        $Products= Product::with('primary_category','product_variant')->where(['estatus' => 1])->get();
+        $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
         $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
@@ -52,8 +53,11 @@ class ProductController extends Controller
                 $query = $query->where('product_variants.sale_price','>=',$data["minimum_price"]);
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price"]);
             }
+            //dd($data["category"][0]);
             if(isset($data["category"])){
-                $query = $query->whereIn('primary_category_id',$data["category"]);
+                $cat_id = $data["category"][0];
+                //$query = $query->where('primary_category_id',$data["category"][0]);
+                $query = $query->WhereRaw("FIND_IN_SET($cat_id, primary_category_id)");
             }
             
             if(isset($data["attribute"])){
@@ -101,9 +105,19 @@ class ProductController extends Controller
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt=""></a>
-                        </div>
-                        <div class="wire_bangle_description p-3">';
+                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt="" class="main-product-image"></a>
+                        </div><div class="text-center">';
+                        
+                        foreach($images as $image){
+                        $output .= '<span class="form-check d-inline-block ">
+                            <a href="">
+                            
+                            <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt=""  class="wire_bangle_color_img pe-auto product-image ">
+                            </a>
+                            <div class="wire_bangle_color_input_label"></div>
+                        </span>';
+                        }
+                        $output .= ' </div><div class="wire_bangle_description p-3">';
                         
                             $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
@@ -111,7 +125,6 @@ class ProductController extends Controller
                                 <span class="wire_bangle_price wire_bangle_price_part">
                                     $'. $sale_price .'
                                 </span>';
-
 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
                                 foreach($ProductVariantVariant as $productvariants){
@@ -288,16 +301,20 @@ class ProductController extends Controller
 
     public function fetchproductdetails(Request $request){
         $data = $request->all();
+        //dd($data);
         $variants=$data["variant"];
         $product_id=$data["product_id"];
         if(isset($data["action"]))
         {
             $product_variants = ProductVariant::where('product_id',$product_id)->where('estatus',1)->get();
+            
             $vatid = 0;
             foreach($product_variants as $product_variant){
-                
+                //dd($product_variant);
                 $product_variant_variants = ProductVariantVariant::where('product_variant_id',$product_variant->id)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-                if($product_variant_variants == $variants){
+                //dd($product_variant_variants);
+                if(sort($product_variant_variants) == sort($variants)){
+                    
                     $vatid = $product_variant->id;
                 }
             }
@@ -353,7 +370,7 @@ class ProductController extends Controller
                 $spe = '';
                 foreach($ProductVariantSpecification as $productvariants)
                 {
-                $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->attribute_name.'</div><span class="wire_bangle_select d-inline-block">
+                $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->attribute_name.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
                             <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                             <option value="">-- Select '.$productvariants->attribute->attribute_name .' --</option>';   
                     

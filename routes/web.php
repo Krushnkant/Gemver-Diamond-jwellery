@@ -147,6 +147,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('products/{id}/delete',[\App\Http\Controllers\admin\ProductController::class,'deleteproduct'])->name('products.delete');
     Route::post('products/checksku',[\App\Http\Controllers\admin\ProductController::class,'sku_check'])->name('products.sku_check');
 
+    Route::get('addAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addAttributebox'])->name('addAttributebox');
+    Route::get('addVariantAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addVariantAttributebox'])->name('addVariantAttributebox');
+    Route::post('productattribute/save',[\App\Http\Controllers\admin\ProductController::class,'productattributesave'])->name('productattribute.save');
+
     Route::get('customproducts',[\App\Http\Controllers\admin\ProductController::class,'customproducts'])->name('customproducts.list');
     Route::post('allcustomproductlist',[\App\Http\Controllers\admin\ProductController::class,'allcustomproductlist'])->name('allcustomproductlist');
     
@@ -372,6 +376,18 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('blogbanners/uploadfile',[\App\Http\Controllers\admin\BlogBannerController::class,'uploadfile'])->name('blogbanners.uploadfile');
     Route::post('blogbanners/removefile',[\App\Http\Controllers\admin\BlogBannerController::class,'removefile'])->name('blogbanners.removefile');
     Route::post('blogbanners/getBannerInfoVal',[\App\Http\Controllers\admin\BlogBannerController::class,'getBannerInfoVal'])->name('blogbanners.getBannerInfoVal');
+
+    Route::get('megamenus',[\App\Http\Controllers\admin\MegaMenuController::class,'index'])->name('megamenus.list');
+    Route::post('updateMegaMenu',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMegaMenu'])->name('megamenus.updateMegaMenu');
+    Route::get('megamenus/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editmegamenus'])->name('megamenus.edit');
+
+    Route::get('submenus/{id}',[\App\Http\Controllers\admin\MegaMenuController::class,'submenu'])->name('submenus.list');
+    Route::post('updateSubMenu',[\App\Http\Controllers\admin\MegaMenuController::class,'updateSubMenu'])->name('submenus.updateSubMenu');
+    Route::get('submenus/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenus'])->name('submenus.edit');
+
+    Route::get('submenus/manage/{id}',[\App\Http\Controllers\admin\MegaMenuController::class,'submenumanage'])->name('submenus.manage');
+    Route::post('updateMenuManage',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMenuManage'])->name('submenus.updateMenuManage');
+    Route::get('submenusmanage/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenumanage'])->name('submenus.manage.edit');
 });
 
 

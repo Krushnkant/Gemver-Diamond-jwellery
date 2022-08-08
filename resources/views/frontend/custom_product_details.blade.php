@@ -296,10 +296,60 @@
                             }  
                             ?>
 
-                            <div class="mb-3 d-flex flex-wrap" id="speci_multi">
+                            <div class="d-flex flex-wrap" id="speci_multi143">
+                            
+                            <?php
+
+                            $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$Product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
+                            
+                             $spe = '';
+                             foreach($ProductVariantSpecification as $productvariants)
+                             {
+
+                             $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute_name.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                       <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
+                                         <option value="">-- '.$productvariants->attribute_name .'--</option>';   
+                            
+                                 $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
+                                   // dd($product_attribute);
+                                foreach($product_attribute as $attribute_term){
+                                    $term_array = explode(',',$attribute_term->terms_id);
+                                    
+                                    $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                                    //dd($product_attributes);
+                                     $v = 1;
+                                     foreach($product_attributes as $term){
+                                     $spe .='<option data-spe="'.$productvariants->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                                    
+                                    }
+                                 }   
+                                $spe .='</select>
+                                    <div id="AtributeSpecification'.$productvariants->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </span> </div>';
+                                }
+                             
+                            echo $spe;
+                             ?>
                             </div>
-                            <div class="row mb-4" id="specificationproduct">
+                            <div class="row mb-4" id="specificationproduct143">
+                            <?php
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            //dd($product_attributes_specification);
+                            foreach($product_attributes_specification as $product_attribute_specification){  
+                                $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
+                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
+                            ?>
+                        
+                            <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
+                                <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">{{ $product_attribute_term_name }}</span>
                             </div>
+                               
+                            <?php
+                            }
+                            ?>
+                            </div> 
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
                             <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
@@ -319,7 +369,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion detailsspeci" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -328,13 +378,14 @@
                 </div>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <div class="row" id="specification">
+                        <div class="row" id="specification143">
                             <?php
-                            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$Product->product_variant[0]->id)->groupBy('attributes.id')->get();
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            //dd($product_attributes_specification);
                             foreach($product_attributes_specification as $product_attribute_specification){  
-                                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+                                $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
+                                $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                             ?>
 
                             <div class="col-md-6 px-0" >

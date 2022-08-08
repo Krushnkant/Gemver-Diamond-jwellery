@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use GhanuZ\FindInSet\FindInSetRelationTrait;
 
 class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use FindInSetRelationTrait;
 
     protected $table = 'products';
 
@@ -32,6 +34,11 @@ class Product extends Model
         return $this->hasOne(Category::class,'id','primary_category_id');
     }
 
+    public function primary_categories()
+    {
+        return $this->FindInSetMany(Category::class, 'primary_category_id', 'id');
+    }
+
     public function child_category(){
         return $this->hasOne(Category::class,'id','child_category_id');
     }
@@ -50,5 +57,9 @@ class Product extends Model
 
     public function product_variant_variants(){
         return $this->hasMany(ProductVariantVariant::class,'product_id','id');
+    }
+
+    public function product_attributes(){
+        return $this->hasMany(ProductAttribute::class,'product_id','id');
     }
 }

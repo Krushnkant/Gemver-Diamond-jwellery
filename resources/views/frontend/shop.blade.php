@@ -152,6 +152,15 @@
         
 $(document).ready(function(){
     filter_data();
+
+    //$('product-image').hover(function () {
+    $('body').on('mouseover', '.product-image', function () {    
+    }, function () {
+        var product_image = $(this).attr('src');
+        $('.main-product-image').attr("src", product_image);
+       
+    });
+
     $("#sorting").change(function() {
         filter_data();
     });
@@ -210,6 +219,11 @@ $(document).ready(function(){
      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
      
   });
+
+   
+  
+
+
 });
 </script>
 

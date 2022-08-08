@@ -32,14 +32,21 @@
                             <input type="hidden" id="childCategoryId" name="childCategoryId" value="{{ isset($product->primary_category_id) ? $product->primary_category_id: '' }}">
                             <input type="hidden" id="attrid_for_variation" name="attrid_for_variation" value="{{ $product->attrid_for_variation }}">
                             <input type="hidden" id="attr_term_ids" name="attr_term_ids" value="{{ $product->attr_term_ids }}">
+                            <input type="hidden" id="attr_ids" name="attr_ids" value="{{ $product->attr_ids }}">
+                            
+                            <input type="hidden" id="product_u_id" name="product_u_id" value="{{ $product->product_u_id }}">
                             <?php  
                              $term_no_array = explode(',',$product->attr_term_ids);
                              $term_no=end($term_no_array);
+
+                             $attributes_no_array = explode(',',$product->attr_ids);
+                             $attributes_no=end($attributes_no_array);
                             ?>
                             <input type="hidden" id="term_no" name="term_no" value="{{ $term_no }}">
+                            <input type="hidden" id="attributes_no" name="attributes_no" value="{{ $attributes_no }}">
                             <div class="product-section">
                                 <div class="col-sm-12">
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label class="col-lg-12 col-form-label" for="carame">Category <span class="text-danger">*</span></label>
                                         <div class="col-lg-12">
                                             <nav class="navbar navbar-expand-md categorydrops">
@@ -71,7 +78,25 @@
                                             </nav>
                                             <div id="category-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
+                                    </div> -->
+                                    
+                                    
+                                    @if(isset($catArray) && !empty($catArray))
+                                    <div class="form-group category" >
+                                        <label class="col-form-label" for="category_id"> Category <span class="text-danger">*</span>
+                                        </label>
+                                        <select id='category_id'   name="category_id[]"  class="form-control catMulti" id=""  multiple>
+                                            <option></option>
+                                            @php 
+                                              $categories =  explode(',',$product->primary_category_id); 
+                                            @endphp
+                                            
+                                            @foreach($catArray as $cat)
+                                                <option value="<?php echo $cat['id']; ?>" @if(in_array($cat['id'],$categories)) selected @endif><?php echo $cat['category_name']; ?></option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    @endif
 
                                     <div class="form-group row">
                                         <label class="col-lg-12 col-form-label" for="ProductName">Product Title <span class="text-danger">*</span></label>
@@ -106,15 +131,110 @@
                                     </div>
 
                                     <div class="row" style="display:none;">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                    <label class="form-check-label">
-                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($product) && ($product->is_custom == 1) ) checked @endif class="form-check-input primaryBox" value="{{ isset($product)?($product->is_custom):0 }}">Do you want to add custom product?</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                        <label class="form-check-label">
+                                                        <input type="checkbox" name="is_custom" id="is_custom" @if(isset($product) && ($product->is_custom == 1) ) checked @endif class="form-check-input primaryBox" value="{{ isset($product)?($product->is_custom):0 }}">Do you want to add custom product?</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                    </form>
+
+                                    <div class="row" >
+                                        <div class="col-md-12">
+                                            <div class="form-group attribute" >
+                                                <label class="col-form-label d-block" for="attribute_id"> Select Attribute <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <select id='attribute_id' name="attribute_id"  class="form-control attribute_id" id="" >
+                                                                <option></option>
+
+                                                                @foreach($attributes as $attr)
+                                                                    <option data-title="<?php echo $attr['attribute_name']; ?>" value="{{ $attr['id'] }}">{{ $attr['attribute_name'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="button" class="AddSub btn btn-primary d-inline-block mb-3" id="AddSub" style="display: none"> + </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group col-md-12">
+                                        <div class="row add-value-sub" id="attribute-data">
+
+                                        <?php  $VariantCnt=1; ?>
+                                            @foreach($product->product_attributes as $product_attribute)
+                                                <?php 
+                                                if ($VariantCnt==1){
+                                                    $primaryclass = 'primaryBox';
+                                                }else{
+                                                    $primaryclass = '';
+                                                } 
+                                                ////dd($product);
+                                                $attr_array = explode(',',$product->attr_ids);
+                                                //print_r($attr_array); die;
+                                                $attribute = \App\Models\Attribute::find($product_attribute['attribute_id']);
+                                            
+                                                ?>
+                                              
+                                                <div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $attribute->attr_name }}">
+                                                <div class="variation-selection-box row panel-heading active">
+                                                    <div class="col-lg-10 col-sm-8">
+                                                        <label class="col-form-label"><b><span class="VariantCnt"></span></b></label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-sm-2 actionbox ml-auto text-right"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>
+                                                    <?php if ($VariantCnt!=1){
+                                                        echo '<span data-id="'.$attr_array[$VariantCnt - 1].'" class="close-icon RemoveBox"><i class="fa fa-window-close" aria-hidden="true"></i></span>';
+                                                    }
+                                                    ?>
+                                                    <div id=""></div></div>
+                                                </div>
+                                                <div id="" role="tabpanel" class="panel-collapse collapse show attribute-product-box">
+                                                    <form method="post" enctype="multipart/form-data"  class="attributeForm" id="attributeForm">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="attribute_id" value="{{ $attribute['id'] }}">
+                                                            
+                                        
+                                                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-12 col-form-label" for="">{{ $attribute['attribute_name'] }} <span class="text-danger">*</span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <select class="form-control Attribute" id="" id-data="Attribute'.$required_variation['id'].'" name="Attribute{{ $attribute['id'] }}[]" multiple>
+                                                                            <option></option>
+                                                
+                                                                            @php
+                                                                               $terms = \App\Models\AttributeTerm::where('attribute_id',$attribute['id'])->get()->toArray(); 
+                                                                               $selectterms =  explode(',',$product_attribute['terms_id']); 
+                                                                            @endphp
+                                                                            @foreach($terms as $term)
+                                                                                <option value="{{ $term['id'] }}" @if(in_array($term['id'],$selectterms)) selected @endif >{{ $term['attrterm_name'] }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <label id="Attribute{{ $attribute['id'] }}-error" class="error invalid-feedback animated fadeInDown" for=""></label>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="form-check">
+                                                                <input type="checkbox" name="attribute_variation{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_variation == 1) ) checked @endif "> <label class="form-check-label">
+                                                                    Used for variations ?</label>
+                                                                </div>
+                                                            </div>
+                                                         
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <?php $VariantCnt++; ?>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <button type="button" class="save_attributes btn btn-primary" id="save_attributes" >Save attributes</button>
 
 
                                 </div>
@@ -131,7 +251,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        
         <button class="AddBox btn btn-primary" id="AddBox" > Add Box</button>
         <div class="row">
             <div class="col-md-12">
@@ -193,9 +313,9 @@
                                                 </div>
                                             </div> -->
 
-                                            <?php $required_vari_data = get_required_variations(isset($product->primary_category_id) ? $product->primary_category_id : ''); ?>
+                                            <?php $required_vari_data = get_required_variations_attribute(isset($product->product_u_id) ? $product->product_u_id : ''); ?>
                                             @if(isset($required_vari_data['required_variations']) && !empty($required_vari_data['required_variations']))
-                                            <div class="row">
+                                            <div class="row VariationSelect">
                                                 <input type="hidden" name="varVariation" value="{{ implode(",",$required_vari_data['required_variation_ids']) }}">
                                                 <label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>
                                                 @foreach($required_vari_data['required_variations'] as $required_variation)
@@ -456,61 +576,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <?php $required_spec_data = get_required_specifications(isset($product->primary_category_id) ? $product->primary_category_id : ''); ?>
-                                            @if(isset($required_spec_data['required_specifications']) && !empty($required_spec_data['required_specifications']))
-                                            <div class="row">
-                                                <input type="hidden" name="varSpecRequired" value="{{ implode(",",$required_spec_data['required_specification_ids']) }}">
-                                                <label class="col-lg-12 text-muted mt-3 mb-0">Specification (Required)</label>
-                                                @foreach($required_spec_data['required_specifications'] as $required_specification)
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="specReqAttr">{{ $required_specification['attribute_name'] }} <span class="text-danger">*</span></label>
-                                                        <div class="col-lg-12">
-                                                            <select class="form-control specReq {{ $primaryclass }}" id="" name="specReq{{ $required_specification['id'] }}[]" multiple="multiple">
-                                                               
-                                                                @foreach($required_specification['attributeterm'] as $term)
-                                                                    <?php $variant_term = \App\Models\ProductVariantSpecification::where('product_variant_id',$product_variant['id'])->whereRaw('FIND_IN_SET("'.$term['id'].'",attribute_term_id)')->where('type',1)->first(); ?>
-                                                                    <option value="{{ $term['id'] }}" @if(isset($variant_term) && !empty($variant_term)) selected @endif >{{ $term['attrterm_name'] }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <label id="specReq{{ $required_specification['id'] }}-error" class="error invalid-feedback animated fadeInDown" for=""></label>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                            @endif
-
-                                            <?php $optional_spec_data = get_optional_specifications(isset($product->primary_category_id) ? $product->primary_category_id : ''); ?>
-                                            @if(isset($optional_spec_data) && !empty($optional_spec_data))
-                                            <div class="row">
-                                                <?php $optional_spec_ids = array();
-                                                foreach($product_variant['product_variant_specification'] as $v_spec){
-                                                    if ($v_spec['type']==0){
-                                                        array_push($optional_spec_ids,$v_spec['attribute_id']);
-                                                    }
-                                                } ?>
-                                                <input type="hidden" name="varSpecOptional" value="{{ implode(",",$optional_spec_ids) }}">
-                                                <label class="col-lg-12 text-muted mt-3 mb-0">Specification (Optional)</label>
-                                                @foreach($optional_spec_data as $optional_specification)
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="specOptAttr">{{ $optional_specification['attribute_name'] }}</label>
-                                                        <div class="col-lg-12">
-                                                            <select class="form-control specOpt {{ $primaryclass }}" data-id="{{ $optional_specification['id'] }}" name="specOpt{{ $optional_specification['id'] }}[]"  multiple="multiple">
-                                                                
-                                                                @foreach($optional_specification['attributeterm'] as $term)
-                                                                    <?php $variant_term = \App\Models\ProductVariantSpecification::where('product_variant_id',$product_variant['id'])->whereRaw('FIND_IN_SET("'.$term['id'].'",attribute_term_id)')->where('type',0)->first(); ?>
-                                                                    <option value="{{ $term['id'] }}" @if(isset($variant_term) && !empty($variant_term)) selected @endif >{{ $term['attrterm_name'] }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <label id="specOpt{{ $optional_specification['id'] }}-error" class="error invalid-feedback animated fadeInDown" for=""></label>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                            @endif
+                                            
 
                                         </form>
                                     </div>
