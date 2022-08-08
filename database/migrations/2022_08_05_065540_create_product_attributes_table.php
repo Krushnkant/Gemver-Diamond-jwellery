@@ -19,7 +19,7 @@ class CreateProductAttributesTable extends Migration
             $table->string('product_u_id',255);
             $table->integer('attribute_id');
             $table->string('terms_id',255);
-            $table->text('use_variation')->default(0);
+            $table->integer('use_variation')->default(0);
             $table->timestamps();
         });
     }
