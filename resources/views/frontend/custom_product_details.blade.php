@@ -93,7 +93,7 @@
 
             </div>
         </div> -->
-        <div class="row mb-lg-5 mb-4">
+        <div class="mb-lg-5 mb-4">
         @if($check_diamond == 1)
             <ul class="d-block d-lg-flex progressbar_ul">
                     <li class="step-progressbar-part">
