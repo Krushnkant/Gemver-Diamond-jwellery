@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\admin\OpinionController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermConditionController;
@@ -95,6 +96,8 @@ Route::get('/step/{slug}/one',[StepController::class,'stepone']);
 Route::get('/step/{slug}/two',[StepController::class,'steptwo']);
 Route::get('/step/{slug}/three',[StepController::class,'stepthree']);
 Route::get('/step/{slug}/four',[StepController::class,'stepfour']);
+
+Route::post('/opinion',[OpinionController::class,'save'])->name('frontend.opinion.save');
 
 //Admin  Rpute
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');
@@ -388,6 +391,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('submenus/manage/{id}',[\App\Http\Controllers\admin\MegaMenuController::class,'submenumanage'])->name('submenus.manage');
     Route::post('updateMenuManage',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMenuManage'])->name('submenus.updateMenuManage');
     Route::get('submenusmanage/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenumanage'])->name('submenus.manage.edit');
+    Route::get('submenusmanage/{id}/delete',[\App\Http\Controllers\admin\MegaMenuController::class,'deletesubmenusmanage'])->name('submenusmanage.delete');
 });
 
 

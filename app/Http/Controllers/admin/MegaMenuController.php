@@ -164,4 +164,14 @@ class MegaMenuController extends Controller
         $MenuCategory->save();
         return response()->json(['status' => '200','title' => $MenuCategory->title ]);
     }
+
+    public function deletesubmenusmanage($id){
+        $menucategory = MenuCategory::find($id);
+        if ($menucategory){
+            $menucategory->delete();
+           
+            return response()->json(['status' => '200']);
+        }
+        return response()->json(['status' => '400']);
+    }
 }

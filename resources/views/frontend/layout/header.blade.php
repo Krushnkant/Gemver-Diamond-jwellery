@@ -74,7 +74,7 @@
                                                     <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                 </div>
                                                 <ul class="mega-menu-diamond-part">
-                                                
+        
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/ROUND') }}" class="d-flex">
                                                             <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>

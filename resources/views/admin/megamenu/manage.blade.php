@@ -50,6 +50,9 @@
                                             <button id="editMenuManageBtn" data-id="{{ $MenuCategory->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#MenuManageModal">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
+
+                                            <button id="deleteMenuCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteMenuCategoryModal" onclick="" data-id="{{ $MenuCategory->id }}">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         @endif
                                     </td>
                                 </tr>
@@ -61,6 +64,23 @@
 
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="DeleteMenuCategoryModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove Menu</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure you wish to remove this menu?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-danger" id="RemoveMenuCategorySubmit" type="submit">Remove <i class="fa fa-circle-o-notch fa-spin removeloadericonfa" style="display:none;"></i></button>
                 </div>
             </div>
         </div>
@@ -230,6 +250,55 @@
         var optionsText = this.options[this.selectedIndex].text;
         $('#title').val(optionsText);
     });
+
+$('body').on('click', '#deleteMenuCategoryBtn', function (e) {
+    // e.preventDefault();
+    var Menu_id = $(this).attr('data-id');
+ 
+
+    $("#DeleteMenuCategoryModal").find('#RemoveMenuCategorySubmit').attr('data-id',Menu_id);
+});
+
+$('#DeleteMenuCategoryModal').on('hidden.bs.modal', function () {
+    $(this).find("#RemoveMenuCategorySubmit").removeAttr('data-id');
+});
+
+$('body').on('click', '#RemoveMenuCategorySubmit', function (e) {
+    $('#RemoveMenuCategorySubmit').prop('disabled',true);
+    $(this).find('.removeloadericonfa').show();
+    e.preventDefault();
+    var Menu_id = $(this).attr('data-id');
+    
+    $.ajax({
+        type: 'GET',
+        url: "{{ url('admin/submenusmanage') }}" +'/' + Menu_id +'/delete',
+        success: function (res) {
+            if(res.status == 200){
+                $("#DeleteMenuCategoryModal").modal('hide');
+                $('#RemoveMenuCategorySubmit').prop('disabled',false);
+                $("#RemoveMenuCategorySubmit").find('.removeloadericonfa').hide();
+                
+                toastr.success("Menu Deleted",'Success',{timeOut: 5000});
+                location.reload(true);
+            }
+
+            if(res.status == 400){
+                $("#DeleteMenuCategoryModal").modal('hide');
+                $('#RemoveMenuCategorySubmit').prop('disabled',false);
+                $("#RemoveMenuCategorySubmit").find('.removeloadericonfa').hide();
+               
+                toastr.error("Please try again",'Error',{timeOut: 5000});
+            }
+        },
+        error: function (data) {
+            $("#DeleteMenuCategoryModal").modal('hide');
+            $('#RemoveMenuCategorySubmit').prop('disabled',false);
+            $("#RemoveMenuCategorySubmit").find('.removeloadericonfa').hide();
+            
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+});
 
 </script>
 <!-- settings JS end -->

@@ -86,7 +86,8 @@ class AttributeController extends Controller
                 $is_specification = 0;
             }
 
-            $totalData = Attribute::where('is_specification',$is_specification)->count();
+           // $totalData = Attribute::where('is_specification',$is_specification)->count();
+           $totalData = Attribute::count();
             $totalFiltered = $totalData;
 
             $limit = $request->input('length');
@@ -101,16 +102,17 @@ class AttributeController extends Controller
 
             if(empty($request->input('search.value')))
             {
-                $attributes = Attribute::where('is_specification',$is_specification)
-                    ->offset($start)
+               // $attributes = Attribute::where('is_specification',$is_specification)
+                 $attributes = Attribute::
+                    offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
                     ->get();
             }
             else {
                 $search = $request->input('search.value');
-                $attributes =  Attribute::where('is_specification',$is_specification)
-                    ->where(function($query) use($search){
+               // $attributes =  Attribute::where('is_specification',$is_specification)
+               $attributes =  Attribute::where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
                                 ->orWhere('attribute_name', 'LIKE',"%{$search}%")
                                 ->orWhere('display_attrname', 'LIKE',"%{$search}%")
@@ -123,8 +125,9 @@ class AttributeController extends Controller
                     ->orderBy($order,$dir)
                     ->get();
 
-                $totalFiltered = Attribute::where('is_specification',$is_specification)
-                    ->where(function($query) use($search){
+                //$totalFiltered = Attribute::where('is_specification',$is_specification)
+                $totalFiltered = Attribute::
+                    where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
                             ->orWhere('attribute_name', 'LIKE',"%{$search}%")
                             ->orWhere('display_attrname', 'LIKE',"%{$search}%")

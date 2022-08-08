@@ -26,14 +26,14 @@
                             {{--                            <button class="btn btn-danger" onclick="deleteMultipleAttributes()"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
                         </div>
 
-                        <div class="custom-tab-1">
+                        <!-- <div class="custom-tab-1">
                             <ul class="nav nav-tabs mb-3">
                                 <li class="nav-item attribute_page_tabs" data-tab="attribute_tab"><a class="nav-link active show" data-toggle="tab" href="">Attribute</a>
                                 </li>
                                 <li class="nav-item attribute_page_tabs" data-tab="specification_tab"><a class="nav-link" data-toggle="tab" href="">Specification</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
 
                         <div class="tab-pane fade show active table-responsive" id="attributes_tab">
                             <table id="attributes_page_table" class="table zero-configuration customNewtable" style="width:100%">
@@ -520,6 +520,10 @@
                 }
             }
         }*/
+
+        
+        
+
     </script>
     <!-- attribute JS end-->
 @endsection

@@ -226,10 +226,12 @@
                             </form>
                             
                             
-                            <span class="inquiry_now_btn">
-                                <button class="select_setting_btn diamond-btn" type="button" >inquiry now</button>
+                            <span class="inquiry_now_btn ">
+                                <button class="select_setting_btn diamond-btn" type="button"  >inquiry now</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
+                           
+                            
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content">
@@ -281,6 +283,54 @@
                                 </div>
                             </div>
                             <!--<button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>-->
+
+                            <div class=" mt-3">
+                                <button class="select_contact_btn diamond-btn" type="button"> Get a gemologist opinion</button>
+                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+
+                            <div class="modal fade inquiry_now_modal" id="opinionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                                    <div class="modal-content">
+                                        <div class="row">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading"> Get a gemologist opinion</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        
+                                        <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
+                                        @csrf
+                                      
+            
+                                        <div class="row mb-0">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                          
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="email"  placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-12 ps-0 mb-3">
+                                                <textarea  name="message"  class="d-block wire_bangle_input" placeholder="Message"></textarea>
+                                                
+                                                <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
+                                            </div>
+                                        </div>
+ 
+                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
                        
                     </div>
                 </div>
@@ -477,7 +527,6 @@ $(document).ready(function(){
     }
 
 
-    
     function filter_data()
     {
         $('.filter_data').html('<div id="loading" style="" ></div>');
@@ -689,7 +738,13 @@ $('body').on('click', '.select_setting_btn', function () {
         });
         jQuery("#exampleModal").modal('show');
     }
-});    
+});
+
+$('body').on('click', '.select_contact_btn', function () {
+    
+    jQuery("#opinionModal").modal('show');
+
+}); 
       
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');
@@ -766,6 +821,69 @@ function save_inquiry(btn,btn_type){
                 $(btn).find('.loadericonfa').hide();
                 //location.href="{{ route('frontend.contactus')}}";
                 var success_message = 'Thank You For Product Inquiry';
+                $('#success-alert').text(success_message);
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                  $("#success-alert").slideUp(1000);
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+
+$('body').on('click', '#save_newopinionBtn', function () {
+    save_opinion($(this),'save_new');
+});
+
+function save_opinion(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#opinionCreateForm")[0]);
+  
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.opinion.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                if (res.errors.name) {
+                    $('#opinionname-error').show().text(res.errors.name);
+                } else {
+                    $('#opinionname-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#opinionemail-error').show().text(res.errors.email);
+                } else {
+                    $('#opinionemail-error').hide();
+                }
+                if (res.errors.message) {
+                    $('#opinionmessage-error').show().text(res.errors.message);
+                } else {
+                    $('#opinionmessage-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#opinionmessage-error').hide();
+               
+                $('#opinionemail-error').hide();
+                $('#opinionname-error').hide();
+                document.getElementById("opinionCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Opinion';
                 $('#success-alert').text(success_message);
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
                   $("#success-alert").slideUp(1000);
