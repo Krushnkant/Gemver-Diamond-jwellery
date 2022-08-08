@@ -62,8 +62,8 @@
 
             </div>
         </div> -->
-        <div class="row mb-lg-5 pb-lg-5 mb-4 ">
-            <ul class="d-block d-lg-flex ">
+        <div class="mb-lg-5 pb-lg-5 mb-4 ">
+            <ul class="d-block d-lg-flex progressbar_ul">
                 <li class="step-progressbar-part">
                     <div class="step-progressbar-step-part">
                         <span class="step-progressbar-img ms-3">
