@@ -167,6 +167,7 @@
                                     </div>
                                     <?php
                                         $menu_no = 1;
+                                        $menu_colum = "two";
                                         foreach($megamenu->sub_menu as $sub1)
                                         {
                                             if(count($sub1->sub_category) > 0){
@@ -244,6 +245,7 @@
                                     </div>
                                     <?php
                                         $menu_no = 1;
+                                        $menu_colum = "two";
                                         foreach($megamenu->sub_menu as $sub1)
                                         {
                                             if(count($sub1->sub_category) > 0){
@@ -320,6 +322,7 @@
                                     </div>
                                     <?php
                                         $menu_no = 1;
+                                        $menu_colum = "two";
                                         foreach($megamenu->sub_menu as $sub1)
                                         {
                                             if(count($sub1->sub_category) > 0){
