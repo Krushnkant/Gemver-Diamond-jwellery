@@ -10,6 +10,16 @@
         <input type="number" class="form-control input-flat" id="sr_no" name="sr_no" placeholder="" value="{{ isset($category)?($category->sr_no):'' }}">
         <div id="srno-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($category) && ($category->is_custom) ) checked @endif  class="form-check-input primaryBox" value="{{ isset($category)?($category->is_custom):0 }}">Do you want to add customized product category?</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="form-group">
         <label class="col-form-label" for="category_name">Category Name <span class="text-danger">*</span>
@@ -18,10 +28,21 @@
         <div id="categoryname-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
- 
+    @if(isset($categories) && !empty($categories) && $category->parent_category_id!=0)
+        <div class="form-group">
+            <label class="col-form-label" for="parent_category_id">Parent Category
+            </label>
+            <select id='parent_category_id' name="parent_category_id" class="form-control">
+                <option></option>
+                @foreach($categories as $cat)
+                    <option value="{{ $cat['id'] }}" @if(isset($category) && $category->parent_category_id == $cat['id']) selected @endif>{{ $cat['category_name'] }}</option>
+                @endforeach
+            </select>
+        </div>
+    @endif
 
    
-    <div class="form-group"  id="attribute_variation">
+    <!-- <div class="form-group"  id="attribute_variation">
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation
         </label>
         <?php $attribute_id_variation = explode(",",$category->attribute_id_variation); ?>
@@ -43,11 +64,11 @@
                 <option value="{{ $spec['id'] }}" @if(isset($category) && in_array($spec['id'],$attribute_id_req_spec)) selected @endif>{{ $spec['attribute_name'] }}</option>
             @endforeach
         </select>
-    </div>
+    </div> -->
 
 
    
-    <div class="form-group"  id="attribute_optional_specification">
+    <!-- <div class="form-group"  id="attribute_optional_specification">
         <label class="col-form-label" for="attribute_optional_specification">Select Attribute for Optional Specification
         </label>
         <?php $attribute_id_opt_spec = explode(",",$category->attribute_id_opt_spec); ?>
@@ -56,18 +77,9 @@
                 <option value="{{ $spec['id'] }}" @if(isset($category) && in_array($spec['id'],$attribute_id_opt_spec)) selected @endif>{{ $spec['attribute_name'] }}</option>
             @endforeach
         </select>
-    </div>
+    </div> -->
 
-    <div class="row mt-3 mb-3">
-        <div class="col-md-12">
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label">
-                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($category) && ($category->is_custom) ) checked @endif  class="form-check-input primaryBox" value="{{ isset($category)?($category->is_custom):0 }}">Do you want to add custom category?</label>
-                </div>
-            </div>
-        </div>
-    </div>
+    
  
 
 

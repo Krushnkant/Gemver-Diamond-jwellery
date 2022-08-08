@@ -31,12 +31,13 @@
                         <input type="hidden" id="childCategoryId" name="childCategoryId">
                         <input type="hidden" id="attrid_for_variation" name="attrid_for_variation">
                         <input type="hidden" id="attr_term_ids" name="attr_term_ids">
+                        <input type="hidden" id="attr_ids" name="attr_ids">
                         <input type="hidden" id="term_no" name="term_no" value="0">
+                        <input type="hidden" id="attributes_no" name="attributes_no" value="0">
+                        <input type="hidden" id="product_u_id" name="product_u_id" value="{{ \Str::random(40); }}">
                         <div class="product-section">
                             <div class="col-sm-12">
-
-                    
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label class="col-lg-12 col-form-label" for="carame">Category <span class="text-danger">*</span></label>
                                     <div class="col-lg-12">
                                         <nav class="navbar navbar-expand-md categorydrops">
@@ -68,7 +69,20 @@
                                         </nav>
                                         <div id="category-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     </div>
+                                </div> -->
+
+                                @if(isset($catArray) && !empty($catArray))
+                                <div class="form-group category" >
+                                    <label class="col-form-label" for="category_id"> Category <span class="text-danger">*</span>
+                                    </label>
+                                    <select id='category_id'   name="category_id[]"  class="form-control catMulti" id=""  multiple>
+                                        <option></option>
+                                        @foreach($catArray as $cat)
+                                            <option value="<?php echo $cat['id']; ?>"><?php echo $cat['category_name']; ?></option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                @endif
 
                                 <div class="form-group row">
                                     <label class="col-lg-12 col-form-label" for="ProductName">Product Title <span class="text-danger">*</span></label>
@@ -109,7 +123,7 @@
                                 
 
                                 <div class="row form-group">
-                                    <label class="col-lg-12 col-form-label" for="Desc">Description {{ $segment }}</label>
+                                    <label class="col-lg-12 col-form-label" for="Desc">Description </label>
                                     <div class="col-lg-12">
                                         <textarea type="text" class="form-control input-default" id="desc" name="desc"></textarea>
                                         <div id="desc-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -121,11 +135,38 @@
                                         <div class="form-group">
                                             <div class="form-check">
                                                     <label class="form-check-label">
-                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input primaryBox" value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
+                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input " value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row" >
+                                    <div class="col-md-12">
+                                        <div class="form-group attribute" >
+                                            <label class="col-form-label d-block" for="attribute_id"> Select Attribute <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <select id='attribute_id' name="attribute_id"  class="form-control attribute_id" id="" >
+                                                            <option></option>
+                                                            @foreach($attributes as $attr)
+                                                                <option data-title="<?php echo $attr['attribute_name']; ?>" value="{{ $attr['id'] }}">{{ $attr['attribute_name'] }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="button" class="AddSub btn btn-primary d-inline-block mb-3" id="AddSub" style="display: none"> + </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-group col-md-12">
+                                    <div class="row add-value-sub" id="attribute-data">
+                                    </div>
+                                </div>
+                                <button type="button" class="save_attributes btn btn-primary" id="save_attributes" style="display:none;">Save attributes</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -141,11 +182,11 @@
             </div>
         </div>
         </form>
-        <div class="row">
+        <div class="row" id="VariantBox" style="display:none;">
             <div class="col-md-12">
-                <div class="card variantCard" id="variantProductBox" style="display: none;">
+                <div class="card variantCard" id="variantProductBox" >
                     <div class="card-body">
-                        <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Box</button>
+                        <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Variant Box</button>
                         <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -166,7 +207,7 @@
             </div>
         </div>
 
-        <div class="row" id="saveBtn-box">
+        <div class="row" id="saveBtn-box" >
             <div class="col-md-12">
                 <div class="card" id="">
                     <div class="card-body newcard-body row">
@@ -186,6 +227,7 @@
         </div>
 
     </div>
+    
 
 @endsection
 

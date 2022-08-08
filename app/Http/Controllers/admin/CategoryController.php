@@ -77,55 +77,57 @@ class CategoryController extends Controller
 
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
-            $category->is_custom = $request->is_custom;
+            $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
+            $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
 
-            if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
-                $attribute_id_variation = implode(",",$request->attribute_id_variation);
-                $category->attribute_id_variation = $attribute_id_variation;
-            }
-            else{
-                $category->attribute_id_variation = null;
-            }
+            // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
+            //     $attribute_id_variation = implode(",",$request->attribute_id_variation);
+            //     $category->attribute_id_variation = $attribute_id_variation;
+            // }
+            // else{
+            //     $category->attribute_id_variation = null;
+            // }
 
-            if (isset($request->attribute_id_req_spec) && !empty($request->attribute_id_req_spec)){
-                $attribute_id_req_spec = implode(",",$request->attribute_id_req_spec);
-                $category->attribute_id_req_spec = $attribute_id_req_spec;
-            }
-            else{
-                $category->attribute_id_req_spec = null;
-            }
+            // if (isset($request->attribute_id_req_spec) && !empty($request->attribute_id_req_spec)){
+            //     $attribute_id_req_spec = implode(",",$request->attribute_id_req_spec);
+            //     $category->attribute_id_req_spec = $attribute_id_req_spec;
+            // }
+            // else{
+            //     $category->attribute_id_req_spec = null;
+            // }
 
-            if (isset($request->attribute_id_opt_spec) && !empty($request->attribute_id_opt_spec)){
-                $attribute_id_opt_spec = implode(",",$request->attribute_id_opt_spec);
-                $category->attribute_id_opt_spec = $attribute_id_opt_spec;
-            }
-            else{
-                $category->attribute_id_opt_spec = null;
-            }
+            // if (isset($request->attribute_id_opt_spec) && !empty($request->attribute_id_opt_spec)){
+            //     $attribute_id_opt_spec = implode(",",$request->attribute_id_opt_spec);
+            //     $category->attribute_id_opt_spec = $attribute_id_opt_spec;
+            // }
+            // else{
+            //     $category->attribute_id_opt_spec = null;
+            // }
         }
         else{
             $action = "add";
             $category = new Category();
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
-            $category->is_custom = $request->is_custom;
+            $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
+            $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
             $category->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $category->category_thumb = $request->catImg;
          
-            if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
-                $attribute_id_variation = implode(",",$request->attribute_id_variation);
-                $category->attribute_id_variation = $attribute_id_variation;
-            }
+            // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
+            //     $attribute_id_variation = implode(",",$request->attribute_id_variation);
+            //     $category->attribute_id_variation = $attribute_id_variation;
+            // }
 
-            if (isset($request->attribute_id_req_spec) && !empty($request->attribute_id_req_spec)){
-                $attribute_id_req_spec = implode(",",$request->attribute_id_req_spec);
-                $category->attribute_id_req_spec = $attribute_id_req_spec;
-            }
+            // if (isset($request->attribute_id_req_spec) && !empty($request->attribute_id_req_spec)){
+            //     $attribute_id_req_spec = implode(",",$request->attribute_id_req_spec);
+            //     $category->attribute_id_req_spec = $attribute_id_req_spec;
+            // }
 
-            if (isset($request->attribute_id_opt_spec) && !empty($request->attribute_id_opt_spec)){
-                $attribute_id_opt_spec = implode(",",$request->attribute_id_opt_spec);
-                $category->attribute_id_opt_spec = $attribute_id_opt_spec;
-            }
+            // if (isset($request->attribute_id_opt_spec) && !empty($request->attribute_id_opt_spec)){
+            //     $attribute_id_opt_spec = implode(",",$request->attribute_id_opt_spec);
+            //     $category->attribute_id_opt_spec = $attribute_id_opt_spec;
+            // }
         }
 
         $category->save();
@@ -268,7 +270,7 @@ class CategoryController extends Controller
 
     public function editcategory($id){
         $action = "edit";
-        //$categories = Category::where('estatus',1)->where('id',"!=",$id)->where('parent_category_id',"!=",$id)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('id',"!=",$id)->where('parent_category_id',"!=",$id)->get()->toArray();
         $category = Category::find($id);
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
         $specifications = Attribute::where('estatus',1)->where('is_specification',1)->get()->toArray();
@@ -278,7 +280,7 @@ class CategoryController extends Controller
         // if ($parent_category_data != 0){
         //     $is_sub_child = true;
         // }
-        return view('admin.categories.list',compact('action','category','attributes','specifications'))->with('page',$this->page);
+        return view('admin.categories.list',compact('action','category','attributes','specifications','categories'))->with('page',$this->page);
     }
 
     public function uploadfile(Request $request){

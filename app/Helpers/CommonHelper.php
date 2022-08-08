@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Level;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductAttribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -57,6 +58,26 @@ function get_required_variations($cat_id){
             }
         }
     }
+
+    return ['required_variations'=>$required_variations, 'required_variation_ids'=>$required_variation_ids];
+}
+
+function get_required_variations_attribute($p_id){
+    $productattributes = ProductAttribute::where('product_u_id',$p_id)->where('use_variation',1)->get()->toArray();
+    $required_variations = array();
+    $required_variation_ids = array();
+    
+    foreach ($productattributes as $req) {
+        $term_ids = explode(',',$req['terms_id']);
+        $spec = Attribute::with(['attributeterm' => function($q) use($term_ids ){
+            $q->wherein('attribute_terms.id', $term_ids);
+        }] )->where('id', $req['attribute_id'])->first()->toArray();
+        if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+            array_push($required_variations, $spec);
+            array_push($required_variation_ids, $spec['id']);
+        }
+    }
+     
 
     return ['required_variations'=>$required_variations, 'required_variation_ids'=>$required_variation_ids];
 }

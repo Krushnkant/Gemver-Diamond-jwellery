@@ -6,6 +6,7 @@
     let catSelectStrArray = [];
     let parentCatValArray = [];
     let TermSelCheckbox =[];
+    let AttributeSelCheckbox =[];
 
 
 
@@ -18,12 +19,22 @@
         TermSelCheckbox.push(value);
     });
 
+    var newvalattr = $("#attr_ids").val();
+    var matchattr = newvalattr.split(',');
+
+    $.each(matchattr, function( index, value ) {
+        AttributeSelCheckbox.push(value);
+    });
+    
     //console.log(TermSelCheckbox);
     // match.push(match); 
     // console.log(match);
     //$("#attr_term_ids").val(attr_term_ids);
    
    @endif
+
+
+
     
 
     $('body').on('click', '#AddProductBtn', function () {
@@ -210,7 +221,7 @@
             }
             $.ajax ({
                 type:"GET",
-                url: '{{ url('admin/addVariantbox') }}' + "/" + $("#childCategoryId").val(),
+                url: '{{ url('admin/addVariantbox') }}' + "/" + $("#product_u_id").val(),
                 data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
                 success: function(res) {
                      //console.log(res);
@@ -293,6 +304,8 @@
         $(this).parent().parent().parent().remove();
         
     });
+
+    
 
     function addPrimaryBox() {
         var varProductName = $("#variant-data").children('div:first-child').find('input[name="varProductName"]');
@@ -437,6 +450,7 @@
     });
 
     $('body').on('click', '#SubmitProductBtn', function () {
+       
         $(this).prop('disabled',true);
         $(this).find('.submitloader').show();
         var btn = $(this);
@@ -444,7 +458,7 @@
        
         var valid_product = validateProductForm();
         var valid_variants = validateVariantsForm();
-
+    
         if(valid_product==true && valid_variants==true){
             var formData = new FormData($('#ProductForm')[0]);
             var cnt = 1;
@@ -464,6 +478,8 @@
                 cnt++;
             });
 
+           
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -481,7 +497,7 @@
                 contentType: false,
                 // contentType: 'json',
                 success: function (res) {
-                   // console.log(res);
+                    console.log(res);
                     if(res['status']==200){
                         if(is_custom == 1){
                             location.href = "{{ route('admin.customproducts.list') }}";
@@ -512,7 +528,7 @@
         $("#variationAttrsVal-error").hide();
 
         var valid = true;
-        if($("#categoryIds").val()=='' || $("#childCategoryId").val()==''){
+        if($("#category_id").val()=='' || $("#category_id").val()==''){
             $("#category-error").html("Please select a Category");
             $("#category-error").show();
             valid = false;
@@ -687,6 +703,35 @@
         return valid;
     }
 
+    function validateAttributesForm() {
+        
+        var valid = true;
+        var datavari = [];
+        var datavari1 = [];
+        SKUs = [];
+        $('.attributeForm').each(function () {
+            var this_form = $(this);
+            if (!$(this).valid()) {
+                valid = false;
+            }
+
+
+            $(this).find('.Attribute').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please select any value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+            })
+           
+            
+        });
+
+        return valid;
+    }
+
     function hasDuplicates(arr) {
         var counts = [];
 
@@ -753,6 +798,35 @@
 
     $(document).ready(function() {
         product_table(true);
+        $('.catMulti').select2({
+            width: '100%',
+            multiple: true,
+            placeholder: "Select...",
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
+        });
+
+        $('.attribute_id').select2({
+            width: '100%',
+            placeholder: "Select...",
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
+        });
+
+        $('.Attribute').select2({
+            width: '100%',
+            placeholder: "Select...",
+            allowClear: true
+        });
+
+        $('.Variation').select2({
+            width: '100%',
+            placeholder: "Select...",
+            allowClear: true
+        });
+
         $('.specReq').select2({
             width: '100%',
             multiple: true,
@@ -867,6 +941,245 @@
             }
         });
     });
+
+
+    $('body').on('click', '#AddSub', function(){ 
+        var html = "";   
+        var term_id = 1;
+        var term_name = 'test';
+       
+        var term_no = $("#attributes_no").val();
+     
+         term_no ++;
+        $("#attributes_no").val(term_no);
+       
+        var VariantCnt = "";
+        
+        // if($("#attribute-data").children('div').length>0){
+        //     VariantCnt = $("#attribute-data").children('div').length;
+        // }
+        
+        var selected = $('#attribute_id option:selected');
+        var valuee = selected.attr('value');
+        var title = selected.attr('data-title');
+       
+      
+     
+        if(valuee != "" && valuee != undefined){
+           
+            $.ajax ({
+                type:"GET",
+                url: '{{ url('admin/addAttributebox') }}' + "/" + valuee,
+                data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
+                success: function(res) {
+                    
+                    
+                    $("#save_attributes").show();
+                    $(".add-value-sub").append(res['data']);
+                    $("#variantProductBox").show();
+                    $('.CatDisabMenuLink').addClass('disableCategory');
+                   
+                    $("#attribute_id>option[value='"+ valuee +"']").attr('disabled','disabled');
+                    
+                    $("#attribute_id").select2({
+                        width: '100%',
+                        placeholder: "Select...",
+                        allowClear: true,
+                        autoclose: false,
+                        closeOnSelect: false,
+                    }).val("").trigger("change");
+
+                    $('.Attribute').select2({
+                        width: '100%',
+                        multiple: true,
+                        placeholder: "Select...",
+                        allowClear: true,
+                        autoclose: false,
+                        closeOnSelect: false,
+                    });
+
+                },
+                complete: function(){
+                    //addPrimaryBox();
+                    $("#attr-cover-spin").fadeOut();
+                }
+
+                
+            });
+
+            AttributeSelCheckbox.push(term_no);
+            var attr_ids = AttributeSelCheckbox.join(",");
+            $("#attr_ids").val(attr_ids);
+
+        }
+        // else{
+        //     html += '<div class="row mt-sm-3 mx-0">'+
+           
+        //         '<div class="col-12 col-sm-5 my-3 my-sm-0">'+
+        //             '<input type="text" placeholder="Field Name" class="form-control input-flat" name="sub_field_name[]" />'+
+        //         '</div>'+
+        //         '<div class="col-10 col-sm-5">'+
+        //             '<input  type="text" value="" class="form-control input-flat pe-none" name="sub_field_type[]"  />'+
+        //         '</div>'+
+        //         '<div class="col-2 col-sm-2 text-center">'+
+        //             '<button type="button"  class="minus_btn btn btn-dark px-0"><img src="{{asset('user/assets/icons/delete-red.png')}}"></button>'+
+        //         '</div>'+
+        //     '</div>';
+
+        // } 
+        
+      
+        
+        //$(".add-value-sub").append(html);
+    });
+
+    $('body').on('click', '.minus_btn', function(){
+        var tthis = $(this).parent().parent();
+        var ddd = tthis.remove()
+    });
+
+    $('body').on('click', '#save_attributes', function () {
+        $(this).prop('disabled',true);
+        $(this).find('.submitloader').show();
+        var btn = $(this);
+        // var is_custom = $('#is_custom').val();
+       
+        var valid_attributes = validateAttributesForm();
+
+        if(valid_attributes==true){
+
+        
+            var formData = new FormData($('#ProductForm')[0]);
+            var cnt = 1;
+            $('.attributeForm').each(function () {
+            //     var thi = $(this);
+            //     var specOptArr = [];
+            //     $(thi).find('.specOpt').each(function() {
+            //        if($(this).val()!=""){
+            //            specOptArr.push($(this).attr('data-id'));
+            //        }
+            //     });
+            //    $(thi).find('input[name="varSpecOptional"]').val("");
+            //    $(thi).find('input[name="varSpecOptional"]').val(specOptArr.join(","));
+
+                var attributeFormForm = $(this).serialize();
+                formData.append("attributeForm" + cnt, attributeFormForm);
+                cnt++;
+            });
+          
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.productattribute.save') }}",
+                // data: {productFormData: productFormData, variantFormData: variantFormData},
+                data: formData,
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                contentType: false,
+                // contentType: 'json',
+                success: function (res) {
+                   // console.log(res);
+                    if(res['status']==200){
+                       
+                        $('#VariantBox').show();
+                        toastr.success("Attribute Added",'Success',{timeOut: 5000});
+                        $(btn).prop('disabled',false);
+
+                        // $('.single-variation-box').each(function(i, obj) {
+                        //     var img_src = $(this).next('.variation-product-box');
+                        //         console.log(img_src);
+                        // });
+
+                        $.ajax ({
+                            type:"GET",
+                            url: '{{ url('admin/addVariantAttributebox') }}' + "/" + $("#product_u_id").val(),
+                            //data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
+                            success: function(res) {
+                                console.log(res);
+                                $(".VariationSelect").replaceWith(res['data']);
+                                //$("#variantProductBox").show();
+                                //$('.CatDisabMenuLink').addClass('disableCategory');
+
+                                $('.Variation').select2({
+                                    width: '100%',
+                                    placeholder: "Select...",
+                                    allowClear: true
+                                });
+                                $('.specReq').select2({
+                                    width: '100%',
+                                    multiple: true,
+                                    placeholder: "Select...",
+                                    allowClear: true,
+                                    autoclose: false,
+                                    closeOnSelect: false,
+                                });
+                        
+                                $('.specOpt').select2({
+                                    width: '100%',
+                                    multiple: true,
+                                    placeholder: "Select...",
+                                    allowClear: true,
+                                    autoclose: false,
+                                    closeOnSelect: false,
+                                });
+
+                                // variantImages(res['VariantCnt']);
+                            },
+                            complete: function(){
+                                addPrimaryBox();
+                                $("#attr-cover-spin").fadeOut();
+                            }
+                        });
+
+                        //$(".VariationSelect").append('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"><div class="form-group row"><label class="col-lg-12 col-form-label" for="VariationAttr"> <span class="text-danger">*</span></label><div class="col-lg-12"><select class="form-control Variation " id="" name="Variation1000"><option></option><option value="100"  >test</option></select></div></div><label id="Variation1000-error" class="error invalid-feedback animated fadeInDown" for=""></label></div>' );
+                    }
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.submitloader').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        }else{
+            $(btn).prop('disabled',false);
+            $(btn).find('.submitloader').hide();
+        }    
+       
+    });
+
+    $('#attribute-data').on('click', '.RemoveAttributeBox', function() {
+        var boxid = $(this).attr("data-id");
+        console.log(AttributeSelCheckbox);
+        //alert(boxid);
+        AttributeSelCheckbox = jQuery.grep(AttributeSelCheckbox, function(value) {
+             //alert(value);
+           return value != boxid;
+         });
+         var attr_ids = AttributeSelCheckbox.join(",");
+        // console.log(attr_term_ids);
+        $("#attr_ids").val(attr_ids);
+        $(this).parent().parent().parent().remove();
+        
+    });
+
+    $(document).on('change', '#is_custom', function() {
+        if ($(this).is(':checked')) {
+            $(this).val(1);
+            $(this).attr('checked', true);
+        }
+        else {
+            $(this).val(0);
+            $(this).attr('checked', false);
+        }
+    });
+
+    
     
     
 

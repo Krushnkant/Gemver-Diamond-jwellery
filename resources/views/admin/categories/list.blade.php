@@ -103,33 +103,39 @@
 <!-- category JS start -->
 <script type="text/javascript">
 
-
-$('#attribute_id_variation').select2({
+$('#parent_category_id').select2({
     width: '100%',
-    multiple: true,
-    placeholder: "Select...",
-    allowClear: true,
-    autoclose: false,
-    closeOnSelect: false,
-});
+    placeholder: "Select parent category",
+    allowClear: true
+}).trigger('change');    
 
-$('#attribute_id_req_spec').select2({
-    width: '100%',
-    multiple: true,
-    placeholder: "Select...",
-    allowClear: true,
-    autoclose: false,
-    closeOnSelect: false,
-});
 
-$('#attribute_id_opt_spec').select2({
-    width: '100%',
-    multiple: true,
-    placeholder: "Select...",
-    allowClear: true,
-    autoclose: false,
-    closeOnSelect: false,
-});
+// $('#attribute_id_variation').select2({
+//     width: '100%',
+//     multiple: true,
+//     placeholder: "Select...",
+//     allowClear: true,
+//     autoclose: false,
+//     closeOnSelect: false,
+// });
+
+// $('#attribute_id_req_spec').select2({
+//     width: '100%',
+//     multiple: true,
+//     placeholder: "Select...",
+//     allowClear: true,
+//     autoclose: false,
+//     closeOnSelect: false,
+// });
+
+// $('#attribute_id_opt_spec').select2({
+//     width: '100%',
+//     multiple: true,
+//     placeholder: "Select...",
+//     allowClear: true,
+//     autoclose: false,
+//     closeOnSelect: false,
+// });
 
 $(document).ready(function() {
     attribute_id_req_spec($("#attribute_id_req_spec").val());
@@ -440,10 +446,13 @@ $(document).on('change', '#is_custom', function() {
     if ($(this).is(':checked')) {
         $(this).val(1);
         $(this).attr('checked', true);
+        $(".parent_category").hide();
+        
     }
     else {
         $(this).val(0);
         $(this).attr('checked', false);
+        $(".parent_category").show();
     }
 });
 </script>

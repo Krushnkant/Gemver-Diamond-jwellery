@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\ProductAttribute;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantSpecification;
@@ -42,8 +43,8 @@ class ProductController extends Controller
         foreach ($categories as $category){
             array_push($catArray,$category);
         }
-       
-        return view('admin.products.create',compact('catArray','segment'))->with('page',$this->page);
+        $attributes = Attribute::where('estatus',1)->get()->toArray();
+        return view('admin.products.create',compact('catArray','segment','attributes'))->with('page',$this->page);
     }
 
     public function getAttrVariation($id){
@@ -77,25 +78,36 @@ class ProductController extends Controller
 
         $term_id = $request->term_id;
         $term_name = $request->term_name;
-
-        $category = Category::where('id',$id)->first()->toArray();
-
+        
+        $productattributes = ProductAttribute::where('product_u_id',$id)->where('use_variation',1)->get()->toArray();
+        
         $required_variations = array();
         $required_variation_ids = array();
-        if ($category['attribute_id_variation']!=null) {
-            $req_variation = explode(",", $category['attribute_id_variation']);
-            foreach ($req_variation as $req) {
-                $spec = Attribute::with('attributeterm')->where('id', $req)->where('is_specification', 0)->first()->toArray();
-                if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
-                    array_push($required_variations, $spec);
-                    array_push($required_variation_ids, $spec['id']);
-                }
+        
+        
+        foreach ($productattributes as $req) {
+            $term_ids = explode(',',$req['terms_id']);
+            //dd($term_ids);
+            $spec = Attribute::with(['attributeterm' => function($q) use($term_ids ){
+                $q->wherein('attribute_terms.id', $term_ids);
+                //$q->where('some other field', $userId );
+            }] )->where('id', $req['attribute_id'])->first()->toArray();
+            //dd($spec);
+            if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+                array_push($required_variations, $spec);
+                array_push($required_variation_ids, $spec['id']);
             }
         }
-
+        // function($q) use($userId ){
+        //     $q->where('participants.IdUser', '=', 1);
+        //     //$q->where('some other field', $userId );
+        // }]
+        // ->whereHas('attributeterm', function($q) use($term_ids){
+        //         $q->wherein('attribute_terms.id', $term_ids);
+        //     })
         $html_required_variation = '';
         if (isset($required_variations) && !empty($required_variations)){
-            $html_required_variation .= '<div class="row">';
+            $html_required_variation .= '<div class="row VariationSelect">';
             $html_required_variation .= '<input type="hidden" name="varVariation" value="'.implode(",",$required_variation_ids).'">';
             $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>';
             foreach ($required_variations as $required_variation){
@@ -123,110 +135,110 @@ class ProductController extends Controller
             $html_required_variation .= '</div>';
         }
 
-        $required_specifications = array();
-        $required_specification_ids = array();
-        if ($category['attribute_id_req_spec']!=null) {
-            $req_spec = explode(",", $category['attribute_id_req_spec']);
-            foreach ($req_spec as $req) {
-                $spec = Attribute::with('attributeterm')->where('id', $req)->where('is_specification', 1)->first()->toArray();
-                if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
-                    array_push($required_specifications, $spec);
-                    array_push($required_specification_ids, $spec['id']);
-                }
-            }
-        }
+        // $required_specifications = array();
+        // $required_specification_ids = array();
+        // if ($category['attribute_id_req_spec']!=null) {
+        //     $req_spec = explode(",", $category['attribute_id_req_spec']);
+        //     foreach ($req_spec as $req) {
+        //         $spec = Attribute::with('attributeterm')->where('id', $req)->where('is_specification', 1)->first()->toArray();
+        //         if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+        //             array_push($required_specifications, $spec);
+        //             array_push($required_specification_ids, $spec['id']);
+        //         }
+        //     }
+        // }
 
-        $html_required_specification = '';
-        if (isset($required_specifications) && !empty($required_specifications)){
-            $html_required_specification .= '<div class="row">';
-            $html_required_specification .= '<input type="hidden" name="varSpecRequired" value="'.implode(",",$required_specification_ids).'">';
-            $html_required_specification .= '<label class="col-lg-12 text-muted mt-3 mb-0">Specification (Required)</label>';
-            foreach ($required_specifications as $required_specification){
-                $html_required_specification.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="specReqAttr">';
-                $html_required_specification .= $required_specification['attribute_name'];
-                $html_required_specification .= ' <span class="text-danger">*</span></label>';
-                $html_required_specification .= '<div class="col-lg-12">';
+        // $html_required_specification = '';
+        // if (isset($required_specifications) && !empty($required_specifications)){
+        //     $html_required_specification .= '<div class="row">';
+        //     $html_required_specification .= '<input type="hidden" name="varSpecRequired" value="'.implode(",",$required_specification_ids).'">';
+        //     $html_required_specification .= '<label class="col-lg-12 text-muted mt-3 mb-0">Specification (Required)</label>';
+        //     foreach ($required_specifications as $required_specification){
+        //         $html_required_specification.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        //                                             <div class="form-group row">
+        //                                                 <label class="col-lg-12 col-form-label" for="specReqAttr">';
+        //         $html_required_specification .= $required_specification['attribute_name'];
+        //         $html_required_specification .= ' <span class="text-danger">*</span></label>';
+        //         $html_required_specification .= '<div class="col-lg-12">';
 
-                if($required_specification['is_dropdown'] == 1){
+        //         if($required_specification['is_dropdown'] == 1){
 
-                    $html_required_specification .= '<select class="form-control specReq" id="" name="specReq'.$required_specification['id'].'[]" multiple >';
-                    //$html_required_specification .= '<option></option>';
-                    foreach ($required_specification['attributeterm'] as $term){
-                        $html_required_specification .= '<option value="';
-                        $html_required_specification .= $term['id'];
-                        $html_required_specification .= '">';
-                        $html_required_specification .= $term['attrterm_name'];
-                        $html_required_specification .= '</option>';
-                    }
-                    $html_required_specification .= '</select>';
+        //             $html_required_specification .= '<select class="form-control specReq" id="" name="specReq'.$required_specification['id'].'[]" multiple >';
+        //             //$html_required_specification .= '<option></option>';
+        //             foreach ($required_specification['attributeterm'] as $term){
+        //                 $html_required_specification .= '<option value="';
+        //                 $html_required_specification .= $term['id'];
+        //                 $html_required_specification .= '">';
+        //                 $html_required_specification .= $term['attrterm_name'];
+        //                 $html_required_specification .= '</option>';
+        //             }
+        //             $html_required_specification .= '</select>';
 
-                }else{
+        //         }else{
 
-                    $html_required_specification .= '<select class="form-control specReq" id="" id-data="specReq'.$required_specification['id'].'" name="specReq'.$required_specification['id'].'[]" multiple >';
-                    $html_required_specification .= '<option></option>';
-                    foreach ($required_specification['attributeterm'] as $term){
-                        $html_required_specification .= '<option value="';
-                        $html_required_specification .= $term['id'];
-                        $html_required_specification .= '">';
-                        $html_required_specification .= $term['attrterm_name'];
-                        $html_required_specification .= '</option>';
-                    }
-                    $html_required_specification .= '</select>';
+        //             $html_required_specification .= '<select class="form-control specReq" id="" id-data="specReq'.$required_specification['id'].'" name="specReq'.$required_specification['id'].'[]" multiple >';
+        //             $html_required_specification .= '<option></option>';
+        //             foreach ($required_specification['attributeterm'] as $term){
+        //                 $html_required_specification .= '<option value="';
+        //                 $html_required_specification .= $term['id'];
+        //                 $html_required_specification .= '">';
+        //                 $html_required_specification .= $term['attrterm_name'];
+        //                 $html_required_specification .= '</option>';
+        //             }
+        //             $html_required_specification .= '</select>';
 
-                }
+        //         }
         
                 
 
-                $html_required_specification .= '</div>';
-                $html_required_specification .= '</div>';
-                $html_required_specification .= '<label id="specReq'.$required_specification['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
-                $html_required_specification .= '</div>';
-            }
-            $html_required_specification .= '</div>';
-        }
+        //         $html_required_specification .= '</div>';
+        //         $html_required_specification .= '</div>';
+        //         $html_required_specification .= '<label id="specReq'.$required_specification['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
+        //         $html_required_specification .= '</div>';
+        //     }
+        //     $html_required_specification .= '</div>';
+        // }
 
-        $optional_specifications = array();
-        if ($category['attribute_id_opt_spec']!=null) {
-            $opt_spec = explode(",", $category['attribute_id_opt_spec']);
-            foreach ($opt_spec as $opt) {
-                $spec = Attribute::with('attributeterm')->where('id', $opt)->where('is_specification', 1)->first()->toArray();
-                if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
-                    array_push($optional_specifications, $spec);
-                }
-            }
-        }
+        // $optional_specifications = array();
+        // if ($category['attribute_id_opt_spec']!=null) {
+        //     $opt_spec = explode(",", $category['attribute_id_opt_spec']);
+        //     foreach ($opt_spec as $opt) {
+        //         $spec = Attribute::with('attributeterm')->where('id', $opt)->where('is_specification', 1)->first()->toArray();
+        //         if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+        //             array_push($optional_specifications, $spec);
+        //         }
+        //     }
+        // }
 
-        $html_optional_specification = '';
-        if (isset($optional_specifications) && !empty($optional_specifications)){
-            $html_optional_specification .= '<div class="row">';
-            $html_optional_specification .= '<input type="hidden" name="varSpecOptional">';
-            $html_optional_specification .= '<label class="col-lg-12 text-muted mt-3 mb-0">Specification (Optional)</label>';
-            foreach ($optional_specifications as $optional_specification){
-                $html_optional_specification.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="specOptAttr">';
-                $html_optional_specification .= $optional_specification['attribute_name'];
-                $html_optional_specification .= '</label>';
-                $html_optional_specification .= '<div class="col-lg-12">';
-                $html_optional_specification .= '<select class="form-control specOpt" data-id="'.$optional_specification['id'].'" name="specOpt'.$optional_specification['id'].'[]" multiple>';
-               // $html_optional_specification .= '<option></option>';
-                foreach ($optional_specification['attributeterm'] as $term){
-                    $html_optional_specification .= '<option value="';
-                    $html_optional_specification .= $term['id'];
-                    $html_optional_specification .= '">';
-                    $html_optional_specification .= $term['attrterm_name'];
-                    $html_optional_specification .= '</option>';
-                }
-                $html_optional_specification .= '</select>';
-                $html_optional_specification .= '</div>';
-                $html_optional_specification .= '</div>';
-                $html_optional_specification .= '<label id="specOpt'.$optional_specification['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
-                $html_optional_specification .= '</div>';
-            }
-            $html_optional_specification .= '</div>';
-        }
+        // $html_optional_specification = '';
+        // if (isset($optional_specifications) && !empty($optional_specifications)){
+        //     $html_optional_specification .= '<div class="row">';
+        //     $html_optional_specification .= '<input type="hidden" name="varSpecOptional">';
+        //     $html_optional_specification .= '<label class="col-lg-12 text-muted mt-3 mb-0">Specification (Optional)</label>';
+        //     foreach ($optional_specifications as $optional_specification){
+        //         $html_optional_specification.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        //                                             <div class="form-group row">
+        //                                                 <label class="col-lg-12 col-form-label" for="specOptAttr">';
+        //         $html_optional_specification .= $optional_specification['attribute_name'];
+        //         $html_optional_specification .= '</label>';
+        //         $html_optional_specification .= '<div class="col-lg-12">';
+        //         $html_optional_specification .= '<select class="form-control specOpt" data-id="'.$optional_specification['id'].'" name="specOpt'.$optional_specification['id'].'[]" multiple>';
+        //        // $html_optional_specification .= '<option></option>';
+        //         foreach ($optional_specification['attributeterm'] as $term){
+        //             $html_optional_specification .= '<option value="';
+        //             $html_optional_specification .= $term['id'];
+        //             $html_optional_specification .= '">';
+        //             $html_optional_specification .= $term['attrterm_name'];
+        //             $html_optional_specification .= '</option>';
+        //         }
+        //         $html_optional_specification .= '</select>';
+        //         $html_optional_specification .= '</div>';
+        //         $html_optional_specification .= '</div>';
+        //         $html_optional_specification .= '<label id="specOpt'.$optional_specification['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
+        //         $html_optional_specification .= '</div>';
+        //     }
+        //     $html_optional_specification .= '</div>';
+        // }
 
         $html = '';
         $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
@@ -468,8 +480,8 @@ class ProductController extends Controller
                                 </div>
                             </div>
                         </div>';
-        $html .= $html_required_specification;
-        $html .= $html_optional_specification;
+        //$html .= $html_required_specification;
+        //$html .= $html_optional_specification;
         $html .= '</form>';
         $html .= '</div>';
         $html .= '</div>';
@@ -494,8 +506,8 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-      
-        $category_ids = explode(",",$request['categoryIds']);
+       // dd($request->all());
+        $category_ids = implode(",",$request['category_id']);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
         $product = new Product();
@@ -538,7 +550,8 @@ class ProductController extends Controller
         if($request->action=="addProduct") {
             $product->user_id = Auth::user()->id;
         }
-        $product->primary_category_id = $category_ids[0];
+        $product->primary_category_id = $category_ids;
+        $product->product_u_id = isset($request->product_u_id) ? $request->product_u_id : null;
         $product->product_title = isset($request->ProductName) ? $request->ProductName : null;
         //$product->child_category_id = $category_ids[1];
         //$product->subchild_category_id = isset($category_ids[2]) ? $category_ids[2] : null;
@@ -546,16 +559,23 @@ class ProductController extends Controller
         $product->desc = isset($request->desc) ? $request->desc : null;
         $product->attrid_for_variation = $request->attrid_for_variation;
         $product->attr_term_ids = $request->attr_term_ids;
+        $product->attr_ids = $request->attr_ids;
         $product->note = isset($request->notes) ? $request->notes : null;
         $product->is_custom = isset($request->is_custom) ? $request->is_custom : 0;
         $product->save();
+
+        if($product){
+            $product_attributes = \DB::table('product_attributes')
+            ->where('product_u_id', $request->product_u_id)
+            ->update(array('product_id' => $product->id));
+        }
 
         $not_removable_images = array();
         for ($i=1;$i<=count($attr_term_ids);$i++) {
             $myValue = array();
             $str ="variantForm".$i;
             parse_str($request[$str],$myValue);
-            
+            //dd($myValue);
             $product_variant = new ProductVariant();
             $product_variant->product_id = $product->id;
             $product_variant->SKU = $myValue['SKU'];
@@ -648,11 +668,12 @@ class ProductController extends Controller
 //        dd($product_variant_old_images,$not_removable_images);
         if($request->action=="addProduct") {
             $cat_id = isset($category_ids[0]) ? $category_ids[0] : $category_ids[0];
-            $cnt_products = Product::where('primary_category_id',$cat_id)->where('estatus',1)->count();
-            $category = Category::find($cat_id);
-            $category->total_products = $cnt_products;
-            $category->save();
-
+            foreach($request['category_id'] as $cat_id){
+                $cnt_products = Product::whereRaw('FIND_IN_SET("'.$cat_id.'",primary_category_id)')->where('estatus',1)->count();
+                $category = Category::find($cat_id);
+                $category->total_products = $cnt_products;
+                $category->save();
+            }
             // if (isset($category->parent_category_id) && $category->parent_category_id!=0){
             //     $category = Category::find($category->parent_category_id);
             //     $category->total_products = $category->total_products + 1;
@@ -780,9 +801,12 @@ class ProductController extends Controller
                     }
 
                     $images = explode(",",$product->images);
-
-                    $categories = $product->product->primary_category->category_name;
-                    
+                    $primary_category_id = explode(",",$product->product->primary_category_id);
+                    //dd($primary_category_id);
+                    $categoriesarray = Category::whereIn('id',$primary_category_id)->get()->pluck('category_name')->toArray();
+                    //dd($categoriesarray);
+                    $categories = implode(', ',$categoriesarray);
+                    //dd($categories);
                     $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
                     
                      $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
@@ -982,12 +1006,13 @@ class ProductController extends Controller
 
        
 
-        $product = Product::with('primary_category','attribute.attributeterm','product_variant.product_variant_specification')->where('id',$id)->first();
+        $product = Product::with('primary_categories','product_attributes','attribute.attributeterm','product_variant.product_variant_specification')->where('id',$id)->first();
 
         $attr_term_ids = explode(",",$product->attr_term_ids);
-//        dd($product->toArray());
-        $CategorySel = isset($product->primary_category_id) ? ($product->primary_category->category_name) : ($product->primary_category->category_name);
-        return view('admin.products.edit',compact('catArray','product','CategorySel','attr_term_ids'))->with('page',$this->page);
+        //dd($product->primary_categories[0]->category_name);
+        $CategorySel = isset($product->primary_category_id) ? ($product->primary_categories[0]->category_name) : ($product->primary_categories[0]->category_name);
+        $attributes = Attribute::where('estatus',1)->get()->toArray();
+        return view('admin.products.edit',compact('catArray','product','CategorySel','attr_term_ids','attributes'))->with('page',$this->page);
     }
 
     public function changeproductstatus($id){
@@ -1079,6 +1104,180 @@ class ProductController extends Controller
         }
         return "true";
     }
+
+    public function addAttributebox($id,Request $request){
+
+        $term_id = $request->term_id;
+        //$category = Category::where('id',$id)->first()->toArray();
+
+        $required_variations = array();
+      
+        $spec = Attribute::with('attributeterm')->where('id', $id)->first()->toArray();
+        //dd($spec);
+        if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+            array_push($required_variations, $spec);
+        }
+         
+
+        $html_required_variation = '';
+        if (isset($required_variations) && !empty($required_variations)){
+           //$html_required_variation .= '<div class="row">';
+           // $html_required_variation .= '<input type="hidden" name="varVariation" value="">';
+           // $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation</label>';
+            foreach ($required_variations as $required_variation){
+                $html_required_variation.= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group ">
+                                                        <label class="col-lg-12 col-form-label" for="VariationAttr">';
+                $html_required_variation .= $required_variation['attribute_name'];
+                $html_required_variation .= '<span class="text-danger"> * </span>';
+                $html_required_variation .= ' </label>';
+                $html_required_variation .= '<div class="col-lg-12">';
+                $html_required_variation .= '<select class="form-control Attribute" id="" id-data="Attribute'.$required_variation['id'].'" name="Attribute'.$required_variation['id'].'[]" multiple>';
+                $html_required_variation .= '<option></option>';
+                foreach ($required_variation['attributeterm'] as $term){
+                    $html_required_variation .= '<option value="';
+                    $html_required_variation .= $term['id'];
+                    $html_required_variation .= '">';
+                    $html_required_variation .= $term['attrterm_name'];
+                    $html_required_variation .= '</option>';
+                }
+                $html_required_variation .= '</select>';
+                $html_required_variation .= '</div>';
+                $html_required_variation .= '</div>';
+                $html_required_variation .= '<label id="Attribute'.$required_variation['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
+                $html_required_variation .= '</div>';
+            }
+            //$html_required_variation .= '</div>';
+        }
+
+        
+        $html = '';
+        $html .= '<div id ="" class="single-attribute-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$spec['attribute_name'].'">';
+        $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
+        $html .= '<div class="col-lg-10 col-sm-8">';
+        $html .= '<label class="col-form-label">';
+        $html .= '<b><span class="VariantCnt">';
+        //$html .= $term_name;
+        $html .= '</span></b>';
+        $html .= '</label>';
+        $html .= '</div>';
+        $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right d-flex align-items-center justify-content-end"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
+        if($term_id != 1){
+        $html .='<span data-id="'.$term_id.'" class="close-icon RemoveAttributeBox"><i class="fa fa-times" aria-hidden="true"></i></span>';
+        }
+        $html .='<div id=""></div></div>';
+        $html .= '</div>';
+        $html .= '';
+        $html .= '<div id="" role="tabpanel" class="panel-collapse collapse show variation-product-box">';
+        $html .= '<form method="post" enctype="multipart/form-data" class="attributeForm" id="attributeForm">';
+        $html .= csrf_field();
+        $html .= '<input type="hidden" name="attribute_id" value="'.$spec['id'].'">';
+        $html .= $html_required_variation;
+        // $html .= '<div class="col-lg-12">
+        //          <input type="checkbox" class="checkbox" name="attribute_variation'.$required_variation['id'].'" ><label>  Used for variations</label>
+        //           </div>';
+
+        $html .= '
+                    <div class="form-group">
+                        <div class="form-check">
+                        <input type="checkbox" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
+                                    Used for variations ?</label>
+                        </div>
+                    </div>
+                ';
+        $html .= '</form>';
+        $html .= '</div>';
+        $html .= '</div>';
+
+        return ['data' => $html, 'term_id' => $term_id];
+    }
+
+    public function productattributesave(Request $request){
+       //dd($request->all());
+        $attr_ids = explode(",",$request['attr_ids']);
+        $product_attributes = \DB::table('product_attributes')->where('product_u_id', $request->product_u_id)->delete();
+        for ($i=1;$i<=count($attr_ids);$i++) {
+            $myValue = array();
+            $str ="attributeForm".$i;
+            
+            parse_str($request[$str],$myValue);
+            //dd($myValue);
+            $attrReq = $myValue['attribute_id'];
+            $attribute_term_string = implode(',',$myValue['Attribute' . $attrReq]);
+            $productattributes = \DB::table('product_attributes')->insert([
+                'product_id' => isset($request->product_id) ? $request->product_id : 0,
+                'product_u_id' => $request->product_u_id,
+                'attribute_id' => $myValue['attribute_id'],
+                'use_variation' => isset($myValue['attribute_variation' . $attrReq]) ? 1 : 0 ,
+                'terms_id' => $attribute_term_string
+            ]);
+           
+        }
+
+        return ['status' => 200];
+    }
+
+
+
+    public function addVariantAttributebox($id){
+    
+        $productattributes = ProductAttribute::where('product_u_id',$id)->where('use_variation',1)->get()->toArray();
+        
+        $required_variations = array();
+        $required_variation_ids = array();
+        
+        foreach ($productattributes as $req) {
+            $term_ids = explode(',',$req['terms_id']);
+            //dd($term_ids);
+            $spec = Attribute::with(['attributeterm' => function($q) use($term_ids ){
+                $q->wherein('attribute_terms.id', $term_ids);
+                //$q->where('some other field', $userId );
+            }] )->where('id', $req['attribute_id'])->first()->toArray();
+            //dd($spec);
+            if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+                array_push($required_variations, $spec);
+                array_push($required_variation_ids, $spec['id']);
+            }
+        }
+     
+        $html_required_variation = '';
+        if (isset($required_variations) && !empty($required_variations)){
+            $html_required_variation .= '<div class="row VariationSelect">';
+            $html_required_variation .= '<input type="hidden" name="varVariation" value="'.implode(",",$required_variation_ids).'">';
+            $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>';
+            foreach ($required_variations as $required_variation){
+                $html_required_variation.= '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-12 col-form-label" for="VariationAttr">';
+                $html_required_variation .= $required_variation['attribute_name'];
+                $html_required_variation .= ' <span class="text-danger">*</span></label>';
+                $html_required_variation .= '<div class="col-lg-12">';
+                $html_required_variation .= '<select class="form-control Variation" id="" name="Variation'.$required_variation['id'].'">';
+                $html_required_variation .= '<option></option>';
+                foreach ($required_variation['attributeterm'] as $term){
+                    $html_required_variation .= '<option value="';
+                    $html_required_variation .= $term['id'];
+                    $html_required_variation .= '">';
+                    $html_required_variation .= $term['attrterm_name'];
+                    $html_required_variation .= '</option>';
+                }
+                $html_required_variation .= '</select>';
+                $html_required_variation .= '</div>';
+                $html_required_variation .= '</div>';
+                $html_required_variation .= '<label id="Variation'.$required_variation['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
+                $html_required_variation .= '</div>';
+            }
+            $html_required_variation .= '</div>';
+        }
+
+        $html = '';
+        $html .= $html_required_variation;
+        
+        return ['data' => $html];
+    }
+
+
+    
 
    
     
