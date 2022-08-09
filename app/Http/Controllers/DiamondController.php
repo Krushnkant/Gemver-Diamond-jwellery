@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\ProductVariant;
 use App\Models\ShopByStyle;
+use App\Models\StepPopup;
 use App\Models\ProductVariantVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -308,7 +309,8 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
-        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice'));
+        $StepPopup = StepPopup::where(['category_id'=>$id])->get();
+        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice','StepPopup'));
     }
 
 
