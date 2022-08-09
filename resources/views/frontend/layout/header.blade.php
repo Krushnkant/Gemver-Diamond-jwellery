@@ -52,7 +52,12 @@
                                 <span></span>
                             </div>
                             <li class="{{ (request()->is('/')) ? 'active' : '' }}" ><a href="{{ URL('/') }}">home</a></li>
-                            <li class="{{ (request()->segment(1) == 'lad-diamond') ? 'active' : '' }}" ><a href="# ">Lab Diamonds
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',4)->first();
+                                //dd($megamenu->sub_menu);
+                                if($megamenu != ""){   
+                            ?>
+                            <li class="{{ (request()->segment(1) == 'lad-diamond') ? 'active' : '' }}" ><a href="# ">{{  $megamenu->title }}
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                     </svg>
@@ -68,6 +73,7 @@
                                         <span></span>
                                         <span></span>
                                     </div>
+                                    
                                     <div class="mega-menu-two-three-part mega-menu-three-part">
                                         <div>
                                                 <div class="d-block">
@@ -137,29 +143,26 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <?php 
-                                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',4)->first();
-                                                //dd($megamenu->sub_menu);
-                                                if($megamenu != ""){   
-                                                ?>
+                                            
                                             <ul>
                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                             </ul>
-                                            <?php } ?>
+                                          
                                     </div>
                                 </div>
                             </li>
-                           
-                            <li class="" ><a href="#">Engagement Ring 
+                            <?php } ?>
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',1)->first();
+                                //dd($megamenu->sub_menu);
+                                if($megamenu != ""){   
+                            ?>
+                            <li class="" ><a href="#">{{ $megamenu->title }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
                                 </a>
-                                <?php 
-                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',1)->first();
-                                //dd($megamenu->sub_menu);
-                                if($megamenu != ""){   
-                                ?>
+                                
                                 <div class="mega-menu">
                                     <div class="sub-pack">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
@@ -224,20 +227,21 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <?php } ?>
+                                
                             </li>
+                            <?php } ?>
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',2)->first();
+                                //dd($megamenu->sub_menu);
+                                if($megamenu != ""){   
+                            ?>
 
-
-                            <li class="" ><a href="#">Wedding Ring 
+                            <li class="" ><a href="#">{{ $megamenu->title }}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
                                 </a>
-                                <?php 
-                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',2)->first();
-                                //dd($megamenu->sub_menu);
-                                if($megamenu != ""){   
-                                ?>
+                               
                                 <div class="mega-menu">
                                     <div class="sub-pack">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
@@ -302,19 +306,22 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <?php } ?>
+                                
                             </li>
+                            <?php } ?>
+
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',3)->first();
+                                //dd($megamenu->sub_menu);
+                                if($megamenu != ""){   
+                            ?>
 
                             <li class="" ><a href="#">Fine Jewelry 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                     </svg>
                                 </a>
-                                <?php 
-                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',3)->first();
-                                //dd($megamenu->sub_menu);
-                                if($megamenu != ""){   
-                                ?>
+                                
                                 <div class="mega-menu">
                                     <div class="sub-pack">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
@@ -378,8 +385,9 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <?php } ?>
+                                
                             </li>
+                            <?php } ?>
                             <!--<li>-->
                             <!--    <a href="# ">collections-->
                             <!--    <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">-->
@@ -406,8 +414,12 @@
                             <!--        </div>-->
                             <!--    </div>-->
                             <!--</li>-->
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',5)->first();
+                                if($megamenu != ""){   
+                            ?>
                             
-                            <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="# ">create your own
+                            <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="# ">{{ $megamenu->title }}
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                     </svg>
@@ -452,22 +464,24 @@
 
                                         <?php $cat_no++;  } ?>
                                         </div>
-                                        <?php 
-                                            $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',5)->first();
-                        
-                                            if($megamenu != ""){   
-                                            ?>
+                                       
                                             <ul>
                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                             </ul>
-                                        <?php } ?>
+                                        
                                     </div>
                                 </div>
                             </li>
+                            <?php } ?>
 
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',6)->first();
+            
+                                if($megamenu != ""){   
+                            ?>
                             
                             <li class="{{ (request()->is('infopage*')) ? 'active' : '' }}">
-                                <a href="#">about us
+                                <a href="#">{{ $megamenu->title }}
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                     <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                 </svg>
@@ -549,20 +563,16 @@
                                             </li>
                                             
                                         </ul>
-                                        <?php 
-                                            $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',6)->first();
-                        
-                                            if($megamenu != ""){   
-                                            ?>
+                                        
                                             <ul>
                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                             </ul>
-                                        <?php } ?>
+                                        
                                     </div>
                                 </div>
                                 
                             </li>
-
+                            <?php } ?>
                             <!-- <li class="{{ (request()->is('infopage*')) ? 'active' : '' }}">
                                 <a href="#"> engagement
                                 <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
