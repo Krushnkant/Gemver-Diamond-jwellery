@@ -4031,3 +4031,34 @@ span#amount {
 .header-icon-part:hover {
     color: var(--secondary);
 }
+
+
+/* ---------------------------------------------------------------- */
+
+.product_modal .popup_heading {
+    font-size: 26px;
+    /* color: var(--secondary) !important; */
+}
+
+.product_modal .popup_sub_heading {
+    font-size: 17px;
+    /* color: var(--secondary); */
+}
+
+.product_modal .popup_paragraph {
+    font-size: 14px;
+}
+
+.product_modal .popup_part {
+    background-color: #ebe9e7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.product_modal .popup_img {
+    max-width: 75px;
+    margin: auto;
+    margin-bottom: 15px;
+}
