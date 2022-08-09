@@ -1,6 +1,6 @@
 <footer class="footer-part-section">
     <div class="container">
-            <div class="row mb-md-5 pb-4 pb-md-3">
+            <div class="row mb-md-5">
                 <div class="col-lg-3">
                     <div class="footer-logo mb-3">
                         <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
@@ -92,10 +92,20 @@
                         <li>
                             <a href="#">Virtual Experience</a>
                         </li>
+                        <li>
+                            <a href="{{ Route('frontend.termcondition') }}" class="mx-1">
+                                Terms & Conditions 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('frontend.privacypolicy') }}" class="mx-1">
+                                Privacy Policy 
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-4 footer-col mb-4 mb-md-0">
-                    <div class="footer-heading mb-4">Why Friendly ?</div>
+                    <div class="footer-heading mb-4">Why Gemver?</div>
                     <ul>
                         <li>
                             <a href="{{ Route('frontend.freeshipping') }}">Free Shipping </a>
@@ -139,14 +149,8 @@
                 </div>
             </div>
             <input type="hidden" value="{{asset('frontend/')}}" id="asset" name="asset">
-            <div class="footer-copyright-text text-center mt-md-5 pt-md-3 ">
-                ©2022 {{ $settings->company_name }} . All Rights Reserved |
-                <a href="{{ Route('frontend.termcondition') }}" class="mx-1">
-                    Terms & Conditions |
-                </a>
-                <a href="{{ Route('frontend.privacypolicy') }}" class="mx-1">
-                    Privacy Policy 
-                </a>
+            <div class="footer-copyright-text text-center mt-md-4 pt-md-3 ">
+                ©2022 {{ $settings->company_name }}.All Rights Reserved 
             </div>
         </div>
     </footer>

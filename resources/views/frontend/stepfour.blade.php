@@ -4,8 +4,8 @@
 
 
 		<div class="background-sub-slider">
-			<div class="position-relative">
-				<img src="{{ url('images/steps/'.$Step->step4_header_image) }}" alt="">
+			<div class="">
+				<!-- <img src="{{ url('images/steps/'.$Step->step4_header_image) }}" alt=""> -->
 				<div class="about_us_background">
 					<div class="sub_heading mb-lg-3">Step 4</div>
 					<div class="about_us_link">

@@ -66,6 +66,16 @@
     .logo-image {
         max-width: 96px;
     }
+    .about_us_background {
+        position: initial;
+        transform: none;
+        width: 100%;
+        padding: 30px 0;
+        background-color: #ebe9e7;
+    }
+    .background-sub-slider {
+        background: none;
+    }
 }
 
 @media (max-width:991px) {
@@ -769,7 +779,6 @@
         min-height: 47px;
         font-size: 12px;
     }
-
     .select_contact_btn {
         min-width: 164px;
         min-height: 47px;
@@ -1055,10 +1064,6 @@
     .background-sub-slider {
         margin-top: 0;
     }
-    .about_us_background {
-        position: initial;
-        transform: none;
-    }
     .about_us_background .sub_heading {
         color: var(--primary);
         font-size: 30px;
@@ -1113,6 +1118,12 @@
     }
     .step_two_design .step_two_heading {
         font-size: 22px;
+    }
+}
+
+@media (min-width:576px) and (max-width:767px) {
+    .background-sub-slider {
+        background-position: 14%center;
     }
 }
 
@@ -1225,6 +1236,12 @@
     .step-progressbar-part .step-progressbar-heading {
         font-size: 29px;
     }
+    .background-sub-slider {
+        background-position: 11%center;
+    }
+    .about_us_background .sub_heading {
+        font-size: 23px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1245,10 +1262,10 @@
         max-width: 150px;
     }
     .header ul li a {
-        font-size: 14px;
+        font-size: 13px;
     }
     .header ul li {
-        padding: 10px 22px;
+        padding: 10px 10px;
     }
     /* .header.sticky ul li {
         padding: 10px 22px;
@@ -1332,6 +1349,9 @@
     .order-includes-heading {
         font-size: 26px;
     }
+    .background-sub-slider {
+        background-position: 19%center;
+    }
 }
 
 @media (min-width:992px) {
@@ -1344,6 +1364,9 @@
     .wire_bangle_main_box:nth-child(3n+2) {
         padding: 0 15px 0 9px;
     }
+    .sub-pack {
+        display: none;
+    }
 }
 
 @media (min-width:992px) and (max-width:1600px) {
@@ -1351,7 +1374,7 @@
         position: absolute;
         transform: translate(-50%, -50%);
     }
-    .about_us_background .sub_heading {
+    /* .about_us_background .sub_heading {
         color: #fff;
     }
     .about_us_link a {
@@ -1359,7 +1382,7 @@
     }
     .about_us_background .about_us_link svg path {
         fill: #fff;
-    }
+    } */
     .background-sub-slider {
         margin-top: 0;
     }
@@ -1536,6 +1559,9 @@
     .blog_tabs .nav-tabs .nav-item .nav-link {
         padding: 9px 32px;
     }
+    .background-sub-slider {
+        background-position: 24%center;
+    }
 }
 
 @media (min-width:1200px) and (max-width:1399px) {
@@ -1609,5 +1635,8 @@
     }
     .blog_tabs .nav-tabs .nav-item .nav-link {
         padding: 9px 40px;
+    }
+    .background-sub-slider {
+        background-position: 29%center;
     }
 }

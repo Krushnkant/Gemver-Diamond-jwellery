@@ -124,7 +124,7 @@ background-size: cover;
 
 .header ul li {
     display: inline-block;
-    padding: 0 30px 20px 30px;
+    padding: 0 20px 20px 20px;
     cursor: pointer;
 }
 
@@ -137,8 +137,8 @@ background-size: cover;
     line-height: 20px;
     letter-spacing: 0.1em;
     color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: normal;
+    text-transform: capitalize;
 }
 
 .header ul li a:hover {
@@ -156,7 +156,7 @@ background-size: cover;
     transform: translate(-50%);
     min-width: 183px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
     opacity: 0;
     visibility: hidden;
     box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
@@ -291,14 +291,14 @@ background-size: cover;
 }
 
 .mega-menu-img {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
 }
 
 .diamond-mega-menu-img {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
 }
 
@@ -906,7 +906,7 @@ background-size: cover;
 }
 
 .diamonds_paragraph {
-    font-weight: 600;
+    font-weight: normal;
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.1em;
@@ -929,7 +929,7 @@ background-size: cover;
 }
 
 .footer-part-section {
-    padding: 72px;
+    padding: 60px 60px 30px;
     background: var(--white-secondary);
 }
 
@@ -938,17 +938,17 @@ background-size: cover;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: var(--primary);
 }
 
 .footer-paragraph {
-    font-weight: 700;
+    font-weight: normal;
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.1em;
     color: var(--primary);
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
 }
 
 .email_input input {
@@ -986,11 +986,16 @@ background-size: cover;
 
 .footer-social-media-icons li {
     display: inline-block;
-    width: 51px;
-    height: 51px;
+    width: 40px;
+    height: 40px;
     background: var(--primary);
     text-align: center;
-    line-height: 47px;
+    line-height: 35px;
+}
+
+.footer-social-media-icons li svg {
+    width: 20px;
+    height: 20px;
 }
 
 .footer-social-media-icons li {
@@ -1012,8 +1017,8 @@ background-size: cover;
 }
 
 .footer-col ul li a {
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: normal;
+    font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
@@ -1125,8 +1130,8 @@ background-size: cover;
 
 .about_us_background .sub_heading {
     font-weight: 700;
-    font-size: 35px;
-    line-height: 60px;
+    font-size: 30px;
+    line-height: 30px;
     text-transform: uppercase;
     color: #FFFFFF;
 }
@@ -2648,11 +2653,30 @@ background-size: cover;
 
 .background-sub-slider {
     position: relative;
+    background: url(../image/about_us.png);
+    height: 130px;
+    background-size: 150px;
+    background-position: 33%center;
+    background-repeat: no-repeat;
+    background-color: #ebe9e7;
+}
+
+.about_us_background .sub_heading {
+    color: var(--primary);
+}
+
+.about_us_link a {
+    color: var(--primary);
+}
+
+.about_us_link svg path {
+    fill: var(--primary);
 }
 
 .background-sub-slider img {
-    height: 250px;
+    height: 130px;
     object-fit: cover;
+    display: none;
 }
 
 .background-label-slide {
@@ -3428,7 +3452,7 @@ span#amount {
 }
 
 .header-icon {
-    font-weight: 700;
+    font-weight: normal;
     cursor: pointer;
     font-size: 15px;
 }

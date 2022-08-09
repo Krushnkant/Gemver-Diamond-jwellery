@@ -1,8 +1,8 @@
 @extends('frontend.layout.layout')
 @section('content')
 <div class="background-sub-slider">
-            <div class="position-relative">
-                <img src="{{ url('frontend/image/about_us.png') }}" alt="">
+            <div class="">
+                <!-- <img src="{{ url('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
                     <div class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</div>
                     <div class="about_us_link">

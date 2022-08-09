@@ -3,8 +3,8 @@
 @section('content')
 
         <div class="background-sub-slider">
-            <div class="position-relative">
-                <img src="{{ url('images/aboutus/'.$DiamondAnatomy->header_image) }}" alt="">
+            <div class="">
+                <!-- <img src="{{ url('images/aboutus/'.$DiamondAnatomy->header_image) }}" alt=""> -->
                 <div class="about_us_background">
                     <div class="about_us_link">
                         <a href="#">{{ $DiamondAnatomy->header_title }}</a>
