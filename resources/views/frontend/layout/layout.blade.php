@@ -54,7 +54,7 @@ $settings = \App\Models\Settings::first();
                                         </div>
 
                                         <div class="row">
-                                        <h2 class="heading-h2 text-white popup_heading text-centertext-capitalize mb-3">Create Your Own Engagement Ring</h2>
+                                        <h2 class="heading-h2 text-white popup_heading text-center text-capitalize mb-3">Create Your Own Engagement Ring</h2>
                                             <div class="col-12 ps-0 text-start">
                                             <ul class="row">
                                                     <li class="col-12 col-md-6 col-lg-4">
