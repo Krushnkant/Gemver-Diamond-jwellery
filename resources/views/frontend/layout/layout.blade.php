@@ -41,7 +41,7 @@ $settings = \App\Models\Settings::first();
 @include('frontend.layout.header')
 @yield('content')
 @include('frontend.layout.footer')
-<div class="modal fade inquiry_now_modal" id="myStep" tabindex="-1" aria-labelledby="myStepLabel" aria-hidden="true">
+                            <div class="modal fade inquiry_now_modal product_modal" id="myStep" tabindex="-1" aria-labelledby="myStepLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content">
                                         <div class="row">
@@ -54,33 +54,30 @@ $settings = \App\Models\Settings::first();
                                         </div>
 
                                         <div class="row">
-                                        <h2>CREATE YOUR OWN ENGAGEMENT RING</h2>
+                                        <h2 class="heading-h2 text-white popup_heading text-centertext-capitalize mb-3">Create Your Own Engagement Ring</h2>
                                             <div class="col-12 ps-0 text-start">
-                                           
-                                           
-
                                             <ul class="row">
                                                     <li class="col-12 col-md-6 col-lg-4">
-                                                        <div class="cnt-block equal-hight" style="height: 349px;">
-                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
-                                                            <h5>Choose Setting</h5>
-                                                            <p>This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+                                                        <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
+                                                            <figure class="popup_img"><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5 class="popup_sub_heading">Choose Setting</h5>
+                                                            <p class="popup_paragraph">This is a wider card with supporting text below as a natural lead-in to additional content. </p>
                                                             
                                                         </div>
                                                     </li>
                                                     <li class="col-12 col-md-6 col-lg-4">
-                                                        <div class="cnt-block equal-hight" style="height: 349px;">
-                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
-                                                            <h5>Choose Diamond </h5>
-                                                            <p>This card has supporting text below as a natural lead-in to additional content.</p>
+                                                        <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
+                                                            <figure class="popup_img"><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5 class="popup_sub_heading">Choose Diamond </h5>
+                                                            <p class="popup_paragraph">This card has supporting text below as a natural lead-in to additional content.</p>
                                                             
                                                         </div>
                                                     </li>
                                                     <li class="col-12 col-md-6 col-lg-4">
-                                                        <div class="cnt-block equal-hight" style="height: 349px;">
-                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
-                                                            <h5>Complete Earrings</h5>
-                                                            <p>This card has supporting text below as a natural lead-in to additional content.</p>
+                                                        <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
+                                                            <figure class="popup_img"><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5 class="popup_sub_heading">Complete Earrings</h5>
+                                                            <p class="popup_paragraph">This card has supporting text below as a natural lead-in to additional content.</p>
                                                         
                                                         </div>
                                                     </li>
