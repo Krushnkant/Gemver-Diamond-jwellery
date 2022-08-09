@@ -351,6 +351,12 @@ $('body').on('click', '#editCategoryBtn', function () {
     window.open(url,"_blank");
 });
 
+$('body').on('click', '#viewpopCategoryBtn', function () {
+    var category_id = $(this).attr('data-id');
+    var url = "{{ url('admin/categorysteppopup') }}" + "/" + category_id;
+    window.open(url,"_blank");
+});
+
 function removeuploadedimg(divId ,inputId, imgName){
     if(confirm("Are you sure you want to remove this file?")){
         $("#"+divId).remove();

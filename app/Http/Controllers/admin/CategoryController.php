@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\StepPopup;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -79,6 +80,7 @@ class CategoryController extends Controller
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
             $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
+            
 
             // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
             //     $attribute_id_variation = implode(",",$request->attribute_id_variation);
@@ -131,6 +133,15 @@ class CategoryController extends Controller
         }
 
         $category->save();
+         
+        if (isset($request->action) && $request->action!="update"){
+            for($i = 1; $i < 4; $i++){
+                $StepPopup = new StepPopup();
+                $StepPopup->category_id = $category->id;
+                $StepPopup->save();
+           }
+        }    
+
 
         return response()->json(['status' => '200', 'action' => $action]);
     }
@@ -216,6 +227,11 @@ class CategoryController extends Controller
                     }
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
                         $action .= '<button id="deleteCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteCategoryModal" onclick="" data-id="' .$category->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    }
+                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+                        if($category->is_custom == 1){
+                            $action .= '<button id="viewpopCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$category->id. '">step popup</button>';
+                        }
                     }
                     $nestedData['category_thumb'] = '<img src="'. $thumb_path .'" width="50px" height="50px" alt="Thumbnail">';
                     $nestedData['category_name'] = $category->category_name;

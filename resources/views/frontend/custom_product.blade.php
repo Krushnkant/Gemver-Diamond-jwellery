@@ -300,7 +300,57 @@
         </div>
     </div>
 </div>
+    @php
+        $hidemodel = 0;
+    @endphp
+    @foreach($StepPopup as $Step)
+        @if($Step->title == null)
+        @php
+           $hidemodel = 1;
+        @endphp
+        @endif
+    @endforeach
+   
+    @if(count($StepPopup) > 0){
+    @if($hidemodel == 0){
+    <div class="modal fade inquiry_now_modal product_modal" id="myStep" tabindex="-1" aria-labelledby="myStepLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                <div class="modal-content">
+                    <div class="row">
+                        <div class="col-6 ps-0 text-start">
+                            <div class="mb-xl-4 mb-3 product_heading"></div>
+                        </div>
+                        <div class="col-6 text-end pe-0">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                    <h2 class="heading-h2 text-white popup_heading text-center text-capitalize mb-3">Create Your Own Engagement Ring</h2>
+                        <div class="col-12 ps-0 text-start">
+                        <ul class="row">
+                            @foreach($StepPopup as $key => $Step)
+                            @php
+                              $key += 1;
+                            @endphp
+                            <li class="col-12 col-md-6 col-lg-4">
+                                <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
+                                    <figure class="popup_img"><img src="{{ url('images/steppopup/'.$Step->icon) }}" class="img-responsive" alt=""></figure>
+                                    <div>Step {{ $key }}</div>
+                                    <h5 class="popup_sub_heading">{{ $Step->title }}</h5>
+                                    <p class="popup_paragraph">{{ $Step->description }} </p>
+                                </div>
+                            </li>
+                            @endforeach   
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    @endif
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
@@ -446,7 +496,7 @@
           });
 
 
-          
+
         });
 
         

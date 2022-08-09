@@ -135,6 +135,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('categories/removefile',[\App\Http\Controllers\admin\CategoryController::class,'removefile'])->name('categories.removefile');
     Route::get('categories/checkparentcat/{id}',[\App\Http\Controllers\admin\CategoryController::class,'checkparentcat'])->name('categories.checkparentcat');
 
+    Route::get('categorysteppopup/{id}',[\App\Http\Controllers\admin\StepPopupController::class,'index'])->name('categorysteppopup.list');
+    Route::get('steppopup/{id}/edit',[\App\Http\Controllers\admin\StepPopupController::class,'editsteppopup'])->name('steppopup.edit');
+    Route::post('addorupdatestepPopup',[\App\Http\Controllers\admin\StepPopupController::class,'addorupdatestepPopup'])->name('steppopup.addorupdatestepPopup');
 
     Route::get('products',[\App\Http\Controllers\admin\ProductController::class,'index'])->name('products.list');
     Route::get('products/create',[\App\Http\Controllers\admin\ProductController::class,'create'])->name('products.add');
