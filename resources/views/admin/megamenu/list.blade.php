@@ -45,10 +45,13 @@
                                             <button id="editMegaMenuBtn" data-id="{{ $MegaMenu->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#MegaMenuModal">
                                                 Edit
                                             </button>
-
+                                            <?php 
+                                            if($MegaMenu->is_submenu == 1){
+                                            ?>
                                             <button id="viewSubMenuBtn" data-id="{{ $MegaMenu->id }}" class="btn btn-outline-dark btn-sm view-submenu" >
                                                 Sub Menu
                                             </button>
+                                            <?php } ?>
                                         @endif
                                     </td>
                                 </tr>

@@ -137,9 +137,15 @@
                                                     </li>
                                                 </ul>
                                             </div>
+                                            <?php 
+                                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',4)->first();
+                                                //dd($megamenu->sub_menu);
+                                                if($megamenu != ""){   
+                                                ?>
                                             <ul>
-                                                <img src="{{ url('frontend/image/category-1.png') }}" alt="">
+                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                             </ul>
+                                            <?php } ?>
                                     </div>
                                 </div>
                             </li>
@@ -446,9 +452,15 @@
 
                                         <?php $cat_no++;  } ?>
                                         </div>
-                                        <ul>
-                                            <img src="{{ url($defalt_image) }}" alt=" ">
-                                        </ul>
+                                        <?php 
+                                            $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',5)->first();
+                        
+                                            if($megamenu != ""){   
+                                            ?>
+                                            <ul>
+                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                            </ul>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </li>
@@ -537,9 +549,15 @@
                                             </li>
                                             
                                         </ul>
-                                        <ul>
-                                            <img src="{{ url('frontend/image/category-1.png') }}" alt=" ">
-                                        </ul>
+                                        <?php 
+                                            $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',6)->first();
+                        
+                                            if($megamenu != ""){   
+                                            ?>
+                                            <ul>
+                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                            </ul>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 
