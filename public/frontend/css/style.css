@@ -1012,7 +1012,7 @@ background-size: cover;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: var(--primary);
 }
 
@@ -1041,7 +1041,7 @@ background-size: cover;
     font-size: 15px;
     line-height: 20px;
     letter-spacing: 0.1em;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: var(--primary);
     display: flex;
     justify-content: center;
