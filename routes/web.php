@@ -275,6 +275,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('allinquirieslist',[\App\Http\Controllers\admin\InquiryController::class,'allinquirieslist'])->name('allinquirieslist');
     Route::get('inquiries/{id}/delete',[\App\Http\Controllers\admin\InquiryController::class,'deleteinquiries'])->name('inquiries.delete');
 
+    Route::get('opinions',[\App\Http\Controllers\admin\OpinionController::class,'index'])->name('opinions.list');
+    Route::post('allopinionslist',[\App\Http\Controllers\admin\OpinionController::class,'allopinionslist'])->name('allopinionslist');
+    Route::get('inquiries/{id}/delete',[\App\Http\Controllers\admin\OpinionController::class,'deleteinquiries'])->name('inquiries.delete');
+
     Route::get('blogcategories',[\App\Http\Controllers\admin\BlogCategoryController::class,'index'])->name('blogcategories.list');
     Route::get('blogcategories/create',[\App\Http\Controllers\admin\BlogCategoryController::class,'create'])->name('blogcategories.add');
     Route::post('blogcategories/save',[\App\Http\Controllers\admin\BlogCategoryController::class,'save'])->name('blogcategories.save');

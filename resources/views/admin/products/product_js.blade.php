@@ -539,6 +539,12 @@
             $("#ProductName-error").show();
             valid = false;
         }
+
+        if($("#DesignNumber").val()==''){
+            $("#DesignNumber-error").html("Please Enter Product Design Number");
+            $("#DesignNumber-error").show();
+            valid = false;
+        }
        
         // if($("#attr_term_ids").val()==""){
         //     $("#variationAttrsVal-error").html("Please Add Product Variant");

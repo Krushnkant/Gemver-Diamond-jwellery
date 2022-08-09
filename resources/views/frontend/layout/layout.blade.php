@@ -55,28 +55,39 @@ $settings = \App\Models\Settings::first();
 
                                         <div class="row">
                                         <h2>CREATE YOUR OWN ENGAGEMENT RING</h2>
-                                            <div class="col-6 ps-0 text-start">
-                                            <h3>Step 1</h3>
-                                                <img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" alt="Choose Setting">
-                                            </div>
+                                            <div class="col-12 ps-0 text-start">
+                                           
+                                           
 
-                                            <div class="col-6 ps-0 text-start">
-                                            <h3>Step 2</h3>
-                                                <img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/diamond.png" alt="Choose Setting">
-                                            </div>
-
-                                            <div class="col-6 ps-0 text-start">
-                                            <h3>Step 3</h3>
-                                                <img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring.png" alt="Choose Setting">
-                                            </div>
-
+                                            <ul class="row">
+                                                    <li class="col-12 col-md-6 col-lg-4">
+                                                        <div class="cnt-block equal-hight" style="height: 349px;">
+                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5>Choose Setting</h5>
+                                                            <p>This is a wider card with supporting text below as a natural lead-in to additional content. </p>
+                                                            
+                                                        </div>
+                                                    </li>
+                                                    <li class="col-12 col-md-6 col-lg-4">
+                                                        <div class="cnt-block equal-hight" style="height: 349px;">
+                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5>Choose Diamond </h5>
+                                                            <p>This card has supporting text below as a natural lead-in to additional content.</p>
+                                                            
+                                                        </div>
+                                                    </li>
+                                                    <li class="col-12 col-md-6 col-lg-4">
+                                                        <div class="cnt-block equal-hight" style="height: 349px;">
+                                                            <figure><img src="https://assets.friendlydiamonds.com/fdl/images/frontend/v2/setting-popup/ring_setting.png" class="img-responsive" alt=""></figure>
+                                                            <h5>Complete Earrings</h5>
+                                                            <p>This card has supporting text below as a natural lead-in to additional content.</p>
+                                                        
+                                                        </div>
+                                                    </li>
+                                                    
+                                            </ul>
                                             
-            
                                         </div>
-
-                                        
-                                      
-                                        
                                     </div>
                                 </div>
                             </div>

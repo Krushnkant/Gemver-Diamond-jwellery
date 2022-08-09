@@ -443,6 +443,19 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 27
         ]);
 
+        ProjectPage::create([
+            'id' => 43,
+            'parent_menu' => 0,
+            'label' => 'Opinions',
+            'route_url' => 'admin.opinions.list',
+            'icon_class' => 'fa fa-first-order',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.opinions.list',
+            'sr_no' => 28
+        ]);
+
+       
+
         
 
         $users = User::where('role',"!=",1)->get();

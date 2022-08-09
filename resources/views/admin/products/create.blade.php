@@ -85,6 +85,14 @@
                                 @endif
 
                                 <div class="form-group row">
+                                    <label class="col-lg-12 col-form-label" for="DesignNumber">Design Number <span class="text-danger">*</span></label>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control input-default DesignNumber" id="DesignNumber" name="DesignNumber" value="" >
+                                        <label id="DesignNumber-error" class="error invalid-feedback animated fadeInDown" for="DesignNumber"></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <label class="col-lg-12 col-form-label" for="ProductName">Product Title <span class="text-danger">*</span></label>
                                     <div class="col-lg-12">
                                         <input type="text" class="form-control input-default ProductName" id="ProductName" name="ProductName" value="" >
