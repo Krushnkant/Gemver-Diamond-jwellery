@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Menu Manage</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Sub Menu Items</a></li>
             </ol>
         </div>
     </div>
@@ -25,10 +25,10 @@
                             <table id="" class="table table-striped table-bordered customNewtable" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th colspan="2"><h4 class="text-white mb-0"> Menu Manage</h4></th>
+                                    <th colspan="2"><h4 class="text-white mb-0"> Sub Menu Items</h4></th>
                                     <th colspan="1" class="text-right">
                                         <button id="AddMenuManageBtn" class="btn btn-outline-white btn-sm" data-toggle="modal" data-target="#MenuManageModal">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            Add New Item
                                         </button>
                                     </th>
                                 </tr>
@@ -48,11 +48,12 @@
                                     <td class="text-right">
                                         @if($canWrite == true)
                                             <button id="editMenuManageBtn" data-id="{{ $MenuCategory->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#MenuManageModal">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Edit
                                             </button>
 
-                                            <button id="deleteMenuCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteMenuCategoryModal" onclick="" data-id="{{ $MenuCategory->id }}">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <button id="deleteMenuCategoryBtn" class="btn btn-outline-dark btn-sm " data-toggle="modal" data-target="#DeleteMenuCategoryModal" onclick="" data-id="{{ $MenuCategory->id }}">
+                                                Delete
+                                            </button>
                                         @endif
                                     </td>
                                 </tr>
@@ -73,10 +74,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Remove Menu</h5>
+                    <h5 class="modal-title">Remove Sub Menu Item</h5>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to remove this menu?
+                    Are you sure you wish to remove this Sub Menu Item?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -94,7 +95,7 @@
                 <form class="form-valide" action="" id="MenuManageForm" method="post">
                 {{ csrf_field() }}
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Menu Manage</h5>
+                    <h5 class="modal-title">Update Sub Menu Item</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
                 <div class="modal-body">
@@ -147,7 +148,7 @@
 <script type="text/javascript">
 
     $('body').on('click', '#AddMenuManageBtn', function (e) {
-        $("#MenuManageModal").find('.modal-title').html("Add New ");
+        $("#MenuManageModal").find('.modal-title').html("Add Update Sub Menu Item ");
     });
 
     $('body').on('click', '#editMenuManageBtn', function () {

@@ -25,7 +25,7 @@
                             <table id="" class="table table-striped table-bordered customNewtable" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th colspan="3"><h4 class="text-white mb-0">Sub Menu</h4></th>
+                                    <th colspan="3"><h4 class="text-white mb-0">Sub Menu Title</h4></th>
                                 </tr>
                                 </thead>
 
@@ -37,7 +37,7 @@
                                     <td class="text-right">
                                         @if($canWrite == true)
                                             <button id="editSubMenuBtn" data-id="{{ $SubMenu->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#SubMenuModal">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Edit
                                             </button>
 
                                             <button id="manageSubMenuBtn" data-id="{{ $SubMenu->id }}" class="btn btn-outline-dark btn-sm view-submenu" >

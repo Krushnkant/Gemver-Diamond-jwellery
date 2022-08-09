@@ -206,6 +206,14 @@
                             echo $spe;
                              ?>
                             </div>
+                            <!-- @if($Product->design_number != "")
+                            <div class="row">
+                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                    <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">Design Number</span>
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">{{ $Product->design_number }}</span>
+                                </div>
+                            </div>
+                            @endif -->
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
@@ -284,6 +292,14 @@
                             </div>
                             <!--<button class="select_setting_btn btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>-->
 
+                            
+                            <div class="mt-3">
+                                <p>Estimated date of shipment <br>
+                                <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
+                                </p>
+                            </div>
+                            
+
                             <div class=" mt-3">
                                 <button class="select_contact_btn diamond-btn" type="button"> Get a gemologist opinion</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -300,11 +316,12 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
+                                        <div class="alert alert-success" id="opinionsuccess-alert" style="display: none;">
+                                        </div>
                                         
                                         <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
                                         @csrf
-                                      
-            
+                                        <input type="hidden" name="product_id" value="{{ $Product->id }}"> 
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
@@ -356,6 +373,23 @@
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="row" id="specification143">
+                            @if($Product->product_title != "")
+                            <div class="col-md-6 px-0" >
+                                <div class="mt-4 wire_bangle_share">
+                                    Product Name &nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Product->product_title }}</span>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if($Product->design_number != "")
+                            <div class="col-md-6 px-0" >
+                                <div class="mt-4 wire_bangle_share">
+                                    Design Number &nbsp;:&nbsp;
+                                    <span class="wire_bangle_color_theme">{{ $Product->design_number }}</span>
+                                </div>
+                            </div>
+                            @endif
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
@@ -884,9 +918,9 @@ function save_opinion(btn,btn_type){
                 $(btn).find('.loadericonfa').hide();
                 //location.href="{{ route('frontend.contactus')}}";
                 var success_message = 'Thank You For Opinion';
-                $('#success-alert').text(success_message);
-                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                  $("#success-alert").slideUp(1000);
+                $('#opinionsuccess-alert').text(success_message);
+                $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $("#opinionsuccess-alert").slideUp(1000);
                 });
             }
 

@@ -25,7 +25,7 @@
                             <table id="" class="table table-striped table-bordered customNewtable" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th colspan="3"><h4 class="text-white mb-0">Mega Menu</h4></th>
+                                    <th colspan="3"><h4 class="text-white mb-0">Mega Menu - Header Menu Item</h4></th>
                                 </tr>
                                 </thead>
 
@@ -43,11 +43,11 @@
                                     <td class="text-right">
                                         @if($canWrite == true)
                                             <button id="editMegaMenuBtn" data-id="{{ $MegaMenu->id }}" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#MegaMenuModal">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                Edit
                                             </button>
 
                                             <button id="viewSubMenuBtn" data-id="{{ $MegaMenu->id }}" class="btn btn-outline-dark btn-sm view-submenu" >
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                Sub Menu
                                             </button>
                                         @endif
                                     </td>
