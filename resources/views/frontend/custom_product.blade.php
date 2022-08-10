@@ -21,9 +21,9 @@
     </div>
 
     <div class="container round_cut_lab_diamonds_page">
-        <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
+        <!-- <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
             Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
-        </div>
+        </div> -->
        
         <!-- <div class="row align-items-center step-progressbar-row">
             <div class="col-lg-2 text-center text-lg-start">
@@ -327,7 +327,7 @@
 
                     <div class="row">
                     <h2 class="heading-h2 text-white popup_heading text-center text-capitalize mb-3">Create Your Own Engagement Ring</h2>
-                        <div class="col-12 ps-0 text-start">
+                        <!-- <div class="col-12 ps-0 text-start"> -->
                         <ul class="row">
                             @foreach($StepPopup as $key => $Step)
                             @php
@@ -336,7 +336,7 @@
                             <li class="col-12 col-md-6 col-lg-4">
                                 <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
                                     <figure class="popup_img"><img src="{{ url('images/steppopup/'.$Step->icon) }}" class="img-responsive" alt=""></figure>
-                                    <div>Step {{ $key }}</div>
+                                    <div class="mb-3" >Step {{ $key }}</div>
                                     <h5 class="popup_sub_heading">{{ $Step->title }}</h5>
                                     <p class="popup_paragraph">{{ $Step->description }} </p>
                                 </div>
@@ -344,7 +344,7 @@
                             @endforeach   
                         </ul>
                         
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>

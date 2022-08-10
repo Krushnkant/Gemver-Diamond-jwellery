@@ -25,9 +25,9 @@
     
 
     <div class="container round_cut_lab_diamonds_page">
-        <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
+        <!-- <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
             Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
-        </div>
+        </div> -->
 
 
         <div class="mt-5">
