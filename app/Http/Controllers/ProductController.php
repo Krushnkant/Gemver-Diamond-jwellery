@@ -310,15 +310,16 @@ class ProductController extends Controller
             
             $vatid = 0;
             foreach($product_variants as $product_variant){
-                //dd($product_variant);
+               // dump($variants);
                 $product_variant_variants = ProductVariantVariant::where('product_variant_id',$product_variant->id)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-                //dd($product_variant_variants);
-                if(sort($product_variant_variants) == sort($variants)){
-                    
+                //dump($product_variant_variants);
+                //if($product_variant_variants == sort($variants)){
+                if($product_variant_variants == $variants){    
                     $vatid = $product_variant->id;
+                   // dump($vatid);
                 }
             }
-          
+            //echo $vatid; die;
             if($vatid != 0){
             $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
