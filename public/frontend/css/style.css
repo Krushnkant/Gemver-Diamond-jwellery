@@ -297,9 +297,9 @@ background-size: cover;
 }
 
 .diamond-mega-menu-img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
+    width: 40px;
+    height: auto;
+    /* object-fit: cover; */
 }
 
 .menus_title {
