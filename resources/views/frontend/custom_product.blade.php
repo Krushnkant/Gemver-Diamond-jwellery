@@ -435,7 +435,8 @@
                             }
                             $("#data-wrapper").html(response['artilces']);
                             $('.auto-load').hide();   
-                        }  
+                        }
+                        
                         
                     }
                 });
@@ -503,11 +504,25 @@
    </script>
 
 <script>
-$(document).ready(function() {
-   // if ($.cookie('pop') == null) {
+// $(document).ready(function() {
+//    // if ($.cookie('pop') == null) {
+       
+//         $(window).on('load', function() {
+//           // $('#myModal').modal('show');
+//            $('#myStep').modal('show');
+//         });
+//        // $.cookie('pop', '1');
+//    // }
+// });
+
+$(window).on('load',function(){
+    var delayMs = 2000; // delay in milliseconds
+    //$('#myStep').delay(2000).fadeIn(450);
+    $('#myStep').delay(1000).fadeOut('slow');
+
+    setTimeout(function(){
         $('#myStep').modal('show');
-        $.cookie('pop', '1');
-   // }
+    }, delayMs);
 });
 </script>  
 
