@@ -153,7 +153,7 @@
                             </li>
                             <?php } ?>
                             <?php 
-                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus',1)->where('id',1)->first();
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus',1)->where('id',1)->first();
                                 //dd($megamenu->sub_menu);
                                 if($megamenu != ""){   
                             ?>
@@ -207,10 +207,15 @@
                                         <?php 
                                           foreach($sub->sub_category as $car)
                                           {
+                                            if($car->icon != ""){
+                                                $icon = url('images/categoryicon/'.$car->icon);
+                                            }else{
+                                                $icon = url($car->category->category_thumb);
+                                            }
                                             ?>
                                             <li>
                                                 <a href="{{ URL('/shop/'.$car->category_id)}}">
-                                                    <img src="{{ url('images/categoryicon/'.$car->icon) }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                    <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                 </a>
                                             </li>
                                             <?php 
