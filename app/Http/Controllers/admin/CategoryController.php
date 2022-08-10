@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function create(){
         $action = "create";
 
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         $sr_no = Category::where('estatus',1)->orderBy('sr_no','desc')->pluck('sr_no')->first();
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
         $specifications = Attribute::where('estatus',1)->where('is_specification',1)->get()->toArray();
