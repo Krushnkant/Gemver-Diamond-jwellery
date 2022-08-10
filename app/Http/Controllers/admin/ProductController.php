@@ -951,7 +951,12 @@ class ProductController extends Controller
 
                     $images = explode(",",$product->images);
 
-                    $categories = $product->product->primary_category->category_name;
+                    $primary_category_id = explode(",",$product->product->primary_category_id);
+                    //dd($primary_category_id);
+                    $categoriesarray = Category::whereIn('id',$primary_category_id)->get()->pluck('category_name')->toArray();
+                    //dd($categoriesarray);
+                    $categories = implode(', ',$categoriesarray);
+                    //dd($categories);
                     
                     $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
                     
