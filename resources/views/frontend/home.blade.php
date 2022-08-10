@@ -330,7 +330,7 @@
             </div>
         </div>
     </div>
-
+     @if(count($shopbystyle) > 0)
     <div class="engagement_ring_section">
         <div class="container">
             <h2 class="heading-h2 text-center text-white mb-3 mb-md-5">Shop by style</h2>
@@ -352,6 +352,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="container">
         <div class="gemver_diamonds_section px-0">
