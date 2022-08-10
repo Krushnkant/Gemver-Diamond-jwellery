@@ -286,7 +286,7 @@ class CategoryController extends Controller
 
     public function editcategory($id){
         $action = "edit";
-        $categories = Category::where('estatus',1)->where('id',"!=",$id)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('id',"!=",$id)->where('parent_category_id',"!=",$id)->get()->toArray();
         $category = Category::find($id);
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
         $specifications = Attribute::where('estatus',1)->where('is_specification',1)->get()->toArray();
