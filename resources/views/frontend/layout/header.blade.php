@@ -199,12 +199,16 @@
                                         foreach($megamenu->sub_menu as $sub)
                                         {
                                         if(count($sub->sub_category) > 0){
+                                            $twocolum = "";
+                                            if(count($sub->sub_category) > 5){
+                                                $twocolum = 'mega-menu-two-colum';
+                                            }
                                         ?>
                                         <div class="submenu-box">
                                         <div class="d-block mb-2">
                                             <span class="menus_title menus_title_part">{{ $sub->title }}</span>
                                         </div>      
-                                        <ul>
+                                        <ul class="{{ $twocolum }}">
                                               
                                         <?php 
                                           foreach($sub->sub_category as $car)
@@ -288,12 +292,16 @@
                                         foreach($megamenu->sub_menu as $sub)
                                         {
                                            if(count($sub->sub_category) > 0){
+                                            $twocolum = "";
+                                            if(count($sub->sub_category) > 5){
+                                                $twocolum = 'mega-menu-two-colum';
+                                            }
                                         ?>
                                         <div class="submenu-box">
                                         <div class="d-block mb-2">
                                             <span class="menus_title menus_title_part">{{ $sub->title }}</span>
                                         </div>
-                                        <ul>
+                                        <ul class="{{ $twocolum }}">
                                               
                                         <?php 
                                           foreach($sub->sub_category as $car)
