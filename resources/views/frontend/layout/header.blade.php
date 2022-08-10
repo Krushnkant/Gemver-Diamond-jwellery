@@ -76,7 +76,7 @@
                                     
                                     <div class="mega-menu-two-three-part mega-menu-three-part">
                                         <div>
-                                                <div class="d-block">
+                                                <div class="d-block mb-2">
                                                     <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                 </div>
                                                 <ul class="mega-menu-diamond-part">
@@ -194,16 +194,18 @@
                                         }
                                        
                                     ?>
-                                    <div class="mega-menu-{{ $menu_colum }}-part {{$menu_no}}">
+                                    <div class="mega-menu-{{ $menu_colum }}-part  ">
                                         <?php
                                         foreach($megamenu->sub_menu as $sub)
                                         {
                                         if(count($sub->sub_category) > 0){
                                         ?>
+                                        <div class="submenu-box">
+                                        <div class="d-block mb-2">
+                                            <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                        </div>      
                                         <ul>
-                                            <li>
-                                                <span class="menus_title">{{ $sub->title }}</span>
-                                            </li>   
+                                              
                                         <?php 
                                           foreach($sub->sub_category as $car)
                                           {
@@ -222,14 +224,17 @@
                                           }
                                         ?>
                                         </ul>
+                                        </div>
                                         <?php
                                          
                                         }
                                          }
                                         ?>
+                                        <div class="submenu-box">
                                         <ul class="">
                                             <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
                                         </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -284,10 +289,12 @@
                                         {
                                            if(count($sub->sub_category) > 0){
                                         ?>
+                                        <div class="submenu-box">
+                                        <div class="d-block mb-2">
+                                            <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                        </div>
                                         <ul>
-                                            <li>
-                                                <span class="menus_title">{{ $sub->title }} </span>
-                                            </li>   
+                                              
                                         <?php 
                                           foreach($sub->sub_category as $car)
                                           {
@@ -307,13 +314,16 @@
                                           }
                                         ?>
                                         </ul>
+                                        </div>
                                         <?php
                                         }
                                          }
                                         ?>
+                                        <div class="submenu-box">
                                         <ul class="">
                                             <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
                                         </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -368,11 +378,16 @@
                                         foreach($megamenu->sub_menu as $sub)
                                         {
                                            if(count($sub->sub_category) > 0){
+                                            $twocolum = "";
+                                            if(count($sub->sub_category) > 5){
+                                                $twocolum = 'mega-menu-two-colum';
+                                            }
                                         ?>
-                                        <ul>
-                                            <li>
-                                                <span class="menus_title">{{ $sub->title }} </span>
-                                            </li>   
+                                        <div class="submenu-box">
+                                        <div class="d-block mb-2">
+                                            <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                        </div>
+                                        <ul class="{{ $twocolum }}">  
                                         <?php 
                                         foreach($sub->sub_category as $car)
                                         {
@@ -391,13 +406,16 @@
                                         }
                                         ?>
                                         </ul>
+                                        </div>
                                         <?php
                                         }
                                         }
                                         ?>
-                                        <ul class="">
-                                            <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
-                                        </ul>
+                                        <div class="submenu-box">
+                                            <ul class="">
+                                                <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -451,7 +469,7 @@
                                         <span></span>
                                     </div>
                                     <div class="mega-menu-four-part ">
-                                        <div>
+                                        
                                     <?php 
                                          $categories = \App\Models\Category::where('estatus',1)->where('is_custom',1)->get();
                                          $img_no = 1;
@@ -464,6 +482,7 @@
                                             }
                                             $img_no++; 
                                             ?>
+                                        <div class="submenu-box1">
                                         <ul>
                                             <li>
                                                 <span class="menus_title ">create your own {{ $car->category_name }}</span>
@@ -476,13 +495,14 @@
                                                 <a href="{{ URL('/diamond-setting/'.$car->id)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
                                             </li>
                                         </ul>
-
-                                        <?php $cat_no++;  } ?>
                                         </div>
-                                       
+                                        <?php $cat_no++;  } ?>
+                                        
+                                        <div class="submenu-box1">
                                             <ul>
                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                             </ul>
+                                        </div>   
                                         
                                     </div>
                                 </div>

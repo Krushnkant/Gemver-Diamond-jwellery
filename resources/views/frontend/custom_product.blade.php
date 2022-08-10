@@ -327,7 +327,7 @@
 
                     <div class="row">
                     <h2 class="heading-h2 text-white popup_heading text-center text-capitalize mb-3">Create Your Own Engagement Ring</h2>
-                        <div class="col-12 ps-0 text-start">
+                        <!-- <div class="col-12 ps-0 text-start"> -->
                         <ul class="row">
                             @foreach($StepPopup as $key => $Step)
                             @php
@@ -336,7 +336,7 @@
                             <li class="col-12 col-md-6 col-lg-4">
                                 <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
                                     <figure class="popup_img"><img src="{{ url('images/steppopup/'.$Step->icon) }}" class="img-responsive" alt=""></figure>
-                                    <div>Step {{ $key }}</div>
+                                    <div class="mb-3" >Step {{ $key }}</div>
                                     <h5 class="popup_sub_heading">{{ $Step->title }}</h5>
                                     <p class="popup_paragraph">{{ $Step->description }} </p>
                                 </div>
@@ -344,7 +344,7 @@
                             @endforeach   
                         </ul>
                         
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
