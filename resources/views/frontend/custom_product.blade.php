@@ -316,7 +316,7 @@
     <div class="modal fade inquiry_now_modal product_modal" id="myStep" tabindex="-1" aria-labelledby="myStepLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                 <div class="modal-content">
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-6 ps-0 text-start">
                             <div class="mb-xl-4 mb-3 product_heading"></div>
                         </div>
