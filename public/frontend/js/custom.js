@@ -95,7 +95,7 @@ $(document).ready(function() {
                 items: 2,
             },
             1200: {
-                items: 3
+                items: 4
             }
         }
     });

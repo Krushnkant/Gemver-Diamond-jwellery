@@ -242,7 +242,7 @@
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
-                                <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
+                                <span class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></span>
                                 @endif
                             </span>
                         </div>
@@ -342,8 +342,8 @@
                             ?>
                         
                             <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
-                                <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">{{ $product_attribute_term_name }}</span>
+                                <span class="d-block col-6 col-sm-3 col-md-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
+                                <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $product_attribute_term_name }}</span>
                             </div>
                                
                             <?php
@@ -436,19 +436,19 @@
                     <div class="accordion-body">
                         <div class="row" id="specification143">
                             @if($Product->product_title != "")
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    Product Name &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Product->product_title }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Product Name </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product_title }}</span>
                                 </div>
                             </div>
                             @endif
 
                             @if($Product->design_number != "")
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    Design Number &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Product->design_number }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                   <span class="col-5 col-sm-3 col-xl-3 ps-0"> Design Number </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->design_number }}</span>
                                 </div>
                             </div>
                             @endif
@@ -461,10 +461,10 @@
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                             ?>
 
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    {{ $product_attribute_specification->attribute_name }} &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $product_attribute_term_name }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0"> {{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>
 

@@ -122,9 +122,12 @@ class ProductController extends Controller
                             $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <span class="wire_bangle_price wire_bangle_price_part">
-                                    $'. $sale_price .'
-                                </span>';
+                                <div>
+                                    <span class="wire_bangle_price wire_bangle_price_part">
+                                        $'. $sale_price .'
+                                    </span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                </div>';
 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
                                 foreach($ProductVariantVariant as $productvariants){
@@ -334,7 +337,7 @@ class ProductController extends Controller
                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
+                $variantstr .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';
@@ -356,8 +359,8 @@ class ProductController extends Controller
                     </div>'; 
                     
                 $specificationstr .='<div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                            <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">'.$product_attribute_specification->attribute_name .'</span>
-                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">'. strtolower($product_attribute_term_name) .'</span>
+                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">'.$product_attribute_specification->attribute_name .'</span>
+                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">'. strtolower($product_attribute_term_name) .'</span>
                         </div>';    
 
                 $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">

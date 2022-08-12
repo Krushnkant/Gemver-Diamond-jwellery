@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Diamond;
 use App\Models\Category;
 use App\Models\Attribute;
+use App\Models\OrderIncludes;
 use App\Models\ProductVariant;
 use App\Models\ShopByStyle;
 use App\Models\StepPopup;
@@ -176,8 +177,8 @@ class DiamondController extends Controller
                                     <ul>
                                         
                                         <li>
-                                            <span>CARATE  :</span>
-                                            <span>'. $Diamond->Weight .' </span>
+                                            <span class="col-md-4">CARATE  :</span>
+                                            <span class="col-md-8">'. $Diamond->Weight .' </span>
                                         </li>
                                         <li>
                                             <span> CLARITY :</span>
@@ -383,8 +384,11 @@ class DiamondController extends Controller
                                 <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
                                 <div class="wire_bangle_sub_heading" ><a style="" href="'.$url.'">'.$product->product_title .'</a></div>
                                 <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <span class="wire_bangle_price wire_bangle_price_part">
-                                $'.$sale_price .'</span>';
+                                <div>
+                                    <span class="wire_bangle_price wire_bangle_price_part">
+                                        $'.$sale_price .'</span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                </div>';
 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
                                 foreach($ProductVariantVariant as $productvariants){
@@ -462,7 +466,12 @@ class DiamondController extends Controller
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
         $Product = ProductVariant::with('product')->where(['estatus' => 1,'id' => $cart->variant_id])->first();
         $Diamond = Diamond::where(['id' => $cart->diamond_id])->first();
-        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart'));
+        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+       
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$Product->product_id)->groupBy('products.id')->get();
+        
+        
+        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated'));
     }
 
     public function editproductsetting($catid){
@@ -614,49 +623,49 @@ class DiamondController extends Controller
                                 <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
-                                        <li>
-                                            <span>CARATE  :</span>
-                                            <span>'. $Diamond->Weight .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1">CARATE  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Weight .' </span>
                                         </li>
-                                        <li>
-                                            <span> CLARITY :</span>
-                                            <span>'. $Diamond->Clarity .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1"> CLARITY :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Clarity .' </span>
                                         </li>
-                                        <li>
-                                            <span>SHAPE :</span>
-                                            <span>'. $Diamond->Shape .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1">SHAPE :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Shape .' </span>
                                         </li>
                                        
-                                        <li>
-                                            <span>COLOR  :</span>
-                                            <span>'. $Diamond->Color .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1">COLOR  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Color .' </span>
                                         </li>';
                                         if($Diamond->Cut != ""){
-                                        $artilces.='<li>
-                                            <span> CUT  :</span>
-                                            <span>'. $Diamond->Cut .' </span>
+                                        $artilces.='<li class="">
+                                            <span class="round_product_part_1"> CUT  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Cut .' </span>
                                         </li>';
                                         }
-                                        $artilces.='<li>
-                                            <span> POLISH  :</span>
-                                            <span>'. $Diamond->Polish .' </span>
+                                        $artilces.='<li class="">
+                                            <span class="round_product_part_1"> POLISH  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Polish .' </span>
                                         </li>
-                                        <li>
-                                            <span> SYMMETRY  :</span>
-                                            <span>'. $Diamond->Symm .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1"> SYMMETRY  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Symm .' </span>
                                         </li>
                                         
-                                        <li>
-                                            <span> MEASUREMENT   :</span>
-                                            <span>'. $Diamond->Measurement .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1"> MEASUREMENT   :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
                                         </li>
-                                        <li>
-                                            <span> CERTIFICATE   :</span>
-                                            <span>'. $Diamond->Lab .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1"> CERTIFICATE   :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                         </li>
-                                        <li>
-                                            <span>LOT :</span>
-                                            <span>'. $Diamond->Stone_No .' </span>
+                                        <li class="">
+                                            <span class="round_product_part_1">LOT :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Stone_No .' </span>
                                         </li>
                                     </ul>
                                 </div>

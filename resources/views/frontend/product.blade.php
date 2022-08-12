@@ -71,7 +71,9 @@
                         <div class="d-flex mb-2 mb-xl-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
-                                <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
+                                <span class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span>
+                            </span>
+                            <span class="price_discount ms-2">40% Off</span>
                                 @endif
                             </span>
  
@@ -209,8 +211,8 @@
                             <!-- @if($Product->design_number != "")
                             <div class="row">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                    <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">Design Number</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">{{ $Product->design_number }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Design Number</span>
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Product->design_number }}</span>
                                 </div>
                             </div>
                             @endif -->
@@ -222,10 +224,10 @@
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                             ?>
-                            <div class="row" id="specificationproduct143">
+                            <div class="" id="specificationproduct143">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                    <span class="d-block col-6 col-sm-3 col-md-6 col-lg-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-8">{{ $product_attribute_term_name }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>    
                             <?php
@@ -251,12 +253,23 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-3 col-sm-2">
+                                                <div class="product_img">
+                                                    <img src="{{ asset('frontend/image/round.png') }}" alt="">  
+                                                </div>
+                                            </div>
+                                            <div class="col-9 col-sm-10">
+                                                <div class="text-start popup_product_heading mb-2">Product Name</div>
+                                                <div class="row" id="variantstr"> 
+                                                </div>
+                                                <div class="row" id="specificationstr"> 
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="alert alert-success" id="success-alert" style="display: none;">
                                         </div>
-                                        <div class="row" id="variantstr"> 
-                                        </div>
-                                        <div class="row" id="specificationstr"> 
-                                        </div>
+                                       
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
@@ -267,13 +280,18 @@
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
-                                            </div>
-                                            <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                           
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <!-- <input type="text" name="inquiry" id="inquiry" placeholder="Message" class="d-block wire_bangle_input"> -->
@@ -353,7 +371,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-xl-4 pt-xxl-0 mb-xxl-4 mt-3" id="description">
+        <div class="row mt-xl-5 pt-xxl-0 mb-xxl-4 mt-3" id="description">
             <div class="col-md-2">
                 <div class="description_heading">
                     description
@@ -374,19 +392,19 @@
                     <div class="accordion-body">
                         <div class="row" id="specification143">
                             @if($Product->product_title != "")
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    Product Name &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Product->product_title }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Product Name </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product_title }}</span>
                                 </div>
                             </div>
                             @endif
 
                             @if($Product->design_number != "")
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    Design Number &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Product->design_number }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Design Number </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->design_number }}</span>
                                 </div>
                             </div>
                             @endif
@@ -399,10 +417,10 @@
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                             ?>
 
-                            <div class="col-md-6 px-0" >
-                                <div class="mt-4 wire_bangle_share">
-                                    {{ $product_attribute_specification->attribute_name }} &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $product_attribute_term_name }}</span>
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">{{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>
 
@@ -486,9 +504,12 @@
                         <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <span class="wire_bangle_price wire_bangle_price_part">
-                                    $ {{ $sale_price }}
-                                </span>
+                                <div>
+                                    <span class="wire_bangle_price wire_bangle_price_part">
+                                        $ {{ $sale_price }}
+                                    </span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                </div>
                                 <?php 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
                                 foreach($ProductVariantVariant as $productvariants){
@@ -767,7 +788,7 @@ $('body').on('click', '.select_setting_btn', function () {
 
     if(valid){
         $.map(arrspe, function(value) {
-            var html = '<div class="d-flex align-items-center mb-3 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
+            var html = '<div class="d-flex align-items-center mb-2 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
            $('#specificationstr').append(html);
         });
         jQuery("#exampleModal").modal('show');
