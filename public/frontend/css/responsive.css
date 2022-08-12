@@ -54,6 +54,14 @@
     .blog-detail-post-heading {
         font-size: 18px;
     }
+    .product_modal .popup_heading {
+        font-size: 21px;
+        margin-top: 30px;
+    }
+    .close-button {
+        top: 0;
+        padding-top: 15px;
+    }
 }
 
 @media (max-width:575px) {
@@ -75,6 +83,9 @@
     }
     .background-sub-slider {
         background: none;
+    }
+    .wire_bangle_color_theme {
+        padding-left: 0;
     }
 }
 
@@ -372,6 +383,17 @@
         min-height: 42px;
         font-size: 11px;
     }
+    .shop_by_category,
+    .shop_dimond_by_shape,
+    .customer_stories,
+    .engagement_ring_section,
+    .customise_own_ring_section,
+    .gemver_diamonds_section {
+        padding: 30px 0;
+    }
+    .footer-part-section {
+        margin-top: 30px;
+    }
     .heading-h2 {
         font-size: 22px;
         line-height: normal;
@@ -387,12 +409,6 @@
     }
     .category-heading {
         font-size: 20px;
-    }
-    .shop_dimond_by_shape {
-        padding: 15px;
-    }
-    .customer_stories {
-        padding: 15px;
     }
     .customer_stories_paragraph {
         font-size: 14px;
@@ -431,9 +447,6 @@
         position: initial;
         margin-bottom: 20px;
     }
-    .engagement_ring_section {
-        padding: 0;
-    }
     .engagement_diamond_paragraph_part {
         font-size: 16px;
         line-height: 23px;
@@ -454,12 +467,6 @@
     }
     .explore-ring-btn {
         color: #BB9761;
-    }
-    .customise_own_ring_section {
-        padding: 15px;
-    }
-    .gemver_diamonds_section {
-        padding: 15px;
     }
     .shop-by-style-slider .owl-nav {
         position: initial;
@@ -836,7 +843,7 @@
     /* ---------------------modal--------------------------------- */
     .inquiry_now_modal .modal-content {
         min-width: 100%;
-        padding: 20px;
+        padding: 0;
     }
     .inquiry_now_modal .product_heading {
         font-size: 17px;
@@ -1123,11 +1130,28 @@
     .step_two_design .step_two_heading {
         font-size: 22px;
     }
+    .inquiry_now_modal .modal-content {
+        padding: 20px;
+    }
+    .product_modal .popup_heading {
+        margin-top: 0px;
+    }
+    .close-button {
+        padding-top: 0;
+        top: 22px;
+    }
 }
 
 @media (min-width:576px) and (max-width:767px) {
     .background-sub-slider {
         background-position: 14%center;
+    }
+    .round_cut_lab_diamonds_layer li {
+        display: flex;
+        font-size: 11px;
+    }
+    .round_cut_lab_diamonds_layer .round_product_part_1 {
+        min-width: 90px;
     }
 }
 
@@ -1142,10 +1166,6 @@
     }
     .line-image {
         max-width: 146px;
-    }
-    .engagement_ring_section,
-    .shop_dimond_by_shape {
-        padding: 50px 15px;
     }
     .diamonds_part {
         left: 26px;
@@ -1167,7 +1187,7 @@
         max-width: 700px;
     }
     .wire_bangle_accordion .wire_bangle_share {
-        font-size: 16px;
+        font-size: 14px;
     }
     .wire_bangle_share {
         font-size: 15px;
@@ -1245,6 +1265,9 @@
     }
     .about_us_background .sub_heading {
         font-size: 23px;
+    }
+    .inquiry_now_modal .modal-content {
+        padding: 20px 0;
     }
 }
 
@@ -1585,9 +1608,6 @@
         font-size: 20px;
     }
     .description_paragraph {
-        font-size: 18px;
-    }
-    .wire_bangle_accordion .wire_bangle_share {
         font-size: 18px;
     }
 }

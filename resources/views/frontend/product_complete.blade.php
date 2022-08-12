@@ -206,7 +206,7 @@
                                     </div>
                                     <div>
                                         <span class="wire_bangle_edit_box_price">${{ $Product->sale_price }}</span>
-                                        <span class="wire_bangle_edit_box_dublicate_price ms-2">${{ $Product->regular_price }}</span>
+                                        <!-- <span class="wire_bangle_edit_box_dublicate_price ms-2">${{ $Product->regular_price }}</span> -->
                                     </div>
                                 </div>
                                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
@@ -288,37 +288,47 @@
                                           
                                         </div>
                                         <div class="row">
-                                        <?php 
-                                           $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
-                                            $variantstr = '';
-                                            foreach($product_attributes_variant as $product_attribute_variant){ 
-                                                $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
-                                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-                                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                                                $variantstr .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
-                                                                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
-                                                                    <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
-                                                                </div>';
-                                            }
-                                            echo $variantstr;
+                                            <div class="col-3 col-sm-2">
+                                                <div class="product_img">
+                                                    <img src="{{ asset('frontend/image/round.png') }}" alt="">  
+                                                </div>
+                                            </div>
+                                            <div class="col-9 col-sm-10">
+                                                <div class="text-start popup_product_heading mb-2">Product Name</div>
+                                                <div class="row">
+                                                    <?php 
+                                                    $product_attributes_variant = \App\Models\ProductVariantVariant::leftJoin("attributes", "attributes.id", "=", "product_variant_variants.attribute_id")->where('product_variant_variants.estatus',1)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
+                                                        $variantstr = '';
+                                                        foreach($product_attributes_variant as $product_attribute_variant){ 
+                                                            $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
+                                                            $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                                            $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                                                            $variantstr .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
+                                                                                <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+                                                                                <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                                                                            </div>';
+                                                        }
+                                                        echo $variantstr;
 
-                                            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
-                                            $str = '';
-                                            foreach($product_attributes_specification as $product_attribute_specification){ 
-                                                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
-                                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-                                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                                                
-                                                $str .='<div class="d-flex align-items-center mb-3 col-md-6 px-0">
-                                                            <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
-                                                            <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
-                                                        </div>';    
-                                        
-                                            }
-                                            echo $str;
-                                        ?>
-                                            
+                                                        $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
+                                                        $str = '';
+                                                        foreach($product_attributes_specification as $product_attribute_specification){ 
+                                                            $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+                                                            $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                                            $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
+                                                            
+                                                            $str .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
+                                                                        <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+                                                                        <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
+                                                                    </div>';    
+                                                    
+                                                        }
+                                                        echo $str;
+                                                    ?>
+                                                </div>
+                                            </div>
                                         </div>
+                                      
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="{{ $Product->SKU }}">
@@ -329,12 +339,16 @@
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
+                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
-                                                <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
@@ -352,14 +366,14 @@
                             </div>
 
                             <div class="d-flex mb-md-4 flex-wrap mb-3 mb-md-0">
-                                <span class="wire_bangle_input">
+                                <!-- <span class="wire_bangle_input">
                                     <div class="wire_bangle_number number-input">
                                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
                                         <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
                                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                     </div>
-                                </span>
-                                <span class="inquiry_now_btn ms-3 ms-md-5">
+                                </span> -->
+                                <span class="inquiry_now_btn">
                                     <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                                 </span>
                             </div>
@@ -386,10 +400,10 @@
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                                 //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
-                                $str .='<div class="col-md-6 px-0" >
-                                        <div class="mt-4 wire_bangle_share">
-                                        '.$product_attribute_specification->attribute_name .' &nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">'. $product_attribute_term_name .'</span>
+                                $str .='<div class="col-xl-6 px-0" >
+                                        <div class="mt-4 wire_bangle_share row">
+                                            <span class="col-5 col-sm-3 col-xl-3 ps-0">'.$product_attribute_specification->attribute_name .' </span>
+                                            <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">'. $product_attribute_term_name .'</span>
                                         </div>
                                     </div>';
                         
@@ -409,40 +423,40 @@
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="row">
-                            <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
-                                    stock number &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Stone_No }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0"> stock number</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
-                                    cut &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">cut </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    shape &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">shape </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Shape }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    clarity &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Clarity }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">clarity </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Clarity }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    carat weight &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Weight }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">carat weight </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Weight }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    color &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">color </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Color }}</span>
                                 </div>
                             </div>
                            
@@ -452,80 +466,116 @@
             </div>
             
         </div>
-        <div class="row mt-5 align-items-center">
-            <div class="col-md-4 pe-4">
-                <div class="order-include-img">
-                    <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="order-includes-heading mb-4 px-3 mt-3 text-center text-md-start">
-                    Your Order Includes
-                </div>
-                <div class="row">
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_1.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                Qulity packaging
-                           </span>
-                        </div>    
+        @if(isset($OrderIncludes->orderincludesdata))
+        <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+             {{ $OrderIncludes->title }}
+        </div>
+
+        <div class="row mt-md-0 mt-xl-4 align-items-center">
+                <!-- <div class="col-md-6 col-lg-4 pe-4">
+                    <div class="order-include-img">
+                        <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_2.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                Free Shipping
-                           </span>
-                        </div>   
+                </div> -->
+                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 order-part">
+                    <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
+                        {{ $OrderIncludes->title }}
                     </div>
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_3.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                30 Days free returns
-                           </span>
-                        </div>    
-                    </div>
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_4.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                Valuation certificate
-                           </span>
-                        </div>      
-                    </div>
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_5.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                Lifetime warrenty
-                           </span>
-                        </div>      
-                    </div>
-                    <div class="col-md-6 order-box-part mb-3">
-                        <div class="order-box">
-                           <span class="order-img col-md-4">
-                             <img src="{{ url('frontend/image/order_6.png') }}" alt="">   
-                           </span>
-                           <span class="order-text col-md-8 text-start">
-                                Concierge Service
-                           </span>
-                        </div>   
+                    <div class="row mt-2 mt-md-0">
+                        @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
+                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
+                            <div class="order-box">
+                            <span class="order-img d-block mb-2">
+                                <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
+                            </span>
+                            <span class="order-text text-center d-block">
+                                    {{ $orderincludesdata->title }}
+                            </span>
+                            </div>    
+                        </div>
+                        @endforeach
+                       
                     </div>
                 </div>
             </div>
         </div>
+        @endif
+
+        @if(count($ProductRelated) > 0)
+    <div class="container">
+        <div class="shop_by_category">
+            <div class="row">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                    <div>
+                        <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Product </h2>
+                    </div>
+                    <!-- <div class="category-line-img d-none d-md-block">
+                        <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
+                    </div> -->
+                </div>
+                <div class="owl-carousel owl-theme product-detail mb-5">
+                    @foreach($ProductRelated as $Related)
+                    <?php
+                   // dd($ProductRelated);
+                     $images = explode(",",$Related->images);
+                     $image = URL($images['0']);
+                     $sale_price = $Related->sale_price;
+                     $url =  URL('/product-details/'.$Related->id.'/'.$Related->variant_id); 
+                    
+                    ?>
+                    <div class="hover_effect_part wire_bangle_shop_radio">
+                    <div class="wire_bangle_img_radio_button">
+                        <div class="wire_bangle_img mb-3 position-relative">
+                            <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
+                        </div>
+                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
+                            <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
+                            <div class="d-flex justify-content-between pt-2 align-items-center">
+                                <div>
+                                    <span class="wire_bangle_price wire_bangle_price_part">
+                                        $ {{ $sale_price }}
+                                    </span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                </div>
+                                <?php 
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
+                                foreach($ProductVariantVariant as $productvariants){
+                                if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                ?>
+                                <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">
+                                <?php
+                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
+                                    $ia = 1;
+                                    foreach($product_attribute as $attribute_term){
+                                        $attributeurl =  URL('/product-details/'.$Related->id.'/'.$attribute_term->product_variant_id); 
+                                     ?>
+                                    <span class="form-check d-inline-block">
+                                        <a href="{{ $attributeurl }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
+                                        </a>
+                                        <div class="wire_bangle_color_input_label"></div>
+                                    </span>
+                                <?php        
+                                    $ia++;    
+                                }
+                                ?>
+                                </div></span>
+                                <?php
+                                    } 
+                                }
+                                ?>
+                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach 
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
     </div>
 
 

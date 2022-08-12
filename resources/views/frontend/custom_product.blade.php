@@ -311,29 +311,21 @@
         @endif
     @endforeach
    
-    @if(count($StepPopup) > 0){
-    @if($hidemodel == 0){
+    @if(count($StepPopup) > 0)
+    @if($hidemodel == 0)
     <div class="modal fade inquiry_now_modal product_modal" id="myStep" tabindex="-1" aria-labelledby="myStepLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                 <div class="modal-content">
-                    <div class="row mb-3">
-                        <div class="col-6 ps-0 text-start">
-                            <div class="mb-xl-4 mb-3 product_heading"></div>
-                        </div>
-                        <div class="col-6 text-end pe-0">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    </div>
-
+                    <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="row">
                     <h2 class="heading-h2 text-white popup_heading text-center text-capitalize mb-3">Create Your Own Engagement Ring</h2>
                         <!-- <div class="col-12 ps-0 text-start"> -->
-                        <ul class="row">
+                        <ul class="row p-0">
                             @foreach($StepPopup as $key => $Step)
                             @php
-                              $key += 1;
+                              $key += 1;    
                             @endphp
-                            <li class="col-12 col-md-6 col-lg-4">
+                            <li class="col-12 col-md-4">
                                 <div class="cnt-block equal-hight popup_part mb-3 mb-md-0">
                                     <figure class="popup_img"><img src="{{ url('images/steppopup/'.$Step->icon) }}" class="img-responsive" alt=""></figure>
                                     <div class="mb-3" >Step {{ $key }}</div>

@@ -51,7 +51,7 @@
     <div class="container">
         <div class="shop_by_category">
             <div class="row">
-                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative mt-5">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div>
                         <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">{{ $homesetting->section_category_title }}</h2>
                         <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
@@ -172,7 +172,7 @@
     @if(count($testimonials) > 0)
     
     <div class="container">
-        <div class="customer_stories pt-0">
+        <div class="customer_stories">
             <div class="row">
                 <div class="col-lg-5 customer_stories_bg">
                     <div class="">
@@ -315,7 +315,7 @@
     </div>
 
     <div class="container">
-        <div class="customise_own_ring_section pt-0 pb-0">
+        <div class="customise_own_ring_section">
             <div class="row align-items-center">
                 <div class="col-md-7 text-center text-md-start">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>

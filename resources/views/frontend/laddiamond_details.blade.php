@@ -71,45 +71,45 @@
                     
                             <div class="wire_bangle_share mb-4 mb-xxl-5">
                                 <div class="row">
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            carat &nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">{{ $Diamond->Weight }}</span>
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                           <span class="d-block col-6 col-sm-3 col-md-4 ps-0"> carat </span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Weight }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            color&nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">color</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Color }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            shape&nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">shape</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
                                     @if($Diamond->Cut != "")
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            cut grade&nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">cut grade</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Cut }}</span>
                                         </div>
                                     </div>
                                     @endif
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            clarity&nbsp;:&nbsp;
-                                            <span class="wire_bangle_color_theme">{{ $Diamond->Clarity }}</span>
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">clarity</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 ps-md-0">
-                                        <div class="mt-4 wire_bangle_share">
-                                            Certification&nbsp;:&nbsp;
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Certification</span>
                                             @if($Diamond->Certificate_url != "")
-                                            <span class="wire_bangle_color_theme"><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></span>
                                             @else
-                                            <span class="wire_bangle_color_theme"><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></span>
                                             @endif
                                         </div>
                                     </div>
@@ -211,35 +211,35 @@
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="row">
-                            <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
-                                    stock number &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Stone_No }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0">stock number </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="wire_bangle_share">
-                                    cut&nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Cut }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0">cut</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    carat weight &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Weight }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0">carat weight</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Weight }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    color &nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Color }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0">color </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Color }}</span>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 px-0">
-                                <div class="mt-4 wire_bangle_share">
-                                    shape&nbsp;:&nbsp;
-                                    <span class="wire_bangle_color_theme">{{ $Diamond->Shape }}</span>
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0">shape</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Shape }}</span>
                                 </div>
                             </div>
                          
