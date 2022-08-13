@@ -398,7 +398,7 @@
 
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
-                                    <div class="modal-content">
+                                    <div class="modal-content p-3 p-md-4">
                                         <div class="row">
                                             <div class="col-8 col-sm-6 ps-0 text-start">
                                                 <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div>
@@ -412,8 +412,6 @@
                                       
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm" class="px-0">
                                         @csrf
-            
-                                        
                                         
                                         <div class="row mb-4 mb-xxl-4">
                                             <div class="mb-3 col-md-6 ps-0">
@@ -421,15 +419,18 @@
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="phone" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
-                                            </div>
-                                            <div class="mb-3 col-md-12 ps-0">
                                                 <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
                                             <div class="mb-6 col-md-12 ps-0">
-            
                                                 <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>

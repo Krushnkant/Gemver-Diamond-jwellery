@@ -1448,18 +1448,18 @@ background-size: cover;
 }
 
 .product_img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 .popup_product_heading {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 }
 
 .wire_bangle_color_heading {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 19px;
     text-transform: capitalize;
     color: #0B1727;
@@ -2278,6 +2278,7 @@ background-size: cover;
     height: 2px;
     margin-bottom: 15px;
     border: 0;
+    width: 100%;
 }
 
 .round_cut_lab_diamonds_price .ui-slider-range.ui-widget-header.ui-corner-all {
@@ -4128,4 +4129,23 @@ span#amount {
     right: 20px;
     top: 22px;
     z-index: 999;
+}
+
+.from_text input,
+.to_text input {
+    background-color: #ebe9e7;
+    border: 0;
+    color: #000;
+    width: 60px;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-bottom: 2px #e5c18a solid;
+    outline: 0;
+}
+
+span.from_text input,
+span.from_text input::placeholder,
+span.to_text input,
+span.to_text input::placeholder {
+    color: #7a7a79;
 }

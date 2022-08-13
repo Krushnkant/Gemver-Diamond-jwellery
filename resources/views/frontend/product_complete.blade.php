@@ -275,19 +275,19 @@
 
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
-                                    <div class="modal-content">
+                                    <div class="modal-content p-3 p-md-4">
                                         <div class="row">
-                                            <div class="col-6 ps-0 text-start">
+                                            <div class="col-8 ps-0 text-start">
                                                 <div class="mb-xl-4 mb-3 product_heading">product inquiry</div>
                                             </div>
-                                            <div class="col-6 text-end pe-0">
+                                            <div class="col-4 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
                                         <div class="alert alert-success" id="success-alert" style="display: none;">
                                           
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2 mb-xl-3">
                                             <div class="col-3 col-sm-2">
                                                 <div class="product_img">
                                                     <img src="{{ asset('frontend/image/round.png') }}" alt="">  
