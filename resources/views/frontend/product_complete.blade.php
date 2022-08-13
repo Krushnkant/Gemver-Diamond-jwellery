@@ -290,7 +290,7 @@
                                         <div class="row mb-2 mb-xl-3">
                                             <div class="col-3 col-sm-2">
                                                 <div class="product_img">
-                                                    <img src="{{ asset('frontend/image/round.png') }}" alt="">  
+                                                    <img src="{{ URL($images[0]) }}"  alt="">  
                                                 </div>
                                             </div>
                                             <div class="col-9 col-sm-10">
@@ -339,16 +339,16 @@
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <input type="email" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
+                                                <input type="number" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="number" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
@@ -392,23 +392,43 @@
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="row">
-                        <?php     
-                            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$Product->id)->groupBy('attributes.id')->get();
-                            $str = '';
-                            foreach($product_attributes_specification as $product_attribute_specification){ 
-                                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
-                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-                                $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                                //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
-                                $str .='<div class="col-xl-6 px-0" >
-                                        <div class="mt-4 wire_bangle_share row">
-                                            <span class="col-5 col-sm-3 col-xl-3 ps-0">'.$product_attribute_specification->attribute_name .' </span>
-                                            <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">'. $product_attribute_term_name .'</span>
-                                        </div>
-                                    </div>';
                         
-                            }
-                            echo $str;
+
+                            @if($Product->product->product_title != "")
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Product Name </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product->product_title }}</span>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if($Product->product->design_number != "")
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Design Number </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product->design_number }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            <?php
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            //dd($product_attributes_specification);
+                            foreach($product_attributes_specification as $product_attribute_specification){  
+                                $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
+                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
+                            ?>
+
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">{{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
+                                </div>
+                            </div>
+
+                            <?php
+                                }
                             ?>
                         </div>
                     </div>

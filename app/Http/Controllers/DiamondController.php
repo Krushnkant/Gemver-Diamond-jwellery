@@ -213,7 +213,7 @@ class DiamondController extends Controller
                                             <span>'. $Diamond->Measurement .' </span>
                                         </li>
                                         <li>
-                                            <span> CERTIFICATE :</span>
+                                            <span> CERTIFIED :</span>
                                             <span>'. $Diamond->Lab .' </span>
                                         </li>
                                         <li>
@@ -233,7 +233,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'. $Diamond->Color .' color</span>
-                                    <span>'. $Diamond->Lab .' certificate</span>
+                                    <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
                                     $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block" title="Compare" data-id="'.$Diamond->id.'">
@@ -660,7 +660,7 @@ class DiamondController extends Controller
                                             <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
                                         </li>
                                         <li class="">
-                                            <span class="round_product_part_1"> CERTIFICATE   :</span>
+                                            <span class="round_product_part_1"> CERTIFIED  :</span>
                                             <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                         </li>
                                         <li class="">
@@ -680,7 +680,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'. $Diamond->Color .' color</span>
-                                    <span>'. $Diamond->Lab .' certificate</span>
+                                    <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
                                     $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">

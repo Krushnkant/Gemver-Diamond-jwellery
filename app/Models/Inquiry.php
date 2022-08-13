@@ -10,6 +10,6 @@ class Inquiry extends Model
     use HasFactory;
     protected $table = "inquiry";
     protected $fillable = [
-    	'name','mobile_no','email','SKU','stone_no','qty','inquiry','specification_term_id'
+    	'name','mobile_no','email','SKU','stone_no','qty','inquiry','specification_term_id','whatsapp_number'
     ];
 }

@@ -259,7 +259,7 @@
                                         <div class="row mb-2 mb-xl-3">
                                             <div class="col-3 col-sm-2">
                                                 <div class="product_img">
-                                                    <img src="{{ asset('frontend/image/round.png') }}" alt="">  
+                                                    <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="">  
                                                 </div>
                                             </div>
                                             <div class="col-9 col-sm-10">
@@ -280,16 +280,16 @@
                                                 <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                <input type="email" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
+                                                <input type="number" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="number" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                            
                                             <div class="mb-md-3 col-md-12 ps-0 mb-3">
@@ -593,7 +593,9 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                //console.log(data);
+                
+                //var result123 = $(data.result.images).text().split(',');
+            
                 if(data.result == 'data not found'){
                     $("#inquiry-error").html("product not available");
                     $("#inquiry-error").show();
@@ -620,7 +622,9 @@ $(document).ready(function(){
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
                     $('#variantstr').html(data.variantstr);
-                
+                    var img = data.result.images.split(",");
+                    $img_in = "{{ url('/') }}"+"/"+img[0];
+                    $('#inquiry_image').attr('src', $img_in);
                     selectjs();
                     sliderjs();
                 } 
@@ -860,6 +864,14 @@ function save_inquiry(btn,btn_type){
                 } else {
                     $('#mobile_no-error').hide();
                 }
+
+                // if (res.errors.whatsapp_number) {
+                //     $('#whatsapp_number-error').show().text(res.errors.whatsapp_number);
+                // } else {
+                //     $('#whatsapp_number-error').hide();
+                // }
+
+
                 if (res.errors.inquiry) {
                     $('#inquiry-error').show().text(res.errors.inquiry);
                 } else {

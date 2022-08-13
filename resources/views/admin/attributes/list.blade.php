@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Attributes & Specifications</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Attributes </a></li>
             </ol>
         </div>
     </div>
@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Attributes & Specifications</h4>
+                        <h4 class="card-title">Attributes </h4>
 
                         <div class="action-section">
                             <?php $page_id = \App\Models\ProjectPage::where('route_url',\Illuminate\Support\Facades\Route::currentRouteName())->pluck('id')->first(); ?>
@@ -337,9 +337,9 @@
             else{
                 $("#is_dropdown_div").show();
                 $("#is_description_div").show();
-                $('#AttributeModal').find('.modal-title').html("Add Specification");
-                $('#AttributeModal').find('#label_attributename').html("Specification Name <span class='text-danger'>*</span>");
-                $('#AttributeModal').find('#label_displayattributename').html("Display Specification Name");
+                $('#AttributeModal').find('.modal-title').html("Add Attribute");
+                $('#AttributeModal').find('#label_attributename').html("Attribute Name <span class='text-danger'>*</span>");
+                $('#AttributeModal').find('#label_displayattributename').html("Display Attribute Name");
             }
         });
 
@@ -354,7 +354,7 @@
             else{
                 $("#is_dropdown_div").show();
                 $("#is_description_div").show();
-                $('#AttributeModal').find('.modal-title').html("Edit Specification");
+                $('#AttributeModal').find('.modal-title').html("Edit Attribute");
             }
 
             $.get("{{ url('admin/attribute') }}" +'/' + edit_attribute_id +'/edit', function (data) {
@@ -401,8 +401,8 @@
                 $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute?");
             }
             else{
-                $('#DeleteAttributeModal').find('.modal-title').html("Remove Specification");
-                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Specification?");
+                $('#DeleteAttributeModal').find('.modal-title').html("Remove Attribute");
+                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute?");
             }
         });
 

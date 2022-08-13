@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('admin/attributes') }}">Attributes & Specifications</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('admin/attributes') }}">Attributes </a></li>
                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Attribute Terms</a></li>
             </ol>
         </div>

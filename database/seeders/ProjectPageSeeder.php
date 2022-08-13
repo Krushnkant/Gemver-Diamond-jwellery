@@ -71,7 +71,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([
             'id' => 6,
             'parent_menu' => 4,
-            'label' => 'Attributes & Specifications',
+            'label' => 'Attributes',
             'route_url' => 'admin.attributes.list',
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.attributes.list,admin.attributes.addorupdate,admin.allattributeslist,admin.attributes.edit,admin.attributes.delete,admin.attributes.chageattributestatus,admin.attributeTerms.list,admin.attributeTerms.addorupdate,admin.allattributesTermlist,admin.attributeTerms.chageattributeTermstatus,admin.attributeTerms.edit,admin.attributeTerms.delete'
@@ -114,7 +114,7 @@ class ProjectPageSeeder extends Seeder
             'icon_class' => 'fa fa-cog',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.settings.list,admin.settings.edit',
-            'sr_no' => 15
+            'sr_no' => 50
         ]);
 
         ProjectPage::create([
@@ -326,7 +326,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([ 
             'id' => 31, 
             'parent_menu' => 0, 
-            'label' => 'Banners', 
+            'label' => 'Sliders', 
             'route_url' => 'admin.banners.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.banners.list,admin.banners.add,admin.banners.save,admin.allbannerlist,admin.banners.changebannerstatus,admin.banners.delete,admin.banners.edit,admin.banners.uploadfile,admin.banners.removefile',

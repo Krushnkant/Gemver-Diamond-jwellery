@@ -74,13 +74,14 @@
                                         <span></span>
                                     </div>
                                     
-                                    <div class="mega-menu-two-three-part mega-menu-three-part">
-                                        <div>
+                                    <div class="mega-menu-two-part">
+                                                <div class="submenu-box">
+                                       
                                                 <div class="d-block mb-2">
                                                     <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                 </div>
-                                                <ul class="mega-menu-diamond-part">
-        
+                                                <ul class="mega-menu-two-colum">
+    
                                                     <li>
                                                         <a href="{{ url('/lad-diamond/ROUND') }}" class="d-flex">
                                                             <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
@@ -143,11 +144,11 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            
-                                            <ul>
-                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
-                                            </ul>
-                                          
+                                            <div class="submenu-box">
+                                                <ul>
+                                                    <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                </ul>
+                                            </div>
                                     </div>
                                 </div>
                             </li>
