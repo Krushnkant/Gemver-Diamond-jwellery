@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --primary: #0B1727;
-    --secondary: #e5c18a;
+    --secondary: #bb9c6d;
     --white-secondary: #f6faff;
 }
 
@@ -1469,7 +1469,7 @@ background-size: cover;
     font-size: 15px;
     line-height: 19px;
     text-transform: capitalize;
-    color: #0B1727;
+    color: #868686;
 }
 
 .wire_bangle_color input {
@@ -1583,7 +1583,7 @@ background-size: cover;
 }
 
 .wire_bangle_carat .form-check-input:checked+.wire_bangle_carat_label {
-    background: var(--secondary);
+    /*background: var(--secondary);*/
     border-color: var(--secondary);
 }
 
@@ -1592,7 +1592,7 @@ background-size: cover;
 }
 
 .wire_bangle_carat .form-check-input:checked+label {
-    color: #fff;
+    color: var(--secondary);
 }
 
 .wire_bangle_share {
@@ -1610,7 +1610,7 @@ background-size: cover;
 
 .wire_bangle_color_theme,
 .wire_bangle_color_theme a {
-    color: var(--secondary);
+    color: #0B1727;
 }
 
 .select_setting_btn {
@@ -1622,8 +1622,8 @@ background-size: cover;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--secondary);
-    background: none;
+    color: #ffffff;
+    background: var(--secondary);
     padding: 0 20px;
 }
 
@@ -3952,7 +3952,7 @@ span#amount {
 }
 
 .step-progressbar-part.active {
-    background: var(--white-secondary);
+    background: #dcdee1;
     -webkit-clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
     clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
     border: none;
