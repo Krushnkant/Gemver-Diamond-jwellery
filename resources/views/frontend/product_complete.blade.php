@@ -523,7 +523,7 @@
 
         @if(count($ProductRelated) > 0)
     <div class="container">
-        <div class="shop_by_category">
+        <div class="shop_by_category pt-0">
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div>

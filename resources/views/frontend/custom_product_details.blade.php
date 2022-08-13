@@ -242,7 +242,8 @@
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
-                                <span class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></span>
+                                <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
+                                <sub class="price_discount ms-2">40% Off</sub>
                                 @endif
                             </span>
                         </div>

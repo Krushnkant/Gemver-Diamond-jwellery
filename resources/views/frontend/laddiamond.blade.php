@@ -69,35 +69,6 @@
                             </span>
                     </div>
                 </div>
-                
-            </div>
-            <div class="col-lg-6 round_cut_lab_filter">
-                <div class="row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
-                            <div id="slider-range" class="mb-0"></div>
-                        </div>
-                        <p class="mb-0"> <span id="amount" class="ps-0"></span></p>
-                        <input type="hidden" id="hidden_minimum_price" />
-                        <input type="hidden" id="hidden_maximum_price" />
-                    </span>
-                </div>
-            </div>
-            <div class="col-lg-6 round_cut_lab_filter">
-                <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</span>
-                    <span class="col-md-12">
-                        @foreach($diamondcolor as $color) 
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
-                            <label for="colors{{ $color }}">{{ $color }}</label>
-                        </div>
-                        @endforeach
-                    </span>
-                </div>
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
@@ -116,25 +87,25 @@
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</span>
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</span>
                     <span class="col-md-12">
-                        @foreach($diamondclarity as $clarity) 
-                        <div class="form-group d-inline-block mb-0">
-                            <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
-                            <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
+                        @foreach($diamondcolor as $color) 
+                        <div class="form-group d-inline-block mb-2">
+                            <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
+                            <label for="colors{{ $color }}">{{ $color }}</label>
                         </div>
                         @endforeach
                     </span>
                 </div>
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
-                <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
+                <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</span>
                     <span class="col-md-12">
-                        @foreach($diamondreport as $report) 
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
-                            <label for="report{{ $report }}">{{ $report }}</label>
+                        @foreach($diamondclarity as $clarity) 
+                        <div class="form-group d-inline-block mb-0">
+                            <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
+                            <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
                         </div>
                         @endforeach
                     </span>
@@ -153,6 +124,35 @@
                         </span>
                     </div>
             </div>
+            <div class="col-lg-6 round_cut_lab_filter">
+                <div class="row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range" class="mb-0"></div>
+                        </div>
+                        <p class="mb-0"> <span id="amount" class="ps-0"></span></p>
+                        <input type="hidden" id="hidden_minimum_price" />
+                        <input type="hidden" id="hidden_maximum_price" />
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 round_cut_lab_filter">
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
+                    <span class="col-md-12">
+                        @foreach($diamondreport as $report) 
+                        <div class="form-group d-inline-block mb-2">
+                            <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
+                            <label for="report{{ $report }}">{{ $report }}</label>
+                        </div>
+                        @endforeach
+                    </span>
+                </div>
+            </div>
+          
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
