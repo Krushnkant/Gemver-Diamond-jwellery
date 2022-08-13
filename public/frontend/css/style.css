@@ -2722,7 +2722,7 @@ background-size: cover;
     background-size: 150px;
     background-position: 33%center;
     background-repeat: no-repeat;
-    background-color: #ebe9e7;
+    background-color: var(--white-secondary);
 }
 
 .about_us_background .sub_heading {
@@ -3161,12 +3161,12 @@ background-size: cover;
 }
 
 .bottom-to-top-btn {
-    background-color: var(--secondary);
+    background-color: var(--white-secondary);
     position: fixed;
     width: 35px;
     height: 35px;
-    bottom: 31px;
-    right: 25px;
+    bottom: 102px;
+    right: 30px;
     line-height: 28px;
     text-align: center;
     z-index: 999;
@@ -3177,6 +3177,7 @@ background-size: cover;
     height: 18px;
     transform: rotate(270deg);
     margin: 0 !important;
+    fill: var(--primary);
 }
 
 span#amount {
@@ -4169,21 +4170,22 @@ span.to_text input::placeholder {
 }
 
 .chat-icon-part {
-    background-color: var(--secondary);
+    background-color: #4ac759;
     position: fixed;
     width: 50px;
     height: 50px;
-    bottom: 86px;
+    bottom: 33px;
     right: 25px;
-    line-height: 28px;
-    text-align: center;
     z-index: 999;
     border-radius: 50%;
-    line-height: 55px;
+    line-height: 46px;
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px;
 }
 
 .chat-icon-part svg {
-    width: 43px;
-    height: 43px;
-    fill: var(--primary);
+    width: 30px;
+    height: 30px;
+    fill: #fff;
 }
