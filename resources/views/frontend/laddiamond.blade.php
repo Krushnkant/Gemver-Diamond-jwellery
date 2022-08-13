@@ -76,8 +76,8 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                             <div id="slider-range" class="mb-0"></div>
                         </div>
                         <p class="mb-0"> <span id="amount" class="ps-0"></span></p>
@@ -104,8 +104,8 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                             <div id="slider-range-carat" class="mb-0"></div>
                         </div>
                         <p class="mb-0"> <span id="carat"></span></p>
@@ -159,8 +159,8 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                             <div id="slider-range-depth" class="mb-0"></div>
                         </div>
                         <p class="mb-0"> <span id="depth"></span></p>
@@ -189,8 +189,8 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                             <div id="slider-range-ratio" class="mb-0"></div>
                         </div>
                         <p class="mb-0"> <span id="ratio"></span></p>
@@ -219,8 +219,8 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="mobile_no" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                             <div id="slider-range-table" class="mb-0"></div>
                         </div>
                         <p class="mb-0"> <span id="table"></span></p>

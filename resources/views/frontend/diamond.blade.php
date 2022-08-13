@@ -208,7 +208,11 @@
                 <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
                     <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</div>
                     <div class="round_cut_lab_diamonds_price col-md-12">
-                        <div id="slider-range"></div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range" class="mb-0"></div>
+                        </div>
                         <p class="mb-0">
                              <span id="amount" class="ps-0"></span>
                         </p>
@@ -235,7 +239,11 @@
                 <div class="round_cut_lab_range_slider row">
                     <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</div>
                     <div class="round_cut_lab_diamonds_price col-md-12">
-                        <div id="slider-range-carat"></div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range-carat" class="mb-0"></div>
+                        </div>
                         <p class="mb-0"> <span id="carat"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
                         <input type="hidden" id="hidden_maximum_carat" />
@@ -290,7 +298,11 @@
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div id="slider-range-depth"></div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range-depth" class="mb-0"></div>
+                        </div>
                         <p class="mb-0"> <span id="depth"></span></p>
                         <input type="hidden" id="hidden_minimum_depth" />
                         <input type="hidden" id="hidden_maximum_depth" />
@@ -316,7 +328,11 @@
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div id="slider-range-ratio"></div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range-ratio" class="mb-0"></div>
+                        </div>
                         <p class="mb-0"> <span id="ratio"></span></p>
                         <input type="hidden" id="hidden_minimum_ratio" />
                         <input type="hidden" id="hidden_maximum_ratio" />
@@ -342,7 +358,11 @@
             <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div id="slider-range-table"></div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
+                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <div id="slider-range-table" class="mb-0"></div>
+                        </div>
                         <p class="mb-0"> <span id="table"></span></p>
                         <input type="hidden" id="hidden_minimum_table" />
                         <input type="hidden" id="hidden_maximum_table" />

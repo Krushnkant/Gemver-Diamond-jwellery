@@ -1057,7 +1057,7 @@
     .product_modal .popup_part {
         height: auto;
     }
-    .product_img {
+    .product_img img {
         width: auto;
         height: auto;
         max-width: 100px;
