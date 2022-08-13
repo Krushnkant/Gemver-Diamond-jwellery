@@ -26,8 +26,8 @@
                         <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
                             <!-- <img src="{{ asset($banner->banner_thumb) }}" alt=" "> -->
                             <div class="container">
-                                <div class="background-text-part ">
-                                    <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none d-md-block mx-auto ">
+                                <div class="background-text-part px-3 px-lg-4">
+                                    <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
                                     <h1 class="heading-h1 m-0 mb-2 mt-md-3 ">{{ $banner->title }}</h1>
                                     <div class="paragraph mt-0 mt-md-3 ">
                                     {{ $banner->description }}
