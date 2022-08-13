@@ -1076,6 +1076,8 @@ background-size: cover;
 
 .wire_bangle_color_img_part input {
     margin: 0 10px 0 0 !important;
+    border-radius: 0 !important;
+    border-color: transparent !important;
 }
 
 .wire_bangle_color_img_part span {
@@ -1094,11 +1096,15 @@ background-size: cover;
     width: 30px;
     height: 30px;
     pointer-events: none;
-    border-radius: 50%;
+    border: 1px transparent solid;
+}
+
+.wire_bangle_color_img_part input:checked~.wire_bangle_color_img {
+    border: 1px #000 solid;
 }
 
 .wire_bangle_color_img_part input~.wire_bangle_color_input_label {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
@@ -1107,7 +1113,7 @@ background-size: cover;
     background: var(--primary);
     border-radius: 50%;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; */
 }
 
 .wire_bangle_color_img_part input:checked~.wire_bangle_color_input_label {
@@ -1268,7 +1274,7 @@ background-size: cover;
 }
 
 .wire_bangle_page .product_slider_main_item {
-    height: 400px;
+    height: auto;
     display: flex !important;
     justify-content: center;
     border: 1px #eee solid;
@@ -1285,8 +1291,8 @@ background-size: cover;
 }
 
 .wire_bangle_page .product_slider_main_item img {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
     object-fit: cover;
     margin: auto;
 }
@@ -2065,6 +2071,17 @@ background-size: cover;
     max-width: 100%;
 }
 
+.round_cut_lab_range_slider {
+    position: relative;
+}
+
+.round_cut_lab_diamonds_page .round_cut_lab_diamonds_price p {
+    position: absolute;
+    top: 6px;
+    width: auto;
+    left: 151px;
+}
+
 .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
     padding: 23px 37px;
     gap: 10px;
@@ -2088,14 +2105,14 @@ background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 42px !;
+    width: 42px;
     height: 42px;
 }
 
 .round_cut_lab_checkbox input[type="checkbox"] {
     opacity: 0;
-    width: 42px;
-    height: 42px;
+    width: 54px;
+    height: 54px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -2115,8 +2132,8 @@ background-size: cover;
 .round_cut_lab_checkbox input+.shape_img {
     width: 100%;
     width: 100%;
-    min-width: 38px;
-    min-height: 38px;
+    min-width: 50px;
+    min-height: 50px;
     border: 1px solid rgba(11, 23, 39, 0.1);
     padding: 5px;
 }
@@ -2395,7 +2412,7 @@ background-size: cover;
     text-align: center;
     font-size: 14px;
     padding: 0 5px;
-    min-width: 24px;
+    min-width: 70px;
     line-height: 22px;
 }
 
@@ -4139,7 +4156,6 @@ span#amount {
     width: 60px;
     font-size: 11px;
     padding: 2px 8px;
-    border: 1px #e5c18a solid;
     outline: 0;
     border-radius: 6px;
 }
@@ -4149,4 +4165,24 @@ span.from_text input::placeholder,
 span.to_text input,
 span.to_text input::placeholder {
     color: #0b1727;
+}
+
+.chat-icon-part {
+    background-color: var(--secondary);
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 86px;
+    right: 25px;
+    line-height: 28px;
+    text-align: center;
+    z-index: 999;
+    border-radius: 50%;
+    line-height: 55px;
+}
+
+.chat-icon-part svg {
+    width: 43px;
+    height: 43px;
+    fill: var(--primary);
 }
