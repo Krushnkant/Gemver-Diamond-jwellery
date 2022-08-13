@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Certification</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Certified</span>
                                             @if($Diamond->Certificate_url != "")
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></span>
                                             @else
@@ -131,7 +131,7 @@
                                         <div class="row mb-2 mb-xl-3">
                                             <div class="col-3 col-sm-2">
                                                 <div class="product_img">
-                                                    <img src="{{ asset('frontend/image/round.png') }}" alt="">  
+                                                    <img src="{{ $Diamond->Stone_Img_url }}" alt="">  
                                                 </div>
                                             </div>
                                             <div class="col-9 col-sm-10">
@@ -176,16 +176,16 @@
                                                     <div id="name-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 ps-0">
-                                                    <input type="text" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
+                                                    <input type="email" name="email" id="email" placeholder="username123@gmail.com" class="d-block wire_bangle_input">
                                                     <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 ps-0">
-                                                    <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
+                                                    <input type="number" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
                                                     <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                                 <div class="mb-3 col-md-6 ps-0">
-                                                    <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
-                                                    <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                    <input type="number" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                    <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                                 <div class="mb-6 col-md-12 ps-0">
                                                     <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>

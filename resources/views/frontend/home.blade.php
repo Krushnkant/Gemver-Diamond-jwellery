@@ -427,8 +427,8 @@
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="whatsapp number" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
+                                                <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-6 col-md-12 ps-0">
                                                 <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
