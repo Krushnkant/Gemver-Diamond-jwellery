@@ -125,7 +125,7 @@
                     </div>
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
-                <div class="row">
+                <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
