@@ -337,7 +337,7 @@ class ProductController extends Controller
                 $product_attribute_terms = explode(',',$product_attribute_variant->attribute_term_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
-                $variantstr .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
+                $variantstr .='<div class="d-flex align-items-center mb-1 mb-md-2 col-md-6 px-0">
                                     <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';

@@ -1057,6 +1057,15 @@
     .product_modal .popup_part {
         height: auto;
     }
+    .product_img {
+        width: auto;
+        height: auto;
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .popup_product_heading {
+        font-size: 15px;
+    }
 }
 
 @media (max-width:1600px) {

@@ -244,16 +244,19 @@
                             
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
-                                    <div class="modal-content">
+                                    <div class="modal-content p-3 p-md-4">
                                         <div class="row">
-                                            <div class="col-6 ps-0 text-start">
+                                            <div class="col-8 ps-0 text-start">
                                                 <div class="mb-xl-4 mb-3 product_heading">product inquiry</div>
                                             </div>
-                                            <div class="col-6 text-end pe-0">
+                                            <div class="col-4 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                       
+                                        <div class="alert alert-success" id="success-alert" style="display: none;">
+                                        </div>
+                                        <div class="row mb-2 mb-xl-3">
                                             <div class="col-3 col-sm-2">
                                                 <div class="product_img">
                                                     <img src="{{ asset('frontend/image/round.png') }}" alt="">  
@@ -267,9 +270,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="alert alert-success" id="success-alert" style="display: none;">
-                                        </div>
-                                       
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
@@ -292,7 +292,7 @@
                                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                            
-                                            <div class="mb-3 col-md-12 ps-0 mb-3">
+                                            <div class="mb-md-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <!-- <input type="text" name="inquiry" id="inquiry" placeholder="Message" class="d-block wire_bangle_input"> -->
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
@@ -788,7 +788,7 @@ $('body').on('click', '.select_setting_btn', function () {
 
     if(valid){
         $.map(arrspe, function(value) {
-            var html = '<div class="d-flex align-items-center mb-2 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
+            var html = '<div class="d-flex align-items-center mb-md-2 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
            $('#specificationstr').append(html);
         });
         jQuery("#exampleModal").modal('show');
