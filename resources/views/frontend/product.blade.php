@@ -216,8 +216,10 @@
                                 </div>
                             </div>
                             @endif -->
+                            <div class="" id="specificationproduct123">
+                            </div>    
                             <?php
-                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
                             foreach($product_attributes_specification as $product_attribute_specification){  
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
@@ -593,7 +595,7 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action,variant:variant,product_id:product_id,_token: '{{ csrf_token() }}'},
             success:function(data){
-                
+                //console.log(data);
                 //var result123 = $(data.result.images).text().split(',');
             
                 if(data.result == 'data not found'){
@@ -610,10 +612,13 @@ $(document).ready(function(){
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
+                    $('#specificationproduct123').html(data.specificationstr123);
                     if(data.speci != ""){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
                         $('#specificationproduct').html(data.specificationstr);
+                        
+                        
                     }else{
                         $(".detailsspeci").hide();
                     }

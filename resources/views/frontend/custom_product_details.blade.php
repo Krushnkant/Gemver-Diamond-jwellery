@@ -332,9 +332,12 @@
                             echo $spe;
                              ?>
                             </div>
+                            <div class="row mb-4" id="specificationproduct123">
+
+                            </div>
                             <div class="row mb-4" id="specificationproduct143">
                             <?php
-                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
                             foreach($product_attributes_specification as $product_attribute_specification){  
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
@@ -525,6 +528,7 @@ $(document).ready(function(){
                     }
                     $('#speci_multi').html(data.speci_multi);
                     $('#specificationproduct').html(data.specificationstr);
+                    $('#specificationproduct123').html(data.specificationstr123);
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
                     selectjs();
