@@ -75,11 +75,12 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             <div id="slider-range-carat" class="mb-0"></div>
                         </div>
-                        <p class="mb-0"> <span id="carat"></span></p>
+                        <!-- <p class="mb-0"> <span id="carat"></span></p> -->
+                        <p class="mb-0"><span id="carat-start"></span><span id="carat-end"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
                         <input type="hidden" id="hidden_maximum_carat" />
                     </span>
@@ -111,7 +112,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+            <div class="col-lg-6  round_cut_lab_filter" >
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</span>
                         <span class="col-md-12">
@@ -129,17 +130,18 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             <div id="slider-range" class="mb-0"></div>
                         </div>
-                        <p class="mb-0"> <span id="amount" class="ps-0"></span></p>
+                        <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
+                        <p class="mb-0"><span id="amount-start"></span><span id="amount-end"></span></p>
                         <input type="hidden" id="hidden_minimum_price" />
                         <input type="hidden" id="hidden_maximum_price" />
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 round_cut_lab_filter">
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row"> 
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
                     <span class="col-md-12">
@@ -159,11 +161,12 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             <div id="slider-range-depth" class="mb-0"></div>
                         </div>
-                        <p class="mb-0"> <span id="depth"></span></p>
+                        <!-- <p class="mb-0"> <span id="depth"></span></p> -->
+                        <p class="mb-0"><span id="depth-start"></span><span id="depth-end"></span></p>
                         <input type="hidden" id="hidden_minimum_depth" />
                         <input type="hidden" id="hidden_maximum_depth" />
                     </span>
@@ -189,11 +192,12 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             <div id="slider-range-ratio" class="mb-0"></div>
                         </div>
-                        <p class="mb-0"> <span id="ratio"></span></p>
+                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
+                        <p class="mb-0"><span id="ratio-start"></span><span id="ratio-end"></span></p>
                         <input type="hidden" id="hidden_minimum_ratio" />
                         <input type="hidden" id="hidden_maximum_ratio" />
                     </span>
@@ -219,11 +223,12 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             <div id="slider-range-table" class="mb-0"></div>
                         </div>
-                        <p class="mb-0"> <span id="table"></span></p>
+                        <!-- <p class="mb-0"> <span id="table"></span></p> -->
+                        <p class="mb-0"><span id="table-start"></span><span id="table-end"></span></p>
                         <input type="hidden" id="hidden_minimum_table" />
                         <input type="hidden" id="hidden_maximum_table" />
                     </span>
@@ -233,7 +238,7 @@
             <span class="d-inline-block">
                 <div class="round_cut_lab_range_slider text-end me-3">
                     <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <input type="checkbox" value="" name="advance" class=" common_selector1" id="checkbox_1">
+                        <input type="checkbox" value="" name="advance" class="common_selector1" id="checkbox_1">
                         <label for="checkbox_1">advanced filters</label>
                     </div>
                 </div>
@@ -385,13 +390,22 @@
             $('.clear_filter_btn').click(function(){
                 location.reload();
             });
-        
+
+            $(".common_input").keyup(function(){
+                filter_data(page);
+            });
+
+    
             function filter_data(page,scroll=0)
             {
                 $('.filter_data').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var minimum_price = $('#hidden_minimum_price').val();
                 var maximum_price = $('#hidden_maximum_price').val();
+
+                var minimum_price_input = $('#minimum_price_input').val();
+                var maximum_price_input = $('#maximum_price_input').val();
+
                 var shape = get_filter('shape');
                 var color = get_filter('color');
                 var clarity = get_filter('clarity');
@@ -400,22 +414,35 @@
                 var polish = get_filter('polish');
                 var symm = get_filter('symm');
                 var sorting = $('#sorting :selected').val();
+
                 var minimum_carat = $('#hidden_minimum_carat').val();
                 var maximum_carat = $('#hidden_maximum_carat').val();
+
+                var minimum_carat_input = $('#minimum_carat_input').val();
+                var maximum_carat_input = $('#maximum_carat_input').val();
 
                 var minimum_depth = $('#hidden_minimum_depth').val();
                 var maximum_depth = $('#hidden_maximum_depth').val();
 
+                var minimum_depth_input = $('#minimum_depth_input').val();
+                var maximum_depth_input = $('#maximum_depth_input').val();
+
                 var minimum_ratio = $('#hidden_minimum_ratio').val();
                 var maximum_ratio = $('#hidden_maximum_ratio').val();
 
+                var minimum_ratio_input = $('#minimum_ratio_input').val();
+                var maximum_ratio_input = $('#maximum_ratio_input').val();
+
                 var minimum_table = $('#hidden_minimum_table').val();
                 var maximum_table = $('#hidden_maximum_table').val();
+
+                var minimum_table_input = $('#minimum_table_input').val();
+                var maximum_table_input = $('#maximum_table_input').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/alllad-diamond?page=" + page,
                     method:"POST",
-                    data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
+                    data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
                         ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
@@ -466,14 +493,17 @@
               max: maxPrice,
               values: [ 0, maxPrice],
               slide: function( event, ui ) {
-                $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                // $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                $( "#amount-start" ).html( "$" + ui.values[ 0 ]);
+                $( "#amount-end" ).html( " $" + ui.values[ 1 ] );
                 $( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });
-            $( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-             " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
+            $( "#amount-end" ).html( " $" + $( "#slider-range" ).slider( "values", 1 ) );
              
           });
 
@@ -488,14 +518,17 @@
               values: [ 0, maxPrice],
               slide: function( event, ui ) {
                 
-                $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+               // $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#carat-start" ).html( "$" + ui.values[ 0 ]);
+                $( "#carat-end" ).html( " $" + ui.values[ 1 ] );
                 $( "#hidden_minimum_carat" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_carat" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });
-            $( "#carat" ).html($( "#slider-range-carat" ).slider( "values", 0 ) +
-             " - " + $( "#slider-range-carat" ).slider( "values", 1 ) );
+            //$( "#carat" ).html($( "#slider-range-carat" ).slider( "values", 0 ) +" - " + $( "#slider-range-carat" ).slider( "values", 1 ) );
+            $( "#carat-start" ).html(" $" + $( "#slider-range-carat" ).slider( "values", 0 ) );
+            $( "#carat-end" ).html( " $" + $( "#slider-range-carat" ).slider( "values", 1 ) );
              
           });
 
@@ -510,14 +543,17 @@
               values: [ 0, maxDepth],
               slide: function( event, ui ) {
                 
-                $( "#depth" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                // $( "#depth" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#depth-start" ).html( "$" + ui.values[ 0 ]);
+                $( "#depth-end" ).html( " $" + ui.values[ 1 ] );
                 $( "#hidden_minimum_depth" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_depth" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });
-            $( "#depth" ).html($( "#slider-range-depth" ).slider( "values", 0 ) +
-             " - " + $( "#slider-range-depth" ).slider( "values", 1 ) );
+            //$( "#depth" ).html($( "#slider-range-depth" ).slider( "values", 0 ) + " - " + $( "#slider-range-depth" ).slider( "values", 1 ) );
+            $( "#depth-start" ).html(" $" + $( "#slider-range-depth" ).slider( "values", 0 ) );
+            $( "#depth-end" ).html( " $" + $( "#slider-range-depth" ).slider( "values", 1 ) );
              
           });
 
@@ -532,14 +568,18 @@
               values: [ 0, maxRatio],
               slide: function( event, ui ) {
                 
-                $( "#ratio" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                // $( "#ratio" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#ratio-start" ).html( "$" + ui.values[ 0 ]);
+                $( "#ratio-end" ).html( " $" + ui.values[ 1 ] );
+
                 $( "#hidden_minimum_ratio" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_ratio" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });
-            $( "#ratio" ).html($( "#slider-range-ratio" ).slider( "values", 0 ) +
-             " - " + $( "#slider-range-ratio" ).slider( "values", 1 ) );
+            //$( "#ratio" ).html($( "#slider-range-ratio" ).slider( "values", 0 ) + " - " + $( "#slider-range-ratio" ).slider( "values", 1 ) );
+            $( "#ratio-start" ).html(" $" + $( "#slider-range-ratio" ).slider( "values", 0 ) );
+            $( "#ratio-end" ).html( " $" + $( "#slider-range-ratio" ).slider( "values", 1 ) );
              
           });
 
@@ -554,14 +594,18 @@
               values: [ 0, maxTable],
               slide: function( event, ui ) {
                 
-                $( "#table" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                //$( "#table" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                $( "#table-start" ).html( "$" + ui.values[ 0 ]);
+                $( "#table-end" ).html( " $" + ui.values[ 1 ] );
+
                 $( "#hidden_minimum_table" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_table" ).val(ui.values[ 1 ]);
                 filter_data(page);
               }
             });
-            $( "#table" ).html($( "#slider-range-table" ).slider( "values", 0 ) +
-             " - " + $( "#slider-range-table" ).slider( "values", 1 ) );
+            //$( "#table" ).html($( "#slider-range-table" ).slider( "values", 0 ) + " - " + $( "#slider-range-table" ).slider( "values", 1 ) );
+            $( "#table-start" ).html(" $" + $( "#slider-range-table" ).slider( "values", 0 ) );
+            $( "#table-end" ).html( " $" + $( "#slider-range-table" ).slider( "values", 1 ) );
              
           });
 

@@ -210,15 +210,16 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-6">
-               <div class="row">
+               <div class="row round_cut_lab_range_slider">
                     <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
                     <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
                         <div class="d-flex align-items-center mb-2">
-                            <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                            <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                            <span class="from_text me-2"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
+                            <span class="to_text me-2"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
                             <div id="slider-range" class="mb-0"></div>
                         </div>
-                        <p> Price : <span id="amount"></span></p>
+                        <p class="mb-0"><span id="amount-start"></span><span id="amount-end"></span></p>
+                        <!-- <p> Price : <span id="amount"></span></p> -->
                         <input type="hidden" id="hidden_minimum_price" />
                         <input type="hidden" id="hidden_maximum_price" />
                     </div>
@@ -402,6 +403,8 @@
                 var catid  = '{{ $CatId }}';
                 var minimum_price = $('#hidden_minimum_price').val();
                 var maximum_price = $('#hidden_maximum_price').val();
+                var minimum_price_input = $('#minimum_price').val();
+                var maximum_price_input = $('#maximum_price').val();
                 var attribute = get_filter('attribute');
                 var specification = get_filter('specification');
                 var sorting = $('#sorting :selected').val();
@@ -409,7 +412,7 @@
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/custom_products?page=" + page,
                     method:"POST",
-                    data:{action:action,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,attribute:attribute,sorting:sorting,specification:specification,_token: '{{ csrf_token() }}'},
+                    data:{action:action,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,attribute:attribute,sorting:sorting,specification:specification,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
@@ -451,25 +454,33 @@
                 filter_data(page);
             });
         
-            $(function() {
-             var maxPrice = '{{ $Maxprice  }}';
-             
-            $( "#slider-range" ).slider({
-              range: true,
-              min: 0,
-              max: maxPrice,
-              values: [ 0, maxPrice],
-              slide: function( event, ui ) {
-                $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                $( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
+            $(".amount_input").keyup(function(){
                 filter_data(page);
-              }
             });
-            $( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-             " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-             
-          });
+
+            $(function() {
+               var maxPrice = '{{ $Maxprice  }}';
+            
+                $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: maxPrice,
+                values: [ 0, maxPrice],
+                slide: function( event, ui ) {
+                    $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                    // alert(ui.values[ 0 ]);
+                    $( "#amount-start" ).html( "$" + ui.values[ 0 ]);
+                    $( "#amount-end" ).html( " $" + ui.values[ 1 ] );
+                    $( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
+                    $( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
+                    filter_data();
+                }
+                });
+                //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+                $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
+                $( "#amount-end" ).html( " $" + $( "#slider-range" ).slider( "values", 1 ) );
+                
+            });
 
           $(function() {
              var maxPrice = 7;

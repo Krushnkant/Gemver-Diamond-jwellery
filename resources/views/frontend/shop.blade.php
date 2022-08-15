@@ -41,11 +41,12 @@
                             <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                             <div class="round_cut_lab_diamonds_price col-lg-12">
                                 <div class="d-flex align-items-center mb-2">
-                                    <span class="from_text me-2"><input type="text" name="mobile_no" id="" placeholder="From" class="d-block wire_bangle_input"></span>
-                                    <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
+                                    <span class="from_text me-2"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
+                                    <span class="to_text me-2"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
                                     <div id="slider-range" class="mb-0"></div>
                                 </div>
-                                <p class="mb-0"> <span id="amount"></span></p>
+                                <!-- <p class="mb-0"> <span id="amount"></span></p> -->
+                                <p class="mb-0"><span id="amount-start"></span><span id="amount-end"></span></p>
                                 <input type="hidden" id="hidden_minimum_price" />
                                 <input type="hidden" id="hidden_maximum_price" />
                             </div>
@@ -161,7 +162,8 @@ $(document).ready(function(){
     $('body').on('mouseover', '.product-image', function () {    
     }, function () {
         var product_image = $(this).attr('src');
-        $('.main-product-image').attr("src", product_image);
+        var data_id = $(this).attr('data-id');
+        $('.main-product-image-'+data_id).attr("src", product_image);
        
     });
 
@@ -175,6 +177,8 @@ $(document).ready(function(){
         var action = 'fetch_data';
         var minimum_price = $('#hidden_minimum_price').val();
         var maximum_price = $('#hidden_maximum_price').val();
+        var minimum_price_input = $('#minimum_price').val();
+        var maximum_price_input = $('#maximum_price').val();
         var category = get_filter('category');
         var attribute = get_filter('attribute');
         var specification = get_filter('specification');
@@ -182,7 +186,7 @@ $(document).ready(function(){
         $.ajax({
             url:"{{ url('/product-filter') }}",
             method:"POST",
-            data:{action:action,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,_token: '{{ csrf_token() }}'},
+            data:{action:action,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,_token: '{{ csrf_token() }}'},
             success:function(data){
                 //console.log(data);
                 $('.filter_data').html(data['output']);
@@ -204,6 +208,10 @@ $(document).ready(function(){
         filter_data();
     });
 
+    $(".amount_input").keyup(function(){
+        filter_data();
+    });
+
     $(function() {
      var maxPrice = '{{ $Maxprice  }}';
      
@@ -213,14 +221,17 @@ $(document).ready(function(){
       max: maxPrice,
       values: [ 0, maxPrice],
       slide: function( event, ui ) {
-        $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        //$( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        $( "#amount-start" ).html( "$" + ui.values[ 0 ]);
+        $( "#amount-end" ).html( " $" + ui.values[ 1 ] );
 		$( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
 		$( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
         filter_data();
       }
     });
-    $( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-     " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
+    $( "#amount-end" ).html( " $" + $( "#slider-range" ).slider( "values", 1 ) );
      
   });
 
