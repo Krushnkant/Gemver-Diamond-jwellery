@@ -103,6 +103,13 @@
 
 $(document).ready(function() {
     blog_table(true);
+    $('#category_id').select2({
+        width: '100%',
+        placeholder: "Select...",
+        allowClear: true,
+        autoclose: false,
+        closeOnSelect: false,
+    });
 });
 
 $('body').on('click', '#AddBlogBtn', function () {

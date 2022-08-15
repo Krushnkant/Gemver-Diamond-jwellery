@@ -16,7 +16,8 @@ class HomeSettingController extends Controller
     {
         $action = "add";
         $homesettings = HomeSetting::first();
-        $categories = Category::where('estatus',1)->get()->toArray();
+        //$categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
         return view('admin.homesetting.create',compact('action','homesettings','categories','products'))->with('page',$this->page);
     }

@@ -65,7 +65,7 @@
         <!--<div id="button_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>-->
         <!--</div>-->
         
-        <div class="form-group"  id="button_url">
+        <div class="form-group" >
         <label class="col-form-label" for="button_url">Select Category URL
         </label>
         <select id='button_url' name="button_url" class="form-control">

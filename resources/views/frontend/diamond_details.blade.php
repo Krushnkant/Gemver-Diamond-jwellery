@@ -362,6 +362,42 @@
             </div>
        
         </div>
+
+        @if(isset($OrderIncludes->orderincludesdata))
+        <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+             {{ $OrderIncludes->title }}
+        </div>
+
+        <div class="row mt-md-0 mt-xl-4 align-items-center">
+                <!-- <div class="col-md-6 col-lg-4 pe-4">
+                    <div class="order-include-img">
+                        <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
+                    </div>
+                </div> -->
+                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 order-part">
+                    <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
+                        {{ $OrderIncludes->title }}
+                    </div>
+                    <div class="row mt-2 mt-md-0">
+                        @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
+                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
+                            <div class="order-box">
+                            <span class="order-img d-block mb-2">
+                                <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
+                            </span>
+                            <span class="order-text text-center d-block">
+                                    {{ $orderincludesdata->title }}
+                            </span>
+                            </div>    
+                        </div>
+                        @endforeach
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        
     </div>
 
 <script type="text/javascript">

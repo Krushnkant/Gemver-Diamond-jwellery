@@ -1003,7 +1003,7 @@ class ProductController extends Controller
     }
 
     public function editproduct($id){
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         $catArray = array();
         foreach ($categories as $category){
             

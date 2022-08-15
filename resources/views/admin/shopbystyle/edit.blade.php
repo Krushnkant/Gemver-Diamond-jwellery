@@ -4,6 +4,17 @@
     {{ csrf_field() }}
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     <input type="hidden" name="shopbystyle_id" value="{{ isset($shopby)?($shopby->id):'' }}">
+
+    <div class="form-group"  >
+        <label class="col-form-label" for="category_id">Select Category
+        </label>
+        <select id='category_id' name="category_id" class="form-control">
+        <option value="">Select Category</option>
+            @foreach($categories as $category)
+                <option value="{{ $category['id'] }}" @if(isset($shopby) && $shopby->category_id == $category['id']) selected @endif >{{ $category['category_name'] }}</option>
+            @endforeach
+        </select>
+    </div>
     
 
     <div class="form-group">
@@ -47,27 +58,24 @@
         <div id="categorythumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-
-
-    <div class="form-group" id="attribute_variation">
-        <label class="col-form-label" for="attribute_variation">Select Attribute for Variation <span class="text-danger">*</span>
+    <div class="form-group" >
+        <label class="col-form-label" for="setting">Select Setting <span class="text-danger">*</span>
         </label>
-        <select id='attribute_id_variation' name="attribute_id_variation" class="">
-            <option></option>
-            @foreach($attributes as $attr)
-                <option value="{{ $attr['id'] }}" @if(isset($shopby) && $shopby->attributes == $attr['id']) selected @endif>{{ $attr['attribute_name'] }}</option>
-            @endforeach
+        <select id='setting' name="setting" class="">
+            <option value="product-setting" @if(isset($shopby) && $shopby->setting == 'product-setting') selected @endif >Start with a Setting</option>
+            <option value="diamond-setting" @if(isset($shopby) && $shopby->setting == 'diamond-setting') selected @endif >Start with a Lab Diamond</option>
         </select>
         <div id="attribute_id_variation-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
 
-    <div class="form-group" id="attribute_variation_term">
+
+    <div class="form-group" id="attribute_diamond_term" style=" @if(isset($shopby) && $shopby->setting != 'diamond-setting') display: none @endif">
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation Term <span class="text-danger">*</span>
         </label>
-        <select id='attribute_id_variation_term' name="attribute_id_variation_term" class="">
-            @foreach($attributes_term as $attr_term)
-                <option value="{{ $attr_term['id'] }}" @if(isset($shopby) && $shopby->attribute_terms == $attr_term['id']) selected @endif>{{ $attr_term['attrterm_name'] }}</option>
+        <select id='attribute_id_diamond_term' name="attribute_id_variation_term" class="">
+            @foreach($diamondshap as $shape)
+            <option value="{{ $shape }}" @if(isset($shopby) && $shopby->attribute_terms == $shape) selected @endif>{{ $shape }}</option>
             @endforeach
         </select>
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>

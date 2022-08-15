@@ -23,7 +23,7 @@ class BlogBannerController extends Controller
     public function create(){
         $action = "create";
         $banners = BlogBanner::where('estatus',1)->get()->toArray();
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         return view('admin.blogbanners.list',compact('action','banners','categories'))->with('page',$this->page);
     }
 

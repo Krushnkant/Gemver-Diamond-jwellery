@@ -105,6 +105,14 @@
 
 $(document).ready(function() {
     banner_table(true);
+    $('#button_url').select2({
+        width: '100%',
+        placeholder: "Select...",
+        allowClear: true,
+        autoclose: false,
+        closeOnSelect: false,
+    });
+
 });
 
 $('body').on('click', '#AddBannerBtn', function () {

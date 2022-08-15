@@ -26,7 +26,7 @@ class ShopByStyleController extends Controller
         $action = "create";
         $shopbystyle = ShopByStyle::where('estatus',1)->get()->toArray();
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',1)->get()->toArray();
         $diamondshap = Diamond::groupBy('Shape')->pluck('Shape');
         return view('admin.shopbystyle.list',compact('action','shopbystyle','attributes','categories','diamondshap'))->with('page',$this->page);
     }
@@ -42,16 +42,16 @@ class ShopByStyleController extends Controller
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'catImg' => 'required',
-                'attribute_id_variation' => 'required',
-                'attribute_id_variation_term' => 'required',
+                //'attribute_id_variation' => 'required',
+                //'attribute_id_variation_term' => 'required',
             ], $messages);
         }
         else{
             $validator = Validator::make($request->all(), [
                 'title' => 'required',
                 'catImg' => 'required',
-                'attribute_id_variation' => 'required',
-                'attribute_id_variation_term' => 'required',
+                //'attribute_id_variation' => 'required',
+                //'attribute_id_variation_term' => 'required',
             ], $messages);
         }
 
@@ -252,7 +252,9 @@ class ShopByStyleController extends Controller
         $shopby = ShopByStyle::find($id);
         $attributes = Attribute::where('estatus',1)->where('is_specification',0)->get()->toArray();
         $attributes_term = AttributeTerm::where('estatus',1)->where('attribute_id',$shopby->attributes)->get()->toArray();
-        return view('admin.shopbystyle.list',compact('action','shopby','attributes','attributes_term'))->with('page',$this->page);
+        $categories = Category::where('estatus',1)->where('is_custom',1)->get()->toArray();
+        $diamondshap = Diamond::groupBy('Shape')->pluck('Shape');
+        return view('admin.shopbystyle.list',compact('action','shopby','attributes','attributes_term','categories','diamondshap'))->with('page',$this->page);
     }
 
     public function uploadfile(Request $request){

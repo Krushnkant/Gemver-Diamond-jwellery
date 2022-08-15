@@ -5,7 +5,7 @@
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     <input type="hidden" name="blog_id" value="{{ isset($blog)?($blog->id):'' }}">
 
-    <div class="form-group"  id="category_id">
+    <div class="form-group"  >
         <label class="col-form-label" for="category_id">Select Category <span class="text-danger">*</span>
         </label>
         <select id='category_id' name="category_id" class="form-control">

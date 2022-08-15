@@ -41,7 +41,7 @@
     </div>
 
    
-    <div class="form-group" id="attribute_variation" >
+    <!-- <div class="form-group" id="attribute_variation" >
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation <span class="text-danger">*</span>
         </label>
         <select id='attribute_id_variation' name="attribute_id_variation" class="">
@@ -69,7 +69,7 @@
             <option></option>
         </select>
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-    </div>
+    </div> -->
 
     <div class="form-group" id="attribute_diamond_term" style="display: none;">
         <label class="col-form-label" for="attribute_variation">Select Attribute for Variation Term <span class="text-danger">*</span>
@@ -80,7 +80,7 @@
             @endforeach
         </select>
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-    </div>
+    </div> 
 
 
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newShopByStyleBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
