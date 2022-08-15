@@ -9,7 +9,7 @@
 
 <body style="background-color: #f5f5f5;">
     <div style="margin: auto; align-items: center; justify-content: center;margin-top: 50px;min-height: 100vh;">
-        <div style="font-family: 'Roboto', sans-serif; margin-left:100px; ">
+        <div style="font-family: 'Roboto', sans-serif; margin-left:20px; ">
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{{ url('frontend/image/logo-transparent.png') }}" alt=""  style="width: 150px;">
             </div>

@@ -146,7 +146,9 @@
                                             </div>
                                             <div class="submenu-box">
                                                 <ul>
-                                                    <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                    <li class="menu-part-img">
+                                                      <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                    </li>
                                                 </ul>
                                             </div>
                                     </div>
