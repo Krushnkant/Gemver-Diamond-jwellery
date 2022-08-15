@@ -153,7 +153,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => 'admin.testimonials.list',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.testimonials.list,admin.testimonials.addorupdatetestimonial,admin.alltestimonialslist,admin.users.changetestimonialstatus,admin.testimonials.edit,admin.testimonials.delete',
-            'sr_no' => 12
+            'sr_no' => 49
         ]);
         ProjectPage::create([
             'id' => 16,
@@ -163,7 +163,7 @@ class ProjectPageSeeder extends Seeder
             'icon_class' => 'fa fa-address-book',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.contacts.list,admin.contacts.delete',
-            'sr_no' => 14
+            'sr_no' => 48
         ]);
         // ProjectPage::create([
         //     'id' => 17,
@@ -342,7 +342,7 @@ class ProjectPageSeeder extends Seeder
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.newslatter.list',
             'icon_class' => 'fa fa-newspaper-o', 
-            'sr_no' => 20 
+            'sr_no' => 47 
         ]);
 
         ProjectPage::create([ 
@@ -377,16 +377,16 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 22 
         ]);
 
-        ProjectPage::create([
-            'id' => 36,
-            'parent_menu' => 0,
-            'label' => 'Home Page Settings',
-            'route_url' => 'admin.homesettings.create',
-            'icon_class' => 'fa fa-cog',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit',
-            'sr_no' => 23
-        ]);
+        // ProjectPage::create([
+        //     'id' => 36,
+        //     'parent_menu' => 0,
+        //     'label' => 'Home Page Settings',
+        //     'route_url' => 'admin.homesettings.create',
+        //     'icon_class' => 'fa fa-cog',
+        //     'is_display_in_menu' => 0,
+        //     'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit',
+        //     'sr_no' => 23
+        // ]);
 
         ProjectPage::create([
             'id' => 37,
