@@ -44,6 +44,7 @@ class DiamondController extends Controller
         }
         $CatId = $id;
         $ShopBy = ShopByStyle::where(['estatus' => 1,'id' => $shopbyid])->first();
+        
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = Diamond::max('Sale_Amt');
@@ -306,7 +307,8 @@ class DiamondController extends Controller
 
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice'));
+        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes'));
     }
 
     public function customproducts($id,$shopbyid = 0){
@@ -764,7 +766,8 @@ class DiamondController extends Controller
      
         $Category = Category::where(['estatus' => 1])->limit(3)->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
-        return view('frontend.laddiamond_details',compact('Diamond','Category'));
+        $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes'));
     }
 
 }

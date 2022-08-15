@@ -68,7 +68,7 @@
                                 <div id="section_customise_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
-                            <div class="form-group"  id="button_url">
+                            <div class="form-group"  >
                                 <label class="col-form-label" for="button_url">Select Category URL
                                 </label>
                                 <select id='button_url' name="button_url" class="form-control">
@@ -245,6 +245,17 @@
 @section('js')
 <script src="{{ url('js/HomeSettingImgJs.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
+$(document).ready(function() {
+    
+    $('#button_url').select2({
+        width: '100%',
+        placeholder: "Select...",
+        allowClear: true,
+        autoclose: false,
+        closeOnSelect: false,
+    });
+
+});    
 $('.js-example-basic-multiple').select2();
 $('body').on('click', '#save_closeHomeBtn', function () {
     save_home($(this),'save_close');

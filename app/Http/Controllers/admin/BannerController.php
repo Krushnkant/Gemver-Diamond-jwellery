@@ -22,7 +22,7 @@ class BannerController extends Controller
     public function create(){
         $action = "create";
         $banners = Banner::where('estatus',1)->get()->toArray();
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         return view('admin.banners.list',compact('action','banners','categories'))->with('page',$this->page);
     }
 
@@ -222,7 +222,7 @@ class BannerController extends Controller
     public function editbanner($id){
         $action = "edit";
         $banner = Banner::find($id);
-        $categories = Category::where('estatus',1)->get()->toArray();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         return view('admin.banners.list',compact('action','banner','categories'))->with('page',$this->page);
     }
 

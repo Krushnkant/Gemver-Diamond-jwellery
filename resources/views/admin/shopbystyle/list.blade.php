@@ -102,27 +102,33 @@
 <script type="text/javascript">
 
 
-$('#attribute_id_variation').select2({
-    width: '100%',
-    placeholder: "Select Attribute for Variation",
-    allowClear: true
-});
+// $('#attribute_id_variation').select2({
+//     width: '100%',
+//     placeholder: "Select Attribute for Variation",
+//     allowClear: true
+// });
 
-$('#attribute_id_variation_term').select2({
-    width: '100%',
-    placeholder: "Select Attribute for Variation Term",
-    allowClear: true
-});
+// $('#attribute_id_variation_term').select2({
+//     width: '100%',
+//     placeholder: "Select Attribute for Variation Term",
+//     allowClear: true
+// });
 
-$('#attribute_id_diamond').select2({
-    width: '100%',
-    placeholder: "Select Attribute for Variation",
-    allowClear: true
-});
+// $('#attribute_id_diamond').select2({
+//     width: '100%',
+//     placeholder: "Select Attribute for Variation",
+//     allowClear: true
+// });
 
 $('#attribute_id_diamond_term').select2({
     width: '100%',
     placeholder: "Select Attribute for Variation Term",
+    allowClear: true
+});
+
+$('#category_id').select2({
+    width: '100%',
+    placeholder: "Select Category",
     allowClear: true
 });
 
@@ -181,11 +187,11 @@ function save_shopbystyle(btn,btn_type){
                     $('#categorythumb-error').hide();
                 }
 
-                if (res.errors.attribute_id_variation) {
-                    $('#attribute_id_variation-error').show().text(res.errors.attribute_id_variation);
-                } else {
-                    $('#attribute_id_variation-error').hide();
-                }
+                // if (res.errors.attribute_id_variation) {
+                //     $('#attribute_id_variation-error').show().text(res.errors.attribute_id_variation);
+                // } else {
+                //     $('#attribute_id_variation-error').hide();
+                // }
 
                 if (res.errors.attribute_id_variation_term) {
                     $('#attribute_id_variation_term-error').show().text(res.errors.attribute_id_variation_term);
@@ -418,8 +424,6 @@ $('body').on("change","#setting",function(){
         if (setting == 'product-setting') {
             $('#attribute_id_diamond_term').empty();
             $('#attribute_id_diamond').empty();
-            $("#attribute_variation").show();
-            $("#attribute_variation_term").show();
             $("#attribute_diamond").hide();
             $("#attribute_diamond_term").hide();
             $("#attr-cover-spin").fadeOut();

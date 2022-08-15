@@ -155,50 +155,50 @@
         <div class="row mt-5">
             <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_checkbox row">
-                        <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape</div>
+                        <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape </div>
                         <div class="col-md-12">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
-                                    <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
+                                    <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
                                     <img src="{{ url('frontend/image/round.png') }}" alt="round" class="shape_img">
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Princess">
-                                    <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'princess'  ) ? 'checked' : '' }} id="flexRadioDefaultprincess">
+                                    <input class="form-check-input shape common_selector" value="princess" type="checkbox" name="shape[]"  {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'princess'  ) ? 'checked' : '' }} id="flexRadioDefaultprincess">
                                     <img src="{{ url('frontend/image/princess.png') }}" alt="princess" class="shape_img">
                             </span>
 
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Cushion">
-                                    <input class="form-check-input shape common_selector" value="cushion" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) &&  $ShopBy->attribute_terms == $shape) ==  'cushion'  ) ? 'checked' : '' }}  id="flexRadioDefaultcushion">
+                                    <input class="form-check-input shape common_selector" value="cushion" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) &&  $ShopBy->attribute_terms  ==  'cushion'  ) ? 'checked' : '' }}  id="flexRadioDefaultcushion">
                                     <img src="{{ url('frontend/image/cushion.png') }}" alt="cushion" class="shape_img">
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Asscher">
-                                    <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'asscher'  ) ? 'checked' : '' }} id="flexRadioDefaultasscher">
+                                    <input class="form-check-input shape common_selector" value="asscher" type="checkbox" name="shape[]" {{ ( isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'asscher'  ) ? 'checked' : '' }} id="flexRadioDefaultasscher">
                                     <img src="{{ url('frontend/image/asscher.png') }}" alt="asscher" class="shape_img">
                             </span>
 
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Emerald">
-                                    <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'emerald'  ) ? 'checked' : '' }}   id="flexRadioDefaultemerald">
+                                    <input class="form-check-input shape common_selector" value="emerald" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'emerald'  ) ? 'checked' : '' }}   id="flexRadioDefaultemerald">
                                     <img src="{{ url('frontend/image/emerald.png') }}" alt="emerald" class="shape_img">
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Oval">
-                                    <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'oval'  ) ? 'checked' : '' }}   id="flexRadioDefaultoval">
+                                    <input class="form-check-input shape common_selector" value="oval" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'oval'  ) ? 'checked' : '' }}   id="flexRadioDefaultoval">
                                     <img src="{{ url('frontend/image/oval.png') }}" alt="oval" class="shape_img">
                             </span>
 
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Radiant">
-                                    <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'radiant'  ) ? 'checked' : '' }}  id="flexRadioDefaultradiant">
+                                    <input class="form-check-input shape common_selector" value="radiant" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'radiant'  ) ? 'checked' : '' }}  id="flexRadioDefaultradiant">
                                     <img src="{{ url('frontend/image/radiant.png') }}" alt="radiant" class="shape_img">
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Marquise">
-                                    <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'marquise'  ) ? 'checked' : '' }}  id="flexRadioDefaultmarquise">
+                                    <input class="form-check-input shape common_selector" value="marquise" type="checkbox" name="shape[]"  {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'marquise'  ) ? 'checked' : '' }}  id="flexRadioDefaultmarquise">
                                     <img src="{{ url('frontend/image/marquise.png') }}" alt="marquise" class="shape_img">
                             </span>
 
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Heart">
-                                    <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'heart'  ) ? 'checked' : '' }}  id="flexRadioDefaultrheart">
+                                    <input class="form-check-input shape common_selector" value="heart" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'heart'  ) ? 'checked' : '' }}  id="flexRadioDefaultrheart">
                                     <img src="{{ url('frontend/image/heart.png') }}" alt="heart" class="shape_img">
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Pear">
-                                    <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]"  {{ ( ( isset($ShopBy->attribute_terms) && isset($shape) && $ShopBy->attribute_terms == $shape) ==  'pear'  ) ? 'checked' : '' }}  id="flexRadioDefaultpear">
+                                    <input class="form-check-input shape common_selector" value="pear" type="checkbox" name="shape[]"  {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'pear'  ) ? 'checked' : '' }}  id="flexRadioDefaultpear">
                                     <img src="{{ url('frontend/image/pear.png') }}" alt="pear" class="shape_img">
                             </span>
                         </div>
@@ -282,7 +282,7 @@
            
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
-                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">report</div>
+                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">Certificate</div>
                         <div class="col-md-12">
                             @foreach($diamondreport as $report) 
                             <div class="form-group d-inline-block me-3 mb-2">
@@ -378,7 +378,7 @@
             <span class="d-inline-block float-end">
                     <div class="round_cut_lab_range_slider text-end me-3">
                         <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="D" name="color[]" class="color common_selector" id="checkbox_1">
+                            <input type="checkbox" value="" name="" class="color " id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div>
                     </div>
