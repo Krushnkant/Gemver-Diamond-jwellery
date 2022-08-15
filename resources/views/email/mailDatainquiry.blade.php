@@ -13,6 +13,7 @@
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{{ url('frontend/image/logo-transparent.png') }}" alt=""  style="width: 150px;">
             </div>
+            <div stle="margin-left:100px;">
             <div style="margin-left:100px; center;background-color: #fff; padding: 50px; min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%); ">
                 <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for inquiry</div>
                 <div style="margin-bottom: 25px;font-size: 13px;">
@@ -33,6 +34,7 @@
                     <div style="margin-top:3px;">Gemver Affordable Luxury Team</div>
                 </div>
             </div>
+           </div>
             <div style="text-align: center; margin-top: 50px;color: #b7b7b7;font-size: 13px;">
                 © 2022 Gemver Affordable Luxury 
             </div>
