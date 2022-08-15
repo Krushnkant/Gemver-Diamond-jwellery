@@ -20,6 +20,7 @@ class ProductController extends Controller
         $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => 0])->get();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
+        $Maxprice = ceil($Maxprice / 100) * 100;
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'));
     }
 
@@ -57,6 +58,10 @@ class ProductController extends Controller
             if($data["minimum_price_input"] && $data["maximum_price_input"]){
                 $query = $query->where('product_variants.sale_price','>=',$data["minimum_price_input"]);
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price_input"]);
+            }elseif (!empty($data["minimum_price_input"])) {
+                $query = $query->where('product_variants.sale_price', '>=', $data["minimum_price_input"]);
+            }elseif (!empty($data["maximum_price_input"])) {
+                $query = $query->where('product_variants.sale_price', '<=', $data["maximum_price_input"]);
             }
             //dd($data["category"][0]);
             if(isset($data["category"])){

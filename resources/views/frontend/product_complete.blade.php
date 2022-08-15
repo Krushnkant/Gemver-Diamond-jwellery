@@ -350,8 +350,8 @@
                                                 <input type="number" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
                                                 <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="inquiry" id="inquiry" placeholder="Inquiry" class="d-block wire_bangle_input">
+                                            <div class="mb-3 col-md-12 ps-0">
+                                                <textarea name="inquiry" id="inquiry" placeholder="Message" class="d-block wire_bangle_input"></textarea>
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                         </div>
