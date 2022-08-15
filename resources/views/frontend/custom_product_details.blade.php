@@ -243,7 +243,7 @@
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
                                 <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
-                                <sub class="price_discount ms-2">40% Off</sub>
+                                <sub class="price_discount ms-2"><span class="discount_percent">40</span>% Off</sub>
                                 @endif
                             </span>
                         </div>
@@ -518,6 +518,7 @@ $(document).ready(function(){
                     $('#variant_id').val(data.result.variant_id);
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
+                    $('.discount_percent').html(data.result.discount_percent); 
                     $('#SKU').val(data.result.SKU);
                     //$('#specification').html(data.speci);
                     if(data.speci != ""){
