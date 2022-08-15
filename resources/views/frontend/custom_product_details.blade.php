@@ -364,7 +364,7 @@
                             </div>
 
                             <div class=" mt-3">
-                                <button class="select_contact_btn diamond-btn" type="button"> Get a gemologist opinion</button>
+                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> Get a gemologist opinion</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -373,7 +373,7 @@
                                     <div class="modal-content">
                                         <div class="row">
                                             <div class="col-6 ps-0 text-start">
-                                                <div class="mb-xl-4 mb-3 product_heading get_opinion_btn"> Get a gemologist opinion</div>
+                                                <div class="mb-xl-4 mb-3 product_heading"> Get a gemologist opinion</div>
                                             </div>
                                             <div class="col-6 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

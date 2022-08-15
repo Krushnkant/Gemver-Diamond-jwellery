@@ -202,48 +202,48 @@ class DiamondController extends Controller
                                     <ul>
                                         
                                         <li>
-                                            <span class="col-md-4">CARATE  :</span>
-                                            <span class="col-md-8">'. $Diamond->Weight .' </span>
+                                            <span class="round_product_part_1">CARATE  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Weight .' </span>
                                         </li>
                                         <li>
-                                            <span> CLARITY :</span>
-                                            <span>'. $Diamond->Clarity .' </span>
+                                            <span class="round_product_part_1"> CLARITY :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Clarity .' </span>
                                         </li>
                                         <li>
-                                            <span>SHAPE :</span>
-                                            <span>'. $Diamond->Shape .' </span>
+                                            <span class="round_product_part_1">SHAPE :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Shape .' </span>
                                         </li>
                                        
                                         <li>
-                                            <span>COLOR  :</span>
-                                            <span>'. $Diamond->Color .' </span>
+                                            <span class="round_product_part_1">COLOR  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Color .' </span>
                                         </li>';
                                         if($Diamond->Cut != ""){
                                         $artilces.='<li>
-                                            <span> CUT  :</span>
-                                            <span>'. $Diamond->Cut .' </span>
+                                            <span class="round_product_part_1"> CUT  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Cut .' </span>
                                         </li>';
                                         }
                                         $artilces.='<li>
-                                            <span> POLISH  :</span>
-                                            <span>'. $Diamond->Polish .' </span>
+                                            <span class="round_product_part_1"> POLISH  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Polish .' </span>
                                         </li>
                                         <li>
-                                            <span> SYMMETRY  :</span>
-                                            <span>'. $Diamond->Symm .' </span>
+                                            <span class="round_product_part_1"> SYMMETRY  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Symm .' </span>
                                         </li>
                                         
                                         <li>
-                                            <span> MEASUREMENT  :</span>
-                                            <span>'. $Diamond->Measurement .' </span>
+                                            <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
                                         </li>
                                         <li>
-                                            <span> CERTIFIED :</span>
-                                            <span>'. $Diamond->Lab .' </span>
+                                            <span class="round_product_part_1"> CERTIFIED :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                         </li>
                                         <li>
-                                            <span>LOT :</span>
-                                            <span>'. $Diamond->Stone_No .' </span>
+                                            <span class="round_product_part_1">LOT :</span>
+                                            <span class="round_product_part_2">'. $Diamond->Stone_No .' </span>
                                         </li>
                                     </ul>
                                 </div>
