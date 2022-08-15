@@ -53,6 +53,11 @@ class ProductController extends Controller
                 $query = $query->where('product_variants.sale_price','>=',$data["minimum_price"]);
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price"]);
             }
+
+            if($data["minimum_price_input"] && $data["maximum_price_input"]){
+                $query = $query->where('product_variants.sale_price','>=',$data["minimum_price_input"]);
+                $query = $query->where('product_variants.sale_price','<=',$data["maximum_price_input"]);
+            }
             //dd($data["category"][0]);
             if(isset($data["category"])){
                 $cat_id = $data["category"][0];
@@ -105,14 +110,14 @@ class ProductController extends Controller
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt="" class="main-product-image"></a>
+                            <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt="" class="main-product-image-'.$row->id.'"></a>
                         </div><div class="text-center">';
                         
                         foreach($images as $image){
                         $output .= '<span class="form-check d-inline-block ">
                             <a href="">
                             
-                            <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt=""  class="wire_bangle_color_img pe-auto product-image ">
+                            <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
                             </a>
                             <div class="wire_bangle_color_input_label"></div>
                         </span>';
