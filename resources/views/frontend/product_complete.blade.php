@@ -175,7 +175,7 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <div class="wire_bangle_heading mb-2 mb-xl-4 pb-xxl-2">{{ $Product->product->product_title }}</div>
+                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Product->product->product_title }}</div>
                         <div class="d-flex mb-2 mb-xl-4 pb-xxl-2">
                             <span class="wire_bangle_price">${{ $Product->sale_price + $Diamond->Sale_Amt }}
                                 <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
@@ -397,7 +397,7 @@
                             @if($Product->product->product_title != "")
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Product Name </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Product Name </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product->product_title }}</span>
                                 </div>
                             </div>
@@ -406,7 +406,7 @@
                             @if($Product->product->design_number != "")
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Design Number </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Design Number </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product->design_number }}</span>
                                 </div>
                             </div>
@@ -422,7 +422,7 @@
 
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">{{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }} </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>
@@ -445,37 +445,37 @@
                         <div class="row">
                             <div class="col-xl-6 px-0">
                                 <div class="wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0"> stock number</span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1"> stock number</span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
                             <div class="col-xl-6 px-0">
                                 <div class="wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">cut </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">cut </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Cut }}</span>
                                 </div>
                             </div>
                             <div class="col-xl-6 px-0">
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">shape </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">shape </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Shape }}</span>
                                 </div>
                             </div>
                             <div class="col-xl-6 px-0">
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">clarity </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">clarity </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Clarity }}</span>
                                 </div>
                             </div>
                             <div class="col-xl-6 px-0">
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">carat weight </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">carat weight </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Weight }}</span>
                                 </div>
                             </div>
                             <div class="col-xl-6 px-0">
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">color </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">color </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Color }}</span>
                                 </div>
                             </div>
@@ -550,7 +550,7 @@
                         </div>
                         <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
-                            <div class="d-flex justify-content-between pt-2 align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}

@@ -2,10 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url("../fonts/Cormorant-Garamond/CormorantGaramond-Regular.ttf") format('ttf');
+}
+
 :root {
     --primary: #0B1727;
     --secondary: #bb9c6d;
     --white-secondary: #f6faff;
+}
+
+.home_page_heading {
+    font-family: "CormorantGaramond";
 }
 
 body {
@@ -335,7 +344,7 @@ background-size: cover;
 .heading-h1 {
     font-weight: 400;
     font-size: 56px;
-    line-height: 146px;
+    line-height: 102px;
     color: var(--primary);
     text-transform: capitalize;
 }
@@ -393,6 +402,23 @@ background-size: cover;
     content: '';
     position: absolute;
     z-index: -1;
+}
+
+.shop-now-button {
+    color: #fff;
+    border: 0 !important;
+}
+
+.shop-now-button:hover {
+    border: 0 !important;
+}
+
+.shop-now-button:before,
+.shop-now-button::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 .btn-hover-effect {
@@ -1094,14 +1120,15 @@ background-size: cover;
     position: absolute;
     left: 0;
     top: 0;
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     pointer-events: none;
     border: 1px transparent solid;
 }
 
 .wire_bangle_color_img_part input:checked~.wire_bangle_color_img {
     border: 1px #000 solid;
+    padding: 3px;
 }
 
 .wire_bangle_color_img_part input~.wire_bangle_color_input_label {
@@ -1675,7 +1702,7 @@ background-size: cover;
     text-transform: capitalize;
     color: #0B1727;
     border: 1px solid rgba(11, 23, 39, 0.1);
-    padding: 15px 20px;
+    padding: 15px 15px 15px 15px;
     border-bottom: 0;
     border-left: 0;
     border-right: 0;
@@ -1847,15 +1874,16 @@ background-size: cover;
 
 .wire_bangle_heading {
     font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 14px;
     color: #cfab75;
+    margin-bottom: 5px !important;
 }
 
 .wire_bangle_sub_heading a {
     font-weight: 500;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 22px;
     text-transform: capitalize;
     min-height: auto;
     color: #0B1727;
@@ -1866,9 +1894,10 @@ background-size: cover;
 }
 
 .wire_bangle_description a {
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
     font-size: 16px;
     font-weight: 400;
+    margin-bottom: 5px !important;
 }
 
 .wire_bangle_product_setting {
@@ -2454,8 +2483,9 @@ background-size: cover;
 .round_cut_lab_diamonds_info_heading {
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 5px !important;
     text-transform: lowercase;
     color: var(--secondary);
 }
@@ -2468,10 +2498,11 @@ background-size: cover;
 .round_cut_lab_diamonds_info_main_heading a {
     font-weight: normal;
     font-size: 16px;
-    line-height: 28px;
+    line-height: 22px;
     text-transform: lowercase;
     color: #0B1727;
     display: inline-block;
+    margin-bottom: 5px !important;
 }
 
 .round_cut_lab_diamonds_info_main_heading a::first-letter {
@@ -4188,4 +4219,23 @@ span.to_text input::placeholder {
     width: 30px;
     height: 30px;
     fill: #fff;
+}
+
+.wire_bangle_heading_part_1 {
+    color: #868686;
+}
+
+.get_opinion_btn {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    min-height: 40px;
+    border-radius: 6px;
+    text-transform: capitalize;
+    font-weight: 500;
+    min-width: 150px;
+    font-size: 14px;
+}
+
+.description_heading {
+    color: #868686;
 }
