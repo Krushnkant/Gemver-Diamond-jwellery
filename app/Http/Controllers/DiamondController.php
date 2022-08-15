@@ -229,7 +229,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'. $Diamond->Color .' color</span>
@@ -676,7 +676,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_heading mb-1">
                                     '.$Diamond->Shape.'
                                 </div>
-                                <div class="round_cut_lab_diamonds_info_main_heading mb-2"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
+                                <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'. $Diamond->Color .' color</span>

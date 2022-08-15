@@ -28,12 +28,12 @@
                             <div class="container">
                                 <div class="background-text-part px-3 px-lg-4">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
-                                    <h1 class="heading-h1 m-0 mb-2 mt-md-3 ">{{ $banner->title }}</h1>
+                                    <h1 class="heading-h1 m-0 mb-2 mt-md-3 home_page_heading">{{ $banner->title }}</h1>
                                     <div class="paragraph mt-0 mt-md-3 ">
                                     {{ $banner->description }}
                                     </div>
                                     @if($banner->button_name != "")
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-5 btn-hover-effect banner-url" data-value='{{ ($banner->button_url != "") ? $banner->button_url : '#'; }}'>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-5 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner->button_url != "") ? $banner->button_url : '#'; }}'>
                                         {{ $banner->button_name }}
                                     </button>
                                     @endif

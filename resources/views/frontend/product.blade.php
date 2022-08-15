@@ -226,8 +226,8 @@
                             ?>
                             <div class="" id="specificationproduct143">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0">{{ $product_attribute_specification->attribute_name }}</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $product_attribute_term_name }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }}</span>
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>    
                             <?php
@@ -319,7 +319,7 @@
                             
 
                             <div class=" mt-3">
-                                <button class="select_contact_btn diamond-btn" type="button"> Get a gemologist opinion</button>
+                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> Get a gemologist opinion</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -394,7 +394,7 @@
                             @if($Product->product_title != "")
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Product Name </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Product Name </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->product_title }}</span>
                                 </div>
                             </div>
@@ -403,7 +403,7 @@
                             @if($Product->design_number != "")
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">Design Number </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Design Number </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Product->design_number }}</span>
                                 </div>
                             </div>
@@ -419,7 +419,7 @@
 
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0">{{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }} </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>
