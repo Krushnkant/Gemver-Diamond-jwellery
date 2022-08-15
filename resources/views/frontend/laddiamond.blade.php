@@ -508,7 +508,7 @@
           });
 
           $(function() {
-             var maxPrice = 7;
+             var maxPrice = 10;
              
             $( "#slider-range-carat" ).slider({
               range: true,

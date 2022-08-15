@@ -48,10 +48,13 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = Diamond::max('Sale_Amt');
+        $Maxprice = ceil($Maxprice / 100) * 100;
         $MaxCarat = Diamond::max('Weight');
         $MaxDepth = Diamond::max('Total_Depth_Per');
+        $MaxDepth = ceil($MaxDepth / 10) * 10;
         $MaxRatio = Diamond::max('Ratio');
         $MaxTable = Diamond::max('Table_Diameter_Per');
+        $MaxTable = ceil($MaxTable / 10) * 10;
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
@@ -66,6 +69,8 @@ class DiamondController extends Controller
     {
         $data = $request->all();
         $query = Diamond::where('estatus',1);
+
+        
         if($data["minimum_price"] && $data["maximum_price"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price"]);
             $query = $query->where('Sale_Amt','<=',$data["maximum_price"]);
@@ -74,6 +79,10 @@ class DiamondController extends Controller
         if($data["minimum_price_input"] && $data["maximum_price_input"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price_input"]);
             $query = $query->where('Sale_Amt','<=',$data["maximum_price_input"]);
+        }elseif (!empty($data["minimum_price_input"])) {
+            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
+        }elseif (!empty($data["maximum_price_input"])) {
+            $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
 
         if($data["minimum_carat"] && $data["maximum_carat"]){
@@ -84,6 +93,10 @@ class DiamondController extends Controller
         if($data["minimum_carat_input"] && $data["maximum_carat_input"]){
             $query = $query->where('Weight','>=',$data["minimum_carat_input"]);
             $query = $query->where('Weight','<=',$data["maximum_carat_input"]);
+        }elseif (!empty($data["minimum_carat_input"])) {
+            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
+        }elseif (!empty($data["maximum_carat_input"])) {
+            $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
         if($data["minimum_depth"] && $data["maximum_depth"]){
@@ -94,6 +107,10 @@ class DiamondController extends Controller
         if($data["minimum_depth_input"] && $data["maximum_depth_input"]){
             $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth_input"]);
             $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth_input"]);
+        }elseif (!empty($data["minimum_depth_input"])) {
+            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
+        }elseif (!empty($data["maximum_depth_input"])) {
+            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
 
         if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -104,6 +121,10 @@ class DiamondController extends Controller
         if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
             $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
             $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
+        }elseif (!empty($data["minimum_ratio_input"])) {
+            $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
+        }elseif (!empty($data["maximum_ratio_input"])) {
+            $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         }
 
         if($data["minimum_table"] && $data["maximum_table"]){ 
@@ -114,6 +135,10 @@ class DiamondController extends Controller
         if($data["minimum_table_input"] && $data["maximum_table_input"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table_input"]);
             $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table_input"]);
+        }elseif (!empty($data["minimum_table_input"])) {
+            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
+        }elseif (!empty($data["maximum_table_input"])) {
+            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
         }
 
         if(isset($data["color"])){
@@ -337,6 +362,7 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
+        $Maxprice = ceil($Maxprice / 100) * 100;
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
         return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice','StepPopup'));
     }
@@ -363,6 +389,10 @@ class DiamondController extends Controller
             if($data["minimum_price_input"] && $data["maximum_price_input"]){
                 $query = $query->where('product_variants.sale_price','>=',$data["minimum_price_input"]);
                 $query = $query->where('product_variants.sale_price','<=',$data["maximum_price_input"]);
+            }elseif (!empty($data["minimum_price_input"])) {
+                $query = $query->where('product_variants.sale_price', '>=', $data["minimum_price_input"]);
+            }elseif (!empty($data["maximum_price_input"])) {
+                $query = $query->where('product_variants.sale_price', '<=', $data["maximum_price_input"]);
             }
             
             if(isset($data["category"])){
@@ -532,10 +562,13 @@ class DiamondController extends Controller
     public function laddiamond($shap = "")
     {
         $Maxprice = Diamond::max('Sale_Amt');
+        $Maxprice = ceil($Maxprice / 100) * 100;
         $MaxCarat = Diamond::max('Weight');
         $MaxDepth = Diamond::max('Total_Depth_Per');
+        $MaxDepth = ceil($MaxDepth / 10) * 10;
         $MaxRatio = Diamond::max('Ratio');
         $MaxTable = Diamond::max('Table_Diameter_Per');
+        $MaxTable = ceil($MaxTable / 10) * 10;
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
@@ -559,6 +592,10 @@ class DiamondController extends Controller
         if($data["minimum_price_input"] && $data["maximum_price_input"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price_input"]);
             $query = $query->where('Sale_Amt','<=',$data["maximum_price_input"]);
+        }elseif (!empty($data["minimum_price_input"])) {
+            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
+        }elseif (!empty($data["maximum_price_input"])) {
+            $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
 
         if($data["minimum_carat"] && $data["maximum_carat"]){
@@ -569,6 +606,10 @@ class DiamondController extends Controller
         if($data["minimum_carat_input"] && $data["maximum_carat_input"]){
             $query = $query->where('Weight','>=',$data["minimum_carat_input"]);
             $query = $query->where('Weight','<=',$data["maximum_carat_input"]);
+        }elseif (!empty($data["minimum_carat_input"])) {
+            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
+        }elseif (!empty($data["maximum_carat_input"])) {
+            $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
         if($data["minimum_depth"] && $data["maximum_depth"]){
@@ -579,6 +620,10 @@ class DiamondController extends Controller
         if($data["minimum_depth_input"] && $data["maximum_depth_input"]){
             $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth_input"]);
             $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth_input"]);
+        }elseif (!empty($data["minimum_depth_input"])) {
+            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
+        }elseif (!empty($data["maximum_depth_input"])) {
+            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
 
         if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -589,6 +634,10 @@ class DiamondController extends Controller
         if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
             $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
             $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
+        }elseif (!empty($data["minimum_ratio_input"])) {
+            $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
+        }elseif (!empty($data["maximum_ratio_input"])) {
+            $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         }
 
         if($data["minimum_table"] && $data["maximum_table"]){ 
@@ -599,6 +648,10 @@ class DiamondController extends Controller
         if($data["minimum_table_input"] && $data["maximum_table_input"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table_input"]);
             $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table_input"]);
+        }elseif (!empty($data["minimum_table_input"])) {
+            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
+        }elseif (!empty($data["maximum_table_input"])) {
+            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
         }
 
         if(isset($data["polish"])){

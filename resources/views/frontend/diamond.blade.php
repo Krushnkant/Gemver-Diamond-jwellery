@@ -359,7 +359,7 @@
             </div>
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-            <div class="round_cut_lab_range_slider row">
+                <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="d-flex align-items-center mb-2 position-relative">
@@ -376,13 +376,13 @@
             </div>
 
             <span class="d-inline-block float-end">
-                    <div class="round_cut_lab_range_slider text-end me-3">
-                        <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <input type="checkbox" value="" name="" class="color " id="checkbox_1">
-                            <label for="checkbox_1">advanced filters</label>
-                        </div>
+                <div class="round_cut_lab_range_slider text-end me-3">
+                    <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <input type="checkbox" value="" name="" class="color " id="checkbox_1">
+                        <label for="checkbox_1">advanced filters</label>
                     </div>
-                </span>
+                </div>
+            </span>
            
         </div>
         <div class="mt-4 mt-md-5"></div>
