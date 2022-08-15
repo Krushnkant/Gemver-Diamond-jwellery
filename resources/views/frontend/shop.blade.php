@@ -45,7 +45,7 @@
                                     <span class="to_text me-2"><input type="text" name="mobile_no" id="" placeholder="To" class="d-block wire_bangle_input"></span>
                                     <div id="slider-range" class="mb-0"></div>
                                 </div>
-                                <p class="mb-0"> Price : <span id="amount"></span></p>
+                                <p class="mb-0"> <span id="amount"></span></p>
                                 <input type="hidden" id="hidden_minimum_price" />
                                 <input type="hidden" id="hidden_maximum_price" />
                             </div>
