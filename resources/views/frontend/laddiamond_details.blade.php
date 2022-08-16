@@ -206,9 +206,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                          
-                           
+            
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                             @foreach($Category as $cat)
                             
@@ -243,30 +241,30 @@
                                         </div>
                                         
                                         <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{ $Diamond->id }}"> 
-                                        <div class="row mb-0">
-                                            <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
-                                                <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $Diamond->id }}"> 
+                                            <div class="row mb-0">
+                                                <div class="mb-3 col-md-6 ps-0">
+                                                    <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                    <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                </div>
+                                            
+                                                <div class="mb-3 col-md-6 ps-0">
+                                                    <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                    <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                </div>
+                                                <div class="mb-3 col-md-12 ps-0 mb-3">
+                                                    <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
+                                                    
+                                                    <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
+                                                </div>
                                             </div>
-                                          
-                                            <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
-                                                <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
-                                            </div>
-                                            <div class="mb-3 col-md-12 ps-0 mb-3">
-                                                <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
-                                                
-                                                <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
-                                            </div>
-                                        </div>
- 
-                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send 
-                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </button>
+    
+                                            <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send 
+                                                <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </button>
                                       </form>
                                     </div>
                                 </div>
