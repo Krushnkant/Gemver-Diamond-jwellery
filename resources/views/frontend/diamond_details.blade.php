@@ -306,7 +306,9 @@
                                 </div>
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
-                            <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>
+                            <div class="inquiry_now_btn">
+                                <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>
+                            </div>
                             <div class="mt-3">
                                 <p>Estimated date of shipment <br>
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>

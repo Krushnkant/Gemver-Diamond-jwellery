@@ -356,7 +356,9 @@
                             </div> 
                             <input type="hidden" value="" name="variant_id" id="variant_id">
                             
-                            <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
+                           <div class="inquiry_now_btn">
+                             <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
+                           </div>
                             <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>
 

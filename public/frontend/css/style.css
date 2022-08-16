@@ -282,6 +282,10 @@ background-size: cover;
         padding: 0 !important;
     }
     
+    .header ul li .mega-menu .mega-menu-two-part .two_part_padding {
+        margin-left: 20px !important;
+    }
+    
     .menu-part-img img {
         transform: scale(1);
         transition: all 0.2s ease;
@@ -1634,6 +1638,7 @@ background-size: cover;
         color: #ffffff;
         background: var(--secondary);
         padding: 0px 10px;
+        cursor: pointer;
     }
     
     .select_contact_btn {

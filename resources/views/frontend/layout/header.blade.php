@@ -146,7 +146,7 @@
                                             </div>
                                             <div class="submenu-box">
                                                 <ul>
-                                                    <li class="menu-part-img">
+                                                    <li class="menu-part-img two_part_padding">
                                                       <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                                     </li>
                                                 </ul>
@@ -549,13 +549,13 @@
                                                 <span class="menus_title">About Us </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.customervalues')}}"><span class="ms-2 ms-lg-2">Customer Values</span></a>
+                                                <a href="{{ Route('frontend.customervalues')}}"><span class="ms-2 ms-lg-0">Customer Values</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.marketneed')}}"><span class="ms-2 ms-lg-2">Market Need</span></a>
+                                                <a href="{{ Route('frontend.marketneed')}}"><span class="ms-2 ms-lg-0">Market Need</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.ethicaledge')}}"><span class="ms-2 ms-lg-2">Why Friendly?</span></a>
+                                                <a href="{{ Route('frontend.ethicaledge')}}"><span class="ms-2 ms-lg-0">Why Friendly?</span></a>
                                             </li>
                                         </ul>
 
@@ -564,16 +564,16 @@
                                                 <span class="menus_title">Diamond Anatomy </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#cut"> <span class="ms-2 ms-lg-2">Cut</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#cut"> <span class="ms-2 ms-lg-0">Cut</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#color"><span class="ms-2 ms-lg-2">Color</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#color"><span class="ms-2 ms-lg-0">Color</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#clarity"><span class="ms-2 ms-lg-2">Clarity</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#clarity"><span class="ms-2 ms-lg-0">Clarity</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.diamondanatomy')}}#carat"><span class="ms-2 ms-lg-2">Carat</span></a>
+                                                <a href="{{ Route('frontend.diamondanatomy')}}#carat"><span class="ms-2 ms-lg-0">Carat</span></a>
                                             </li>
                                         </ul>
 
@@ -582,10 +582,10 @@
                                                 <span class="menus_title">Learn More </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.learnaboutlabmadediamonds')}}"> <span class="ms-2 ms-lg-2">Learn About Lab Diamonds</span></a>
+                                                <a href="{{ Route('frontend.learnaboutlabmadediamonds')}}"> <span class="ms-2 ms-lg-0">Learn About Lab Diamonds</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.conflictfreediamonds')}}"><span class="ms-2 ms-lg-2">Ethical And Conflict Free Diamonds</span></a>
+                                                <a href="{{ Route('frontend.conflictfreediamonds')}}"><span class="ms-2 ms-lg-0">Ethical And Conflict Free Diamonds</span></a>
                                             </li>
                                             
                                             
@@ -596,16 +596,16 @@
                                                 <span class="menus_title">Pages </span>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.aboutus')}}"> <span class="ms-2 ms-lg-2">About Us</span></a>
+                                                <a href="{{ Route('frontend.aboutus')}}"> <span class="ms-2 ms-lg-0">About Us</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.testimonials')}}"> <span class="ms-2 ms-lg-2">Testimonials</span></a>
+                                                <a href="{{ Route('frontend.testimonials')}}"> <span class="ms-2 ms-lg-0">Testimonials</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.blogs')}}"><span class="ms-2 ms-lg-2">Blogs</span></a>
+                                                <a href="{{ Route('frontend.blogs')}}"><span class="ms-2 ms-lg-0">Blogs</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.contactus')}}"><span class="ms-2 ms-lg-2">Contact Us</span></a>
+                                                <a href="{{ Route('frontend.contactus')}}"><span class="ms-2 ms-lg-0">Contact Us</span></a>
                                             </li>
                                             
                                         </ul>
