@@ -272,7 +272,7 @@ background-size: cover;
     .header ul li .mega-menu .mega-menu-two-part {
         display: grid;
         grid-template-columns: 50% 50%;
-        min-width: 600px;
+        min-width: 650px;
         text-align: left;
         padding: 20px;
     }
@@ -1130,18 +1130,7 @@ background-size: cover;
         border: 1px #000 solid;
     }
     
-    .wire_bangle_color_img_part input~.wire_bangle_color_input_label {
-        /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    width: 30px;
-    height: 30px;
-    background: var(--primary);
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none; */
-    }
+    .wire_bangle_color_img_part input~.wire_bangle_color_input_label {}
     
     .wire_bangle_color_img_part input:checked~.wire_bangle_color_input_label {
         opacity: 1;
@@ -1634,17 +1623,17 @@ background-size: cover;
     }
     
     .select_setting_btn {
-        min-width: 199px;
-        min-height: 60px;
+        min-width: 223px;
+        min-height: 49px;
         border: 1px solid var(--secondary);
         font-weight: 700;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 20px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: #ffffff;
         background: var(--secondary);
-        padding: 0 20px;
+        padding: 0px 10px;
     }
     
     .select_contact_btn {
@@ -1754,7 +1743,6 @@ background-size: cover;
         font-size: 16px;
         line-height: 20px;
         letter-spacing: 0.1em;
-        text-transform: lowercase;
         color: var(--primary);
         opacity: 0.5;
         width: 100%;

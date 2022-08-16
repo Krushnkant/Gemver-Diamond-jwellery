@@ -69,7 +69,7 @@
 
                         </div>
                     
-                            <div class="wire_bangle_share mb-4 mb-xxl-5">
+                            <div class="wire_bangle_share mb-4">
                                 <div class="row">
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
