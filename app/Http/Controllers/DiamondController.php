@@ -62,6 +62,7 @@ class DiamondController extends Controller
         $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
+        
         return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice'));
     } 
 
@@ -283,7 +284,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
-                                    <span>'. $Diamond->Color .' color</span>
+                                    <span>'. $Diamond->Color .' color |</span>
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
@@ -331,9 +332,10 @@ class DiamondController extends Controller
         }
 
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
-        $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
-        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes'));
+        $Diamond = Diamond::where(['estatus' => 1,'id' => $id])->first();
+        $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated'));
     }
 
     public function customproducts($id,$shopbyid = 0){
@@ -793,7 +795,7 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
-                                    <span>'. $Diamond->Color .' color</span>
+                                    <span>'. $Diamond->Color .' color |</span>
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
@@ -816,11 +818,11 @@ class DiamondController extends Controller
     }
 
     public function getLadDiamondDetails($id){
-     
-        $Category = Category::where(['estatus' => 1])->limit(3)->get();
+        $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes'));
+        $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
+        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes','DiamondRelated'));
     }
 
 }
