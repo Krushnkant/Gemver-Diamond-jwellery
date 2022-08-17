@@ -1114,8 +1114,8 @@ background-size: cover;
         position: relative;
         padding: 0;
         margin: 0;
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         margin-right: 15px;
     }
     
@@ -1123,11 +1123,11 @@ background-size: cover;
         position: absolute;
         left: 0;
         top: 0;
-        width: 33px;
-        height: 33px;
+        width: 50px;
+        height: 50px;
         pointer-events: none;
         border: 1px transparent solid;
-        padding: 3px;
+        padding: 5px;
     }
     
     .wire_bangle_color_img_part input:checked~.wire_bangle_color_img {
@@ -1484,8 +1484,8 @@ background-size: cover;
     }
     
     .wire_bangle_color input {
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         border: 15px solid #EFD9A7;
         border-radius: 70px;
         margin-right: 10px;
@@ -1496,10 +1496,12 @@ background-size: cover;
     .wire_bangle_color_part .wire_bangle_color_img,
     .wire_bangle_color_part input,
     .wire_bangle_color_part span {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         border: 0;
         min-height: auto;
+        margin-right: 0;
+        padding: 3px;
     }
     
     .wire_bangle_color_img_part {
