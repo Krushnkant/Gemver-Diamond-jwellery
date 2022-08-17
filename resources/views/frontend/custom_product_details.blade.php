@@ -369,7 +369,10 @@
                             </div>
 
                             <div class=" mt-3">
-                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> Get a gemologist opinion</button>
+                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button">
+                                    <i class="fa-solid fa-user me-2"></i>
+                                     Get a gemologist opinion
+                                </button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -431,7 +434,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspecii px-3" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

@@ -321,7 +321,10 @@
                             
 
                             <div class=" mt-3">
-                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> Get a gemologist opinion</button>
+                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button">
+                                    <i class="fa-solid fa-user me-2"></i>
+                                     Get a gemologist opinion
+                                </button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -383,7 +386,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspecii px-3" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -450,7 +453,7 @@
                         <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
                     </div>
                 </div> -->
-                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 order-part">
+                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
                     <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
                         {{ $OrderIncludes->title }}
                     </div>
@@ -488,7 +491,7 @@
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
                     </div> -->
                 </div>
-                <div class="owl-carousel owl-theme product-detail mb-5">
+                <div class="owl-carousel owl-theme product-detail mb-5 px-0">
                     @foreach($ProductRelated as $Related)
                     <?php
                    // dd($ProductRelated);

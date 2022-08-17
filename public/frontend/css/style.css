@@ -993,7 +993,6 @@ background-size: cover;
         font-size: 17px;
         line-height: 20px;
         letter-spacing: 0.1em;
-        text-transform: uppercase;
         color: #fff;
         padding: 16px 37px;
         background: none;
@@ -1009,6 +1008,7 @@ background-size: cover;
     
     .email_input input::placeholder {
         color: var(--primary);
+        text-transform: capitalize;
     }
     
     .submit_btn {
@@ -1131,10 +1131,8 @@ background-size: cover;
     }
     
     .wire_bangle_color_img_part input:checked~.wire_bangle_color_img {
-        border: 1px #000 solid;
+        border: 1px var(--secondary) solid;
     }
-    
-    .wire_bangle_color_img_part input~.wire_bangle_color_input_label {}
     
     .wire_bangle_color_img_part input:checked~.wire_bangle_color_input_label {
         opacity: 1;
