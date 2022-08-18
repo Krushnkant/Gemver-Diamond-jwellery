@@ -497,7 +497,7 @@ background-size: cover;
     }
     
     .catrgery_box .catrgory_img img {
-        height: 250px;
+        height: 320px;
         min-width: 154px;
         object-fit: cover;
     }
