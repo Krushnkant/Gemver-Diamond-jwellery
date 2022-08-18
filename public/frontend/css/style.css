@@ -341,20 +341,20 @@ background-size: cover;
         transform: translate(-50%, -50%);
         text-align: left;
         width: 100%;
-        max-width: 1320px;
     }
     
     .heading-h1 {
         font-weight: 400;
         font-size: 56px;
-        line-height: 102px;
+        line-height: 56px;
         color: var(--primary);
         text-transform: capitalize;
+        margin-bottom: 30px;
     }
     
     .paragraph {
         font-weight: 500;
-        font-size: 30px;
+        font-size: 24px;
         line-height: 36px;
         color: var(--primary);
     }

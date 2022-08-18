@@ -374,9 +374,13 @@
         border: 1px solid #BB9761;
         color: #0B1727;
     }
+    .background-smoke-slider .shop-now-button {
+        color: #fff;
+    }
     .heading-h1 {
         font-size: 24px;
         line-height: normal;
+        margin-bottom: 8px;
     }
     .explore-ring-btn {
         min-width: 130px;
@@ -611,7 +615,7 @@
         position: absolute;
         height: 9px;
         width: 100%;
-        background: #000;
+        background: #fff;
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -1429,14 +1433,17 @@
         font-size: 17px;
     }
     .header ul li {
-        padding: 10px 20px;
+        padding: 10px 14px;
     }
     .header ul li a {
         font-size: 16px;
     }
+    .catrgery_box .catrgory_img img {
+        height: 200px;
+    }
     .heading-h1 {
         font-size: 46px;
-        line-height: 112px;
+        line-height: 46px;
     }
     .paragraph {
         font-size: 26px;

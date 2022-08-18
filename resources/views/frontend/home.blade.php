@@ -25,15 +25,15 @@
                     <div class="background-slider ">
                         <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
                             <!-- <img src="{{ asset($banner->banner_thumb) }}" alt=" "> -->
-                            <div class="container">
-                                <div class="background-text-part px-3 px-lg-4">
+                            <div class="">
+                                <div class="background-text-part px-3 px-lg-4 container">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
-                                    <h1 class="heading-h1 m-0 mb-2 mt-md-3 home_page_heading">{{ $banner->title }}</h1>
+                                    <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
                                     <div class="paragraph mt-0 mt-md-3 ">
-                                    {{ $banner->description }}
+                                    {!! $banner->description !!}
                                     </div>
                                     @if($banner->button_name != "")
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-5 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner->button_url != "") ? $banner->button_url : '#'; }}'>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner->button_url != "") ? $banner->button_url : '#'; }}'>
                                         {{ $banner->button_name }}
                                     </button>
                                     @endif
