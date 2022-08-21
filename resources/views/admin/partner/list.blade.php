@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="custom-tab-1 col-lg-4">
-                                <ul class="nav nav-tabs mb-3">
+                                <ul class="nav nav-tabs nav-fill">
                                     <li class="nav-item partner_page_tabs" data-tab="all_partner_tab"><a class="nav-link active show" data-toggle="tab" href="">All</a>
                                     </li>
                                     <li class="nav-item partner_page_tabs" data-tab="active_partner_tab"><a class="nav-link" data-toggle="tab" href="">Active</a>
