@@ -344,10 +344,10 @@
             'columnDefs': [
                 { "width": "6%", "targets": 0 },
                 { "width": "12%", "targets": 1 },
-                { "width": "20%", "targets": 2 },
-                { "width": "20%", "targets": 3 },
-                { "width": "10%", "targets": 4 },
-                { "width": "20%", "targets": 5 },
+                { "width": "26%", "targets": 2 },
+                { "width": "16%", "targets": 3 },
+                { "width": "12%", "targets": 4 },
+                { "width": "16%", "targets": 5 },
             ],
             "columns": [
                 {data: 'id', name: 'id', class: "text-center", orderable: false,
