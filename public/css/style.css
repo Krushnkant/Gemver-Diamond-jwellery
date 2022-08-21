@@ -2702,9 +2702,9 @@ input[type="button"].btn-block {
       border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
-    color: #495057;
+    color: #171E4E;
     background-color: #080b241f;
-    border-color: #171E4E05 #171E4E05 #495057; }
+    border-color: #171E4E05 #171E4E05 #171E4E; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
