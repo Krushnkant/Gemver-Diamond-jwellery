@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Step Popup</h4>
+                        {{--<h4 class="card-title">Step Popup</h4>--}}
 
                         <div class="action-section">
                             <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.attributes.list')->pluck('id')->first(); ?>

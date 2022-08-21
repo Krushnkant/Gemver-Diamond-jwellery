@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        {{--<h4 class="card-title">
                             @if(isset($action) && $action=='create')
                                 Add Faq
                             @elseif(isset($action) && $action=='edit')
@@ -24,7 +24,7 @@
                             @else
                             Faqs List
                             @endif
-                        </h4>
+                        </h4>--}}
 
                         <div class="action-section">
                             <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.faqs.list')->pluck('id')->first(); ?>

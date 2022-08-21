@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        {{--<h4 class="card-title">
                             @if(isset($action) && $action=='create')
                             Add Blog Banner
                             @elseif(isset($action) && $action=='edit')
@@ -24,7 +24,7 @@
                             @else
                             Blog Banner List
                             @endif
-                        </h4>
+                        </h4>--}}
 
                         <div class="action-section">
                             <div class="d-flex">

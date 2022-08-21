@@ -16,11 +16,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        {{--<h4 class="card-title">
                          
                         Contacts List
                          
-                        </h4>
+                        </h4>--}}
 
                         @if(isset($action) && $action=='list')
                             <div class="table-responsive">
