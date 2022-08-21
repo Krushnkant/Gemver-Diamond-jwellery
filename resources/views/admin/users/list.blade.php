@@ -18,24 +18,27 @@
                     <div class="card-body">
                         {{--<h4 class="card-title">User List</h4>--}}
 
-                        <div class="action-section">
-                            <?php $page_id = \App\Models\ProjectPage::where('route_url',\Illuminate\Support\Facades\Route::currentRouteName())->pluck('id')->first(); ?>
-                            @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UserModal" id="AddUserBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                            @endif
-                            {{-- <button class="btn btn-danger" onclick="deleteMultipleAttributes()"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
+                        <div class="action-section row">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <?php $page_id = \App\Models\ProjectPage::where('route_url',\Illuminate\Support\Facades\Route::currentRouteName())->pluck('id')->first(); ?>
+                                @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UserModal" id="AddUserBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                @endif
+                                {{-- <button class="btn btn-danger" onclick="deleteMultipleAttributes()"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
+                            </div>
+                            <div class="custom-tab-1 col-lg-4">
+                                <ul class="nav nav-tabs nav-fill mb-3">
+                                    <li class="nav-item user_page_tabs" data-tab="all_user_tab"><a class="nav-link active show" data-toggle="tab" href="">All</a>
+                                    </li>
+                                    <li class="nav-item user_page_tabs" data-tab="active_user_tab"><a class="nav-link" data-toggle="tab" href="">Active</a>
+                                    </li>
+                                    <li class="nav-item user_page_tabs" data-tab="deactive_user_tab"><a class="nav-link" data-toggle="tab" href="">Deactive</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="custom-tab-1">
-                            <ul class="nav nav-tabs mb-3">
-                                <li class="nav-item user_page_tabs" data-tab="all_user_tab"><a class="nav-link active show" data-toggle="tab" href="">All</a>
-                                </li>
-                                <li class="nav-item user_page_tabs" data-tab="active_user_tab"><a class="nav-link" data-toggle="tab" href="">Active</a>
-                                </li>
-                                <li class="nav-item user_page_tabs" data-tab="deactive_user_tab"><a class="nav-link" data-toggle="tab" href="">Deactive</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
 
                         <div class="tab-pane fade show active table-responsive" id="all_user_tab">
                             <table id="all_users" class="table zero-configuration customNewtable" style="width:100%">
