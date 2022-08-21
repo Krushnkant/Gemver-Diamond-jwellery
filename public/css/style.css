@@ -2695,7 +2695,7 @@ input[type="button"].btn-block {
     border-top-right-radius: 0.25rem; }
     .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
       border-color: #171E4E05 #171E4E05 #495057;
-      background-color: #080b24}
+      background-color: #080b241f}
     .nav-tabs .nav-link.disabled {
       color: #f7fafc;
       background-color: transparent;

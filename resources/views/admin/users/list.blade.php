@@ -27,7 +27,7 @@
                                 {{-- <button class="btn btn-danger" onclick="deleteMultipleAttributes()"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
                             </div>
                             <div class="custom-tab-1 col-lg-4">
-                                <ul class="nav nav-tabs nav-fill mb-3">
+                                <ul class="nav nav-tabs nav-fill">
                                     <li class="nav-item user_page_tabs" data-tab="all_user_tab"><a class="nav-link active show" data-toggle="tab" href="">All</a>
                                     </li>
                                     <li class="nav-item user_page_tabs" data-tab="active_user_tab"><a class="nav-link" data-toggle="tab" href="">Active</a>
@@ -37,8 +37,6 @@
                                 </ul>
                             </div>
                         </div>
-
-                        
 
                         <div class="tab-pane fade show active table-responsive" id="all_user_tab">
                             <table id="all_users" class="table zero-configuration customNewtable" style="width:100%">
