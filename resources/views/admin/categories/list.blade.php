@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">
+                        {{-- <h4 class="card-title">
                             @if(isset($action) && $action=='create')
                             Add Category
                             @elseif(isset($action) && $action=='edit')
@@ -24,7 +24,7 @@
                             @else
                             Category List
                             @endif
-                        </h4>
+                        </h4>--}}
 
                         <div class="action-section">
                             <div class="d-flex">

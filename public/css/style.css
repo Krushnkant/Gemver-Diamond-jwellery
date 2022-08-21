@@ -9812,7 +9812,7 @@ table.dataTable thead .sorting::after {
   margin-bottom: 10px;
   margin-right: 5px; }
 .btn {
-  padding: 6px 18px; }
+  padding: 6px 30px; }
   .btn:active, .btn:focus, .btn:hover {
     box-shadow: none !important; }
 .newvariant-btnbox {
