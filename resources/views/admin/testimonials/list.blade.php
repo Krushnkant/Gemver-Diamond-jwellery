@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show active table-responsive" id="all_testimonial_tab">
+                        <div class="tab-pane fade show active table-responsive customNewtable" id="all_testimonial_tab">
                             <table id="all_testimonials" class="table zero-configuration testimonialNewtable" style="width:100%">
                                 <thead>
                                 <tr>
