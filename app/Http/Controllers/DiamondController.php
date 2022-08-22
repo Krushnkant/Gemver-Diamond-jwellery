@@ -447,8 +447,17 @@ class DiamondController extends Controller
                         <div class="wire_bangle_product_setting">
                             <div class="wire_bangle_img mb-3 position-relative">
                             <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
-                            </div>
-                            <div class="wire_bangle_description p-3 pt-0">
+                            </div><div class="text-center">';
+                            foreach($images as $image){
+                                $output .= '<span class="form-check d-inline-block ">
+                                    <a href="">
+                                    
+                                    <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
+                                    </a>
+                                    <div class="wire_bangle_color_input_label"></div>
+                                </span>';
+                                }
+                            $artilces.='</div><div class="wire_bangle_description p-3 pt-0">
                                 <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
                                 <div class="wire_bangle_sub_heading" ><a style="" href="'.$url.'">'.$product->product_title .'</a></div>
                                 <div class="d-flex justify-content-between pt-2 align-items-center">
