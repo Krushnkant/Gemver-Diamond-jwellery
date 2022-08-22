@@ -55,7 +55,7 @@
                     <div class="col-md-6">
                         <div class="round_cut_lab_range_slider mb-xxl-4 mb-4 mt-3 mt-md-0">
                                     @foreach($Attributes as $attribute)
-                                    @if($attribute->is_specification == 0)
+                                   
                                     <ul class="right_side_ul round_cut_lab_range_slider row">
                                         <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
                                         <div class="col-lg-12">
@@ -67,17 +67,7 @@
                                             @endforeach 
                                         </div>
                                     </ul>
-                                    @else
-                                    <ul class="right_side_ul round_cut_lab_range_slider">
-                                        <li class="col-md-6">{{ $attribute->attribute_name }}</li>
-                                        @foreach($attribute->attributeterm as $term)
-                                            <div class="form-group mb-3 d-inline-block">
-                                                <input type="checkbox" class="common_selector specification" name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                            </div>
-                                        @endforeach 
-                                    </ul>
-                                    @endif
+                                   
                                 @endforeach    
                         </div>
                     </div>
