@@ -245,7 +245,7 @@
                             <div>
                                 @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector specification"  name="specification[]"  value="{{ $term->id }}" >
+                                        <input type="checkbox" class="common_selector specification"  name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
                                         <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                                     </div>
                                 @endforeach 
