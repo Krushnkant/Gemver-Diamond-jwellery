@@ -802,10 +802,10 @@ class ProductController extends Controller
                     
                     $price = '<ul>';
                     if(isset($product->regular_price)){
-                        $price .= '<li class="regularprice"><i class="fa fa-inr" aria-hidden="true"></i> '.$product->regular_price.'</li>';
+                        $price .= '<li class="regularprice">$'.$product->regular_price.'</li>';
                     }
                     if (isset($product->sale_price)){
-                        $price .= '<li><i class="fa fa-inr" aria-hidden="true"></i> '.$product->sale_price.'</li></ul>';
+                        $price .= '<li>$'.$product->sale_price.'</li></ul>';
                     }
 
                     $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';
@@ -1092,7 +1092,7 @@ class ProductController extends Controller
     }
 
     public function addAttributebox($id,Request $request){
-
+            
         $term_id = $request->term_id;
         //$category = Category::where('id',$id)->first()->toArray();
 
@@ -1112,7 +1112,7 @@ class ProductController extends Controller
            // $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation</label>';
             foreach ($required_variations as $required_variation){
                 $html_required_variation.= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="form-group ">
+                                                    <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="VariationAttr">';
                 $html_required_variation .= $required_variation['attribute_name'];
                 $html_required_variation .= '<span class="text-danger"> * </span>';
@@ -1138,12 +1138,12 @@ class ProductController extends Controller
 
         
         $html = '';
-        $html .= '<div id ="" class="single-attribute-box col-lg-6 col-md-6  col-xs-12 panel panel-default" data-term="'.$spec['attribute_name'].'">';
-        $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
+        $html .= '<div class="single-variation-box col-lg-6 col-md-6  col-xs-12 panel panel-default active" data-term="'.$spec['attribute_name'].'">';
+        $html .= '<div class="variation-selection-box row panel-heading active ">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
         $html .= '<b><span class="VariantCnt">';
-        //$html .= $term_name;
+        $html .= $spec['attribute_name'];
         $html .= '</span></b>';
         $html .= '</label>';
         $html .= '</div>';
@@ -1162,23 +1162,24 @@ class ProductController extends Controller
         // $html .= '<div class="col-lg-12">
         //          <input type="checkbox" class="checkbox" name="attribute_variation'.$required_variation['id'].'" ><label>  Used for variations</label>
         //           </div>';
-
+        if($request->check_add == 0){
         $html .= '
-                    <div class="form-group">
-                        <div class="form-check">
-                        <input type="checkbox" class="myClassA" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
-                                    Use for variations ?</label>
+                    <div class="form-group row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-check">
+                            <input type="checkbox" class="myClassA" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
+                                Use for Variations ?</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-check">
+                                <input type="checkbox" class="check" name="use_comman'.$required_variation['id'].'" > 
+                                <label class="form-check-label"> User for Common Variation ?</label>
+                            </div>
                         </div>
                     </div>
                 ';
-        $html .= '
-                <div class="form-group">
-                    <div class="form-check">
-                    <input type="checkbox" class="check" name="use_comman'.$required_variation['id'].'" > 
-                    <label class="form-check-label"> Use for comman ?</label>
-                    </div>
-                </div>
-            ';        
+        }      
         $html .= '</form>';
         $html .= '</div>';
         $html .= '</div>';
@@ -1525,6 +1526,41 @@ class ProductController extends Controller
         $term_id = 1; 
         $html = '';  
         $required_variation_ids = ''; 
+        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <div class="row">
+                        
+                        <div class="col-lg-12 ">
+                             Veriation
+                        </div>
+                    </div>
+                </div>';    
+        $html .= '
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
+                       
+                    </div>
+                </div>
+            ';
         for($i = 0; $i < count($matrix); $i++){
             
         $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
@@ -1542,41 +1578,44 @@ class ProductController extends Controller
                 $required_variation_ids = $required_variation_ids.','.$tt;
      
         } 
+        
+        
+        
+
         //dd($required_variation_ids);
         
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
-        $html .= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="row">
-                        
                         <div class="col-lg-12 font-weight-bold">
                             '.$name.'
                         </div>
                     </div>
                 </div>';    
         $html .= '
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-2">
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
                     <div class="form-group row">
-                        <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
+                        
                         <div class="col-lg-12">
-                            <input type="text" class="form-control input-default varRegularPrice priRegPrice" id="" name="varRegularPrice-'.$t.'-'.$term_id.'" value="">
+                            <input type="text" class="form-control input-default varRegularPrice priRegPrice" placeholder="Regular Price" id="" name="varRegularPrice-'.$t.'-'.$term_id.'" value="">
                             <label id="varRegularPrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varRegularPrice"></label>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                     <div class="form-group row">
-                        <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
+                       
                         <div class="col-lg-12">
-                            <input type="text" class="form-control input-default varSalePrice priSalePrice" id="" name="varSalePrice-'.$t.'-'.$term_id.'" value="">
+                            <input type="text" class="form-control input-default varSalePrice priSalePrice" id="" placeholder="Sale Price" name="varSalePrice-'.$t.'-'.$term_id.'" value="">
                             <label id="varSalePrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varSalePrice"></label>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                     <div class="form-group row">
-                        <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
+                        
                         <div class="col-lg-12">
-                            <input type="number" class="form-control input-default stock" id="" name="stock-'.$t.'-'.$term_id.'" value="">
+                            <input type="number" class="form-control input-default stock" id="" placeholder="Stock" name="stock-'.$t.'-'.$term_id.'" value="">
                             <label id="stock-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="stock"></label>
                         </div>
                     </div>
@@ -1584,9 +1623,8 @@ class ProductController extends Controller
 
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="form-group row">
-                        <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
                         <div class="col-lg-12">
-                            <input type="text" class="form-control input-default SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
+                            <input type="text" class="form-control input-default SKU" placeholder="SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
                             <label id="SKU-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
                         </div>
                     </div>

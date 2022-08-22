@@ -239,7 +239,7 @@
                             
                             
                             <span class="inquiry_now_btn ">
-                                <button class="select_setting_btn diamond-btn" type="button"  >inquiry now</button>
+                                <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                            

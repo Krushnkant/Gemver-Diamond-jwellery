@@ -173,7 +173,7 @@
                                                             </select>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <button type="button" class="AddSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> + </button>
+                                                        <button type="button" class="AddSub btn  d-inline-block mb-3" data-id="1" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> Add </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,10 +197,10 @@
                                             
                                                 ?>
                                               
-                                                <div id ="" class="single-variation-box col-lg-6 col-md-6  col-xs-12 panel panel-default" data-term="{{ $attribute->attr_name }}">
+                                                <div id ="" class="single-variation-box col-lg-6 col-md-6  col-xs-12 panel panel-default active" data-term="{{ $attribute->attr_name }}">
                                                 <div class="variation-selection-box row panel-heading active">
                                                     <div class="col-lg-10 col-sm-8">
-                                                        <label class="col-form-label"><b><span class="VariantCnt"></span></b></label>
+                                                        <label class="col-form-label"><b><span class="VariantCnt">{{ $attribute['attribute_name'] }} </span></b></label>
                                                     </div>
                                                     <div class="col-lg-2 col-sm-2 actionbox ml-auto text-right"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>
                                                    
@@ -217,7 +217,7 @@
                                                         <input type="hidden" name="attribute_id" value="{{ $attribute['id'] }}">
                                                             
                                         
-                                                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="form-group row">
                                                                     <label class="col-lg-12 col-form-label" for="">{{ $attribute['attribute_name'] }} <span class="text-danger">*</span></label>
                                                                     <div class="col-lg-12">
@@ -236,19 +236,24 @@
                                                                 </div>
                                                                 <label id="Attribute{{ $attribute['id'] }}-error" class="error invalid-feedback animated fadeInDown" for=""></label>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <div class="form-check">
-                                                                <input type="checkbox" class="avoid-clicks" style="pointer-events: none;" name="attribute_variation{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_variation == 1) ) checked @endif "> <label class="form-check-label">
-                                                                    Use for variations ?</label>
+                                                            
+                                                            <div class="form-group row ">
+                                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-check">
+                                                                    <input type="checkbox" class="avoid-clicks" style="pointer-events: none;" name="attribute_variation{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_variation == 1) ) checked @endif "> 
+                                                                    <label class="form-check-label">
+                                                                    Use for Variations ?</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-check">
+                                                                        <input type="checkbox" class="check avoid-clicks" style="pointer-events: none;" name="use_comman{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_comman == 1) ) checked @endif> 
+                                                                        <label class="form-check-label"> User for Common Variation ?</label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <div class="form-check">
-                                                                <input type="checkbox" class="check avoid-clicks" style="pointer-events: none;" name="use_comman{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_comman == 1) ) checked @endif> 
-                                                                <label class="form-check-label"> Use for comman ?</label>
-                                                                </div>
-                                                            </div>
-                                                         
+                                                                
+                                                            
                                                     </form>
                                                 </div>
                                             </div>
@@ -256,7 +261,7 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <button type="button" class="save_attributes btn mt-3" style="background-color: #e7e7e7; color: black;" id="save_attributes" >Save attributes</button>
+                                    <button type="button" class="save_attributes btn mt-3"  style="background-color: #e7e7e7; color: black;" id="save_attributes" >Save attributes</button>
 
 
                                 </div>
@@ -573,6 +578,38 @@
                                                 </div>
                                              
                                             <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            Veriation
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
+                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
+                                                       
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
+            
+                                                    </div>
+                                                </div>   
                                             <?php
                                                
                                                 $variant_terms = \App\Models\ProductVariantVariant::where('product_id',$product->id)->where('attribute_term_id',$product_variant)->get()->pluck('product_variant_id');
@@ -589,7 +626,7 @@
                                                 foreach($variant_term as $key => $tt){
                                                     $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
                                                     if($name != "" ){
-                                                      $name = $name.'-'.$AttributeTerm->attrterm_name;
+                                                      $name = $name.' | '.$AttributeTerm->attrterm_name;
                                                     }else{
                                                        $name = $AttributeTerm->attrterm_name;  
                                                     }
@@ -607,47 +644,49 @@
                                             ?>
 
                                             <input type="hidden" name="varVariation{{$term_item_id}}-{{$t}}" value="{{ $required_variation_ids }}">
-                                            
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                
+                            
+                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                                     <div class=" row">
                                                         <div class="col-lg-12 font-weight-bold">
                                                             {{ $name }}
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
+                                                        
                                                         <div class="col-lg-12">
-                                                            <input type="text" class="form-control input-default varRegularPrice priRegPrice " id="" name="varRegularPrice-{{$term_item_id}}-{{$t}}" value="{{ isset($variant['regular_price']) ? $variant['regular_price'] : '' }}">
+                                                            <input type="text" class="form-control input-default varRegularPrice priRegPrice " id="" placeholder="Regular Price" name="varRegularPrice-{{$term_item_id}}-{{$t}}" value="{{ isset($variant['regular_price']) ? $variant['regular_price'] : '' }}">
                                                             <label id="varRegularPrice-{{$term_item_id}}-{{$t}}-error" class="error invalid-feedback animated fadeInDown" for="varRegularPrice"></label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
+                                                        
                                                         <div class="col-lg-12">
-                                                            <input type="text" class="form-control input-default varSalePrice priSalePrice {{ $primaryclass }}" id="" name="varSalePrice-{{$term_item_id}}-{{$t}}" value="{{ $variant['sale_price'] }}">
+                                                            <input type="text" class="form-control input-default varSalePrice priSalePrice " placeholder="Sale Price" id="" name="varSalePrice-{{$term_item_id}}-{{$t}}" value="{{ $variant['sale_price'] }}">
                                                             <label id="varSalePrice-{{$term_item_id}}-{{$t}}-error" class="error invalid-feedback animated fadeInDown" for="varSalePrice"></label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
+                                                        
                                                         <div class="col-lg-12">
-                                                            <input type="number" class="form-control input-default stock" id="stock" name="stock-{{$term_item_id}}-{{$t}}" value="{{ $variant['stock'] }}">
+                                                            <input type="number" class="form-control input-default stock" id="stock" placeholder="Stock" name="stock-{{$term_item_id}}-{{$t}}" value="{{ $variant['stock'] }}">
                                                             <label id="stock-{{$term_item_id}}-{{$t}}-error" class="error invalid-feedback animated fadeInDown" for="stock"></label>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-2">
+                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row">
-                                                        <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
+                                                       
                                                         <div class="col-lg-12">
-                                                            <input type="text" class="form-control input-default SKU " readonly id="SKU" name="SKU-{{$term_item_id}}-{{$t}}" value="{{ $variant['SKU'] }}">
+                                                            <input type="text" class="form-control input-default SKU " readonly id="SKU" placeholder="SKU" name="SKU-{{$term_item_id}}-{{$t}}" value="{{ $variant['SKU'] }}">
                                                             <label id="SKU-{{$term_item_id}}-{{$t}}-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
                                                         </div>
                                                     </div>
