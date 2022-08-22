@@ -365,6 +365,14 @@
 
     <script>
         $(document).ready(function(){
+
+            $('body').on('mouseover', '.product-image', function () {    
+            }, function () {
+                var product_image = $(this).attr('src');
+                var data_id = $(this).attr('data-id');
+                $('.main-product-image-'+data_id).attr("src", product_image);
+            
+            });
             
             var ENDPOINT = "{{ url('/') }}";
             var page = 1;
