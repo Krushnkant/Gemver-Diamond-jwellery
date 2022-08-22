@@ -448,7 +448,9 @@ class DiamondController extends Controller
                             <div class="wire_bangle_img mb-3 position-relative">
                             <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'" class="main-product-image-'.$product->id.'"></a>
                             </div><div class="text-center">';
+                            $image_no = 1;
                             foreach($images as $image){
+                            if($image_no <= 3){ 
                                 $artilces .= '<span class="form-check d-inline-block ">
                                     <a href="">
                                     
@@ -456,7 +458,9 @@ class DiamondController extends Controller
                                     </a>
                                     <div class="wire_bangle_color_input_label"></div>
                                 </span>';
-                                }
+                            }
+                            $image_no++;
+                            }
                             $artilces.='</div><div class="wire_bangle_description p-3 pt-0">
                                 <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
                                 <div class="wire_bangle_sub_heading" ><a style="" href="'.$url.'">'.$product->product_title .'</a></div>

@@ -117,8 +117,9 @@ class ProductController extends Controller
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="'.$url.'"><img src="'.  $image  .'" alt="" class="main-product-image-'.$row->id.'"></a>
                         </div><div class="text-center">';
-                        
+                        $image_no = 1;
                         foreach($images as $image){
+                        if($image_no <= 3){    
                         $output .= '<span class="form-check d-inline-block ">
                             <a href="">
                             
@@ -126,6 +127,8 @@ class ProductController extends Controller
                             </a>
                             <div class="wire_bangle_color_input_label"></div>
                         </span>';
+                        }
+                        $image_no++;
                         }
                         $output .= ' </div><div class="wire_bangle_description p-3">';
                         
