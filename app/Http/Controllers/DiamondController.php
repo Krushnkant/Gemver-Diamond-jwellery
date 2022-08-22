@@ -446,7 +446,7 @@ class DiamondController extends Controller
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4 wire_bangle_shop_radio">
                         <div class="wire_bangle_product_setting">
                             <div class="wire_bangle_img mb-3 position-relative">
-                            <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
+                            <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'" class="main-product-image-'.$product->id.'"></a>
                             </div><div class="text-center">';
                             foreach($images as $image){
                                 $artilces .= '<span class="form-check d-inline-block ">
