@@ -148,6 +148,38 @@
                                         </div>
                                     </div>
                                 </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Note</h4>
+                        <textarea class="form-control input-default" name="notes" id="notes" rows="16"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="product-section">
+                            <div class="col-sm-12">
+                                <div class="row" style="display:none;">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                    <label class="form-check-label">
+                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input " value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row" >
                                     <div class="col-md-12">
                                         <div class="form-group attribute" >
@@ -163,7 +195,7 @@
                                                         </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="button" class="AddSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> + </button>
+                                                    <button type="button" data-id="0" class="AddSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> Add </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,15 +212,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Note</h4>
-                        <textarea class="form-control input-default" name="notes" id="notes" rows="7"></textarea>
-                    </div>
-                </div>
-            </div>
         </div>
+
         </form>
         <div class="row" id="VariantBox" style="display:none;">
             <div class="col-md-12">

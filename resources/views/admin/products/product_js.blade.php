@@ -910,8 +910,11 @@ $(document).ready(function(){
 
         $('.Attribute').select2({
             width: '100%',
+            multiple: true,
             placeholder: "Select...",
-            allowClear: true
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
         });
 
         $('.Variation').select2({
@@ -1044,7 +1047,8 @@ $(document).ready(function(){
         var html = "";   
         var term_id = 1;
         var term_name = 'test';
-       
+        var check_add =$(this).attr('data-id');
+    
         var term_no = $("#attributes_no").val();
      
          term_no ++;
@@ -1059,18 +1063,15 @@ $(document).ready(function(){
         var selected = $('#attribute_id option:selected');
         var valuee = selected.attr('value');
         var title = selected.attr('data-title');
-       
-      
-     
+    
         if(valuee != "" && valuee != undefined){
            
             $.ajax ({
                 type:"GET",
                 url: '{{ url('admin/addAttributebox') }}' + "/" + valuee,
-                data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
+                data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name,check_add:check_add},
                 success: function(res) {
-                    
-                    
+
                     $("#save_attributes").show();
                     $(".add-value-sub").append(res['data']);
                     $("#variantProductBox").show();
