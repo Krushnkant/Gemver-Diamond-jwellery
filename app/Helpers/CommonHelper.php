@@ -63,7 +63,7 @@ function get_required_variations($cat_id){
 }
 
 function get_required_variations_attribute($p_id){
-    $productattributes = ProductAttribute::where('product_u_id',$p_id)->where('use_variation',1)->get()->toArray();
+    $productattributes = ProductAttribute::where('product_u_id',$p_id)->where('use_variation',1)->where('use_comman',0)->get()->toArray();
     $required_variations = array();
     $required_variation_ids = array();
     

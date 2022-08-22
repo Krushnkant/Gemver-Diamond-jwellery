@@ -1,6 +1,14 @@
 <!-- product JS start -->
 <script src="{{ asset('js/bootstrap-4-navbar.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('body').on('click', '.check', function () {    
+        $('.check').not(this).prop('checked', false);
+    });
+    
+});
+</script>
 <script type="text/javascript">
     let catSelectValArray = [];
     let catSelectStrArray = [];
@@ -98,8 +106,8 @@
         catSelectStrArray = [];
         catSelectValArray = [];
         parentCatValArray = [];
-        $("#AddBox").show();
-        $( "#AddBox" ).trigger( "click" );
+        //$("#AddBox").show();
+       // $( "#AddBox" ).trigger( "click" );
 
         // $.ajax({
         //     type: 'GET',
@@ -230,10 +238,13 @@
                     $('.CatDisabMenuLink').addClass('disableCategory');
 
                     $('.Variation').select2({
-                        width: '100%',
-                        placeholder: "Select...",
-                        allowClear: true
-                    });
+                            width: '100%',
+                            multiple: true,
+                            placeholder: "Select...",
+                            allowClear: true,
+                            autoclose: false,
+                            closeOnSelect: false,
+                        });
                     $('.specReq').select2({
                         width: '100%',
                         multiple: true,
@@ -497,7 +508,7 @@
                 contentType: false,
                 // contentType: 'json',
                 success: function (res) {
-                    console.log(res);
+                    //console.log(res);
                     if(res['status']==200){
                         if(is_custom == 1){
                             location.href = "{{ route('admin.customproducts.list') }}";
@@ -651,6 +662,16 @@
                 valid = false;
             }
 
+            $(this).find('.Variation').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please select any value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+            })
+
             $(this).find('.specReq').each(function() {
                 var thi = $(this);
                 var this_err = $(thi).attr('id-data') + "-error";
@@ -674,11 +695,82 @@
               
             })
 
+            $(this).find('.varSalePrice').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please provide a value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+              
+            })
+
+            $(this).find('.stock').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please provide a value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+              
+            })
+
+            $(this).find('.SKU').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please provide a value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+              
+            })
+
           
+
+          
+
+            
+
+            var str = '';
+            $(this).find('.Variation').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                var vel =$(thi).val();
+                if(vel != ''){
+                 str += ','+vel;
+                }   
+            })
+            
+            // if(str != ''){
+            //     datavari1.push(str);
+            //     if (hasDuplicates(datavari1)) {
+                    
+            //         toastr.error("you have duplicates variation values !",'Error',{timeOut: 5000});
+            //         valid = false;
+            //     }
+            // }
+        });
+
+        return valid;
+    }
+
+    function validateVariantsFormSub() {
+     
+
+        var valid = true;
+      
+        $('.variantForm').each(function () {
+            var this_form = $(this);
+            if (!$(this).valid()) {
+                valid = false;
+            }
 
             $(this).find('.Variation').each(function() {
                 var thi = $(this);
-                var this_err = $(thi).attr('name') + "-error";
+                var this_err = $(thi).attr('id-data') + "-error";
                 if($(thi).val()=="" || $(thi).val()==null) {
                     $(this_form).find("#"+this_err).html("Please select any value");
                     $(this_form).find("#"+this_err).show();
@@ -686,35 +778,30 @@
                 }
             })
 
-            var str = '';
-            $(this).find('.Variation').each(function() {
-                var thi = $(this);
-                var this_err = $(thi).attr('name') + "-error";
-                var vel =$(thi).val();
-                if(vel != ''){
-                 str += ','+vel;
-                }   
-            })
-            
-            if(str != ''){
-                datavari1.push(str);
-                if (hasDuplicates(datavari1)) {
-                    
-                    toastr.error("you have duplicates variation values !",'Error',{timeOut: 5000});
-                    valid = false;
-                }
-            }
         });
 
         return valid;
     }
 
     function validateAttributesForm() {
+
+        
         
         var valid = true;
         var datavari = [];
         var datavari1 = [];
         SKUs = [];
+        //alert($('input:checkbox.myClassA:checked').length);
+        if (($('input:checkbox.myClassA:checked').length) > 4) {
+            alert("You must check at least 4 variant");
+            valid = false;
+        }
+
+        if (($('input:checkbox.check:checked').length) <= 0) {
+            alert("You must check at least one use comman");
+            valid = false;
+        }
+        
         $('.attributeForm').each(function () {
             var this_form = $(this);
             if (!$(this).valid()) {
@@ -829,8 +916,11 @@
 
         $('.Variation').select2({
             width: '100%',
+            multiple: true,
             placeholder: "Select...",
-            allowClear: true
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
         });
 
         $('.specReq').select2({
@@ -949,7 +1039,8 @@
     });
 
 
-    $('body').on('click', '#AddSub', function(){ 
+    $('body').on('click', '#AddSub', function(){
+        $(this).prop('disabled',true); 
         var html = "";   
         var term_id = 1;
         var term_name = 'test';
@@ -1016,7 +1107,10 @@
             AttributeSelCheckbox.push(term_no);
             var attr_ids = AttributeSelCheckbox.join(",");
             $("#attr_ids").val(attr_ids);
+            $(this).prop('disabled',false);
 
+        }else{
+            $(this).prop('disabled',false);
         }
         // else{
         //     html += '<div class="row mt-sm-3 mx-0">'+
@@ -1090,10 +1184,29 @@
                 contentType: false,
                 // contentType: 'json',
                 success: function (res) {
-                   // console.log(res);
+                    //console.log(res.array_comman);
                     if(res['status']==200){
-                       
+                        
                         $('#VariantBox').show();
+                        if(res.action == "add"){
+                           $("#variant-data").html(res.array_comman);
+                        }else{
+                            location.reload();
+                        }
+                        // $.each(res.array_comman, function( index, value ) {
+                        //     $("#AddBox").trigger("click");
+                        // });
+
+                        
+                        $('.Variation').select2({
+                            width: '100%',
+                            multiple: true,
+                            placeholder: "Select...",
+                            allowClear: true,
+                            autoclose: false,
+                            closeOnSelect: false,
+                        });
+                        
                         toastr.success("Attribute Added",'Success',{timeOut: 5000});
                         $(btn).prop('disabled',false);
 
@@ -1102,46 +1215,46 @@
                         //         console.log(img_src);
                         // });
 
-                        $.ajax ({
-                            type:"GET",
-                            url: '{{ url('admin/addVariantAttributebox') }}' + "/" + $("#product_u_id").val(),
-                            //data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
-                            success: function(res) {
-                                console.log(res);
-                                $(".VariationSelect").replaceWith(res['data']);
-                                //$("#variantProductBox").show();
-                                //$('.CatDisabMenuLink').addClass('disableCategory');
+                        // $.ajax ({
+                        //     type:"GET",
+                        //     url: '{{ url('admin/addVariantAttributebox') }}' + "/" + $("#product_u_id").val(),
+                        //     //data :  {VariantCnt: VariantCnt, term_id: term_no, term_name: term_name},
+                        //     success: function(res) {
+                        //         console.log(res);
+                        //         $(".VariationSelect").replaceWith(res['data']);
+                        //         //$("#variantProductBox").show();
+                        //         //$('.CatDisabMenuLink').addClass('disableCategory');
 
-                                $('.Variation').select2({
-                                    width: '100%',
-                                    placeholder: "Select...",
-                                    allowClear: true
-                                });
-                                $('.specReq').select2({
-                                    width: '100%',
-                                    multiple: true,
-                                    placeholder: "Select...",
-                                    allowClear: true,
-                                    autoclose: false,
-                                    closeOnSelect: false,
-                                });
+                        //         $('.Variation').select2({
+                        //             width: '100%',
+                        //             placeholder: "Select...",
+                        //             allowClear: true
+                        //         });
+                        //         $('.specReq').select2({
+                        //             width: '100%',
+                        //             multiple: true,
+                        //             placeholder: "Select...",
+                        //             allowClear: true,
+                        //             autoclose: false,
+                        //             closeOnSelect: false,
+                        //         });
                         
-                                $('.specOpt').select2({
-                                    width: '100%',
-                                    multiple: true,
-                                    placeholder: "Select...",
-                                    allowClear: true,
-                                    autoclose: false,
-                                    closeOnSelect: false,
-                                });
+                        //         $('.specOpt').select2({
+                        //             width: '100%',
+                        //             multiple: true,
+                        //             placeholder: "Select...",
+                        //             allowClear: true,
+                        //             autoclose: false,
+                        //             closeOnSelect: false,
+                        //         });
 
-                                // variantImages(res['VariantCnt']);
-                            },
-                            complete: function(){
-                                addPrimaryBox();
-                                $("#attr-cover-spin").fadeOut();
-                            }
-                        });
+                        //         // variantImages(res['VariantCnt']);
+                        //     },
+                        //     complete: function(){
+                        //         addPrimaryBox();
+                        //         $("#attr-cover-spin").fadeOut();
+                        //     }
+                        // });
 
                         //$(".VariationSelect").append('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"><div class="form-group row"><label class="col-lg-12 col-form-label" for="VariationAttr"> <span class="text-danger">*</span></label><div class="col-lg-12"><select class="form-control Variation " id="" name="Variation1000"><option></option><option value="100"  >test</option></select></div></div><label id="Variation1000-error" class="error invalid-feedback animated fadeInDown" for=""></label></div>' );
                     }
@@ -1161,8 +1274,10 @@
 
     $('#attribute-data').on('click', '.RemoveAttributeBox', function() {
         var boxid = $(this).attr("data-id");
-        console.log(AttributeSelCheckbox);
-        //alert(boxid);
+        var attrid = $(this).attr("attr-id");
+        //console.log(AttributeSelCheckbox);
+        //alert(attrid);
+        
         AttributeSelCheckbox = jQuery.grep(AttributeSelCheckbox, function(value) {
              //alert(value);
            return value != boxid;
@@ -1171,7 +1286,7 @@
         // console.log(attr_term_ids);
         $("#attr_ids").val(attr_ids);
         $(this).parent().parent().parent().remove();
-        
+        $("#attribute_id>option[value='"+ attrid +"']").attr('disabled',false);
     });
 
     $(document).on('change', '#is_custom', function() {
@@ -1183,6 +1298,79 @@
             $(this).val(0);
             $(this).attr('checked', false);
         }
+    });
+
+
+    $('body').on('click', '#AddSubSub', function () {
+        $(this).prop('disabled',true);
+        $(this).find('.submitloader').show();
+        var btn = $(this);
+        //console.log(btn.next().next());
+        var demo = $(this).parent()[0];
+        var formData = new FormData(demo);
+        //console.log(formData);
+        // var is_custom = $('#is_custom').val();
+       
+        //var valid_attributes = validateAttributesForm();
+        var valid_variants_sub = validateVariantsFormSub();
+
+        if(valid_variants_sub==true){
+            //var formData = new FormData($('#attributeForm')[0]);
+          
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.subproductattribute.save') }}",
+                // data: {productFormData: productFormData, variantFormData: variantFormData},
+                data: formData,
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                contentType: false,
+                // contentType: 'json',
+                success: function (res) {
+                   // console.log(res.data);
+                    if(res['status']==200){
+                        
+                        $('#VariantBox').show();
+                        console.log(btn.next().next());
+                        $(btn.next().next()).html(res.data);
+                        // $.each(res.array_comman, function( index, value ) {
+                        //     $("#AddBox").trigger("click");
+                        // });
+
+                        
+                        $('.Variation').select2({
+                            width: '100%',
+                            multiple: true,
+                            placeholder: "Select...",
+                            allowClear: true,
+                            autoclose: false,
+                            closeOnSelect: false,
+                        });
+                        
+                        //toastr.success("Attribute Added",'Success',{timeOut: 5000});
+                        $(btn).prop('disabled',false);
+
+                        
+                    }
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.submitloader').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        }else{
+            $(btn).prop('disabled',false);
+            $(btn).find('.submitloader').hide();
+        }    
+       
     });
 
     

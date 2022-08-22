@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
+use App\Models\AttributeTerm;
 use App\Models\Category;
 use App\Models\ProductAttribute;
 use App\Models\Product;
@@ -17,6 +18,7 @@ use App\Models\DiamondVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -110,6 +112,7 @@ class ProductController extends Controller
             $html_required_variation .= '<div class="row VariationSelect">';
             $html_required_variation .= '<input type="hidden" name="varVariation" value="'.implode(",",$required_variation_ids).'">';
             $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>';
+            $no = 1;
             foreach ($required_variations as $required_variation){
                 $html_required_variation.= '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                                     <div class="form-group row">
@@ -131,6 +134,7 @@ class ProductController extends Controller
                 $html_required_variation .= '</div>';
                 $html_required_variation .= '<label id="Variation'.$required_variation['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
                 $html_required_variation .= '</div>';
+                $no = ++$no;
             }
             $html_required_variation .= '</div>';
         }
@@ -441,7 +445,7 @@ class ProductController extends Controller
                                 <div id="varUploadedImgBox-'.$term_id.'" class="varUploadedImgBox"></div>
                             </div>
                     </div>';
-                    $html .= '<div class="row">
+                    $html .= '<div class="row subdata">
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="form-group row">
                                     <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
@@ -489,6 +493,9 @@ class ProductController extends Controller
         return ['data' => $html, 'term_id' => $term_id];
     }
 
+
+   
+
     public function uploadfile(Request $request){
         if(isset($request->action) && $request->action == 'uploadProductImages'){
             if ($request->hasFile('files')) {
@@ -506,7 +513,7 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-       // dd($request->all());
+        //dd($request->all());
         $category_ids = implode(",",$request['category_id']);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
@@ -554,9 +561,7 @@ class ProductController extends Controller
         $product->product_u_id = isset($request->product_u_id) ? $request->product_u_id : null;
         $product->product_title = isset($request->ProductName) ? $request->ProductName : null;
         $product->design_number = isset($request->DesignNumber) ? $request->DesignNumber : null;
-        //$product->child_category_id = $category_ids[1];
-        //$product->subchild_category_id = isset($category_ids[2]) ? $category_ids[2] : null;
-        //$product->hsn_code = isset($request->hsnCode) ? $request->hsnCode : null;
+
         $product->desc = isset($request->desc) ? $request->desc : null;
         $product->attrid_for_variation = $request->attrid_for_variation;
         $product->attr_term_ids = $request->attr_term_ids;
@@ -572,91 +577,66 @@ class ProductController extends Controller
         }
 
         $not_removable_images = array();
+        $ProductAttribute = ProductAttribute::where('product_u_id',$request->product_u_id)->where('use_comman',1)->first();
+        $attr_term_ids = explode(',',$ProductAttribute->terms_id);
         for ($i=1;$i<=count($attr_term_ids);$i++) {
             $myValue = array();
             $str ="variantForm".$i;
             parse_str($request[$str],$myValue);
             //dd($myValue);
-            $product_variant = new ProductVariant();
-            $product_variant->product_id = $product->id;
-            $product_variant->SKU = $myValue['SKU'];
-            $product_variant->regular_price = (isset($myValue['varRegularPrice']) && $myValue['varRegularPrice']!="") ? $myValue['varRegularPrice'] : null;
-            $product_variant->sale_price = $myValue['varSalePrice'];
-            $product_variant->stock = $myValue['stock'];
-            if (isset($myValue['varRegularPrice']) && $myValue['varRegularPrice']!="") {
-                $product_variant->auto_discount_rs = $myValue['varRegularPrice'] - $myValue['varSalePrice'];
-                $product_variant->auto_discount_percent = (($myValue['varRegularPrice'] - $myValue['varSalePrice']) * 100) / $myValue['varRegularPrice'];
-            }
-            //$user_discount_percentage = Settings::where('estatus',1)->pluck('user_discount_percentage')->first();
-            //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
-            $product_variant->term_item_id = $myValue['term_id'];
-            $product_variant->images = $myValue['varImage'];
-            $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
-
-            $temp_new_images = explode(",",$myValue['varImage']);
-            foreach ($temp_new_images as $temp_new_image){
-                if(in_array($temp_new_image,$product_variant_old_images)){
-                    array_push($not_removable_images,$temp_new_image);
-                }
-            }
-            $product_variant->save();
-
-            // if(isset($request->is_custom) && $request->is_custom == 1) {
-            //    $diamonds = Diamond::all();
-            //     foreach ($diamonds as $diamond) {
-            //         $diamond_variant = new DiamondVariant();
-            //         $diamond_variant->product_variant_id = $product_variant->id;
-            //         $diamond_variant->product_id = $product->id;
-            //         $diamond_variant->diamond_id = $diamond->id;
-            //         $diamond_variant->save();
-            //     }  
-            // }
+            $term_id = $myValue['term_id'];
             
-
-            if(isset($myValue['varVariation'])) {
-                $Variation = explode(",", $myValue['varVariation']);
-               // print_r($Variation); die;
-                foreach ($Variation as $vari) {
-                    $product_variant_variant = new ProductVariantVariant();
-                    $product_variant_variant->product_variant_id = $product_variant->id;
-                    $product_variant_variant->product_id = $product->id;
-                    $product_variant_variant->attribute_id = $vari;
-                    $product_variant_variant->attribute_term_id = $myValue['Variation' . $vari];
-                    $product_variant_variant->save();
+            for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
+                //dd($myValue['SKU-'.$term_id.'-'.$j]);
+                $product_variant = new ProductVariant();
+                $product_variant->product_id = $product->id;
+                $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
+                $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
+                $product_variant->sale_price = $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                $product_variant->stock = $myValue['stock-'.$myValue['term_id'].'-'.$j];
+                if (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") {
+                    $product_variant->auto_discount_rs = $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                    $product_variant->auto_discount_percent = (($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j]) * 100) / $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j];
                 }
-            }
+                //$user_discount_percentage = Settings::where('estatus',1)->pluck('user_discount_percentage')->first();
+                //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
+                $product_variant->term_item_id = $myValue['term_id'];
+                $product_variant->images = $myValue['varImage'];
+                $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
+
+                $temp_new_images = explode(",",$myValue['varImage']);
+                foreach ($temp_new_images as $temp_new_image){
+                    if(in_array($temp_new_image,$product_variant_old_images)){
+                        array_push($not_removable_images,$temp_new_image);
+                    }
+                }
+                $product_variant->save();
+            
+                //dd($myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                if(isset($myValue['varVariation'.$myValue['term_id'].'-'.$j])) {
+                    $Variation = explode(",", $myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                    //print_r($Variation); die;
+                    foreach ($Variation as $vari) {
+                    $Attributeterm = AttributeTerm::with('attribute')->where('id', $vari)->first()->toArray();
+                   
+                    //dd($vari);
+                        //foreach ($myValue['Variation' . $vari] as $vari1) {
+                            //dd($vari1);
+                            $product_variant_variant = new ProductVariantVariant();
+                            $product_variant_variant->product_variant_id = $product_variant->id;
+                            $product_variant_variant->product_id = $product->id;
+                            $product_variant_variant->attribute_id = $Attributeterm['attribute']['id'];
+                            $product_variant_variant->attribute_term_id = $vari;
+                            $product_variant_variant->save();
+                       // }
+                    }
+                }
+
+           }
  
-            if(isset($myValue['varSpecRequired'])) {
-                $varSpecRequired = explode(",", $myValue['varSpecRequired']);
-                
-                foreach ($varSpecRequired as $specReq) {
-                    $attribute_term_string = implode(',',$myValue['specReq' . $specReq]);
-                    $product_variant_specification = new ProductVariantSpecification();
-                    $product_variant_specification->product_variant_id = $product_variant->id;
-                    $product_variant_specification->product_id = $product->id;
-                    $product_variant_specification->attribute_id = $specReq;
-                    $product_variant_specification->attribute_term_id = $attribute_term_string;
-                    $product_variant_specification->type = 1;
-                    $product_variant_specification->save();
-                }
-            }
-
-            if (isset($myValue['varSpecOptional']) && $myValue['varSpecOptional']!="") {
-                $varSpecOptional = explode(",", $myValue['varSpecOptional']);
-                foreach ($varSpecOptional as $specOpt) {
-                    $attribute_term_string_opt = implode(',',$myValue['specOpt' . $specOpt]);
-                    $product_variant_specification = new ProductVariantSpecification();
-                    $product_variant_specification->product_variant_id = $product_variant->id;
-                    $product_variant_specification->product_id = $product->id;
-                    $product_variant_specification->attribute_id = $specOpt;
-                    $product_variant_specification->attribute_term_id = $attribute_term_string_opt;
-                    $product_variant_specification->type = 0;
-                    $product_variant_specification->save();
-                }
-            }
 
         }
-
+      
         foreach ($product_variant_old_images as $product_variant_old_image){
             if (!in_array($product_variant_old_image,$not_removable_images) && $request->action=="editProduct"){
                 $image = public_path($product_variant_old_image);
@@ -1158,7 +1138,7 @@ class ProductController extends Controller
 
         
         $html = '';
-        $html .= '<div id ="" class="single-attribute-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$spec['attribute_name'].'">';
+        $html .= '<div id ="" class="single-attribute-box col-lg-6 col-md-6  col-xs-12 panel panel-default" data-term="'.$spec['attribute_name'].'">';
         $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
@@ -1169,7 +1149,7 @@ class ProductController extends Controller
         $html .= '</div>';
         $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right d-flex align-items-center justify-content-end"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
         if($term_id != 1){
-        $html .='<span data-id="'.$term_id.'" class="close-icon RemoveAttributeBox"><i class="fa fa-times" aria-hidden="true"></i></span>';
+        $html .='<span data-id="'.$term_id.'" attr-id="'.$spec['id'].'" class="close-icon RemoveAttributeBox"><i class="fa fa-times" aria-hidden="true"></i></span>';
         }
         $html .='<div id=""></div></div>';
         $html .= '</div>';
@@ -1186,11 +1166,19 @@ class ProductController extends Controller
         $html .= '
                     <div class="form-group">
                         <div class="form-check">
-                        <input type="checkbox" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
-                                    Used for variations ?</label>
+                        <input type="checkbox" class="myClassA" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
+                                    Use for variations ?</label>
                         </div>
                     </div>
                 ';
+        $html .= '
+                <div class="form-group">
+                    <div class="form-check">
+                    <input type="checkbox" class="check" name="use_comman'.$required_variation['id'].'" > 
+                    <label class="form-check-label"> Use for comman ?</label>
+                    </div>
+                </div>
+            ';        
         $html .= '</form>';
         $html .= '</div>';
         $html .= '</div>';
@@ -1202,26 +1190,415 @@ class ProductController extends Controller
        //dd($request->all());
         $attr_ids = explode(",",$request['attr_ids']);
         $product_attributes = \DB::table('product_attributes')->where('product_u_id', $request->product_u_id)->delete();
+        $array_comman = [];
         for ($i=1;$i<=count($attr_ids);$i++) {
             $myValue = array();
             $str ="attributeForm".$i;
             
             parse_str($request[$str],$myValue);
-            //dd($myValue);
             $attrReq = $myValue['attribute_id'];
+            //dd($myValue);
+            $use_comman = isset($myValue['use_comman' . $attrReq]) ? 1 : 0;
+            
+            if($use_comman){
+               $comman = 1;
+               $array_comman = $myValue['Attribute' . $attrReq];
+            }
+            
             $attribute_term_string = implode(',',$myValue['Attribute' . $attrReq]);
             $productattributes = \DB::table('product_attributes')->insert([
                 'product_id' => isset($request->product_id) ? $request->product_id : 0,
                 'product_u_id' => $request->product_u_id,
                 'attribute_id' => $myValue['attribute_id'],
                 'use_variation' => isset($myValue['attribute_variation' . $attrReq]) ? 1 : 0 ,
+                'use_comman' => isset($myValue['use_comman' . $attrReq]) ? 1 : 0 ,
                 'terms_id' => $attribute_term_string
             ]);
-           
+  
         }
 
-        return ['status' => 200];
+
+        if(isset($comman) && $comman == 1){
+            $term_id = 1; 
+            $html = '';  
+            if(!isset($request->product_id)  && $request->product_id ==""){ 
+                foreach($array_comman as $aattrReq){
+                            $term_name = 'test';
+                            $productattributes = ProductAttribute::where('product_u_id',$request->product_u_id)->where('use_variation',1)->where('use_comman','<>',1)->get()->toArray();
+                            $spec_comm = AttributeTerm::where('id', $aattrReq)->first()->toArray();
+                            $term_name = $spec_comm['attrterm_name'];
+                            $required_variations = array();
+                            $required_variation_ids = array();
+                            
+                            foreach ($productattributes as $req) {
+                                $term_ids = explode(',',$req['terms_id']);
+                                //dd($term_ids);
+                                $spec = Attribute::with(['attributeterm' => function($q) use($term_ids){
+                                    $q->wherein('attribute_terms.id', $term_ids);
+                                    //$q->where('some other field', $userId );
+                                }] )->where('id', $req['attribute_id'])->first()->toArray();
+                                //dump($spec);
+                                if (isset($spec['attributeterm']) && !empty($spec['attributeterm'])) {
+                                    array_push($required_variations, $spec);
+                                    array_push($required_variation_ids, $spec['id']);
+                                }
+                            }
+                            
+                            $html_required_variation = '';
+                            if (isset($required_variations) && !empty($required_variations)){
+                                $html_required_variation .= '<div class="row VariationSelect">';
+                                $html_required_variation .= '<input type="hidden" name="comman_id" value="'.$spec_comm['id'].'">';
+                                $html_required_variation .= '<input type="hidden" name="varVariation" value="'.implode(",",$required_variation_ids).'">';
+                                $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>';
+                                $no = 1;
+                                foreach ($required_variations as $required_variation){
+                                    $html_required_variation.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                                        <div class="form-group row">
+                                                                            <label class="col-lg-12 col-form-label" for="VariationAttr">';
+                                    $html_required_variation .= $required_variation['attribute_name'];
+                                    $html_required_variation .= ' <span class="text-danger">*</span></label>';
+                                    $html_required_variation .= '<div class="col-lg-12">';
+                                    $html_required_variation .= '<select class="form-control Variation" id="" id-data="Variation'.$required_variation['id'].'" name="Variation'.$required_variation['id'].'[]" multiple>';
+                                    $html_required_variation .= '<option></option>';
+                                    foreach ($required_variation['attributeterm'] as $term){
+                                        $html_required_variation .= '<option value="';
+                                        $html_required_variation .= $term['id'];
+                                        $html_required_variation .= '">';
+                                        $html_required_variation .= $term['attrterm_name'];
+                                        $html_required_variation .= '</option>';
+                                    }
+                                    $html_required_variation .= '</select>';
+                                    $html_required_variation .= '</div>';
+                                    $html_required_variation .= '</div>';
+                                    $html_required_variation .= '<label id="Variation'.$required_variation['id'].'-error" class="error invalid-feedback animated fadeInDown" for=""></label>';
+                                    $html_required_variation .= '</div>';
+                                    $no = ++$no;
+                                }
+                                $html_required_variation .= '</div>';
+                            }
+                    
+                            $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
+                            $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
+                            $html .= '<div class="col-lg-10 col-sm-8">';
+                            $html .= '<label class="col-form-label">';
+                            $html .= '<b><span class="VariantCnt">';
+                            $html .= $term_name;
+                            $html .= '</span></b>';
+                            $html .= '</label>';
+                            $html .= '</div>';
+                            $html .= '<div class="col-lg-2 col-sm-2 actionbox ml-auto text-right d-flex align-items-center justify-content-end"><a role="button" class="collapse-arrow variantbox-collapse d-inline-block pr-4" data-toggle="collapse" href="#" aria-expanded="true" onclick="collapsePanel(this)"></a>';
+                            if($term_id != 1){
+                            //$html .='<span data-id="'.$term_id.'" class="close-icon RemoveBox"><i class="fa fa-times" aria-hidden="true"></i></span>';
+                            }
+                            $html .='<div id=""></div></div>';
+                            $html .= '</div>';
+                            $html .= '';
+                            $html .= '<div id="" role="tabpanel" class="panel-collapse collapse show variation-product-box">';
+                            $html .= '<form method="post" enctype="multipart/form-data" class="variantForm" id="variantForm">';
+                            $html .= csrf_field();
+                            $html .= '<input type="hidden" name="term_id" value="'.$term_id.'">';
+                            $html .= $html_required_variation;
+                            $html .= '<button type="button" style="background-color: #e7e7e7; color: black;" class="AddSubSub btn d-inline-block mb-3" id="AddSubSub" style="display: none"> Add </button>';
+
+                            $html .= '<div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <label>Variant Product Image <span class="text-danger">*</span></label>
+                                                    <input type="file" name="files[]" id="varImgFiles-'.$term_id.'" multiple="multiple">
+                                                    <input type="hidden" name="varImage" id="varImage-'.$term_id.'" class="varImg" value="">
+                                                    <label id="varImage-error" class="error invalid-feedback animated fadeInDown" for="varImage" style="display: none;"></label>
+                                                    <script type="text/javascript">
+                                                        var ImageUrl = $("#web_url").val() + "/admin/";
+                                                        jQuery(document).ready(function() {
+                                                            jQuery("#varImgFiles-'.$term_id.'").filer({
+                                                                limit: 8,
+                                                                maxSize: null,
+                                                                fileMaxSize: 5,
+                                                                extensions: ["jpg", "jpeg", "png"],
+                                                                changeInput: \'<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>\',
+                                                                showThumbs: true,
+                                                                theme: "dragdropbox",
+                                                                templates: {
+                                                                    box: \'<ul class="jFiler-items-list jFiler-items-grid"></ul>\',
+                                                                    item:  \'<li class="jFiler-item">\
+                                                                                                                <div class="jFiler-item-container">\
+                                                                                                                    <div class="jFiler-item-inner">\
+                                                                                                                        <div class="jFiler-item-thumb">\
+                                                                                                                            <div class="jFiler-item-status"></div>\
+                                                                                                                            {{fi-image}}\
+                                                                                                                        </div>\
+                                                                                                                        <div class="jFiler-item-assets jFiler-row">\
+                                                                                                                            <ul class="list-inline pull-left">\
+                                                                                                                                <li>{{fi-progressBar}}</li>\
+                                                                                                                            </ul>\
+                                                                                                                            <ul class="list-inline pull-right">\
+                                                                                                                                <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                                                                                                            </ul>\
+                                                                                                                        </div>\
+                                                                                                                    </div>\
+                                                                                                                </div>\
+                                                                                                            </li>\',
+                                                                    itemAppend: \'<li class="jFiler-item">\
+                                                                                                                    <div class="jFiler-item-container">\
+                                                                                                                        <div class="jFiler-item-inner">\
+                                                                                                                            <div class="jFiler-item-thumb">\
+                                                                                                                                <div class="jFiler-item-status"></div>\
+                                                                                                                                {{fi-image}}\
+                                                                                                                            </div>\
+                                                                                                                            <div class="jFiler-item-assets jFiler-row">\
+                                                                                                                                <ul class="list-inline pull-left">\
+                                                                                                                                    <li><span class="jFiler-item-others">{{fi-icon}}</span></li>\
+                                                                                                                                </ul>\
+                                                                                                                                <ul class="list-inline pull-right">\
+                                                                                                                                    <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+                                                                                                                                </ul>\
+                                                                                                                            </div>\
+                                                                                                                        </div>\
+                                                                                                                    </div>\
+                                                                                                                </li>\',
+                                                                    progressBar: \'<div class="bar"></div>\',
+                                                                    itemAppendToEnd: true,
+                                                                    canvasImage: true,
+                                                                    removeConfirmation: true,
+                                                                    _selectors: {
+                                                                        list: \'.jFiler-items-list\',
+                                                                        item: \'.jFiler-item\',
+                                                                        progressBar: \'.bar\',
+                                                                        remove: \'.jFiler-item-trash-action\'
+                                                                    }
+                                                                },
+                                                                dragDrop: {
+                                                                    dragEnter: null,
+                                                                    dragLeave: null,
+                                                                    drop: null,
+                                                                    dragContainer: null,
+                                                                },
+                                                                appendTo: "#varUploadedImgBox-'.$term_id.'",
+                                                                uploadFile: {
+                                                                    url: ImageUrl + "variant/uploadfile?action=uploadProductImages",
+                                                                    data: {\'_token\': jQuery(\'meta[name="csrf-token"]\').attr(\'content\')},
+                                                                    type: \'POST\',
+                                                                    enctype: \'multipart/form-data\',
+                                                                    synchron: true,
+                                                                    beforeSend: function () {
+                                                                    },
+                                                                    success: function (res, itemEl, listEl, boxEl, newInputEl, inputEl, id) {
+                                                                        var parent = itemEl.find(".jFiler-jProgressBar").parent(),
+                                                                            new_file_name = res.data,
+                                                                            filerKit = inputEl.prop("jFiler");
+                                                                        var varImgName = jQuery("#varImage-'.$term_id.'").val();
+                                                                        if (varImgName == "") {
+                                                                            jQuery("#varImage-'.$term_id.'").val(new_file_name);
+                                                                        } else {
+                                                                            jQuery("#varImage-'.$term_id.'").val(varImgName + "," + new_file_name);
+                                                                        }
+                                                                        filerKit.files_list[id].name = new_file_name;
+                                                    
+                                                                        itemEl.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+                                                                            jQuery("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+                                                                        });
+                                                                        jQuery("#varImage'.$term_id.'-error").html("");
+                                                                        jQuery("#varImage'.$term_id.'-error").hide();
+                                                                    },
+                                                                    error: function (el) {
+                                                                        var parent = el.find(".jFiler-jProgressBar").parent();
+                                                                        el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
+                                                                            jQuery("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
+                                                                        });
+                                                                    },
+                                                                    statusCode: null,
+                                                                    onProgress: null,
+                                                                    onComplete: null
+                                                                },
+                                                                files: null,
+                                                                addMore: false,
+                                                                allowDuplicates: true,
+                                                                clipBoardPaste: true,
+                                                                excludeName: null,
+                                                                beforeRender: null,
+                                                                afterRender: null,
+                                                                beforeShow: null,
+                                                                beforeSelect: null,
+                                                                onSelect: null,
+                                                                afterShow: null,
+                                                                onRemove: function (itemEl, file, id, listEl, boxEl, newInputEl, inputEl) {
+                                                                        var filerKit = inputEl.prop("jFiler"),
+                                                                        file_name = filerKit.files_list[id].name;
+                    
+                                                                        jQuery.post(ImageUrl+\'variant/removefile?action=removeProductImages\', {\'_token\': $(\'meta[name="csrf-token"]\').attr(\'content\'),file: file_name});
+                                                                        var varImgName = jQuery("#varImage-'.$term_id.'").val();
+                                                                        var varImgValues = varImgName.split(",");
+                                                                        var newVarImgvalues="";
+                                                                        for(var i = 0 ; i < varImgValues.length ; i++) {
+                                                                            if(varImgValues[i] == file_name) {
+                                                                            varImgValues.splice(i, 1);
+                                                                            newVarImgvalues = varImgValues.join(",");
+                                                                            }
+                                                                        }
+                                                                        jQuery("#varImage-'.$term_id.'").val(newVarImgvalues);
+                                                                },
+                                                                onEmpty: null,
+                                                                options: null,
+                                                                dialogs: {
+                                                                    alert: function (text) {
+                                                                        return alert(text);
+                                                                    },
+                                                                    confirm: function (text, callback) {
+                                                                        confirm(text) ? callback() : null;
+                                                                    }
+                                                                },
+                                                                captions: {
+                                                                    button: "Choose Files",
+                                                                    feedback: "Choose files To Upload",
+                                                                    feedback2: "files were chosen",
+                                                                    drop: "Drop file here to Upload",
+                                                                    removeConfirmation: "Are you sure you want to remove this file?",
+                                                                    errors: {
+                                                                        filesLimit: "Only {{fi-limit}} files are allowed to be uploaded.",
+                                                                        filesType: "Only Images are allowed to be uploaded.",
+                                                                        filesSize: "{{fi-name}} is too large! Please upload file up to {{fi-fileMaxSize}} MB.",
+                                                                        filesSizeAll: "Files you\'ve choosed are too large! Please upload files up to {{fi-maxSize}} MB."
+                                                                    }
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                                                    <label for="varUploadedImgBox">Thumbnail Display</label>
+                                                    <div id="varUploadedImgBox-'.$term_id.'" class="varUploadedImgBox"></div>
+                                                </div>
+                                        </div>';
+                                        $html .= '<div class="row subdata"></div>';
+                        
+                            $html .= '</form>';
+                            $html .= '</div>';
+                            $html .= '</div>';
+                $term_id = ++$term_id;         
+                }
+                $action ="add";
+            }else{
+                $action ="edit";
+            }
+         }
+
+        return ['status' => 200,'array_comman' => $html,'action' => $action];
     }
+
+    
+
+
+    public function subproductattributesave(Request $request){
+        //dd($request->all());
+        // $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II','656']);
+        // dd($matrix);
+         
+        $attr_ids = explode(",",$request['varVariation']);
+        $Variation1 = isset($attr_ids[0])?$request['Variation'.$attr_ids[0]]:[];
+        $Variation2 = isset($attr_ids[1])?$request['Variation'.$attr_ids[1]]:[];
+        $Variation3 = isset($attr_ids[2])?$request['Variation'.$attr_ids[2]]:[];
+        $Variation4 = isset($attr_ids[3])?$request['Variation'.$attr_ids[3]]:[];
+        // $options = [];
+        // $array1 = [];
+        // for($i = 0; $i < count($attr_ids); $i++){
+        //     $array1[] = $request['Variation'.$attr_ids[$i]];
+
+        //     //$rr[] = '$array1'.$i;
+        //     //array_push($options, $request['Variation'.$attr_ids[$i]]);
+        //     //dump($array1);
+        // } 
+        // $dd = implode(',',$rr);
+        // dd($dd);
+        if(!empty($Variation4)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2, $Variation3, $Variation4);
+        }elseif(!empty($Variation3)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2, $Variation3);
+        }elseif(!empty($Variation2)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2);
+        }elseif(!empty($Variation1)){
+            $matrix = Arr::crossJoin($Variation1);
+        }    
+        
+        //dd($matrix);
+        $t =$request['term_id'];
+        $comman_id =$request['comman_id'];
+        
+        $term_id = 1; 
+        $html = '';  
+        $required_variation_ids = ''; 
+        for($i = 0; $i < count($matrix); $i++){
+            
+        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
+        $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
+       
+        $name = $AttributeTermc->attrterm_name; 
+        //dd($matrix[$i]); die; 
+        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
+        $required_variation_ids = $comman_id;
+        foreach($matrix[$i] as $key => $tt){
+            $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+            $name = $name.'-'.$AttributeTerm->attrterm_name;
+
+                $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
+                $required_variation_ids = $required_variation_ids.','.$tt;
+     
+        } 
+        //dd($required_variation_ids);
+        
+        $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
+        $html .= '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        
+                        <div class="col-lg-12 font-weight-bold">
+                            '.$name.'
+                        </div>
+                    </div>
+                </div>';    
+        $html .= '
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-2">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default varRegularPrice priRegPrice" id="" name="varRegularPrice-'.$t.'-'.$term_id.'" value="">
+                            <label id="varRegularPrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varRegularPrice"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default varSalePrice priSalePrice" id="" name="varSalePrice-'.$t.'-'.$term_id.'" value="">
+                            <label id="varSalePrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varSalePrice"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
+                        <div class="col-lg-12">
+                            <input type="number" class="form-control input-default stock" id="" name="stock-'.$t.'-'.$term_id.'" value="">
+                            <label id="stock-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="stock"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
+                            <label id="SKU-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
+                        </div>
+                    </div>
+                </div>
+            ';
+        $term_id = ++$term_id;              
+        }
+        //dd($required_variation_ids);
+        
+ 
+         return ['status' => 200,'data' => $html];
+     }
 
 
 

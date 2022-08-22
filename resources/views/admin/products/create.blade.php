@@ -163,7 +163,7 @@
                                                         </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="button" class="AddSub btn btn-primary d-inline-block mb-3" id="AddSub" style="display: none"> + </button>
+                                                    <button type="button" class="AddSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> + </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                                     <div class="row add-value-sub" id="attribute-data">
                                     </div>
                                 </div>
-                                <button type="button" class="save_attributes btn btn-primary" id="save_attributes" style="display:none;">Save attributes</button>
+                                <button type="button" style="background-color: #e7e7e7; color: black;" class="save_attributes btn mt-3" id="save_attributes" style="display:none;">Save attributes</button>
                                 
                             </div>
                         </div>
@@ -194,7 +194,7 @@
             <div class="col-md-12">
                 <div class="card variantCard" id="variantProductBox" >
                     <div class="card-body">
-                        <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Variant Box</button>
+                        <!-- <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Variant Box</button> -->
                         <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -220,7 +220,7 @@
                 <div class="card" id="">
                     <div class="card-body newcard-body row">
                         <div class="col-lg-6 col-sm-6">
-                            <button type="button" id="SubmitProductBtn" name="SubmitProductBtn" class="btn btn-primary mr-2 mt-4">Submit Product <i class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
+                            <button type="button" id="SubmitProductBtn" name="SubmitProductBtn" class="btn btn-primary mr-2 ">Submit Product <i class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
 {{--                            <button type="button" id="saveDraftBtn" name="saveDraftBtn" class="btn btn-outline-primary mt-4">Save As Draft <i class="fa fa-circle-o-notch fa-spin draftloader" style="display:none;"></i></button>--}}
                         </div>
                         <div class="col-lg-6 col-sm-6 text-right">
