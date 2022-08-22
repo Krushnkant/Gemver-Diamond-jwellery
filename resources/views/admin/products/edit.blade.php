@@ -151,6 +151,30 @@
 
                                     </form>
 
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Note</h4>
+                            <textarea class="form-control input-default" name="notes" id="notes" rows="16">{{ isset($product->note)?$product->note:'' }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            
+
+                           
+
                                     <div class="row" >
                                         <div class="col-md-12">
                                             <div class="form-group attribute" >
@@ -268,16 +292,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Note</h4>
-                            <textarea class="form-control input-default" name="notes" id="notes" rows="7">{{ isset($product->note)?$product->note:'' }}</textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
+               
         
         <!-- <button class="AddBox btn btn-primary" id="AddBox" > Add Box</button> -->
         <div class="row">
