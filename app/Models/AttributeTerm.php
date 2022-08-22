@@ -21,4 +21,8 @@ class AttributeTerm extends Model
         'estatus',
         'attribute_id'
     ];
+
+    public function attribute(){
+        return $this->hasOne(Attribute::class,'id','attribute_id');
+    }
 }
