@@ -449,7 +449,7 @@ class DiamondController extends Controller
                             <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'"></a>
                             </div><div class="text-center">';
                             foreach($images as $image){
-                                $output .= '<span class="form-check d-inline-block ">
+                                $artilces .= '<span class="form-check d-inline-block ">
                                     <a href="">
                                     
                                     <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
