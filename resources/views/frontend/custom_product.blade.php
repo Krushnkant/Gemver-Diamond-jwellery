@@ -227,7 +227,7 @@
             </div>
             <div class="col-md-6">
                 @foreach($Attributes as $attribute)
-                @if($attribute->is_specification == 0)      
+                   
                         <div class="round_cut_lab_range_slider row">
                                 <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
                                 <div class="col-md-12">    
@@ -239,19 +239,7 @@
                                     @endforeach 
                                 </div>
                         </div>
-                        @else
-                        <div class="round_cut_lab_range_slider mb-2 mb-xxl-5">
-                            <div class="round_cut_lab_diamonds_heading mb-4">{{ $attribute->attribute_name }}</div>
-                            <div>
-                                @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3">
-                                        <input type="checkbox" class="common_selector specification"  name="specification[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach 
-                            </div>
-                        </div>
-                        @endif
+                      
                     @endforeach
             </div>
         </div>
