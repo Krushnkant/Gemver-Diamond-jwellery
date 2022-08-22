@@ -1313,20 +1313,9 @@ $(document).ready(function(){
         // var is_custom = $('#is_custom').val();
        
         //var valid_attributes = validateAttributesForm();
-        //var valid_variants_sub = validateVariantsFormSub();
-        // valid = false;
-        // var this_form = $(this).parents("form");
-        //      this_form.find('.Variation').each(function() {
-        //         var thi = $(this);
-        //         var this_err = $(thi).attr('id-data') + "-error";
-        //         if($(thi).val()=="" || $(thi).val()==null) {
-        //             $(this_form).find("#"+this_err).html("Please select any value");
-        //             $(this_form).find("#"+this_err).show();
-        //             valid = false;
-        //         }
-        //     })
+        var valid_variants_sub = validateVariantsFormSub();
 
-        if(valid==true){
+        if(valid_variants_sub==true){
             //var formData = new FormData($('#attributeForm')[0]);
           
             $.ajaxSetup({
