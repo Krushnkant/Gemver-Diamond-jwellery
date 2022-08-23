@@ -216,8 +216,8 @@
                                 </div>
                             </div>
                             @endif -->
-                            <div class="" id="specificationproduct123">
-                            </div>    
+                            <!-- <div class="" id="specificationproduct123">
+                            </div>  -->
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);

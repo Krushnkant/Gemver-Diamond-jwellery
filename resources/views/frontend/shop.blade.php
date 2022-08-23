@@ -52,25 +52,25 @@
                             </div>
                         </div>
                     </div>
+                    
+                    @foreach($Attributes as $attribute)
                     <div class="col-md-6">
                         <div class="round_cut_lab_range_slider mb-xxl-4 mb-4 mt-3 mt-md-0">
-                                    @foreach($Attributes as $attribute)
-                                   
-                                    <ul class="right_side_ul round_cut_lab_range_slider row">
-                                        <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
-                                        <div class="col-lg-12">
-                                            @foreach($attribute->attributeterm as $term)
-                                                <div class="form-group mb-3 d-inline-block me-3">
-                                                    <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                                    <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                                </div>
-                                            @endforeach 
+                            <ul class="right_side_ul round_cut_lab_range_slider row">
+                                <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
+                                <div class="col-lg-12">
+                                    @foreach($attribute->attributeterm as $term)
+                                        <div class="form-group mb-3 d-inline-block me-3">
+                                            <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                            <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                                         </div>
-                                    </ul>
-                                   
-                                @endforeach    
+                                    @endforeach 
+                                </div>
+                            </ul>
                         </div>
                     </div>
+                    @endforeach    
+                        
                         
                 </div>
                 

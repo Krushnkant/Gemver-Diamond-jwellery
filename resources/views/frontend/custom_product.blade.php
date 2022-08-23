@@ -225,23 +225,23 @@
                     </div>
                </div>
             </div>
-            <div class="col-md-6">
+            
                 @foreach($Attributes as $attribute)
-                   
-                        <div class="round_cut_lab_range_slider row">
-                                <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
-                                <div class="col-md-12">    
-                                    @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group me-3 d-inline-block">
-                                        <input type="checkbox" class="common_selector attribute"  name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                    @endforeach 
+                <div class="col-md-6">
+                    <div class="round_cut_lab_range_slider row">
+                            <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
+                            <div class="col-md-12">    
+                                @foreach($attribute->attributeterm as $term)
+                                <div class="form-group me-3 d-inline-block">
+                                    <input type="checkbox" class="common_selector attribute"  name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                    <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                                 </div>
-                        </div>
-                      
-                    @endforeach
-            </div>
+                                @endforeach 
+                            </div>
+                    </div>
+                </div>      
+                @endforeach
+            
         </div>
         <div class="wire_bangle_line"></div>
         <div class="row align-items-center d-flex justify-content-center">
