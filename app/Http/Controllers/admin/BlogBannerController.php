@@ -30,7 +30,9 @@ class BlogBannerController extends Controller
         $action = "create";
         $banners = BlogBanner::where('estatus',1)->get()->toArray();
         $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        return view('admin.blogbanners.list',compact('action','banners','categories'))->with('page',$this->page);
+        $homesettings = HomeSetting::first();
+        $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        return view('admin.blogbanners.list',compact('action','banners','categories','homesettings','products'))->with('page',$this->page);
     }
 
     public function save(Request $request){
