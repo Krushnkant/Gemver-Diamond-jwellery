@@ -593,10 +593,25 @@
                                                 </div>
                                              
                                             <div class="row">
+                                            <?php
+                                                $name_main = '';
+                                               
+                                                foreach($variant_term as $key => $tt){
+                                                    $ProductAttribute = \App\Models\ProductAttribute::whereRaw("FIND_IN_SET($tt, terms_id)")->where('product_id',$product->id)->where('use_comman',1)->first();
+                                                    if(isset($ProductAttribute->id)){
+                                                        $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+                                                        if(isset($AttributeTerm->attrterm_name)){
+                                                            $name_main = $AttributeTerm->attrterm_name;
+                                                        }
+                                                    }
+                                                }    
+                                            ?>
+                                                      
                                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                                    <div class="row">
+                                                <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            Veriation
+                                                          {{ $name_main }}  Veriation
+                                                          
                                                         </div>
                                                     </div>
                                                 </div>
@@ -639,12 +654,15 @@
                                                 $name = '';
                                                 $required_variation_ids ="";
                                                 foreach($variant_term as $key => $tt){
-                                                    $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
-                                                    if(isset($AttributeTerm->attrterm_name)){
-                                                        if($name != "" ){
-                                                        $name = $name.' | '.$AttributeTerm->attrterm_name;
-                                                        }else{
-                                                        $name = $AttributeTerm->attrterm_name;  
+                                                    $ProductAttribute = \App\Models\ProductAttribute::whereRaw("FIND_IN_SET($tt, terms_id)")->where('product_id',$product->id)->where('use_comman',0)->first();
+                                                    if(isset($ProductAttribute->id)){
+                                                        $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+                                                        if(isset($AttributeTerm->attrterm_name)){
+                                                            if($name != "" ){
+                                                            $name = $name.' | '.$AttributeTerm->attrterm_name;
+                                                            }else{
+                                                            $name = $AttributeTerm->attrterm_name;  
+                                                            }
                                                         }
                                                     }
                                                 ?>
