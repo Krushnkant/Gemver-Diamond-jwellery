@@ -444,19 +444,20 @@ class ProductController extends Controller
                 $vimage .='</div>';
     
             $spe_desc ='';
-            $product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('is_description',1)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
-            foreach($product_attributes_specification as $product_attribute_specification){  
-                $product_attribute_terms = explode(',',$product_attribute_specification->attribute_term_id);
+            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('is_description',1)->where('product_id',$product_id)->groupBy('attributes.id')->get();
+            foreach($product_attributes_specification as $product_attribute_specification){ 
+                //dd($product_attribute_specification->terms_id); 
+                $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
             
-            $spe_desc .='<div class="px-0 mt-4 pt-xl-2">
+                $spe_desc .='<div class="px-0 mt-4 pt-xl-2">
                     <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
                 </div>
                 <div class="row custom_product_detail">';
                 foreach($product_attributes_term_des as $attrterm_description){  
-                    $spe_desc .='<div class="col-md-6 mt-2 mt-md-0 px-0 position-relative custom_product_des">
+                    $spe_desc .='<div class="col-md-6 mt-3  px-0 position-relative custom_product_des">
                         <div class="">
                             <p class="wire_diamond_pargraph">'.$attrterm_description.'</p>
                         </div>
