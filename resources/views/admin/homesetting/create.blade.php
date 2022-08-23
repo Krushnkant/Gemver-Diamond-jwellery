@@ -96,15 +96,25 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
 
                             <div class="form-group">
                                 <label class="col-form-label" for="homeIconFiles"> Image  
                                 </label>
                                 <input type="file" name="files[]" id="homeIconFiles" multiple="multiple">
                                 <input type="hidden" name="homeImg" id="homeImg" value="">
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group"> 
+                            
                                 <?php
                                 if( isset($homesettings) && isset($homesettings->section_customise_image) ){
                                 ?>
+                                    <label class="col-form-label" for="homeIconFiles"> Thumbnail Display  
+                                     </label>
                                     <div class="jFiler-items jFiler-row oldImgDisplayBox">
                                         <ul class="jFiler-items-list jFiler-items-grid">
                                             <li id="ImgBox1" class="jFiler-item" data-jfiler-index="1" style="">
@@ -127,6 +137,8 @@
                                     </div>
                                 <?php } ?>
                                 <div id="homethumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
                             </div>
                             <hr>
                             <h4 class="card-title">
