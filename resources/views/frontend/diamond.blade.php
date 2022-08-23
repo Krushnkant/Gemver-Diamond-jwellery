@@ -693,7 +693,7 @@
                         
                         if(scroll == 1){
                             if (response['artilces'] == "") {
-                                $('.auto-load').html("We don't have more data to display :");
+                                $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }
                             $('.auto-load').hide();   
