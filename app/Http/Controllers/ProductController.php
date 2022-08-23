@@ -76,6 +76,12 @@ class ProductController extends Controller
                 $query = $query->where('product_variant_variants.estatus',1);
             }
 
+            // if(isset($data["attribute"])){
+            //     $attribute=$data["attribute"];
+            //     $query = $query->where('product_attributes.terms_id',$data["attribute"]);
+            //     //$query = $query->where('product_attributes.estatus',1);
+            // }
+
             if(isset($data["specification"])){
                 $specification=$data["specification"];
                 $query = $query->where('product_variant_specifications.attribute_term_id',$specification);

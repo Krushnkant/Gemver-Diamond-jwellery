@@ -26,7 +26,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null,
             'icon_class' => 'fa fa-users',
             'is_display_in_menu' => 1,
-            'sr_no' => 2
+            'sr_no' => 90
         ]);
 
         ProjectPage::create([
@@ -56,7 +56,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null,
             'icon_class' => 'icon-diamond',
             'is_display_in_menu' => 1,
-            'sr_no' => 2
+            'sr_no' => 91
         ]);
 
         ProjectPage::create([
@@ -65,7 +65,8 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Category',
             'route_url' => 'admin.categories.list',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.categories.list,admin.categories.add,admin.categories.save,admin.allcategorylist,admin.categories.changecategorystatus,admin.categories.delete,admin.categories.edit,admin.categories.uploadfile,admin.categories.removefile,admin.categories.checkparentcat'
+            'inner_routes' => 'admin.categories.list,admin.categories.add,admin.categories.save,admin.allcategorylist,admin.categories.changecategorystatus,admin.categories.delete,admin.categories.edit,admin.categories.uploadfile,admin.categories.removefile,admin.categories.checkparentcat',
+            'sr_no' => 1
         ]);
 
         ProjectPage::create([
@@ -74,7 +75,8 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Attributes',
             'route_url' => 'admin.attributes.list',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.attributes.list,admin.attributes.addorupdate,admin.allattributeslist,admin.attributes.edit,admin.attributes.delete,admin.attributes.chageattributestatus,admin.attributeTerms.list,admin.attributeTerms.addorupdate,admin.allattributesTermlist,admin.attributeTerms.chageattributeTermstatus,admin.attributeTerms.edit,admin.attributeTerms.delete'
+            'inner_routes' => 'admin.attributes.list,admin.attributes.addorupdate,admin.allattributeslist,admin.attributes.edit,admin.attributes.delete,admin.attributes.chageattributestatus,admin.attributeTerms.list,admin.attributeTerms.addorupdate,admin.allattributesTermlist,admin.attributeTerms.chageattributeTermstatus,admin.attributeTerms.edit,admin.attributeTerms.delete',
+            'sr_no' => 2
         ]);
 
         ProjectPage::create([
@@ -83,207 +85,83 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Product',
             'route_url' => 'admin.products.list',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.products.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete'
+            'inner_routes' => 'admin.products.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete',
+            'sr_no' => 3
+        ]);
+
+
+
+        ProjectPage::create([
+            'id' => 8,
+            'parent_menu' => 4,
+            'label' => 'Custom Product',
+            'route_url' => 'admin.customproducts.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.customproducts.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allcustomproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete',
+            'sr_no' => 4
         ]);
 
         ProjectPage::create([
             'id' => 9,
             'parent_menu' => 4,
-            'label' => 'Custom Product',
-            'route_url' => 'admin.customproducts.list',
+            'label' => 'Order Includes',
+            'route_url' => 'admin.order_includes.add',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.customproducts.list,admin.products.add,admin.getAttrVariation,admin.addVariantbox,admin.products.save,admin.products.uploadfile,admin.products.removefile,admin.allcustomproductlist,admin.products.edit,admin.products.changeproductstatus,admin.products.delete'
+            'inner_routes' => 'admin.order_includes.list,admin.order_includes.add,admin.order_includes.save,admin.allorder_includeslist,admin.order_includes.changeorder_includestatus,admin.order_includes.delete,admin.order_includes.edit',
+            'sr_no' => 5
+           
         ]);
         
 
-        // ProjectPage::create([
-        //     'id' => 8,
-        //     'parent_menu' =>17,
-        //     'label' => 'Faqs',
-        //     'route_url' => 'admin.faqs.list',
-        //     'is_display_in_menu' => 1,
-        //     'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.edit,admin.faqs.delete,admin.faqs.changeFaqsstatus',
-        //     'sr_no' => 6
-        // ]);
+       
     
+        
+
+        
+
         ProjectPage::create([
-            'id' => 10,
+            'id' => 12,
             'parent_menu' => 0,
+            'label' => 'Theme Setting',
+            'route_url' => null,
+            'icon_class' => 'fa fa-cog',
+            'is_display_in_menu' => 1,
+            'sr_no' => 100
+        ]);
+
+        
+        ProjectPage::create([
+            'id' => 13,
+            'parent_menu' => 12,
+            'label' => 'Mega Menu',
+            'route_url' => 'admin.megamenus.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.megamenus.list'
+        ]);
+
+        ProjectPage::create([
+            'id' => 14,
+            'parent_menu' => 12,
+            'label' => 'Offer',
+            'route_url' => 'admin.offers.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.offers.list,admin.offers.add,admin.offers.save,admin.allofferlist,admin.offers.changeofferstatus,admin.offers.delete,admin.offers.edit'
+        ]);
+
+        ProjectPage::create([
+            'id' => 40,
+            'parent_menu' => 12,
             'label' => 'Settings',
             'route_url' => 'admin.settings.list',
-            'icon_class' => 'fa fa-cog',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.settings.list,admin.settings.edit',
-            'sr_no' => 50
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.settings.list,admin.settings.edit'
         ]);
 
-        ProjectPage::create([
-            'id' => 11,
-            'parent_menu' => 17,
-            'label' => 'About Us',
-            'route_url' => 'admin.infopage.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.infopage.list,admin.infopage.editAboutus,admin.infopage.updateAboutus',
-            'sr_no' => 7
-        ]);
-        // ProjectPage::create([
-        //     'id' => 12,
-        //     'parent_menu' => 17,
-        //     'label' => 'Team Member',
-        //     'route_url' => 'admin.teammembers.list',
-        //     'is_display_in_menu' => 1,
-        //     'inner_routes' => 'admin.teammembers.list,admin.teammembers.addorupdateteam,admin.allteamslist,admin.users.changeteamstatus,admin.teammembers.edit,admin.teammembers.delete',
-        //     'sr_no' => 8
-        // ]);
-    
-        // ProjectPage::create([
-        //     'id' => 14,
-        //     'parent_menu' => 17,
-        //     'label' => 'Partner',
-        //     'route_url' => 'admin.partners.list',
-        //     'is_display_in_menu' => 1,
-        //     'inner_routes' => 'admin.partners.list,admin.partners.addorupdatepartner,admin.allpartnerslist,admin.users.changepartnerstatus,admin.partners.edit,admin.partners.delete',
-        //     'sr_no' => 11
-        // ]);
-        ProjectPage::create([
-            'id' => 15,
-            'parent_menu' => 0,
-            'label' => 'Testimonial',
-            'icon_class' => 'fa fa-users',
-            'route_url' => 'admin.testimonials.list',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.testimonials.list,admin.testimonials.addorupdatetestimonial,admin.alltestimonialslist,admin.users.changetestimonialstatus,admin.testimonials.edit,admin.testimonials.delete',
-            'sr_no' => 49
-        ]);
-        ProjectPage::create([
-            'id' => 16,
-            'parent_menu' => 0,
-            'label' => 'Contact Inquiry',
-            'route_url' => 'admin.contacts.list',
-            'icon_class' => 'fa fa-address-book',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.contacts.list,admin.contacts.delete',
-            'sr_no' => 48
-        ]);
-        // ProjectPage::create([
-        //     'id' => 17,
-        //     'parent_menu' => 0,
-        //     'label' => 'Pages',
-        //     'icon_class' => 'fa fa-file',
-        //     'is_display_in_menu' => 1,
-        //     'sr_no' => 10
-        // ]);
+       
 
-        ProjectPage::create([
-            'id' => 17,
-            'parent_menu' => 0,
-            'label' => 'Pages',
-            'route_url' => 'admin.infopage.page',
-            'icon_class' => 'fa fa-file',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.infopage.page',
-            'sr_no' => 10
-        ]);
-
-        ProjectPage::create([
-            'id' => 18,
-            'parent_menu' => 17,
-            'label' => 'Privacy Policy',
-            'route_url' => 'admin.privacy_policy.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.privacy_policy.list,admin.privacy_policy.editPrivacyPolicy,admin.privacy_policy.updatePrivacyPolicy',
-            'sr_no' => 7
-        ]);
-        ProjectPage::create([
-            'id' => 19,
-            'parent_menu' => 17,
-            'label' => 'Terms & Condition',
-            'route_url' => 'admin.terms_condition.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.terms_condition.list,admin.terms_condition.editTermsCondition,admin.terms_condition.updateTermsCondition',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 20,
-            'parent_menu' => 17,
-            'label' => 'Free Engraving',
-            'route_url' => 'admin.free_engraving.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.free_engraving.list,admin.free_engraving.editFreeEngraving,admin.free_engraving.updateFreeEngraving',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 21,
-            'parent_menu' => 17,
-            'label' => 'Free Resizing',
-            'route_url' => 'admin.free_resizing.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.free_resizing.list,admin.free_resizing.editFreeResizing,admin.free_resizing.updateFreeResizing',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 22,
-            'parent_menu' => 17,
-            'label' => 'Free Shipping',
-            'route_url' => 'admin.free_shipping.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.free_shipping.list,admin.free_shipping.editFreeShipping,admin.free_shipping.updateFreeShipping',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 23,
-            'parent_menu' => 17,
-            'label' => 'Lifetime Upgrade',
-            'route_url' => 'admin.lifetime_upgrade.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.lifetime_upgrade.list,admin.lifetime_upgrade.editLifetimeUpgrade,admin.lifetime_upgrade.updateLifetimeUpgrade',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 24,
-            'parent_menu' => 17,
-            'label' => 'Lifetime Warranty',
-            'route_url' => 'admin.lifetime_warranty.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.lifetime_warranty.list,admin.lifetime_warranty.editLifetimeWarranty,admin.lifetime_warranty.updateLifetimeWarranty',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 25,
-            'parent_menu' => 17,
-            'label' => 'Payment Options',
-            'route_url' => 'admin.payment_options.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.payment_options.list,admin.payment_options.editPaymentOptions,admin.payment_options.updatePaymentOptions',
-            'sr_no' => 7
-        ]);
-
-        ProjectPage::create([
-            'id' => 26,
-            'parent_menu' => 17,
-            'label' => 'Return Days',
-            'route_url' => 'admin.return_days.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.return_days.list,admin.return_days.editPaymentOptions,admin.return_days.updatePaymentOptions',
-            'sr_no' => 7
-        ]);
         
-        ProjectPage::create([
-            'id' => 27,
-            'parent_menu' => 0,
-            'label' => 'Inquiry',
-            'route_url' => 'admin.inquiries.list',
-            'icon_class' => 'fa fa-info',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.inquiries.list,admin.inquiries.delete',
-            'sr_no' => 14
-        ]);
+        
+        
         
         ProjectPage::create([ 
             'id' => 28, 
@@ -292,7 +170,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null, 
             'icon_class' => 'fa fa-clipboard', 
             'is_display_in_menu' => 1, 
-            'sr_no' => 14
+            'sr_no' => 92
         ]); 
  
         ProjectPage::create([ 
@@ -314,7 +192,7 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         ProjectPage::create([ 
-            'id' => 41, 
+            'id' => 39, 
             'parent_menu' => 28, 
             'label' => 'Blog Banners', 
             'route_url' => 'admin.blogbanners.list', 
@@ -345,31 +223,11 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 47 
         ]);
 
-        ProjectPage::create([ 
-            'id' => 33, 
-            'parent_menu' => 4, 
-            'label' => 'Diamond', 
-            'route_url' => 'admin.diamond.list', 
-            'is_display_in_menu' => 1, 
-            'inner_routes' => 'admin.diamond.list,admin.importview,admin.diamonds.save,admin.alldiamondlist',
-        ]);
-
-        ProjectPage::create([ 
-            'id' => 34, 
-            'parent_menu' => 0, 
-            'label' => 'Company', 
-            'route_url' => 'admin.company.list', 
-            'is_display_in_menu' => 0, 
-            'inner_routes' => 'admin.company.list',
-            'icon_class' => 'fa fa-building-o', 
-            'sr_no' => 21
-        ]);
-
-
+        
         ProjectPage::create([ 
             'id' => 35, 
             'parent_menu' => 0, 
-            'label' => 'Steps', 
+            'label' => 'Step for Buy', 
             'route_url' => 'admin.steps.list', 
             'is_display_in_menu' => 0, 
             'inner_routes' => 'admin.steps.list,admin.steps.add,admin.steps.save,admin.allsteplist,admin.steps.changestepstatus,admin.steps.delete,admin.steps.edit,admin.steps.uploadfile,admin.steps.removefile',
@@ -377,19 +235,10 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 22 
         ]);
 
-        // ProjectPage::create([
-        //     'id' => 36,
-        //     'parent_menu' => 0,
-        //     'label' => 'Home Page Settings',
-        //     'route_url' => 'admin.homesettings.create',
-        //     'icon_class' => 'fa fa-cog',
-        //     'is_display_in_menu' => 0,
-        //     'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit',
-        //     'sr_no' => 23
-        // ]);
+        
 
         ProjectPage::create([
-            'id' => 37,
+            'id' => 36,
             'parent_menu' => 0,
             'label' => 'Shop By Style',
             'route_url' => 'admin.shopbystyle.list',
@@ -399,60 +248,267 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 23
         ]);
 
+        
         ProjectPage::create([
-            'id' => 38,
+            'id' => 41,
             'parent_menu' => 0,
-            'label' => 'Import Excel',
-            'route_url' => 'admin.importview',
-            'icon_class' => 'fa fa-file-excel-o',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.importview,admin.diamonds.save',
-            'sr_no' => 24
-        ]);
-
-        ProjectPage::create([
-            'id' => 39,
-            'parent_menu' => 0,
-            'label' => 'Offer',
-            'route_url' => 'admin.offers.list',
-            'icon_class' => 'fa fa-gift',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.offers.list,admin.offers.add,admin.offers.save,admin.allofferlist,admin.offers.changeofferstatus,admin.offers.delete,admin.offers.edit',
-            'sr_no' => 25
-        ]);
-
-        ProjectPage::create([
-            'id' => 40,
-            'parent_menu' => 0,
-            'label' => 'Order Includes',
-            'route_url' => 'admin.order_includes.add',
-            'icon_class' => 'fa fa-first-order',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.order_includes.list,admin.order_includes.add,admin.order_includes.save,admin.allorder_includeslist,admin.order_includes.changeorder_includestatus,admin.order_includes.delete,admin.order_includes.edit',
-            'sr_no' => 26
+            'label' => 'Inquiries',
+            'route_url' => null,
+            'icon_class' => 'fa fa-address-book',
+            'is_display_in_menu' => 1,
+            'sr_no' => 93
         ]);
 
         ProjectPage::create([
             'id' => 42,
-            'parent_menu' => 0,
-            'label' => 'Mega Menu',
-            'route_url' => 'admin.megamenus.list',
-            'icon_class' => 'fa fa-first-order',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.megamenus.list',
-            'sr_no' => 27
+            'parent_menu' => 41,
+            'label' => 'Inquiry',
+            'route_url' => 'admin.inquiries.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.inquiries.list,admin.inquiries.delete'
+            
         ]);
 
         ProjectPage::create([
             'id' => 43,
-            'parent_menu' => 0,
-            'label' => 'Opinions',
-            'route_url' => 'admin.opinions.list',
-            'icon_class' => 'fa fa-first-order',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.opinions.list',
-            'sr_no' => 28
+            'parent_menu' => 41,
+            'label' => 'Contact Inquiry',
+            'route_url' => 'admin.contacts.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.contacts.list,admin.contacts.delete'
         ]);
+
+        ProjectPage::create([
+            'id' => 44,
+            'parent_menu' => 41,
+            'label' => 'Custom wants Opinion',
+            'route_url' => 'admin.opinions.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.opinions.list'
+            
+        ]);
+
+        ProjectPage::create([
+            'id' => 45,
+            'parent_menu' => 0,
+            'label' => 'Lab Diamonds',
+            'route_url' => null,
+            'icon_class' => 'fa fa-diamond',
+            'is_display_in_menu' => 1,
+            'sr_no' => 92
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 46, 
+            'parent_menu' => 45, 
+            'label' => 'Diamond', 
+            'route_url' => 'admin.diamond.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.diamond.list,admin.importview,admin.diamonds.save,admin.alldiamondlist',
+        ]);
+
+        ProjectPage::create([
+            'id' => 47,
+            'parent_menu' => 45,
+            'label' => 'Import Sheet',
+            'route_url' => 'admin.importview',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.importview,admin.diamonds.save'
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 48, 
+            'parent_menu' => 45, 
+            'label' => 'Diamond Merchants', 
+            'route_url' => 'admin.company.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.company.list'
+        ]);
+
+        ProjectPage::create([
+            'id' => 49,
+            'parent_menu' => 0,
+            'label' => 'Page',
+            'route_url' => null,
+            'icon_class' => 'fa fa-file',
+            'is_display_in_menu' => 1,
+            'sr_no' => 94
+        ]);
+
+        ProjectPage::create([
+            'id' => 50,
+            'parent_menu' => 49,
+            'label' => 'About Us',
+            'route_url' => 'admin.infopage.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.infopage.list,admin.infopage.editAboutus,admin.infopage.updateAboutus',
+            'sr_no' => 7
+        ]);
+
+
+         ProjectPage::create([
+            'id' => 51,
+            'parent_menu' => 49,
+            'label' => 'Customer Value',
+            'route_url' => 'admin.customer_value.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.customer_value.list,admin.customer_value.updateCustomerValue',
+            'sr_no' => 6
+        ]);
+
+       
+
+         ProjectPage::create([
+            'id' => 52,
+            'parent_menu' => 49,
+            'label' => 'Conflict Free Diamonds',
+            'route_url' => 'admin.conflict_free_diamonds.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.conflict_free_diamonds.list,admin.market_need.updateConflictFreeDiamonds',
+            'sr_no' => 8
+        ]);
+    
+        ProjectPage::create([
+            'id' => 53,
+            'parent_menu' => 49,
+            'label' => 'Diamond Anatomy',
+            'route_url' => 'admin.diamond_anatomy.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.diamond_anatomy.list,admin.infopage.editDiamondAnatomy,admin.infopage.updateDiamondAnatomy',
+            'sr_no' => 11
+        ]);
+
+        ProjectPage::create([
+            'id' => 54,
+            'parent_menu' => 49,
+            'label' => 'Free Engraving',
+            'route_url' => 'admin.free_engraving.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.free_engraving.list,admin.free_engraving.editFreeEngraving,admin.free_engraving.updateFreeEngraving',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 55,
+            'parent_menu' => 49,
+            'label' => 'Free Resizing',
+            'route_url' => 'admin.free_resizing.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.free_resizing.list,admin.free_resizing.editFreeResizing,admin.free_resizing.updateFreeResizing',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 56,
+            'parent_menu' => 49,
+            'label' => 'Free Shipping',
+            'route_url' => 'admin.free_shipping.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.free_shipping.list,admin.free_shipping.editFreeShipping,admin.free_shipping.updateFreeShipping',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 57,
+            'parent_menu' => 49,
+            'label' => 'Home Settings',
+            'route_url' => 'admin.homesettings.create',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit'
+        ]);
+
+        ProjectPage::create([
+            'id' => 58,
+            'parent_menu' => 49,
+            'label' => 'Lifetime Upgrade',
+            'route_url' => 'admin.lifetime_upgrade.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.lifetime_upgrade.list,admin.lifetime_upgrade.editLifetimeUpgrade,admin.lifetime_upgrade.updateLifetimeUpgrade',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 59,
+            'parent_menu' => 49,
+            'label' => 'Lifetime Warranty',
+            'route_url' => 'admin.lifetime_warranty.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.lifetime_warranty.list,admin.lifetime_warranty.editLifetimeWarranty,admin.lifetime_warranty.updateLifetimeWarranty',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 60,
+            'parent_menu' => 49,
+            'label' => 'Learn About Lab Made Diamonds',
+            'route_url' => 'admin.learn_about_lab_made_diamonds.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.learn_about_lab_made_diamonds.list,admin.market_need.updateLearnAboutLabMadeDiamonds'
+        ]);
+
+        ProjectPage::create([
+            'id' => 61,
+            'parent_menu' => 49,
+            'label' => 'Market Need',
+            'route_url' => 'admin.market_need.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.market_need.list,admin.market_need.updateMarketNeed'
+        ]);
+
+        ProjectPage::create([
+            'id' => 62,
+            'parent_menu' => 49,
+            'label' => 'Payment Options',
+            'route_url' => 'admin.payment_options.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.payment_options.list,admin.payment_options.editPaymentOptions,admin.payment_options.updatePaymentOptions',
+            'sr_no' => 7
+        ]);
+      
+        
+       
+        ProjectPage::create([
+            'id' => 63,
+            'parent_menu' => 49,
+            'label' => 'Privacy Policy',
+            'route_url' => 'admin.privacy_policy.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.privacy_policy.list,admin.privacy_policy.editPrivacyPolicy,admin.privacy_policy.updatePrivacyPolicy',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 64,
+            'parent_menu' => 49,
+            'label' => 'Return Days',
+            'route_url' => 'admin.return_days.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.return_days.list,admin.return_days.editPaymentOptions,admin.return_days.updatePaymentOptions',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 65,
+            'parent_menu' => 49,
+            'label' => 'Terms & Condition',
+            'route_url' => 'admin.terms_condition.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.terms_condition.list,admin.terms_condition.editTermsCondition,admin.terms_condition.updateTermsCondition',
+            'sr_no' => 7
+        ]);
+
+        
+
+        
+
+        
+
+
+
+        
+        
+
+        
 
        
 

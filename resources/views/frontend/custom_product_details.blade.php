@@ -332,9 +332,8 @@
                             echo $spe;
                              ?>
                             </div>
-                            <div class="row mb-4" id="specificationproduct123">
-
-                            </div>
+                            <!-- <div class="row mb-4" id="specificationproduct123">
+                            </div> -->
                             <div class="row mb-4" id="specificationproduct143">
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
