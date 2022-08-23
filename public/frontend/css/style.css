@@ -4201,3 +4201,6 @@ background-size: cover;
     .avoid-clicks {
         pointer-events: none;
       }
+      .shop_by_category_padding{
+        padding-bottom: 30px;
+      }
