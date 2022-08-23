@@ -345,8 +345,8 @@
                             ?>
                         
                             <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                <span class="d-block col-6 col-sm-3 col-md-4 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }}</span>
-                                <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 col-xl-9">{{ $product_attribute_term_name }}</span>
+                                <span class="d-block col-6 col-sm-4 col-md-5 col-xl-8 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }}</span>
+                                <span class="wire_bangle_color_theme d-block col-6 col-sm-8 col-md-7 col-xl-8">{{ $product_attribute_term_name }}</span>
                             </div>
                                
                             <?php

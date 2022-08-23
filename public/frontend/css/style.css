@@ -1861,7 +1861,7 @@ background-size: cover;
         font-weight: 500;
         font-size: 14px;
         line-height: 14px;
-        color: #cfab75;
+        color: var(--secondary);
         margin-bottom: 5px !important;
     }
     
