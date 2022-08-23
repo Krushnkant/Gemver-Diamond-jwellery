@@ -414,7 +414,7 @@
                             </div>
                             @endif
                             <?php
-                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
                             foreach($product_attributes_specification as $product_attribute_specification){  
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
@@ -422,7 +422,7 @@
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                             ?>
 
-                            <div class="col-xl-6 px-0" >
+                            <div class="col-xl-6 px-0 wire_bangle_share_my" >
                                 <div class="mt-4 wire_bangle_share row">
                                     <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }} </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
@@ -432,8 +432,11 @@
                             <?php
                                 }
                             ?>
-                            
+
                         </div>
+                        <div class="row" id="specificationproduct123">
+                        </div>    
+
                     </div>
                 </div>
             </div>
@@ -617,6 +620,9 @@ $(document).ready(function(){
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
                     $('#specificationproduct123').html(data.specificationstr123);
+                   // console.log($('.wire_bangle_share_my').next());
+                    //$('.wire_bangle_share_my').next().html(data.specificationstr123);
+                    
                     if(data.speci != ""){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
