@@ -260,7 +260,7 @@
                             </div>
                                 
                                 
-                            <hr>
+                            <!-- <hr>
                             <h4 class="card-title">
                                 Most View Product Section
                             </h4> 
@@ -274,7 +274,7 @@
                                         <option value="{{ $product['id'] }}" @if(in_array($product["id"],$most_viewed_product_ids)) selected @endif >{{ $product['product_title'] }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
 
                             <button type="button" class="btn btn-outline-primary mt-4" id="save_newHomeBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
                             <button type="button" class="btn btn-primary mt-4" id="save_closeHomeBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>

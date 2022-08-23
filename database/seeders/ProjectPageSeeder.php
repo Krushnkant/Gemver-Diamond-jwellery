@@ -191,15 +191,15 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.blogs.list,admin.blogs.add,admin.blogs.save,admin.allbloglist,admin.blogs.changeblogstatus,admin.blogs.delete,admin.blogs.edit,admin.blogs.uploadfile,admin.blogs.removefile' 
         ]);
 
-        ProjectPage::create([ 
-            'id' => 39, 
-            'parent_menu' => 28, 
-            'label' => 'Blog Banners', 
-            'route_url' => 'admin.blogbanners.list', 
-            'is_display_in_menu' => 1, 
-            'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
+        // ProjectPage::create([ 
+        //     'id' => 39, 
+        //     'parent_menu' => 28, 
+        //     'label' => 'Blog Banners', 
+        //     'route_url' => 'admin.blogbanners.list', 
+        //     'is_display_in_menu' => 1, 
+        //     'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
            
-        ]);
+        // ]);
 
         ProjectPage::create([ 
             'id' => 31, 
@@ -497,23 +497,19 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 7
         ]);
 
-        
+        ProjectPage::create([ 
+            'id' => 66, 
+            'parent_menu' => 12, 
+            'label' => 'Blog Sidebar Setting', 
+            'route_url' => 'admin.blogbanners.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
+           
+        ]);
 
         
 
         
-
-
-
-        
-        
-
-        
-
-       
-
-        
-
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();
         $project_page_ids2 = ProjectPage::where('parent_menu',"!=",0)->where('is_display_in_menu',1)->pluck('id')->toArray();

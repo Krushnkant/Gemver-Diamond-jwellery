@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Blog Banner</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Blog Sidebar Banner</a></li>
             </ol>
         </div>
     </div>
@@ -13,14 +13,18 @@
 
     <div class="container-fluid">
         <div class="row">
+            @if(isset($action) && $action=='list')
             <div class="col-lg-8">
+            @else
+            <div class="col-lg-12">
+            @endif    
                 <div class="card">
                     <div class="card-body">
                         {{--<h4 class="card-title">
                             @if(isset($action) && $action=='create')
-                            Add Blog Banner
+                            Add Blog Sidebar Banner
                             @elseif(isset($action) && $action=='edit')
-                            Edit Blog Banner
+                            Edit Blog  Banner
                             @else
                             Blog Banner List
                             @endif
@@ -74,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            @if(isset($action) && $action=='list')
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
@@ -112,6 +117,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
