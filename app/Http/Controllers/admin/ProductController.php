@@ -1526,11 +1526,12 @@ class ProductController extends Controller
         $term_id = 1; 
         $html = '';  
         $required_variation_ids = ''; 
+        $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
         $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <div class="row">
                         
                         <div class="col-lg-12 ">
-                             Veriation
+                            '.$AttributeTermc->attrterm_name.' Veriation
                         </div>
                     </div>
                 </div>';    
@@ -1564,18 +1565,23 @@ class ProductController extends Controller
         for($i = 0; $i < count($matrix); $i++){
             
         $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
-        $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
+        
        
-        $name = $AttributeTermc->attrterm_name; 
+        //$name = $AttributeTermc->attrterm_name; 
+        $name = "";
         //dd($matrix[$i]); die; 
         $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
         $required_variation_ids = $comman_id;
         foreach($matrix[$i] as $key => $tt){
             $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
-            $name = $name.'-'.$AttributeTerm->attrterm_name;
+            if($key == 0){
+            $name = $AttributeTerm->attrterm_name;
+            }else{
+            $name = $name.' | '.$AttributeTerm->attrterm_name;  
+            }
 
-                $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
-                $required_variation_ids = $required_variation_ids.','.$tt;
+            $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
+            $required_variation_ids = $required_variation_ids.','.$tt;
      
         } 
         
