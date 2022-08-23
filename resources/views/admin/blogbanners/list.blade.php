@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
                         {{--<h4 class="card-title">
@@ -70,6 +70,42 @@
                         @if(isset($action) && $action=='edit')
                             @include('admin.blogbanners.edit')
                         @endif
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        
+                    <form class="form-valide" action="" id="BannerCreateForm" method="post" enctype="multipart/form-data">
+
+                        <div id="attr-cover-spin" class="cover-spin"></div>
+                        {{ csrf_field() }}
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
+
+                        <div class="form-group"  id="button_url">
+                            <label class="col-form-label" for="button_url">Select Dropdown
+                            </label>
+                            <select id='BannerInfo' name="dropdown_id" class="form-control">
+                                <option value="3">None</option>
+                                <option value="1">Category</option>
+                                <option value="2">Product</option>
+                            </select>
+                        </div>
+
+                        <div id="infoBox" class=""></div>
+                        <div id="productDropdownBox" class="pb-2"></div>
+
+                        <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="add">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+                        
+
+                        </div>
+                    </form>
+                        
+
+                       
+
 
                     </div>
                 </div>
