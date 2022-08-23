@@ -362,9 +362,11 @@ class ProductController extends Controller
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';
 
-                $specificationstr123 .='<div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                <span class="d-block col-6 col-sm-3 col-md-4 col-xl-3 ps-0 wire_bangle_heading_part_1">'.$product_attribute_variant->attribute_name .'</span>
-                <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 col-xl-9">'. $product_attribute_term_name .'</span>
+                $specificationstr123 .='<div class="col-xl-6 px-0" >
+                <div class="mt-4 wire_bangle_share row">
+                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">'.$product_attribute_variant->attribute_name .' </span>
+                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">'. $product_attribute_term_name .'</span>
+                </div>
             </div>';                
 
 
