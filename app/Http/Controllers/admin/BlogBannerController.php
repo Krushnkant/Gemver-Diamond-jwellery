@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\BlogBanner;
 use App\Models\Category;
+use App\Models\HomeSetting;
 use App\Models\Product;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
@@ -17,7 +18,12 @@ class BlogBannerController extends Controller
     public function index(){
         $action = "list";
         $banners = BlogBanner::where('estatus',1)->get();
-        return view('admin.blogbanners.list',compact('action','banners'))->with('page',$this->page);
+
+        $homesettings = HomeSetting::first();
+        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
+
+        return view('admin.blogbanners.list',compact('action','banners','products','homesettings'))->with('page',$this->page);
     }
 
     public function create(){
@@ -269,10 +275,25 @@ class BlogBannerController extends Controller
                         <label id="value-error" class="error invalid-feedback animated fadeInDown" for="product"></label>
                         </div>';
         }
+
+        
     
        
     
         
         return ["html" => $html, "products" => $products, 'categories' => $categories];
+    }
+
+    public function editHomeSettings(Request $request){
+        $Settings = HomeSetting::find(1);
+        if(!$Settings){
+            return response()->json(['status' => '400']);
+        }
+        
+        $Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
+       
+        $Settings->save();
+        return response()->json(['status' => '200','Settings' => $Settings]);
+
     }
 }

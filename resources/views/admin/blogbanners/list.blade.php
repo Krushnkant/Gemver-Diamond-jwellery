@@ -78,35 +78,37 @@
                 <div class="card">
                     <div class="card-body">
                         
-                    <form class="form-valide" action="" id="BannerCreateForm" method="post" enctype="multipart/form-data">
-
-                        <div id="attr-cover-spin" class="cover-spin"></div>
+                    <form class="form-valide" action="" id="HomeCreateForm" method="post">
                         {{ csrf_field() }}
+                        <div id="attr-cover-spin" class="cover-spin"></div>
+                        
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ">
 
-                        <div class="form-group"  id="button_url">
-                            <label class="col-form-label" for="button_url">Select Dropdown
-                            </label>
-                            <select id='BannerInfo' name="dropdown_id" class="form-control">
-                                <option value="3">None</option>
-                                <option value="1">Category</option>
-                                <option value="2">Product</option>
-                            </select>
-                        </div>
+                        
+                            <h4 class="card-title">
+                                Most View Product Section
+                            </h4> 
+                            <div class="form-group" >
+                                <label class="col-form-label" for="button_url">Select Most View Product
+                                </label>
+                                <?php $most_viewed_product_ids = explode(',',$homesettings->most_viewed_product_id); ?>
+                                <select id='most_viewed_product_id' name="most_viewed_product_id[]" class="js-example-basic-multiple form-control" multiple="multiple">
+                                <option value="">Select Product</option>
+                                    @foreach($products as $product)
+                                        <option value="{{ $product['id'] }}" @if(in_array($product["id"],$most_viewed_product_ids)) selected @endif >{{ $product['product_title'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                         <div id="infoBox" class=""></div>
                         <div id="productDropdownBox" class="pb-2"></div>
 
-                        <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="add">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-outline-primary mt-4" id="save_newHomeBtn" data-action="add">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
                         
 
                         </div>
                     </form>
                         
-
-                       
-
-
                     </div>
                 </div>
             </div>
@@ -147,6 +149,50 @@ $(document).ready(function() {
         placeholder: "Select Product",
         allowClear: true
     });
+
+    $('.js-example-basic-multiple').select2({
+        width: '100%',
+        placeholder: "Select Product",
+        allowClear: true
+    });
+
+    //$('.js-example-basic-multiple').select2();
+
+
+
+$('body').on('click', '#save_newHomeBtn', function () {
+    
+    save_home($(this),'save_new');
+});
+
+function save_home(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    
+    var formData = new FormData($("#HomeCreateForm")[0]);
+    formData.append('action',action);
+
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('admin.viewhomesettings.edit') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            if(res.status == 200){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                toastr.success("Most View Product Updated",'Success',{timeOut: 5000});
+            }
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
 });
 
 $('#BannerInfo').change(function() {

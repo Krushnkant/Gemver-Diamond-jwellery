@@ -387,6 +387,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('blogbanners/uploadfile',[\App\Http\Controllers\admin\BlogBannerController::class,'uploadfile'])->name('blogbanners.uploadfile');
     Route::post('blogbanners/removefile',[\App\Http\Controllers\admin\BlogBannerController::class,'removefile'])->name('blogbanners.removefile');
     Route::post('blogbanners/getBannerInfoVal',[\App\Http\Controllers\admin\BlogBannerController::class,'getBannerInfoVal'])->name('blogbanners.getBannerInfoVal');
+    Route::post('viewhomesettings/edit',[\App\Http\Controllers\admin\BlogBannerController::class,'editHomeSettings'])->name('viewhomesettings.edit');
 
     Route::get('megamenus',[\App\Http\Controllers\admin\MegaMenuController::class,'index'])->name('megamenus.list');
     Route::post('updateMegaMenu',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMegaMenu'])->name('megamenus.updateMegaMenu');
