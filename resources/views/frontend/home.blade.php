@@ -99,7 +99,7 @@
     @endif
 
 
-    <div class="shop_dimond_by_shape">
+    <div class="shop_dimond_by_shape1">
         <div class="container">
             <h2 class="heading-h2 mb-4 mb-md-0 pb-md-5 text-center text-white">New Arrival</h2>
             <div>
