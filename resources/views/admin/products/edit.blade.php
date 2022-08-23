@@ -640,10 +640,12 @@
                                                 $required_variation_ids ="";
                                                 foreach($variant_term as $key => $tt){
                                                     $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
-                                                    if($name != "" ){
-                                                      $name = $name.' | '.$AttributeTerm->attrterm_name;
-                                                    }else{
-                                                       $name = $AttributeTerm->attrterm_name;  
+                                                    if(isset($AttributeTerm->attrterm_name)){
+                                                        if($name != "" ){
+                                                        $name = $name.' | '.$AttributeTerm->attrterm_name;
+                                                        }else{
+                                                        $name = $AttributeTerm->attrterm_name;  
+                                                        }
                                                     }
                                                 ?>
                                                     <input type="hidden" name="Variation{{$term_item_id}}-{{$t}}-{{$tt}}'"  value="{{ $tt }}">
