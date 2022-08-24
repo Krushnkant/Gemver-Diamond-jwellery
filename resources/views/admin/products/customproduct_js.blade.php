@@ -533,23 +533,23 @@
     $('body').on('change', '.SKU', function () {
             var skuvalue = this.value;
             $.ajax({
-                        type:"POST",
-                        async: false,
-                        url: "{{ url('admin/products/checksku') }}", // script to validate in server side
-                        data: {username: skuvalue,_token: '{{csrf_token()}}'},
-                        success: function(data) {
-                           
-                            result = (data == "true") ? true : false;
-                           // alert(result);
-                            if(result == false){
-                                $("#SKU-error").html("This sku code is already taken! Try another.");
-                                $("#SKU-error").show();
-                            }else{
-                                $("#SKU-error").html("");
-                                $("#SKU-error").hide(); 
-                            }
+                    type:"POST",
+                    async: false,
+                    url: "{{ url('admin/products/checksku') }}", // script to validate in server side
+                    data: {username: skuvalue,_token: '{{csrf_token()}}'},
+                    success: function(data) {
+                        
+                        result = (data == "true") ? true : false;
+                        // alert(result);
+                        if(result == false){
+                            $("#SKU-error").html("This sku code is already taken! Try another.");
+                            $("#SKU-error").show();
+                        }else{
+                            $("#SKU-error").html("");
+                            $("#SKU-error").hide(); 
                         }
-                    });
+                    }
+                });
         });
     });
 

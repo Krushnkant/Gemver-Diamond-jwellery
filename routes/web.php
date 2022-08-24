@@ -88,8 +88,8 @@ Route::post('/compare',[CompareController::class,'save'])->name('frontend.compar
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
 Route::get('/compareladdiamond',[CompareController::class,'compareladdiamond'])->name('frontend.compareladdiamond.list');
 
-Route::get('/lad-diamond/{shap?}',[DiamondController::class,'laddiamond']);
-Route::post('/alllad-diamond',[DiamondController::class,'getLadDiamonds']);
+Route::get('/lab-diamond/{shap?}',[DiamondController::class,'laddiamond']);
+Route::post('/alllab-diamond',[DiamondController::class,'getLadDiamonds']);
 Route::get('/laddiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
 
 Route::get('/step/{slug}/one',[StepController::class,'stepone']);
