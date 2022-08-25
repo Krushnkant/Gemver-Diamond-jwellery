@@ -403,6 +403,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('submenusmanage/{id}/delete',[\App\Http\Controllers\admin\MegaMenuController::class,'deletesubmenusmanage'])->name('submenusmanage.delete');
 });
 
+Route::group(['middleware'=>['auth']],function (){
+    Route::get('profile',[\App\Http\Controllers\admin\ProfileController::class,'profile'])->name('profile');
+    Route::get('profile/{id}/edit',[\App\Http\Controllers\admin\ProfileController::class,'edit'])->name('profile.edit');
+    Route::post('profile/update',[\App\Http\Controllers\admin\ProfileController::class,'update'])->name('profile.update');
+});
+
 
 
 

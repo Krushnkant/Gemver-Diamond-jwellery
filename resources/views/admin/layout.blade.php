@@ -95,9 +95,9 @@
                         <div class="drop-down dropdown-profile   dropdown-menu">
                             <div class="dropdown-content-body">
                                 <ul>
-                                    <!-- <li>
-                                        <a href="#"><i class="icon-lock"></i> <span>Profile</span></a>
-                                    </li> -->
+                                     <li>
+                                        <a href="{{ route('profile') }}"><i class="icon-lock"></i> <span>Profile</span></a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('admin.logout') }}"><i class="icon-key"></i> <span>Logout</span></a>
                                     </li>
