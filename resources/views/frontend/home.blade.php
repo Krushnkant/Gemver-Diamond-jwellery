@@ -182,7 +182,7 @@
                 <!-- <?php $shape_no = 1;  ?>
                     @foreach($diamondshape as $shape)  
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/'.$shape) }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/'.$shape) }}" class="shop-dimond-by-shape-img">
                             <img src="{{ url('frontend/image/dimond-'.$shape_no.'.png') }}" alt="{{ $shape }}" title="{{ $shape }}">
                         </a>
                     </div>
@@ -190,52 +190,52 @@
                     @endforeach -->
                     
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/round') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/round.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/oval') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/oval.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/princess') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/princess.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/cushion') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/marquise') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/pear') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/pear.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/radiant') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/heart') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/heart.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/emerald') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ url('/lad-diamond/asscher') }}" class="shop-dimond-by-shape-img">
+                        <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
                         </a>
                     </div>
@@ -396,7 +396,7 @@
                 <div class="col-md-7 text-center text-md-start">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                     <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                    <button class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn"><a style="" href="{{ url('lad-diamond') }}">Buy Lab Diamonds</a></button>
+                    <button class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn"><a style="" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a></button>
                 </div>
                 <div class="col-md-5 mt-4 mt-md-0">
                     <div class="own_ring_img">

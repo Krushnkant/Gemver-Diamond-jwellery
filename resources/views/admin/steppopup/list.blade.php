@@ -27,20 +27,22 @@
                             <table id="attributesTerm1" class="table zero-configuration customNewtable" style="width:100%">
                             <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Icon</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Icon</th>
                                 <th>Title</th>
+                                <th>Description</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th class="text-center">Action</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>No</th>
-                                <th>Icon</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Icon</th>
                                 <th>Title</th>
+                                <th>Description</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th class="text-center">Action</th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -53,16 +55,17 @@
                                     $image = asset('images/steppopup/'.$step->icon);
                                 }
                                 else{
-                                    $image = asset('images/default_avatar.jpg');
+                                    $image = asset('images/placeholder_image.png');
                                 }
                              @endphp
                              
                             <tr>
-                                <th>{{ $no }}</th>
-                                <th><img src="{{ $image }}" width="50px" height="50px" alt=""></th>
+                                <th class="text-center">{{ $no }}</th>
+                                <th class="text-center"><img src="{{ $image }}" width="50px" height="50px" alt=""></th>
                                 <th>{{ $step->title }}</th>
+                                <th>{{ $step->description }}</th>
                                 <th>{{ date('d-m-Y h:i A', strtotime($step->created_at)) }}</th>
-                                <th><button id="editAttributeTermBtn" class="btn btn-gray text-blue btn-sm" data-toggle="modal" data-target="#StepPopupModal" data-id="{{ $step->id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                                <th class="text-center"><button id="editAttributeTermBtn" class="btn btn-gray text-blue btn-sm" data-toggle="modal" data-target="#StepPopupModal" data-id="{{ $step->id }}"><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
                             </tr>
                             @php 
                              $no = ++$no;
@@ -210,11 +213,11 @@
                         $("#StepPopupModal").find("#save_newStepBtn").removeAttr('data-id');
                         $("#StepPopupModal").find("#save_closeStepBtn").removeAttr('data-id');
                         $('#step_id').val("");
-                        $('#attributetermname-error').html("");
-                        $('#attrTermThumb-error').html("");
+                        $('#title-error').html("");
+                        $('#icon_image-error').html("");
                         var default_image = "{{ url('images/placeholder_image.png') }}";
-                        $('#attrtermthumb_image_show').attr('src', default_image);
-                        $("#attributetermname").focus();
+                        $('#icon_image_show').attr('src', default_image);
+                        $("#title").focus();
                         if(res.action == 'add'){
                            
                             toastr.success("Step Popup Added",'Success',{timeOut: 5000});

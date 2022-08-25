@@ -440,7 +440,7 @@
                 var maximum_table_input = $('#maximum_table_input').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
-                    url: ENDPOINT + "/alllad-diamond?page=" + page,
+                    url: ENDPOINT + "/alllab-diamond?page=" + page,
                     method:"POST",
                     data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
                         ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,_token: '{{ csrf_token() }}'},

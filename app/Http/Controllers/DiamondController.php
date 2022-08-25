@@ -533,11 +533,11 @@ class DiamondController extends Controller
             $cart->delete();
         } 
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
-        //$Product= ProductVariant::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$vid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-       // dd($attribute_term_ids);
-        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids'));
+        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$id)->groupBy('products.id')->get();
+        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated'));
     }
 
     public function getProductComplete($catid){

@@ -489,6 +489,116 @@
         <div class="px-3 px-xxl-0" id="spe_desc">
         
         </div>
+
+        @if(isset($OrderIncludes->orderincludesdata))
+        <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+             {{ $OrderIncludes->title }}
+        </div>
+
+        <div class="row mt-md-0 mt-xl-4 align-items-center">
+                <!-- <div class="col-md-6 col-lg-4 pe-4">
+                    <div class="order-include-img">
+                        <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
+                    </div>
+                </div> -->
+                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
+                    <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
+                        {{ $OrderIncludes->title }}
+                    </div>
+                    <div class="row mt-2 mt-md-0">
+                        @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
+                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
+                            <div class="order-box">
+                            <span class="order-img d-block mb-2">
+                                <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
+                            </span>
+                            <span class="order-text text-center d-block">
+                                    {{ $orderincludesdata->title }}
+                            </span>
+                            </div>    
+                        </div>
+                        @endforeach
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if(count($ProductRelated) > 0)
+        <div class="container">
+            <div class="shop_by_category pt-0">
+                <div class="row">
+                    <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                        <div>
+                            <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Product </h2>
+                        </div>
+                        <!-- <div class="category-line-img d-none d-md-block">
+                            <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
+                        </div> -->
+                    </div>
+                    <div class="owl-carousel owl-theme product-detail mb-5 px-0">
+                        @foreach($ProductRelated as $Related)
+                        <?php
+                    // dd($ProductRelated);
+                        $images = explode(",",$Related->images);
+                        $image = URL($images['0']);
+                        $sale_price = $Related->sale_price;
+                        $url =  URL('/product-details/'.$Related->id.'/'.$Related->variant_id); 
+                        
+                        ?>
+                        <div class="hover_effect_part wire_bangle_shop_radio">
+                        <div class="wire_bangle_img_radio_button">
+                            <div class="wire_bangle_img mb-3 position-relative">
+                                <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
+                            </div>
+                            <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
+                                <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="wire_bangle_price wire_bangle_price_part">
+                                            $ {{ $sale_price }}
+                                        </span>
+                                        <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                    </div>
+                                    <?php 
+                                    $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
+                                    foreach($ProductVariantVariant as $productvariants){
+                                    if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                    ?>
+                                    <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">
+                                    <?php
+                                        $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
+                                        $ia = 1;
+                                        foreach($product_attribute as $attribute_term){
+                                            $attributeurl =  URL('/product-details/'.$Related->id.'/'.$attribute_term->product_variant_id); 
+                                        ?>
+                                        <span class="form-check d-inline-block">
+                                            <a href="{{ $attributeurl }}">
+                                            <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
+                                            </a>
+                                            <div class="wire_bangle_color_input_label"></div>
+                                        </span>
+                                    <?php        
+                                        $ia++;    
+                                    }
+                                    ?>
+                                    </div></span>
+                                    <?php
+                                        } 
+                                    }
+                                    ?>
+                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach 
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 
 <script>    

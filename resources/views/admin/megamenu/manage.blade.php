@@ -147,8 +147,19 @@
 <!-- settings JS start -->
 <script type="text/javascript">
 
+    $('#category_id').select2({
+        width: '100%',
+        placeholder: "Select Category",
+        allowClear: true
+    }).trigger('change');
+
     $('body').on('click', '#AddMenuManageBtn', function (e) {
+        $('#MenuManageModal').find('form').trigger('reset');
+        $('#manage_id').val("");
+        var default_image = "{{ asset('images/placeholder_image.png') }}";
+        $('#icon_image_show').attr('src', default_image);
         $("#MenuManageModal").find('.modal-title').html("Add Update Sub Menu Item ");
+
     });
 
     $('body').on('click', '#editMenuManageBtn', function () {
@@ -159,7 +170,8 @@
             $('#manage_id').val(data.id);
             $('#title').val(data.title);
             $('#category_id').find('option[value="' + data.category_id + '"]').attr('selected', 'selected');
-            if(data.icon==""){
+            
+            if(data.icon==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#icon_image_show').attr('src', default_image);
             }else{

@@ -88,8 +88,8 @@ Route::post('/compare',[CompareController::class,'save'])->name('frontend.compar
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
 Route::get('/compareladdiamond',[CompareController::class,'compareladdiamond'])->name('frontend.compareladdiamond.list');
 
-Route::get('/lad-diamond/{shap?}',[DiamondController::class,'laddiamond']);
-Route::post('/alllad-diamond',[DiamondController::class,'getLadDiamonds']);
+Route::get('/lab-diamond/{shap?}',[DiamondController::class,'laddiamond']);
+Route::post('/alllab-diamond',[DiamondController::class,'getLadDiamonds']);
 Route::get('/laddiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
 
 Route::get('/step/{slug}/one',[StepController::class,'stepone']);
@@ -401,6 +401,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('updateMenuManage',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMenuManage'])->name('submenus.updateMenuManage');
     Route::get('submenusmanage/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenumanage'])->name('submenus.manage.edit');
     Route::get('submenusmanage/{id}/delete',[\App\Http\Controllers\admin\MegaMenuController::class,'deletesubmenusmanage'])->name('submenusmanage.delete');
+});
+
+Route::group(['middleware'=>['auth']],function (){
+    Route::get('profile',[\App\Http\Controllers\admin\ProfileController::class,'profile'])->name('profile');
+    Route::get('profile/{id}/edit',[\App\Http\Controllers\admin\ProfileController::class,'edit'])->name('profile.edit');
+    Route::post('profile/update',[\App\Http\Controllers\admin\ProfileController::class,'update'])->name('profile.update');
 });
 
 
