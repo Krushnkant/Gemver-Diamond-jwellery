@@ -5,6 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('admin/megamenus') }}">Mega Menu</a></li>
                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Sub Menu</a></li>
             </ol>
         </div>
@@ -40,7 +41,7 @@
                                                 Edit
                                             </button>
 
-                                            <button id="manageSubMenuBtn" data-id="{{ $SubMenu->id }}" class="btn btn-outline-dark btn-sm view-submenu" >
+                                            <button id="manageSubMenuBtn" data-id="{{ $SubMenu->id }}" data-mega-id="{{ $SubMenu->mega_menu_id }}" class="btn btn-outline-dark btn-sm view-submenu" >
                                                 Manage
                                             </button>
                                         @endif
@@ -178,8 +179,9 @@
     });
 
     $('body').on('click', '#manageSubMenuBtn', function () {
+        var sub_mega_id = $(this).attr('data-mega-id');
         var sub_menu_id = $(this).attr('data-id');
-        var url = "{{ url('admin/submenus/manage/') }}" + "/" + sub_menu_id;
+        var url = "{{ url('admin/submenus/manage/') }}" + "/" + sub_menu_id + "/" + sub_mega_id;
         window.open(url,"_blank");
     });
 

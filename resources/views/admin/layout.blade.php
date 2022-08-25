@@ -90,7 +90,14 @@
                     <li class="icons dropdown">
                         <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                             <span class="activity active"></span>
-                            <img src="{{ asset('images/avatar.png') }}" height="40" width="40" alt="">
+                            <?php  
+                               $user = \App\Models\User::where('id',Auth::user()->id)->where('estatus',1)->first();
+                               if(isset($user->profile_pic) && $user->profile_pic != ""){
+                            ?>
+                               <img src="{{ $user->profile_pic }}" height="40" width="40" alt="">
+                            <?php }else{ ?>
+                                <img src="{{ asset('images/avatar.png') }}" height="40" width="40" alt="">    
+                            <?php } ?>    
                         </div>
                         <div class="drop-down dropdown-profile   dropdown-menu">
                             <div class="dropdown-content-body">

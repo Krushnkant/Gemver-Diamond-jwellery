@@ -29,7 +29,7 @@
                                         <th>Diamond Info</th>
                                         <th>Specification Info</th>
                                         <th>Contact Info</th>
-                                        <th>Qty</th>
+                                        <!-- <th>Qty</th> -->
                                         <th>Inquiry Message</th>
                                         <th>Date</th>
                                         <th>Action</th>
@@ -42,7 +42,7 @@
                                         <th>Diamond Info</th>
                                         <th>Specification Info</th>
                                         <th>Contact Info</th>
-                                        <th>Qty</th>
+                                        <!-- <th>Qty</th> -->
                                         <th>Inquiry Message</th>
                                         <th>Date</th>
                                         <th>Action</th>
@@ -110,14 +110,14 @@ function Inquiry_table(is_clearState=false){
         },
         'columnDefs': [
             { "width": "5%", "targets": 0 },
-            { "width": "15%", "targets": 1 },
+            { "width": "20%", "targets": 1 },
             { "width": "15%", "targets": 2 },
             { "width": "10%", "targets": 3 },
             { "width": "15%", "targets": 4 },
-            { "width": "5%", "targets": 5 },
-            { "width": "15%", "targets": 6 },
+            // { "width": "5%", "targets": 5 },
+            { "width": "15%", "targets": 5 },
+            { "width": "10%", "targets": 6 },
             { "width": "10%", "targets": 7 },
-            { "width": "10%", "targets": 8 },
 
         ],
         "columns": [
@@ -130,7 +130,7 @@ function Inquiry_table(is_clearState=false){
             {data: 'diamond_info', name: 'diamond_info',class: "text-left multirow", orderable: false},
             {data: 'spe_info', name: 'spe_info',class: "text-left multirow", orderable: false},
             {data: 'customer_info', name: 'customer_info',class: "text-left multirow", orderable: false},
-            {data: 'qty', name: 'qty', class: "text-left", orderable: false},
+            // {data: 'qty', name: 'qty', class: "text-left", orderable: false},
             {data: 'message', name: 'message', class: "text-left multirow", orderable: false},
             {data: 'created_at', name: 'created_at', class: "text-left"},
             {data: 'action', name: 'action', orderable: false, searchable: false, class: "text-center"},
