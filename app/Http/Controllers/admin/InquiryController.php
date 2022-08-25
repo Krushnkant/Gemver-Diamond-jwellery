@@ -37,10 +37,10 @@ class InquiryController extends Controller
                 2 =>'diamond_info',
                 3=> 'spe_info',
                 4=> 'customer_info',
-                5=> 'qty',
-                6=> 'message',
-                7=> 'created_at',
-                8=> 'action',
+                //5=> 'qty',
+                5=> 'message',
+                6=> 'created_at',
+                7=> 'action',
             );
 
             $totalData = Inquiry::count();
@@ -126,14 +126,18 @@ class InquiryController extends Controller
                     }
                     if (isset($inquiry->mobile_no)){
                         $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$inquiry->mobile_no .'</span>';
-                        
+                    }
+                    if (isset($inquiry->whatsapp_number)){
+                        $customer_info .= '<span><i class="fa fa-whatsapp" aria-hidden="true"></i> ' .$inquiry->whatsapp_number .'</span>';
                     }
 
 
                     if($inquiry->sku != ''){
                     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->sku)->first();
                     if($product){
-                    $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
+                    $images = explode(",",$product->images);    
+                    $product_info = '<img src="'.url($images[0]).'" width="80px" class="mr-3 float-left" height="80px" />';
+                    $product_info .= '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
                     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
                         $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
                       })->leftJoin('attribute_terms', function($join) {
@@ -152,11 +156,14 @@ class InquiryController extends Controller
 
                     $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
                     if($diamond){
-                       $diamond_info = '<span>'.$diamond->Stone_No.'</span>
+                        $diamond_info = '<img src="'.$diamond->Stone_Img_url.'" width="80px" class="mr-3 float-left" height="80px" />';
+                        $diamond_info .= '<span>'.$diamond->Stone_No.'</span>
                                         <span> Weight: '.$diamond->Weight.'</span>
                                         <span> Color: '.$diamond->Color.'</span>
-                                        <span> Clarity: '.$diamond->Clarity.'</span>
-                                        <span> Cut: '.$diamond->Cut.'</span>';
+                                        <span> Clarity: '.$diamond->Clarity.'</span>';
+                        if($diamond->Cut != ""){                
+                            $diamond_info .= '<span> Cut: '.$diamond->Cut.'</span>';
+                        }
                     }else{
                        $diamond_info = '-';
                     }
@@ -173,9 +180,9 @@ class InquiryController extends Controller
                     $action='';
                     
                     $action .= '<a href="mailto:'.$inquiry->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
-                    
-                    $action .= '<a href="https://api.whatsapp.com/send?phone='.$inquiry->mobile_no.'" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
-
+                    if (isset($inquiry->whatsapp_number)){
+                     $action .= '<a href="https://api.whatsapp.com/send?phone=91'.$inquiry->whatsapp_number.'&text=" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
+                    }
                     $spe_info ='';
 
                     if($inquiry->specification_term_id != ""){
@@ -202,7 +209,7 @@ class InquiryController extends Controller
                     $nestedData['product_info'] = $product_info;
                     $nestedData['diamond_info'] = $diamond_info;
                     $nestedData['message'] = $message;
-                    $nestedData['qty'] = $inquiry->qty;
+                    //$nestedData['qty'] = $inquiry->qty;
                     $nestedData['created_at'] = $newDate;
                     $nestedData['action'] = $action;
                     $data[] = $nestedData;

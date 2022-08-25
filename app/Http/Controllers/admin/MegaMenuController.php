@@ -105,7 +105,7 @@ class MegaMenuController extends Controller
     }
 
 
-    public function submenumanage($id){
+    public function submenumanage($id,$megaid){
         $MenuCategories = MenuCategory::where('menu_id',$id)->get();
         $canWrite = false;
         $page_id = ProjectPage::where('route_url','admin.megamenus.list')->pluck('id')->first();
@@ -113,7 +113,7 @@ class MegaMenuController extends Controller
             $canWrite = true;
         }
         $categories = Category::where('is_custom',0)->where('estatus',1)->get()->toArray();
-        return view('admin.megamenu.manage',compact('MenuCategories','canWrite','categories','id'))->with('page',$this->page);
+        return view('admin.megamenu.manage',compact('MenuCategories','canWrite','categories','id','megaid'))->with('page',$this->page);
     }
 
     public function editsubmenumanage($id){

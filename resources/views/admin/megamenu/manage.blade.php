@@ -5,6 +5,8 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('admin/megamenus') }}">Mega Menu</a></li>
+                <li class="breadcrumb-item active"><a href="{{ url('admin/submenus/'.$megaid) }}">Sub Menu</a></li>
                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Sub Menu Items</a></li>
             </ol>
         </div>

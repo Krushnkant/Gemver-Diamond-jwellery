@@ -397,7 +397,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('updateSubMenu',[\App\Http\Controllers\admin\MegaMenuController::class,'updateSubMenu'])->name('submenus.updateSubMenu');
     Route::get('submenus/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenus'])->name('submenus.edit');
 
-    Route::get('submenus/manage/{id}',[\App\Http\Controllers\admin\MegaMenuController::class,'submenumanage'])->name('submenus.manage');
+    Route::get('submenus/manage/{id}/{megaid}',[\App\Http\Controllers\admin\MegaMenuController::class,'submenumanage'])->name('submenus.manage');
     Route::post('updateMenuManage',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMenuManage'])->name('submenus.updateMenuManage');
     Route::get('submenusmanage/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenumanage'])->name('submenus.manage.edit');
     Route::get('submenusmanage/{id}/delete',[\App\Http\Controllers\admin\MegaMenuController::class,'deletesubmenusmanage'])->name('submenusmanage.delete');
