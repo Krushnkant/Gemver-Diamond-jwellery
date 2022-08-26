@@ -75,12 +75,6 @@
                     <div class="footer-heading mb-4">about</div>
                     <ul>
                         <li>
-                            <a href="#">our story</a>
-                        </li>
-                        <!-- <li>
-                            <a href="#">our 3 pillars</a>
-                        </li> -->
-                        <li>
                             <a href="{{ Route('frontend.customervalues')}}">customer values</a>
                         </li>
                         <li>
@@ -88,9 +82,6 @@
                         </li>
                         <li>
                             <a href="{{ Route('frontend.blogs') }}">our blogs</a>
-                        </li>
-                        <li>
-                            <a href="#">Virtual Experience</a>
                         </li>
                         <li>
                             <a href="{{ Route('frontend.termcondition') }}" class="mx-1">
