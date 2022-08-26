@@ -1156,6 +1156,7 @@ background-size: cover;
         position: absolute;
         top: 50%;
         left: 50%;
+        width: 100%;
         transform: translate(-50%, -50%);
         text-align: center;
     }
@@ -3511,7 +3512,7 @@ background-size: cover;
     }
     
     .home-page-slider-header .header-logo {
-        max-width: 130px;
+        max-width: 150px;
         cursor: pointer;
     }
     
@@ -3589,7 +3590,7 @@ background-size: cover;
     /* ------------------------------- step 1 -------------------------------------------- */
     
     .ste_1_paragraph {
-        color: #fff;
+        color: var(--primary);
         font-size: 17px;
         width: 80%;
         margin: auto;

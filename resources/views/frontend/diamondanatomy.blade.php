@@ -8,7 +8,7 @@
                 <div class="about_us_background">
                     <div class="about_us_link">
                         <a href="#">{{ $DiamondAnatomy->header_title }}</a>
-                        <p class="mt-3 ste_1_paragraph">
+                        <p class="mt-2 ste_1_paragraph">
                         {{ $DiamondAnatomy->header_shotline }}
                         </p>
                     </div>

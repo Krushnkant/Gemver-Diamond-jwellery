@@ -10,7 +10,7 @@
 					<div class="sub_heading mb-lg-3">Step 3</div>
 					<div class="about_us_link">
 						<a href="#">{{ $Step->step3_title }}</a>
-						<p class="mt-3 ste_1_paragraph">
+						<p class="mt-2 ste_1_paragraph">
                         {{ $Step->step3_shotline }}
 						</p>
 					</div>
