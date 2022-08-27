@@ -84,12 +84,12 @@
                             <a href="{{ Route('frontend.blogs') }}">our blogs</a>
                         </li>
                         <li>
-                            <a href="{{ Route('frontend.termcondition') }}" class="mx-1">
+                            <a href="{{ Route('frontend.termcondition') }}" class="">
                                 Terms & Conditions 
                             </a>
                         </li>
                         <li>
-                            <a href="{{ Route('frontend.privacypolicy') }}" class="mx-1">
+                            <a href="{{ Route('frontend.privacypolicy') }}" class="">
                                 Privacy Policy 
                             </a>
                         </li>
