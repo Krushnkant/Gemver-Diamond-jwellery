@@ -35,4 +35,19 @@ class Category extends Model
     public function attributes(){
         return $this->hasOne(Attribute::class,'id','attribute_id_variation');
     }
+
+    public function child()
+    {
+        return $this->hasMany(Category::class, 'parent_category_id', 'id');
+    }
+
+    public function childs()
+    {
+        return $this->hasMany(Category::class, 'parent_category_id', 'id');
+    }
+
+    public function childss()
+    {
+        return $this->hasMany(Category::class, 'parent_category_id', 'id');
+    }
 }

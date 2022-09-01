@@ -14,27 +14,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        {{--<h4 class="card-title">
-                            @if(isset($action) && $action=='create')
-                            Add Step
-                            @elseif(isset($action) && $action=='edit')
-                            Edit Step
-                            @elseif(isset($action) && $action=='stepone')
-                            Step One
-                            @elseif(isset($action) && $action=='steptwo')
-                            Step Two
-                            @elseif(isset($action) && $action=='stepthree')
-                            Step Three
-                            @elseif(isset($action) && $action=='stepfour')
-                            Step Four
-                            @else
-                            Step List
-                            @endif
-                        </h4>--}}
+                
+                       
+                    
                         @if(isset($action) && $action=='list')
-                        <div class="action-section">
+                        <div class="card">
+                           <div class="card-body">
+                           <div class="action-section">
                             <div class="d-flex">
                             <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.steps.list')->pluck('id')->first(); ?>
                             @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
@@ -42,8 +28,6 @@
                             @endif
                             </div>
                         </div>
-                        @endif
-                        @if(isset($action) && $action=='list')
                             <div class="table-responsive">
                                 <table id="Step" class="table zero-configuration customNewtable" style="width:100%">
                                     <thead>
@@ -70,6 +54,8 @@
                                     </tfoot>
                                 </table>
                             </div>
+                            </div>
+                          </div>
                         @endif
 
                         @if(isset($action) && ($action=='create' || $action=='edit') )
@@ -89,8 +75,7 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </div>
+            
     </div>
 
     <div class="modal fade" id="DeleteStepModal">

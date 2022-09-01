@@ -172,9 +172,6 @@
                     <div class="card">
                         <div class="card-body">
                             
-
-                           
-
                                     <div class="row" >
                                         <div class="col-md-12">
                                             <div class="form-group attribute" >
@@ -405,8 +402,8 @@
                                                                 jQuery("#varImgFiles-'.$term_item_id.'").filer({
                                                                     limit: 8,
                                                                     maxSize: null,
-                                                                    fileMaxSize: 5,
-                                                                    extensions: ["jpg", "jpeg", "png"],
+                                                                    fileMaxSize: 50,
+                                                                    extensions: ["jpg", "jpeg", "png" , "mp4" , "mov" , "gif" , "3gp"],
                                                                     changeInput: \'<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>\',
                                                                     showThumbs: true,
                                                                     theme: "dragdropbox",
@@ -572,7 +569,22 @@
                                                                                     <div class="jFiler-item-inner">
                                                                                         <div class="jFiler-item-thumb">
                                                                                             <div class="jFiler-item-status"></div>
-                                                                                            <div class="jFiler-item-thumb-image"><img src="{{ url($v_img) }}" draggable="false"></div>
+                                                                                            <div class="jFiler-item-thumb-image">
+                                                                                            <?php 
+                                                                                            $supported_image = array(
+                                                                                                'jpg',
+                                                                                                'jpeg',
+                                                                                                'png'
+                                                                                            );     
+                                                                                            $ext = pathinfo($v_img, PATHINFO_EXTENSION); 
+                                                                                            if(in_array($ext, $supported_image)) { 
+                                                                                            ?>    
+                                                                                                <img src="{{ url($v_img) }}" draggable="false">
+                                                                                            <?php }else{ ?>
+                                                                                                <span class="jFiler-icon-file f-video"><i class="icon-jfi-file-video"></i></span>
+                                                                                            <?php } ?>    
+
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div class="jFiler-item-assets jFiler-row">
                                                                                             <ul class="list-inline pull-right">

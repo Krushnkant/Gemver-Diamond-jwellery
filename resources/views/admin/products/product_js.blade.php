@@ -655,11 +655,20 @@ $(document).ready(function(){
             if (!$(this).valid()) {
                 valid = false;
             }
+            
+            var valid_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if(!valid_extensions.test($(this).find('input[name="varImage"]').val())){ 
+                $(this).find("#varImage-error").html("Please provide a product images");
+                $(this).find("#varImage-error").show();
+                valid = false;
+            }    
+
 
             if($(this).find('input[name="varImage"]').val()==""){
                 $(this).find("#varImage-error").html("Please provide a product images");
                 $(this).find("#varImage-error").show();
                 valid = false;
+                
             }
 
             $(this).find('.Variation').each(function() {

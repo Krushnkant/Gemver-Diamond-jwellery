@@ -34,15 +34,27 @@
         <div class="row" >
             <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
                 <div class="slider slider-single mb-5">
-                    <?php 
+                    <?php
+                    $supported_image = array(
+                        'jpg',
+                        'jpeg',
+                        'png'
+                    ); 
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
-                    ?>
-                    <div class="product_slider_main_item">
-                        <img src="{{ URL($image) }}" alt="">
-                    </div>     
-                    <?php 
+                        $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                        if(in_array($ext, $supported_image)) { 
+                       ?>
+                            <div class="product_slider_main_item">
+                                <img src="{{ URL($image) }}" alt="">
+                            </div>
+                            <?php }else{ ?> 
+                            <div class="product_slider_main_item">
+                                <video controls="" autoplay="" style="width:100%; height:100%;" name="media"><source src="{{ URL($image) }}" type="video/mp4"></video>
+                            </div>    
+                            <?php 
+                       }
                         }
                     }
                     ?> 
@@ -73,7 +85,7 @@
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
                                 <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span>
                                 </sub>
-                                <sub class="price_discount ms-2"><span class="discount_percent">40</span>% Off</sub>
+                                <sub class="price_discount ms-2"><span class="discount_percent">{{ $Product->product_variant['0']->auto_discount_percent }}</span>% Off</sub>
                                 @endif
                             </span>
  
@@ -516,7 +528,7 @@
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}
                                     </span>
-                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $Related->regular_price }}</span></span>
                                 </div>
                                 <?php 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
@@ -568,9 +580,7 @@ $(document).ready(function(){
     //filter_data_variant();
     filter_data();
 
-    $('body').on('click', '.wire_bangle_color_input_label', function () {    
-        alert();
-    });
+   
     
     function filter_data_variant1()
     {

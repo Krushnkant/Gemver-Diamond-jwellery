@@ -106,19 +106,33 @@
                 <div class="owl-carousel owl-theme shop-by-category">
                     
                  <?php $shape_no = 1;  ?>
-                    @foreach($products as $product)  
+                    @foreach($products as $product) 
+                     
                     <?php
                    // dd($ProductRelated);
                      $images = explode(",",$product->images);
                      $image = URL($images['0']);
                      $sale_price = $product->sale_price;
                      $url =  URL('/product-details/'.$product->id.'/'.$product->variant_id); 
+                     $supported_image = array(
+                        'jpg',
+                        'jpeg',
+                        'png'
+                    );
+                     
                     
                     ?>
                     <div class="hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
+                            <a class="wire_bangle_hover_a" href="{{ $url }}">
+                                <?php $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                                   if(in_array($ext, $supported_image)) {  ?>
+                                   <img src="{{ $image }}" alt="">
+                                <?php }else{ ?>
+                                    <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
+                                <?php } ?>
+                            </a>
                         </div>
                         <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $product->primary_category->category_name }}</div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $product->product_title }}</a></div>
@@ -127,7 +141,9 @@
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}
                                     </span>
-                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                     <?php if($product->regular_price != ""){  ?>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price"> {{ $product->regular_price }}</span></span>
+                                    <?php } ?>
                                 </div>
 
                                 <?php 

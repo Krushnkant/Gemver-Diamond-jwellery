@@ -10,7 +10,7 @@
                     <div class="about_us_link">
                         <a href="#">{{ $Step->step2_title }}</a>
                         <p class="mt-2 ste_1_paragraph">
-                        {{ $Step->step2_shotline }}
+                        {!! $Step->step2_shotline !!}
                         </p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section1_title }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section1_description }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section1_description !!}</p>
                     </div>
                     <div class="row mt-3 mt-md-5">
                         <div class="col-md-4">
@@ -48,13 +48,13 @@
                 <div class="col-md-6">
                     <div class="jewellery-paragraph-box text-center text-md-start">
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section2_title1 }} </div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section2_description1 }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section2_description1 !!}</p>
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section2_title2 }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section2_description2 }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section2_description2 !!}</p>
                         <div class="cut_shape_heading mb-3">
                         {{ $Step->step2_section2_title3 }}
                         </div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section2_description3 }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section2_description3 !!}</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section3_title }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section3_description }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section3_description !!}</p>
                     </div>
                     <div class="jewellery-step-two-img mt-3">
                         <img src="{{ url('images/steps/'.$Step->step2_section3_image) }}" alt="">
@@ -79,7 +79,7 @@
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section4_title }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section4_description }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section4_description !!}</p>
                     </div>
                     <div class="jewellery-step-two-img">
                         <img src="{{ url('images/steps/'.$Step->step2_section4_image) }}" alt="">
@@ -93,7 +93,7 @@
                 <div class="col-md-12 order-2 order-md-1">
                     <div class="jewellery-paragraph-box text-center text-md-start">
                         <div class="cut_shape_heading mb-3">{{ $Step->step2_section5_title }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step2_section5_description }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step2_section5_description !!}</p>
                         
                     </div>
                     <div class="jewellery-step-two-img mt-4">
@@ -204,7 +204,7 @@
                     <div class="col-md-7 mb-4 mb-md-0">
                         <div class="jewellery-paragraph-box text-center text-md-start">
                             <div class="mb-3 cut_shape_heading ">{{ $Step->step3_title }}</div>
-                            <p class="customer_stories_paragraph">{{ $Step->step3_shotline }}</p>
+                            <p class="customer_stories_paragraph">{!! $Step->step3_shotline !!}</p>
                             <a href="{{ url('/step/'.$Step->slug.'/three'); }}" class="explore-ring-btn btn-hover-effect banner-url d-inline-block text-center know_more_btn">know more</a>
                         </div>
                     </div>

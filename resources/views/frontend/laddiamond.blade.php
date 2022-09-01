@@ -484,6 +484,23 @@
                 filter_data(page);
             });
         
+            ['minimum_price_input', 'maximum_price_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+                let [minimum_price_input, maximum_price_input] = $("#slider-range").slider('values');
+                if (e.target.id === 'minimum_price_input') {
+                    minimum_price_input = parseInt(e.target.value, 10);
+                } else if (e.target.id === 'maximum_price_input') {
+                    maximum_price_input = parseInt(e.target.value, 10);
+                }
+
+                $( "#slider-range" ).slider({
+                values: [ minimum_price_input, maximum_price_input],
+                });
+
+                $( "#amount-start" ).html( "$" + minimum_price_input);
+                $( "#amount-end" ).html( " $" + maximum_price_input);
+
+            }));
+        
             $(function() {
              var maxPrice = '{{ $Maxprice  }}';
              
@@ -492,14 +509,15 @@
               min: 0,
               max: maxPrice,
               values: [ 0, maxPrice],
-              slide: function( event, ui ) {
-                // $( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                $( "#amount-start" ).html( "$" + ui.values[ 0 ]);
-                $( "#amount-end" ).html( " $" + ui.values[ 1 ] );
-                $( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
+              slide: function (_, { values: [min, max] }) {
+                $( "#amount-start" ).html( "$" + min);
+                $( "#amount-end" ).html( " $" + max );
+                $( "#hidden_minimum_price" ).val(min);
+                $( "#minimum_price_input" ).val(min);
+                $( "#hidden_maximum_price" ).val(max);
+                $( "#maximum_price_input" ).val(max);
                 filter_data(page);
-              }
+            }
             });
             //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +" - $" + $( "#slider-range" ).slider( "values", 1 ) );
             $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
@@ -507,8 +525,25 @@
              
           });
 
+            ['minimum_carat_input', 'maximum_carat_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+                let [minimum_carat_input, maximum_carat_input] = $("#slider-range-carat").slider('values');
+                if (e.target.id === 'minimum_carat_input') {
+                    minimum_carat_input = parseInt(e.target.value, 10);
+                } else if (e.target.id === 'maximum_carat_input') {
+                    maximum_carat_input = parseInt(e.target.value, 10);
+                }
+
+                $("#slider-range-carat").slider({
+                    values: [ minimum_carat_input, maximum_carat_input],
+                });
+
+                $( "#carat-start" ).html( "$" + minimum_carat_input);
+                $( "#carat-end" ).html( " $" + maximum_carat_input);
+
+            }));
+
           $(function() {
-             var maxPrice = 10;
+             var maxPrice = 7;
              
             $( "#slider-range-carat" ).slider({
               range: true,
@@ -516,13 +551,14 @@
               max: maxPrice,
               step: 0.1,
               values: [ 0, maxPrice],
-              slide: function( event, ui ) {
+              slide: function (_, { values: [min, max] }) {
                 
-               // $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#carat-start" ).html( "$" + ui.values[ 0 ]);
-                $( "#carat-end" ).html( " $" + ui.values[ 1 ] );
-                $( "#hidden_minimum_carat" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_carat" ).val(ui.values[ 1 ]);
+                $( "#carat-start" ).html( "$" + min);
+                $( "#carat-end" ).html( " $" + max );
+                $( "#hidden_minimum_carat" ).val(min);
+                $( "#hidden_maximum_carat" ).val(max);
+                $( "#minimum_carat_input" ).val(min);
+                $( "#maximum_carat_input" ).val(max);
                 filter_data(page);
               }
             });
@@ -531,6 +567,23 @@
             $( "#carat-end" ).html( " $" + $( "#slider-range-carat" ).slider( "values", 1 ) );
              
           });
+
+            ['minimum_depth_input', 'maximum_depth_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+                let [minimum_depth_input, maximum_depth_input] = $("#slider-range-depth").slider('values');
+                if (e.target.id === 'minimum_depth_input') {
+                    minimum_depth_input = parseInt(e.target.value, 10);
+                } else if (e.target.id === 'maximum_depth_input') {
+                    maximum_depth_input = parseInt(e.target.value, 10);
+                }
+
+                $("#slider-range-depth").slider({
+                    values: [ minimum_depth_input, maximum_depth_input],
+                });
+
+                $( "#depth-start" ).html( "$" + minimum_depth_input);
+                $( "#depth-end" ).html( " $" + maximum_depth_input);
+
+            }));
 
           $(function() {
              var maxDepth = '{{ $MaxDepth  }}';
@@ -541,13 +594,15 @@
               max: maxDepth,
               step: 0.1,
               values: [ 0, maxDepth],
-              slide: function( event, ui ) {
+              slide: function (_, { values: [min, max] }) {
                 
                 // $( "#depth" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#depth-start" ).html( "$" + ui.values[ 0 ]);
-                $( "#depth-end" ).html( " $" + ui.values[ 1 ] );
-                $( "#hidden_minimum_depth" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_depth" ).val(ui.values[ 1 ]);
+                $( "#depth-start" ).html( "$" + min);
+                $( "#depth-end" ).html( " $" + max );
+                $( "#hidden_minimum_depth" ).val(min);
+                $( "#hidden_maximum_depth" ).val(max);
+                $( "#minimum_depth_input" ).val(min);
+                $( "#maximum_depth_input" ).val(max);
                 filter_data(page);
               }
             });
@@ -556,6 +611,23 @@
             $( "#depth-end" ).html( " $" + $( "#slider-range-depth" ).slider( "values", 1 ) );
              
           });
+
+          ['minimum_ratio_input', 'maximum_ratio_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+                let [minimum_ratio_input, maximum_ratio_input] = $("#slider-range-ratio").slider('values');
+                if (e.target.id === 'minimum_ratio_input') {
+                    minimum_ratio_input = parseInt(e.target.value, 10);
+                } else if (e.target.id === 'maximum_ratio_input') {
+                    maximum_ratio_input = parseInt(e.target.value, 10);
+                }
+
+                $("#slider-range-ratio").slider({
+                    values: [ minimum_ratio_input, maximum_ratio_input],
+                });
+
+                $( "#ratio-start" ).html( "$" + minimum_ratio_input);
+                $( "#ratio-end" ).html( " $" + maximum_ratio_input);
+
+            }));
 
           $(function() {
              var maxRatio = 3;
@@ -566,14 +638,17 @@
               max: maxRatio,
               step: 0.1,
               values: [ 0, maxRatio],
-              slide: function( event, ui ) {
+              slide: function (_, { values: [min, max] }) {
                 
                 // $( "#ratio" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#ratio-start" ).html( "$" + ui.values[ 0 ]);
-                $( "#ratio-end" ).html( " $" + ui.values[ 1 ] );
+                $( "#ratio-start" ).html( "$" + min);
+                $( "#ratio-end" ).html( " $" + max );
 
-                $( "#hidden_minimum_ratio" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_ratio" ).val(ui.values[ 1 ]);
+                $( "#hidden_minimum_ratio" ).val(min);
+                $( "#hidden_maximum_ratio" ).val(max);
+
+                $( "#minimum_ratio_input" ).val(min);
+                $( "#maximum_ratio_input" ).val(max);
                 filter_data(page);
               }
             });
@@ -582,6 +657,23 @@
             $( "#ratio-end" ).html( " $" + $( "#slider-range-ratio" ).slider( "values", 1 ) );
              
           });
+
+          ['minimum_table_input', 'maximum_table_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+                let [minimum_table_input, maximum_table_input] = $("#slider-range-table").slider('values');
+                if (e.target.id === 'minimum_table_input') {
+                    minimum_table_input = parseInt(e.target.value, 10);
+                } else if (e.target.id === 'maximum_table_input') {
+                    maximum_table_input = parseInt(e.target.value, 10);
+                }
+
+                $("#slider-range-table").slider({
+                    values: [ minimum_table_input, maximum_table_input],
+                });
+
+                $( "#table-start" ).html( "$" + minimum_table_input);
+                $( "#table-end" ).html( " $" + maximum_table_input);
+
+            }));
 
           $(function() {
              var maxTable = '{{ $MaxTable  }}';
@@ -592,14 +684,17 @@
               max: maxTable,
               step: 0.1,
               values: [ 0, maxTable],
-              slide: function( event, ui ) {
+              slide: function (_, { values: [min, max] }) {
                 
                 //$( "#table" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                $( "#table-start" ).html( "$" + ui.values[ 0 ]);
-                $( "#table-end" ).html( " $" + ui.values[ 1 ] );
+                $( "#table-start" ).html( "$" + min);
+                $( "#table-end" ).html( " $" + max );
 
-                $( "#hidden_minimum_table" ).val(ui.values[ 0 ]);
-                $( "#hidden_maximum_table" ).val(ui.values[ 1 ]);
+                $( "#hidden_minimum_table" ).val(min);
+                $( "#hidden_maximum_table" ).val(max);
+
+                $( "#minimum_table_input" ).val(min);
+                $( "#maximum_table_input" ).val(max);
                 filter_data(page);
               }
             });

@@ -24,7 +24,7 @@
                 <div class="col-md-7 order-2 order-md-1">
                     <div class="jewellery-paragraph-box">
                         <div class="cut_shape_heading mb-3">{{ $Step->step1_section1_title }}</div>
-                        <p class="customer_stories_paragraph">{{ $Step->step1_section1_description }}</p>
+                        <p class="customer_stories_paragraph">{!! $Step->step1_section1_description !!}</p>
                     </div>
                 </div>
                 <div class="col-md-5 order-1 order-md-2 mb-4 mb-md-0">
@@ -91,7 +91,7 @@
             <div class="col-md-7 mb-4 mb-md-0">
                 <div class="jewellery-paragraph-box">
                     <div class="cut_shape_heading mb-md-3">{{ strtolower($Step->step2_title) }}</div>
-                    <p class="customer_stories_paragraph">{{ $Step->step2_shotline }}</p>
+                    <p class="customer_stories_paragraph">{!! $Step->step2_shotline !!}</p>
                     <a href="{{ url('/step/'.$Step->slug.'/two'); }}" class="explore-ring-btn btn-hover-effect banner-url d-inline-block text-center know_more_btn">know more</a>
                 </div>
             </div>

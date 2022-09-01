@@ -41,8 +41,8 @@
                             <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                             <div class="round_cut_lab_diamonds_price col-lg-12">
                                 <div class="d-flex align-items-center mb-2 position-relative">
-                                    <span class="from_text me-2"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
-                                    <span class="to_text me-2"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                                    <span class="from_text me-2"><input type="numner" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
+                                    <span class="to_text me-2"><input type="numner" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
                                     <div id="slider-range" class="mb-0"></div>
                                 </div>
                                 <!-- <p class="mb-0"> <span id="amount"></span></p> -->
@@ -199,10 +199,29 @@ $(document).ready(function(){
     });
 
     $(".amount_input").keyup(function(){
-        filter_data();
+        filter_data();  
     });
 
+    ['minimum_price', 'maximum_price'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+    let [minimum_price, maximum_price] = $("#slider-range").slider('values');
+    if (e.target.id === 'minimum_price') {
+        minimum_price = parseInt(e.target.value, 10);
+    } else if (e.target.id === 'maximum_price') {
+        maximum_price = parseInt(e.target.value, 10);
+    }
+
+    $( "#slider-range" ).slider({
+      values: [ minimum_price, maximum_price],
+    });
+
+    $( "#amount-start" ).html( "$" + minimum_price);
+    $( "#amount-end" ).html( " $" + maximum_price);
+
+    }));
+
+
     $(function() {
+        
      var maxPrice = '{{ $Maxprice  }}';
      
     $( "#slider-range" ).slider({
@@ -210,14 +229,16 @@ $(document).ready(function(){
       min: 0,
       max: maxPrice,
       values: [ 0, maxPrice],
-      slide: function( event, ui ) {
-        //$( "#amount" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-        $( "#amount-start" ).html( "$" + ui.values[ 0 ]);
-        $( "#amount-end" ).html( " $" + ui.values[ 1 ] );
-		$( "#hidden_minimum_price" ).val(ui.values[ 0 ]);
-		$( "#hidden_maximum_price" ).val(ui.values[ 1 ]);
+      slide: function (_, { values: [min, max] }) {
+        $( "#amount-start" ).html( "$" + min);
+        $( "#amount-end" ).html( " $" + max );
+		$( "#hidden_minimum_price" ).val(min);
+		$( "#minimum_price" ).val(min);
+		$( "#hidden_maximum_price" ).val(max);
+		$( "#maximum_price" ).val(max);
         filter_data();
       }
+
     });
     //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
     $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
