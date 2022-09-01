@@ -11,7 +11,7 @@
 					<div class="about_us_link">
 						<a href="#">{{ $Step->step4_title }}</a>
 						<p class="mt-2 ste_1_paragraph">
-                            {{ $Step->step4_shotline }}
+                            {!! $Step->step4_shotline !!}
 						</p>
 					</div>
 				</div>
@@ -26,7 +26,7 @@
 				<div class="col-md-12 order-2 order-md-1">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step4_section1_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step4_section1_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step4_section1_description !!}</p>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step4_section2_title }}
 						</div>
-						<p class="customer_stories_paragraph">{{ $Step->step4_section2_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step4_section2_description !!}</p>
 					</div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 						</div>
 						<span class="customer_stories_paragraph">
 							<p>
-                              {{ $Step->step4_section3_description }}
+                              {!! $Step->step4_section3_description !!}
 							</p>
 							
 						</span>
@@ -71,7 +71,7 @@
 						</div>
 						<span class="customer_stories_paragraph">
 							<p>
-                               {{ $Step->step4_section4_description }}
+                               {!! $Step->step4_section4_description !!}
 							</p>
 							
 						</span>
@@ -85,7 +85,7 @@
                            {{ $Step->step4_section5_title }}
 						</div>
 						<p class="customer_stories_paragraph">
-                           {{ $Step->step4_section5_description }}
+                           {!! $Step->step4_section5_description !!}
 						</p>
 					</div>
 					<div class="jewellery-paragraph-box text-center text-md-start">
@@ -94,22 +94,22 @@
 						</div>
 						<span class="customer_stories_paragraph">
 							<p>
-                            {{ $Step->step4_section6_description }}
+                            {!! $Step->step4_section6_description !!}
 							</p>
 						
 						</span>
 					</div>
-					<div class="jewellery-paragraph-box text-center text-md-start">
+					<!-- <div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">
                         {{ $Step->step4_section7_title }}
 						</div>
 						<span class="customer_stories_paragraph">
 							<p>
-                            {{ $Step->step4_section7_description }}
+                            {!! $Step->step4_section7_description !!}
 							</p>
 							
 						</span>
-					</div>
+					</div> -->
 				</div>
 				<div class="col-md-5">
 					<div>
@@ -124,7 +124,7 @@
 				<div class="col-md-12 order-2 order-md-1">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step4_section8_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step4_section8_description }}
+						<p class="customer_stories_paragraph">{!! $Step->step4_section8_description !!}
 						</p>
 						
 					</div>
@@ -148,7 +148,7 @@
 					</div>
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step4_section10_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step4_section10_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step4_section10_description !!}</p>
 						
 					</div>
 				</div>

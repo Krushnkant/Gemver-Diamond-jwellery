@@ -52,109 +52,7 @@
                                 <span></span>
                             </div>
                             <li class="{{ (request()->is('/')) ? 'active' : '' }}" ><a href="{{ URL('/') }}">home</a></li>
-                            <?php 
-                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',4)->first();
-                                //dd($megamenu->sub_menu);
-                                if($megamenu != ""){   
-                            ?>
-                            <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }}" ><a href="# ">{{  $megamenu->title }}
-                                <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
-                                    <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
-                                    </svg>
-                                </a>
-                                <div class="mega-menu ">
-                                    <div class="sub-pack">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
-                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
-                                        </svg>
-                                    </div>
-                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    
-                                    <div class="mega-menu-two-part">
-                                                <div class="submenu-box">
-                                       
-                                                <div class="d-block mb-2">
-                                                    <span class="menus_title menus_title_part">loose lab diamonds</span>
-                                                </div>
-                                                <ul class="mega-menu-two-colum">
-    
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">round</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/HEART') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">heart</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/PRINCESS') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">princess</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/PEAR') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">pear</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/OVAL') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">oval</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/CUSHION') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">cushion</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/EMERALD') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">emerald</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/MARQUISE') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">marquise</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/ASSCHER') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">asscher</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img "></span>
-                                                            <span class="ms-2 ms-md-3 d-inline-block">radiant</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="submenu-box">
-                                                <ul>
-                                                    <li class="menu-part-img two_part_padding">
-                                                      <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <?php } ?>
+                           
                             <?php 
                                 $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus',1)->where('id',1)->first();
                                 //dd($megamenu->sub_menu);
@@ -458,6 +356,109 @@
                             <!--        </div>-->
                             <!--    </div>-->
                             <!--</li>-->
+                            <?php 
+                                $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',4)->first();
+                                //dd($megamenu->sub_menu);
+                                if($megamenu != ""){   
+                            ?>
+                            <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }}" ><a href="# ">{{  $megamenu->title }}
+                                <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
+                                    <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
+                                    </svg>
+                                </a>
+                                <div class="mega-menu ">
+                                    <div class="sub-pack">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
+                                            <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000"/>
+                                        </svg>
+                                    </div>
+                                    <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    
+                                    <div class="mega-menu-two-part">
+                                                <div class="submenu-box">
+                                       
+                                                <div class="d-block mb-2">
+                                                    <span class="menus_title menus_title_part">loose lab diamonds</span>
+                                                </div>
+                                                <ul class="mega-menu-two-colum">
+    
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">round</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/HEART') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">heart</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/PRINCESS') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">princess</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/PEAR') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">pear</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/OVAL') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">oval</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/CUSHION') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">cushion</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/EMERALD') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">emerald</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/MARQUISE') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">marquise</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/ASSCHER') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">asscher</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img "></span>
+                                                            <span class="ms-2 ms-md-3 d-inline-block">radiant</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="submenu-box">
+                                                <ul>
+                                                    <li class="menu-part-img two_part_padding">
+                                                      <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php } ?>
                             <?php 
                                 $megamenu = \App\Models\MegaMenu::where('estatus',1)->where('id',5)->first();
                                 if($megamenu != ""){   

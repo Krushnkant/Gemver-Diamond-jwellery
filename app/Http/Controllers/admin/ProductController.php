@@ -808,7 +808,18 @@ class ProductController extends Controller
                         $price .= '<li>$'.$product->sale_price.'</li></ul>';
                     }
 
-                    $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';
+                    $supported_image = array(
+                        'jpg',
+                        'jpeg',
+                        'png'
+                    ); 
+
+                    $ext = pathinfo($images[0], PATHINFO_EXTENSION); 
+                    if(in_array($ext, $supported_image)) {  
+                      $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';
+                    }else{
+                      $nestedData['image'] = '<img src="'.url($images[1]).'" width="50px" height="50px"/>';
+                    }
                     $nestedData['product_title'] = $product_info;
                     $nestedData['product_code'] = isset($product->product->hsn_code) ? $product->product->hsn_code : "-";
                     $nestedData['categories'] = $categories;
@@ -1313,8 +1324,8 @@ class ProductController extends Controller
                                                             jQuery("#varImgFiles-'.$term_id.'").filer({
                                                                 limit: 8,
                                                                 maxSize: null,
-                                                                fileMaxSize: 5,
-                                                                extensions: ["jpg", "jpeg", "png"],
+                                                                fileMaxSize: 50,
+                                                                extensions: ["jpg", "jpeg", "png" , "mp4" , "mov" , "gif" , "3gp"],
                                                                 changeInput: \'<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn blue">Browse Files</a></div></div>\',
                                                                 showThumbs: true,
                                                                 theme: "dragdropbox",

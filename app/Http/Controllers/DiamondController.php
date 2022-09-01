@@ -133,14 +133,14 @@ class DiamondController extends Controller
             $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
         }
 
-        if($data["minimum_table_input"] && $data["maximum_table_input"]){ 
-            $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table_input"]);
-            $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table_input"]);
-        }elseif (!empty($data["minimum_table_input"])) {
-            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
-        }elseif (!empty($data["maximum_table_input"])) {
-            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
-        }
+        // if($data["minimum_table_input"] && $data["maximum_table_input"]){ 
+        //     $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table_input"]);
+        //     $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table_input"]);
+        // }elseif (!empty($data["minimum_table_input"])) {
+        //     $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
+        // }elseif (!empty($data["maximum_table_input"])) {
+        //     $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
+        // }
 
         if(isset($data["color"])){
             $colors = $data["color"];
@@ -186,7 +186,7 @@ class DiamondController extends Controller
         }else{
             $results  = $query->paginate(20);
         }
-
+        
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
@@ -301,7 +301,8 @@ class DiamondController extends Controller
         }
 
         $TotalDiamond = Diamond::get();
-        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']];   
+       // $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']]; 
+       $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => 0];  
         return $data;
       
     }
@@ -376,7 +377,7 @@ class DiamondController extends Controller
         if(isset($data["action"]))
         {
            
-            $query = Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -441,6 +442,11 @@ class DiamondController extends Controller
                     $images = explode(",",$product->images);
                     $image = URL($images['0']);
                     $sale_price = $product->sale_price;
+                    $supported_image = array(
+                        'jpg',
+                        'jpeg',
+                        'png'
+                    );
                     $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id.'/'.$product->variant_id);
                     $artilces.='
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4 wire_bangle_shop_radio">
@@ -452,10 +458,17 @@ class DiamondController extends Controller
                             foreach($images as $image){
                             if($image_no <= 3){ 
                                 $artilces .= '<span class="form-check d-inline-block ">
-                                    <a href="">
+                                    <a href="">';
+                                    $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                                    if(in_array($ext, $supported_image)) {
+                                        $artilces .=  '<img src="'.  $image  .'" alt="" class="main-product-image-'.$product->id.'">';
+                                       }else{
+                                        $image2 = "";
+                                        $artilces .=  '<img src="'.  $image2  .'" alt="" class="main-product-image-'.$product->id.'">';
+                                       }
                                     
-                                    <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$product->id.'" class="wire_bangle_color_img pe-auto product-image ">
-                                    </a>
+                                       $artilces .= '<img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$product->id.'" class="wire_bangle_color_img pe-auto product-image ">';
+                                       $artilces .= '</a>
                                     <div class="wire_bangle_color_input_label"></div>
                                 </span>';
                             }
@@ -467,9 +480,11 @@ class DiamondController extends Controller
                                 <div class="d-flex justify-content-between pt-2 align-items-center">
                                 <div>
                                     <span class="wire_bangle_price wire_bangle_price_part">
-                                        $'.$sale_price .'</span>
-                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
-                                </div>';
+                                        $'.$sale_price .'</span>';
+                                if($product->regular_price != ""){
+                                   $artilces.='<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">'. $product->regular_price .'</span></span>';
+                                }
+                                $artilces.='</div>';
 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
                                 foreach($ProductVariantVariant as $productvariants){
@@ -536,7 +551,7 @@ class DiamondController extends Controller
         $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$vid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$id)->groupBy('products.id')->get();
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$id)->groupBy('products.id')->get();
         return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated'));
     }
 
@@ -549,7 +564,7 @@ class DiamondController extends Controller
         $Diamond = Diamond::where(['id' => $cart->diamond_id])->first();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
        
-        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$Product->product_id)->groupBy('products.id')->get();
+        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$Product->product_id)->groupBy('products.id')->get();
         
         
         return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated'));

@@ -243,7 +243,7 @@
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
                                 <sub class="ms-2 wire_bangle_dublicate_price ">$<span class="regular_price"> {{ $Product->product_variant['0']->regular_price }} </span></sub>
-                                <sub class="price_discount ms-2"><span class="discount_percent">40</span>% Off</sub>
+                                <sub class="price_discount ms-2"><span class="discount_percent">{{ $Product->product_variant['0']->auto_discount_percent }}</span>% Off</sub>
                                 @endif
                             </span>
                         </div>
@@ -559,7 +559,7 @@
                                         <span class="wire_bangle_price wire_bangle_price_part">
                                             $ {{ $sale_price }}
                                         </span>
-                                        <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">250</span></span>
+                                        <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $Related->regular_price }}</span></span>
                                     </div>
                                     <?php 
                                     $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();

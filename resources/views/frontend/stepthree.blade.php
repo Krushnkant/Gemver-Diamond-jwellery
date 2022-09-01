@@ -11,7 +11,7 @@
 					<div class="about_us_link">
 						<a href="#">{{ $Step->step3_title }}</a>
 						<p class="mt-2 ste_1_paragraph">
-                        {{ $Step->step3_shotline }}
+                        {!! $Step->step3_shotline !!}
 						</p>
 					</div>
 				</div>
@@ -26,7 +26,7 @@
 				<div class="col-md-12 order-2 order-md-1">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section1_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section1_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section1_description !!}</p>
 					</div>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section2_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section2_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section2_description !!}</p>
 						<!-- <a href=" " class="jewellery_paragraph_box_link text-decoration-underline">Shop Solitaire
 							Engagement Ring</a> -->
 					</div>
@@ -50,7 +50,7 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section3_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section3_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section3_description !!}</p>
 						<!-- <a href=" " class="jewellery_paragraph_box_link text-decoration-underline">Shop Halo Engagement
 							Ring</a> -->
 					</div>
@@ -68,14 +68,14 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section4_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section4_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section4_description !!}</p>
 					
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section5_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section5_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section5_description !!}</p>
 						
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section6_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section6_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section6_description !!}</p>
 					
 					</div>
 				</div>
@@ -104,7 +104,7 @@
 				<div class="col-md-12 order-2 order-md-1 where_to_start_section_2">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section7_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section7_description }}
+						<p class="customer_stories_paragraph">{!! $Step->step3_section7_description !!}
 						</p>
 						
 					</div>
@@ -122,14 +122,14 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section8_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section8_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section8_description !!}</p>
 						
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section9_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section9_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section9_description !!}</p>
 						
 					</div>
 				</div>
@@ -146,14 +146,14 @@
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section10_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section10_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section10_description !!}</p>
 					
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="jewellery-paragraph-box text-center text-md-start">
 						<div class="cut_shape_heading mb-3">{{ $Step->step3_section11_title }}</div>
-						<p class="customer_stories_paragraph">{{ $Step->step3_section11_description }}</p>
+						<p class="customer_stories_paragraph">{!! $Step->step3_section11_description !!}</p>
 						
 					</div>
 				</div>
@@ -313,7 +313,7 @@
 					<div class="col-md-7 mb-4 mb-md-0">
 						<div class="jewellery-paragraph-box text-center text-md-start">
 							<div class="mb-3 cut_shape_heading">{{ $Step->step4_title }}</div>
-							<p class="customer_stories_paragraph">{{ $Step->step4_shotline }}</p>
+							<p class="customer_stories_paragraph">{!! $Step->step4_shotline !!}</p>
 							<a href="{{ url('/step/'.$Step->slug.'/four'); }}" class="explore-ring-btn btn-hover-effect banner-url d-inline-block text-center know_more_btn">know more</a>
 						</div>
 					</div>
