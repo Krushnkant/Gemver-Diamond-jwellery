@@ -36,7 +36,7 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_icon" id="step4_icon">
                         <div id="step4_icon-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_icon))  {{ url('images/steps/'.$step->step4_icon) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_icon_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_icon))  {{ url('images/steps/'.$step->step4_icon) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_icon_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div> -->
             
@@ -46,7 +46,7 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_header_image" id="step4_header_image">
                         <div id="step4_header_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_header_image))  {{ url('images/steps/'.$step->step4_header_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_header_image_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_header_image))  {{ url('images/steps/'.$step->step4_header_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_header_image_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div> -->
             
@@ -95,7 +95,7 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_section2_image" id="step4_section2_image">
                         <div id="step4_section2_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_section2_image))  {{ url('images/steps/'.$step->step4_section2_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section2_image_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_section2_image))  {{ url('images/steps/'.$step->step4_section2_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section2_image_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div>
             
@@ -107,12 +107,6 @@
                         <input type="text" class="form-control input-flat" id="step4_section2_title" name="step4_section2_title" value="{{ isset($step)?($step->step4_section2_title):'' }}">
                         <div id="step4_section2_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                </div>
-            
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label class="col-form-label" for="step4_section2_description"> Description <span class="text-danger">*</span>
                         </label>
@@ -120,6 +114,8 @@
                         <div id="step4_section2_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
+
+               
 
                
 
@@ -137,7 +133,7 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_section3_image" id="step4_section3_image">
                         <div id="step4_section3_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_section3_image))  {{ url('images/steps/'.$step->step4_section3_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section3_image_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_section3_image))  {{ url('images/steps/'.$step->step4_section3_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section3_image_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div>
 
@@ -148,12 +144,6 @@
                         <input type="text" class="form-control input-flat" id="step4_section3_title" name="step4_section3_title" value="{{ isset($step)?($step->step4_section3_title):'' }}">
                         <div id="step4_section3_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                </div>
-            
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label class="col-form-label" for="step4_section3_description"> Description <span class="text-danger">*</span>
                         </label>
@@ -161,6 +151,8 @@
                         <div id="step4_section3_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
+
+                
             
                 
 
@@ -199,6 +191,12 @@
                         <input type="text" class="form-control input-flat" id="step4_section5_title" name="step4_section5_title" value="{{ isset($step)?($step->step4_section5_title):'' }}">
                         <div id="step4_section5_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="step4_section5_description"> Description <span class="text-danger">*</span>
+                        </label>
+                        <textarea  class="summernote"  id="step4_section5_description" name="step4_section5_description" class="form-control">{{ isset($step)?($step->step4_section5_description):'' }}</textarea>
+                        <div id="step4_section5_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                    </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -207,20 +205,10 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_section5_image" id="step4_section5_image">
                         <div id="step4_section5_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_section5_image))  {{ url('images/steps/'.$step->step4_section5_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section5_image_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_section5_image))  {{ url('images/steps/'.$step->step4_section5_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section5_image_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div>
             
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label class="col-form-label" for="step4_section5_description"> Description <span class="text-danger">*</span>
-                        </label>
-                        <textarea  class="summernote"  id="step4_section5_description" name="step4_section5_description" class="form-control">{{ isset($step)?($step->step4_section5_description):'' }}</textarea>
-                        <div id="step4_section5_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                    </div>
-                </div>
-            
-                
 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
@@ -229,9 +217,6 @@
                         <input type="text" class="form-control input-flat" id="step4_section6_title" name="step4_section6_title" value="{{ isset($step)?($step->step4_section6_title):'' }}">
                         <div id="step4_section6_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                </div>
-            
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label class="col-form-label" for="step4_section6_description"> Description <span class="text-danger">*</span>
                         </label>
@@ -239,6 +224,8 @@
                         <div id="step4_section6_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
+            
+                
 
                 <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
@@ -302,7 +289,7 @@
                         </label>
                         <input type="file" class="form-control-image" name="step4_section9_image" id="step4_section9_image">
                         <div id="step4_section9_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step4_section9_image))  {{ url('images/steps/'.$step->step4_section9_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section9_image_show" height="50px" width="50px" style="margin-top: 5px">
+                        <img src="@if(isset($step) && !empty($step->step4_section9_image))  {{ url('images/steps/'.$step->step4_section9_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step4_section9_image_show" height="250px" width="250px" style="margin-top: 5px">
                     </div>
                 </div>
 
@@ -314,13 +301,6 @@
                         <input type="text" class="form-control input-flat" id="step4_section9_title" name="step4_section9_title" value="{{ isset($step)?($step->step4_section9_title):'' }}">
                         <div id="step4_section9_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    
-                </div>
-            
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label class="col-form-label" for="step4_section9_description"> Description <span class="text-danger">*</span>
                         </label>
@@ -328,10 +308,6 @@
                         <div id="step4_section9_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
-
-                
-
-               
 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
