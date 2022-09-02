@@ -311,6 +311,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('banners/{id}/edit',[\App\Http\Controllers\admin\BannerController::class,'editbanner'])->name('banners.edit');
     Route::post('banners/uploadfile',[\App\Http\Controllers\admin\BannerController::class,'uploadfile'])->name('banners.uploadfile');
     Route::post('banners/removefile',[\App\Http\Controllers\admin\BannerController::class,'removefile'])->name('banners.removefile');
+    Route::post('banners/getBannerInfoVal',[\App\Http\Controllers\admin\BannerController::class,'getBannerInfoVal'])->name('banners.getBannerInfoVal');
+    Route::get('banners/getproducts/{cat_id}',[\App\Http\Controllers\admin\BannerController::class,'getproducts'])->name('banners.getproducts');
 
     Route::get('newslatters',[\App\Http\Controllers\admin\NewsLatterController::class,'index'])->name('newslatter.list');
     Route::post('allnewslatterslist',[\App\Http\Controllers\admin\NewsLatterController::class,'allnewslatterslist'])->name('allnewslatterslist');

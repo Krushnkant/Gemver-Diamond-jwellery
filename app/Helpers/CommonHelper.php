@@ -259,15 +259,9 @@ function category_detail($category){
 function getDropdownInfoVal($Info){
     $categories = Category::where('estatus',1)->orderBy('created_at','DESC')->get();
     $html = '';
-    if ($Info == 3){
-        $html .= ' <div class="form-group">
-                    <label class="col-form-label" for="underPrice">Price  <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control input-flat" id="value" name="value" value="">
-                    <label id="value-error" class="error invalid-feedback animated fadeInDown" for="value"></label>
-                    </div>';
-    }
+ 
 
-    if ($Info == 5){
+    if ($Info == 2){
         $html .= '<div class="form-group">
                     <label class="col-form-label" for="category">Select Category
                     </label>
@@ -278,7 +272,7 @@ function getDropdownInfoVal($Info){
                     </div>';
     }
 
-    if ($Info == 7){
+    if ($Info == 3){
         $html .= '<div class="form-group" id="category_dropdown">
                     <label class="col-form-label" for="category">Select Category
                     </label>
@@ -289,15 +283,9 @@ function getDropdownInfoVal($Info){
                     </div>';
     }
 
-    if ($Info == 10){
-        $html .= ' <div class="form-group">
-                    <label class="col-form-label" for="arrivalDays">Days</label>
-                    <input type="number" class="form-control input-flat" id="value" name="value" value="">
-                    <label id="value-error" class="error invalid-feedback animated fadeInDown" for="value"></label>
-                    </div>';
-    }
+  
 
-    if ($Info == 14){
+    if ($Info == 4){
         $html .= '<div class="form-group">
                     <label class="col-form-label" for="bannerUrl">Banner URL</label>
                     <input type="text" class="form-control input-flat" id="value" name="value" value="">
@@ -309,24 +297,24 @@ function getDropdownInfoVal($Info){
 }
 
 function getproducts($cat_id){
-    $products1 = Product::where('subchild_category_id',$cat_id)->where('estatus',1)->get();
-    $products2 = Product::where('child_category_id',$cat_id)->where('subchild_category_id',null)->where('estatus',1)->get();
-    $variants_arr = array();
-    foreach ($products1 as $product1){
-        $product_variants = ProductVariant::where('product_id',$product1->id)->where('estatus',1)->orderBy('created_at','DESC')->get(['id','product_title'])->toArray();
-        foreach ($product_variants as $product_variant){
-            array_push($variants_arr,$product_variant);
-        }
-    }
+    $products1 = Product::whereRaw('FIND_IN_SET('.$cat_id.', primary_category_id)')->where('estatus',1)->get(['id','product_title'])->toArray();
+   // $products2 = Product::where('child_category_id',$cat_id)->where('subchild_category_id',null)->where('estatus',1)->get();
+    // $variants_arr = array();
+    // foreach ($products1 as $product1){
+    //     $product_variants = ProductVariant::where('product_id',$product1->id)->where('estatus',1)->orderBy('created_at','DESC')->get(['id','product_title'])->toArray();
+    //     foreach ($product_variants as $product_variant){
+    //         array_push($variants_arr,$product_variant);
+    //     }
+    // }
 
-    foreach ($products2 as $product2){
-        $product_variants = ProductVariant::where('product_id',$product2->id)->where('estatus',1)->orderBy('created_at','DESC')->get(['id','product_title'])->toArray();
-        foreach ($product_variants as $product_variant){
-            array_push($variants_arr,$product_variant);
-        }
-    }
+    // foreach ($products2 as $product2){
+    //     $product_variants = ProductVariant::where('product_id',$product2->id)->where('estatus',1)->orderBy('created_at','DESC')->get(['id','product_title'])->toArray();
+    //     foreach ($product_variants as $product_variant){
+    //         array_push($variants_arr,$product_variant);
+    //     }
+    // }
 
-    return $variants_arr;
+    return $products1;
 }
 
 function compressImage($source, $destination, $quality) { 

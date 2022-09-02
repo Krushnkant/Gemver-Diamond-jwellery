@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('admin/megamenus') }}">Mega Menu</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Sub Menu</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">{{ $MegaMenus->title }}</a></li>
             </ol>
         </div>
     </div>

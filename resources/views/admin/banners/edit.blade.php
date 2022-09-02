@@ -65,7 +65,7 @@
         <!--<div id="button_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>-->
         <!--</div>-->
         
-        <div class="form-group" >
+        <!-- <div class="form-group" >
         <label class="col-form-label" for="button_url">Select Category URL
         </label>
         <select id='button_url' name="button_url" class="form-control">
@@ -74,7 +74,63 @@
                 <option value="{{ URL('/shop/'.$category['id'])}}" @if(isset($category) && URL('/shop/'.$category['id']) == $banner->button_url) selected @endif >{{ $category['category_name'] }}</option>
             @endforeach
         </select>
-    </div>
+    </div> -->
+
+        <div class="form-group">
+            <select class="form-control" id="BannerInfo" name="BannerInfo">
+                @foreach($application_dropdowns as $application_dropdown)
+                    <option value="{{ $application_dropdown->id }}" @if($application_dropdown->id == $banner->application_dropdown_id) selected @endif>{{ $application_dropdown->title }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div id="infoBox" class="">
+            @if($banner->application_dropdown_id == 2)
+                <div class="form-group" id="category_dropdown">
+                    <label class="col-form-label" for="category">Select Category</label>
+                    <select id="value" name="value" class="category_dropdown_catalog">
+                        <option></option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @if($category->id == $banner->value) selected @endif>{{ $category->category_name }}</option>
+                        @endforeach
+                    </select>
+                    <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                </div>
+            @elseif($banner->application_dropdown_id == 3)
+                <div class="form-group" id="category_dropdown">
+                    <label class="col-form-label" for="category">Select Category</label>
+                    <select id="value" name="value" class="">
+                        <option></option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @if($category->id == $banner->value) selected @endif>{{ $category->category_name }}</option>
+                        @endforeach
+                    </select>
+                    <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                </div>
+        
+            @elseif($banner->application_dropdown_id == 4)
+                <div class="form-group">
+                    <label class="col-form-label" for="bannerUrl">Banner URL</label>
+                    <input type="text" class="form-control input-flat" id="value" name="value" value="{{ $banner->value }}">
+                    <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                </div>
+            @endif
+        </div>
+
+        <div id="productDropdownBox" class="pb-2">
+            @if($banner->application_dropdown_id == 2)
+                <div class="form-group" id="">
+                    <label class="col-form-label" for="product">Select Product</label>
+                    <select id="product" name="product" class="">
+                        <option></option>
+                        @foreach($products as $product)
+                            <option value="{{ $product['id'] }}" @if($product['id'] == $banner->product_variant_id) selected @endif>{{ $product['product_title'] }}</option>
+                        @endforeach
+                    </select>
+                    <div id="product-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                </div>
+            @endif
+        </div>
 
         <div id="blogthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
