@@ -43,7 +43,8 @@ class ProductController extends Controller
         {
            
             $attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
+            \DB::enableQueryLog(); 
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -72,9 +73,33 @@ class ProductController extends Controller
             
             if(isset($data["attribute"])){
                 $attribute=$data["attribute"];
-                $query = $query->where('product_variant_variants.attribute_term_id',$data["attribute"]);
-                $query = $query->where('product_variant_variants.estatus',1);
+                // $sql = "";
+                // foreach($attribute as $attr){
+                //     if($sql == ""){
+                //         $sql .= "FIND_IN_SET($attr, product_attributes.terms_id)";
+                //     }else{
+                //         $sql .= " OR FIND_IN_SET($attr, product_attributes.terms_id)";
+                //     } 
+                // }
+                // $query = $query->where($sql);
+                //dd($sql);
+                //$query = $query->where('product_variant_variants.attribute_term_id',$data["attribute"]);
+               // $query = $query->where('product_variant_variants.estatus',1);
+
+               $query = $query->where(function($q) use($attribute){
+                foreach($attribute as $key=>$c){
+                    if ($key == 0) {
+                        $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                    } else {
+                        $q = $q->orWhere(function ($query1) use ($c){
+                            $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                        });
+                    }
+                }
+               });
             }
+
+            
 
             // if(isset($data["attribute"])){
             //     $attribute=$data["attribute"];
@@ -107,7 +132,7 @@ class ProductController extends Controller
                
             $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
            }
-           
+          // dd(\DB::getQueryLog());
            //$result = $query->groupBy('products.id')->paginate(12);
             $output = '';
             if(count($result) > 0){

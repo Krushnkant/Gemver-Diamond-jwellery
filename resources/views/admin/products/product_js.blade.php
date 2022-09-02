@@ -656,12 +656,14 @@ $(document).ready(function(){
                 valid = false;
             }
             
-            var valid_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-            if(!valid_extensions.test($(this).find('input[name="varImage"]').val())){ 
-                $(this).find("#varImage-error").html("Please provide a product images");
-                $(this).find("#varImage-error").show();
-                valid = false;
-            }    
+           
+            // var valid_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+            // if(!valid_extensions.test($(this).find('input[name="varImage"]').val())){ 
+            //     $(this).find("#varImage-error").html("Please provide a product images");
+            //     $(this).find("#varImage-error").show();
+            //     valid = false;
+            // }    
 
 
             if($(this).find('input[name="varImage"]').val()==""){
@@ -701,7 +703,7 @@ $(document).ready(function(){
                 $("#"+this_err).show();
                 valid = false;
                 }
-              
+        
             })
 
             $(this).find('.varSalePrice').each(function() {
@@ -734,14 +736,7 @@ $(document).ready(function(){
                     $(this_form).find("#"+this_err).show();
                     valid = false;
                 }
-              
             })
-
-          
-
-          
-
-            
 
             var str = '';
             $(this).find('.Variation').each(function() {

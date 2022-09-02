@@ -75,18 +75,6 @@
                         <input type="text" class="form-control input-flat" id="step1_section1_title" name="step1_section1_title" value="{{ isset($step)?($step->step1_section1_title):'' }}">
                         <div id="step1_section1_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                        <label class="col-form-label" for="step1_section1_image"> Image  <span class="text-danger">*</span>
-                        </label>
-                        <input type="file" class="form-control-image" name="step1_section1_image" id="step1_section1_image">
-                        <div id="step1_section1_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <img src="@if(isset($step) && !empty($step->step1_section1_image))  {{ url('images/steps/'.$step->step1_section1_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step1_section1_image_show" height="50px" width="50px" style="margin-top: 5px">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="form-group">
                         <label class="col-form-label" for="step1_section1_description"> Description <span class="text-danger">*</span>
                         </label>
@@ -94,10 +82,15 @@
                         <div id="step1_section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
-
-                
-
-                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label" for="step1_section1_image"> Image  <span class="text-danger">*</span>
+                        </label>
+                        <input type="file" class="form-control-image" name="step1_section1_image" id="step1_section1_image">
+                        <div id="step1_section1_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                        <img src="@if(isset($step) && !empty($step->step1_section1_image))  {{ url('images/steps/'.$step->step1_section1_image) }} @else {{ asset('images/default_avatar.jpg') }} @endif" class="" id="step1_section1_image_show" height="250px" width="250px" style="margin-top: 5px">
+                    </div>
+                </div>
 
             </div>
         </div>
