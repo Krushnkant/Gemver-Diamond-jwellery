@@ -68,13 +68,14 @@ class MegaMenuController extends Controller
     }
 
     public function submenu($id){
+        $MegaMenus = MegaMenu::where('id',$id)->first();
         $SubMenus = SubMenu::where('mega_menu_id',$id)->get();
         $canWrite = false;
         $page_id = ProjectPage::where('route_url','admin.megamenus.list')->pluck('id')->first();
         if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
             $canWrite = true;
         }
-        return view('admin.megamenu.submenulist',compact('SubMenus','canWrite'))->with('page',$this->page);
+        return view('admin.megamenu.submenulist',compact('SubMenus','canWrite','MegaMenus'))->with('page',$this->page);
     }
 
     public function editsubmenus($id){
@@ -106,6 +107,7 @@ class MegaMenuController extends Controller
 
 
     public function submenumanage($id,$megaid){
+        $SubMenu = SubMenu::where('id',$id)->first();
         $MenuCategories = MenuCategory::where('menu_id',$id)->get();
         $canWrite = false;
         $page_id = ProjectPage::where('route_url','admin.megamenus.list')->pluck('id')->first();
@@ -113,7 +115,7 @@ class MegaMenuController extends Controller
             $canWrite = true;
         }
         $categories = Category::where('is_custom',0)->where('estatus',1)->get()->toArray();
-        return view('admin.megamenu.manage',compact('MenuCategories','canWrite','categories','id','megaid'))->with('page',$this->page);
+        return view('admin.megamenu.manage',compact('MenuCategories','canWrite','categories','id','megaid','SubMenu'))->with('page',$this->page);
     }
 
     public function editsubmenumanage($id){

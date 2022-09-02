@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
+use App\Models\ApplicationDropdown;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -22,8 +23,9 @@ class BannerController extends Controller
     public function create(){
         $action = "create";
         $banners = Banner::where('estatus',1)->get()->toArray();
+        $application_dropdowns = ApplicationDropdown::get();
         $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        return view('admin.banners.list',compact('action','banners','categories'))->with('page',$this->page);
+        return view('admin.banners.list',compact('action','banners','categories','application_dropdowns'))->with('page',$this->page);
     }
 
     public function save(Request $request){
@@ -46,6 +48,17 @@ class BannerController extends Controller
                 'title' =>'required',
                 'catImg' =>'required',
                 'description' =>'required',
+            ], $messages);
+        }
+
+        if($request->BannerInfo == 2 || $request->BannerInfo == 3 || $request->BannerInfo == 4 ){
+           
+
+            $validator = Validator::make($request->all(), [
+                'title' =>'required',
+                'catImg' =>'required',
+                'description' =>'required',
+                'value' => 'required',
             ], $messages);
         }
 
@@ -74,7 +87,9 @@ class BannerController extends Controller
             $banner->title = $request->title;
             $banner->description = $request->description;
             $banner->button_name = $request->button_name;
-            $banner->button_url = $request->button_url;
+            $banner->application_dropdown_id = $request->BannerInfo;
+            $banner->value = $request->value;
+            $banner->product_variant_id = isset($request->product) ? $request->product : null;
            
         }
         else{
@@ -84,8 +99,10 @@ class BannerController extends Controller
             $banner->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $banner->banner_thumb = $request->catImg;
             $banner->description = $request->description;
+            $banner->application_dropdown_id = $request->BannerInfo;
+            $banner->value = $request->value;
+            $banner->product_variant_id = isset($request->product) ? $request->product : null;
             $banner->button_name = $request->button_name;
-            $banner->button_url = $request->button_url;
         }
         $banner->save();
         return response()->json(['status' => '200', 'action' => $action]);
@@ -222,8 +239,15 @@ class BannerController extends Controller
     public function editbanner($id){
         $action = "edit";
         $banner = Banner::find($id);
-        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        return view('admin.banners.list',compact('action','banner','categories'))->with('page',$this->page);
+        //$categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        $application_dropdowns = ApplicationDropdown::get();
+        $categories = Category::where('estatus',1)->orderBy('created_at','DESC')->get();
+
+        $products = "";
+        if($banner->application_dropdown_id == 2) {
+            $products = getproducts($banner->value);
+        }
+        return view('admin.banners.list',compact('action','banner','application_dropdowns','categories','products'))->with('page',$this->page);
     }
 
     public function uploadfile(Request $request){
@@ -250,4 +274,14 @@ class BannerController extends Controller
             }
         }
     } 
+
+    public function getBannerInfoVal(Request $request){
+        $data = getDropdownInfoVal($request->bannerInfo);
+        return ["html" => $data['html'], 'categories' => $data['categories']];
+    }
+
+    public function getproducts($cat_id){
+        $variants_arr = getproducts($cat_id);
+        return $variants_arr;
+    }
 }

@@ -33,10 +33,34 @@
                                     {!! $banner->description !!}
                                     </div>
                                     @if($banner->button_name != "")
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner->button_url != "") ? $banner->button_url : '#'; }}'>
+                                    @if($banner->application_dropdown_id == 1)
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 2)
+                                    <?php 
+                                        $banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 3)
+                                    <?php 
+                                        $banner_url = URL('shop/'.$banner->value);
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 4)
+                                    <?php 
+                                        $banner_url = $banner->value;
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
                                         {{ $banner->button_name }}
                                     </button>
                                     @endif
+                                    @endif
+                                   
                                 </div>
                             </div>
                         </div>

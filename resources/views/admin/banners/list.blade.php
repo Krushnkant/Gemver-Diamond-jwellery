@@ -105,7 +105,7 @@
 
 $(document).ready(function() {
     banner_table(true);
-    $('#button_url').select2({
+    $('#BannerInfo').select2({
         width: '100%',
         placeholder: "Select...",
         allowClear: true,
@@ -113,6 +113,88 @@ $(document).ready(function() {
         closeOnSelect: false,
     });
 
+    $('#value').select2({
+        width: '100%',
+        placeholder: "Select Category",
+        allowClear: false
+    });
+    $('#product').select2({
+        width: '100%',
+        placeholder: "Select Product",
+        allowClear: true
+    });
+
+
+
+});
+
+$('#BannerInfo').change(function() {
+    var bannerInfo = $(this).val();
+    if(bannerInfo == 2 || bannerInfo == 3 || bannerInfo == 4 ){
+        $('#attr-cover-spin').show();
+        $.ajax ({
+            type:"POST",
+            url: "{{ route('admin.banners.getBannerInfoVal') }}",
+            data : {bannerInfo: bannerInfo, "_token": "{{csrf_token()}}"},
+            success: function(data) {
+                // console.log(data.categories);
+                $('#infoBox').html(data.html);
+                $("#productDropdownBox").html("");
+                if(bannerInfo == 2 || bannerInfo == 3){
+                    category_dropdown(data.categories);
+                    $('#value').select2({
+                        width: '100%',
+                        placeholder: "Select Category",
+                        allowClear: false
+                    });
+                }
+            },
+            complete: function(){
+                $('#attr-cover-spin').hide();
+            }
+        });
+    } else {
+        $('#infoBox').html('');
+        $("#productDropdownBox").html("");
+    }
+});
+
+function category_dropdown(categories) {
+    var list = $("#value");
+    $.each(categories, function(index, item) {
+        list.append(new Option(item.category_name, item.id));
+    });
+}
+
+$('body').on("change",".category_dropdown_catalog",function(){
+    $("#attr-cover-spin").fadeIn();
+    var category_id = $(this).val();
+
+    $.get("{{ url('admin/banners/getproducts') }}" + '/' + category_id, function (data) {
+        if (data) {
+            var html =`<div class="form-group" id="">
+                    <label class="col-form-label" for="product">Select Product</label>
+                    <select id="product" name="product" class="">
+                        <option></option>
+                    </select>
+                    <div id="product-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                    </div>`;
+
+            $("#productDropdownBox").html(html);
+            $.each(data, function(index, item) {
+                $("#product").append(new Option(item.product_title, item.id));
+            });
+            $('#product').select2({
+                width: '100%',
+                placeholder: "Select Product",
+                allowClear: true
+            });
+            $("#attr-cover-spin").fadeOut();
+        } else {
+            $("#productDropdownBox").html("");
+            $("#attr-cover-spin").fadeOut();
+        }
+    });
 });
 
 $('body').on('click', '#AddBannerBtn', function () {
@@ -162,6 +244,20 @@ function save_banner(btn,btn_type){
                     $('#catthumb-error').show().text(res.errors.catImg);
                 } else {
                     $('#catthumb-error').hide();
+                }
+
+                if (res.errors.value) {
+                    if($("#BannerInfo").val() == 2) {
+                        $('#value-error').show().text("Please provide a Category");
+                    }
+                    else if($("#BannerInfo").val() == 3) {
+                        $('#value-error').show().text("Please provide a Category");
+                    }
+                    else if($("#BannerInfo").val() == 4) {
+                        $('#value-error').show().text("Please provide a Banner URL");
+                    }
+                } else {
+                    $('#value-error').hide();
                 }
             }
 

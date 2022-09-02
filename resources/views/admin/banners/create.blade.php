@@ -40,7 +40,7 @@
     <!--    <div id="button_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>-->
     <!--</div>-->
     
-    <div class="form-group"  >
+    <!-- <div class="form-group"  >
         <label class="col-form-label" for="button_url">Select Category URL
         </label>
         <select id='button_url' name="button_url" class="form-control">
@@ -49,7 +49,18 @@
                 <option value="{{ URL('/shop/'.$category['id'])}}">{{ $category['category_name'] }}</option>
             @endforeach
         </select>
+    </div> -->
+
+    <div class="form-group">
+        <select class="form-control" id="BannerInfo" name="BannerInfo">
+            @foreach($application_dropdowns as $application_dropdown)
+            <option value="{{ $application_dropdown->id }}" @if($application_dropdown->id==1) selected @endif>{{ $application_dropdown->title }}</option>
+            @endforeach
+        </select>
     </div>
+
+    <div id="infoBox" class=""></div>
+    <div id="productDropdownBox" class="pb-2"></div>
 
 
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
