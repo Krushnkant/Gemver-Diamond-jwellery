@@ -445,9 +445,9 @@ class ProductController extends Controller
                                 <div id="varUploadedImgBox-'.$term_id.'" class="varUploadedImgBox"></div>
                             </div>
                     </div>';
-                    $html .= '<div class="row subdata">
+                    $html .= '<div class="row subdata mt-3">
                             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                <div class="form-group row">
+                                <div class="form-group row ">
                                     <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
                                     <div class="col-lg-12">
                                         <input type="text" class="form-control input-default varRegularPrice priRegPrice" id="" name="varRegularPrice" value="">
@@ -1538,14 +1538,14 @@ class ProductController extends Controller
         $html = '';  
         $required_variation_ids = ''; 
         $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
-        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                    <div class="row">
+        
+        $html .= '
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <div class="form-group row">
+                        <label class="col-lg-12 col-form-label" for="varRegularPrice">'.$AttributeTermc->attrterm_name.' Veriation</label>
                         
-                        <div class="col-lg-12 ">
-                            '.$AttributeTermc->attrterm_name.' Veriation
-                        </div>
                     </div>
-                </div>';    
+                </div>';          
         $html .= '
                 <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
                     <div class="form-group row">

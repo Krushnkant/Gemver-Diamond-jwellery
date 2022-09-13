@@ -10,7 +10,7 @@ use App\Models\Product;
 
 class HomeSettingController extends Controller
 {
-    private $page = "Home Setting";
+    private $page = "Home Page";
 
     public function index()
     {

@@ -11,27 +11,25 @@ use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class BlogBannerController extends Controller
+class HomeBannerController extends Controller
 {
-    private $page = "Banner";
+    private $page = "Home Banner";
 
     public function index(){
         $action = "list";
-        $banners = BlogBanner::where('page',0)->where('estatus',1)->get();
-
-        $homesettings = HomeSetting::first();
+        $banners = BlogBanner::where('estatus',1)->where('page',1)->get();
         $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
         $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        return view('admin.blogbanners.list',compact('action','banners','products','homesettings'))->with('page',$this->page);
+
+        return view('admin.homebanners.list',compact('action','banners','products'))->with('page',$this->page);
     }
 
     public function create(){
         $action = "create";
-        $banners = BlogBanner::where('page',0)->where('estatus',1)->get()->toArray();
+        $banners = BlogBanner::where('page',1)->where('estatus',1)->get()->toArray();
         $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        $homesettings = HomeSetting::first();
         $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        return view('admin.blogbanners.list',compact('action','banners','categories','homesettings','products'))->with('page',$this->page);
+        return view('admin.homebanners.list',compact('action','banners','categories','products'))->with('page',$this->page);
     }
 
     public function save(Request $request){
@@ -84,12 +82,13 @@ class BlogBannerController extends Controller
             $banner->banner_thumb = $request->catImg;
             $banner->dropdown_id = $request->dropdown_id;
             $banner->value = $request->value;
+            $banner->page = 1;
         }
         $banner->save();
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
-    public function allblogbannerlist(Request $request){
+    public function allhomebannerlist(Request $request){
         if ($request->ajax()) {
             $columns = array(
                 0 =>'sr_no',
@@ -100,7 +99,7 @@ class BlogBannerController extends Controller
                 3 => 'created_at',
                 4 => 'action',
             );
-            $totalData = BlogBanner::where('page',0)->count();
+            $totalData = BlogBanner::where('page',1)->count();
             
             $totalFiltered = $totalData;
 
@@ -116,7 +115,7 @@ class BlogBannerController extends Controller
 
             if(empty($request->input('search.value')))
             {
-                $banners = BlogBanner::where('page',0)->offset($start)
+                $banners = BlogBanner::where('page',1)->offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
                     ->get();
@@ -124,12 +123,12 @@ class BlogBannerController extends Controller
             }
             else {
                 $search = $request->input('search.value');
-                $banners =  BlogBanner::where('page',0)->Where('title', 'LIKE',"%{$search}%")
+                $banners =  BlogBanner::where('page',1)->Where('title', 'LIKE',"%{$search}%")
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
                     ->get();
-                $totalFiltered = BlogBanner::where('page',0)->Where('title', 'LIKE',"%{$search}%")
+                $totalFiltered = BlogBanner::where('page',1)->Where('title', 'LIKE',"%{$search}%")
                     ->count();
             }
 
@@ -139,7 +138,7 @@ class BlogBannerController extends Controller
             {
                 foreach ($banners as $banner)
                 {
-                    $page_id = ProjectPage::where('route_url','admin.blogbanners.list')->pluck('id')->first();
+                    $page_id = ProjectPage::where('route_url','admin.homebanners.list')->pluck('id')->first();
 
                     if( $banner->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
                         $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $banner->id .'" onchange="chagebannerstatus('. $banner->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
@@ -222,7 +221,7 @@ class BlogBannerController extends Controller
         $banner = BlogBanner::find($id);
         $categories = Category::where('estatus',1)->get();
         $products = Product::where('estatus',1)->where('is_custom',0)->get();
-        return view('admin.blogbanners.list',compact('action','banner','categories','products'))->with('page',$this->page);
+        return view('admin.homebanners.list',compact('action','banner','categories','products'))->with('page',$this->page);
     }
 
     public function uploadfile(Request $request){
@@ -285,16 +284,5 @@ class BlogBannerController extends Controller
         return ["html" => $html, "products" => $products, 'categories' => $categories];
     }
 
-    public function editHomeSettings(Request $request){
-        $Settings = HomeSetting::find(1);
-        if(!$Settings){
-            return response()->json(['status' => '400']);
-        }
-        
-        $Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
-       
-        $Settings->save();
-        return response()->json(['status' => '200','Settings' => $Settings]);
-
-    }
+  
 }
