@@ -274,11 +274,11 @@ function banner_table(is_clearState=false){
             // "dataSrc": ""
         },
         'columnDefs': [
-            { "width": "50px", "targets": 0 },
-            { "width": "120px", "targets": 1 },
-            { "width": "170px", "targets": 2 },
-            { "width": "100px", "targets": 3 },
-            { "width": "70px", "targets": 4 },
+            { "width": "5%", "targets": 0 },
+            { "width": "30%", "targets": 1 },
+            { "width": "5%", "targets": 2 },
+            { "width": "10%", "targets": 3 },
+            { "width": "10%", "targets": 4 },
             // { "width": "120px", "targets": 5 },
             // { "width": "120px", "targets": 6 },
         ],
@@ -288,10 +288,10 @@ function banner_table(is_clearState=false){
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            {data: 'banner_thumb', name: 'banner_thumb', orderable: false, searchable: false, class: "text-center"},
+            {data: 'banner_thumb', name: 'banner_thumb', orderable: false, searchable: false},
             // {data: 'title', name: 'title', class: "text-left"},
             // {data: 'description', name: 'description', class: "text-left"},
-            {data: 'estatus', name: 'estatus', orderable: false, searchable: false, class: "text-center"},
+            {data: 'estatus', name: 'estatus', orderable: false, searchable: false},
             {data: 'created_at', name: 'created_at', searchable: false, class: "text-left"},
             {data: 'action', name: 'action', orderable: false, searchable: false, class: "text-center"},
         ]

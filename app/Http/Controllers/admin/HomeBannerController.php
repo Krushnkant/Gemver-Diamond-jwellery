@@ -165,7 +165,7 @@ class HomeBannerController extends Controller
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
                         $action .= '<button id="deleteBannerBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBannerModal" onclick="" data-id="' .$banner->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     }
-                    $nestedData['banner_thumb'] = '<img src="'. $thumb_path .'" width="50px" height="50px" alt="Thumbnail">';
+                    $nestedData['banner_thumb'] = '<img src="'. $thumb_path .'" width="350px" alt="Thumbnail">';
                     // $nestedData['title'] = $banner->title;
                     // $nestedData['description'] = $banner->description;
                     $nestedData['estatus'] = $estatus;
