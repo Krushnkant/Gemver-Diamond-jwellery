@@ -267,7 +267,7 @@ function banner_table(is_clearState=false){
             }
         },
         "ajax":{
-            "url": "{{ url('admin/allblogbannerlist') }}",
+            "url": "{{ url('admin/allhomebannerlist') }}",
             "dataType": "json",
             "type": "POST",
             "data":{ _token: '{{ csrf_token() }}' },
@@ -299,7 +299,7 @@ function banner_table(is_clearState=false){
 }
 
 function chagebannerstatus(blog_id) {
-    
+    alert(blog_id);
     $.ajax({
         type: 'GET',
         url: "{{ url('admin/changehomebannerstatus') }}" +'/' + blog_id,
