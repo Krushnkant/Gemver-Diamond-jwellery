@@ -1361,6 +1361,7 @@ $(document).ready(function(){
                         $('#VariantBox').show();
                         //console.log(btn.next().next());
                         $(btn.next().next()).html(res.data);
+                        //$(btn.next().next()).append(res.data);
                         // $.each(res.array_comman, function( index, value ) {
                         //     $("#AddBox").trigger("click");
                         // });
@@ -1379,6 +1380,93 @@ $(document).ready(function(){
                         $(btn).prop('disabled',false);
 
                         
+                    }
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.submitloader').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        }else{
+            $(btn).prop('disabled',false);
+            $(btn).find('.submitloader').hide();
+        }    
+       
+    });
+
+    $('body').on('click', '#AddSubSubEdit', function () {
+        $(this).prop('disabled',true);
+        $(this).find('.submitloader').show();
+        var btn = $(this);
+        //console.log(btn.next().next());
+        var demo = $(this).parent()[0];
+        var formData = new FormData(demo);
+        //console.log(formData);
+        // var is_custom = $('#is_custom').val();
+       
+        //var valid_attributes = validateAttributesForm();
+        //var valid_variants_sub = validateVariantsFormSub();
+            valid = true;
+
+            var this_form = $(this).parents("form");
+            //console.log(this_form);
+             this_form.find('.Variation').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                //alert(this_err);
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please select any value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }else{
+                    $(this_form).find("#"+this_err).hide();
+                }
+            })
+
+        if(valid==true){
+            //var formData = new FormData($('#attributeForm')[0]);
+          
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.subproductattribute.edit') }}",
+                // data: {productFormData: productFormData, variantFormData: variantFormData},
+                data: formData,
+                dataType: 'json',
+                cache: false,
+                processData: false,
+                contentType: false,
+                // contentType: 'json',
+                success: function (res) {
+                   // console.log(res.data);
+                    if(res['status']==200){
+                        
+                        $('#VariantBox').show();
+                        //console.log(btn.next().next());
+                        //$(btn.next().next()).html(res.data);
+                        $(btn.next().next()).append(res.data);
+                        // $.each(res.array_comman, function( index, value ) {
+                        //     $("#AddBox").trigger("click");
+                        // });
+
+                        
+                        $('.Variation').select2({
+                            width: '100%',
+                            multiple: true,
+                            placeholder: "Select...",
+                            allowClear: true,
+                            autoclose: false,
+                            closeOnSelect: false,
+                        });
+                        
+                        //toastr.success("Attribute Added",'Success',{timeOut: 5000});
+                        $(btn).prop('disabled',false); 
                     }
                 },
                 error: function (data) {

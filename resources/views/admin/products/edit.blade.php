@@ -377,7 +377,7 @@
                                                 @endforeach
                                                 
                                             </div>
-                                            <button type="button" class="AddSubSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSubSub" style="display: none"> Add </button>
+                                            <button type="button" class="AddSubSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSubSubEdit" style="display: none"> Add </button>
                                             @endif
                                             <?php 
                                                   $variant_term_id = \App\Models\ProductVariantVariant::where('product_id',$product->id)->where('attribute_term_id',$product_variant)->get()->pluck('product_variant_id'); 
@@ -697,6 +697,7 @@
                                             ?>
 
                                             <input type="hidden" name="varVariation{{$term_item_id}}-{{$t}}" value="{{ $required_variation_ids }}">
+                                            <input type="hidden" name="tmpdata[]" value="{{ $required_variation_ids }}">
 
                                                 
                             
