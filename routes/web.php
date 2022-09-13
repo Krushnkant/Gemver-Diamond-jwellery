@@ -157,6 +157,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('addVariantAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addVariantAttributebox'])->name('addVariantAttributebox');
     Route::post('productattribute/save',[\App\Http\Controllers\admin\ProductController::class,'productattributesave'])->name('productattribute.save');
     Route::post('subproductattribute/save',[\App\Http\Controllers\admin\ProductController::class,'subproductattributesave'])->name('subproductattribute.save');
+    Route::post('subproductattribute/edit',[\App\Http\Controllers\admin\ProductController::class,'subproductattributeedit'])->name('subproductattribute.edit');
 
     Route::get('customproducts',[\App\Http\Controllers\admin\ProductController::class,'customproducts'])->name('customproducts.list');
     Route::post('allcustomproductlist',[\App\Http\Controllers\admin\ProductController::class,'allcustomproductlist'])->name('allcustomproductlist');

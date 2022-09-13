@@ -1530,7 +1530,7 @@ class ProductController extends Controller
             $matrix = Arr::crossJoin($Variation1);
         }    
         
-        //dd($matrix);
+        
         $t =$request['term_id'];
         $comman_id =$request['comman_id'];
         
@@ -1648,6 +1648,148 @@ class ProductController extends Controller
                 </div>
             ';
         $term_id = ++$term_id;              
+        }
+        //dd($required_variation_ids);
+        
+ 
+         return ['status' => 200,'data' => $html];
+     }
+
+     public function subproductattributeedit(Request $request){
+        //dd($request->all());
+        // $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II','656']);
+        // dd($matrix);
+         
+        
+        $attr_ids = explode(",",$request['varVariation']);
+        $Variation1 = isset($attr_ids[0])?$request['Variation'.$attr_ids[0]]:[];
+        $Variation2 = isset($attr_ids[1])?$request['Variation'.$attr_ids[1]]:[];
+        $Variation3 = isset($attr_ids[2])?$request['Variation'.$attr_ids[2]]:[];
+        $Variation4 = isset($attr_ids[3])?$request['Variation'.$attr_ids[3]]:[];
+        // $options = [];
+        // $array1 = [];
+        // for($i = 0; $i < count($attr_ids); $i++){
+        //     $array1[] = $request['Variation'.$attr_ids[$i]];
+
+        //     //$rr[] = '$array1'.$i;
+        //     //array_push($options, $request['Variation'.$attr_ids[$i]]);
+        //     //dump($array1);
+        // } 
+        // $dd = implode(',',$rr);
+        // dd($dd);
+        if(!empty($Variation4)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2, $Variation3, $Variation4);
+        }elseif(!empty($Variation3)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2, $Variation3);
+        }elseif(!empty($Variation2)){
+            $matrix = Arr::crossJoin($Variation1, $Variation2);
+        }elseif(!empty($Variation1)){
+            $matrix = Arr::crossJoin($Variation1);
+        }    
+        
+        
+        $t =$request['term_id'];
+        $comman_id =$request['comman_id'];
+        
+        $term_id = 1; 
+        $html = '';  
+        $required_variation_ids = ''; 
+        $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
+        
+       
+        $res = []; 
+        for($j = 0; $j < count($request['tmpdata']); $j++){ 
+            $tmpdata = explode(",",$request['tmpdata'][$j]);
+            $res1 = array();
+            foreach($tmpdata  as $key => $value) {
+                if($value != $comman_id){
+                    
+                 $res1[] = $value;
+                }
+            }
+            //dd($res1);
+           $res[$j] = $res1;
+        } 
+         
+
+        for($i = 0; $i < count($matrix); $i++){
+           
+        
+        if(!in_array($matrix[$i],$res)){
+       
+
+        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
+    
+        //$name = $AttributeTermc->attrterm_name; 
+        $name = "";
+        //dd($matrix[$i]); die; 
+        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
+        $required_variation_ids = $comman_id;
+        
+            foreach($matrix[$i] as $key => $tt){
+                $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+                if($key == 0){
+                $name = $AttributeTerm->attrterm_name;
+                }else{
+                $name = $name.' | '.$AttributeTerm->attrterm_name;  
+                }
+
+                $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
+                $required_variation_ids = $required_variation_ids.','.$tt;
+        
+            }
+             
+        
+        //dd($required_variation_ids);
+        
+        $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
+        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12 font-weight-bold">
+                            '.$name.'
+                        </div>
+                    </div>
+                </div>';    
+        $html .= '
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
+                    <div class="form-group row">
+                        
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default varRegularPrice priRegPrice" placeholder="Regular Price" id="" name="varRegularPrice-'.$t.'-'.$term_id.'" value="">
+                            <label id="varRegularPrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varRegularPrice"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                       
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default varSalePrice priSalePrice" id="" placeholder="Sale Price" name="varSalePrice-'.$t.'-'.$term_id.'" value="">
+                            <label id="varSalePrice-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="varSalePrice"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        
+                        <div class="col-lg-12">
+                            <input type="number" class="form-control input-default stock" id="" placeholder="Stock" name="stock-'.$t.'-'.$term_id.'" value="">
+                            <label id="stock-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="stock"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control input-default SKU" placeholder="SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
+                            <label id="SKU-'.$t.'-'.$term_id.'-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
+                        </div>
+                    </div>
+                </div>
+            ';
+        $term_id = ++$term_id;              
+        }
         }
         //dd($required_variation_ids);
         
