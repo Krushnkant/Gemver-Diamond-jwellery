@@ -43,7 +43,7 @@ class HomeSettingController extends Controller
         $Settings->section_why_gemver_title2 = $request->section_why_gemver_title2;   
         $Settings->section_why_gemver_description2 = $request->section_why_gemver_description2;   
         $Settings->section_why_gemver_image2 = ($request->homeImg2 != "") ? $request->homeImg2 :$Settings->section_why_gemver_image2; 
-        $Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
+        //$Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
        
         $Settings->save();
         return response()->json(['status' => '200','Settings' => $Settings]);
