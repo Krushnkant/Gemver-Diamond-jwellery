@@ -369,7 +369,7 @@ class ProductController extends Controller
 
     public function fetchproductdetails(Request $request){
         $data = $request->all();
-        //dd($data);
+      
         $variants=$data["variant"];
         $product_id=$data["product_id"];
         $supported_image = array(
@@ -383,13 +383,14 @@ class ProductController extends Controller
             
             $vatid = 0;
             foreach($product_variants as $product_variant){
-               // dump($variants);
+                asort($variants);
                 $product_variant_variants = ProductVariantVariant::where('product_variant_id',$product_variant->id)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-                //dump($product_variant_variants);
+                asort($product_variant_variants); 
+                $result = array_diff($product_variant_variants,$variants);
+               
                 //if($product_variant_variants == sort($variants)){
-                if($product_variant_variants == $variants){    
-                    $vatid = $product_variant->id;
-                   // dump($vatid);
+                if(count($result) <= 0){    
+                    $vatid = $product_variant->id;  
                 }
             }
             //echo $vatid; die;
