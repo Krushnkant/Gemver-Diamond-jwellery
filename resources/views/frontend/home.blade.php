@@ -413,9 +413,9 @@
                         $url = url('/shop/'.$BlogBanner['value']); 
                     }elseif($BlogBanner['dropdown_id'] == 2){
                         $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
-                        $cat_id = $Product->primary_category_id;
+                        $cat_id = explode(',',$Product->primary_category_id);
                         $var_id = $Product->product_variant[0]->id;
-                        $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                        $url = url('/product-details/'.$cat_id['0'].'/'.$var_id);
                     }
                     if($blogcount == 1){
                     $blogcol = 12; 
