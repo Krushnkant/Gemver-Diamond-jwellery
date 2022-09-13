@@ -299,7 +299,7 @@ function banner_table(is_clearState=false){
 }
 
 function chagebannerstatus(blog_id) {
-    alert(blog_id);
+   // alert(blog_id);
     $.ajax({
         type: 'GET',
         url: "{{ url('admin/changehomebannerstatus') }}" +'/' + blog_id,
