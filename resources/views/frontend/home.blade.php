@@ -400,27 +400,50 @@
         </div>
     </div>
 
+    @if(count($BlogBanners) > 0)
+    
     <div class="shop_dimond_by_shape">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 banner_part">
-                <a href="#" class="banner_part_img_parent">
-                    <figure>
-                        <img class="" src="{{ asset('frontend/image/banner_7.png') }}" alt="">
-                    </figure>
-                </a>
-            </div>
-            <div class="col-md-6 banner_part">
-               <a href="#" class="banner_part_img_parent"> 
-                    <figure>
-                        <img class="" src="{{ asset('frontend/image/banner_5.jpg') }}" alt="">
-                    </figure>
-               </a>
+        <div class="container">
+            <div class="row">
+                @foreach($BlogBanners as $BlogBanner)
+                <?php 
+                    $blogcount = count($BlogBanners);
+                    $url = "";
+                    if($BlogBanner['dropdown_id'] == 1){
+                        $url = url('/shop/'.$BlogBanner['value']); 
+                    }elseif($BlogBanner['dropdown_id'] == 2){
+                        $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
+                        $cat_id = $Product->primary_category_id;
+                        $var_id = $Product->product_variant[0]->id;
+                        $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                    }
+                    if($blogcount == 1){
+                    $blogcol = 12; 
+                    }else if($blogcount == 2){
+                    $blogcol = 6;
+                    }else if($blogcount == 3){
+                    $blogcol = 4;    
+                    }else if($blogcount == 4){
+                    $blogcol = 3;    
+                    }else if($blogcount == 5){
+                    $blogcol = 2;    
+                    }else if($blogcount == 6){
+                    $blogcol = 2;    
+                    }
+                ?>
+                <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
+                    <a href="{{ $url }}" class="banner_part_img_parent">
+                        <figure>
+                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
+                        </figure>
+                    </a>
+                </div>
+                @endforeach 
             </div>
         </div>
     </div>
-    </div>
-    
+    @endif
+
     @if(count($testimonials) > 0)
     
     <div class="container">
