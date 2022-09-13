@@ -36,17 +36,40 @@ class ProductController extends Controller
         $segment = request()->segment(3); 
 
         if($segment == "custom"){
-            $categories = Category::where('estatus',1)->where('is_custom',1)->get()->toArray();
+            $categories = Category::where('parent_category_id',0)->where('estatus',1)->where('is_custom',1)->get()->toArray();
         }else{
-            $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
+            $categories = Category::where('parent_category_id',0)->where('estatus',1)->where('is_custom',0)->get()->toArray();
         }
         
         $catArray = array();
         foreach ($categories as $category){
-            array_push($catArray,$category);
+            //array_push($catArray,$category);
+            $catArray[] = array(
+                'id' => $category['id'],
+                'parent_id' => $category['parent_category_id'],
+                'category_name' => $category['category_name'],
+                'subcategory' => $this->sub_categories($category['id']),
+            );
         }
+        dd($catArray);
         $attributes = Attribute::where('estatus',1)->get()->toArray();
         return view('admin.products.create',compact('catArray','segment','attributes'))->with('page',$this->page);
+    }
+
+   
+    public function sub_categories($Catid){
+        $categories = Category::where('parent_category_id',$Catid)->where('estatus',1)->get()->toArray();
+        $categorie = array();
+        foreach ($categories as $category)
+        {
+            $categorie[] = array(
+                'id' => $category['id'],
+                'parent_id' => $category['parent_category_id'],
+                'category_name' => $category['category_name'],
+                'subcategory' => $this->sub_categories($category['id']),
+            );
+        }
+        return $categorie;
     }
 
     public function getAttrVariation($id){
