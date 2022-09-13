@@ -486,9 +486,9 @@
             </div>
         </div>
 
-        <div class="px-3 px-xxl-0" id="spe_desc">
+        <!-- <div class="px-3 px-xxl-0" id="spe_desc">
         
-        </div>
+        </div> -->
 
         @if(isset($OrderIncludes->orderincludesdata))
         <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
