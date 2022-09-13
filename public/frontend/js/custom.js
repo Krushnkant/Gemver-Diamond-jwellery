@@ -95,6 +95,26 @@ $(document).ready(function() {
                 items: 2,
             },
             1200: {
+                items: 5
+            }
+        }
+    });
+    $('.products_item').owlCarousel({
+        loop: true,
+        margin: 25,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            576: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            1200: {
                 items: 4
             }
         }

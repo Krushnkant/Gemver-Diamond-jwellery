@@ -29,7 +29,7 @@
                                 <div class="background-text-part px-3 px-lg-4 container">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
                                     <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
-                                    <div class="paragraph mt-0 mt-md-3 ">
+                                    <div class="paragraph mt-0 mt-md-5 ">
                                     {!! $banner->description !!}
                                     </div>
                                     @if($banner->button_name != "")
@@ -76,13 +76,16 @@
         <div class="shop_by_category shop_by_category_padding">
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                    <div>
-                        <h2 class="heading-h2 mb-md-5 mb-3 mt-md-0">{{ $homesetting->section_category_title }}</h2>
+                    <div class="mb-md-5 mb-3 mt-md-0">
+                        <h2 class="heading-h2">{{ $homesetting->section_category_title }}</h2>
                         <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
+                        <div class="sub_title">
+                            Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                        </div>
                     </div>
-                    <div class="category-line-img d-none d-md-block">
+                    <!-- <div class="category-line-img d-none d-md-block">
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <div class="col-md-12 pe-md-0 mb-5 mb-md-0 mx-auto">
                     <div class="row">
@@ -125,9 +128,14 @@
 
     <div class="shop_dimond_by_shape1">
         <div class="container">
-            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-5 text-center text-white">Our Products</h2>
+            <div class="mb-4 mb-md-0 pb-md-5 text-center">
+                <h2 class="heading-h2 text-white">Our Products</h2>
+                <div class="sub_title">
+                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                </div>
+            </div>
             <div>
-                <div class="owl-carousel owl-theme shop-by-category">
+                <div class="owl-carousel owl-theme products_item">
                     
                  <?php $shape_no = 1;  ?>
                     @foreach($products as $product) 
@@ -213,9 +221,14 @@
 
 
 
-    <div class="shop_dimond_by_shape">
+    <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
-            <h2 class="heading-h2 mb-4 mb-md-0 pb-md-5 text-center text-white">{{ $homesetting->section_diamond_title }}</h2>
+            <div class="mb-4 mb-md-0 pb-md-5 text-center ">
+                <h2 class="heading-h2">{{ $homesetting->section_diamond_title }}</h2>
+                <div class="sub_title">
+                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                </div>
+            </div>
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                     
@@ -285,49 +298,6 @@
         </div>
     </div>
 
-    @if(count($testimonials) > 0)
-    
-    <div class="container">
-        <div class="customer_stories">
-            <div class="row">
-                <div class="col-lg-5 customer_stories_bg">
-                    <div class="">
-                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
-                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
-                        <div class="customer_stories_img">
-                            <!-- <img src="{{ asset('frontend/image/customer_stories.png') }}" alt=""> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="owl-carousel owl-theme customer-stories">
-                    @foreach($testimonials as $testimonial)
-
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
-                                </div>
-                                <div class="col-md-8 customer-stories-quotes d-flex flex-column justify-content-between">
-                                    <div class="customer-stories-paragraph mt-3 mt-md-0">
-                                    {!! $testimonial->description !!}
-                                    </div>
-                                    <div class="text-end mt-0 pt-0 mt-4">
-                                        <div class="customer-name">{{ $testimonial->name }}</div>
-                                        <div class="customer-country mt-2">{{ $testimonial->country }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    @endforeach    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @endif
     <div class="engagement_ring_section px-0">
         <!-- <div class="container">
             <h2 class="heading-h2 text-center text-white">{{ strtolower($step->main_title) }}</h2>
@@ -429,6 +399,72 @@
             </div>
         </div>
     </div>
+
+    <div class="shop_dimond_by_shape">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 banner_part">
+                <a href="#" class="banner_part_img_parent">
+                    <figure>
+                        <img class="" src="{{ asset('frontend/image/banner_7.png') }}" alt="">
+                    </figure>
+                </a>
+            </div>
+            <div class="col-md-6 banner_part">
+               <a href="#" class="banner_part_img_parent"> 
+                    <figure>
+                        <img class="" src="{{ asset('frontend/image/banner_5.jpg') }}" alt="">
+                    </figure>
+               </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    @if(count($testimonials) > 0)
+    
+    <div class="container">
+        <div class="customer_stories">
+            <div class="row">
+                <div class="col-lg-5 customer_stories_bg">
+                    <div class="">
+                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
+                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
+                        <div class="customer_stories_img">
+                            <!-- <img src="{{ asset('frontend/image/customer_stories.png') }}" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="owl-carousel owl-theme customer-stories">
+                    @foreach($testimonials as $testimonial)
+
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                </div>
+                                <div class="col-md-8 customer-stories-quotes d-flex flex-column justify-content-between">
+                                    <div class="customer-stories-paragraph mt-3 mt-md-0">
+                                    {!! $testimonial->description !!}
+                                    </div>
+                                    <div class="text-end mt-0 pt-0 mt-4">
+                                        <div class="customer-name">{{ $testimonial->name }}</div>
+                                        <div class="customer-country mt-2">{{ $testimonial->country }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    @endforeach    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endif
+   
 
     <div class="container">
         <div class="customise_own_ring_section">
