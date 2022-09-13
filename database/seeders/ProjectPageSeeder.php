@@ -411,7 +411,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([
             'id' => 57,
             'parent_menu' => 49,
-            'label' => 'Home Settings',
+            'label' => 'Home Page',
             'route_url' => 'admin.homesettings.create',
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.homesettings.create,admin.homesettings.edit'
@@ -504,7 +504,15 @@ class ProjectPageSeeder extends Seeder
             'route_url' => 'admin.blogbanners.list', 
             'is_display_in_menu' => 1, 
             'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
-           
+        ]);
+
+        ProjectPage::create([
+            'id' => 67,
+            'parent_menu' => 49,
+            'label' => 'Home Banner',
+            'route_url' => 'admin.homebanners.list', 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.homebanners.list,admin.homebanners.add,admin.homebanners.save,admin.allhomebannerlist,admin.homebanners.changehomebannerstatus,admin.homebanners.delete,admin.homebanners.edit,admin.homebanners.uploadfile,admin.homebanners.removefile',
         ]);
 
         

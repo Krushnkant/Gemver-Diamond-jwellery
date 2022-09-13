@@ -1359,7 +1359,7 @@ $(document).ready(function(){
                     if(res['status']==200){
                         
                         $('#VariantBox').show();
-                        console.log(btn.next().next());
+                        //console.log(btn.next().next());
                         $(btn.next().next()).html(res.data);
                         // $.each(res.array_comman, function( index, value ) {
                         //     $("#AddBox").trigger("click");

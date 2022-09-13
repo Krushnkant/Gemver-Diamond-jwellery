@@ -604,7 +604,7 @@
                                                     </div>
                                                 </div>
                                              
-                                            <div class="row">
+                                            <div class="row mt-3">
                                             <?php
                                                 $name_main = '';
                                                
@@ -619,14 +619,20 @@
                                                 }    
                                             ?>
                                                       
-                                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                                <div class="form-group row">
-                                                        <div class="col-lg-12">
-                                                          {{ $name_main }}  Veriation
-                                                          
-                                                        </div>
+                                            
+
+                                            
+
+                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                    <div class="form-group row font-weight-bold">
+                                                        <label class="col-lg-12 col-form-label" for="">{{ $name_main }}  Veriation</label>
+                                    
                                                     </div>
                                                 </div>
+
+                                                
+
+                                                
                                                 <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>

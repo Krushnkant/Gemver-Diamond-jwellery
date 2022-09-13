@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function index(){
         $Categories = BlogCategory::where(['estatus' => 1])->get();
-        $BlogBanners = BlogBanner::where(['estatus' => 1])->get()->ToArray();
+        $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 0])->get()->ToArray();
         $blogs = Blog::where(['estatus' => 1])->inRandomOrder()->limit(4)->orderBy('id', 'DESC')->get();
         $homesetting = HomeSetting::first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
@@ -80,7 +80,7 @@ class BlogController extends Controller
     public function blogdetails($id){
         $blog = Blog::with('category')->where(['id' => $id,'estatus' => 1])->first();
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
-        $BlogBanners = Blogbanner::where(['estatus' => 1])->get()->ToArray();
+        $BlogBanners = Blogbanner::where(['estatus' => 1,'page' => 0])->get()->ToArray();
         $homesetting = HomeSetting::first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
         $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();

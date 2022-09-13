@@ -403,6 +403,18 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('updateMenuManage',[\App\Http\Controllers\admin\MegaMenuController::class,'updateMenuManage'])->name('submenus.updateMenuManage');
     Route::get('submenusmanage/{id}/edit',[\App\Http\Controllers\admin\MegaMenuController::class,'editsubmenumanage'])->name('submenus.manage.edit');
     Route::get('submenusmanage/{id}/delete',[\App\Http\Controllers\admin\MegaMenuController::class,'deletesubmenusmanage'])->name('submenusmanage.delete');
+
+    Route::get('homebanners',[\App\Http\Controllers\admin\HomeBannerController::class,'index'])->name('homebanners.list');
+    Route::get('homebanners/create',[\App\Http\Controllers\admin\HomeBannerController::class,'create'])->name('homebanners.add');
+    Route::post('homebanners/save',[\App\Http\Controllers\admin\HomeBannerController::class,'save'])->name('homebanners.save');
+    Route::post('allhomebannerlist',[\App\Http\Controllers\admin\HomeBannerController::class,'allhomebannerlist'])->name('allhomebannerlist');
+    Route::get('changehomebannerstatus/{id}',[\App\Http\Controllers\admin\HomeBannerController::class,'changehomebannerstatus'])->name('homebanners.changehomebannerstatus');
+    Route::get('homebanners/{id}/delete',[\App\Http\Controllers\admin\HomeBannerController::class,'deletebanner'])->name('homebanners.delete');
+    Route::get('homebanners/{id}/edit',[\App\Http\Controllers\admin\HomeBannerController::class,'editbanner'])->name('homebanners.edit');
+    Route::post('homebanners/uploadfile',[\App\Http\Controllers\admin\HomeBannerController::class,'uploadfile'])->name('homebanners.uploadfile');
+    Route::post('homebanners/removefile',[\App\Http\Controllers\admin\HomeBannerController::class,'removefile'])->name('homebanners.removefile');
+    Route::post('homebanners/getBannerInfoVal',[\App\Http\Controllers\admin\HomeBannerController::class,'getBannerInfoVal'])->name('homebanners.getBannerInfoVal');
+    
 });
 
 Route::group(['middleware'=>['auth']],function (){
