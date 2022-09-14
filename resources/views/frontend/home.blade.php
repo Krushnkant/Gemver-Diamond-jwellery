@@ -137,20 +137,40 @@
             <div>
                 <div class="owl-carousel owl-theme products_item">
                     
-                 <?php $shape_no = 1;  ?>
+                <?php 
+                    $shape_no = 1;
+                    $supported_video = array(
+                        'mov',
+                        'mp4',
+                        '3gp'
+                    );
+                    $index = 0;
+                ?>
                     @foreach($products as $product) 
                      
                     <?php
-                   // dd($ProductRelated);
-                     $images = explode(",",$product->images);
-                     $image = URL($images['0']);
-                     $sale_price = $product->sale_price;
-                     $url =  URL('/product-details/'.$product->id.'/'.$product->variant_id); 
-                     $supported_image = array(
+                    
+                        $video_array = array();
+                        $images_array = array();
+                        $images = explode(",",$product->images);
+                        foreach($images as $key => $value){
+                        $ext = pathinfo($value, PATHINFO_EXTENSION);
+                        if(in_array($ext, $supported_video)){
+                            $video_array[] = $value;
+                        }else{
+                            $images_array[] = $value;
+                        } 
+                        //dump($index);
+                        }
+                        $new_array = array_merge($video_array,$images_array);   
+                        $image = URL($new_array['0']);
+                        $sale_price = $product->sale_price;
+                        $url =  URL('/product-details/'.$product->id.'/'.$product->variant_id); 
+                        $supported_image = array(
                         'jpg',
                         'jpeg',
                         'png'
-                    );
+                        );
                      
                     
                     ?>
@@ -158,8 +178,10 @@
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="{{ $url }}">
-                                <?php $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                                   if(in_array($ext, $supported_image)) {  ?>
+                                <?php 
+                                   $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                                   if(in_array($ext, $supported_image)) {  
+                                ?>
                                    <img src="{{ $image }}" alt="">
                                 <?php }else{ ?>
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
@@ -213,7 +235,7 @@
                     </div>
                     <?php $shape_no++;  ?>
                     @endforeach 
-
+                    
                 </div>
             </div>
         </div>

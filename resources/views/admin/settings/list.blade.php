@@ -43,9 +43,9 @@
                                         <th style="width: 50%">Company Logo</th>
                                         <td>
                                             @if(isset($Settings->company_logo))
-                                                <img src="{{ url('images/company/'.$Settings->company_logo) }}" width="50px" height="50px" alt="Company Logo" id="company_logo_val">
+                                                <img src="{{ url('images/company/'.$Settings->company_logo) }}" width="150px" height="" alt="Company Logo" id="company_logo_val">
                                             @else
-                                                <img src="{{ url('images/placeholder_image.png') }}" width="50px" height="50px" alt="Company Logo" id="company_logo_val">
+                                                <img src="{{ url('images/placeholder_image.png') }}" width="150px" height="" alt="Company Logo" id="company_logo_val">
                                             @endif
                                         </td>
                                     </tr>
@@ -54,9 +54,9 @@
                                         <th style="width: 50%">Company Favicon</th>
                                         <td>
                                             @if(isset($Settings->company_favicon))
-                                                <img src="{{ url('images/company/'.$Settings->company_favicon) }}" width="50px" height="50px" alt="Company Favicon" id="company_favicon_val">
+                                                <img src="{{ url('images/company/'.$Settings->company_favicon) }}" width="150px" height="" alt="Company Favicon" id="company_favicon_val">
                                             @else
-                                                <img src="{{ url('images/placeholder_image.png') }}" width="50px" height="50px" alt="Company Favicon" id="company_favicon_val">
+                                                <img src="{{ url('images/placeholder_image.png') }}" width="150px" height="" alt="Company Favicon" id="company_favicon_val">
                                             @endif
                                         </td>
                                     </tr>
@@ -221,7 +221,7 @@
                         
 
                         
-                     
+
                         <div class="form-group">
                             <label class="col-form-label" for="Company Address Map">Company Address Map<span class="text-danger">*</span>
                             </label>

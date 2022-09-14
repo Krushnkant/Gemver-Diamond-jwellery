@@ -39,6 +39,7 @@
                                     <tr>
                                         <th>Sr. No</th>
                                         <th>Image</th>
+                                        <th>Redirect</th>
                                         <th>Status</th>
                                         <th>Date</th>
                                         <th>Action</th>
@@ -48,6 +49,7 @@
                                     <tr>
                                         <th>Sr. No</th>
                                         <th>Image</th>
+                                        <th>Redirect</th>
                                         <th>Status</th>
                                         <th>Date</th>
                                         <th>Action</th>
@@ -276,9 +278,10 @@ function banner_table(is_clearState=false){
         'columnDefs': [
             { "width": "5%", "targets": 0 },
             { "width": "30%", "targets": 1 },
-            { "width": "5%", "targets": 2 },
+            { "width": "20%", "targets": 2 },
             { "width": "10%", "targets": 3 },
             { "width": "10%", "targets": 4 },
+            { "width": "10%", "targets": 5 },
             // { "width": "120px", "targets": 5 },
             // { "width": "120px", "targets": 6 },
         ],
@@ -288,7 +291,8 @@ function banner_table(is_clearState=false){
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            {data: 'banner_thumb', name: 'banner_thumb', orderable: false, searchable: false},
+            {data: 'banner_thumb', name: 'banner_thumb', orderable: false, searchable: false, class: "text-center"},
+            {data: 'redirect', name: 'redirect', orderable: false, searchable: false},
             // {data: 'title', name: 'title', class: "text-left"},
             // {data: 'description', name: 'description', class: "text-left"},
             {data: 'estatus', name: 'estatus', orderable: false, searchable: false},
