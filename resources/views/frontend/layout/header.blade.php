@@ -10,7 +10,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-9 text-end">
-                                <div class="home-page-header">
+                                <div class="home-page-header navbar_header">
                                   <?php 
                                       $offers = \App\Models\Offer::where('estatus',1)->get();
                                   ?>

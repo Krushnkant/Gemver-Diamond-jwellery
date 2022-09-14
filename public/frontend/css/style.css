@@ -2005,7 +2005,8 @@ right: 0;
     padding-bottom: 100%;
 }
 
-.wire_bangle_img img {
+.wire_bangle_img img,
+.wire_bangle_img video {
     transform: scale(1);
     transition: all 0.2s ease;
     position: absolute;
@@ -2017,6 +2018,11 @@ right: 0;
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.wire_bangle_img video {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .wire_bangle_img:hover .wire_bangle_inquiry_btn {
@@ -4270,13 +4276,8 @@ span.to_text input::placeholder {
     height: 44px;
 }
 
-.home-page-header {
-    line-height: normal;
-    height: 23px;
-}
-
 .home-page-header marquee {
-    height: 23px;
+    height: 24px;
 }
 
 .sub_title {
@@ -4284,11 +4285,21 @@ span.to_text input::placeholder {
     color: gray;
 }
 
+.navbar_header {
+    height: 24px;
+    line-height: normal;
+}
+
+.header-logo img {
+    width: auto;
+}
+
 
 /* ------------------------------------------ */
 
 .catrgory_img {
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .catrgery_box .catrgory_img img {
