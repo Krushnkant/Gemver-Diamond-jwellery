@@ -6,14 +6,14 @@
     <input type="hidden" name="banner_id" value="{{ isset($banner)?($banner->id):'' }}">
 
     <div class="form-group">
-        <label class="col-form-label" for="tilte">Title <span class="text-danger">*</span>
+        <label class="col-form-label" for="tilte">Title 
         </label>
         <input type="text" class="form-control input-flat" id="title" name="title" value="{{ isset($banner)?($banner->title):'' }}">
         <div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
     <div class="form-group">
-        <label class="col-form-label" for="description">Shot Line <span class="text-danger">*</span>
+        <label class="col-form-label" for="description">Shot Line 
         </label>
         <input type="text" class="form-control input-flat" id="description" value="{{ isset($banner)?($banner->description):'' }}" name="description">
         <div id="description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
