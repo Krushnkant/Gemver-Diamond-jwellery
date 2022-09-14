@@ -153,7 +153,7 @@
     <div class="shop_dimond_by_shape1">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center">
-                <h2 class="heading-h2 text-white">Our Products</h2>
+                <h2 class="heading-h2">Our Products</h2>
                 <div class="sub_title">
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
                 </div>
@@ -388,7 +388,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-xl-8 mt-4 mt-lg-0">
-                        <h2 class="mb-md-4 engagement_diamond_heading">{{ strtolower($step->main_title) }}</h2>
+                        <h2 class="mb-md-4 heading-h2">{{ strtolower($step->main_title) }}</h2>
                         <p class="engagement_diamond_paragraph_part mb-md-4">
                             {{ $step->main_shotline }}
                         </p>
@@ -490,6 +490,58 @@
     </div>
     @endif
 
+
+    <div class="smiling_gemver_banner shop_dimond_by_shape">
+      <div class="container">
+        <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">Smiling  Gemver Difference</h2>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Lab Grown Diamond   
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Economic Green
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Hand Made Jewellry
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        100% Certified Diamonds 
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
     @if(count($testimonials) > 0)
     
     <div class="container">
@@ -541,7 +593,7 @@
                 <div class="col-md-7 text-center text-md-start">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                     <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                    <button class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn"><a style="" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a></button>
+                        <a style="" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a>
                 </div>
                 <div class="col-md-5 mt-4 mt-md-0">
                     <div class="own_ring_img">

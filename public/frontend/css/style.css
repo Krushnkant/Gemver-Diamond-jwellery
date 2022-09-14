@@ -514,7 +514,6 @@ right: 0;
     height: 220px;
     min-width: 154px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .explore-category-btn {
@@ -4292,6 +4291,59 @@ span.to_text input::placeholder {
 
 .header-logo img {
     width: auto;
+}
+
+.smiling_gemver_banner {
+    background: #EEE5D7;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-bottom: 100px;
+}
+
+.smiling_gemver_heading {
+    color: var(--primary);
+}
+
+.smiling_box_icon {
+    width: 50px;
+    height: 50px;
+}
+
+.smiling_box_heading {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0.1em;
+}
+
+.smiling_box_paragraph {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    color: #808080;
+}
+
+.detail_label {
+    background: #fff4e4;
+}
+
+.detail_label_col {
+    border-right: 1px solid #010101;
+    font-weight: 400;
+    margin: 8px 0;
+}
+
+.detail_label_col:last-child {
+    border-right: 0;
+}
+
+.buy_lab_diamonds_btn {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    line-height: 63px;
+    text-align: center;
 }
 
 

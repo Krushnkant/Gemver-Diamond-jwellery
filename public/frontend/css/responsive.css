@@ -87,6 +87,32 @@
     .wire_bangle_color_theme {
         padding-left: 0;
     }
+    /* --------------------------------------------------------------------------------------- */
+    .smiling_box_icon {
+        margin: auto;
+    }
+    .smiling_box_heading {
+        text-align: center;
+    }
+    .smiling_box_paragraph {
+        text-align: center;
+    }
+    .smiling_gemver_banner {
+        margin-bottom: 0;
+    }
+    /* --------------------------------------------------------------------------------------- */
+    .detail_label {
+        height: auto;
+        background: transparent;
+    }
+    .detail_label_col {
+        border-right: 1px solid #010101;
+        background: #fff4e4;
+        font-weight: 400;
+        padding: 7px 0;
+        font-size: 15px;
+        border-right: 0;
+    }
 }
 
 @media (max-width:991px) {
@@ -847,7 +873,6 @@
     /* ---------------------modal--------------------------------- */
     .inquiry_now_modal .modal-content {
         min-width: 100%;
-        padding: 0;
     }
     .inquiry_now_modal .product_heading {
         font-size: 17px;
@@ -1070,6 +1095,9 @@
     .popup_product_heading {
         font-size: 15px;
     }
+    .smiling_box_heading {
+        font-size: 15px;
+    }
 }
 
 @media (max-width:1600px) {
@@ -1143,15 +1171,19 @@
     .step_two_design .step_two_heading {
         font-size: 22px;
     }
-    .inquiry_now_modal .modal-content {
-        padding: 20px;
-    }
     .product_modal .popup_heading {
         margin-top: 0px;
     }
     .close-button {
         padding-top: 0;
         top: 22px;
+    }
+    .smiling_gemver_banner {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .detail_label_col {
+        font-size: 14px;
     }
 }
 
@@ -1281,6 +1313,10 @@
     }
     .inquiry_now_modal .modal-content {
         padding: 20px 0;
+    }
+    /* ---------------------- ------------------------------- */
+    .detail_label {
+        font-size: 13px;
     }
 }
 
@@ -1465,11 +1501,9 @@
     }
     .customer-stories .owl-nav {
         left: calc(0% - 15.666667%);
-        bottom: 66px;
     }
     .customer-stories .owl-dots {
         left: calc(0% - 71.666667%);
-        bottom: 66px;
     }
     .engagement_ring_box {
         padding: 25px 25px 0 25px;
@@ -1604,6 +1638,12 @@
     }
     .background-sub-slider {
         background-position: 24%center;
+    }
+    .header ul li .mega-menu li a {
+        font-size: 14px;
+    }
+    .header ul li .mega-menu .mega-menu-four-part {
+        min-width: 1040px;
     }
 }
 
