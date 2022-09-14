@@ -37,17 +37,17 @@ class BannerController extends Controller
         
         if(isset($request->action) && $request->action=="update"){
             $validator = Validator::make($request->all(), [
-                'title' =>'required',
+               // 'title' =>'required',
                 'catImg' =>'required',
-                'description' =>'required',
+               // 'description' =>'required',
             ], $messages);
         }
         else{
        
             $validator = Validator::make($request->all(), [
-                'title' =>'required',
+              //  'title' =>'required',
                 'catImg' =>'required',
-                'description' =>'required',
+               // 'description' =>'required',
             ], $messages);
         }
 
@@ -55,9 +55,9 @@ class BannerController extends Controller
            
 
             $validator = Validator::make($request->all(), [
-                'title' =>'required',
+               // 'title' =>'required',
                 'catImg' =>'required',
-                'description' =>'required',
+               // 'description' =>'required',
                 'value' => 'required',
             ], $messages);
         }

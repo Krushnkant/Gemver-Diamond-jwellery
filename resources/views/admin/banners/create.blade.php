@@ -5,14 +5,14 @@
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     
     <div class="form-group">
-        <label class="col-form-label" for="title">Title <span class="text-danger">*</span>
+        <label class="col-form-label" for="title">Title 
         </label>
         <input type="text" class="form-control input-flat" id="title" name="title">
         <div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
     <div class="form-group">
-        <label class="col-form-label" for="description">Shot Line <span class="text-danger">*</span>
+        <label class="col-form-label" for="description">Shot Line 
         </label>
         <input type="text" class="form-control input-flat" id="description" name="description">
         <div id="description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>

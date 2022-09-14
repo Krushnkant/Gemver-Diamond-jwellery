@@ -20,7 +20,28 @@
         
         @if(count($banners) > 0)
          <div class="owl-carousel owl-theme home-page-slider">
-            @foreach($banners as $banner)  
+            @foreach($banners as $banner)
+            @if($banner->button_name == "")
+            @if($banner->application_dropdown_id == 1)
+            <a href="#">
+            @elseif($banner->application_dropdown_id == 2)
+            <?php 
+                $banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @elseif($banner->application_dropdown_id == 3)
+            <?php 
+                $banner_url = URL('shop/'.$banner->value);
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @elseif($banner->application_dropdown_id == 4)
+            <?php 
+                $banner_url = $banner->value;
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @endif
+            
+            @endif  
             <div class="item">
                     <div class="background-slider ">
                         <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
@@ -66,6 +87,9 @@
                         </div>
                     </div>
             </div>
+            @if($banner->button_name == "")
+            </a>
+            @endif 
             @endforeach
         </div>
         @endif
