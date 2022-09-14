@@ -4339,6 +4339,13 @@ span.to_text input::placeholder {
     border-right: 0;
 }
 
+.buy_lab_diamonds_btn {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    line-height: 63px;
+    text-align: center;
+}
+
 
 /* ------------------------------------------ */
 
