@@ -17,10 +17,12 @@ class AttributeTermsController extends Controller
         $attribute = Attribute::find($id);
         $attributeName = $attribute->display_attrname;
         $isDescription = $attribute->is_description;
-        return view('admin.attribute_terms.list',compact('attributeName','isDescription'))->with('page',$this->page);
+        $sort_no = AttributeTerm::where(['attribute_id'=>$id])->orderBy('sorting','desc')->pluck('sorting')->first();
+        return view('admin.attribute_terms.list',compact('attributeName','isDescription','sort_no'))->with('page',$this->page);
     }
 
     public function addorupdateattributeTerm(Request $request){
+        //dd($request->all());
         $messages = [
             'attributetermname.required' =>'Please provide a Term Name',
             'attrtermthumb.image' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
@@ -35,10 +37,11 @@ class AttributeTermsController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
-
+        $sort_no = AttributeTerm::where(['attribute_id'=>$request->attr_id])->orderBy('sorting','desc')->pluck('sorting')->first();
         if(isset($request->action) && $request->action=="update"){
             $action = "update";
             $attr_term = AttributeTerm::find($request->attributeterm_id);
+            
 
             if(!$attr_term){
                 return response()->json(['status' => '400']);
@@ -49,6 +52,7 @@ class AttributeTermsController extends Controller
             $attr_term->attrterm_name = $request->attributetermname;
             $attr_term->attribute_id = $request->attr_id;
             $attr_term->description = $request->description;
+            $attr_term->sorting = ($request->sorting != "")? $request->sorting : $sort_no;
         }
         else{
             $action = "add";
@@ -58,6 +62,7 @@ class AttributeTermsController extends Controller
             $attr_term->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $image_name=null;
             $attr_term->description = $request->description;
+            $attr_term->sorting = ($request->sorting != "")? $request->sorting : $sort_no;
         }
 
         if ($request->hasFile('attrtermthumb')) {
@@ -98,8 +103,8 @@ class AttributeTermsController extends Controller
             $dir = $request->input('order.0.dir');
 
             if($order == "id"){
-                $order = "created_at";
-                $dir = 'desc';
+                $order = "sorting";
+                $dir = 'asc';
             }
 
             if(empty($request->input('search.value')))

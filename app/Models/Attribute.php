@@ -24,7 +24,7 @@ class Attribute extends Model
 
     public function attributeterm(){
         $instance = $this->hasMany(AttributeTerm::class,'attribute_id','id');
-        $instance->getQuery()->where('estatus','=', 1);
+        $instance->getQuery()->where('estatus','=', 1)->orderBy('sorting','asc');
         return $instance;
     }
 }

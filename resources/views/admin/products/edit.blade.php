@@ -246,7 +246,7 @@
                                                                             <option></option>
                                                 
                                                                             @php
-                                                                               $terms = \App\Models\AttributeTerm::where('attribute_id',$attribute['id'])->get()->toArray(); 
+                                                                               $terms = \App\Models\AttributeTerm::where('attribute_id',$attribute['id'])->orderBy('sorting','asc')->get()->toArray(); 
                                                                                $selectterms =  explode(',',$product_attribute['terms_id']); 
                                                                             @endphp
                                                                             @foreach($terms as $term)

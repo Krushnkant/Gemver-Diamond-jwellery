@@ -146,7 +146,7 @@ class AttributeController extends Controller
                 {
                     $term =  route('admin.attributeTerms.list',$attribute->id);
 
-                    $terms = AttributeTerm::where('attribute_id',$attribute->id)->where('estatus',1)->pluck('attrterm_name')->toArray();
+                    $terms = AttributeTerm::where('attribute_id',$attribute->id)->where('estatus',1)->orderBy('sorting','asc')->pluck('attrterm_name')->toArray();
                     if(isset($terms) && !empty($terms)){
                         $terms = implode(', ', $terms);
                         $terms .= '<br><br><a class="configure text-center" href="'. $term .'" target="_blank">Configure Terms</a>';

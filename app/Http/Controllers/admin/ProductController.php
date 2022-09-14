@@ -1788,8 +1788,10 @@ class ProductController extends Controller
                     </div>
                 </div>
             ';
+        }    
         $term_id = ++$term_id;              
-        }
+        
+
         }
         //dd($required_variation_ids);
         

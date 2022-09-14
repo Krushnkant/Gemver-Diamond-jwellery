@@ -260,7 +260,9 @@
                             <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_color pb-md-2 wire_bangle_color_img_part">
                                 <?php 
-                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
+                                    $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                                  })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                 $ia = 1;
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
@@ -279,7 +281,9 @@
                                 <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_carat">
                                 <?php 
-                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                 $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
+                                    $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                                  })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
@@ -503,7 +507,7 @@
                 </div> -->
                 <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
                     <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
-                        {{ $OrderIncludes->title }}
+                    {{ $OrderIncludes->title }}
                     </div>
                     <div class="row mt-2 mt-md-0">
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
@@ -513,7 +517,7 @@
                                 <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
                             </span>
                             <span class="order-text text-center d-block">
-                                    {{ $orderincludesdata->title }}
+                                {{ $orderincludesdata->title }}
                             </span>
                             </div>    
                         </div>
