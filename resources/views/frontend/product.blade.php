@@ -145,13 +145,16 @@
                             <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_color mb-xxl-2 pb-md-2 wire_bangle_color_img_part">
                                 <?php 
-                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
+                                    $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                                  })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
+                                //dd($product_attribute);
                                 $ia = 1;
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                     <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant"  @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
-                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
+                                        <input class="form-check-input variant"  @if(in_array($attribute_term->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute_name }}" id="" title="{{ $attribute_term->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attrterm_thumb) }}" alt="{{ $attribute_term->attrterm_name }}"  class="wire_bangle_color_img">
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
                                 <?php $ia++ ?>    
@@ -164,7 +167,9 @@
                                 <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
                                 <div class="wire_bangle_carat">
                                 <?php 
-                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->get();
+                                 $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
+                                    $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                                  })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">

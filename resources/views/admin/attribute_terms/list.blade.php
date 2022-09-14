@@ -83,6 +83,13 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="attrtermthumb_image_show" height="50px" width="50px" style="margin-top: 5px">
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-form-label" for="sorting">Sorting No 
+                                    </label>
+                                    <input type="number" class="form-control input-flat" id="sorting" name="sorting" placeholder="" value="{{ isset($sort_no)?$sort_no+1:1 }}">
+                                    <div id="sorting-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+
                                 @if($isDescription == 1)
                                 <div class="form-group">
                                     <label class="col-form-label" for="description">Description 
@@ -313,6 +320,7 @@
             $('#attributeterm_id').val(data.id);
             $('#attributetermname').val(data.attrterm_name);
             $('#description').val(data.description);
+            $('#sorting').val(data.sorting);
             if(data.attrterm_thumb==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#attrtermthumb_image_show').attr('src', default_image);
