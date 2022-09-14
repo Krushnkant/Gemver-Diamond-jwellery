@@ -490,6 +490,58 @@
     </div>
     @endif
 
+
+    <div class="smiling_gemver_banner shop_dimond_by_shape">
+      <div class="container">
+        <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">Smiling  Gemver Difference</h2>
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Lab Grown Diamond   
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Economic Green
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        Hand Made Jewellry
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                        <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
+                   </div>
+                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                        100% Certified Diamonds 
+                    </div>
+                    <div class="smiling_box_paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
     @if(count($testimonials) > 0)
     
     <div class="container">

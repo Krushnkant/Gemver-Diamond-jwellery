@@ -25,7 +25,7 @@
                     </div>
                 </div>
             <div class="row align-items-center header_row">
-                <div class="col-6 col-lg-12 mb-md-3">
+                <div class="col-6 col-lg-12">
                     <div class="logo-image header-logo mx-lg-auto">
                         <a href="{{ URL('/') }}">
                             <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
