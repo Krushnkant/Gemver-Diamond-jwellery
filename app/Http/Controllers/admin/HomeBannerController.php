@@ -7,6 +7,7 @@ use App\Models\BlogBanner;
 use App\Models\Category;
 use App\Models\HomeSetting;
 use App\Models\Product;
+use App\Models\ProductVariant;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -147,6 +148,8 @@ class HomeBannerController extends Controller
                         $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $banner->id .'" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
 
+
+
                     if( $banner->estatus==2 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
                         $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $banner->id .'" onchange="chagebannerstatus('. $banner->id .')" value="2"><span class="slider round"></span></label>';
                     }
@@ -158,6 +161,19 @@ class HomeBannerController extends Controller
                         $thumb_path = url($banner->banner_thumb);
                     }
 
+                    if( $banner->dropdown_id==1){
+                        $category = Category::where('estatus',1)->where('id',$banner->value)->first();
+                        
+                        $redirect = '<label class="">Category</label><a target="_blank" href="'. url('/shop/'.$banner->value).'"><p>'.$category->category_name.'</p></a>';
+                    }
+                    elseif ($banner->dropdown_id==2){
+                        $product = Product::where('estatus',1)->where('id',$banner->value)->first();
+                        $product_variant = ProductVariant::where('estatus',1)->where('product_id',$banner->value)->first();
+                        $redirect = '<label class="">Product</span></label><a target="_blank" href="'. url('/product-details/'.$banner->value.'/'.$product_variant->id).'"><p>'.$product->product_title.'</p></a>';
+                    }else{
+                        $redirect = '<label class="">None</span></label>';
+                    }
+
                     $action='';
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
                         $action .= '<button id="editBannerBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$banner->id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
@@ -166,6 +182,7 @@ class HomeBannerController extends Controller
                         $action .= '<button id="deleteBannerBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBannerModal" onclick="" data-id="' .$banner->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     }
                     $nestedData['banner_thumb'] = '<img src="'. $thumb_path .'" width="350px" alt="Thumbnail">';
+                    $nestedData['redirect'] = $redirect;
                     // $nestedData['title'] = $banner->title;
                     // $nestedData['description'] = $banner->description;
                     $nestedData['estatus'] = $estatus;

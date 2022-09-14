@@ -23,6 +23,8 @@ class Attribute extends Model
     ];
 
     public function attributeterm(){
-        return $this->hasMany(AttributeTerm::class,'attribute_id','id');
+        $instance = $this->hasMany(AttributeTerm::class,'attribute_id','id');
+        $instance->getQuery()->where('estatus','=', 1);
+        return $instance;
     }
 }
