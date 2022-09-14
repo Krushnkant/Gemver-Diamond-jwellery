@@ -1585,7 +1585,6 @@ right: 0;
 .wire_bangle_shop_radio {
     position: relative;
     border-radius: 10px;
-    box-shadow: 0px 8px 10px rgba(117, 117, 117, 0.2);
     margin: 20px 0;
 }
 
@@ -1913,7 +1912,8 @@ right: 0;
 }
 
 .wire_bangle_product_setting {
-    border: 1px #eee solid;
+    box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
+    border-radius: 10px;
 }
 
 .wire_bangle_paragraph {
@@ -1995,7 +1995,7 @@ right: 0;
 }
 
 .wire_bangle_img_radio_button {
-    border: 1px #eee solid;
+    box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
     border-radius: 10px;
 }
 
