@@ -136,14 +136,14 @@ fill: #0B1727;
 }
 
 .header ul li svg path {
-    fill: #fff;
+    fill: var(--primary);
 }
 
 .header ul li a {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.05em;
-    color: #fff;
+    color: var(--primary);
     font-weight: normal;
     text-transform: capitalize;
 }
@@ -479,7 +479,7 @@ right: 0;
     font-weight: 500;
     font-size: 30px;
     line-height: normal;
-    color: var(--primary) !important;
+    color: var(--secondary) !important;
     position: relative;
     z-index: 1;
     text-transform: capitalize;
@@ -585,7 +585,7 @@ right: 0;
 .diamond_margin {
     margin-top: 120px;
     margin-bottom: 60px;
-    background: var(--white-secondary);
+    background: #fff9f1;
 }
 
 .shop_dimond_by_shape .owl-item img {
@@ -774,7 +774,7 @@ right: 0;
 .engagement_diamond_box {
     width: 127px;
     height: 103px;
-    background: var(--white-secondary);
+    background: #fff9f1;
     padding-left: 25px;
     padding-top: 15px;
 }
@@ -811,6 +811,7 @@ right: 0;
 .own_ring_img img {
     max-height: 550px;
     object-fit: cover;
+    border-radius: 0 15px 15px 0;
 }
 
 .heading-h2-yellow-color {
@@ -944,7 +945,9 @@ right: 0;
 }
 
 .customise_own_ring_section {
-    padding: 60px 0;
+    padding: 0;
+    box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
+    border-radius: 15px;
 }
 
 .gemver_diamonds_section {
@@ -968,7 +971,7 @@ right: 0;
 }
 
 .gemver_diamods_bg {
-    background: var(--white-secondary);
+    background: #EEE5D7;
     min-height: auto;
     height: 100%;
 }
@@ -983,7 +986,7 @@ right: 0;
 
 .footer-part-section {
     padding: 60px 60px 30px;
-    background: #0B1727;
+    background: #EEE5D7;
 }
 
 .footer-part-heading {
@@ -992,7 +995,7 @@ right: 0;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #fff;
+    color: var(--primary);
 }
 
 .footer-paragraph {
@@ -1000,7 +1003,7 @@ right: 0;
     font-size: 16px;
     line-height: 25px;
     letter-spacing: 0.1em;
-    color: #fff;
+    color: var(--primary);
     /* font-family: 'Roboto', sans-serif; */
 }
 
@@ -1011,14 +1014,14 @@ right: 0;
     color: #fff;
     padding: 16px 37px;
     background: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--primary);
     outline: 0;
 }
 
 .email_input input::placeholder,
 .email_input input {
     font-size: 16px;
-    color: #fff !important;
+    color: var(--primary) !important;
 }
 
 .email_input input::placeholder {
@@ -1029,20 +1032,20 @@ right: 0;
 .submit_btn {
     padding: 16px 37px;
     line-height: 20px;
-    border: 1px solid #fff;
+    border: 1px solid var(--primary);
     min-height: 53px;
     min-width: 147px;
     background: none;
     text-transform: uppercase;
     font-size: 16px;
-    color: #fff;
+    color: var(--primary);
 }
 
 .footer-social-media-icons li {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: var(--primary);
+    background: transparent;
     text-align: center;
     line-height: 35px;
 }
@@ -1050,6 +1053,10 @@ right: 0;
 .footer-social-media-icons li svg {
     width: 20px;
     height: 20px;
+}
+
+.footer-social-media-icons li svg path {
+    fill: var(--primary);
 }
 
 .footer-social-media-icons li {
@@ -1067,7 +1074,7 @@ right: 0;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #fff;
+    color: var(--primary);
 }
 
 .footer-col ul li a {
@@ -1076,7 +1083,7 @@ right: 0;
     line-height: 20px;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    color: #fff;
+    color: var(--primary);
 }
 
 .footer-col ul li a:hover {
@@ -3577,15 +3584,20 @@ border: 0;
     color: #fff;
 }
 
-.home-page-slider-header {
-    background-color: #0B1727;
+.header-icon:hover {
+    color: var(--primary);
+}
+
+.header_row {
+    background-color: #fff;
 }
 
 .home-page-bg {
     padding: 5px 0;
-    border-bottom: 1px #68798d solid;
+    border-bottom: 1px var(--secondary) solid;
     background-color: #0B1727;
     color: #fff;
+    background-color: var(--secondary);
 }
 
 .header-loader {
@@ -4291,6 +4303,7 @@ span.to_text input::placeholder {
 
 .header-logo img {
     width: auto;
+    max-height: 52px;
 }
 
 .smiling_gemver_banner {
@@ -4340,8 +4353,8 @@ span.to_text input::placeholder {
 }
 
 .buy_lab_diamonds_btn {
-    border: 1px solid var(--secondary);
-    color: var(--secondary);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     line-height: 63px;
     text-align: center;
 }
@@ -4351,7 +4364,7 @@ span.to_text input::placeholder {
 
 .catrgory_img {
     overflow: hidden;
-    /* border-radius: 10px; */
+    border-radius: 10px 10px 0 0;
 }
 
 .catrgery_box .catrgory_img img {

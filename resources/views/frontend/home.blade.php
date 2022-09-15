@@ -589,13 +589,13 @@
 
     <div class="container">
         <div class="customise_own_ring_section">
-            <div class="row align-items-center">
-                <div class="col-md-7 text-center text-md-start">
+            <div class="row align-items-center ps-4">
+                <div class="col-md-7 text-center text-md-start pe-4">
                     <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                     <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
                         <a style="" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a>
                 </div>
-                <div class="col-md-5 mt-4 mt-md-0">
+                <div class="col-md-5 mt-4 mt-md-0 pe-0">
                     <div class="own_ring_img">
                         <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
                     </div>
