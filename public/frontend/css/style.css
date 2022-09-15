@@ -4351,7 +4351,7 @@ span.to_text input::placeholder {
 
 .catrgory_img {
     overflow: hidden;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .catrgery_box .catrgory_img img {
