@@ -641,7 +641,7 @@
         position: absolute;
         height: 9px;
         width: 100%;
-        background: #fff;
+        background: var(--secondary);
         border-radius: 9px;
         opacity: 1;
         left: 0;
