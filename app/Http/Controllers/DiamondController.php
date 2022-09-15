@@ -300,10 +300,10 @@ class DiamondController extends Controller
             }
         }
 
-        $TotalDiamond = Diamond::get();
+       $TotalDiamond = Diamond::get();
        // $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']]; 
        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => 0];  
-        return $data;
+       return $data;
       
     }
 
@@ -461,10 +461,10 @@ class DiamondController extends Controller
                                     <a href="">';
                                     $ext = pathinfo($image, PATHINFO_EXTENSION); 
                                     if(in_array($ext, $supported_image)) {
-                                        $artilces .=  '<img src="'.  $image  .'" alt="" class="main-product-image-'.$product->id.'">';
+                                        //$artilces .=  '<img src="'.  $image  .'" alt="" class="main-product-image-'.$product->id.'">';
                                        }else{
                                         $image2 = "";
-                                        $artilces .=  '<img src="'.  $image2  .'" alt="" class="main-product-image-'.$product->id.'">';
+                                       // $artilces .=  '<img src="'.  $image2  .'" alt="" class="main-product-image-'.$product->id.'">';
                                        }
                                     
                                        $artilces .= '<img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$product->id.'" class="wire_bangle_color_img pe-auto product-image ">';

@@ -5,6 +5,7 @@ namespace App\Imports;
 use Illuminate\Support\Collection;
 use App\Models\Diamond;
 use App\Models\Company;
+use App\Models\PriceRange;
 //use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -56,11 +57,32 @@ class ImportDiamond implements WithHeadingRow,ToCollection
             }
             
             
-            $Company = Company::where('id',2)->first();
-            $company_per = $Company->company_percentage;
-            $company_per_amt = ((int)$collection['final_price'] * $company_per)/100;
-            $sale_amt = round((int)$collection['final_price'] + $company_per_amt);
             
+
+            $PriceRanges = PriceRange::where('estatus',1)->get();
+            $amount = (int)$collection['final_price'];
+
+            //$Company = Company::where('id',2)->first();
+           // $company_per = $Company->company_percentage;
+
+            $company_per = 0;
+            foreach($PriceRanges as $PriceRange){
+                 if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
+                     $company_per = $PriceRange->percentage;
+                     $type = $PriceRange->type;
+                 }
+            }
+            if($company_per > 0){
+                if($type == 1){
+                    $company_per_amt = ((int)$collection['final_price'] * $company_per)/100;
+                }else{
+                    $company_per_amt = (int)$collection['final_price'] + $company_per;
+                }
+            }else{
+                 $company_per_amt = 0;
+            }
+
+            $sale_amt = round((int)$collection['final_price'] + $company_per_amt);
             
             $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
             if($Diamond){

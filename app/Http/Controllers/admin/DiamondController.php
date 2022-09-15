@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Diamond;
 use App\Models\ProjectPage;
 use App\Models\Company;
+use App\Models\PriceRange;
 use Illuminate\Http\Request;
 use App\Imports\ImportDiamond;
 use Excel;
@@ -215,9 +216,30 @@ class DiamondController extends Controller
 
         if($dimonds['ApiStatus'] == 'Success'){
            foreach($dimonds['StoneList'] as $par){
-               $Company = Company::where('id',1)->first();
-               $company_per = $Company->company_percentage;
-               $company_per_amt = ($par['Amt'] * $company_per)/100;
+             
+               $PriceRanges = PriceRange::where('estatus',1)->get();
+               $amount = $par['Amt'];
+               // dd($amount);
+
+              // $Company = Company::where('id',1)->first();
+               //$company_per = $Company->company_percentage;
+               $company_per = 0;
+               foreach($PriceRanges as $PriceRange){
+                    if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
+                        $company_per = $PriceRange->percentage;
+                        $type = $PriceRange->type;
+                    }
+               }
+               if($company_per > 0){
+                    if($type == 1){
+                        $company_per_amt = ($par['Amt'] * $company_per)/100;
+                    }else{
+                        $company_per_amt = $par['Amt'] + $company_per;
+                    }
+               }else{
+                    $company_per_amt = 0;
+               }
+               //dd($company_per_amt);
                $sale_amt =$par['Amt'] + $company_per_amt;
                $par['Sale_Amt'] = round($sale_amt);
                $par['Company_id'] = 1;
