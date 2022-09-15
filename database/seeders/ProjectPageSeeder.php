@@ -515,6 +515,15 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.homebanners.list,admin.homebanners.add,admin.homebanners.save,admin.allhomebannerlist,admin.homebanners.changehomebannerstatus,admin.homebanners.delete,admin.homebanners.edit,admin.homebanners.uploadfile,admin.homebanners.removefile',
         ]);
 
+        ProjectPage::create([
+            'id' => 68,
+            'parent_menu' => 49,
+            'label' => 'Price Range',
+            'route_url' => 'admin.pricerange.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission'
+        ]);
+
         
 
         

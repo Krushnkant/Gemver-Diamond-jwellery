@@ -415,6 +415,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('homebanners/uploadfile',[\App\Http\Controllers\admin\HomeBannerController::class,'uploadfile'])->name('homebanners.uploadfile');
     Route::post('homebanners/removefile',[\App\Http\Controllers\admin\HomeBannerController::class,'removefile'])->name('homebanners.removefile');
     Route::post('homebanners/getBannerInfoVal',[\App\Http\Controllers\admin\HomeBannerController::class,'getBannerInfoVal'])->name('homebanners.getBannerInfoVal');
+
+    Route::get('pricerange',[\App\Http\Controllers\admin\PriceRangeController::class,'index'])->name('pricerange.list');
+    Route::post('addorupdatepricerange',[\App\Http\Controllers\admin\PriceRangeController::class,'addorupdatepricerange'])->name('pricerange.addorupdate');
+    Route::post('allpricerangeslist',[\App\Http\Controllers\admin\PriceRangeController::class,'allpricerangeslist'])->name('allpricerangeslist');
+    Route::get('changepricerangestatus/{id}',[\App\Http\Controllers\admin\PriceRangeController::class,'changepricerangestatus'])->name('pricerange.changepricerangestatus');
+    Route::get('pricerange/{id}/edit',[\App\Http\Controllers\admin\PriceRangeController::class,'editpricerange'])->name('pricerange.edit');
+    Route::get('pricerange/{id}/delete',[\App\Http\Controllers\admin\PriceRangeController::class,'deletepricerange'])->name('pricerange.delete');
+ 
     
 });
 
