@@ -145,7 +145,7 @@ class NewsLatterController extends Controller
         if($newslatters != null){
             foreach($newslatters as $newslatter){
                 $data = [
-                    'message' => $request->message
+                    'message' => $request->subject
                 ];
                 
                 $templateName = 'email.mailDataNewsLatter';

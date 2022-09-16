@@ -11,7 +11,7 @@
                 <img src="{{ url('frontend/image/logo-transparent.png') }}" alt="" width="100% " style="width: 300px; ">
             </div>
             <div style="background-color: #fff;padding: 50px;min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%);">
-                <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">message</div>
+                <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">{{ $message }}</div>
             </div>
             <div style="text-align: center; margin-top: 50px;color: #b7b7b7;font-size: 13px;">
                 © 2022 Gemver Affordable Luxury 
