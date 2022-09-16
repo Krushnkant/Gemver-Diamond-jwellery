@@ -16,9 +16,14 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        {{--<h4 class="card-title">
-                        Newsletter List
-                        </h4>--}}
+                        <div class="action-section">
+                            <div class="d-flex">
+                                <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.newslatter.list')->pluck('id')->first(); ?>
+                                @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
+                                    <button type="button" class="btn btn-primary" id="AddNewsLatterBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                @endif
+                            </div>
+                        </div>
                         @if(isset($action) && $action=='list')
                             <div class="table-responsive">
                                 <table id="NewsLatterform" class="table zero-configuration customNewtable" style="width:100%">
@@ -39,6 +44,10 @@
                                 </table>
                             </div>
                         @endif
+
+                        @if(isset($action) && $action=='create')
+                            @include('admin.newslatter.create')
+                        @endif
                     </div>
                 </div>
             </div>
@@ -55,6 +64,75 @@
 $(document).ready(function() {
     NewsLatterform(true);
 });
+
+$('body').on('click', '#AddNewsLatterBtn', function () {
+    location.href = "{{ route('admin.newslatter.add') }}";
+});
+
+$('body').on('click', '#save_closeNewsLatterBtn', function () {
+    save_newslatter($(this),'save_close');
+});
+
+$('body').on('click', '#save_newNewsLatterBtn', function () {
+    save_newslatter($(this),'save_new');
+});
+
+function save_newslatter(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+
+    var formData = new FormData($("#NewsLatterCreateForm")[0]);
+    formData.append('action',action);
+
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('admin.newslatter.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+               
+    
+                if (res.errors.subject) {
+                    $('#subject-error').show().text(res.errors.subject);
+                } else {
+                    $('#subject-error').hide();
+                }
+
+                if (res.errors.message) {
+                    $('#message-error').show().text(res.errors.message);
+                } else {
+                    $('#message-error').hide();
+                }
+            }
+
+            if(res.status == 200){
+                if(btn_type == 'save_close'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    location.href="{{ route('admin.newslatter.list')}}";
+                    toastr.success("Send Mail",'Success',{timeOut: 5000});
+                }
+                if(btn_type == 'save_new'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    location.href="{{ route('admin.newslatter.add')}}";
+                    toastr.success("Send Mail",'Success',{timeOut: 5000});
+                }
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
 
 function NewsLatterform(is_clearState=false){
     if(is_clearState){

@@ -13,7 +13,7 @@ class NewsLatterController extends Controller
     public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'newslatteremail' => 'required'
+            'newslatteremail' => 'required|email'
         ]);
 
         if($validator->fails()){

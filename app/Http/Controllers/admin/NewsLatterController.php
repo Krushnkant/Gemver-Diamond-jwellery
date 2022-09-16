@@ -5,9 +5,13 @@ use App\Models\NewsLatter;
 use App\Http\Controllers\Controller;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Helpers;
 
 class NewsLatterController extends Controller
 {
+    private $page = "News Latter";
+
     public function index()
     {
         $action = "list";
@@ -113,5 +117,43 @@ class NewsLatterController extends Controller
             );
             echo json_encode($json_data);
         }
+    }
+
+    public function create(){
+        $action = "create";
+        return view('admin.newslatter.list',compact('action'))->with('page',$this->page);
+    }
+
+    public function save(Request $request){
+        $messages = [
+            'subject.required' =>'Please provide a subject',
+            'message.required' =>'Please provide a message',
+        ];
+        
+        $validator = Validator::make($request->all(), [
+            'subject' =>'required',
+            'message' =>'required',
+        ], $messages);
+        
+
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $newslatters = NewsLatter::get();
+        if($newslatters != null){
+            foreach($newslatters as $newslatter){
+                $data = [
+                    'message' => $request->message
+                ];
+                
+                $templateName = 'email.mailDataNewsLatter';
+                $mail_sending = Helpers::MailSending($templateName, $data, $newslatter->email, $request->subject);
+            }
+            
+        }
+
+        return response()->json(['status' => '200']);
     }
 }

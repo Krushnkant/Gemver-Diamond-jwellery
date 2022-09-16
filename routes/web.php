@@ -317,6 +317,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('newslatters',[\App\Http\Controllers\admin\NewsLatterController::class,'index'])->name('newslatter.list');
     Route::post('allnewslatterslist',[\App\Http\Controllers\admin\NewsLatterController::class,'allnewslatterslist'])->name('allnewslatterslist');
+    Route::get('newslatters/create',[\App\Http\Controllers\admin\NewsLatterController::class,'create'])->name('newslatter.add');
+    Route::post('newslatters/save',[\App\Http\Controllers\admin\NewsLatterController::class,'save'])->name('newslatter.save');
 
     Route::get('compoanies',[\App\Http\Controllers\admin\CompanyController::class,'index'])->name('company.list');
     Route::post('updateCompanyPercentage',[\App\Http\Controllers\admin\CompanyController::class,'updateCompanyPercentage'])->name('company.updateCompanyPercentage');
