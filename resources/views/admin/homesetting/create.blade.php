@@ -34,6 +34,28 @@
                                 <input type="text" class="form-control input-flat" id="section_category_title" name="section_category_title" value="{{ $homesettings->section_category_title }}">
                                 <div id="section_category_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_category_shotline"> Shotline 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_category_shotline" name="section_category_shotline" value="{{ $homesettings->section_category_shotline }}">
+                                <div id="section_category_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            <hr>
+                            <h4 class="card-title">
+                               Product Section
+                            </h4>
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_product_title"> Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_product_title" name="section_product_title" value="{{ $homesettings->section_product_title }}">
+                                <div id="section_product_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_product_shotline"> Shotline 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_product_shotline" name="section_product_shotline" value="{{ $homesettings->section_product_shotline }}">
+                                <div id="section_product_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
                             <hr>
                             <h4 class="card-title">
                                Diamond Section
@@ -45,6 +67,102 @@
                                 <input type="text" class="form-control input-flat" id="section_diamond_title" name="section_diamond_title" value="{{ $homesettings->section_diamond_title }}">
                                 <div id="section_diamond_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_diamond_shotline"> Shotline 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_diamond_shotline" name="section_diamond_shotline" value="{{ $homesettings->section_diamond_shotline }}">
+                                <div id="section_diamond_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+
+                            <hr>
+                            <h4 class="card-title">
+                               Smiling Difference Section
+                            </h4>
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_title">Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_smiling_difference_title" name="section_smiling_difference_title" value="{{ $homesettings->section_smiling_difference_title }}">
+                                <div id="section_smiling_difference_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_titles">Title 1
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_smiling_difference_titles1" name="section_smiling_difference_titles[]" value="{{ $smilingdifference[0]->title }}">
+                                <div id="section_smiling_difference_titles-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_shotline"> Shotline 1 
+                                </label>
+                                <textarea  id="section_smiling_difference_shotline1" class="form-control" name="section_smiling_difference_shotlines[]">{{ $smilingdifference[0]->shotline }}</textarea>
+                                <div id="section_smiling_difference_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_titles">Title 2
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_smiling_difference_titles2" name="section_smiling_difference_titles[]" value="{{ $smilingdifference[1]->title }}">
+                                <div id="section_smiling_difference_titles-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_shotline"> Shotline 2 
+                                </label>
+                                <textarea  id="section_smiling_difference_shotline2" class="form-control" name="section_smiling_difference_shotlines[]">{{ $smilingdifference[1]->shotline }}</textarea>
+                                <div id="section_smiling_difference_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_titles">Title 3
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_smiling_difference_titles3" name="section_smiling_difference_titles[]" value="{{ $smilingdifference[2]->title }}">
+                                <div id="section_smiling_difference_titles-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_shotline"> Shotline 3 
+                                </label>
+                                <textarea  id="section_smiling_difference_shotline3" class="form-control" name="section_smiling_difference_shotlines[]">{{ $smilingdifference[2]->shotline }}</textarea>
+                                <div id="section_smiling_difference_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_titles">Title 4
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_smiling_difference_titles4" name="section_smiling_difference_titles[]" value="{{ $smilingdifference[3]->title }}">
+                                <div id="section_smiling_difference_titles-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_smiling_difference_shotline"> Shotline 4 
+                                </label>
+                                
+                                <textarea  id="section_smiling_difference_shotline4" class="form-control" name="section_smiling_difference_shotlines[]">{{ $smilingdifference[3]->shotline }}</textarea>
+                                <div id="section_smiling_difference_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            </div>
+                           
+                            </div>
+
+                            
 
                             <hr>
                             <h4 class="card-title">
@@ -139,6 +257,25 @@
                                 <div id="homethumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             </div>
+                            </div>
+                            <hr>
+
+                            <h4 class="card-title">
+                               Shop By Style Section
+                            </h4>
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_shop_by_style_title">Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_shop_by_style_title" name="section_shop_by_style_title" value="{{ $homesettings->section_shop_by_style_title }}">
+                                <div id="section_shop_by_style_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_shop_by_style_shotline"> Shotline 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_shop_by_style_shotline" name="section_shop_by_style_shotline" value="{{ $homesettings->section_shop_by_style_shotline }}">
+                                <div id="section_shop_by_style_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <hr>
                             <h4 class="card-title">

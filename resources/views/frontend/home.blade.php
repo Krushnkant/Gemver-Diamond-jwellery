@@ -104,7 +104,7 @@
                         <h2 class="heading-h2">{{ $homesetting->section_category_title }}</h2>
                         <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
                         <div class="sub_title">
-                            Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                           {{ $homesetting->section_category_shotline }}
                         </div>
                     </div>
                     <!-- <div class="category-line-img d-none d-md-block">
@@ -153,9 +153,9 @@
     <div class="shop_dimond_by_shape1">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center">
-                <h2 class="heading-h2">Our Products</h2>
+                <h2 class="heading-h2">{{ $homesetting->section_product_title }}</h2>
                 <div class="sub_title">
-                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                   {{ $homesetting->section_product_shotline }}
                 </div>
             </div>
             <div>
@@ -272,7 +272,7 @@
             <div class="mb-4 mb-md-0 pb-md-5 text-center ">
                 <h2 class="heading-h2">{{ $homesetting->section_diamond_title }}</h2>
                 <div class="sub_title">
-                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                    {{ $homesetting->section_diamond_shotline }}
                 </div>
             </div>
             <div>
@@ -493,17 +493,17 @@
 
     <div class="smiling_gemver_banner shop_dimond_by_shape">
       <div class="container">
-        <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">Smiling  Gemver Difference</h2>
+        <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
             <div class="row">
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
                    <div class="smiling_box_icon mb-2 mb-mb-3">
                         <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
                    </div>
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                        Lab Grown Diamond   
+                        {{ $SmilingDifference[0]->title }}   
                     </div>
                     <div class="smiling_box_paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        {{ $SmilingDifference[0]->shotline }}
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
@@ -511,10 +511,10 @@
                         <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
                    </div>
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                        Economic Green
+                    {{ $SmilingDifference[1]->title }}
                     </div>
                     <div class="smiling_box_paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {{ $SmilingDifference[1]->shotline }}
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
@@ -522,10 +522,10 @@
                         <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
                    </div>
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                        Hand Made Jewellry
+                    {{ $SmilingDifference[2]->title }}
                     </div>
                     <div class="smiling_box_paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {{ $SmilingDifference[2]->shotline }}
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
@@ -533,10 +533,10 @@
                         <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
                    </div>
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                        100% Certified Diamonds 
+                    {{ $SmilingDifference[3]->title }} 
                     </div>
                     <div class="smiling_box_paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {{ $SmilingDifference[3]->shotline }}
                     </div>
                 </div>
             </div>
@@ -606,7 +606,14 @@
      @if(count($shopbystyle) > 0)
     <div class="engagement_ring_section">
         <div class="container">
-            <h2 class="heading-h2 text-center text-white mb-3 mb-md-5">Shop by style</h2>
+            <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                    <div class="mb-md-5 mb-3 mt-md-0">
+                        <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
+                        <div class="sub_title">
+                            {{ $homesetting->section_shop_by_style_shotline }}
+                        </div>
+                    </div>
+                </div>
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="owl-carousel owl-theme shop-by-style-slider">
