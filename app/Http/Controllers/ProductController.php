@@ -8,6 +8,7 @@ use App\Models\ProductVariant;
 use App\Models\ProductAttribute;
 use App\Models\ProductVariantVariant;
 use App\Models\OrderIncludes;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Response;
@@ -24,8 +25,8 @@ class ProductController extends Controller
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'));
     }
 
-    public function product_detail($id,$variantid){
-
+    public function product_detail($id,$variantid)
+    {
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $Product = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
@@ -33,7 +34,8 @@ class ProductController extends Controller
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $Product->primary_category_id])->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes'));
+        $settings = Settings::first();
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes','settings'));
     }
 
     public function fetchproduct(Request $request){
