@@ -946,8 +946,9 @@ right: 0;
 
 .customise_own_ring_section {
     padding: 0;
-    box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
+    box-shadow: 2px 2px 10px rgb(117 117 117 / 20%);
     border-radius: 15px;
+    margin: 80px 0 60px 0;
 }
 
 .gemver_diamonds_section {
@@ -1586,6 +1587,10 @@ right: 0;
 
 .wire_bangle_color .form-check-input:checked:after {
     opacity: 1;
+}
+
+.products_item .wire_bangle_shop_radio {
+    padding: 0 15px;
 }
 
 .wire_bangle_shop_radio {
@@ -2786,7 +2791,7 @@ opacity: 1;
     background-size: 150px;
     background-position: 33%center;
     background-repeat: no-repeat;
-    background-color: var(--white-secondary);
+    background-color: #EEE5D7;
 }
 
 .about_us_background .sub_heading {
@@ -4394,6 +4399,10 @@ span.to_text input::placeholder {
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
     -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
+}
+
+.products_item .owl-nav {
+    display: none;
 }
 
 .banner_part_img_parent>figure:hover::before {

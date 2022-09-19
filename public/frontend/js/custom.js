@@ -101,7 +101,7 @@ $(document).ready(function() {
     });
     $('.products_item').owlCarousel({
         loop: true,
-        margin: 25,
+        margin: 0,
         nav: true,
         dots: false,
         responsive: {
