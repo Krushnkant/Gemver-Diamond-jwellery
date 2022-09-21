@@ -19,7 +19,7 @@ class ContactUsController extends Controller
     
     public function index(){
         $settings = Settings::first();
-        return view('frontend.contactus3',compact('settings'));
+        return view('frontend.contactus',compact('settings'));
     }
 
     public function save(Request $request){
@@ -72,7 +72,7 @@ class ContactUsController extends Controller
             $data = $request->all();
             $inquiry = Inquiry::Create($data);
             if(isset($data['stone_no'])){
-                $ip_address = \Request::ip();
+                $ip_address = Request::ip();
                 $cart = Cart::where(['ip_address'=>$ip_address]);
                 $cart->delete();
             }

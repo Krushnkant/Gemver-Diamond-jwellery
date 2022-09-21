@@ -44,7 +44,7 @@
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
                         $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                        if(in_array($ext, $supported_image)) { 
+                        if(in_array($ext, $supported_image)){ 
                        ?>
                             <div class="product_slider_main_item">
                                 <img src="{{ URL($image) }}" alt="">
@@ -54,7 +54,7 @@
                                 <video controls="" autoplay="" style="width:100%; height:100%;" name="media"><source src="{{ URL($image) }}" type="video/mp4"></video>
                             </div>    
                             <?php 
-                       }
+                         }
                         }
                     }
                     ?> 
@@ -90,17 +90,9 @@
                             </span>
  
                         </div>
-
+                       
                         <!-- <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p> -->
-                        <div class="d-flex  flex-wrap mb-2 mb-md-0" >
-                            <span class="wire_bangle_input" style="display:none;">
-                                <div class="wire_bangle_number number-input">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="qty" min="0" placeholder="0" name="qty" id="qty" value="1" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                                </div>
-                            </span>
-                        </div>
+                        
                         <form action="" class="mb-2 mb-lg-4" >
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
                            
@@ -259,6 +251,13 @@
                                 <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
+                            <span class="inquiry_now_btn product-data">
+                                <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
+                                <input type="hidden" class="item_type" value="0"> 
+                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart</button>
+                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </span>
+                            
                            
                             
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -292,6 +291,7 @@
                                         <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
+                                        
             
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
@@ -332,7 +332,7 @@
                            
                             
                             <div class="mt-3">
-                                <p>Estimated date of shipment <br>
+                                <p>Estimated Date of Delivery <br>
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                 </p>
                             </div>
@@ -725,6 +725,14 @@ $(document).ready(function(){
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
+                    $('.variant_id').val(data.result.variant_id);
+                    var sale_amount = data.result.sale_price;
+                    var max_order_amount = "{{ $settings->max_order_price }}";
+                    if(sale_amount > max_order_amount){
+                        $('.select_cart_btn').prop('disabled',true);
+                    }else{
+                        $('.select_cart_btn').prop('disabled',false);
+                    }
                     $('#specificationproduct123').html(data.specificationstr123);
                    // console.log($('.wire_bangle_share_my').next());
                     //$('.wire_bangle_share_my').next().html(data.specificationstr123);
@@ -914,7 +922,7 @@ $('body').on('click', '.select_setting_btn', function () {
     if(valid){
         $.map(arrspe, function(value) {
             var html = '<div class="d-flex align-items-center mb-md-2 col-md-6"><span class="wire_bangle_color_heading  d-inline-block">'+ value.key +' :</span><span class="ms-2 d-inline-block wire_bangle_color_heading ">'+ value.value +'</span></div>';
-           $('#specificationstr').append(html);
+            $('#specificationstr').append(html);
         });
         jQuery("#exampleModal").modal('show');
     }
@@ -1088,6 +1096,66 @@ function save_opinion(btn,btn_type){
         }
     });
 }
+
+
+$('.select_cart_btn').click(function (e) {
+      
+    e.preventDefault();
+
+    var valid = true;
+    var arrspe = [];
+    $('#specificationstr').html('');
+    $(document).find('.specification').each(function() {
+        var thi = $(this);
+        var this_err = $(thi).attr('name') + "-error";
+        if($(thi).val()=="" || $(thi).val()==null){
+            $("#"+this_err).html("Please select any value");
+            $("#"+this_err).show();
+            valid = false;
+        }else{
+            var element = $(this).find('option:selected'); 
+            var DataSpe = element.attr("data-spe");
+            var DataTerm = element.attr("data-term");
+            arrspe.push({'key' : DataSpe,'value' : DataTerm });
+            $("#"+this_err).hide();
+            valid = true;
+        }
+    })
+
+    if(valid){
+        
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+
+        var variant_id = $(this).closest('.product-data').find('.variant_id').val();
+        var item_type = $(this).closest('.product-data').find('.item_type').val();
+        var quantity = 1;
+ 
+        $.ajax({
+            url: "/add-to-cart", 
+            method: "POST", 
+            data: { 
+                'variant_id': variant_id, 
+                'quantity': quantity, 
+                'item_type': item_type, 
+                'arrspe': arrspe 
+            },
+            success: function (response) {
+                toastr.success(response.status,'Success',{timeOut: 5000});
+                cartload();
+                //alertify.set('notifier','position','top-right');
+                //alertify.success(response.status);
+            },
+        });
+
+    }
+    });
+
+
 
 
 });

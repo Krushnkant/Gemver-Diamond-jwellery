@@ -97,6 +97,10 @@
                                         <th style="width: 50%">facebook URL</th>
                                         <td><span id="facebook_url_val">{{ $Settings->facebook_url }}</span></td>
                                     </tr>
+                                    <tr>
+                                        <th style="width: 50%">Max Order Price</th>
+                                        <td><span id="max_order_price_val">{{ $Settings->max_order_price }}</span></td>
+                                    </tr>
 
                                     <!-- <tr>
                                         <th style="width: 50%">Comapny Address Map</th>
@@ -217,11 +221,13 @@
                             <input type="text" class="form-control input-flat" id="facebook_url" name="facebook_url" placeholder="">
                             <div id="facebook_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label class="col-form-label" for="max_order_price">Max Order Price
+                            </label>
+                            <input type="number" class="form-control input-flat" id="max_order_price" name="max_order_price" placeholder="">
+                            <div id="max_order_price-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
-                        
-
-                        
-
+                        </div>
                         <div class="form-group">
                             <label class="col-form-label" for="Company Address Map">Company Address Map<span class="text-danger">*</span>
                             </label>
@@ -264,6 +270,7 @@
         $('#tiktok_url-error').html("");
         $('#facebook_url-error').html("");
         $('#company_address_map-error').html("");
+        $('#max_order_price-error').html("");
         var default_image = "{{ url('images/placeholder_image.png') }}";
         $('#company_logo_image_show').attr('src', default_image);
     });
@@ -284,6 +291,7 @@
             $('#tiktok_url').val(data.tiktok_url);
             $('#facebook_url').val(data.facebook_url);
             $('#company_address_map').val(data.company_address_map);
+            $('#max_order_price').val(data.max_order_price);
             if(data.company_logo==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#company_logo_image_show').attr('src', default_image);
@@ -424,6 +432,7 @@
                     $("#tiktok_url_val").html(res.Settings.tiktok_url);
                     $("#facebook_url_val").html(res.Settings.facebook_url);
                     $("#company_address_map").html(res.Settings.company_address_map);
+                    $("#max_order_price_val").html(res.Settings.max_order_price);
                     toastr.success("Settings Updated",'Success',{timeOut: 5000});
                 }
 

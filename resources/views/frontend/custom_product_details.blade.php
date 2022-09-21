@@ -366,7 +366,7 @@
                         </form>
 
                             <div class="mt-3">
-                                <p>Estimated date of shipment <br>
+                                <p>Estimated Date of Delivery <br>
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                 </p>
                             </div>

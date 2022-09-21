@@ -35,6 +35,6 @@ class ProductVariantVariant extends Model
         return $this->hasMany(AttributeTerm::class,'id','attribute_term_id');
         //$instance = $this->hasMany(AttributeTerm::class,'id','attribute_term_id');
         //$instance->getQuery()->where('estatus','=', 1)->orderBy('sorting','asc');
-        return $instance;
+        //return $instance;
     }
 }

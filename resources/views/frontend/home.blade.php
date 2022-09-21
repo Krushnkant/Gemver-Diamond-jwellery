@@ -198,7 +198,7 @@
                      
                     
                     ?>
-                    <div class="hover_effect_part wire_bangle_shop_radio">
+                    <div class="hover_effect_part wire_bangle_shop_radio product-data">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="{{ $url }}">
@@ -206,19 +206,35 @@
                                    $ext = pathinfo($image, PATHINFO_EXTENSION); 
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
-                                   <img src="{{ $image }}" alt="">
+                                
+                                <img src="{{ $image }}" alt="">
                                 <?php }else{ ?>
+                                   
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
                                 <?php } ?>
                             </a>
                         </div>
-                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $product->primary_category->category_name }}</div>
+                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $product->primary_category->category_name }}
+                        <input type="hidden" class="variant_id" value="{{ $product->variant_id }}">    
+                        <input type="hidden" class="item_type" value="0">    
+                        <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                            <?php 
+                            if(in_array($product->variant_id,$wishlistids)){
+                            ?>
+                                <i class="fas fa-heart"></i>
+                            <?php }else{ ?>
+                                <i class="far fa-heart"></i> 
+                            <?php }
+                            ?>
+                        </span>
+                        </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $product->product_title }}</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
                                 <div>
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}
                                     </span>
+                                    
                                      <?php if($product->regular_price != ""){  ?>
                                     <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price"> {{ $product->regular_price }}</span></span>
                                     <?php } ?>
@@ -384,6 +400,7 @@
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
                         <div class="engagement_diamond_img">
+                        
                             <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
                         </div>
                     </div>
@@ -850,16 +867,16 @@
     </div> -->
     
     
-     <script>
+<script>
         
-        $(document).ready(function(){
-            
-            $(document).on('click','.banner-url',function(){
-                var banner_url = $(this).attr("data-value");
-                window.location.href = banner_url;
-            });
+$(document).ready(function(){
+        
+    $(document).on('click','.banner-url',function(){
+        var banner_url = $(this).attr("data-value");
+        window.location.href = banner_url;
+    });
 
-            $('body').on('click', '#save_newInquiryBtn', function () {
+    $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');
 });
 
@@ -930,8 +947,52 @@ function save_inquiry(btn,btn_type){
     });
 }
     
+});
+
+
+$(document).ready(function () {
+    $('.add-to-wishlist-btn').click(function (e) {
+      
+    e.preventDefault();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-        </script>
-        <!-- dfbvnfjfdbfddfjkldfj -->
+        var thisdata = $(this);
+
+        var variant_id = $(this).closest('.product-data').find('.variant_id').val();
+        var item_type = $(this).closest('.product-data').find('.item_type').val();
+
+        $.ajax({
+            url: "/add-to-wishlist",
+            method: "POST",
+            data: {
+                'variant_id': variant_id,
+                'item_type': item_type,
+            },
+            success: function (response) {
+                if (response.action == 'add')
+                {
+                    thisdata.closest('.product-data').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
+                    wishload();
+                } 
+                else if (response.action == 'remove') 
+                {
+                    thisdata.closest('.product-data').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
+                    wishload();
+                }
+                //alertify.set('notifier','position','top-right');
+                //alertify.success(response.status);
+            },
+        });
+    });
+});
+
+</script>
+
+        
+<!-- dfbvnfjfdbfddfjkldfj -->
  @endsection
    

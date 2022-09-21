@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -571,7 +572,7 @@ class ProductController extends Controller
         $product->save();
 
         if($product){
-            $product_attributes = \DB::table('product_attributes')
+            $product_attributes = DB::table('product_attributes')
             ->where('product_u_id', $request->product_u_id)
             ->update(array('product_id' => $product->id));
         }
@@ -1201,7 +1202,7 @@ class ProductController extends Controller
     public function productattributesave(Request $request){
        //dd($request->all());
         $attr_ids = explode(",",$request['attr_ids']);
-        $product_attributes = \DB::table('product_attributes')->where('product_u_id', $request->product_u_id)->delete();
+        $product_attributes = DB::table('product_attributes')->where('product_u_id', $request->product_u_id)->delete();
         $array_comman = [];
         for ($i=1;$i<=count($attr_ids);$i++) {
             $myValue = array();
@@ -1218,7 +1219,7 @@ class ProductController extends Controller
             }
             
             $attribute_term_string = implode(',',$myValue['Attribute' . $attrReq]);
-            $productattributes = \DB::table('product_attributes')->insert([
+            $productattributes = DB::table('product_attributes')->insert([
                 'product_id' => isset($request->product_id) ? $request->product_id : 0,
                 'product_u_id' => $request->product_u_id,
                 'attribute_id' => $myValue['attribute_id'],

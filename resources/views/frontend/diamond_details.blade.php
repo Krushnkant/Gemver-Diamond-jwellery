@@ -310,7 +310,7 @@
                                 <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>
                             </div>
                             <div class="mt-3">
-                                <p>Estimated date of shipment <br>
+                                <p>Estimated Date of Delivery <br>
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                 </p>
                             </div>

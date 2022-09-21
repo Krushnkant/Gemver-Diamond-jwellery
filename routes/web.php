@@ -18,6 +18,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StepController;
 use App\Http\Controllers\CompareController;
+use App\Http\Controllers\WishlistController;
 
 
 /*
@@ -57,7 +58,7 @@ Route::get('infopage/learn-about-lab-made-diamonds',[OtherPageController::class,
 Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
 
 
-Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop');
+Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop'); 
 Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
@@ -98,6 +99,34 @@ Route::get('/step/{slug}/three',[StepController::class,'stepthree']);
 Route::get('/step/{slug}/four',[StepController::class,'stepfour']);
 
 Route::post('/opinion',[OpinionController::class,'save'])->name('frontend.opinion.save');
+
+Route::post('add-to-wishlist',[WishlistController::class,'addtowishlist'])->name('frontend.addtowishlist');
+Route::get('/load-wishlist-data',[WishlistController::class,'wishloadbyajax'])->name('frontend.wishloadbyajax');
+Route::get('/wishlist',[WishlistController::class,'index'])->name('frontend.index');
+Route::delete('/delete-from-wishlist',[WishlistController::class,'deletefromwishlist'])->name('frontend.deletefromwishlist');
+
+Route::post('add-to-cart',[CartController::class,'addtocart'])->name('frontend.addtocart');
+Route::get('/load-cart-data',[CartController::class,'cartloadbyajax'])->name('frontend.cartloadbyajax');
+Route::get('/cart',[CartController::class,'index'])->name('frontend.index');
+Route::delete('/delete-from-cart',[CartController::class,'deletefromcart'])->name('frontend.deletefromcart');
+
+
+Route::get('login',[\App\Http\Controllers\AuthController::class,'index'])->name('frontend.login');
+Route::post('frontendpostlogin', [\App\Http\Controllers\AuthController::class, 'postLogin'])->name('frontend.postlogin');
+Route::get('register',[\App\Http\Controllers\AuthController::class,'register'])->name('frontend.register');
+Route::post('frontendpostregister', [\App\Http\Controllers\AuthController::class, 'postRegister'])->name('frontend.postregister');
+
+Route::group(['middleware'=>['frontendauth']],function (){
+    
+});
+
+Route::get('frontend/logout', function() {
+    if(session()->has('customer')){
+        session()->pull('customer');
+    }
+   return redirect('/');
+});
+
 
 //Admin  Rpute
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');
@@ -424,6 +453,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('changepricerangestatus/{id}',[\App\Http\Controllers\admin\PriceRangeController::class,'changepricerangestatus'])->name('pricerange.changepricerangestatus');
     Route::get('pricerange/{id}/edit',[\App\Http\Controllers\admin\PriceRangeController::class,'editpricerange'])->name('pricerange.edit');
     Route::get('pricerange/{id}/delete',[\App\Http\Controllers\admin\PriceRangeController::class,'deletepricerange'])->name('pricerange.delete');
+
+    Route::get('coupons',[\App\Http\Controllers\admin\CouponController::class,'index'])->name('coupons.list');
+    Route::get('coupons/create',[\App\Http\Controllers\admin\CouponController::class,'create'])->name('coupons.add');
+    Route::post('coupons/save',[\App\Http\Controllers\admin\CouponController::class,'save'])->name('coupons.save');
+    Route::post('allcouponlist',[\App\Http\Controllers\admin\CouponController::class,'allcouponlist'])->name('allcouponlist');
+    Route::get('coupons/{id}/edit',[\App\Http\Controllers\admin\CouponController::class,'editcoupon'])->name('coupons.edit');
+    Route::get('coupons/{id}/delete',[\App\Http\Controllers\admin\CouponController::class,'deletecoupon'])->name('coupons.delete');
  
     
 });
