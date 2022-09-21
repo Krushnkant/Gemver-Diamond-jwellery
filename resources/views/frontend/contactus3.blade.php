@@ -10,26 +10,27 @@
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
                 <div class="login_page_heading text-center mb-3 mb-md-5">
-                    Log In
+                   Sign up
                 </div>
                 <div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Emilyjohn1212@gmail.com">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Emily john">
                     </div>
                     <div class="mb-3 password_text">
                         <label for="exampleFormControlInput1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="**********">
-                        <div class="forgot_password_text text-end mt-3">
-                            Forgot Password?
-                        </div>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Emilyjohn1212@gmail.com">
+                    </div>
+                    <div class="mb-3 password_text">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Password</label>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Emilyjohn1212@gmail.com">
                     </div>
                    <div class="login_btn mt-3 mt-xl-5">
-                        <button type="button" class="login_button">Log In</button>
+                        <button type="button" class="login_button">Sign up</button>
                    </div>
                    <div class="sign_up_now_text mt-3 mt-xxl-5 text-center"> 
                         Don’t have an account? 
-                        <span class="sign_up_now_color">Sign up now</span>
+                        <span class="sign_up_now_color">Login In</span>
                    </div>
                 </div>
             </div>
