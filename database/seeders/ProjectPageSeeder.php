@@ -524,8 +524,16 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission'
         ]);
 
-        
-
+        ProjectPage::create([
+            'id' => 69,
+            'parent_menu' => 0,
+            'label' => 'Coupon',
+            'route_url' => 'admin.coupons.list',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.coupons.list,admin.coupons.add,admin.coupons.save,admin.allcouponlist,admin.coupons.edit,admin.coupons.delete',
+            'icon_class' => 'icon-badge', 
+            'sr_no' => 48 
+        ]);
         
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

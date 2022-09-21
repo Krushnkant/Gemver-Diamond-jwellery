@@ -11,7 +11,7 @@ $settings = \App\Models\Settings::first();
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL('images/company/'.$settings->company_favicon) }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
@@ -20,6 +20,7 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
+    <link href="{{ asset('plugins/toastr/css/toastr.min.css')}}" rel="stylesheet">
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     <!-- TrustBox script -->
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
@@ -50,6 +51,9 @@ $settings = \App\Models\Settings::first();
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
 <script src="{{ asset('frontend/js/all.min.js') }}"></script>   
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+
+<script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script>
 
 
 </body>
