@@ -62,6 +62,38 @@
         top: 0;
         padding-top: 15px;
     }
+    /* ----------------------------------- login page ----------------------------------------------------- */
+    .Login_page_box {
+        padding: 15px;
+    }
+    .Login_page_box .login_padding {
+        padding-left: 0;
+    }
+    .sign_up_now_text {
+        font-size: 14px;
+    }
+    .login_page_heading {
+        font-size: 30px;
+    }
+    .Login_page_box .form-label,
+    .Login_page_box .form-label {
+        font-size: 14px;
+    }
+    .login_page_heading {
+        font-size: 28px;
+    }
+    .login_btn button {
+        min-width: 281px;
+        height: 40px;
+    }
+    .forgot_password_text {
+        font-size: 13px;
+    }
+    .Login_page_box input,
+    .Login_page_box input {
+        font-size: 14px;
+        box-shadow: none !important;
+    }
 }
 
 @media (max-width:575px) {
@@ -1314,9 +1346,37 @@
     .inquiry_now_modal .modal-content {
         padding: 20px 0;
     }
-    /* ---------------------- ------------------------------- */
+    /* ----------------------------------------------------- */
     .detail_label {
         font-size: 13px;
+    }
+    /* ------------------------------------------------------ */
+    .Login_page_box {
+        padding: 15px;
+    }
+    .Login_page_box .login_padding {
+        padding-left: 15px;
+    }
+    .login_page_heading {
+        font-size: 32px;
+    }
+    .Login_page_box .form-label,
+    .Login_page_box .form-label {
+        font-size: 15px;
+    }
+    .Login_page_box input:focus,
+    .Login_page_box input:focus {
+        box-shadow: none;
+    }
+    .sign_up_now_text {
+        font-size: 15px;
+    }
+    .login_btn button {
+        height: 40px;
+        font-size: 16px;
+    }
+    .forgot_password_text {
+        font-size: 14px;
     }
 }
 
@@ -1644,6 +1704,10 @@
     }
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1040px;
+    }
+    /* ---------------------------------------------------------- */
+    .login_padding {
+        padding-left: 15px !important;
     }
 }
 

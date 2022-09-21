@@ -10,15 +10,19 @@
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
                 <div class="login_page_heading text-center mb-3 mb-md-5">
-                    Log In
+                   Sign up
                 </div>
                 <div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <label for="exampleFormControlInput1" class="form-label">Enter your Name</label>
                         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Emilyjohn1212@gmail.com">
                     </div>
                     <div class="mb-3 password_text">
-                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <label for="exampleFormControlInput1" class="form-label">Enter your Email</label>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="**********">
+                    </div>
+                    <div class="mb-3 password_text">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Password</label>
                         <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="**********">
                         <div class="forgot_password_text text-end mt-3">
                             Forgot Password?

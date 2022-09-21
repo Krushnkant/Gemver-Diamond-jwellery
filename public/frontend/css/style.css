@@ -4414,6 +4414,103 @@ span.to_text input::placeholder {
     color: #212529;
 }
 
+
+/* --------------------------------- login page ------------------------------------------------------------- */
+
+.Login_page_box {
+    background: #FAFAFA;
+    box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13);
+    border-radius: 15px;
+    padding: 80px;
+}
+
+.login_page_heading {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 47px;
+    color: var(--secondary);
+}
+
+.Login_page_box .form-label,
+.Login_page_box .form-label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: var(--primary);
+}
+
+.Login_page_box input,
+.Login_page_box input {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #808080;
+    border: 1px solid #9C9C9C !important;
+}
+
+.Login_page_box input:focus,
+.Login_page_box input:focus {
+    box-shadow: none;
+}
+
+.Login_page_box input::placeholder,
+.Login_page_box input::placeholder {
+    color: #808080;
+}
+
+.Login_page_box label {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #808080;
+}
+
+.login_btn button {
+    min-width: 281px;
+    height: 48px;
+    background: #BB9761;
+    border-radius: 5px;
+    background: #BB9761;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    border: 0;
+}
+
+.login_btn {
+    text-align: center;
+}
+
+.login_text {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: var(--primary);
+}
+
+.sign_up_now_text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.forgot_password_text {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    color: var(--primary);
+}
+
+.Login_page_box .login_padding {
+    padding-left: 120px;
+}
+
+.sign_up_now_color {
+    color: var(--secondary);
+}
+
 @-webkit-keyframes shine {
     100% {
         left: 125%;
