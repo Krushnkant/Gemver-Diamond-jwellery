@@ -1,22 +1,5 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<title>mail sending</title>
-</head>
-<body>
-	@if(isset($name))
-	<h3>Name :  <span>{{$name}}</span></h3> 
-	<h3>Mobile Number :  <span>{{$mobile_no}}</span></h3> 
-	<h3>Email Address :  <span>{{$email}}</span></h3> 
-	@endif
-	
-	<h4>{{$message1}}</h4>
-</body>
-</html> -->
-
 <!doctype html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
@@ -29,9 +12,8 @@
             </div>
             
             <div style="margin-left:100px;background-color: #fff; padding: 50px; min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%); ">
-                <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for contact us</div>
-                <div style="margin-bottom: 25px;font-size: 13px;">
-                     Our Representative will contact you soon.
+                <div style="margin-bottom: 5px; font-size: 13px;">
+                     {!! $message1 !!}
                 </div>
                 <div style="margin-bottom: 5px; font-size: 13px;">
                     Thank you!
