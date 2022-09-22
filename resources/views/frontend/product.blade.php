@@ -726,13 +726,13 @@ $(document).ready(function(){
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
                     $('.variant_id').val(data.result.variant_id);
-                    var sale_amount = data.result.sale_price;
-                    var max_order_amount = "{{ $settings->max_order_price }}";
-                    if(sale_amount > max_order_amount){
-                        $('.select_cart_btn').prop('disabled',true);
-                    }else{
-                        $('.select_cart_btn').prop('disabled',false);
-                    }
+                    // var sale_amount = data.result.sale_price;
+                    // var max_order_amount = "{{ $settings->max_order_price }}";
+                    // if(sale_amount > max_order_amount){
+                    //     $('.select_cart_btn').prop('disabled',true);
+                    // }else{
+                    //     $('.select_cart_btn').prop('disabled',false);
+                    // }
                     $('#specificationproduct123').html(data.specificationstr123);
                    // console.log($('.wire_bangle_share_my').next());
                     //$('.wire_bangle_share_my').next().html(data.specificationstr123);
@@ -741,8 +741,6 @@ $(document).ready(function(){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
                         $('#specificationproduct').html(data.specificationstr);
-                        
-                        
                     }else{
                         $(".detailsspeci").hide();
                     }

@@ -7,22 +7,11 @@
                                     <a class="header-icon-part" href="tel:{{ $settings->company_mobile_no }}" ><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
                                     <a class="header-icon-part" href="mailto:{{ $settings->company_email }}" ><span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span></a>
                                     <a class="header-icon-part" href="https://api.whatsapp.com/send?phone={{ $settings->company_mobile_no }}" target="_blank" ><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
-                                    <a class="header-icon-part" href="{{ URL('/wishlist') }}" ><span class="header-icon"><i class="fa fa-heart"></i>  <span class="basket-item-count"> 0 </span> </span></a>
-                                    <a class="header-icon-part" href="{{ URL('/cart') }}" ><span class="header-icon">
-                                        Cart
-                                        <span class="basket-item-count-cart">
-                                             0 
-                                        </span>
-                                    </a>
-                                    @if(session()->has('customer'))
-                                    <a class="header-icon-part" href="{{ URL('frontend/logout') }}"><span class="header-icon">  Logout </span></a>
-                                    @else
-                                    <a class="header-icon-part" href="{{ URL('/login') }}"><span class="header-icon">  Login </span></a>
-                                    @endif
+                                    
                                 </div>
                             </div>
                            
-                            <div class="col-md-8 col-lg-9 text-end">
+                            <div class="col-md-4 col-lg-6 text-end">
                                 <div class="home-page-header navbar_header">
                                   <?php 
                                       $offers = \App\Models\Offer::where('estatus',1)->get();
@@ -32,6 +21,23 @@
                                         <span class="me-3 header-icon" style="padding-right:300px;" >{{ $offer->title }}</span>
                                         @endforeach
                                     </marquee>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-lg-3 text-center">
+                                <div class="home-page-header">
+                                    <a class="header-icon-part" href="{{ URL('/wishlist') }}" ><span class="header-icon me-3"><i class="fa fa-heart"></i> Wishlist  <span class="basket-item-count"> 0 </span> </span></a>
+                                    <a class="header-icon-part" href="{{ URL('/cart') }}" ><span class="header-icon me-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        Cart
+                                        <span class="basket-item-count-cart">
+                                             0 
+                                        </span>
+                                    </a>
+                                    @if(session()->has('customer'))
+                                    <a class="header-icon-part" href="{{ URL('frontend/logout') }}"><span class="header-icon me-3">  Logout </span></a>
+                                    @else
+                                    <a class="header-icon-part" href="{{ URL('/login') }}"><span class="header-icon me-3">  Login </span></a>
+                                    @endif
                                 </div>
                             </div>
                             

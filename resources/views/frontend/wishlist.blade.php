@@ -32,10 +32,12 @@
                     <table class="table table-bordered table-hover table_part_product">
                     <thead>
                         <tr class="table-active">
+                            <th>Remove</th>
                             <th>Image</th>
                             <th>Product Name</th>
                             <th>Price</th>
-                            <th>Remove</th>
+                            <th></th>
+                           
                             
                         </tr>
                     </thead>
@@ -56,9 +58,13 @@
                     
                          
                        ?>
-                        <tr class="cartpage">
+                        <tr class="cartpage product-data">
+                            <td style="font-size: 20px;">
+                                <a href="" class="delete_wishlist_data"><li class="fa fa-trash"></li></a>
+                            </td>
                             <td class="cart-image">
                                 <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
+                                <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
                                 <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                             </td>
                             <td class="cart-product-name-info">
@@ -66,12 +72,51 @@
                                 @foreach ($item->product_variant_variants as $vitem)
                                 <span >{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
                                 @endforeach
+
+                                <div class="d-flex flex-wrap" id="speci_multi143">
+                            
+                                <?php
+
+                                if($data['item_type'] == 0){
+                                    $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
+                                    $spe = '';
+                                    foreach($ProductVariantSpecification as $productvariants)
+                                    {
+                                    ?>
+                                    <div class="me-4"> <span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                        <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
+                                            <option value="">--{{ $productvariants->attribute_name }}--</option>  
+                                    <?php
+                                        $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
+                                        
+                                        foreach($product_attribute as $attribute_term){
+                                        $term_array = explode(',',$attribute_term->terms_id);
+                                        $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                                       
+                                        $v = 1;
+                                        foreach($product_attributes as $term){
+                                    ?>            
+                                            <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
+                                    <?php        
+                                          }
+                                        }
+                                    ?>        
+                                        </select>
+                                        <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                        </span> 
+                                    </div>
+                                    <?php
+                                    }
+                                }
+                                ?>
+                                </div>
                             </td>
                             <td class="cart-product-sub-total">
                                 <span class="cart-sub-total-price">{{ number_format($sale_price, 2) }}</span>
                             </td>
+                            
                             <td style="font-size: 20px;">
-                                <a  class="delete_wishlist_data"><li class="fa fa-trash"></li></a>
+                                <a class="btn btn-primary select_cart_btn">Add To Cart</a>
                             </td>
                         </tr>
                         @endforeach
@@ -120,6 +165,61 @@ $('.delete_wishlist_data').click(function (e) {
         }
     });
 });
+
+
+$('.select_cart_btn').click(function (e) {
+      
+      e.preventDefault();
+  
+      var valid = true;
+      var arrspe = [];
+      $('#specificationstr').html('');
+      $(document).find('.specification').each(function() {
+          var thi = $(this);
+          var this_err = $(thi).attr('name') + "-error";
+          if($(thi).val()=="" || $(thi).val()==null){
+              $("#"+this_err).html("select any value");
+              $("#"+this_err).show();
+              valid = false;
+          }else{
+              var element = $(this).find('option:selected'); 
+              var DataSpe = element.attr("data-spe");
+              var DataTerm = element.attr("data-term");
+              arrspe.push({'key' : DataSpe,'value' : DataTerm });
+              $("#"+this_err).hide();
+              valid = true;
+          }
+      })
+  
+      if(valid){
+          
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+          var thisdata = $(this);
+  
+          var variant_id = $(this).closest('.product-data').find('.variant_id').val();
+          var item_type = $(this).closest('.product-data').find('.item_type').val();
+          var quantity = 1;
+          $.ajax({
+              url: "/add-to-cart", 
+              method: "POST", 
+              data: { 
+                  'variant_id': variant_id, 
+                  'quantity': quantity, 
+                  'item_type': item_type, 
+                  'arrspe': arrspe 
+              },
+              success: function (response) {
+                  toastr.success(response.status,'Success',{timeOut: 5000});
+                  cartload();
+              },
+          });
+  
+      }
+      });
 
 });
      
