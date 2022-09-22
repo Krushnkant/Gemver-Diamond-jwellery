@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
                 <div class="login_page_heading text-center mb-3 mb-md-5">
-                   Sign up
+                  Login In
                 </div>
                 <div>
                     <div class="mb-3">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                    <div class="login_btn mt-3 mt-xl-5">
-                        <button type="button" class="login_button">Log In</button>
+                        <button type="button" class="login_button">Sign up</button>
                    </div>
                    <div class="sign_up_now_text mt-3 mt-xxl-5 text-center"> 
                         Don’t have an account? 
