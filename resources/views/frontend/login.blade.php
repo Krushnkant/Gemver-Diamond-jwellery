@@ -9,7 +9,7 @@
                 <img src="{{ url('frontend/image/login_img.png') }}" alt="">
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
-                <div class="login_page_heading text-center mb-3 mb-md-5">
+                <div class="login_page_heading text-center mb-3 mb-md-4 mb-xl-5">
                     Log In
                 </div>
                 <div>
@@ -30,7 +30,7 @@
                             </a>
                         </div>
                     </div>
-                   <div class="login_btn mt-3 mt-xl-5">
+                   <div class="login_btn mt-3 mt-md-4 mt-xl-5">
                         <button class="login_button" type="submit" id="loginSubmit">Sign In <i class="fa fa-spinner fa-spin loadericonfa" style="display:none;"></i></button>
                    </div>
                    <div class="sign_up_now_text mt-3 mt-xxl-5 text-center"> 

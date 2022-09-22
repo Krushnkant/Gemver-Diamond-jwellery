@@ -9,7 +9,7 @@
                 <img src="{{ url('frontend/image/login_img.png') }}" alt="">
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
-                <div class="login_page_heading text-center mb-3 mb-md-5">
+                <div class="login_page_heading text-center mb-3 mb-md-4 mb-xl-5">
                    Sign up
                 </div>
                 <div>
@@ -29,20 +29,20 @@
                         <label for="password" class="form-label">Enter Password</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="**********">
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        <div class="forgot_password_text text-end mt-3">
+                        <!-- <div class="forgot_password_text text-end mt-3">
                             <a href="#" class="forgot_password_text">
                                 Forgot Password?
                             </a>
-                        </div>
+                        </div> -->
                     </div>
-                   <div class="login_btn mt-3 mt-xl-5">
+                   <div class="login_btn mt-3 mt-md-4 mt-xl-5">
                         <button class="login_button" type="submit" id="RegisterSubmit">Sign up <i class="fa fa-spinner fa-spin loadericonfa" style="display:none;"></i></button>
                    </div>
                 </form>   
                    <div class="sign_up_now_text mt-3 mt-xxl-5 text-center"> 
                         Already have an account?
                         <a href="{{ url('/login') }}" class="sign_up_now_color">
-                            <span class="sign_up_now_color">Sign In now</span>
+                            <span class="sign_up_now_color">Log In</span>
                         </a>
                    </div>
                 </div>

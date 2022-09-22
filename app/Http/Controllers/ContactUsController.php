@@ -19,7 +19,7 @@ class ContactUsController extends Controller
     
     public function index(){
         $settings = Settings::first();
-        return view('frontend.contactus2',compact('settings'));
+        return view('frontend.my-cart',compact('settings'));
     }
 
     public function save(Request $request){
