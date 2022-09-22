@@ -44,10 +44,11 @@
                        <?php 
                            $total = 0;
                            $total_qty = 0;
+                          
                        ?> 
-                       @foreach ($cart_data as $data)
+                       @foreach($cart_data as $data)
                        <?php 
-                    
+                       
                        if(isset($data['item_type']) && $data['item_type'] == 0){
                         $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                         $item_name = $item->product->product_title;
@@ -81,6 +82,7 @@
                                 <br>
                                 @if(isset($specifications))
                                     @foreach ($specifications as $specification)
+                                  
                                        <span>{{ $specification['key'] }} : {{ $specification['value'] }}</span>
                                     @endforeach
                                 @endif
@@ -102,7 +104,7 @@
                                 <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * $data['item_quantity'] }}</span>
                             </td>
                             <td style="font-size: 20px;">
-                                <a class="delete_wishlist_data"><li class="fa fa-trash"></li></a>
+                                <a class="delete_cart_data"><li class="fa fa-trash"></li></a>
                             </td>
                         </tr>
                         <?php
@@ -157,7 +159,7 @@
      // Delete Cart Data
      $(document).ready(function () {
 
-$('.delete_wishlist_data').click(function (e) {
+$('.delete_cart_data').click(function (e) {
     e.preventDefault();
 
     var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
