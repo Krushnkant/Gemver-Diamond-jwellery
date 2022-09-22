@@ -72,19 +72,17 @@
     .sign_up_now_text {
         font-size: 14px;
     }
-    .login_page_heading {
-        font-size: 30px;
-    }
     .Login_page_box .form-label,
     .Login_page_box .form-label {
         font-size: 14px;
     }
     .login_page_heading {
-        font-size: 28px;
+        font-size: 24px;
     }
     .login_btn button {
-        min-width: 281px;
+        min-width: 200px;
         height: 40px;
+        font-size: 17px;
     }
     .forgot_password_text {
         font-size: 13px;
@@ -93,6 +91,27 @@
     .Login_page_box input {
         font-size: 14px;
         box-shadow: none !important;
+    }
+    /* ------------------------------------------ message box -------------------------------------------------------------- */
+    .message_box {
+        padding: 30px;
+    }
+    .message_box_icon {
+        width: 50px;
+    }
+    .message_box_heading {
+        font-size: 17px;
+    }
+    .message_box_paragraph {
+        font-size: 15px;
+    }
+    /* --------------------------- true box icon -------------------------------------------------- */
+    .true_icon_box_heading {
+        font-size: 14px;
+    }
+    .true_icon_box svg {
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -1278,6 +1297,9 @@
     .background-smoke-slider {
         height: 400px;
     }
+    .login_btn button {
+        min-width: 200px;
+    }
     /* ---------- step progress bar----------------------- */
     .step-progressbar .tab-steps--list li:before {
         width: 60px;
@@ -1358,7 +1380,7 @@
         padding-left: 15px;
     }
     .login_page_heading {
-        font-size: 32px;
+        font-size: 28px;
     }
     .Login_page_box .form-label,
     .Login_page_box .form-label {
@@ -1377,6 +1399,18 @@
     }
     .forgot_password_text {
         font-size: 14px;
+    }
+    /* -------------------------- message box------------------------------------------ */
+    .message_box_heading {
+        font-size: 20px;
+    }
+    /* --------------------------- true box icon -------------------------------------------------- */
+    .true_icon_box_heading {
+        font-size: 14px;
+    }
+    .true_icon_box svg {
+        width: 30px;
+        height: 30px;
     }
 }
 

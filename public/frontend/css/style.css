@@ -4413,6 +4413,8 @@ span.to_text input::placeholder {
 .select_hint_btn {
     color: #212529;
 }
+
+
 /* --------------------------------- login page ------------------------------------------------------------- */
 
 .Login_page_box {
@@ -4492,6 +4494,15 @@ span.to_text input::placeholder {
     font-size: 18px;
     font-weight: 500;
     line-height: 26px;
+    color: var(--primary);
+}
+
+.sign_up_now_text:hover {
+    color: var(--primary);
+}
+
+.forgot_password_text:hover {
+    color: var(--primary);
 }
 
 .forgot_password_text {
@@ -4519,4 +4530,51 @@ span.to_text input::placeholder {
     100% {
         left: 125%;
     }
+}
+
+
+/* ------------------------------------- message box --------------------------------------------------- */
+
+.message_box {
+    background: #FAFAFA;
+    border-radius: 15px;
+    max-width: 580px;
+    margin: auto;
+    padding: 100px 80px;
+}
+
+.message_box_heading {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.message_box_paragraph {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+    text-align: center;
+    color: #808080;
+}
+
+.true_icon_box {
+    background: #439900;
+    border-radius: 5px;
+    color: #fff;
+    padding: 19px;
+    max-width: 440px;
+}
+
+.true_icon_box_heading {
+    font-size: 16px;
+}
+
+.my_cart_heading {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    color: var(--secondary);
 }
