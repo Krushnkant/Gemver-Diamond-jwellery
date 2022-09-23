@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class OtherPageController extends Controller
 {
+    public function gemverdifference(){
+        $Infopage= Infopage::first();
+        return view('frontend.gemverdifference',compact('Infopage'));
+    }
+
     public function freeengraving(){
         $Infopage= Infopage::first();
         return view('frontend.freeengraving',compact('Infopage'));

@@ -30,13 +30,11 @@ $settings = \App\Models\Settings::first();
 <body>
 
 
-<div class="header-loader">
-    <!-- <div class="spinner-border loader-btn" role="status"> -->
+{{-- <div class="header-loader">
     <div class="loader-btn" role="status"> 
-    <!-- <span class="sr-only">Loading...</span> -->
     <img src="{{ asset('frontend/image/loader.gif') }}" alt="">
     </div>
-</div>
+</div> --}}
 
 <div class="">
 @include('frontend.layout.header')

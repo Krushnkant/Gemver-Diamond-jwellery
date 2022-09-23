@@ -379,6 +379,75 @@ $(function() {
 $(document).ready(function() {
     wishload();
     cartload();
+
+    //$('.add-to-wishlist-btn').click(function (e) {
+    $(document).on('click','.add-to-wishlist-btn',function(e){    
+        e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var thisdata = $(this);
+    
+            var variant_id = $(this).closest('.wire_bangle_shop_radio').find('.variant_id').val();
+            var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
+    
+            $.ajax({
+                url: "/add-to-wishlist",
+                method: "POST",
+                data: {
+                    'variant_id': variant_id,
+                    'item_type': item_type,
+                },
+                success: function (response) {
+                    if (response.action == 'add')
+                    {
+                        thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
+                        wishload();
+                    } 
+                    else if (response.action == 'remove') 
+                    {
+                        thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
+                        wishload();
+                    }
+                },
+        });
+    });
+
+    $(document).on('click','.add-to-wishlist-btn-diamond',function(e){    
+        e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var thisdata = $(this);
+    
+            var diamond_id = $(this).closest('.round_cut_lab_diamonds_box').find('.diamond_id').val();
+            var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
+    
+            $.ajax({
+                url: "/add-to-wishlist",
+                method: "POST",
+                data: {
+                    'variant_id': diamond_id,
+                    'item_type': item_type,
+                },
+                success: function (response) {
+                    if (response.action == 'add')
+                    {
+                        thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
+                        wishload();
+                    } 
+                    else if (response.action == 'remove') 
+                    {
+                        thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
+                        wishload();
+                    }
+                },
+        });
+    });
 });
 
 function wishload() {

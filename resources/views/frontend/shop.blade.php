@@ -116,28 +116,7 @@
             
             <!-- <div class="wire_bangle_line"></div> -->
             <div class="row mt-0 mb-5 filter_data">
-                <!-- @foreach($Products as $product)
-
-                <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4">
-                    <div class="wire_bangle_img mb-3 position-relative">
-                        <img src="{{ asset($product->product_variant[0]->images) }}" alt="">
-
-                    </div>
-                    <div class="wire_bangle_description">
-
-                        <div class="wire_bangle_heading mb-2 mb-md-3"><a href="{{ URL('/product-details/'.$product->id) }}">{{ $product->primary_category->category_name }}</a></div>
-                        <div class="wire_bangle_sub_heading mb-2 mb-md-3">{{ $product->product_title}}</div>
-                        <div class="wire_bangle_paragraph mb-2 mb-md-3">
-                           {{ $product->desc}}
-                        </div>
-                        <div class="wire_bangle_price">
-                            ${{ $product->product_variant[0]->sale_price}}
-                        </div>
-                    </div>
-                </div>
-
-                @endforeach -->
-               
+                
             </div>
         </div>
     </div>

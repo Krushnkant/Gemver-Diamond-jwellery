@@ -51,7 +51,11 @@
                             $item_image = explode(',',$item->images);
                         }else{
                             $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                            $item_name = $item->Weight;
+                            $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
+                            $item_name .= '<span>'. $item->Clarity .' clarity |</span>
+                                    <span>'. $item->Color .' color |</span>
+                                    <span>'. $item->Lab .' certified</span>';
+
                             $sale_price = $item->Sale_Amt;
                             $item_image = explode(',',$item->Stone_Img_url);
                         }
@@ -68,11 +72,12 @@
                                 <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                             </td>
                             <td class="cart-product-name-info">
-                                <span >{{ $item_name }}</span><br>
+                                <span >{!! $item_name !!}</span><br>
+                                @if($data['item_type'] == 0)
                                 @foreach ($item->product_variant_variants as $vitem)
-                                <span >{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
+                                  <span >{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
                                 @endforeach
-
+                                @endif
                                 <div class="d-flex flex-wrap" id="speci_multi143">
                             
                                 <?php

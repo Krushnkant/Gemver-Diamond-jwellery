@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Wishlist;
 use App\Models\ItemCart;
+use App\Models\Settings;
+use App\Http\Helpers;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
+use Redirect;
 
 
 class AuthController extends Controller
@@ -125,4 +128,75 @@ class AuthController extends Controller
         return response()->json(['status'=>200]);
 
     }
+
+    public function forgetpassword()
+    {
+        return view('frontend.forget_password');
+    }
+
+    public function postForgetpassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $user = User::where('email',$request->email)->where('role',3)->where('estatus',1)->first();
+        if ($user){
+            $string = str_random(15);
+            $user = User::where('email',$request->email)->first();
+            $user->forget_token = $string;
+            $user->save();
+
+            $data2 = [
+                'message1' => 'https://gemver.matoresell.com/public/resetpassword/'.$string
+            ]; 
+            $templateName = 'email.mailDataforgetpassword';
+            $subject = 'Forget Password';
+            $mail_sending = Helpers::MailSending($templateName, $data2, $request->email, $subject);
+
+            return response()->json(['status'=>200]); 
+        }    
+        return response()->json(['status'=>400]);
+    }
+
+    public function resetpassword($key)
+    {
+        $user = User::where('forget_token',$key)->first();
+        if($user){
+            return view('frontend.resetpassword',compact('user'));
+        }else{
+            return Redirect::to('/forget-password');
+        }
+        
+    }
+
+    public function postResetpassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|same:confirm_password'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $user = User::where('id',$request->user_id)->where('role',3)->where('estatus',1)->first();
+        if ($user){
+           
+            $user = User::where('id',$request->user_id)->first();
+            $user->forget_token = "";
+            $user->password = Hash::make($request->password);
+            $user->decrypted_password = $request->password;
+            $user->save();
+
+            return response()->json(['status'=>200]); 
+        }    
+        return response()->json(['status'=>400]);
+    }
+
+
 }

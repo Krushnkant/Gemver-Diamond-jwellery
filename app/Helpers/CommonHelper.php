@@ -8,6 +8,7 @@ use App\Models\ProductVariant;
 use App\Models\ProductAttribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cookie;
 
 function getLeftMenuPages(){
     $pages = \App\Models\ProjectPage::where('parent_menu',0)->orderBy('sr_no','ASC')->get()->toArray();
@@ -342,4 +343,34 @@ function compressImage($source, $destination, $quality) {
      
     // Return compressed image 
     return $destination; 
+}
+
+function is_wishlist($item_id,$item_type){
+    if($item_id!=0 && $item_id!=""){
+        if(session()->has('customer')){
+            $wishlist_data = \App\Models\Wishlist::where('item_id',$item_id)->where('item_type',$item_type)->where('user_id',session('customer.id'))->first();
+            if ($wishlist_data){
+                return true;
+            }
+        }else{
+            $cookie_data = stripslashes(Cookie::get('product_wishlist'));
+            $wishlist_data = json_decode($cookie_data, true);
+            if($wishlist_data){
+                $item_id_list = array_column($wishlist_data, 'item_id');
+                $variant_id_is_there = $item_id;
+                if(in_array($variant_id_is_there, $item_id_list))
+                {
+                    foreach($wishlist_data as $keys => $values)
+                    {
+                        if($wishlist_data[$keys]["item_id"] == $item_id)
+                        {
+                            return true; 
+                        }
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
 }
