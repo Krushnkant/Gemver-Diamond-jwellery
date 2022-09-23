@@ -32,9 +32,9 @@
                             <thead>
                                 <tr class="table-active">
                                     <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th class="text-center">Qty</th>
-                                    <th>Total</th>
+                                    <th>Amount</th>
+                                    <th class="text-center">QTY</th>
+                                    <th>Total Amount</th>
                                 </tr>
                             </thead>
                             <tbody class="">
@@ -79,9 +79,9 @@
                                         </a>
                                         <span class="product_img">
                                             <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="product_close_icon" width="6" height="7" viewBox="0 0 6 7" fill="none">
+                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="product_close_icon" width="6" height="7" viewBox="0 0 6 7" fill="none">
                                                 <path d="M1.22767 6.67147C0.96751 7.00928 0.479681 7.00928 0.219521 6.67147C-0.0731738 6.33366 -0.0731738 5.80819 0.219521 5.47043L1.91056 3.48128L0.219521 1.52959C-0.0731738 1.19179 -0.0731738 0.666316 0.219521 0.328557C0.479681 -0.0092527 0.96751 -0.0092527 1.22767 0.328557L2.95118 2.31771L4.73984 0.253357C5.03253 -0.0844523 5.48783 -0.0844523 5.78048 0.253357C6.07317 0.553616 6.07317 1.11664 5.78048 1.4169L3.99182 3.48125L5.78048 5.54561C6.07317 5.88341 6.07317 6.40888 5.78048 6.74664C5.48778 7.08445 5.03249 7.08445 4.73984 6.74664L2.95118 4.68229L1.22767 6.67147Z" fill="#A0A0A0"/>
-                                            </svg>
+                                            </svg> -->
                                         </span>
                                         <span class="product_part">
                                             <a href="{{ $url }}" class="cart_product_name">{{ $item_name }}</a>
