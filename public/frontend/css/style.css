@@ -4546,6 +4546,7 @@ width: 100%;
         background: #F3F3F3;
         box-shadow: none;
         border: 0;
+        text-transform: capitalize;
     }
     
     .my_cart_table tbody th {
@@ -4554,7 +4555,7 @@ width: 100%;
     }
     
     .my_cart_table thead th:first-child {
-        padding-left: 80px;
+        padding-left: 150px;
     }
     
     .my_cart_table .amount_price {
@@ -4591,6 +4592,10 @@ width: 100%;
     .my_cart_table tbody td:first-child {
         text-align: left;
         width: 37%;
+    }
+    
+    .cart-product-name-info {
+        padding-left: 35px;
     }
     
     .product_part {
@@ -4786,14 +4791,10 @@ width: 100%;
         cursor: pointer;
     }
     
-    .cart-product-name-info {
-        padding-left: 35px !important;
-    }
-    
     .my_cart_table tbody td {
         padding: 20px 0 20px 35px;
     }
-    /* -------------------------------------------------------------------- */
+    /* ---------------------------address ----------------------------------------- */
     
     .address_heading {
         font-weight: 600;
@@ -4805,7 +4806,7 @@ width: 100%;
     
     .address_form_part .form_heading {
         font-weight: 500;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 18px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -4815,4 +4816,10 @@ width: 100%;
     .address_form_part .form-control {
         border: 1px solid #F0F0F0;
         border-radius: 5px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: #808080;
+        height: 46px;
+        box-shadow: none;
     }

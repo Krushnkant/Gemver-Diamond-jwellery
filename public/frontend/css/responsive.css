@@ -157,6 +157,9 @@
     .my_cart_heading {
         font-size: 21px;
     }
+    .address_form_part .form_heading {
+        font-size: 13px;
+    }
 }
 
 @media (max-width:575px) {
@@ -174,7 +177,7 @@
         transform: none;
         width: 100%;
         padding: 30px 0;
-        background-color: #ebe9e7;
+        background-color: #EEE5D7;
     }
     .background-sub-slider {
         background: none;
