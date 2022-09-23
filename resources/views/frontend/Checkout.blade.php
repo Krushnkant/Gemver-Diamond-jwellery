@@ -6,7 +6,7 @@
             <div class="">
                 <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3"> Address</div>
+                    <div class="sub_heading mb-lg-3"> Checkout</div>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
@@ -24,7 +24,7 @@
     <div class="container my-5 address_form_part">
         <div class="row">
             <div class="col-md-12 col-lg-6">
-               <div class="address_heading mb-4">Address</div>
+               <div class="address_heading mb-4">Billing Details</div>
                <form action="">
                     <div class="row mb-3 mb-md-4">
                         <div class="col-md-6 ps-0 mb-3 mb-md-0">
@@ -80,6 +80,12 @@
                         </div>
                     </div>
                </form>
+            </div>
+            <div class="col-md-6 ps-5">
+                <div class="your_order_box">
+                    <div class="your_order_heading sub_heading mb-lg-3"> Your order</div>
+                    
+                </div>
             </div>
         </div>
     </div>

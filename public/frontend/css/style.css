@@ -2562,6 +2562,7 @@ opacity: 1;
     
     .round_cut_lab_diamonds_box {
         border: 1px #eee solid;
+        position: relative;
     }
     
     .round_cut_lab_diamonds_img:before {
@@ -4274,7 +4275,8 @@ width: 100%;
         padding-bottom: 100px;
         position: relative;
     }
-    .smiling_gemver_banner:after{
+    
+    .smiling_gemver_banner:after {
         content: "";
         position: absolute;
         top: 0;
@@ -4288,7 +4290,6 @@ width: 100%;
     .smiling_gemver_heading {
         color: var(--primary);
     }
-    
     
     .smiling_box_icon {
         width: 50px;
@@ -4602,11 +4603,14 @@ width: 100%;
     .my_cart_table thead th:first-child,
     .my_cart_table tbody td:first-child {
         text-align: left;
-        width: 37%;
+        width: 40%;
     }
     
     .cart-product-name-info {
-        padding-left: 35px;
+        padding-left: 35px !important;
+        display: flex;
+        align-items: center;
+        width: 100% !important;
     }
     
     .product_part {
@@ -4630,8 +4634,8 @@ width: 100%;
     }
     
     .cart_product_specification {
-        font-weight: 500;
-        font-size: 14px;
+        font-weight: 400;
+        font-size: 13px;
         line-height: 16px;
         letter-spacing: 0.1em;
         color: #808080;
@@ -4803,7 +4807,7 @@ width: 100%;
     }
     
     .my_cart_table tbody td {
-        padding: 20px 0 20px 35px;
+        padding: 20px 0 20px 0;
     }
     /* ---------------------------address ----------------------------------------- */
     
@@ -4834,15 +4838,29 @@ width: 100%;
         height: 46px;
         box-shadow: none;
     }
-
-    .add-to-wishlist-btn{
+    
+    .add-to-wishlist-btn {
         position: absolute;
         top: 0;
         right: 14px;
     }
     
-    .add-to-wishlist-btn-diamond{
+    .add-to-wishlist-btn-diamond {
         position: absolute;
         top: 14px;
         right: 14px;
+    }
+    
+    .your_order_box {
+        background: #FFFFFF;
+        border: 1px solid #C5C5C5;
+        padding: 50px;
+    }
+    
+    .your_order_heading {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: var(--secondary);
     }
