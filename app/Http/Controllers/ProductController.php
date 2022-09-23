@@ -202,7 +202,19 @@ class ProductController extends Controller
                         }
                         $output .= ' </div><div class="wire_bangle_description p-3">';
                         
-                            $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'</div>
+                            $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'
+                            <input type="hidden" class="variant_id" value="'. $row->variant_id .'">    
+                            <input type="hidden" class="item_type" value="0">    
+                            <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                           
+                            if(is_wishlist($row->variant_id,0)){    
+                                $output .= ' <i class="fas fa-heart"></i>';
+                             }else{ 
+                                $output .= ' <i class="far fa-heart"></i> ';
+                            }
+                            $output .= '</span>
+                            
+                            </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
                                 <div>

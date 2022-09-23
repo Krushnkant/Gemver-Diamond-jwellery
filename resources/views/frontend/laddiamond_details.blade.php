@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content mb-4 mb-md-0">
-                    <div class="">
+                    <div class="diamond-data">
                         <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
@@ -121,6 +121,7 @@
                                 </div>
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
+                            <input type="hidden" value="1" id="item_type">
                             <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content p-3 p-md-4">
@@ -208,6 +209,7 @@
                             </div>
             
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart</button>
                             @foreach($Category as $cat)
                             
                             <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
@@ -495,6 +497,15 @@
                         <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                             <div class="round_cut_lab_diamonds_info_heading mb-2">
                                 <a href="{{ $url }}">{{ $Diamond->Shape }}</a>
+                                <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
+                                <input type="hidden" class="item_type" value="1">    
+                                <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                @if(is_wishlist($Diamond->id,1))    
+                                    <i class="fas fa-heart"></i> 
+                                @else
+                                    <i class="far fa-heart"></i>
+                                @endif
+                                </span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">{{ $Diamond->Shape .' '. round($Diamond->Weight,2) }} ct</a></div>
                             <div class="round_cut_lab_diamonds_info_clarity mb-2">
@@ -628,6 +639,38 @@ function save_inquiry(btn,btn_type){
         }
     });
 }
+
+
+$('.add-to-cart').click(function (e) {
+      e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+        console.log($(this).closest('.diamond-data'));
+        var diamond_id = $(this).closest('.diamond-data').find('#diamond_id').val();
+        var item_type = $(this).closest('.diamond-data').find('#item_type').val();
+        var quantity = 1;
+        alert(diamond_id);
+        $.ajax({
+            url: "/add-to-cart", 
+            method: "POST", 
+            data: { 
+                'variant_id': diamond_id, 
+                'quantity': quantity, 
+                'item_type': item_type 
+            },
+            success: function (response) {
+                toastr.success(response.status,'Success',{timeOut: 5000});
+                cartload();
+                //alertify.set('notifier','position','top-right');
+                //alertify.success(response.status);
+            },
+        });
+    });
+ 
 
 
 });

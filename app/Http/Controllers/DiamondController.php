@@ -280,6 +280,16 @@ class DiamondController extends Controller
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
+                                    <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
+                                    <input type="hidden" class="item_type" value="1">    
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                
+                                    if(is_wishlist($Diamond->id,1)){    
+                                        $artilces .= '<i class="fas fa-heart"></i> ';
+                                    }else{ 
+                                        $artilces .= '<i class="far fa-heart"></i> ';
+                                    }
+                                    $artilces .= '</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
@@ -475,7 +485,18 @@ class DiamondController extends Controller
                             $image_no++;
                             }
                             $artilces.='</div><div class="wire_bangle_description p-3 pt-0">
-                                <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '</div>
+                                <div class="wire_bangle_heading mb-2 mb-md-3">' .$product->primary_category->category_name. '
+                                <input type="hidden" class="variant_id" value="'. $product->variant_id .'">    
+                                <input type="hidden" class="item_type" value="0">    
+                                <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                               
+                                if(is_wishlist($product->variant_id,0)){    
+                                    $artilces .= ' <i class="fas fa-heart"></i>';
+                                 }else{ 
+                                    $artilces .= ' <i class="far fa-heart"></i> ';
+                                }
+                                $artilces .= '</span>
+                                </div>
                                 <div class="wire_bangle_sub_heading" ><a style="" href="'.$url.'">'.$product->product_title .'</a></div>
                                 <div class="d-flex justify-content-between pt-2 align-items-center">
                                 <div>
@@ -819,6 +840,16 @@ class DiamondController extends Controller
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                                 <div class="round_cut_lab_diamonds_info_heading mb-1">
                                     '.$Diamond->Shape.'
+                                    <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
+                                    <input type="hidden" class="item_type" value="1">    
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                
+                                    if(is_wishlist($Diamond->id,1)){    
+                                        $artilces .= '<i class="fas fa-heart"></i> ';
+                                    }else{ 
+                                        $artilces .= '<i class="far fa-heart"></i> ';
+                                    }
+                                    $artilces .= '</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->Shape .' '. round($Diamond->Weight,2) .' ct</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">

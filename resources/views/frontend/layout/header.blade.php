@@ -576,7 +576,7 @@
                                                 <a href="{{ Route('frontend.marketneed')}}"><span class="ms-2 ms-lg-0">Market Need</span></a>
                                             </li>
                                             <li>
-                                                <a href="{{ Route('frontend.ethicaledge')}}"><span class="ms-2 ms-lg-0">Why Friendly?</span></a>
+                                                <a href="{{ Route('frontend.ethicaledge')}}"><span class="ms-2 ms-lg-0">Why Gemver?</span></a>
                                             </li>
                                         </ul>
 

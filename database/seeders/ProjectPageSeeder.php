@@ -506,23 +506,7 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.blogbanners.list,admin.blogbanners.add,admin.blogbanners.save,admin.allblogbannerlist,admin.blogbanners.changeblogbannerstatus,admin.blogbanners.delete,admin.blogbanners.edit,admin.blogbanners.uploadfile,admin.blogbanners.removefile',
         ]);
 
-        ProjectPage::create([
-            'id' => 67,
-            'parent_menu' => 49,
-            'label' => 'Home Banner',
-            'route_url' => 'admin.homebanners.list', 
-            'is_display_in_menu' => 1, 
-            'inner_routes' => 'admin.homebanners.list,admin.homebanners.add,admin.homebanners.save,admin.allhomebannerlist,admin.homebanners.changehomebannerstatus,admin.homebanners.delete,admin.homebanners.edit,admin.homebanners.uploadfile,admin.homebanners.removefile',
-        ]);
-
-        ProjectPage::create([
-            'id' => 68,
-            'parent_menu' => 49,
-            'label' => 'Price Range',
-            'route_url' => 'admin.pricerange.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission'
-        ]);
+        
 
         ProjectPage::create([
             'id' => 69,
@@ -534,6 +518,40 @@ class ProjectPageSeeder extends Seeder
             'icon_class' => 'icon-badge', 
             'sr_no' => 48 
         ]);
+
+        ProjectPage::create([
+            'id' => 70,
+            'parent_menu' => 49,
+            'label' => 'Why Friendly',
+            'route_url' => 'admin.why_friendly.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.why_friendly.list,admin.why_friendlyWhyFriendly.edit,admin.why_friendly.updateWhyFriendly',
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 67,
+            'parent_menu' => 0,
+            'label' => 'Home Banner',
+            'route_url' => 'admin.homebanners.list', 
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.homebanners.list,admin.homebanners.add,admin.homebanners.save,admin.allhomebannerlist,admin.homebanners.changehomebannerstatus,admin.homebanners.delete,admin.homebanners.edit,admin.homebanners.uploadfile,admin.homebanners.removefile',
+            'icon_class' => 'icon-badge',
+            'sr_no' => 49
+        ]);
+
+        ProjectPage::create([
+            'id' => 68,
+            'parent_menu' => 0,
+            'label' => 'Price Range',
+            'route_url' => 'admin.pricerange.list',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission',
+            'icon_class' => 'icon-badge',
+            'sr_no' => 50
+        ]);
+
+        
         
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

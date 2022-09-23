@@ -50,6 +50,7 @@ Route::get('/payment-options',[OtherPageController::class,'paymentoptions'])->na
 Route::get('/return-days',[OtherPageController::class,'returndays'])->name('frontend.returndays');
 
 
+Route::get('gemver-difference',[OtherPageController::class,'gemverdifference'])->name('frontend.gemverdifference');
 Route::get('infopage/customer-values',[OtherPageController::class,'customervalues'])->name('frontend.customervalues');
 Route::get('infopage/market-need',[OtherPageController::class,'marketneed'])->name('frontend.marketneed');
 Route::get('infopage/ethical-edge',[OtherPageController::class,'ethicaledge'])->name('frontend.ethicaledge');
@@ -115,6 +116,10 @@ Route::get('login',[\App\Http\Controllers\AuthController::class,'index'])->name(
 Route::post('frontendpostlogin', [\App\Http\Controllers\AuthController::class, 'postLogin'])->name('frontend.postlogin');
 Route::get('register',[\App\Http\Controllers\AuthController::class,'register'])->name('frontend.register');
 Route::post('frontendpostregister', [\App\Http\Controllers\AuthController::class, 'postRegister'])->name('frontend.postregister');
+Route::get('forget-password',[\App\Http\Controllers\AuthController::class,'forgetpassword'])->name('frontend.forgetpassword');
+Route::post('postforgetpassword',[\App\Http\Controllers\AuthController::class,'postForgetpassword'])->name('frontend.postforgetpassword');
+Route::get('resetpassword/{slug}',[\App\Http\Controllers\AuthController::class,'resetpassword'])->name('frontend.resetpassword');
+Route::post('postresetpassword',[\App\Http\Controllers\AuthController::class,'postResetpassword'])->name('frontend.postresetpassword');
 
 Route::group(['middleware'=>['frontendauth']],function (){
     

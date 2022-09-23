@@ -57,14 +57,16 @@
                                 }else{
                                 $specifications = $data['specification'];
                                 }
+                                $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
                             }else{
                                 $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
                                 $item_name = $item->Weight;
                                 $sale_price = $item->Sale_Amt;
                                 $item_image = explode(',',$item->Stone_Img_url); 
+                                $url =  "";
                             }
                             
-                            $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
+                           
                             ?>
                                 <tr class="cartpage">
                                     <td class="cart-product-name-info">
@@ -83,8 +85,10 @@
                                                 <path d="M1.22767 6.67147C0.96751 7.00928 0.479681 7.00928 0.219521 6.67147C-0.0731738 6.33366 -0.0731738 5.80819 0.219521 5.47043L1.91056 3.48128L0.219521 1.52959C-0.0731738 1.19179 -0.0731738 0.666316 0.219521 0.328557C0.479681 -0.0092527 0.96751 -0.0092527 1.22767 0.328557L2.95118 2.31771L4.73984 0.253357C5.03253 -0.0844523 5.48783 -0.0844523 5.78048 0.253357C6.07317 0.553616 6.07317 1.11664 5.78048 1.4169L3.99182 3.48125L5.78048 5.54561C6.07317 5.88341 6.07317 6.40888 5.78048 6.74664C5.48778 7.08445 5.03249 7.08445 4.73984 6.74664L2.95118 4.68229L1.22767 6.67147Z" fill="#A0A0A0"/>
                                             </svg> -->
                                         </span>
+                                        @if(isset($data['item_type']) && $data['item_type'] == 0)
                                         <span class="product_part">
                                             <a href="{{ $url }}" class="cart_product_name">{{ $item_name }}</a>
+
                                             @foreach ($item->product_variant_variants as $vitem)
                                             <div class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</div> 
                                         </span>
@@ -95,6 +99,7 @@
                                         
                                             <span>{{ $specification['key'] }} : {{ $specification['value'] }}</span>
                                             @endforeach
+                                        @endif
                                         @endif
                                     </td>
                                     
@@ -223,20 +228,21 @@ $('.delete_cart_data').click(function (e) {
     e.preventDefault();
 
     var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
-
+   
     var data = {
         '_token': $('input[name=_token]').val(),
-        "variant_id": variant_id,
+        "product_id": variant_id,
     };
 
     // $(this).closest(".cartpage").remove();
 
     $.ajax({
-        url: '/delete-from-wishlist',
+        url: '/delete-from-cart',
         type: 'DELETE',
         data: data,
         success: function (response) {
-            window.location.reload();
+            console.log(response);
+            //window.location.reload();
         }
     });
 });

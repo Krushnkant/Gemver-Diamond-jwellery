@@ -219,7 +219,7 @@
                         <input type="hidden" class="item_type" value="0">    
                         <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                             <?php 
-                            if(in_array($product->variant_id,$wishlistids)){
+                            if(is_wishlist($product->variant_id,0)){
                             ?>
                                 <i class="fas fa-heart"></i>
                             <?php }else{ ?>
@@ -229,7 +229,7 @@
                         </span>
                         </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $product->product_title }}</a></div>
-                            <div class="d-flex justify-content-between pt-2 align-items-center">
+                            <div class="d-flex justify-content-between  align-items-center">
                                 <div>
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}
@@ -556,8 +556,13 @@
                     {{ $SmilingDifference[3]->shotline }}
                     </div>
                 </div>
+                
+            </div>
+            <div class="text-center">
+                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-5" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
       </div>
+      
     </div>
     @if(count($testimonials) > 0)
     
@@ -951,43 +956,7 @@ function save_inquiry(btn,btn_type){
 
 
 $(document).ready(function () {
-    $('.add-to-wishlist-btn').click(function (e) {
-      
-    e.preventDefault();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var thisdata = $(this);
-
-        var variant_id = $(this).closest('.product-data').find('.variant_id').val();
-        var item_type = $(this).closest('.product-data').find('.item_type').val();
-
-        $.ajax({
-            url: "/add-to-wishlist",
-            method: "POST",
-            data: {
-                'variant_id': variant_id,
-                'item_type': item_type,
-            },
-            success: function (response) {
-                if (response.action == 'add')
-                {
-                    thisdata.closest('.product-data').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
-                    wishload();
-                } 
-                else if (response.action == 'remove') 
-                {
-                    thisdata.closest('.product-data').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
-                    wishload();
-                }
-                //alertify.set('notifier','position','top-right');
-                //alertify.success(response.status);
-            },
-        });
-    });
+   
 });
 
 </script>

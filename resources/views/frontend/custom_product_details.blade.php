@@ -583,7 +583,18 @@
                             <div class="wire_bangle_img mb-3 position-relative">
                                 <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
                             </div>
-                            <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}</div>
+                            <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}
+                                <input type="hidden" class="variant_id" value="{{ $Related->variant_id }}">    
+                                <input type="hidden" class="item_type" value="0">    
+                                <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                    <?php if(is_wishlist($Related->variant_id,0)){ ?>
+                                        <i class="fas fa-heart"></i>
+                                    <?php }else{ ?>
+                                        <i class="far fa-heart"></i> 
+                                    <?php }
+                                    ?>
+                                </span>
+                            </div>
                                 <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $Related->product_title }}</a></div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>

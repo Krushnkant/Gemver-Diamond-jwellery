@@ -25,7 +25,7 @@
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         <div class="forgot_password_text text-end mt-3">
-                            <a href="#" class="forgot_password_text">
+                            <a href="{{ url('forget-password') }}" class="forgot_password_text">
                                 Forgot Password?
                             </a>
                         </div>

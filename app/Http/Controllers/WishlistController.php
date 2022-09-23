@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Wishlist;
+use App\Models\Diamond;
+use Config;
 
 class WishlistController extends Controller
 {
@@ -67,7 +69,7 @@ class WishlistController extends Controller
 
                         unset($wishlist_data[$keys]);
                         $item_data = json_encode($wishlist_data);
-                        $minutes = 60;
+                        $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('product_wishlist', $item_data, $minutes));
                         return response()->json(['status'=>'Item Removed from Wish List','action' => 'remove']);
                     }
@@ -75,8 +77,12 @@ class WishlistController extends Controller
             }
             else
             {
-                $products = ProductVariant::with('product')->find($variant_id);
-                $prod_name = $products->product->product_title;
+                if($item_type == 0){
+                    $products = ProductVariant::with('product')->find($variant_id);
+                }else{
+                    $products = Diamond::find($variant_id);
+                }
+                
                 if($products)
                 {
                     $item_array = array(
@@ -86,9 +92,9 @@ class WishlistController extends Controller
                     $wishlist_data[] = $item_array;
 
                     $item_data = json_encode($wishlist_data);
-                    $minutes = 60;
+                    $minutes = Config::get('constants.cookie_time');
                     Cookie::queue(Cookie::make('product_wishlist', $item_data, $minutes));
-                    return response()->json(['status'=>'"'.$prod_name.'" Added to Wish List','action' => 'add']);
+                    return response()->json(['status'=>'Added to Wish List','action' => 'add']);
                 }
             }
         }    
@@ -151,7 +157,7 @@ class WishlistController extends Controller
                     {
                         unset($wishlist_data[$keys]);
                         $item_data = json_encode($wishlist_data);
-                        $minutes = 60;
+                        $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('product_wishlist', $item_data, $minutes));
                         return response()->json(['status'=>'Item Removed from Wish List']);
                     }

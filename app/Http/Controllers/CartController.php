@@ -5,7 +5,9 @@ use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
 use App\Models\ItemCart;
+use App\Models\Diamond;
 use Illuminate\Http\Request;
+use Config;
 
 class CartController extends Controller
 {
@@ -105,7 +107,7 @@ class CartController extends Controller
                     {
                         $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity');
                         $item_data = json_encode($cart_data);
-                        $minutes = 60;
+                        $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
                         return response()->json(['status'=>'Added to Cart','status2'=>'2']);
                     }
@@ -113,7 +115,11 @@ class CartController extends Controller
             }
             else
             {
-                $products = ProductVariant::find($prod_id);
+                if($item_type == 0){
+                    $products = ProductVariant::find($prod_id);
+                }else{
+                    $products = Diamond::find($prod_id);
+                }
                 if($products)
                 {
                     $item_array = array(
@@ -125,7 +131,7 @@ class CartController extends Controller
                     $cart_data[] = $item_array;
 
                     $item_data = json_encode($cart_data);
-                    $minutes = 60;
+                    $minutes = Config::get('constants.cookie_time');
                     Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
                     return response()->json(['status'=>' Added to Cart']);
                 }
@@ -167,10 +173,10 @@ class CartController extends Controller
     public function deletefromcart(Request $request)
     {
         $prod_id = $request->input('product_id');
-        $item_type = $request->input('item_type');
-
+        //$item_type = $request->input('item_type');
+        
         if(session()->has('customer')){
-            $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->first();
+            $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id])->first();
             if($cart_data){
               $cart_data->delete();
             }
