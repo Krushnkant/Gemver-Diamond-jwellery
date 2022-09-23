@@ -53,17 +53,21 @@
                                 $item_image = explode(',',$item->images); 
                                 if(session()->has('customer')){
                                 $specifications = json_decode($data['specification'],true);
-                                
+        
                                 }else{
                                 $specifications = $data['specification'];
                                 }
+
                                 $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
                             }else{
                                 $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                $item_name = $item->Weight;
+                                $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
+                                $item_name .= '<span>'. $item->Clarity .' clarity |</span>
+                                        <span>'. $item->Color .' color |</span>
+                                        <span>'. $item->Lab .' certified</span>';
                                 $sale_price = $item->Sale_Amt;
                                 $item_image = explode(',',$item->Stone_Img_url); 
-                                $url =  "";
+                                $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
                             }
                             
                            
@@ -85,31 +89,34 @@
                                                 <path d="M1.22767 6.67147C0.96751 7.00928 0.479681 7.00928 0.219521 6.67147C-0.0731738 6.33366 -0.0731738 5.80819 0.219521 5.47043L1.91056 3.48128L0.219521 1.52959C-0.0731738 1.19179 -0.0731738 0.666316 0.219521 0.328557C0.479681 -0.0092527 0.96751 -0.0092527 1.22767 0.328557L2.95118 2.31771L4.73984 0.253357C5.03253 -0.0844523 5.48783 -0.0844523 5.78048 0.253357C6.07317 0.553616 6.07317 1.11664 5.78048 1.4169L3.99182 3.48125L5.78048 5.54561C6.07317 5.88341 6.07317 6.40888 5.78048 6.74664C5.48778 7.08445 5.03249 7.08445 4.73984 6.74664L2.95118 4.68229L1.22767 6.67147Z" fill="#A0A0A0"/>
                                             </svg> -->
                                         </span>
-                                        @if(isset($data['item_type']) && $data['item_type'] == 0)
-                                        <span class="product_part">
-                                            <a href="{{ $url }}" class="cart_product_name">{{ $item_name }}</a>
-
-                                            @foreach ($item->product_variant_variants as $vitem)
-                                            <div class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</div> 
-                                        </span>
-                                        @endforeach
-                                        <br>
-                                        @if(isset($specifications))
-                                            @foreach ($specifications as $specification)
                                         
-                                            <span>{{ $specification['key'] }} : {{ $specification['value'] }}</span>
-                                            @endforeach
-                                        @endif
-                                        @endif
+                                        <span class="product_part">
+                                            <span class="cart_product_specification d-block">
+                                                <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
+                                                @if(isset($data['item_type']) && $data['item_type'] == 0)    
+                                                    @foreach($item->product_variant_variants as $vitem)
+                                                        <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                    @endforeach
+                                                
+                                                    @if(isset($specifications))
+                                                        @foreach ($specifications as $specification)
+                                                            <span class="cart_product_specification d-block">{{ $specification['key'] }} : {{ $specification['value'] }}</span>
+                                                        @endforeach
+                                                    @endif
+                                                @endif
+                                            </span>
+                                        </span>
+                                       
+                                    </td>
+                                    <td class="amount_price">
+                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
                                     </td>
                                     
-                                        
-                                   
                                     <td class="text-center">
                                         {{-- <span class="cart-sub-total-price">{{ $data['item_quantity'] }}</span> --}}
                                         <span class="wire_bangle_input" >
                                             <div class="wire_bangle_number number-input">
-                                                <button  class="sp-minus "></button>
+                                                <button  class="sp-minus"></button>
                                                 <input class="qty qty-input" min="0" placeholder="0" name="qty" id="qty" value="{{ $data['item_quantity'] }}" type="number">
                                                 <button  class="plus sp-plus "></button>
                                             </div>
@@ -118,18 +125,15 @@
                                     <td class="total_amount">
                                         <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * $data['item_quantity'] }}</span>
                                     </td>
-                                    <td class="amount_price">
-                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
-                                    </td>
+                                    
                                   
-                                   
                                 </tr>
                                 <?php
                                 $total = $total + $sale_price * $data['item_quantity'];
                                 $total_qty = $total_qty + $data['item_quantity'];
                                 ?>
                                 @endforeach
-                                <tr class="cartpage">
+                                {{-- <tr class="cartpage">
                                    
                                     <td class="cart-product-name-info">
                                     
@@ -143,7 +147,7 @@
                                     <td class="total_amount">
                                         <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-maintotal-price ">{{ $total }}</span>
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>  
                             </table>
                         </div>
@@ -160,6 +164,7 @@
                 </div>   
             </div>
         </div>
+        @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-6">
                 <button type="button" class="continue_shopping_btn mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Continue Shopping</button>
@@ -181,8 +186,8 @@
                         <div class="col-6 text-start ps-0 order_table_heading">
                             Subtotal
                         </div>
-                        <div class="col-md-6 text-end order_summary_price">
-                            $3750
+                        <div class="col-md-6 text-end order_summary_price ">
+                            $<span class="cart-maintotal-price ">{{ $total }}</span>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -190,7 +195,7 @@
                             Coupan Discount
                         </div>
                         <div class="col-6 text-end order_summary_price">
-                            -$200
+                            0
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -206,7 +211,7 @@
                             Total Amount
                         </div>
                         <div class="col-6 text-end order_summary_price">
-                            $3550
+                            $<span class="cart-maintotal-price ">{{ $total }}</span>
                         </div>
                     </div>
                     <button type="button" class="btn btn-dark w-100 mt-3 proceed_to_checkout_btn">Proceed to checkout</button>
@@ -214,6 +219,8 @@
             </div>
            
         </div>
+        @endif
+
     </div>
     
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -241,8 +248,8 @@ $('.delete_cart_data').click(function (e) {
         type: 'DELETE',
         data: data,
         success: function (response) {
-            console.log(response);
-            //window.location.reload();
+            //console.log(response);
+            window.location.reload();
         }
     });
 });
@@ -260,6 +267,7 @@ $('body').on('change', '.qty', function () {
         var qty = Number(count.val());
         sum = amount * qty;
         total = total + sum;
+        console.log(price.closest('tr').find('.cart-total-price'));
         price.closest('tr').find('.cart-total-price').html(sum);
         qtytotal = qtytotal + qty;
     })
