@@ -113,6 +113,50 @@
         width: 30px;
         height: 30px;
     }
+    /* ---------------------------- my cart page ----------------------------------------------------------- */
+    .order_summary_heading {
+        font-size: 21px;
+    }
+    .proceed_to_checkout_btn {
+        height: 43px;
+        font-size: 13px;
+    }
+    .my_cart_table thead th:first-child {
+        padding-left: 15px;
+    }
+    .my_cart_table thead th {
+        padding: 14px 16px;
+        min-width: 150px;
+    }
+    .order_summary_box {
+        padding: 15px;
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .product_name_paragraph {
+        padding-left: 0;
+        display: block;
+    }
+    .cartpage .product_img {
+        margin-bottom: 20px;
+    }
+    .cartpage .product_img img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .my_cart_table .amount_price,
+    .my_cart_table .total_amount {
+        font-size: 14px;
+    }
+    .cart-product-name-info {
+        min-width: 200px;
+    }
+    .my_cart_table tbody td {
+        padding: 10px 0 10px 35px;
+    }
+    .my_cart_heading {
+        font-size: 21px;
+    }
 }
 
 @media (max-width:575px) {
@@ -916,7 +960,7 @@
         padding: 0 15px 15px 15px;
     }
     .number-input input[type=number] {
-        font-size: 16px;
+        font-size: 15px;
     }
     .wire_bangle_accordion .wire_bangle_share {
         font-size: 14px;
@@ -1137,7 +1181,7 @@
     .product_modal .popup_part {
         height: auto;
     }
-    .product_img img {
+    .cartpage .product_img img {
         width: auto;
         height: auto;
         max-width: 100px;
@@ -1235,6 +1279,10 @@
     }
     .detail_label_col {
         font-size: 14px;
+    }
+    /* -------------------------------------------------------------- */
+    .cart-product-name-info {
+        min-width: 300px;
     }
 }
 
@@ -1411,6 +1459,14 @@
     .true_icon_box svg {
         width: 30px;
         height: 30px;
+    }
+    /* -------------------------------------------------------------------------- */
+    .my_cart_table .amount_price,
+    .my_cart_table .total_amount {
+        font-size: 14px;
+    }
+    .order_summary_heading {
+        font-size: 21px;
     }
 }
 
@@ -1669,6 +1725,10 @@
     }
     .order-box-part .order-img img {
         max-width: 40px;
+    }
+    .my_cart_table .amount_price,
+    .my_cart_table .total_amount {
+        font-size: 15px;
     }
     /* ---------------------modal--------------------------------- */
     .inquiry_now_modal .modal-content {

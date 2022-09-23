@@ -376,35 +376,33 @@ $(function() {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     wishload();
     cartload();
 });
 
-function wishload()
-{
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+function wishload() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-$.ajax({
-    url: '/load-wishlist-data',
-    method: "GET",
-    success: function (response) {
-        $('.basket-item-count').html('');
-        var parsed = jQuery.parseJSON(response)
-        var value = parsed; 
-        //console.log(value);
-        $('.basket-item-count').html(value['totalwishlist']);
-    }
-});
+    $.ajax({
+        url: '/load-wishlist-data',
+        method: "GET",
+        success: function(response) {
+            $('.basket-item-count').html('');
+            var parsed = jQuery.parseJSON(response)
+            var value = parsed;
+            //console.log(value);
+            $('.basket-item-count').html(value['totalwishlist']);
+        }
+    });
 }
 
 
-function cartload()
-{
+function cartload() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -414,7 +412,7 @@ function cartload()
     $.ajax({
         url: '/load-cart-data',
         method: "GET",
-        success: function (response) {
+        success: function(response) {
             $('.basket-item-count-cart').html('');
             var parsed = jQuery.parseJSON(response)
             var value = parsed; //Single Data Viewing
