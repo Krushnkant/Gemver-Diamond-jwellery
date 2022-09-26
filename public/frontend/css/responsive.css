@@ -168,6 +168,29 @@
         height: 40px;
         font-size: 14px;
     }
+    /* ---------------------------- my account -------------------------------------------------- */
+    .my_account_tab {
+        align-items: center;
+    }
+    .my_account_tab li {
+        border-right: 0px;
+    }
+    .account-part {
+        padding: 15px 0;
+    }
+    .my_account_heading {
+        font-size: 16px;
+    }
+    .my_account_tab li {
+        margin: 10px 0;
+    }
+    .my_account_tab li button {
+        padding: 0;
+        font-size: 15px;
+    }
+    .my_account_tab li button span {
+        display: none;
+    }
 }
 
 @media (max-width:575px) {
@@ -1486,6 +1509,17 @@
     .place_order_btn {
         font-size: 14px;
         height: 50px;
+    }
+    /* ------------------------------------------------------------------- */
+    .my_account_tab li button {
+        font-size: 14px;
+        padding: 0;
+    }
+    .my_account_tab svg {
+        height: 16px;
+    }
+    .account-part {
+        padding: 15px 0;
     }
 }
 

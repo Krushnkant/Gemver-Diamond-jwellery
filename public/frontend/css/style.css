@@ -3213,6 +3213,9 @@ border: 0;
         line-height: 28px;
         text-align: center;
         z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .bottom-to-top-btn svg {
@@ -4211,6 +4214,9 @@ width: 100%;
         text-align: center;
         display: inline-block;
         padding: 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .chat-icon-part svg {
@@ -4981,4 +4987,161 @@ width: 100%;
     
     .address_form_part .plus_icon svg path {
         fill: #000;
+    }
+    
+    .my_account_heading {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.1em;
+        color: #0B1727;
+    }
+    
+    .my_account_tab {
+        background: #FFFFFF;
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.1);
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .my_account_tab li {
+        width: 16.66%;
+        float: left;
+        margin: auto;
+        border-right: 1px solid var(--primary);
+        margin: 15px 0;
+    }
+    
+    .my_account_tab li:last-child {
+        border-right: 0;
+    }
+    
+    .my_account_tab li button {
+        margin: auto;
+        background: transparent !important;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: var(--primary) !important;
+    }
+    
+    .my_account_tab li button.active {
+        color: var(--secondary) !important;
+    }
+    
+    .my_account_tab li button svg path {
+        fill: #000;
+    }
+    
+    .my_account_tab li button.active svg path {
+        fill: var(--secondary);
+    }
+    
+    .my_account_tab svg {
+        height: 22px;
+    }
+    
+    .account-part {
+        padding: 50px 35px;
+        box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13);
+        border-radius: 15px;
+        background: #FFFFFF;
+    }
+    
+    .account-part .form_heading {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+    }
+    
+    .account-part .form-control {
+        background: #F7F5F5;
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        color: #808080;
+        height: 40px;
+        border: 0;
+        box-shadow: none;
+    }
+    
+    .password_heading {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: var(--secondary);
+    }
+    
+    .save_chnages_btn {
+        background: #BB9761;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        height: 45px;
+        border: 0;
+        width: 173px;
+    }
+    
+    .save_chnages_btn:hover {
+        background: #BB9761;
+        color: #FFFFFF;
+    }
+    
+    .table_part_view tr th {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+    }
+    
+    .address_table_part {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .table_part_view tr td {
+        border-bottom: 1px solid #E2E2E2;
+        padding: 30px;
+        font-size: 13px;
+    }
+    
+    .table_part_view tr td,
+    .table_part_view tr th {
+        padding: 15px 15px;
+    }
+    
+    .table_part_view tr:last-child td {
+        border-bottom: 0;
+    }
+    
+    .number_part {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .edit-button,
+    .delete-button {
+        background: #F1F1F1 !important;
+        border-radius: 5px;
+        color: #0B1727 !important;
+        padding: 3px 20px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 0;
+        box-shadow: none !important;
     }
