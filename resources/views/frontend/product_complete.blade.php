@@ -188,6 +188,8 @@
                                 </div>
                                 <div class="col-8 col-sm-9 col-md-8 col-lg-9 ps-md-0 ps-lg-4">
                                     <div class="wire_bangle_edit_box_heading pb-2">
+                                        <input type="hidden" class="variant_id" value="{{ $Product->id }}">    
+                                        <input type="hidden" class="item_type" value="2"> 
                                         {{ $Product->product->product_title }}
                                     </div>
                                     <div class="wire_bangle_edit_box_sub_heading pb-2">
@@ -217,6 +219,7 @@
                         <div class="wire_bangle_edit_box  mb-3">
                             <div class="row">
                                 <div class="col-2 col-sm-1 col-md-2 col-lg-1 px-0">
+                                    <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">
                                     <img src="{{ $Diamond->Stone_Img_url }}" alt="" class="wire_bangle_edit_box_img">
                                 </div>
                                 <div class="col-8 col-sm-9 col-md-8 col-lg-9 ps-md-0 ps-lg-4">
@@ -375,6 +378,7 @@
                                 </span> -->
                                 <span class="inquiry_now_btn">
                                     <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                                    <button class="select_setting_btn diamond-btn add-to-cart" type="button" >add to cart</button>
                                 </span>
                             </div>
 
@@ -807,6 +811,66 @@ function save_inquiry(btn,btn_type){
         }
     });
 }
+
+$('.add-to-cart').click(function (e) {
+      
+      e.preventDefault();
+  
+      var valid = true;
+      var arrspe = [];
+      $('#specificationstr').html('');
+      $(document).find('.specification').each(function() {
+          var thi = $(this);
+          var this_err = $(thi).attr('name') + "-error";
+          if($(thi).val()=="" || $(thi).val()==null){
+              $("#"+this_err).html("Please select any value");
+              $("#"+this_err).show();
+              valid = false;
+          }else{
+              var element = $(this).find('option:selected'); 
+              var DataSpe = element.attr("data-spe");
+              var DataTerm = element.attr("data-term");
+              arrspe.push({'key' : DataSpe,'value' : DataTerm });
+              $("#"+this_err).hide();
+              valid = true;
+          }
+      })
+      if(valid){
+          
+          $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+          var thisdata = $(this);
+  
+          var variant_id = $(this).closest('.wire_bangle_content').find('.variant_id').val();
+          var diamond_id = $(this).closest('.wire_bangle_content').find('.diamond_id').val();
+          var item_type = $(this).closest('.wire_bangle_content').find('.item_type').val();
+          var quantity = 1;
+          alert(variant_id);
+          alert(diamond_id);
+          alert(item_type);
+          $.ajax({
+              url: "/add-to-cart", 
+              method: "POST", 
+              data: { 
+                  'variant_id': variant_id, 
+                  'diamond_id': diamond_id, 
+                  'quantity': quantity, 
+                  'item_type': item_type, 
+                  'arrspe': arrspe 
+              },
+              success: function (response) {
+                  toastr.success(response.status,'Success',{timeOut: 5000});
+                  cartload();
+                  //alertify.set('notifier','position','top-right');
+                  //alertify.success(response.status);
+              },
+          });
+  
+      }
+    });
 });
 </script>
     @endsection
