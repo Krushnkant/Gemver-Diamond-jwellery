@@ -120,6 +120,7 @@ Route::get('forget-password',[\App\Http\Controllers\AuthController::class,'forge
 Route::post('postforgetpassword',[\App\Http\Controllers\AuthController::class,'postForgetpassword'])->name('frontend.postforgetpassword');
 Route::get('resetpassword/{slug}',[\App\Http\Controllers\AuthController::class,'resetpassword'])->name('frontend.resetpassword');
 Route::post('postresetpassword',[\App\Http\Controllers\AuthController::class,'postResetpassword'])->name('frontend.postresetpassword');
+Route::post('redeem_coupon',[\App\Http\Controllers\CartController::class,'redeem_coupon'])->name('frontend.redeem_coupon');
 
 Route::group(['middleware'=>['frontendauth']],function (){
     

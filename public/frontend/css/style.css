@@ -4837,6 +4837,7 @@ width: 100%;
         color: #808080;
         height: 46px;
         box-shadow: none;
+
     }
     
     .add-to-wishlist-btn {
@@ -4844,6 +4845,7 @@ width: 100%;
         top: 0;
         right: 14px;
     }
+
     
     .add-to-wishlist-btn-diamond {
         position: absolute;

@@ -640,7 +640,6 @@ function save_inquiry(btn,btn_type){
     });
 }
 
-
 $('.add-to-cart').click(function (e) {
       e.preventDefault();
         $.ajaxSetup({
@@ -653,7 +652,6 @@ $('.add-to-cart').click(function (e) {
         var diamond_id = $(this).closest('.diamond-data').find('#diamond_id').val();
         var item_type = $(this).closest('.diamond-data').find('#item_type').val();
         var quantity = 1;
-        alert(diamond_id);
         $.ajax({
             url: "/add-to-cart", 
             method: "POST", 
