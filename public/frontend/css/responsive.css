@@ -160,6 +160,14 @@
     .address_form_part .form_heading {
         font-size: 13px;
     }
+    /* -------------------------- checkout --------------------------------------------- */
+    .your_order_box {
+        padding: 20px;
+    }
+    .place_order_btn {
+        height: 40px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width:575px) {
@@ -1470,6 +1478,14 @@
     }
     .order_summary_heading {
         font-size: 21px;
+    }
+    /* ------------------------ checkout screen ----------------------------------------------------- */
+    .your_order_box {
+        padding: 25px;
+    }
+    .place_order_btn {
+        font-size: 14px;
+        height: 50px;
     }
 }
 

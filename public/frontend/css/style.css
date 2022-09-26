@@ -4813,7 +4813,7 @@ width: 100%;
     
     .address_heading {
         font-weight: 600;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 21px;
         letter-spacing: 0.1em;
         color: var(--secondary);
@@ -4837,7 +4837,6 @@ width: 100%;
         color: #808080;
         height: 46px;
         box-shadow: none;
-
     }
     
     .add-to-wishlist-btn {
@@ -4845,7 +4844,6 @@ width: 100%;
         top: 0;
         right: 14px;
     }
-
     
     .add-to-wishlist-btn-diamond {
         position: absolute;
@@ -4865,4 +4863,122 @@ width: 100%;
         line-height: 21px;
         letter-spacing: 0.1em;
         color: var(--secondary);
+    }
+    
+    .your_order_sub_heading {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .your_order_row {
+        padding: 19px 0;
+        border-bottom: 1px solid #E6E6E6;
+    }
+    
+    .cash_on_delivery {
+        max-height: 19px;
+    }
+    
+    .radio_button_img {
+        max-height: 22px;
+        width: auto;
+    }
+    
+    .radio_button_part {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+        margin-bottom: 5px;
+    }
+    
+    .radio_button_paragraph {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .place_order_paragraph {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 13px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .place_order_btn {
+        background: #BB9761;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: #FFFFFF;
+        height: 60px;
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none !important;
+    }
+    
+    .place_order_btn:focus,
+    .place_order_btn:hover {
+        background: #BB9761;
+    }
+    
+    .address_form_part .form-check-input {
+        border: 1px solid #1E88E5;
+        box-shadow: none;
+        margin-top: 0;
+    }
+    
+    .address_form_part .form-check-input:checked[type=radio] {
+        background: none;
+        background-color: #0d6efd;
+        border: 2px #fff solid;
+        outline: 1px #0d6efd solid;
+    }
+    
+    .add_new_address_btn {
+        background: transparent !important;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: var(--primary) !important;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .radio_button_address,
+    .form-check-input {
+        cursor: pointer;
+    }
+    
+    .add_new_address_btn:hover,
+    .add_new_address_btn:focus {
+        background: var();
+    }
+    
+    .address_form_part .radio_button_part {
+        font-size: 13px;
+    }
+    
+    .address_form_part .radio_button_paragraph {
+        font-size: 12px;
+        line-height: normal;
+    }
+    
+    .address_form_part .plus_icon {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .address_form_part .plus_icon svg path {
+        fill: #000;
     }
