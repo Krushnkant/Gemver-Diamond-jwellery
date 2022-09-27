@@ -181,65 +181,6 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="account-part" role="tabpanel" aria-labelledby="account-part-tab">
-                <div class="account-part">
-                    <form action="" class="mb-0">
-                        <div class="row">
-                            <div class="col-12 col-lg-7">
-                                <div class="row">
-                                    <div class="password_heading mb-4">
-                                        Profile
-                                    </div>
-                                    <div class="col-md-6 mb-3 mb-md-4 popup_padding">
-                                        <label for="" class="form-label form_heading">First name</label>
-                                        <input type="email" class="form-control" id="" placeholder="Emily">
-                                    </div>
-                                    <div class="col-md-6 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">Last name</label>
-                                        <input type="email" class="form-control" id="" placeholder="John">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">Phone number</label>
-                                        <input type="number" class="form-control" id="" placeholder="123-456-2369">
-                                    </div>
-                                    <div class="col-md-12 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">Email Address</label>
-                                        <input type="email" class="form-control" id="" placeholder="Emilyjohn1212@gmail.com">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-secondary save_chnages_btn d-inline-block ps-4">Save change</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-5 mt-4 mt-lg-0">
-                                <div class="row">
-                                    <div class="password_heading mb-4">
-                                        Password Change
-                                    </div>
-                                    <div class="col-md-6 mb-3 mb-md-4 popup_padding">
-                                        <label for="" class="form-label form_heading">Current Password</label>
-                                        <input type="email" class="form-control" id="" placeholder="**********">
-                                    </div>
-                                    <div class="col-md-6 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">New Password</label>
-                                        <input type="email" class="form-control" id="" placeholder="**********">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">Phone number</label>
-                                        <input type="number" class="form-control" id="" placeholder="123-456-2369">
-                                    </div>
-                                    <div class="col-md-12 mb-3 mb-md-4">
-                                        <label for="" class="form-label form_heading">Confirm New Password</label>
-                                        <input type="email" class="form-control" id="" placeholder="***********">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
             <div class="tab-pane fade" id="logout-part" role="tabpanel" aria-labelledby="logout-part-tab">
                 6
