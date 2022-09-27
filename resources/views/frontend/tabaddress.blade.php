@@ -108,7 +108,7 @@
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col">Address</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" style="width: 14%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>

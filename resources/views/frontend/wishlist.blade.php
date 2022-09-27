@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container">
     
         <div class="row mb-5">
             
@@ -28,105 +28,119 @@
             <div class="tab-content1 clearfix">
                @if(isset($wishlist_data) && count($wishlist_data))
                 
-                <div class="tab-pane">
-                    <table class="table table-bordered table-hover table_part_product">
-                    <thead>
-                        <tr class="table-active">
-                            <th>Remove</th>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th></th>
-                           
+                <div class="tab-pane wishlist-page my-5">
+                    <div class="wishlist-heading  my-3 mb-md-4 pt-md-2 ps-4">Your Wishlist</div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table_part_product wishlist_table">
+                        <thead>
+                            <tr class="table-active">
+                                <th>Product Name</th>
                             
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                       @foreach ($wishlist_data as $data)
-                       <?php 
-                        if($data['item_type'] == 0){
-                            $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
-                            $item_name = $item->product->product_title;
-                            $sale_price = $item->sale_price;
-                            $item_image = explode(',',$item->images);
-                        }else{
-                            $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                            $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
-                            $item_name .= '<span>'. $item->Clarity .' clarity |</span>
-                                    <span>'. $item->Color .' color |</span>
-                                    <span>'. $item->Lab .' certified</span>';
+                                <th class="amount_col">Amount</th>
+                                <th style=""></th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                        @foreach ($wishlist_data as $data)
+                        <?php 
+                            if($data['item_type'] == 0){
+                                $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
+                                $item_name = $item->product->product_title;
+                                $sale_price = $item->sale_price;
+                                $item_image = explode(',',$item->images);
+                            }else{
+                                $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
+                                $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
+                                $item_name .= '<span>'. $item->Clarity .' clarity |</span>
+                                        <span>'. $item->Color .' color |</span>
+                                        <span>'. $item->Lab .' certified</span>';
 
-                            $sale_price = $item->Sale_Amt;
-                            $item_image = explode(',',$item->Stone_Img_url);
-                        }
-                    
-                         
-                       ?>
-                        <tr class="cartpage product-data">
-                            <td style="font-size: 20px;">
-                                <a href="" class="delete_wishlist_data"><li class="fa fa-trash"></li></a>
-                            </td>
-                            <td class="cart-image">
-                                <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
-                                <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
-                                <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
-                            </td>
-                            <td class="cart-product-name-info">
-                                <span >{!! $item_name !!}</span><br>
-                                @if($data['item_type'] == 0)
-                                @foreach ($item->product_variant_variants as $vitem)
-                                  <span >{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
-                                @endforeach
-                                @endif
-                                <div class="d-flex flex-wrap" id="speci_multi143">
+                                $sale_price = $item->Sale_Amt;
+                                $item_image = explode(',',$item->Stone_Img_url);
+                            }
+                        
                             
-                                <?php
-
-                                if($data['item_type'] == 0){
-                                    $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                                    $spe = '';
-                                    foreach($ProductVariantSpecification as $productvariants)
-                                    {
-                                    ?>
-                                    <div class="me-4"> <span class="wire_bangle_select mb-3 me-3 d-inline-block">
-                                        <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
-                                            <option value="">--{{ $productvariants->attribute_name }}--</option>  
-                                    <?php
-                                        $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
-                                        
-                                        foreach($product_attribute as $attribute_term){
-                                        $term_array = explode(',',$attribute_term->terms_id);
-                                        $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
-                                       
-                                        $v = 1;
-                                        foreach($product_attributes as $term){
-                                    ?>            
-                                            <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
-                                    <?php        
-                                          }
-                                        }
-                                    ?>        
-                                        </select>
-                                        <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                        </span> 
+                        ?>
+                            <tr class="cartpage product-data">
+                            
+                                <td class="cart-image">
+                                    <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
+                                    <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
+                                    <div class="product_img">
+                                        <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                                     </div>
+
+                                    <div class="ms-3">
+                                        <span class="cart_product_name">{!! $item_name !!}</span>
+                                            @if($data['item_type'] == 0)
+                                        <div>
+                                        
+                                            @foreach ($item->product_variant_variants as $vitem)
+                                            <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
+                                            @endforeach
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <div class="d-flex flex-wrap" id="speci_multi143">
+                                
                                     <?php
+
+                                    if($data['item_type'] == 0){
+                                        $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
+                                        $spe = '';
+                                        foreach($ProductVariantSpecification as $productvariants)
+                                        {
+                                        ?>
+                                        <div class="me-4"> <span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                            <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
+                                                <option value="">--{{ $productvariants->attribute_name }}--</option>  
+                                        <?php
+                                            $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
+                                            
+                                            foreach($product_attribute as $attribute_term){
+                                            $term_array = explode(',',$attribute_term->terms_id);
+                                            $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                                        
+                                            $v = 1;
+                                            foreach($product_attributes as $term){
+                                        ?>            
+                                                <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
+                                        <?php        
+                                            }
+                                            }
+                                        ?>        
+                                            </select>
+                                            <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                            </span> 
+                                        </div>
+                                        <?php
+                                        }
                                     }
-                                }
-                                ?>
-                                </div>
-                            </td>
-                            <td class="cart-product-sub-total">
-                                <span class="cart-sub-total-price">{{ number_format($sale_price, 2) }}</span>
-                            </td>
+                                    ?>
+                                    </div>
+                                </td>
                             
-                            <td style="font-size: 20px;">
-                                <a class="btn btn-primary select_cart_btn">Add To Cart</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>  
-                    </table>
+                                <td class="cart-product-sub-total">
+                                    <span class="cart-sub-total-price amount_price">${{ number_format($sale_price, 2) }}</span>
+                                    <span class="cart-dublicate-price">
+                                        $800
+                                    </span>
+                                    <div class="cart-offer-price">
+                                        25%off
+                                    </div>
+                                </td>
+                                
+                                <td style="font-size: 20px;">
+                                    <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
+                                    <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">
+                                        Remove
+                                    </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>  
+                        </table>
+                    </div>
                 </div>
                 @else
                     <div class="row">

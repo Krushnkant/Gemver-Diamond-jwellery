@@ -34,7 +34,7 @@
                                     <th>Product Name</th>
                                     <th>Amount</th>
                                     <th class="text-center">QTY</th>
-                                    <th>Total Amount</th>
+                                    <th style="width:16%;">Total Amount</th>
                                 </tr>
                             </thead>
                             <tbody class="">
