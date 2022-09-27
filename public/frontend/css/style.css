@@ -5119,6 +5119,7 @@ width: 100%;
         border-bottom: 1px solid #E2E2E2;
         padding: 30px;
         font-size: 13px;
+        vertical-align: middle;
     }
     
     .table_part_view tr th {
@@ -5152,4 +5153,127 @@ width: 100%;
         font-weight: 600;
         border: 0;
         box-shadow: none !important;
+    }
+    
+    .confirm_status {
+        color: #038A00;
+        font-weight: 500;
+    }
+    
+    .cancel_status {
+        color: #D90000;
+        font-weight: 500;
+    }
+    
+    .order-deatil-heading {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+    }
+    
+    .order-detail-box {
+        background: #F9F9F9;
+        border-radius: 11px;
+        padding: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #808080;
+        height: calc(100% - 21px);
+    }
+    
+    .order-detail-box .confirm_status {
+        color: #038A00;
+    }
+    
+    .order-detail-box .pending_status {
+        color: #0B1727;
+    }
+    
+    .Item_table tr th {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        color: #0B1727;
+        border-bottom: 0px;
+    }
+    
+    .Item_table tr th:first-child {
+        padding-left: 20px;
+    }
+    
+    .Item_table .table_img img {
+        width: 78px;
+        height: 78px;
+    }
+    
+    .table_product_part {
+        display: flex;
+        align-items: center;
+        width: 100% !important;
+    }
+    
+    .Item_table thead {
+        background: #F3F3F3;
+    }
+    
+    .Item_table .amount_price {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .Item_table .amount_total_price {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .Item_table tr th {
+        padding: 23px 0;
+    }
+    
+    .subtotal_box {
+        background: #FFFFFF;
+        border: 1px solid #DEDEDE;
+        border-radius: 9px;
+        max-width: 400px;
+        margin-right: 0;
+        margin-left: auto;
+        padding: 22px 10px;
+    }
+    
+    .subtotal_row {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.1em;
+        color: #0B1727;
+    }
+    
+    .Item_table tr td {
+        border-bottom: 0px;
+    }
+    
+    .order-col-part {
+        position: relative;
+        padding-right: 5px;
+    }
+    
+    .order-col-part-2 {
+        word-break: break-word;
+        position: relative;
+    }
+    
+    .order-col-part .dots {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
