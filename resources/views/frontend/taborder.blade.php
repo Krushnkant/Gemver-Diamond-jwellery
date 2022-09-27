@@ -101,7 +101,7 @@
                                 <th scope="col">Total Order Cost</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" style="width:7%;">Action</th>
                             </tr>
                         </thead>
                         <tbody>

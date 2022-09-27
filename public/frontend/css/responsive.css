@@ -191,6 +191,27 @@
     .my_account_tab li button span {
         display: none;
     }
+    /* ---------------------------- wishlist ---------------------------------------------- */
+    .table_part_product tr th {
+        font-size: 13px;
+    }
+    .wishlist-heading {
+        font-size: 18px;
+    }
+    .table_part_product tr th {
+        padding: 14px 40px;
+    }
+    .wishlist_table tr td:first-child {
+        min-width: 350px;
+    }
+    .wishlist_table tr td:last-child {
+        min-width: 250px;
+    }
+    .move_to_cart_btn,
+    .remove_btn {
+        font-size: 11px;
+        padding: 5px 16px;
+    }
 }
 
 @media (max-width:575px) {
