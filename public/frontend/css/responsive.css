@@ -510,6 +510,9 @@
     .order-box-part .order-img {
         min-width: 50px;
     }
+    .table_part_view tr td.action-button {
+        min-width: 200px;
+    }
 }
 
 @media (max-width:1199px) {

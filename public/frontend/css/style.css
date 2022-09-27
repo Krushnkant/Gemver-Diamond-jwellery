@@ -5104,17 +5104,25 @@ width: 100%;
     }
     
     .address_table_part {
-        font-weight: 500;
+        font-weight: normal;
         font-size: 14px;
         line-height: 16px;
         letter-spacing: 0.1em;
         color: #808080;
     }
     
+    .address_table_part .address_name {
+        font-weight: 600;
+    }
+    
     .table_part_view tr td {
         border-bottom: 1px solid #E2E2E2;
         padding: 30px;
         font-size: 13px;
+    }
+    
+    .table_part_view tr th {
+        border-bottom: 1px solid #E2E2E2 !important;
     }
     
     .table_part_view tr td,
