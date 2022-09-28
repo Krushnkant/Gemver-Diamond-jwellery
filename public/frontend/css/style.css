@@ -5388,7 +5388,7 @@ width: 100%;
     
     .cart-icon-label {
         position: absolute;
-        right: 8px;
+        right: 10px;
         bottom: -7px;
         text-align: center;
         width: 16px;
@@ -5402,9 +5402,18 @@ width: 100%;
         color: #FFFFFF;
     }
     
+    .shopping-part {
+        height: 40px;
+    }
+    
+    .shopping-part .cart-icon-label {
+        right: 18px;
+        bottom: -1px;
+    }
+    
     .cart-icon-part .cart-icon-svg {
-        height: 30px;
-        width: 30px;
+        height: 31px;
+        width: 32px;
     }
     
     .engagement_bg_slider {
@@ -5446,4 +5455,43 @@ width: 100%;
         letter-spacing: 0.1em;
         color: #FFFFFF;
         padding: 15px 42px;
+    }
+    
+    .cart-icon-part .dropdown-toggle {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        position: relative;
+        box-shadow: none !important;
+    }
+    
+    .cart-icon-part .dropdown-menu {
+        padding: 0;
+        min-width: 130px;
+        top: calc(100% + 15px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .cart-icon-part .dropdown-item {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 0.1em;
+        color: #2E2E2E;
+        padding: 8px 0;
+        text-align: center;
+    }
+    
+    .cart-icon-part ul li .dropdown-item {
+        border-bottom: 1px solid #DDDDDD;
+    }
+    
+    .cart-icon-part ul li:last-child .dropdown-item {
+        border-bottom: 0;
+    }
+    
+    .cart-icon-part .dropdown-item:hover,
+    .cart-icon-part .dropdown-item:focus {
+        background-color: transparent;
     }
