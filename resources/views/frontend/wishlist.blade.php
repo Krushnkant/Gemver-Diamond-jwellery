@@ -1,9 +1,8 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-<div class="background-sub-slider">
+        <!-- <div class="background-sub-slider">
             <div class="">
-                <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
                     <div class="sub_heading mb-lg-3"> Wishlist</div>
                     <div class="about_us_link">
@@ -17,14 +16,13 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
 
     <div class="container">
     
         <div class="row mb-5">
             
-            <!-- <div class="wire_bangle_line mb-md-5"></div> -->
             <div class="tab-content1 clearfix">
                @if(isset($wishlist_data) && count($wishlist_data))
                 

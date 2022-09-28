@@ -749,12 +749,14 @@
         cursor: pointer;
         transform: scale(0.3);
         transition: all 1s ease;
+        margin-right: -20px;
     }
     #nav-icon1.open {
         position: absolute;
         top: 0;
         right: 0;
         transition: all 1s ease;
+        margin-right: 0;
     }
     .sub-pack .mobile-sub-menu-icon {
         fill: #000;
@@ -797,7 +799,7 @@
         position: absolute;
         height: 9px;
         width: 100%;
-        background: var(--secondary);
+        background: var(--primary);
         border-radius: 9px;
         opacity: 1;
         left: 0;
