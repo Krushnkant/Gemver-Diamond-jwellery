@@ -3551,6 +3551,8 @@ border: 0;
         max-width: 150px;
         cursor: pointer;
         padding: 5px 0;
+        text-align: center;
+        height: 62px;
     }
     
     .header-icon {
@@ -4383,7 +4385,8 @@ width: 100%;
         animation: shine .75s;
     }
     
-    .select_hint_btn {
+    .select_hint_btn,
+    .select_hint_btn:hover {
         color: #212529;
     }
     /* --------------------------------- login page ------------------------------------------------------------- */
@@ -5371,4 +5374,35 @@ width: 100%;
     
     .wishlist_table tr:last-child {
         border-bottom: 0 !important;
+    }
+    
+    .header_row {
+        position: relative;
+    }
+    
+    .cart-icon-part svg {
+        height: 20px;
+        width: 20px;
+        position: relative;
+    }
+    
+    .cart-icon-label {
+        position: absolute;
+        right: 8px;
+        bottom: -7px;
+        text-align: center;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        border-radius: 50%;
+        background: #0B1727;
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: #FFFFFF;
+    }
+    
+    .cart-icon-part .cart-icon-svg {
+        height: 30px;
+        width: 30px;
     }
