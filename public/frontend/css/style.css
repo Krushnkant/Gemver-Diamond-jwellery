@@ -5014,6 +5014,15 @@ width: 100%;
     
     .my_account_tab li a {
         color: var(--primary);
+        text-align: center;
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .my_account_tab li.active a {
+        color: var(--secondary);
     }
     
     .my_account_tab li {
@@ -5022,6 +5031,7 @@ width: 100%;
         margin: auto;
         border-right: 1px solid var(--primary);
         margin: 15px 0;
+        text-align: center;
     }
     
     .my_account_tab li:last-child {
@@ -5042,17 +5052,21 @@ width: 100%;
         color: var(--secondary) !important;
     }
     
-    .my_account_tab li button.active svg path {
+    .my_account_tab li button.active svg {
         fill: var(--secondary);
-    }
-    
-    .my_account_tab li button svg path {
-        fill: var(--primary);
     }
     
     .my_account_tab svg {
         height: 18px;
         width: 18px;
+    }
+    
+    .my_account_tab li svg path {
+        fill: var(--primary);
+    }
+    
+    .my_account_tab li.active svg path {
+        fill: var(--secondary);
     }
     
     .account-part {
@@ -5091,7 +5105,7 @@ width: 100%;
     }
     
     .save_chnages_btn {
-        background: #BB9761;
+        background: #BB9761 !important;
         border-radius: 6px;
         font-weight: 500;
         font-size: 14px;
@@ -5102,9 +5116,9 @@ width: 100%;
         width: 173px;
     }
     
-    .save_chnages_btn:hover {
-        background: #BB9761;
-        color: #FFFFFF;
+    .save_chnages_btn:focus {
+        box-shadow: none;
+        background: #BB9761 !important;
     }
     
     .table_part_view tr th {
