@@ -55,19 +55,15 @@
                     <span class="d-flex align-items-center justify-content-end">
                         <div class="cart-icon-part">
                             <span class="position-relative dropdown">
-                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                               <a href="#" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                         <path d="M12.9281 1.28566C13.3235 1.28566 16.7942 1.40862 16.7942 5.66679C16.7942 9.74438 13.7221 12.4739 8.99974 16.3748C4.27727 12.4743 1.20579 9.74505 1.20579 5.66679C1.20579 1.40863 4.67606 1.28566 5.07153 1.28566C6.81061 1.28566 8.12232 2.68565 8.13085 2.69429L8.99491 3.64184L9.86484 2.69972C9.87804 2.685 11.1891 1.28566 12.9282 1.28566M12.9282 0C10.6253 0 9.00016 1.80327 9.00016 1.80327C9.00016 1.80327 7.37437 0 5.07148 0C2.99149 0 0 1.38785 0 5.66712C0.000203061 10.5688 3.708 13.6402 9.00026 18C14.2917 13.6399 18 10.5689 18 5.66712C18 1.38818 15.0077 0.000554306 12.9281 0.000554306L12.9282 0Z" fill="#2E2E2E"/>
                                     </svg>
                                     <span class="cart-icon-label">2</span>
-                               </button>
-                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">My Account </a></li>
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                                </ul>
+                                </a>
                             </span>
                             <span class="position-relative dropdown shopping-part">
-                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                               <a href="#" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="cart-icon-svg" width="20" height="18" version="1.1" viewBox="0 0 700 700">
                                         <g>
                                         <path d="m162.24 481.46c5.1797 17.312 21.398 29.398 39.457 29.398h296.59c18.059 0 34.301-12.086 39.457-29.398l88.992-297.62c2.7773-9.3555 1.0273-19.203-4.8086-27.02-5.8086-7.8164-14.77-12.297-24.523-12.297h-110.34c-21.184-57.145-76.02-95.387-137.06-95.387-62.742 0-116.41 39.762-137.06 95.387h-110.37c-9.7539 0-18.691 4.4805-24.523 12.297-5.8125 7.8398-7.5859 17.664-4.7852 27.043zm187.76-413.65c50.914 0 96.832 30.496 116.97 76.742h-233.91c19.645-45.129 64.68-76.742 116.95-76.742zm-256.97 100.19c2.2617-3.0352 5.7383-4.8086 9.543-4.8086h104.81c-2.332 10.312-3.5469 21.047-3.5469 32.035 0 5.1562 4.1992 9.332 9.332 9.332s9.332-4.1758 9.332-9.332c0-11.059 1.4219-21.793 4.082-32.035h246.8c2.707 10.383 4.0586 21.117 4.0586 32.035 0 5.1562 4.1992 9.332 9.332 9.332 5.1328 0 9.332-4.1758 9.332-9.332 0-10.875-1.1914-21.605-3.5234-32.035h104.79c3.8047 0 7.3047 1.75 9.5664 4.7852 2.2617 3.0586 2.9414 6.8828 1.8672 10.523l-88.969 297.59c-2.8477 9.4727-11.715 16.078-21.605 16.078h-296.54c-9.8945 0-18.762-6.625-21.605-16.078l-88.922-297.57c-1.0977-3.6406-0.42187-7.4883 1.8672-10.523z"/>
@@ -77,18 +73,14 @@
                                         </g>
                                     </svg>
                                     <span class="cart-icon-label">3</span>
-                               </button>
-                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">My Account </a></li>
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                                </ul>
+                                </a>
                             </span>
                             <span class="position-relative dropdown">
-                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                               <a href="#" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="" width="15" height="20" viewBox="0 0 15 20" fill="none">
                                             <path d="M7.50004 0.9C5.33142 0.9 3.57653 2.78765 3.57653 5.09089C3.57653 7.39412 5.33142 9.28177 7.50004 9.28177C9.66865 9.28177 11.4235 7.39412 11.4235 5.09089C11.4235 2.78765 9.66865 0.9 7.50004 0.9ZM7.50004 1.9181C9.1324 1.9181 10.4589 3.32731 10.4589 5.09089C10.4589 6.85443 9.13256 8.26367 7.50004 8.26367C5.86767 8.26367 4.54116 6.85447 4.54116 5.09089C4.54116 3.32734 5.86751 1.9181 7.50004 1.9181ZM4.05888 10.7181C2.30941 10.7181 0.9 12.236 0.9 14.0908V18.5908C0.9 18.8654 1.10972 19.1 1.38245 19.1H13.6177C13.8904 19.1 14.1 18.8655 14.1 18.591V14.091C14.1 12.2362 12.6906 10.7182 10.9411 10.7182L4.05888 10.7181ZM10.9412 11.7362C12.1572 11.7362 13.1353 12.7725 13.1353 14.0907V18.0815H1.86474V14.0907C1.86474 12.7725 2.84283 11.7362 4.05888 11.7362H10.9412Z" fill="#2E2E2E" stroke="#2E2E2E" stroke-width="0.2"/>
                                         </svg>
-                               </button>
+                                </a>
                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">My Account </a></li>
                                     <li><a class="dropdown-item" href="#">Logout</a></li>
