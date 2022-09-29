@@ -5459,7 +5459,7 @@ width: 100%;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        text-align: center;
+        text-align: left;
         letter-spacing: 0.1em;
         color: #808080;
     }
@@ -5515,4 +5515,12 @@ width: 100%;
     .cart-icon-part .dropdown-item:hover,
     .cart-icon-part .dropdown-item:focus {
         background-color: transparent;
+    }
+    
+    .choose_your_setting_heading {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
     }
