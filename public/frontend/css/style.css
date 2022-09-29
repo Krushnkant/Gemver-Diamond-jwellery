@@ -5012,6 +5012,10 @@ width: 100%;
         justify-content: space-around;
     }
     
+    .my_account_tab li a {
+        color: var(--primary);
+    }
+    
     .my_account_tab li {
         width: 16.66%;
         float: left;
@@ -5034,20 +5038,21 @@ width: 100%;
         color: var(--primary) !important;
     }
     
-    .my_account_tab li button.active {
+    .my_account_tab li button.active a {
         color: var(--secondary) !important;
-    }
-    
-    .my_account_tab li button svg path {
-        fill: #000;
     }
     
     .my_account_tab li button.active svg path {
         fill: var(--secondary);
     }
     
+    .my_account_tab li button svg path {
+        fill: var(--primary);
+    }
+    
     .my_account_tab svg {
-        height: 22px;
+        height: 18px;
+        width: 18px;
     }
     
     .account-part {
@@ -5466,25 +5471,27 @@ width: 100%;
     }
     
     .cart-icon-part .dropdown-menu {
-        padding: 0;
         min-width: 130px;
         top: calc(100% + 15px) !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
+        box-shadow: 0 2px 12px 2px rgb(0 0 0 / 10%);
+        border: 0;
+        padding: 5px 0;
     }
     
     .cart-icon-part .dropdown-item {
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: normal;
+        font-size: 13px;
         line-height: 19px;
         letter-spacing: 0.1em;
-        color: #2E2E2E;
-        padding: 8px 0;
-        text-align: center;
+        color: #808080;
+        padding: 10px 30px;
+        text-align: left;
     }
     
-    .cart-icon-part ul li .dropdown-item {
-        border-bottom: 1px solid #DDDDDD;
+    .cart-icon-part .dropdown-item:hover {
+        color: var(--secondary);
     }
     
     .cart-icon-part ul li:last-child .dropdown-item {

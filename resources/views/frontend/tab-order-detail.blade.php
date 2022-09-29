@@ -345,20 +345,6 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="cart-part" role="tabpanel" aria-labelledby="cart-part-tab">
-                2
-            </div>
-            <div class="tab-pane fade" id="wishlist-part" role="tabpanel" aria-labelledby="wishlist-part-tab">
-                3
-            </div>
-            <div class="tab-pane fade" id="address-part" role="tabpanel" aria-labelledby="address-part-tab">
-               
-            </div>
-            <div class="tab-pane fade" id="account-part" role="tabpanel" aria-labelledby="account-part-tab">
-            </div>
-            <div class="tab-pane fade" id="logout-part" role="tabpanel" aria-labelledby="logout-part-tab">
-                6
-            </div>
         </div>
     </div>
   

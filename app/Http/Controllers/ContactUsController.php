@@ -19,7 +19,7 @@ class ContactUsController extends Controller
     
     public function index(){
         $settings = Settings::first();
-        return view('frontend.tabaccount',compact('settings'));
+        return view('frontend.forget_password',compact('settings'));
     }
 
     public function save(Request $request){
