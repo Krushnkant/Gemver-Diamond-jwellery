@@ -70,22 +70,25 @@ class AuthController extends Controller
             Cookie::queue(Cookie::forget('product_wishlist'));
 
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-            $cart_data = json_decode($cookie_data, true);
-            if($cart_data){  
-                foreach($cart_data as $cart){
+            $cart_datas = json_decode($cookie_data, true);
+            //dd($cart_data);
+            if($cart_datas){  
+                foreach($cart_datas as $cart){
+                  
                     $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $cart['item_id'],'item_type' => $cart['item_type'] ])->first();
+                    //dd($cart);
                     if(!$cart_data){
                         ItemCart::create([
                             'user_id' => $user_id,
+                            'item_quantity' => $cart['item_quantity'],
                             'item_id' => $cart['item_id'],
                             'item_type' => $cart['item_type'],
-                            'item_quantity' => $cart['item_quantity'],
                             'specification' => (isset($cart['specification']))?json_encode($cart['specification']) :""
                         ]);
                     }
                 }
             }
-            Cookie::queue(Cookie::forget('shopping_cart'));
+           // Cookie::queue(Cookie::forget('shopping_cart'));
 
             return response()->json(['status'=>200]);
         }
@@ -196,6 +199,12 @@ class AuthController extends Controller
             return response()->json(['status'=>200]); 
         }    
         return response()->json(['status'=>400]);
+    }
+
+
+    public function account(){
+        $user = user::where('id',session('customer.id'))->first();
+        return  view('frontend.myaccount',compact('user'));
     }
 
 

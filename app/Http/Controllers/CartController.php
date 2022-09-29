@@ -8,6 +8,7 @@ use App\Models\ItemCart;
 use App\Models\Coupon;
 use App\Models\Diamond;
 use Illuminate\Http\Request;
+use App\Models\Settings;
 use Config;
 
 class CartController extends Controller
@@ -60,7 +61,8 @@ class CartController extends Controller
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
         }
-        return view('frontend.cart')->with('cart_data',$cart_data);
+        $setting = Settings::first();
+        return view('frontend.cart',compact('setting'))->with('cart_data',$cart_data);
     }
 
     public function addtocart(Request $request)
@@ -69,6 +71,7 @@ class CartController extends Controller
         $data = $request->all();
         $prod_id = (isset($data['variant_id']) && $data['variant_id']) ? $data['variant_id'] : 0;
         $diamond_id = (isset($data['diamond_id']) && $data['diamond_id']) ? $data['diamond_id'] : 0;
+        $action = (isset($data['action']) && $data['action']) ? $data['action'] : "";
         $quantity = $request->input('quantity');
         $item_type = $request->input('item_type');
         $arrspe = $request->input('arrspe');
@@ -77,10 +80,17 @@ class CartController extends Controller
             $user_id = session('customer.id');
             $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'diamond_id' => $diamond_id,'item_type' => $item_type])->first();
             if($cart_data){
-                ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->update([
-                                 'item_quantity' => $cart_data['item_quantity'] + $quantity
-                                ]);
-                return response()->json(['status'=>'Added to Cart']);
+                if($action == 'update_qty'){
+                    ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->update([
+                        'item_quantity' =>  $quantity
+                       ]);   
+                }else{
+                    ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->update([
+                        'item_quantity' => $cart_data['item_quantity'] + $quantity
+                       ]);
+                }
+                
+                return response()->json(['status'=>'Update to Cart']);
             }else{
                 $cart = New ItemCart();
                 $cart->user_id = $user_id;
@@ -88,9 +98,9 @@ class CartController extends Controller
                 $cart->diamond_id = $diamond_id;
                 $cart->item_quantity = $quantity;
                 $cart->item_type = $item_type;
-                $cart->specification = $arrspe;
+                $cart->specification = (isset($arrspe) && $arrspe != "")?json_encode($arrspe) :"";
                 $cart->save();
-                return response()->json(['status'=>'Added to Cart']);
+                return response()->json(['status'=>'Update to Cart']);
             }
         }else{    
             if(Cookie::get('shopping_cart'))
@@ -245,8 +255,6 @@ class CartController extends Controller
         Cookie::queue(Cookie::forget('shopping_cart'));
         return response()->json(['status'=>'Your Cart is Cleared']);
     }
-
-    
 
     public function redeem_coupon(Request $request)
     {

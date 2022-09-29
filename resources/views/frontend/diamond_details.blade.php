@@ -315,6 +315,11 @@
                                 </p>
                             </div>
                             <div class="mt-3">
+                                <p>Estimated Date of Shipment <br>
+                                <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                </p>
+                            </div>
+                            <div class="mt-3">
                                 <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> 
                                     <i class="fa-solid fa-user me-2"></i>
                                     Get a gemologist opinion

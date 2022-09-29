@@ -387,6 +387,11 @@
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                 </p>
                             </div>
+                            <div class="mt-3">
+                                <p>Estimated Date of Shipment <br>
+                                <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                </p>
+                            </div>
                             
 
                             <div class=" mt-3">
@@ -848,9 +853,9 @@ $('.add-to-cart').click(function (e) {
           var diamond_id = $(this).closest('.wire_bangle_content').find('.diamond_id').val();
           var item_type = $(this).closest('.wire_bangle_content').find('.item_type').val();
           var quantity = 1;
-          alert(variant_id);
-          alert(diamond_id);
-          alert(item_type);
+        //   alert(variant_id);
+        //   alert(diamond_id);
+        //   alert(item_type);
           $.ajax({
               url: "/add-to-cart", 
               method: "POST", 

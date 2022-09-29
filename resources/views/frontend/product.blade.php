@@ -336,6 +336,11 @@
                                 <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                 </p>
                             </div>
+                            <div class="mt-3">
+                                <p>Estimated Date of Shipment <br>
+                                <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                </p>
+                            </div>
                             
 
                             <div class=" mt-3">
@@ -687,8 +692,6 @@ $(document).ready(function(){
     //filter_data_variant();
     filter_data();
 
-   
-    
     function filter_data_variant1()
     {
         var action = 'fetch_data';

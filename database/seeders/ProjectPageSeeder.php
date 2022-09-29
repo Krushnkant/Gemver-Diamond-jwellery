@@ -552,6 +552,17 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         
+        ProjectPage::create([
+            'id' => 71,
+            'parent_menu' => 49,
+            'label' => 'Gemver Difference',
+            'route_url' => 'admin.gemver_difference.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.gemver_difference.list,admin.infopage.editGemverDifference,admin.infopage.updateGemverDifference',
+            'sr_no' => 12
+        ]);
+
+        
         
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();

@@ -63,7 +63,6 @@
             url: "{{ route('frontend.postlogin') }}",
             data: formData,
             success: function (res) {
-                console.log(res);
                 if(res.status == 'failed'){
                     $('#loginSubmit').find('.loadericonfa').hide();
                     $('#loginSubmit').prop('disabled',false);
@@ -81,8 +80,8 @@
                 if(res.status == 200){
                     $('#loginSubmit').prop('disabled',false);
                     toastr.success("You have Successfully loggedin",'Success',{timeOut: 5000});
-                    location.href ="{{ url('/') }}";
-                    //return redirect()->back();
+                   
+                     location.href ="{{ url('/') }}";
                 }
 
                 if(res.status == 400){

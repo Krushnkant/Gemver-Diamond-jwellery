@@ -190,7 +190,7 @@ $('.select_cart_btn').click(function (e) {
       var valid = true;
       var arrspe = [];
       $('#specificationstr').html('');
-      $(document).find('.specification').each(function() {
+      $(this).closest('.product-data').find('.specification').each(function() {
           var thi = $(this);
           var this_err = $(thi).attr('name') + "-error";
           if($(thi).val()=="" || $(thi).val()==null){
@@ -229,8 +229,23 @@ $('.select_cart_btn').click(function (e) {
                   'arrspe': arrspe 
               },
               success: function (response) {
-                  toastr.success(response.status,'Success',{timeOut: 5000});
-                  cartload();
+                    var datawish = {
+                        '_token': $('input[name=_token]').val(),
+                        "variant_id": variant_id,
+                        "item_type": item_type,
+                    };
+
+                    $.ajax({
+                        url: '/delete-from-wishlist',
+                        type: 'DELETE',
+                        data: datawish,
+                        success: function (response) {
+                            toastr.success(response.status,'Success',{timeOut: 5000});
+                            cartload();
+                            window.location.reload();
+                        }
+                    });
+                  
               },
           });
   
