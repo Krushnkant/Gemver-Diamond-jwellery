@@ -34,6 +34,8 @@ use App\Http\Controllers\WishlistController;
 
 //Frontend Route
 
+
+
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('infopage/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
 Route::get('infopage/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
@@ -110,6 +112,8 @@ Route::post('add-to-cart',[CartController::class,'addtocart'])->name('frontend.a
 Route::get('/load-cart-data',[CartController::class,'cartloadbyajax'])->name('frontend.cartloadbyajax');
 Route::get('/cart',[CartController::class,'index'])->name('frontend.index');
 Route::delete('/delete-from-cart',[CartController::class,'deletefromcart'])->name('frontend.deletefromcart');
+Route::post('/update-to-cart',[CartController::class,'updatetocart'])->name('frontend.updatetocart');
+
 
 
 Route::get('login',[\App\Http\Controllers\AuthController::class,'index'])->name('frontend.login');
@@ -122,7 +126,28 @@ Route::get('resetpassword/{slug}',[\App\Http\Controllers\AuthController::class,'
 Route::post('postresetpassword',[\App\Http\Controllers\AuthController::class,'postResetpassword'])->name('frontend.postresetpassword');
 Route::post('redeem_coupon',[\App\Http\Controllers\CartController::class,'redeem_coupon'])->name('frontend.redeem_coupon');
 
+
+
 Route::group(['middleware'=>['frontendauth']],function (){
+
+    //order route
+    Route::get('checkout',[\App\Http\Controllers\OrderController::class,'checkout'])->name('frontend.checkout');
+    Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
+
+    //my accound route
+    Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
+    Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
+
+    Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
+    Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
+    Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
+
+    Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
+
+
+    Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('success.orders');
+    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('success.address');
+    Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('success.account');
     
 });
 
@@ -310,6 +335,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('diamond_anatomy',[\App\Http\Controllers\admin\InfopageController::class,'diamond_anatomy'])->name('diamond_anatomy.list');
     Route::get('infopage/diamond_anatomies/edit',[\App\Http\Controllers\admin\InfopageController::class,'editDiamondAnatomy'])->name('infopage.editDiamondAnatomy');
     Route::post('updateDiamondAnatomy',[\App\Http\Controllers\admin\InfopageController::class,'updateDiamondAnatomy'])->name('infopage.updateDiamondAnatomy');
+
+    Route::get('gemver_difference',[\App\Http\Controllers\admin\InfopageController::class,'gemver_difference'])->name('gemver_difference.list');
+    Route::get('infopage/gemver_difference/edit',[\App\Http\Controllers\admin\InfopageController::class,'editGemverDifference'])->name('infopage.editGemverDifference');
+    Route::post('updateGemverDifference',[\App\Http\Controllers\admin\InfopageController::class,'updateGemverDifference'])->name('infopage.updateGemverDifference');
 
     Route::get('inquiries',[\App\Http\Controllers\admin\InquiryController::class,'index'])->name('inquiries.list');
     Route::post('allinquirieslist',[\App\Http\Controllers\admin\InquiryController::class,'allinquirieslist'])->name('allinquirieslist');

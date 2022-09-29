@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProjectPage;
 use App\Models\Infopage;
 use App\Models\DiamondAnatomy;
+use App\Models\GenverDifference;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -846,6 +847,121 @@ class InfopageController extends Controller
     public function editDiamondAnatomy(){
         $DiamondAnatomy = DiamondAnatomy::find(1);
         return response()->json($DiamondAnatomy);
+    }
+
+    public function gemver_difference(){
+        $GemverDifference = GenverDifference::first();
+        $canWrite = false;
+        $page_id = ProjectPage::where('route_url','admin.genver_difference.list')->pluck('id')->first();
+        if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+            $canWrite = true;
+        }
+        return view('admin.infopage.genver_difference',compact('GemverDifference','canWrite'))->with('page',$this->page);
+    }
+
+    public function updateGemverDifference(Request $request){
+
+
+        $validator = Validator::make($request->all(), [
+
+            'section1_title' => 'required',
+            'section1_description' => 'required',
+            'section2_title' => 'required',
+            'section2_description' => 'required',
+            'section3_title' => 'required',
+            'section3_description' => 'required',
+            'section4_title' => 'required',
+            'section4_description' => 'required',
+           
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $GemverDifference = GenverDifference::find(1);
+        if(!$GemverDifference){
+            $GemverDifference = New GenverDifference;
+        }
+
+        $GemverDifference->section1_title = $request->section1_title;
+        $GemverDifference->section1_description = $request->section1_description;
+        $GemverDifference->section2_title = $request->section2_title;
+        $GemverDifference->section2_description = $request->section2_description;
+        $GemverDifference->section3_title = $request->section3_title;
+        $GemverDifference->section3_description = $request->section3_description;
+        $GemverDifference->section4_title = $request->section4_title;
+        $GemverDifference->section4_description = $request->section4_description;
+
+        $old_section1_image = $GemverDifference->section1_image;
+        if ($request->hasFile('section1_image')) {
+            $image = $request->file('section1_image');
+            $image_name = 'section1_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section1_image)) {
+                $old_section2_image = public_path('images/aboutus/' . $old_section1_image);
+                if (file_exists($old_section1_image)) {
+                    unlink($old_section1_image);
+                }
+            }
+            $GemverDifference->section1_image = $image_name;
+        }
+        
+
+        
+
+        $old_section2_image = $GemverDifference->section2_image;
+        if ($request->hasFile('section2_image')) {
+            $image = $request->file('section2_image');
+            $image_name = 'section2_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section2_image)) {
+                $old_section2_image = public_path('images/aboutus/' . $old_section2_image);
+                if (file_exists($old_section2_image)) {
+                    unlink($old_section2_image);
+                }
+            }
+            $GemverDifference->section2_image = $image_name;
+        }
+
+        $old_section3_image = $GemverDifference->section3_image;
+        if ($request->hasFile('section3_image')) {
+            $image = $request->file('section3_image');
+            $image_name = 'section3_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section3_image)) {
+                $old_section3_image = public_path('images/aboutus/' . $old_section3_image);
+                if (file_exists($old_section3_image)) {
+                    unlink($old_section3_image);
+                }
+            }
+            $GemverDifference->section3_image = $image_name;
+        }
+
+        $old_section4_image = $GemverDifference->section4_image;
+        if ($request->hasFile('section4_image')) {
+            $image = $request->file('section4_image');
+            $image_name = 'section4_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section4_image)) {
+                $old_section4_image = public_path('images/aboutus/' . $old_section4_image);
+                if (file_exists($old_section4_image)) {
+                    unlink($old_section4_image);
+                }
+            }
+            $GemverDifference->section4_image = $image_name;
+        }
+        $GemverDifference->save();
+        return response()->json(['status' => '200','GemverDifference' => $GemverDifference]);
+    }
+
+    public function editGemverDifference(){
+        $GemverDifference = GenverDifference::find(1);
+        return response()->json($GemverDifference);
     }
 
 }

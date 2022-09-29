@@ -67,6 +67,7 @@
                                     $item_image_diamond = explode(',',$diamond->Stone_Img_url); 
                                     $url =  "";
 
+                                    $sale_price = $sale_price + $sale_price_diamond;
 
                                 }elseif(isset($data['item_type']) && $data['item_type'] == 0){
                                     $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
@@ -98,6 +99,8 @@
                                 <tr class="cartpage">
                                     <td class="cart-product-name-info">
                                         <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
+                                        <input type="hidden" class="diamond_id" value="{{ $data['diamond_id'] }}">
+                                        <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
                                         <a class="delete_cart_data">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="me-4 delete_icon_svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
                                                 <path d="M15.8841 2.28729H11.5213V1.90616C11.5213 1.40064 11.3204 0.91577 10.9631 0.558274C10.6056 0.200773 10.1207 0 9.61519 0H7.11624C6.61072 0 6.12585 0.200762 5.76835 0.558274C5.411 0.915774 5.21008 1.4006 5.21008 1.90616V2.28729H0.847359C0.622665 2.28729 0.407267 2.37652 0.248317 2.53547C0.0895105 2.69428 0.000281597 2.90981 0.000281597 3.13436C-0.00562751 3.36083 0.0816781 3.57975 0.241816 3.73991C0.402101 3.90005 0.620869 3.9875 0.847363 3.98159H1.75795L1.7581 13.6812C1.7581 14.636 2.1373 15.5518 2.81259 16.227C3.48772 16.9021 4.40345 17.2815 5.35836 17.2815H11.3942C12.3491 17.2815 13.2648 16.9021 13.9401 16.227C14.6152 15.5518 14.9946 14.636 14.9946 13.6812V3.98159H15.8841C16.1105 3.9875 16.3293 3.90005 16.4896 3.73991C16.6498 3.57977 16.7371 3.36086 16.7312 3.13436C16.7312 2.90982 16.6419 2.69427 16.4831 2.53547C16.3242 2.37652 16.1088 2.28729 15.8841 2.28729H15.8841ZM6.90449 1.90616C6.90449 1.78915 6.99933 1.69431 7.11633 1.69431H9.61529C9.67143 1.69431 9.72535 1.71662 9.76509 1.75636C9.80482 1.7961 9.82713 1.84987 9.82713 1.90615V2.28729H6.90449L6.90449 1.90616ZM13.3003 13.6813C13.3003 14.1868 13.0996 14.6715 12.742 15.029C12.3845 15.3865 11.8997 15.5873 11.3942 15.5873H5.35836C4.85285 15.5873 4.36798 15.3865 4.01063 15.029C3.65313 14.6715 3.45221 14.1868 3.45221 13.6813V3.98162H13.3001L13.3003 13.6813Z" fill="#E10000"/>
@@ -154,7 +157,7 @@
                                         </span>
                                     </td>
                                     <td class="total_amount">
-                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * $data['item_quantity'] }}</span>
+                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * (int)$data['item_quantity'] }}</span>
                                     </td>
                                     
                                   
@@ -198,7 +201,7 @@
         @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-6">
-                <button type="button" class="continue_shopping_btn mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Continue Shopping</button>
+                <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button>
             </div>
             <div class="col-md-6 text-end">
                 <div class="order_summary_box">
@@ -207,7 +210,7 @@
                             <input type="text" placeholder="Enter your code" class="enter_yout_code_input" name="coupon_code" id="coupon_code">
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn btn-primary apply_btn redeem">Apply</button>
+                            <button type="button" class="btn btn-primary apply_btn redeem" >Apply <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                         </div>
                     </div>
                     <div class="order_summary_heading text-start mt-4">
@@ -236,7 +239,7 @@
                                 }
                             
                             }else{
-                            $coupan_discount_amount  =  0;    
+                                $coupan_discount_amount  =  0;    
                             }  
                             ?>
                         <input type="hidden" id="coupan_discount_amount" value="{{ $coupan_discount_amount }}">
@@ -260,7 +263,12 @@
                             $<span class="cart-maintotal-price final_price">{{ $total - $coupan_discount_amount  }}</span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-dark w-100 mt-3 proceed_to_checkout_btn">Proceed to checkout</button>
+                    @if($setting->max_order_price >  $total - $coupan_discount_amount)
+                    <button type="button" class="btn btn-dark w-100 mt-3 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                    @else
+                    <button type="button" class="btn btn-dark w-100 mt-3 " id="proceed_to_checkout_btn">Proceed to checkout</button>
+                    @endif
+            
                 </div>
             </div>
            
@@ -295,13 +303,13 @@ $('.delete_cart_data').click(function (e) {
         data: data,
         success: function (response) {
             window.location.reload();
-            console.log(response);
         }
     });
 });
 
 
 $('body').on('change', '.qty', function () {  
+    
     var sum = 0;
     var total = 0;
     var maintotal = 0;
@@ -320,10 +328,51 @@ $('body').on('change', '.qty', function () {
 
     $('.cart-maintotal-price').html(total);
     $('.total_qty').html(qtytotal);
-    var coupan_discount_amount = $('#coupan_discount_amount').val();
+
+    if("{{ session()->has('coupon') }}"){
+        if("{{ session('coupon.discount_type_id') }}" == 1){
+            var coupan_discount_per  =  "{{ session('coupon.coupon_amount') }}";
+            var coupan_discount_amount = total * coupan_discount_per/100;
+        }else{
+            var coupan_discount_amount  =  "{{ session('coupon.coupon_amount') }}";
+        }
+    }else{
+        var coupan_discount_amount  =  0;    
+    } 
+    //var coupan_discount_amount = $('#coupan_discount_amount').val();
     $('.coupan_discount_amount').html(coupan_discount_amount);
     var main_total =  total - coupan_discount_amount;
+    var max_order_amount = "{{ $setting->max_order_price }}";
+    if(main_total < max_order_amount){
+        $("#proceed_to_checkout_btn").addClass("proceed_to_checkout_btn");
+    }else{
+        $("#proceed_to_checkout_btn").removeClass("proceed_to_checkout_btn");
+    }
+
     $('.final_price').html(main_total);
+    var quantity = $(this).closest(".cartpage").find('.qty-input').val();
+    var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
+    var diamond_id = $(this).closest(".cartpage").find('.diamond_id').val();
+    var item_type = $(this).closest(".cartpage").find('.item_type').val();
+
+   
+    var data = {
+        '_token': $('input[name=_token]').val(),
+        'quantity':quantity,
+        'variant_id':variant_id,
+        'diamond_id':diamond_id,
+        'item_type':item_type,
+        'action':'update_qty'
+    };
+
+    $.ajax({
+        url: "/add-to-cart", 
+        method: "POST",
+        data: data,
+        success: function (response) {
+           // console.log(response);
+        }
+    });
  
 });
 
@@ -340,7 +389,11 @@ $('.sp-minus').on('click', function(){
 });
 
 $('.redeem').click(function (e) {
+    alert('redeem');
     e.preventDefault();
+    var btn = $(this);
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
 
     var coupon_code = $('#coupon_code').val();
     //var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
@@ -354,31 +407,50 @@ $('.redeem').click(function (e) {
         type: 'Post',
         data: data,
         success: function (response) {
-           // window.location.reload();
             if(response.status == 200){
+                $(btn).find('.loadericonfa').hide();
+                $(btn).prop('disabled',false);
                 if(response.data.discount_type_id == 1){
                    var coupon_amount_per = response.data.coupon_amount;
                    var total  = $('.cart-maintotal-price').html();
                    var coupon_amount = (total * coupon_amount_per)/100;
-                    alert(coupon_amount);
+                 
                 }else{
                     var coupon_amount = response.data.coupon_amount;
                 }
                 $('#coupan_discount_amount').val(coupon_amount);
                 toastr.success(response.message,'Success',{timeOut: 5000});
+                $("#coupon_code").val('');
                 $(".qty").change();
             }else{
+                $(btn).find('.loadericonfa').hide();
+                $(btn).prop('disabled',false);
                 toastr.error(response.message,'Success',{timeOut: 5000});
             }
         }
     });
 });
 
+$('.proceed_to_checkout_btn').click(function (e) {
+    e.preventDefault();
+    var check_login = "{{ is_login() }}";
+    if(check_login) {
+        location.href="{{ url('/checkout') }}";
+    } else {
+        location.href="{{ url('/login') }}";
+         "{{ Session::put('afterLogin','/cart');}}";
+    }
+});
 
+$('.continue_shopping_btn').click(function () {
+    location.href="{{ url('/') }}";
+});
 
 });
      
 </script>
+
+
 
 
 

@@ -374,3 +374,33 @@ function is_wishlist($item_id,$item_type){
         return false;
     }
 }
+
+function is_login(){
+
+    if(session()->has('customer')){
+        return true;
+    }
+
+    return false;
+}
+
+function add_address($data)
+{
+    $address = New \App\Models\Address();
+    $address->first_name = $data->first_name;
+    $address->last_name = $data->last_name;
+    $address->email = $data->email;
+    $address->mobile_no = $data->mobile_no;
+    $address->address = $data->address;
+    $address->address2 = $data->address2;
+    $address->country = $data->country;
+    $address->state = $data->state;
+    $address->city = $data->city;
+    $address->pincode = $data->pincode;
+    $address->save();
+    if($address){
+        return true;
+    }
+    return false;
+}
+
