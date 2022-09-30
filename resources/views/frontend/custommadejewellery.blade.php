@@ -18,7 +18,7 @@
     <div class="my-3 mb-xl-4 mt-5 pt-4"> 
         <div class="container mb-xl-5 text-center">
             <div class="row">
-                <div class="col-md-6 ps-md-0 order-2 order-md-1">
+                <div class="col-md-6 ps-md-0 order-2 order-md-1 pe-md-0">
                     <div class="choose_your_setting_box text-center">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
+                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2 ps-md-0">
                     <img src="{{ asset('frontend/image/create-ring.png') }}" alt="">
                 </div> 
             </div>
@@ -135,14 +135,14 @@
     <div class="my-3 my-xl-4"> 
         <div class="container mb-xl-5 text-center">
             <div class="row">
-                <div class="col-md-6 ps-md-0 order-2 order-md-1">
+                <div class="col-md-6 ps-md-0 order-2 order-md-1 pe-md-0">
                     <div class="choose_your_setting_box text-center">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                                Create your own Ring 
+                                Create your own Pendent
                             </div>
                             <p class="custom_engagement_paragrph mb-4">
-                                Classic, opulent, or delicate - regardless of the occasion, we have the perfect ring to complement every look.
+                                From classic designs to creative twists, our exquisite hand-crafted pendent are a must-have fashion accessory.
                             </p>
                             <div class="engagement_button text-center">
                                 <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
+                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2 ps-md-0">
                     <img src="{{ asset('frontend/image/create-pendent.png') }}" alt="">
                 </div> 
             </div>
