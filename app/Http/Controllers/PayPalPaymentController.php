@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ItemCart;
 use App\Models\ProductVariant;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
@@ -76,10 +77,22 @@ class PayPalPaymentController extends Controller
             $last_order_id = "0001";
         }
 
+        $address_info = Address::where('id',$request->address_id)->first();
+        $user['CustomerName'] = isset($address_info->first_name) ? $address_info->first_name .' '.$address_info->last_name: '';
+       // $user['CustomerLastName'] = isset($address_info->last_name) ? $address_info->last_name: '';
+        $user['CustomerMobile'] = isset($address_info->mobile_no) ? $address_info->mobile_no: '';
+        $user['DelAddress1'] = isset($address_info->address) ? $address_info->address: '';
+        $user['DelAddress2'] = isset($address_info->address2) ? $address_info->address2: '';
+        //$user['Landmark'] = isset($address_info->landmark) ? $address_info->landmark: '';
+        $user['City'] = isset($address_info->city) ? $address_info->city: '';
+        $user['State'] = isset($address_info->state) ? $address_info->state: '';
+        $user['Country'] = isset($address_info->country) ? $address_info->country: '';
+        $user['Pincode'] = isset($address_info->pincode) ? $address_info->pincode: '';
+
     
         $order = new Order();
         $order->user_id = session('customer.id');
-        $order->address_id = $request->check_address;
+        $order->address_id = $request->address_id;
         $order->custom_orderid = Carbon::now()->format('ymd') . $last_order_id;
         $order->sub_totalcost = isset($request->sub_totalcost) ? $request->sub_totalcost: null;
         $order->shipping_charge = isset($request->shipping_charge) ? $request->shipping_charge : 0;
@@ -94,7 +107,7 @@ class PayPalPaymentController extends Controller
         $order->payment_mode = isset($request->payment_mode) ? $request->payment_mode : 'PAYPAL';
         $order->payment_date = isset($request->payment_date) ? $request->payment_date : '';
         $order->payment_status = isset($request->payment_status) ? $request->payment_status : '2';
-        //$order->delivery_address = isset($request->delivery_address) ? $request->delivery_address : json_encode($user);
+        $order->delivery_address = isset($request->delivery_address) ? $request->delivery_address : json_encode($user);
         $order->order_note = '';
         $order->order_status = 1;
         $order->delivery_date = Carbon::now();
@@ -110,7 +123,30 @@ class PayPalPaymentController extends Controller
             $OrderItem->order_status = 1;
             $OrderItem->updated_by = 0;
             $OrderItem->order_note = '';
-            $product_item = ProductVariant::with('product.attribute','attribute_term')->where('id',$item)->first();
+
+            $spe = array();
+            if($request->item_type[$key] == 0){
+                $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
+            
+                foreach($product_item->product_variant_variants as $product_variant_variant){
+                    $spe[] = array(
+                        'term' => $product_variant_variant->attribute->attribute_name,
+                        'term_name' => $product_variant_variant->attribute_term->attrterm_name
+                    );    
+                }
+
+                $sale_price = $product_item->sale_price;
+                $item_image = explode(',',$product_item->images); 
+                $item_name = $product_item->product->product_title;
+
+            }else if($request->item_type[$key] == 1){
+                $product_item = \App\Models\Diamond::where('id',$item)->first();
+                $item_name = $product_item->Shape.' '. round($product_item->Weight,2) .' ct ';
+               
+                $sale_price = $product_item->Sale_Amt;
+                $item_image = explode(',',$product_item->Stone_Img_url); 
+
+            }
 
             // if($product_item != null){
             //     $product_item->total_orders = $product_item->total_orders + 1;
@@ -124,11 +160,14 @@ class PayPalPaymentController extends Controller
             //$order_item['attribute'] = $product_item->product->attribute->attribute_name;
             //$order_item['attributeTerm'] = $product_item->attribute_term->attrterm_name;
             $order_item['itemQuantity'] = $request->qty[$key];
-            $order_item['orderItemPrice'] = $product_item->sale_price;
-            $order_item['SubDiscount'] = 0;
-            $order_item['totalItemAmount'] = $request->qty[$key] * $product_item->sale_price;
-            $order_item['itemPayableAmt'] = $request->qty[$key] * $product_item->sale_price;
-            $order_item['ProductTitle'] = $product_item->product_title;
+            $order_item['orderItemPrice'] = $sale_price;
+            $order_item['totalItemAmount'] = $request->qty[$key] * $sale_price;
+            $order_item['itemPayableAmt'] = $request->qty[$key] * $sale_price;
+            $order_item['ProductTitle'] = $item_name;
+            //$image = explode(',',$product_item->images);
+            $order_item['ProductImage'] = $item_image[0];
+            $order_item['ItemType'] = $request->item_type[$key];
+            $order_item['spe'] = $spe;
            
             $OrderItem->item_details = json_encode($order_item);
             $OrderItem->payment_action_date = isset($request->payment_date) ? $request->payment_date.' 00:00:00' : '';

@@ -562,6 +562,58 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 12
         ]);
 
+        ProjectPage::create([ 
+            'id' => 72, 
+            'parent_menu' => 0, 
+            'label' => 'Engagement Ring', 
+            'route_url' => 'admin.menupage.engagementpage', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.menupage.engagementpage',
+            'icon_class' => 'fa fa-step-forward',
+            'sr_no' => 23 
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 73, 
+            'parent_menu' => 0, 
+            'label' => 'Wedding Brands', 
+            'route_url' => 'admin.menupage.weddingpage', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.menupage.weddingpage',
+            'icon_class' => 'fa fa-step-forward',
+            'sr_no' => 23 
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 74, 
+            'parent_menu' => 0, 
+            'label' => 'Lab Grown Diamonds', 
+            'route_url' => 'admin.menupage.growndiamondpage', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.menupage.growndiamondpage',
+            'icon_class' => 'fa fa-step-forward',
+            'sr_no' => 23 
+        ]);
+
+        ProjectPage::create([
+            'id' => 75,
+            'parent_menu' => 0,
+            'label' => 'Orders',
+            'route_url' => null,
+            'icon_class' => 'icon-basket',
+            'is_display_in_menu' => 1,
+            'sr_no' => 1
+        ]);
+
+        ProjectPage::create([
+            'id' => 76,
+            'parent_menu' => 75,
+            'label' => 'Order',
+            'route_url' => 'admin.orders.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.orders.list,admin.allOrderlist,admin.updateOrdernote,admin.orders.view,admin.orders.save,admin.change_order_status,admin.change_order_item_status,admin.orders.pdf,admin.orders.play_video'
+        ]);
+
         
         
         $users = User::where('role',"!=",1)->get();

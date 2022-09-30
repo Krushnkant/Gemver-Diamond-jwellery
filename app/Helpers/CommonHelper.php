@@ -404,3 +404,90 @@ function add_address($data)
     return false;
 }
 
+function getPaymentStatus($payment_status){
+    if($payment_status == 1){
+        $payment_status = "Pending";
+        $class = "text-primary";
+    }
+    elseif($payment_status == 2){
+        $payment_status = "Success";
+        $class = "text-success";
+    }
+    elseif($payment_status == 3){
+        $payment_status = "Refunded";
+        $class = "text-info";
+    }
+    elseif($payment_status == 4){
+        $payment_status = "Cancelled";
+        $class = "text-warning";
+    }
+    elseif($payment_status == 5){
+        $payment_status = "Refund Request";
+        $class = "text-muted";
+    }
+    elseif($payment_status == 6){
+        $payment_status = "Pay Refund";
+        $class = "text-dark";
+    }
+    elseif($payment_status == 7){
+        $payment_status = "Failed";
+        $class = "text-danger";
+    }
+
+    return ['payment_status' => $payment_status, 'class' => $class];
+}
+
+function getPaymentType($payment_type)
+{
+    if ($payment_type == 1){
+        $payment_type = "Prepaid";
+    }
+    elseif ($payment_type == 2){
+        $payment_type = "COD";
+    }
+
+    return $payment_type;
+}
+
+function getOrderStatus($order_status){
+    if($order_status == 1){
+        $order_status = "New Order";
+        $class = "label label-warning";
+    }
+    elseif($order_status == 2){
+        $order_status = "Out for Delivery";
+        $class = "label label-info";
+    }
+    elseif($order_status == 3){
+        $order_status = "Delivered";
+        $class = "label label-success";
+    }
+    elseif($order_status == 4){
+        $order_status = "Return Request";
+        $class = "label label-warning";
+    }
+    elseif($order_status == 5){
+        $order_status = "Return In Transit";
+        $class = "label label-secondary";
+    }
+    elseif($order_status == 6){
+        $order_status = "Returned";
+        $class = "label label-light";
+    }
+    elseif($order_status == 7){
+        $order_status = "Cancelled";
+        $class = "label label-danger";
+    }
+    elseif($order_status == 8){
+        $order_status = "Cancelled";
+        $class = "label label-danger";
+    }
+
+    return ['order_status' => $order_status, 'class' => $class];
+}
+
+function count_order_items($OrderId){
+    $order_items = \App\Models\OrderItem::where('order_id',$OrderId)->whereNotIn('order_status',[6,7,8])->count();
+    return $order_items;
+}
+

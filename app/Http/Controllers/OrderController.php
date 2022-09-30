@@ -17,6 +17,11 @@ class OrderController extends Controller
         return  view('frontend.myaccount_orders',compact('orders'));
     }
 
+    public function orderdetails($order_id){
+        $orderdetails = Order::with('order_item','address')->where(['user_id' => session('customer.id'),'id' => $order_id])->first();
+        return  view('frontend.myaccount_orderdetail',compact('orderdetails'));
+    }
+
     public function checkout(){
         $address = Address::where('user_id',session('customer.id'))->get();
         $carts = ItemCart::where('user_id',session('customer.id'))->get();
@@ -86,8 +91,15 @@ class OrderController extends Controller
             $OrderItem->order_status = 3;
             $OrderItem->updated_by = 0;
             $OrderItem->order_note = '';
-            $product_item = ProductVariant::with('product.attribute','attribute_term')->where('id',$item)->first();
-
+            $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
+            $spe = array();
+            foreach($product_item->product_variant_variants as $keys => $value){
+                   $spe[] = array(
+                        'term' => $value,
+                        'term_name' => $product_item->attribute[$keys]
+                   ); 
+            }
+           
             // if($product_item != null){
             //     $product_item->total_orders = $product_item->total_orders + 1;
             //     if ($product_item->stock > 0) {
@@ -105,6 +117,7 @@ class OrderController extends Controller
             $order_item['totalItemAmount'] = $request->qty[$key] * $product_item->sale_price;
             $order_item['itemPayableAmt'] = $request->qty[$key] * $product_item->sale_price;
             $order_item['ProductTitle'] = $product_item->product_title;
+            $order_item['spe'] = $spe;
            
             $OrderItem->item_details = json_encode($order_item);
             $OrderItem->payment_action_date = isset($request->payment_date) ? $request->payment_date.' 00:00:00' : '';

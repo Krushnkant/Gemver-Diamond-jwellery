@@ -19,8 +19,7 @@
         </div>
     </div>
   
-    <form action="{{ route('make.payment') }}"  method="post" id="paymentForm">
-    {{ csrf_field() }}
+   
     <div class="container my-5 address_form_part">
         <div class="row">
             <div class="col-md-12 col-lg-6">
@@ -29,7 +28,7 @@
                     @if($address)
                     @foreach($address as $addr)
                     <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
-                        <input class="form-check-input" type="radio" name="check_address" id="check_address" value="{{ $addr->id }}">
+                        <input class="form-check-input check_address" type="radio" name="check_address" id="check_address"  value="{{ $addr->id }}">
                         <label class="form-check-label d-flex" for="check_address">
                             <span class="ms-2">
                                 <div class="radio_button_part">
@@ -129,7 +128,10 @@
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" id="save_closeAddressBtn" class="btn btn-primary chnage_address_btn">Save changes <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                                        <button type="button" id="save_closeAddressBtn" class="btn btn-primary chnage_address_btn">Save changes <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                            <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
                                     </div>
                                    
                                 </form>
@@ -144,6 +146,9 @@
             
             <div class="col-md-12 col-lg-6 ps-md-3 ps-lg-5">
                 <div class="your_order_box">
+                    <form action="{{ route('make.payment') }}"  method="post" id="paymentForm">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="address_id" value="" id="address_id">
                     <div class="your_order_heading sub_heading mb-lg-3 mb-md-3 mb-lg-2 mb-xxl-4"> Your order</div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
@@ -219,14 +224,13 @@
                                         @endif
                                         <input class="form-check-input" type="hidden" name="item[]" id="item" value="{{  $item->id }}"> 
                                         <input class="form-check-input" type="hidden" name="qty[]" id="qty" value="{{  $cart['item_quantity'] }}"> 
+                                        <input class="form-check-input" type="hidden" name="item_type[]" id="item_type" value="{{  $cart['item_type'] }}"> 
                                     </div>   
                                 </div>
                                 <div class="col-6 text-end">
                                     <div class="your_order_sub_heading">
                                         $ {{  $sale_price * $cart['item_quantity'] }}
-                                        
                                     </div> 
-                                      
                                 </div>
                             </div>
                         </div>
@@ -290,20 +294,6 @@
                             </div>   
                        </div>
                     </div>
-                    <!-- <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-5 mb-4">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label d-flex" for="flexRadioDefault1">
-                            <img src="{{ asset('frontend/image/cash_on_delivery.png') }}" alt="" class="radio_button_img">
-                            <span class="ms-2">
-                                <div class="radio_button_part">
-                                    Cash on Delivery
-                                </div>
-                                <div class="radio_button_paragraph">
-                                    Pay with cash upon delivery.
-                                </div>
-                            </span>
-                        </label>
-                        </div> -->
                         <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-5 mb-4 ps-0">
                             <!-- <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked> -->
                             <label class="form-check-label d-flex" for="flexRadioDefault2">
@@ -325,12 +315,13 @@
                         throughout this website, and for other purposes described in our privacy policy.
                     </div>
                     <button type="submit" class="btn btn-primary place_order_btn">Place Order <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                </form>
                 </div>
             </div>
-            
+           
         </div>
     </div>
-    </form>
+    
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script type="text/javascript">
         // $('.place_order_btn').click(function (e) {
@@ -485,7 +476,7 @@
 
                         
                         $("#first_name").focus();
-                        $(".other_address").append('<div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address"><input class="form-check-input" type="radio" name="check_address" id="check_address" value="'+ res.address.id +'" checked><label class="form-check-label d-flex" for="flexRadioDefault3"><span class="ms-2"><div class="radio_button_part">'+ res.address.first_name +' '+ res.address.last_name +'</div><div class="radio_button_paragraph">'+ res.address.address +','+ res.address.city +','+ res.address.state +','+ res.address.pincode +','+ res.address.country +'</div></span></label></div>');
+                        $(".other_address").append('<div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address"><input class="form-check-input" type="radio" name="check_address" id="check_address" class="check_address" value="'+ res.address.id +'" checked><label class="form-check-label d-flex" for="flexRadioDefault3"><span class="ms-2"><div class="radio_button_part">'+ res.address.first_name +' '+ res.address.last_name +'</div><div class="radio_button_paragraph">'+ res.address.address +','+ res.address.city +','+ res.address.state +','+ res.address.pincode +','+ res.address.country +'</div></span></label></div>');
                         $("#addressModal").modal('hide');
                     } 
 
@@ -500,6 +491,7 @@
 
         $(document).ready (function () {  
             $('form[id="paymentForm"]').validate({  
+            ignore: [],    
             errorElement: 'span',
                 errorPlacement: function (error, element) {
             },
@@ -510,17 +502,20 @@
                 $(element).removeClass('is-invalid');
             },
             rules: {  
-            check_address: 'required',  
-            
+            address_id: 'required',  
             },  
             messages: {  
-            check_address: 'This field is required',  
-             
+            address_id: 'This field is required',
             },  
             submitHandler: function(form) {  
             form.submit();  
             }  
         });  
+
+        $('.check_address').on('change', function() {
+          var address_id = $('input[name=check_address]:checked').val();
+          $('#address_id').val(address_id);
+        });
 });    
         
         

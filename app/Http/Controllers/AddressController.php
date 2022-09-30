@@ -58,4 +58,67 @@ class AddressController extends Controller
         $address->save();
         return response()->json(['status' => '200','address' => $address]);
     }
+
+    public function editaddress($id){
+        $address = Address::find($id);
+        return response()->json($address);
+    }
+
+    public function deleteaddress($id){
+        $address = Address::find($id);
+        if ($address){
+            $address->delete();
+            return response()->json(['status' => '200']);
+        }
+        return response()->json(['status' => '400']);
+    }
+
+    public function updateAddress(Request $request){
+    
+        $messages = [
+            'first_name.required' =>'Please provide a First Name',
+            'last_name.required' =>'Please provide a Last Name',
+            'email.required' =>'Please provide a Email',
+            'mobile_no.required' =>'Please provide a Mobile No',
+            'address.required' =>'Please provide a Address',
+            'country.required' =>'Please provide a Country',
+            'state.required' =>'Please provide a State',
+            'city.required' =>'Please provide a City',
+            'pincode.required' =>'Please provide a Pincode',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'mobile_no' => 'required',
+            'address' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'pincode' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $address = Address::find($request->address_id);
+        if ($address) {
+            $address->first_name = $request->first_name;
+            $address->last_name = $request->last_name;
+            $address->email = $request->email;
+            $address->mobile_no = $request->mobile_no;
+            $address->address = $request->address;
+            $address->address2 = $request->address2;
+            $address->state = $request->state;
+            $address->city = $request->city;
+            $address->pincode = $request->pincode;
+            $address->country = $request->country;
+            $address->save();
+            return response()->json(['status' => '200']);
+        }
+        return response()->json(['status' => '400']);
+
+        }
+    
 }

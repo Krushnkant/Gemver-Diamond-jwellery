@@ -61,6 +61,19 @@ Route::get('infopage/learn-about-lab-made-diamonds',[OtherPageController::class,
 Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
 
 
+// Route::view('engagement','frontend.engagement');
+// Route::view('finejewellery','frontend.finejewellery');
+// Route::view('labgrowndiamonds','frontend.labgrowndiamonds');
+// Route::view('weddingbrands','frontend.weddingbands');
+// Route::view('custommadejewellery','frontend.custommadejewellery');
+
+Route::get('engagement',[OtherPageController::class,'engagement']);
+Route::get('finejewellery',[OtherPageController::class,'finejewellery']);
+Route::get('labgrowndiamonds',[OtherPageController::class,'labgrowndiamonds']);
+Route::get('custommadejewellery',[OtherPageController::class,'custommadejewellery']);
+Route::get('weddingbands',[OtherPageController::class,'weddingbands']);
+
+
 Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop'); 
 Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
@@ -135,8 +148,14 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
 
     //my accound route
-    Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
+    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('user.address');
+    //Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
     Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
+    Route::get('address/{id}/delete',[\App\Http\Controllers\AddressController::class,'deleteaddress'])->name('address.delete');
+    Route::get('address/{id}/edit',[\App\Http\Controllers\AddressController::class,'editaddress'])->name('address.edit');
+
+    Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
+
 
     Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
     Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
@@ -145,9 +164,12 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
 
 
-    Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('success.orders');
-    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('success.address');
-    Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('success.account');
+    Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('order.orders');
+    Route::get('orderdetails/{orderid}', [\App\Http\Controllers\OrderController::class,'orderdetails'])->name('order.orderdetails');
+
+    Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('user.account');
+    Route::post('updateProfile',[\App\Http\Controllers\AuthController::class,'updateProfile'])->name('user.update');
+    Route::post('updatePassword',[\App\Http\Controllers\AuthController::class,'updatePassword'])->name('password.update');
     
 });
 
@@ -495,7 +517,32 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('allcouponlist',[\App\Http\Controllers\admin\CouponController::class,'allcouponlist'])->name('allcouponlist');
     Route::get('coupons/{id}/edit',[\App\Http\Controllers\admin\CouponController::class,'editcoupon'])->name('coupons.edit');
     Route::get('coupons/{id}/delete',[\App\Http\Controllers\admin\CouponController::class,'deletecoupon'])->name('coupons.delete');
- 
+
+    Route::get('menupage/engagementpage',[\App\Http\Controllers\admin\MenuPageController::class,'engagementpage'])->name('menupage.engagementpage');
+    Route::post('updateEngagementPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateEngagementPage'])->name('infopage.updateEngagementPage');
+    Route::get('menupage/{id}/edit',[\App\Http\Controllers\admin\MenuPageController::class,'editmenupage'])->name('menupage.edit');
+
+    Route::get('menupage/weddingpage',[\App\Http\Controllers\admin\MenuPageController::class,'weddingpage'])->name('menupage.weddingpage');
+    Route::post('updateWeddingPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateWeddingPage'])->name('infopage.updateWeddingPage');
+
+    Route::get('menupage/growndiamondpage',[\App\Http\Controllers\admin\MenuPageController::class,'growndiamondpage'])->name('menupage.growndiamondpage');
+    Route::post('updateGrownDiamondPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateGrownDiamondPage'])->name('infopage.updateGrownDiamondPage');
+
+
+    Route::get('orders',[\App\Http\Controllers\admin\OrderController::class,'index'])->name('orders.list');
+    Route::post('allOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allOrderlist'])->name('allOrderlist');
+    Route::post('updateOrdernote',[\App\Http\Controllers\admin\OrderController::class,'updateOrdernote'])->name('updateOrdernote');
+    Route::get('viewOrder/{orderid}',[\App\Http\Controllers\admin\OrderController::class,'viewOrder'])->name('orders.view');
+    Route::post('orders/save',[\App\Http\Controllers\admin\OrderController::class,'save'])->name('orders.save');
+    Route::post('change_order_status',[\App\Http\Controllers\admin\OrderController::class,'change_order_status'])->name('change_order_status');
+    Route::post('change_order_item_status',[\App\Http\Controllers\admin\OrderController::class,'change_order_item_status'])->name('change_order_item_status');
+    Route::get('orders/pdf/{id}',[\App\Http\Controllers\admin\OrderController::class,'generate_pdf'])->name('orders.pdf');
+    Route::get('orders/{order_id}/play_video',[\App\Http\Controllers\admin\OrderController::class,'order_play_video'])->name('orders.play_video');
+
+    Route::get('deliveryorders.list',[\App\Http\Controllers\admin\OrderController::class,'deliveryorders'])->name('deliveryorders.list');
+    Route::post('allDeliveryOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allDeliveryOrderlist'])->name('allDeliveryOrderlist');
+    Route::post('checkorderotp',[\App\Http\Controllers\admin\OrderController::class,'checkorderotp'])->name('checkorderotp');
+
     
 });
 

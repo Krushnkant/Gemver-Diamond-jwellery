@@ -396,7 +396,6 @@ $(function() {
 });
 
 $(document).ready(function() {
-    wishload();
     cartload();
 
     //$('.add-to-wishlist-btn').click(function (e) {
@@ -462,26 +461,6 @@ $(document).ready(function() {
         });
     });
 });
-
-function wishload() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: '/load-wishlist-data',
-        method: "GET",
-        success: function(response) {
-            $('.basket-item-count').html('');
-            var parsed = jQuery.parseJSON(response)
-            var value = parsed;
-            //console.log(value);
-            $('.basket-item-count').html(value['totalwishlist']);
-        }
-    });
-}
 
 
 function cartload() {
