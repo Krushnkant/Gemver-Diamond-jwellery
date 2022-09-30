@@ -340,6 +340,25 @@ $(document).ready(function() {
             }
         }
     });
+    $('.fancy-color-diamonds').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: false,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        responsive: {
+            0: {
+                items: 2
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    });
     $(".shop-dimond-by-shape-slider > .owl-nav >  .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" class="ms-3" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#0b1727"/></svg>');
     $(".shop-dimond-by-shape-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" class="ms-3" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#0b1727"/></svg>');
     $(".shop-by-category > .owl-nav >  .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" class="" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#0b1727"/></svg>');
@@ -380,71 +399,65 @@ $(document).ready(function() {
     cartload();
 
     //$('.add-to-wishlist-btn').click(function (e) {
-    $(document).on('click','.add-to-wishlist-btn',function(e){    
+    $(document).on('click', '.add-to-wishlist-btn', function(e) {
         e.preventDefault();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+
+        var variant_id = $(this).closest('.wire_bangle_shop_radio').find('.variant_id').val();
+        var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
+
+        $.ajax({
+            url: "/add-to-wishlist",
+            method: "POST",
+            data: {
+                'variant_id': variant_id,
+                'item_type': item_type,
+            },
+            success: function(response) {
+                if (response.action == 'add') {
+                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
+                    wishload();
+                } else if (response.action == 'remove') {
+                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
+                    wishload();
                 }
-            });
-            var thisdata = $(this);
-    
-            var variant_id = $(this).closest('.wire_bangle_shop_radio').find('.variant_id').val();
-            var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
-    
-            $.ajax({
-                url: "/add-to-wishlist",
-                method: "POST",
-                data: {
-                    'variant_id': variant_id,
-                    'item_type': item_type,
-                },
-                success: function (response) {
-                    if (response.action == 'add')
-                    {
-                        thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
-                      
-                    } 
-                    else if (response.action == 'remove') 
-                    {
-                        thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
-                      
-                    }
-                },
+            },
         });
     });
 
-    $(document).on('click','.add-to-wishlist-btn-diamond',function(e){    
+    $(document).on('click', '.add-to-wishlist-btn-diamond', function(e) {
         e.preventDefault();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+
+        var diamond_id = $(this).closest('.round_cut_lab_diamonds_box').find('.diamond_id').val();
+        var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
+
+        $.ajax({
+            url: "/add-to-wishlist",
+            method: "POST",
+            data: {
+                'variant_id': diamond_id,
+                'item_type': item_type,
+            },
+            success: function(response) {
+                if (response.action == 'add') {
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
+                    wishload();
+                } else if (response.action == 'remove') {
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
+                    wishload();
                 }
-            });
-            var thisdata = $(this);
-    
-            var diamond_id = $(this).closest('.round_cut_lab_diamonds_box').find('.diamond_id').val();
-            var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
-    
-            $.ajax({
-                url: "/add-to-wishlist",
-                method: "POST",
-                data: {
-                    'variant_id': diamond_id,
-                    'item_type': item_type,
-                },
-                success: function (response) {
-                    if (response.action == 'add')
-                    {
-                        thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
-                       
-                    } 
-                    else if (response.action == 'remove') 
-                    {
-                        thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
-                       
-                    }
-                },
+            },
         });
     });
 });

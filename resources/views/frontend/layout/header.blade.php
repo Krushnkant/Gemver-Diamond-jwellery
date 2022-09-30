@@ -75,7 +75,8 @@
                                 </a>
                                 @endif
                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="{{ URL('orders') }}">My Account </a></li>
+                                    <li><a class="dropdown-item" href="{{ URL('account') }}">My Account </a></li>
+                                    <li><a class="dropdown-item" href="{{ URL('orders') }}">My Orders </a></li>
                                     <li><a class="dropdown-item" href="{{ URL('frontend/logout') }}">Logout</a></li>
                                 </ul>
                             </span>
@@ -114,7 +115,7 @@
                                         //dd($megamenu->sub_menu);
                                         if($megamenu != ""){   
                                     ?>
-                                    <li class="" ><a href="#">{{ $megamenu->title }}
+                                    <li class="" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                             </svg>
@@ -207,7 +208,7 @@
                                         if($megamenu != ""){   
                                     ?>
 
-                                    <li class="" ><a href="#">{{ $megamenu->title }}
+                                    <li class="" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                             </svg>
@@ -301,7 +302,7 @@
                                         if($megamenu != ""){   
                                     ?>
 
-                                    <li class="" ><a href="#">Fine Jewelry 
+                                    <li class="" ><a href="{{ url($megamenu->redirect_url) }}">Fine Jewelry 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                             </svg>
@@ -417,7 +418,7 @@
                                         //dd($megamenu->sub_menu);
                                         if($megamenu != ""){   
                                     ?>
-                                    <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }}" ><a href="# ">{{  $megamenu->title }}
+                                    <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }}" ><a href="{{ url($megamenu->redirect_url) }}">{{  $megamenu->title }}
                                         <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                             </svg>
@@ -520,7 +521,7 @@
                                         if($megamenu != ""){   
                                     ?>
                                     
-                                    <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="# ">{{ $megamenu->title }}
+                                    <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
                                         <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                             </svg>
@@ -584,7 +585,7 @@
                                     ?>
                                     
                                     <li class="{{ (request()->is('infopage*')) ? 'active' : '' }}">
-                                        <a href="#">{{ $megamenu->title }}
+                                        <a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
                                         <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                             <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                         </svg>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Infopage;
 use App\Models\DiamondAnatomy;
+use App\Models\Product;
+use App\Models\SmilingDifference;
 use Illuminate\Http\Request;
 
 class OtherPageController extends Controller
@@ -75,6 +77,38 @@ class OtherPageController extends Controller
     public function conflictfreediamonds(){
         $Infopage= Infopage::first();
         return view('frontend.conflictfreediamonds',compact('Infopage'));
+    }
+
+    
+
+
+    public function engagement(){
+       
+        return view('frontend.engagement');
+    }
+
+    public function finejewellery(){
+       
+        return view('frontend.finejewellery');
+    }
+
+    public function labgrowndiamonds(){
+        $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
+        $SmilingDifference = SmilingDifference::get();
+        return view('frontend.labgrowndiamonds',compact('products','SmilingDifference'));
+    }
+
+    public function custommadejewellery(){
+        $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
+        $SmilingDifference = SmilingDifference::get();
+
+        return view('frontend.custommadejewellery',compact('products','SmilingDifference'));
+    }
+
+    public function weddingbands(){
+        $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
+        $SmilingDifference = SmilingDifference::get();
+        return view('frontend.weddingbands',compact('products','SmilingDifference'));
     }
 
    

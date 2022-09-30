@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="my_account_heading">
-                    Hi {{ session("customer.full_name") }} <br>
-                    Welcome to your Account
+                    Hi {{ session("customer.full_name") }}
                 </div>
+                <p>Welcome to your Account</p>
             </div>
         </div>
         <ul class="nav nav-pills my-4 my_account_tab" id="pills-tab" role="tablist">
@@ -182,7 +182,16 @@
                                         </span>              
                                     </div>
                                     <div class="order-col-part-2 confirm_status col-9">
-                                        Confirm
+                                        <?php 
+                                        if(isset($orderdetails->order_status)) {
+                                            
+                                            $order_status = getOrderStatus($orderdetails->order_status);
+                                           
+                                            $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
+                                        }
+                                        
+                                        ?>
+                                        {!! $order_status  !!}
                                     </div>
                                 </div>
                             
@@ -214,7 +223,14 @@
                                         </span>
                                     </div>
                                     <div class="order-col-part-2 col-9 pending_status">
-                                         Pending
+                                        <?php
+                                       
+                                            $payment_status = getPaymentStatus($orderdetails->payment_status);
+                                            $payment_status = '<span class="'.$payment_status['class'].'">'.$payment_status['payment_status'].'</span>';
+                                        
+                                            
+                                        ?>
+                                        {!! $payment_status !!}
                                     </div>
                                 </div>
                             </div>

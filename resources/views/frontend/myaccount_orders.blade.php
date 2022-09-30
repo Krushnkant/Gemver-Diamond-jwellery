@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="my_account_heading">
-                    Hi {{ session("customer.full_name") }} <br>
-                    Welcome to your Account
+                    Hi {{ session("customer.full_name") }}
                 </div>
+                <p>Welcome to your Account</p>
             </div>
         </div>
         <ul class="nav nav-pills my-4 my_account_tab" id="pills-tab" role="tablist">
@@ -125,7 +125,14 @@
                                 </td>
                                 <td class="address_table_part">
                                    <div class="confirm_status">
-                                        Confirm
+                                    <?php
+                                       
+                                    $order_status = getOrderStatus($order->order_status);
+                                    $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
+                                
+                                    
+                                    ?>
+                                    {!! $order_status !!}
                                    </div>
                                 </td>
                                 <td class="address_table_part">

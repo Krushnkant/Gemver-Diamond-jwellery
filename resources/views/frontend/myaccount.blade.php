@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="my_account_heading">
-                    Hi {{ session("customer.full_name") }} <br>
-                    Welcome to your Account
+                    Hi {{ session("customer.full_name") }}
                 </div>
+                <p>Welcome to your Account</p>
             </div>
         </div>
         <ul class="nav nav-pills my-4 my_account_tab" id="pills-tab" role="tablist">
@@ -134,17 +134,17 @@
                                     <form action="" method="post" id="PasswordForm" name="PasswordForm">
                                         <div class="col-md-12 mb-3 mb-md-4 popup_padding">
                                             <label for="current_password" class="form-label form_heading">Current Password</label>
-                                            <input type="password"  class="form-control" id="current_password" name="current_password" placeholder="**********">
+                                            <input type="password"  class="form-control" id="current_password" name="current_password" placeholder="">
                                             <div id="current_password-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-12 mb-3 mb-md-4">
                                             <label for="new_password" class="form-label form_heading">New Password</label>
-                                            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="**********">
+                                            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="">
                                             <div id="new_password-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-12 mb-3 mb-md-4">
                                             <label for="confirm_password" class="form-label form_heading">Confirm New Password</label>
-                                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="***********">
+                                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="">
                                             <div id="confirm_password-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-12">
