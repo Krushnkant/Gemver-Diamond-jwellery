@@ -230,7 +230,7 @@
         line-height: normal;
     }
     .custom_engagement_paragrph {
-        font-size: 14px;
+        font-size: 13px;
     }
     .choose_your_setting_box {
         padding: 15px;
@@ -258,6 +258,26 @@
     }
     .choose_sub_heading {
         font-size: 14px;
+    }
+    /* ---------------------------------------------------------- */
+    .choose_your_setting_paragraph {
+        font-size: 15px;
+    }
+    .choose_your_setting_heading {
+        font-size: 18px;
+    }
+    .engagement_paragraph {
+        max-width: 350px;
+    }
+    /* -------------------------------------------------------------------- */
+    .dainty-ring-gifts-paragraph {
+        font-size: 14px;
+    }
+    .finejewellery-paragraph {
+        font-size: 13px;
+    }
+    .finejewellery-heading {
+        font-size: 17px;
     }
 }
 
@@ -1664,6 +1684,22 @@
     .engagement_text_part {
         padding: 0 20px;
     }
+    /* ----------------------------------------------------- */
+    .choose_your_setting_heading {
+        font-size: 22px;
+    }
+    .engagement_start_diamond,
+    .engagement_start_setting {
+        padding: 7px 16px;
+        font-size: 12px;
+    }
+    .custom_made_heading {
+        font-size: 18px;
+    }
+    /* ------------------------------------------------------- */
+    .dainty-ring-gifts-paragraph {
+        font-size: 14px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1779,6 +1815,12 @@
     }
     .order-col-part-2 {
         width: 70%;
+    }
+    .finejewellery-paragraph {
+        font-size: 13px;
+    }
+    .finejewellery-heading {
+        font-size: 17px;
     }
 }
 

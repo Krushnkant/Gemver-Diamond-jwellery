@@ -65,7 +65,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 order-2 order-md-1">
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-0 mb-xl-3">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
             <img src="{{ asset('frontend/image/choose_made_engagement.png') }}" alt="">
         </div>  
     </div>

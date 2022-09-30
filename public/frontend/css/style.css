@@ -5527,9 +5527,21 @@ width: 100%;
         color: var(--primary);
     }
     
+    .choose_your_setting_paragraph {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
     .choose_your_setting_section,
     .create_your_own_section {
         padding: 70px 0;
+    }
+    
+    .custom_made_wedding_bands_section {
+        padding: 50px 0;
     }
     
     .choose_sub_heading {
@@ -5546,23 +5558,12 @@ width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
-    
-    .choose_your_setting_box:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #BB9761;
-        opacity: 0.14;
-        pointer-events: none;
+        background: #FBF4EB;
     }
     
     .custom_made_heading {
         font-weight: 600;
-        font-size: 25px;
+        font-size: 20px;
         line-height: 35px;
         letter-spacing: 0.1em;
         color: var(--primary);
@@ -5579,6 +5580,10 @@ width: 100%;
         margin: auto;
     }
     
+    .custom_made_paragraph {
+        max-width: 600px;
+    }
+    
     .create_your_own_heading {
         font-weight: 600;
         font-size: 30px;
@@ -5589,7 +5594,7 @@ width: 100%;
     
     .create_your_own_section {
         position: relative;
-        background: #F6F6F6;
+        background: #Fbfbfb;
     }
     
     .create_your_own_section:after {
@@ -5640,4 +5645,72 @@ width: 100%;
     
     .create_your_own_icon_part svg {
         width: 20px;
+    }
+    
+    .explore_diamonds_section {
+        background: #Fbfbfb;
+    }
+    
+    .smiling_gemver_banner_section {
+        background: #FBF4EB;
+    }
+    
+    .fancy_color_diamonds {
+        max-width: 540px;
+        margin: auto;
+    }
+    
+    .fancy-color-heading {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #0B1727;
+    }
+    
+    .fancy-color-duiamonds-img {
+        max-width: 90px;
+    }
+    
+    .lab-diamond-img img {
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .dainty-ring-gifts-paragraph {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #808080;
+        max-width: 700px;
+        margin: auto;
+    }
+    
+    .finejewellery-img img {
+        border-radius: 10px;
+    }
+    
+    .finejewellery-paragraph {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .finejewellery-heading {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        letter-spacing: 0.1em;
+        color: var(--primary);
+    }
+    
+    .explore_diamonds_section .owl-dots,
+    .explore_diamonds_section .owl-nav {
+        display: none;
     }
