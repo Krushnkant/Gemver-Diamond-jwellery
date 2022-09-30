@@ -1,3 +1,4 @@
+var base_url = window.location.origin;
 $(document).ready(function() {
 
     var asset = $('#asset').val();
@@ -397,10 +398,10 @@ $(function() {
 
 $(document).ready(function() {
     cartload();
-
+    
     //$('.add-to-wishlist-btn').click(function (e) {
     $(document).on('click', '.add-to-wishlist-btn', function(e) {
-        var base_url = window.location.origin;
+        
 
         e.preventDefault();
         $.ajaxSetup({
@@ -433,10 +434,7 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.add-to-wishlist-btn-diamond', function(e) {
-        var base_url = window.location.origin;
-
-      
-
+        
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -477,7 +475,7 @@ function cartload() {
     });
 
     $.ajax({
-        url: '/load-cart-data',
+        url: base_url+'/load-cart-data',
         method: "GET",
         success: function(response) {
             $('.basket-item-count-cart').html('');
