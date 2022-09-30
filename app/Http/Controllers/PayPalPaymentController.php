@@ -79,7 +79,7 @@ class PayPalPaymentController extends Controller
     
         $order = new Order();
         $order->user_id = session('customer.id');
-        $order->address_id = $request->check_address;
+        $order->address_id = $request->address_id;
         $order->custom_orderid = Carbon::now()->format('ymd') . $last_order_id;
         $order->sub_totalcost = isset($request->sub_totalcost) ? $request->sub_totalcost: null;
         $order->shipping_charge = isset($request->shipping_charge) ? $request->shipping_charge : 0;
@@ -110,7 +110,15 @@ class PayPalPaymentController extends Controller
             $OrderItem->order_status = 1;
             $OrderItem->updated_by = 0;
             $OrderItem->order_note = '';
-            $product_item = ProductVariant::with('product.attribute','attribute_term')->where('id',$item)->first();
+            $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
+           
+            $spe = array();
+            foreach($product_item->product_variant_variants as $product_variant_variant){
+                $spe[] = array(
+                    'term' => $product_variant_variant->attribute->attribute_name,
+                    'term_name' => $product_variant_variant->attribute_term->attrterm_name
+                );    
+            }
 
             // if($product_item != null){
             //     $product_item->total_orders = $product_item->total_orders + 1;
@@ -125,10 +133,12 @@ class PayPalPaymentController extends Controller
             //$order_item['attributeTerm'] = $product_item->attribute_term->attrterm_name;
             $order_item['itemQuantity'] = $request->qty[$key];
             $order_item['orderItemPrice'] = $product_item->sale_price;
-            $order_item['SubDiscount'] = 0;
             $order_item['totalItemAmount'] = $request->qty[$key] * $product_item->sale_price;
             $order_item['itemPayableAmt'] = $request->qty[$key] * $product_item->sale_price;
-            $order_item['ProductTitle'] = $product_item->product_title;
+            $order_item['ProductTitle'] = $product_item->product->product_title;
+            $image = explode(',',$product_item->images);
+            $order_item['ProductImage'] = $image[0];
+            $order_item['spe'] = $spe;
            
             $OrderItem->item_details = json_encode($order_item);
             $OrderItem->payment_action_date = isset($request->payment_date) ? $request->payment_date.' 00:00:00' : '';

@@ -207,5 +207,64 @@ class AuthController extends Controller
         return  view('frontend.myaccount',compact('user'));
     }
 
+    public function updateProfile(Request $request){
+       
+        $messages = [
+            'name.required' =>'Please provide a  Name',
+            'email.required' =>'Please provide a Email',
+            'mobile_no.required' =>'Please provide a Mobile No'
+        ];
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'mobile_no' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $user = User::find(session('customer.id'));
+        if ($user) {
+            $user->full_name = $request->name;
+            $user->email = $request->email;
+            $user->mobile_no = $request->mobile_no;
+            $user->save();
+            return response()->json(['status' => '200','data' => $user]);
+        }
+        return response()->json(['status' => '400']);
+
+    }
+
+    public function updatePassword(Request $request){
+       
+        $messages = [
+            'current_password.required' =>'Please provide a  Current Password',
+            'new_password.required' =>'Please provide a New Password',
+            'confirm_password.required' =>'Please provide a Confirm Password'
+        ];
+        $validator = Validator::make($request->all(), [
+            'current_password' => 'required',
+            'new_password' => 'required',
+            'confirm_password' => 'required|same:new_password'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
+        $user = User::where('decrypted_password',$request->current_password)->where('id',session('customer.id'))->first();
+        if ($user) {
+            $user->password = Hash::make($request->new_password);
+            $user->decrypted_password = $request->new_password;
+            $user->save();
+            return response()->json(['status' => '200','data' => $user]);
+        }else{
+            return response()->json(['status' => '600']);
+        }
+        return response()->json(['status' => '400']);
+
+    }
+
 
 }

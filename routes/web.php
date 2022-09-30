@@ -135,8 +135,14 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
 
     //my accound route
-    Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
+    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('user.address');
+    //Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
     Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
+    Route::get('address/{id}/delete',[\App\Http\Controllers\AddressController::class,'deleteaddress'])->name('address.delete');
+    Route::get('address/{id}/edit',[\App\Http\Controllers\AddressController::class,'editaddress'])->name('address.edit');
+
+    Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
+
 
     Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
     Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
@@ -145,9 +151,12 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
 
 
-    Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('success.orders');
-    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('success.address');
-    Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('success.account');
+    Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('order.orders');
+    Route::get('orderdetails/{orderid}', [\App\Http\Controllers\OrderController::class,'orderdetails'])->name('order.orderdetails');
+
+    Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('user.account');
+    Route::post('updateProfile',[\App\Http\Controllers\AuthController::class,'updateProfile'])->name('user.update');
+    Route::post('updatePassword',[\App\Http\Controllers\AuthController::class,'updatePassword'])->name('password.update');
     
 });
 

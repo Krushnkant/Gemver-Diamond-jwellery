@@ -377,7 +377,6 @@ $(function() {
 });
 
 $(document).ready(function() {
-    wishload();
     cartload();
 
     //$('.add-to-wishlist-btn').click(function (e) {
@@ -404,12 +403,12 @@ $(document).ready(function() {
                     if (response.action == 'add')
                     {
                         thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
-                        wishload();
+                      
                     } 
                     else if (response.action == 'remove') 
                     {
                         thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
-                        wishload();
+                      
                     }
                 },
         });
@@ -438,37 +437,17 @@ $(document).ready(function() {
                     if (response.action == 'add')
                     {
                         thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
-                        wishload();
+                       
                     } 
                     else if (response.action == 'remove') 
                     {
                         thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
-                        wishload();
+                       
                     }
                 },
         });
     });
 });
-
-function wishload() {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: '/load-wishlist-data',
-        method: "GET",
-        success: function(response) {
-            $('.basket-item-count').html('');
-            var parsed = jQuery.parseJSON(response)
-            var value = parsed;
-            //console.log(value);
-            $('.basket-item-count').html(value['totalwishlist']);
-        }
-    });
-}
 
 
 function cartload() {
