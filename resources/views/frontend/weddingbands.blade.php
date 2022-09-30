@@ -6,14 +6,11 @@
     <img src="{{ asset('frontend/image/engagement-bg.png') }}" alt="">
     <div class="container engagement_text_part">
         <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">Engagement Ring</h1>
+            <h1 class="heading-h1 engagement_heading text-start mb-3">Wedding Bands</h1>
             <p class="engagement_paragraph mb-4">
-                Create your unique engagement ring from either the setting or a diamond.
+                A wedding band is a symbol of commitment; a
+                promise, a pledge, and a vow.
             </p>
-            <div class="engagement_button">
-                <button class="engagement_start_diamond">Start with Diamond</button>
-                <button class="engagement_start_setting ms-2 ms-md-3">Start with setting</button>
-            </div>
         </div>
     </div>
 </div>
@@ -81,65 +78,6 @@
             <img src="{{ asset('frontend/image/choose_made_engagement.png') }}" alt="">
         </div>  
     </div>
-</div>
- 
-<div class="create_your_own_section my-5">
-   <div class="container">
-    <div class="row">
-            <div class="col-md-12">
-                <div class="choose_your_setting_heading text-center mb-5">
-                    Create your own Engegement Ring
-                </div>
-                <div class="row">
-                    <div class="col-md-4 position-relative create_your_own_icon">
-                        <div class="create_your_own_image">
-                            <img src="{{ asset('frontend/image/engagement_1.png') }}" alt="">
-                        </div>
-                        <div class="text-center create_your_own_heading mb-3">
-                            Choose Setting
-                        </div>
-                        <p class="create_your_own_paragraph">
-                            Select an engagement ring setting to pair with your diamond.
-                        </p>
-                        <div class="create_your_own_icon_part">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="32" viewBox="0 0 31 32" fill="none">
-                                <path d="M30.0254 12.416V19.3008H0.787109V12.416H30.0254ZM19.127 0.667969V31.7227H11.7148V0.667969H19.127Z" fill="#0B1727"/>
-                            </svg>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-4 position-relative">
-                        <div class="create_your_own_image">
-                            <img src="{{ asset('frontend/image/engagement_2.png') }}" alt="">
-                        </div>
-                        <div class="text-center create_your_own_heading mb-3">
-                            Choose Diamond
-                        </div>
-                        <p class="create_your_own_paragraph">
-                            Select an engagement ring setting to pair with your diamond.
-                        </p>
-                        <div class="create_your_own_icon_part">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
-                                <path d="M25.9414 0.318359V6.55859H0.0722656V0.318359H25.9414ZM25.9414 12.8574V19.0977H0.0722656V12.8574H25.9414Z" fill="#0B1727"/>
-                            </svg>
-                        </div>
-                    </div>
-                   
-                    <div class="col-md-4 position-relative">
-                        <div class="create_your_own_image">
-                            <img src="{{ asset('frontend/image/engagement_3.png') }}" alt="">
-                        </div>
-                        <div class="text-center create_your_own_heading mb-3">
-                            Complete your Ring
-                        </div>
-                        <p class="create_your_own_paragraph">
-                            Select an engagement ring setting to pair with your diamond.
-                        </p>
-                    </div>
-                </div>
-            </div>  
-        </div>
-   </div>
 </div>
 
 <div class="container mb-5 pb-5">

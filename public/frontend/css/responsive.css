@@ -212,6 +212,53 @@
         font-size: 11px;
         padding: 5px 16px;
     }
+    /* ---------------------------------------------------------------------- */
+    .engagement_paragraph {
+        font-size: 14px;
+    }
+    .engagement_start_diamond,
+    .engagement_start_setting {
+        padding: 11px 12px;
+        font-size: 13px;
+        line-height: 13px;
+    }
+    .choose_your_setting_heading {
+        font-size: 20px;
+    }
+    .custom_made_heading {
+        font-size: 18px;
+        line-height: normal;
+    }
+    .custom_engagement_paragrph {
+        font-size: 14px;
+    }
+    .choose_your_setting_box {
+        padding: 15px;
+        line-height: normal;
+    }
+    .choose_your_setting_section,
+    .create_your_own_section {
+        padding: 30px 0;
+    }
+    .create_your_own_heading {
+        font-size: 18px;
+    }
+    .engagement_bg_slider img {
+        height: 300px;
+        object-fit: cover;
+    }
+    .engagement_text_part {
+        padding: 0 15px;
+    }
+    .create_your_own_icon_part {
+        text-align: center;
+        margin: 10px 0;
+        position: initial;
+        transform: none;
+    }
+    .choose_sub_heading {
+        font-size: 14px;
+    }
 }
 
 @media (max-width:575px) {
@@ -1591,6 +1638,32 @@
     .order-col-part-2 {
         width: 75%;
     }
+    /* --------------------------------------------------------------- */
+    .choose_your_setting_heading {
+        font-size: 25px;
+    }
+    .engagement_start_diamond,
+    .engagement_start_setting {
+        padding: 10px 20px;
+    }
+    .create_your_own_heading {
+        font-size: 16px;
+    }
+    .create_your_own_paragraph {
+        font-size: 13px;
+    }
+    .custom_engagement_paragrph {
+        font-size: 14px;
+    }
+    .custom_made_heading {
+        font-size: 19px;
+    }
+    .choose_your_setting_box {
+        padding: 15px;
+    }
+    .engagement_text_part {
+        padding: 0 20px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1932,6 +2005,20 @@
     .login_padding {
         padding-left: 15px !important;
     }
+    /* ---------------------------------------------------- */
+    .engagement_heading {
+        font-size: 38px;
+    }
+    .engagement_start_diamond,
+    .engagement_start_setting {
+        padding: 15px 27px;
+    }
+    .choose_your_setting_heading {
+        font-size: 28px;
+    }
+    .custom_made_heading {
+        font-size: 23px;
+    }
 }
 
 @media (min-width:1200px) and (max-width:1399px) {
@@ -1940,6 +2027,9 @@
     }
     .order-part .order-include-col:last-child {
         padding-right: 15px !important;
+    }
+    .engagement_text_part {
+        padding: 0 30px;
     }
 }
 
