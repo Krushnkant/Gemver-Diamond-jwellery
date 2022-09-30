@@ -857,7 +857,7 @@ $('.add-to-cart').click(function (e) {
         //   alert(diamond_id);
         //   alert(item_type);
           $.ajax({
-              url: "/add-to-cart", 
+            url: "{{ url('/add-to-cart') }}",  
               method: "POST", 
               data: { 
                   'variant_id': variant_id, 

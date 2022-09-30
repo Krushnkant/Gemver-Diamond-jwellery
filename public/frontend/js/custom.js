@@ -412,7 +412,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
 
         $.ajax({
-            url: "/add-to-wishlist",
+            url: "{{ url('/add-to-wishlist') }}",
             method: "POST",
             data: {
                 'variant_id': variant_id,
@@ -443,7 +443,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
 
         $.ajax({
-            url: "/add-to-wishlist",
+            url: "{{ url('/add-to-wishlist') }}",
             method: "POST",
             data: {
                 'variant_id': diamond_id,

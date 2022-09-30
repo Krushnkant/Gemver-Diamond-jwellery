@@ -658,7 +658,7 @@ $('.add-to-cart').click(function (e) {
         var item_type = $(this).closest('.diamond-data').find('#item_type').val();
         var quantity = 1;
         $.ajax({
-            url: "/add-to-cart", 
+            url: "{{ url('/add-to-cart') }}",  
             method: "POST", 
             data: { 
                 'variant_id': diamond_id, 

@@ -438,7 +438,7 @@ $('body').on('change', '.qty', function () {
     };
 
     $.ajax({
-        url: "/add-to-cart", 
+        url: "{{ url('/add-to-cart') }}",  
         method: "POST",
         data: data,
         success: function (response) {
