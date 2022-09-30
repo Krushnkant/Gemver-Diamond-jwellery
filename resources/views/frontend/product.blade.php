@@ -1148,7 +1148,7 @@ $('.select_cart_btn').click(function (e) {
         var quantity = 1;
  
         $.ajax({
-            url: "/add-to-cart", 
+            url: "{{ url('/add-to-cart') }}",  
             method: "POST", 
             data: { 
                 'variant_id': variant_id, 
