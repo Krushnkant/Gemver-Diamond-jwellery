@@ -400,6 +400,8 @@ $(document).ready(function() {
 
     //$('.add-to-wishlist-btn').click(function (e) {
     $(document).on('click', '.add-to-wishlist-btn', function(e) {
+        var base_url = window.location.origin;
+
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -412,7 +414,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
 
         $.ajax({
-            url: "{{ url('/add-to-wishlist') }}",
+            url: base_url+"/add-to-wishlist",
             method: "POST",
             data: {
                 'variant_id': variant_id,
@@ -421,16 +423,20 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.action == 'add') {
                     thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
-                    wishload();
+                   // wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
-                    wishload();
+                    //wishload();
                 }
             },
         });
     });
 
     $(document).on('click', '.add-to-wishlist-btn-diamond', function(e) {
+        var base_url = window.location.origin;
+
+      
+
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -443,7 +449,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
 
         $.ajax({
-            url: "{{ url('/add-to-wishlist') }}",
+            url: base_url+"/add-to-wishlist",
             method: "POST",
             data: {
                 'variant_id': diamond_id,
@@ -452,10 +458,10 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.action == 'add') {
                     thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
-                    wishload();
+                    //wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
-                    wishload();
+                    //wishload();
                 }
             },
         });
