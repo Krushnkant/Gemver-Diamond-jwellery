@@ -37,7 +37,7 @@
                             <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
                         </a>
                     </div>
-                    <span class="d-flex align-items-center justify-content-end">
+                    <span class="d-flex align-items-center justify-content-end header_logo_cart">
                         <div class="cart-icon-part">
                             <span class="position-relative dropdown">
                                <a href="{{ URL('/wishlist') }}" class="btn btn-secondary dropdown-toggle" id="">

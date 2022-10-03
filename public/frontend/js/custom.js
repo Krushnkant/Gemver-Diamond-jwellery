@@ -1,4 +1,4 @@
-var base_url =  window.location.origin + '/public';
+var base_url = window.location.origin + '/public';
 $(document).ready(function() {
 
     var asset = $('#asset').val();
@@ -372,6 +372,8 @@ $(document).ready(function() {
     $(".shop-by-style-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#0b1727"/></svg>');
     $(".home-page-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#fff"/></svg>');
     $(".home-page-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#fff"/></svg>');
+    $(".products_item > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#fff"/></svg>');
+    $(".products_item > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#fff"/></svg>');
 });
 $(window).scroll(function() {
     if ($(this).scrollTop() > 1) {
@@ -398,10 +400,10 @@ $(function() {
 
 $(document).ready(function() {
     cartload();
-    
+
     //$('.add-to-wishlist-btn').click(function (e) {
     $(document).on('click', '.add-to-wishlist-btn', function(e) {
-        
+
 
         e.preventDefault();
         $.ajaxSetup({
@@ -415,7 +417,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.wire_bangle_shop_radio').find('.item_type').val();
 
         $.ajax({
-            url: base_url+"/add-to-wishlist",
+            url: base_url + "/add-to-wishlist",
             method: "POST",
             data: {
                 'variant_id': variant_id,
@@ -424,7 +426,7 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.action == 'add') {
                     thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
-                   // wishload();
+                    // wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
                     //wishload();
@@ -434,7 +436,7 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.add-to-wishlist-btn-diamond', function(e) {
-        
+
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -447,7 +449,7 @@ $(document).ready(function() {
         var item_type = $(this).closest('.round_cut_lab_diamonds_box').find('.item_type').val();
 
         $.ajax({
-            url: base_url+"/add-to-wishlist",
+            url: base_url + "/add-to-wishlist",
             method: "POST",
             data: {
                 'variant_id': diamond_id,
@@ -475,7 +477,7 @@ function cartload() {
     });
 
     $.ajax({
-        url: base_url+'/load-cart-data',
+        url: base_url + '/load-cart-data',
         method: "GET",
         success: function(response) {
             $('.basket-item-count-cart').html('');

@@ -595,7 +595,8 @@ right: 0;
     
     .shop_dimond_by_shape .owl-nav,
     .shop-by-category .owl-nav,
-    .product-detail .owl-nav {
+    .product-detail .owl-nav,
+    .products_item .owl-nav {
         position: absolute;
         right: 21px;
     }
@@ -1366,6 +1367,7 @@ right: 0;
     .wire_bangle_page .price_discount {
         font-size: 16px;
         color: var(--secondary);
+        text-transform: lowercase;
     }
     
     .wire_bangle_page .wire_bangle_paragraph {
@@ -1769,7 +1771,6 @@ right: 0;
         min-height: 40px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 17px 21px;
-        font-weight: 700;
         font-size: 16px;
         line-height: 20px;
         letter-spacing: 0.1em;
@@ -2047,17 +2048,15 @@ right: 0;
     }
     
     .contact_us_paragraph {
-        font-family: 'Jost';
         font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 26px;
         text-transform: capitalize;
         color: #0B1727;
     }
     
     .contact_us_bg {
-        background: url(../image/black-bg.png) no-repeat;
+        background: #fff;
         height: 100%;
         background-size: cover;
         position: relative;
@@ -2071,21 +2070,19 @@ right: 0;
     }
     
     .contact_us_sub_heading {
-        font-weight: 300;
-        font-size: 21px;
+        font-weight: 600;
+        font-size: 18px;
         line-height: 25px;
         text-transform: capitalize;
-        color: #FFFFFF;
+        color: var(--primary);
     }
     
     .contact_us_sub_paragraph {
-        font-family: 'Jost';
         font-style: normal;
-        font-weight: 600;
-        font-size: 19px;
+        font-size: 17px;
         line-height: 27px;
         text-transform: capitalize;
-        color: #FFFFFF;
+        color: var(--primary);
     }
     /* ---------------------------------------------------------------- */
     
@@ -2124,6 +2121,7 @@ right: 0;
         top: 6px;
         width: auto;
         left: 186px;
+        display: none;
     }
     
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_price p.range-slider-p span:last-child {
@@ -2131,6 +2129,7 @@ right: 0;
         top: 6px;
         width: auto;
         right: 0;
+        display: none;
     }
     
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
@@ -2171,13 +2170,17 @@ transform: translateY(-50%); */
     }
     
     .round_cut_lab_checkbox input:checked+.shape_img {
-        background: var(--primary);
+        background: var(--secondary);
         color: #fff;
     }
     
     .round_cut_lab_checkbox .round_checkbox_part {
         display: inline-block;
         cursor: pointer;
+    }
+    
+    .round_cut_lab_checkbox input:checked+.shape_img path {
+        fill: #fff;
     }
     
     .round_cut_lab_checkbox input+.shape_img {
@@ -2349,11 +2352,12 @@ opacity: 1;
     
     .round_cut_lab_diamonds_price .ui-slider-range.ui-widget-header.ui-corner-all {
         background-color: var(--secondary);
+        height: 3px;
     }
     
     .round_cut_lab_diamonds_price span.ui-slider-handle.ui-state-default.ui-corner-all {
         position: absolute;
-        top: -3px;
+        top: -2px;
         z-index: 2;
         height: 8px;
         width: 8px;
@@ -2435,7 +2439,7 @@ opacity: 1;
         content: '';
         display: block;
         position: absolute;
-        top: 7px;
+        top: 5px;
         left: 8px;
         width: 4px;
         height: 11px;
@@ -2466,8 +2470,9 @@ opacity: 1;
     }
     
     .round_cut_lab_range_color .form-group input:checked+label {
-        background: var(--primary);
+        background: var(--secondary);
         color: #fff;
+        border: 1px solid var(--secondary);
     }
     
     .round_cut_lab_range_slider .form-group input:checked+label:after {
@@ -2476,8 +2481,9 @@ opacity: 1;
     }
     
     .round_cut_lab_range_slider .form-group input:checked+label:before {
-        background: var(--primary);
+        background: var(--secondary);
         opacity: 1;
+        border: 1px solid var(--secondary);
     }
     
     .round_cut_lab_range_slider .form-group input:checked+label {
@@ -3933,7 +3939,8 @@ width: 100%;
     }
     
     .shop-by-category .owl-next,
-    .product-detail .owl-next {
+    .product-detail .owl-next,
+    .products_item .owl-next {
         background-color: transparent !important;
         width: 30px;
         height: 30px;
@@ -3951,8 +3958,14 @@ width: 100%;
         height: 15px;
     }
     
+    .products_item .owl-next svg path,
+    .products_item .owl-prev svg path {
+        fill: var(--primary);
+    }
+    
     .shop-by-category .owl-prev,
-    .product-detail .owl-prev {
+    .product-detail .owl-prev,
+    .products_item .owl-prev {
         background-color: transparent !important;
         width: 35px;
         height: 35px;
@@ -4068,7 +4081,7 @@ width: 100%;
     }
     
     .order-box-part .order-box {
-        background: #F9F9F9;
+        background: #fff;
         box-shadow: 3px 4px 12px rgb(0 0 0 / 25%);
         border-radius: 10px;
         padding: 13px 0;
@@ -4375,10 +4388,9 @@ width: 100%;
         -webkit-transform: skewX(-25deg);
         transform: skewX(-25deg);
     }
-    
-    .products_item .owl-nav {
+    /* .products_item .owl-nav {
         display: none;
-    }
+    } */
     
     .banner_part_img_parent>figure:hover::before {
         -webkit-animation: shine .75s;
@@ -4415,10 +4427,9 @@ width: 100%;
     
     .Login_page_box input,
     .Login_page_box input {
-        font-weight: 500;
         font-size: 15px;
         line-height: 21px;
-        color: #808080;
+        color: #808080 !important;
         border: 1px solid #9C9C9C !important;
     }
     
@@ -4862,6 +4873,11 @@ width: 100%;
         position: absolute;
         top: 14px;
         right: 14px;
+        z-index: 9;
+    }
+    
+    .add-to-wishlist-btn-diamond svg path {
+        fill: #fff;
     }
     
     .your_order_box {
@@ -5472,10 +5488,10 @@ width: 100%;
         border-radius: 7px;
         font-weight: 500;
         font-size: 15px;
-        line-height: 18px;
         letter-spacing: 0.1em;
         color: #FFFFFF;
-        padding: 15px 42px;
+        min-width: 240px;
+        height: 48px;
     }
     
     .cart-icon-part .dropdown-toggle {
@@ -5713,4 +5729,18 @@ width: 100%;
     .explore_diamonds_section .owl-dots,
     .explore_diamonds_section .owl-nav {
         display: none;
+    }
+    
+    .to_text {
+        position: absolute;
+        right: 0;
+    }
+    
+    .shop_by_category .owl-nav,
+    .products_item .owl-nav {
+        display: block !important;
+    }
+    
+    .header_logo_cart {
+        height: 62px;
     }
