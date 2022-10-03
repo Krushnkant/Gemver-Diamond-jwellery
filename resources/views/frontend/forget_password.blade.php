@@ -25,7 +25,7 @@
                    </div>
                    <div class="sign_up_now_text mt-3 mt-xxl-5 text-center"> 
                         <a href="{{ url('/login') }}" class="sign_up_now_text mt-3 mt-xxl-5 text-center">
-                             Countinue to log In
+                            Continue to Log In
                         </a>
                    </div>
                 </form> 

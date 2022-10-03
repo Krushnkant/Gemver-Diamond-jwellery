@@ -213,10 +213,12 @@
                <div class="row round_cut_lab_range_slider">
                     <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
                     <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
-                        <div class="d-flex align-items-center mb-2 position-relative">
-                            <span class="from_text me-2"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
-                            <span class="to_text me-2"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                        <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range" class="mb-0"></div>
+                            <div class="d-flex mt-3">
+                                <span class="from_text"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                            </div>
                         </div>
                         <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>
                         <!-- <p> Price : <span id="amount"></span></p> -->
@@ -279,7 +281,7 @@
                     <!-- Results -->
                 </div>
                 <!-- Data Loader -->
-                <div class="auto-load text-center">
+                <div class="auto-load text-center mt-4">
                     <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
                         <path fill="#000"

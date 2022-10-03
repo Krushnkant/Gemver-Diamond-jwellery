@@ -36,7 +36,7 @@
                             </p>
                             <div class="engagement_button mt-3 mt-sm-0 mt-md-3 mt-xl-4 text-start text-sm-center">
                                 <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto">Start with Diamond</button>
-                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto">Start with setting</button>
+                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto">Start with Setting</button>
                             </div>
                         </div>
                     </div>

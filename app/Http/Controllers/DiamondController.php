@@ -224,57 +224,55 @@ class DiamondController extends Controller
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <div class="round_cut_lab_diamonds_img">
                                 <img src="'.$Diamond_image .'" alt="">
-                                <a href="'.$url.'">
-                                <div class="round_cut_lab_diamonds_layer">
-                                    <ul>
+                                    <div class="round_cut_lab_diamonds_layer">
+                                        <ul>
+                                            
+                                            <li>
+                                                <span class="round_product_part_1">CARATE  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Weight .' </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> CLARITY :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Clarity .' </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1">SHAPE :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Shape .' </span>
+                                            </li>
                                         
-                                        <li>
-                                            <span class="round_product_part_1">CARATE  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Weight .' </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> CLARITY :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Clarity .' </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1">SHAPE :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Shape .' </span>
-                                        </li>
-                                       
-                                        <li>
-                                            <span class="round_product_part_1">COLOR  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Color .' </span>
-                                        </li>';
-                                        if($Diamond->Cut != ""){
-                                        $artilces.='<li>
-                                            <span class="round_product_part_1"> CUT  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Cut .' </span>
-                                        </li>';
-                                        }
-                                        $artilces.='<li>
-                                            <span class="round_product_part_1"> POLISH  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Polish .' </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> SYMMETRY  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                        </li>
-                                        
-                                        <li>
-                                            <span class="round_product_part_1"> MEASUREMENT  :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> CERTIFIED :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Lab .' </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1">LOT :</span>
-                                            <span class="round_product_part_2">'. $Diamond->Stone_No .' </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                </a>
+                                            <li>
+                                                <span class="round_product_part_1">COLOR  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Color .' </span>
+                                            </li>';
+                                            if($Diamond->Cut != ""){
+                                            $artilces.='<li>
+                                                <span class="round_product_part_1"> CUT  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Cut .' </span>
+                                            </li>';
+                                            }
+                                            $artilces.='<li>
+                                                <span class="round_product_part_1"> POLISH  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Polish .' </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> SYMMETRY  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Symm .' </span>
+                                            </li>
+                                            
+                                            <li>
+                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> CERTIFIED :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Lab .' </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1">LOT :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Stone_No .' </span>
+                                            </li>
+                                        </ul>
+                                    </div>
                             </div>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
@@ -785,7 +783,6 @@ class DiamondController extends Controller
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <div class="round_cut_lab_diamonds_img">
                                 <img src="'.$Diamond_image .'" alt="">
-                                <a href="'.$url.'">
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
                                         <li class="">
@@ -834,7 +831,6 @@ class DiamondController extends Controller
                                         </li>
                                     </ul>
                                 </div>
-                                </a>
                             </div>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">

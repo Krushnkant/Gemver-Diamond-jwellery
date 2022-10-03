@@ -40,10 +40,12 @@
                         <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
                             <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                             <div class="round_cut_lab_diamonds_price col-lg-12">
-                                <div class="d-flex align-items-center mb-2 position-relative">
-                                    <span class="from_text me-2"><input type="numner" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
-                                    <span class="to_text me-2"><input type="numner" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                                <div class="align-items-center mb-2 position-relative">
                                     <div id="slider-range" class="mb-0"></div>
+                                    <div class="d-flex mt-3">
+                                        <span class="from_text"><input type="numner" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
+                                        <span class="to_text"><input type="numner" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                                   </div>
                                 </div>
                                 <!-- <p class="mb-0"> <span id="amount"></span></p> -->
                                 <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>

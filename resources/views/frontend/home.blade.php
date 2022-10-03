@@ -132,16 +132,16 @@
              
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
                     @foreach($categories as $category)
-                    <a href="{{ URL('/shop/'.$category->id)}}">
-                        <div class="item">
+                    <div class="item">
+                        <a href="{{ URL('/shop/'.$category->id)}}">
                             <div class="catrgery_box">
                                 <span class="catrgory_img">
                                     <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}">
                                 </span>
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                     @endforeach 
                 </div>
             </div>

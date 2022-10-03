@@ -67,6 +67,8 @@ Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'confli
 // Route::view('weddingbrands','frontend.weddingbands');
 // Route::view('custommadejewellery','frontend.custommadejewellery');
 
+ //Route::view('demo','frontend.engagement');
+
 Route::get('engagement',[OtherPageController::class,'engagement']);
 Route::get('finejewellery',[OtherPageController::class,'finejewellery']);
 Route::get('labgrowndiamonds',[OtherPageController::class,'labgrowndiamonds']);

@@ -29,7 +29,7 @@
                             </p>
                             <div class="engagement_button text-center">
                                 <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
-                                <button class="engagement_start_setting d-block mx-auto">Start with setting</button>
+                                <button class="engagement_start_setting d-block mx-auto">Start with Setting</button>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                             </p>
                             <div class="engagement_button text-center">
                                 <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
-                                <button class="engagement_start_setting d-block mx-auto">Start with setting</button>
+                                <button class="engagement_start_setting d-block mx-auto">Start with Setting</button>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                             </p>
                             <div class="engagement_button text-center">
                                 <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
-                                <button class="engagement_start_setting d-block mx-auto">Start with setting</button>
+                                <button class="engagement_start_setting d-block mx-auto">Start with Setting</button>
                             </div>
                         </div>
                     </div>

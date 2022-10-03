@@ -12,7 +12,7 @@
             </p>
             <div class="engagement_button">
                 <button class="engagement_start_diamond">Start with Diamond</button>
-                <button class="engagement_start_setting ms-2 ms-md-3">Start with setting</button>
+                <button class="engagement_start_setting ms-2 ms-md-3">Start with Setting</button>
             </div>
         </div>
     </div>
