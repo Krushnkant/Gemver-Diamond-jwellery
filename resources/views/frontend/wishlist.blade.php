@@ -123,10 +123,11 @@
                                 $item_image = explode(',',$item->images);
                             }else{
                                 $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
-                                $item_name .= '<span>'. $item->Clarity .' clarity |</span>
+                                $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
+                                $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
+                                /*$item_name .= '<span>'. $item->Clarity .' clarity |</span>
                                         <span>'. $item->Color .' color |</span>
-                                        <span>'. $item->Lab .' certified</span>';
+                                        <span>'. $item->Lab .' certified</span>';*/
 
                                 $sale_price = $item->Sale_Amt;
                                 $item_image = explode(',',$item->Stone_Img_url);
@@ -144,14 +145,13 @@
                                     </div>
 
                                     <div class="ms-3">
-                                        <span class="cart_product_name">{!! $item_name !!}</span>
-                                            @if($data['item_type'] == 0)
-                                        <div>
-                                        
+                                        <a href="#" class="cart_product_name">{!! $item_name !!}</a>
+                                        @if($data['item_type'] == 0)
                                             @foreach ($item->product_variant_variants as $vitem)
-                                            <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span>
+                                                <span class="cart_product_specification d-block">
+                                                    {{ $vitem->attribute_term->attribute->attribute_name }}: {{ $vitem->attribute_term->attrterm_name }}
+                                                </span>
                                             @endforeach
-                                        </div>
                                         @endif
                                     </div>
                                     <div class="d-flex flex-wrap" id="speci_multi143">
