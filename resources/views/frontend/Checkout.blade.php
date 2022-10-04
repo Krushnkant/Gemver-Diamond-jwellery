@@ -223,6 +223,7 @@
                                         {{ $item_name }} ✖ {{ $cart['item_quantity'] }}
                                         @endif
                                         <input class="form-check-input" type="hidden" name="item[]" id="item" value="{{  $item->id }}"> 
+                                        <input class="form-check-input" type="hidden" name="diamond_id[]" id="diamond_id" value="{{ $cart->diamond_id }}"> 
                                         <input class="form-check-input" type="hidden" name="qty[]" id="qty" value="{{  $cart['item_quantity'] }}"> 
                                         <input class="form-check-input" type="hidden" name="item_type[]" id="item_type" value="{{  $cart['item_type'] }}"> 
                                     </div>   
@@ -463,7 +464,6 @@
                        // location.href="{{ url('admin.blogbanners.list')}}";
                         toastr.success("Address Added",'Success',{timeOut: 5000});
                         $("#addressModal").find('form').trigger('reset');
-                        $('#user_id').val("");
                         $('#first_name-error').html("");
                         $('#last_name-error').html("");
                         $('#email-error').html("");
@@ -473,6 +473,7 @@
                         $('#state-error').html("");
                         $('#city-error').html("");
                         $('#pincode-error').html("");
+                        $('#address_id').val(res.address.id);
 
                         
                         $("#first_name").focus();

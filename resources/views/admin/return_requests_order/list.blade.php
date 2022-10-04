@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-    table#Order td.text-center span.label {
+    table#ReturnRequestOrder td.text-center span.label {
     display: block;
     width: max-content;
     margin: 0 auto;
@@ -13,7 +13,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Order List</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Return Request Order List</a></li>
             </ol>
         </div>
     </div>
@@ -23,36 +23,31 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Order List</h4>
+                        <h4 class="card-title">Return Request Order List</h4>
 
                         <div class="custom-tab-1">
                             <ul class="nav nav-tabs mb-3">
                                 <li class="nav-item order_page_tabs" data-tab="ALL_orders_tab"><a class="nav-link active show" data-toggle="tab" href="">ALL</a>
                                 </li>
-                                <li class="nav-item order_page_tabs" data-tab="NewOrder_orders_tab"><a class="nav-link" data-toggle="tab" href="">New Order</a>
+                                <li class="nav-item order_page_tabs" data-tab="RefundRequest_orders_tab"><a class="nav-link" data-toggle="tab" href="">Refund Request</a>
                                 </li>
-                                <li class="nav-item order_page_tabs" data-tab="OutforDelivery_orders_tab"><a class="nav-link" data-toggle="tab" href="">Shipped</a>
-                                </li>
-                                <li class="nav-item order_page_tabs" data-tab="Delivered_orders_tab"><a class="nav-link" data-toggle="tab" href="">Delivered</a>
-                                </li>
-                                <li class="nav-item order_page_tabs" data-tab="ReturnRequest_orders_tab"><a class="nav-link" data-toggle="tab" href="">Return Request</a>
+                                <li class="nav-item order_page_tabs" data-tab="PayRefund_orders_tab"><a class="nav-link" data-toggle="tab" href="">Pay Refund</a>
                                 </li>
                                 <li class="nav-item order_page_tabs" data-tab="Returned_orders_tab"><a class="nav-link" data-toggle="tab" href="">Returned</a>
                                 </li>
-                                <li class="nav-item order_page_tabs" data-tab="Cancelled_orders_tab"><a class="nav-link" data-toggle="tab" href="">Cancelled</a>
-                                </li>
+                                
                             </ul>
                         </div>
 
-                        <div class="tab-pane fade show active table-responsive" id="ALL_orders_tab">
-                            <table id="Order" class="table zero-configuration customNewtable" style="width:100%">
+                        <div class="table-responsive">
+                            <table id="ReturnRequestOrder" class="table zero-configuration customNewtable" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th></th>
+                                   
                                     <th>No</th>
                                     <th>Order</th>
                                     <th>Customer</th>
-                                    <th>Note</th>
+                                    <!-- <th>Note</th> -->
                                     <th>Payment Status</th>
                                     <th>Order Status</th>
                                     <th>Date</th>
@@ -61,11 +56,11 @@
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th></th>
+                                   
                                     <th>No</th>
                                     <th>Order</th>
                                     <th>Customer</th>
-                                    <th>Note</th>
+                                    <!-- <th>Note</th> -->
                                     <th>Payment Status</th>
                                     <th>Order Status</th>
                                     <th>Date</th>
@@ -101,32 +96,19 @@
         </div>
     </div>
 
-    <div class="modal fade" id="TrackingModal">
+    <div class="modal fade" id="PayReturnAmountModal">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form class="form-valide" action="" id="trackingform" method="post">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="formtitle">Add Tracking URL</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span>×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="attr-cover-spin" class="cover-spin"></div>
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <label class="col-form-label" for="tracking_url" >Tracking URL <span class="text-danger">*</span>
-                            </label>
-                            <input type="text" class="form-control input-flat" id="tracking_url" name="tracking_url" placeholder="">
-                            <div id="tracking_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        </div>
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="order_id" id="order_id">
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="AddTrackingBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
-                    </div>
-                </form>
+                <div class="modal-header">
+                    <h5 class="modal-title">Pay Return Amount</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure you wish to Pay this Return Amount?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-primary" id="PayReturnAmountSubmit" type="submit">Pay <i class="fa fa-circle-o-notch fa-spin removeloadericonfa" style="display:none;"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -149,11 +131,9 @@ function get_orders_page_tabType(){
 }
 
 $(document).ready(function() {
-    order_table('',true);
+    ReturnRequestOrder_table('',true);
 
-
-
-    $('#Order tbody').on('click', 'td.details-control', function () {
+    $('#ReturnRequestOrder tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
 
@@ -168,30 +148,6 @@ $(document).ready(function() {
         }
     });
 
-    //$(".orderNoteBox").on('change cut paste', function(e) {
-    $(document).on("change",".orderNoteBox",function() {    
-        
-        var orderNote = $(this).val();
-        var orderid = $(this).attr('data-id');
-        $('#ordercoverspin').show();
-        $.ajax ({
-            type:"POST",
-            url: '{{ url("admin/updateOrdernote") }}',
-            data: { _token: '{{ csrf_token() }}',orderid: orderid, orderNote: orderNote},
-            
-            success: function(res) {
-                if(res['status'] == 200){
-                    toastr.success("Order Note Updated",'Success',{timeOut: 5000});
-                } else {
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
-            },
-            complete: function(){
-                $('#ordercoverspin').hide();
-                order_table('',true);
-            }
-        });
-    });
 });
 
 function format ( d ) {
@@ -199,12 +155,13 @@ function format ( d ) {
     return d.table1;
 }
 
-function order_table(tab_type='',is_clearState=false){
+function ReturnRequestOrder_table(tab_type='',is_clearState=false){
+  
     if(is_clearState){
-        $('#Order').DataTable().state.clear();
+        $('#ReturnRequestOrder').DataTable().state.clear();
     }
 
-    table = $('#Order').DataTable({
+    table = $('#ReturnRequestOrder').DataTable({
         "destroy": true,
         "processing": true,
         "serverSide": true,
@@ -217,25 +174,24 @@ function order_table(tab_type='',is_clearState=false){
             }
         },
         "ajax":{
-            "url": "{{ url('admin/allOrderlist') }}",
+            "url": "{{ url('admin/allReturnRequestOrderlist') }}",
             "dataType": "json",
             "type": "POST",
             "data":{ _token: '{{ csrf_token() }}', tab_type: tab_type},
             // "dataSrc": ""
         },
         'columnDefs': [
-            { "width": "20px", "targets": 0 },
-            { "width": "50px", "targets": 1 },
-            { "width": "230px", "targets": 2 },
-            { "width": "230px", "targets": 3 },
-            { "width": "150px", "targets": 4 },
+            
+            { "width": "50px", "targets": 0 },
+            { "width": "230px", "targets": 1 },
+            { "width": "150px", "targets": 2 },
+            { "width": "120px", "targets": 3 },
+            { "width": "200px", "targets": 4 },
             { "width": "120px", "targets": 5 },
-            { "width": "200px", "targets": 6 },
-            { "width": "120px", "targets": 7 },
-            { "width": "100px", "targets": 8 },
+            { "width": "100px", "targets": 6 },
         ],
         "columns": [
-            {"className": 'details-control', "orderable": false, "data": null, "defaultContent": ''},
+            // {"className": 'details-control', "orderable": false, "data": null, "defaultContent": ''},
             {data: 'id', name: 'id', class: "text-center", orderable: false ,
                 render: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
@@ -243,7 +199,7 @@ function order_table(tab_type='',is_clearState=false){
             },
             {data: 'order_info', name: 'order_info', orderable: false, class: "text-left multirow"},
             {data: 'customer_info', name: 'customer_info', orderable: false, class: "text-left multirow"},
-            {data: 'note', name: 'note', orderable: false, class: "text-center"},
+            // {data: 'note', name: 'note', orderable: false, class: "text-center"},
             {data: 'payment_status', name: 'payment_status', orderable: false, class: "text-center multirow"},
             {data: 'order_status', name: 'order_status', orderable: false, class: "text-center"},
             {data: 'created_at', name: 'created_at', orderable: false, class: "text-left multirow"},
@@ -259,7 +215,7 @@ function editOrder(orderId) {
 
 $('body').on('click', '.order_page_tabs', function () {
     var tab_type = $(this).attr('data-tab');
-    order_table(tab_type,true);
+    ReturnRequestOrder_table(tab_type,true);
 });
 
 $('body').on('click', '#ApproveReturnRequestBtn', function () {
@@ -280,7 +236,7 @@ $('body').on('click', '#ApproveReturnRequestBtn', function () {
         },
         complete: function(){
             $('#ordercoverspin').hide();
-            order_table(tab_type);
+            ReturnRequestOrder_table(tab_type);
         },
         error: function() {
             toastr.error("Please try again",'Error',{timeOut: 5000});
@@ -306,7 +262,7 @@ $('body').on('click', '#RejectReturnRequestBtn', function () {
         },
         complete: function(){
             $('#ordercoverspin').hide();
-            order_table(tab_type);
+            ReturnRequestOrder_table(tab_type);
         },
         error: function() {
             toastr.error("Please try again",'Error',{timeOut: 5000});
@@ -322,7 +278,6 @@ function getInvoiceData(order_id) {
 $('body').on('click', '#VideoBtn', function () {
     var order_id = $(this).attr('data-id');
     $.get("{{ url('admin/orders') }}" +'/' + order_id +'/play_video', function (res) {
-        console.log(res);
         $('#ReturnReqVideoModal').find('#ReturnReqVideo').attr('src',res['order_return_video']);
         // $('#ReturnReqVideoModal').find('#ReturnReqVideo').attr('type',res['type']);
     })
@@ -332,68 +287,51 @@ $('#ReturnReqVideoModal').on('hidden.bs.modal', function () {
     $(this).find("#ReturnReqVideo").attr('src','');
 });
 
-$('body').on('click', '#editTrackingBtn', function () {
-    var order_id = $(this).attr('data-id');
-    $('#order_id').val(order_id);
+$('body').on('click', '#PayReturnAmountBtn', function (e) {
+    // e.preventDefault();
+    var Commission_id = $(this).attr('data-id');
+    $("#PayReturnAmountModal").find('#PayReturnAmountSubmit').attr('data-id',Commission_id);
 });
 
-$('body').on('click', '#AddTrackingBtn', function () {
-    $(this).prop('disabled',true);
-    $(this).find('.loadericonfa').show();
-    var btn = $(this);
+$('#PayReturnAmountModal').on('hidden.bs.modal', function () {
+    $(this).find("#PayReturnAmountSubmit").removeAttr('data-id');
+});
 
-    var formData = new FormData($('#trackingform')[0]);
-  
-    var tab_type = get_orders_page_tabType();
-    //var order_id = $(this).attr('data-id');
+$('body').on('click', '#PayReturnAmountSubmit', function (e) {
+    $('#PayReturnAmountSubmit').prop('disabled',true);
+    $(this).find('.removeloadericonfa').show();
+    e.preventDefault();
+    //var tab_type = get_monthly_commission_page_tabType();
 
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    var Order_id = $(this).attr('data-id');
+    $.ajax({
+        type: 'GET',
+        url: "{{ url('admin/payment_status_update') }}" +'/' + Order_id,
+        success: function (res) {
+            if(res['status'] == 200){
+                $("#PayReturnAmountModal").modal('hide');
+                $('#PayReturnAmountSubmit').prop('disabled',false);
+                $("#PayReturnAmountSubmit").find('.removeloadericonfa').hide();
+                ReturnRequestOrder_table();
+                toastr.success("Return Amount Paid",'Success',{timeOut: 5000});
             }
-        });
-    
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('admin.updatetrackingurl') }}",
-            data: formData,
-            dataType: 'json',
-            cache: false,
-            processData: false,
-            contentType: false,
-            success: function (res) {
-                
-                if(res['status'] == 'failed'){
-                    $(btn).prop('disabled',false);
-                    $(btn).find('.loadericonfa').hide();
-                    if (res.errors.tracking_url) {
-                        $('#tracking_url-error').show().text(res.errors.tracking_url);
-                    } else {
-                        $('#tracking_url-error').hide();
-                    }
-                   
-                }
-                if(res['status']==200){
-                    //location.href = "{{ route('admin.orders.list') }}";
-                    $("#TrackingModal").modal('hide');
-                    order_table(tab_type);
-                    toastr.success("Tracking URL Updated",'Success',{timeOut: 5000});
-                }
 
-                if(res['status'] == 400){
-                    $("#TrackingModal").modal('hide');
-                    $(btn).find('.loadericonfa').hide();
-                    $(btn).prop('disabled',false);
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
-                
-            },
-            error: function (data) {
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
+            if(res['status'] == 400){
+                $("#PayReturnAmountModal").modal('hide');
+                $('#PayReturnAmountSubmit').prop('disabled',false);
+                $("#PayReturnAmountSubmit").find('.removeloadericonfa').hide();
+                ReturnRequestOrder_table();
                 toastr.error("Please try again",'Error',{timeOut: 5000});
             }
-       });    
+        },
+        error: function (data) {
+            $("#PayReturnAmountModal").modal('hide');
+            $('#PayReturnAmountSubmit').prop('disabled',false);
+            $("#PayReturnAmountSubmit").find('.removeloadericonfa').hide();
+            ReturnRequestOrder_table();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
 });
 </script>
 <!-- orders JS end -->

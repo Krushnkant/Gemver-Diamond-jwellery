@@ -116,7 +116,8 @@ class PayPalPaymentController extends Controller
         //dd($request->all());
         //Save Order Item Data
         $order_item = array();
-        foreach ($request->item as $key => $item){
+        $diamond_name = "";
+        foreach($request->item as $key => $item){
             $OrderItem = new OrderItem();
             $OrderItem->order_id = $order->id;
             $OrderItem->payment_status = 2;
@@ -125,6 +126,7 @@ class PayPalPaymentController extends Controller
             $OrderItem->order_note = '';
 
             $spe = array();
+            $sped = array();
             if($request->item_type[$key] == 0){
                 $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
             
@@ -146,7 +148,42 @@ class PayPalPaymentController extends Controller
                 $sale_price = $product_item->Sale_Amt;
                 $item_image = explode(',',$product_item->Stone_Img_url); 
 
+            }else{
+
+                $diamond_id = $request->diamond_id[$key];
+                $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
+                foreach($product_item->product_variant_variants as $product_variant_variant){
+                    $spe[] = array(
+                        'term' => $product_variant_variant->attribute->attribute_name,
+                        'term_name' => $product_variant_variant->attribute_term->attrterm_name
+                    );    
+                }
+                $item_image = explode(',',$product_item->images); 
+
+                $diamond_item = \App\Models\Diamond::where('id',$diamond_id)->first(); 
+                $item_name =  $product_item->product->product_title; 
+                $diamond_name = $diamond_item->Shape.' '. round($diamond_item->Weight,2) .' ct ';
+                $sale_price = $product_item->sale_price + $diamond_item->Sale_Amt; 
+                $diamond_image = explode(',',$diamond_item->Stone_Img_url); 
+
+                $sped[] = array(
+                    'term_name' => $diamond_item->Clarity,
+                    'term' => 'Clarity'
+                );
+
+                $sped[] = array(
+                    'term_name' => $diamond_item->Color,
+                    'term' => 'Color'
+                );
+
+                $sped[] = array(
+                    'term_name' => $diamond_item->Lab,
+                    'term' => 'certified'
+                );
+              
+
             }
+
 
             // if($product_item != null){
             //     $product_item->total_orders = $product_item->total_orders + 1;
@@ -157,6 +194,7 @@ class PayPalPaymentController extends Controller
             // }
             
             $order_item['variantId'] = $product_item->id;
+            $order_item['diamondId'] = (isset($diamond_id))?$diamond_id:0;
             //$order_item['attribute'] = $product_item->product->attribute->attribute_name;
             //$order_item['attributeTerm'] = $product_item->attribute_term->attrterm_name;
             $order_item['itemQuantity'] = $request->qty[$key];
@@ -164,10 +202,13 @@ class PayPalPaymentController extends Controller
             $order_item['totalItemAmount'] = $request->qty[$key] * $sale_price;
             $order_item['itemPayableAmt'] = $request->qty[$key] * $sale_price;
             $order_item['ProductTitle'] = $item_name;
+            $order_item['DiamondTitle'] = $diamond_name;
             //$image = explode(',',$product_item->images);
             $order_item['ProductImage'] = $item_image[0];
+            $order_item['DiamondImage'] = (isset($diamond_image[0]))?$diamond_image[0]:"";
             $order_item['ItemType'] = $request->item_type[$key];
             $order_item['spe'] = $spe;
+            $order_item['sped'] = $sped;
            
             $OrderItem->item_details = json_encode($order_item);
             $OrderItem->payment_action_date = isset($request->payment_date) ? $request->payment_date.' 00:00:00' : '';

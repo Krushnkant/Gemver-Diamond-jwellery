@@ -544,6 +544,15 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('deliveryorders.list',[\App\Http\Controllers\admin\OrderController::class,'deliveryorders'])->name('deliveryorders.list');
     Route::post('allDeliveryOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allDeliveryOrderlist'])->name('allDeliveryOrderlist');
     Route::post('checkorderotp',[\App\Http\Controllers\admin\OrderController::class,'checkorderotp'])->name('checkorderotp');
+    Route::post('update_tracking_url',[\App\Http\Controllers\admin\OrderController::class,'updatetrackingurl'])->name('updatetrackingurl');
+
+    Route::get('return_requests',[\App\Http\Controllers\admin\OrderController::class,'return_requests'])->name('return_requests.list');
+    Route::post('allReturnRequestlist',[\App\Http\Controllers\admin\OrderController::class,'allReturnRequestlist'])->name('allReturnRequestlist');
+    
+
+    Route::get('return_requests_order',[\App\Http\Controllers\admin\OrderController::class,'return_requests_order'])->name('return_requests_order.list');
+    Route::post('allReturnRequestOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allReturnRequestOrderlist'])->name('allReturnRequestOrderlist');
+    Route::get('payment_status_update/{order_id}',[\App\Http\Controllers\admin\OrderController::class,'payment_status_update'])->name('payment_status_update');
 
     
 });

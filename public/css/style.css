@@ -15430,11 +15430,11 @@ table.dataTable thead .sorting::after {
 }
 
 .label {
-    padding: 7px 10px;
+    padding: 5px 10px;
     line-height: 15px;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 4px;
-    font-size: 85%;
+    font-size: 12px;
 }
 
 .label-pill {

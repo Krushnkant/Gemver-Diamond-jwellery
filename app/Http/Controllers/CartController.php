@@ -117,19 +117,28 @@ class CartController extends Controller
             $prod_id_is_there = $prod_id;
             $diamond_id_is_there = $diamond_id;
 
-            if(in_array($prod_id_is_there, $item_id_list) && in_array($diamond_id_is_there, $diamond_id_list)){
-
+            if(in_array($prod_id_is_there, $item_id_list) && in_array($diamond_id_is_there, $diamond_id_list))
+            {
                 foreach($cart_data as $keys => $values)
                 {
                     if($cart_data[$keys]["item_id"] == $prod_id && $cart_data[$keys]["diamond_id"] == $diamond_id)
                     {
-                        $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity');
+                        if($action == 'update_qty'){
+                           $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                        }else{
+                            $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                        }
                         $item_data = json_encode($cart_data);
                         $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
                         return response()->json(['status'=>'Added to Cart','status2'=>'2']);
                     }else{
-                        $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity');
+                        if($action == 'update_qty'){
+                            $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                        }else{
+                             $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                        }
+                    
                         $item_data = json_encode($cart_data);
                         $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
@@ -144,7 +153,11 @@ class CartController extends Controller
                 {
                     if($cart_data[$keys]["item_id"] == $prod_id)
                     {
-                        $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity');
+                        if($action == 'update_qty'){
+                            $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                        }else{
+                             $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                        }
                         $item_data = json_encode($cart_data);
                         $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
