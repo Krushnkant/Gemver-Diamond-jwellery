@@ -367,7 +367,7 @@ right: 0;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--primary);
         background: none;
@@ -513,7 +513,7 @@ right: 0;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: #0B1727;
         background: none;
@@ -538,7 +538,7 @@ right: 0;
         font-weight: 500;
         font-size: 22px;
         line-height: 36px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #fff;
         text-transform: capitalize;
         position: absolute;
@@ -552,7 +552,7 @@ right: 0;
         font-weight: 600;
         font-size: 16px;
         line-height: 36px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         text-align: left;
         font-family: 'Roboto', sans-serif;
@@ -785,7 +785,7 @@ right: 0;
         font-weight: 600;
         font-size: 16px;
         line-height: 30px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #0B1727;
         position: absolute;
@@ -861,7 +861,7 @@ right: 0;
         font-weight: 500;
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #0B1727;
     }
@@ -870,7 +870,7 @@ right: 0;
         font-weight: 700;
         font-size: 14px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
     }
@@ -909,7 +909,7 @@ right: 0;
         font-size: 16px;
         line-height: 30px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
         font-family: 'Roboto', sans-serif;
@@ -919,7 +919,7 @@ right: 0;
         font-weight: 900;
         font-size: 220px;
         line-height: 30px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
         opacity: 0.05;
@@ -930,7 +930,7 @@ right: 0;
         font-weight: 600;
         font-size: 17px;
         line-height: 30px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--primary);
     }
@@ -950,7 +950,7 @@ right: 0;
         font-weight: 700;
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -985,7 +985,7 @@ right: 0;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
     }
@@ -994,7 +994,7 @@ right: 0;
         font-weight: normal;
         font-size: 16px;
         line-height: 25px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         /* font-family: 'Roboto', sans-serif; */
     }
@@ -1002,7 +1002,7 @@ right: 0;
     .email_input input {
         font-size: 17px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #fff;
         padding: 16px 37px;
         background: none;
@@ -1064,7 +1064,7 @@ right: 0;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
     }
@@ -1073,7 +1073,7 @@ right: 0;
         font-weight: normal;
         font-size: 14px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
     }
@@ -1093,7 +1093,7 @@ right: 0;
         font-weight: 700;
         font-size: 15px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
         display: flex;
@@ -1249,7 +1249,7 @@ right: 0;
         font-weight: 800;
         font-size: 35px;
         line-height: 42px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #FFFFFF;
     }
     
@@ -1257,7 +1257,7 @@ right: 0;
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #FFFFFF;
     }
@@ -1460,7 +1460,7 @@ right: 0;
         font-weight: 700;
         font-size: 15px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: #FFFFFF;
         min-width: 197px;
@@ -1660,7 +1660,7 @@ right: 0;
         font-weight: 700;
         font-size: 13px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: #ffffff;
         background: var(--secondary);
@@ -1675,7 +1675,7 @@ right: 0;
         font-weight: 700;
         font-size: 15px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
         background: none;
@@ -1762,7 +1762,7 @@ right: 0;
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #0B1727;
     }
@@ -1773,7 +1773,7 @@ right: 0;
         padding: 17px 21px;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         opacity: 0.5;
         width: 100%;
@@ -1788,7 +1788,7 @@ right: 0;
         font-weight: 700;
         font-size: 14px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
         background: none;
@@ -1940,7 +1940,7 @@ right: 0;
     
     .wire_bangle_price_part {
         font-size: 18px;
-        font-weight: 600;
+        /*font-weight: 600;*/
     }
     
     .wire_bangle_box {
@@ -1976,7 +1976,7 @@ right: 0;
         font-weight: 700;
         font-size: 17px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
         position: absolute;
@@ -2096,11 +2096,11 @@ right: 0;
     
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
         font-style: normal;
-        font-weight: 600;
+        /*font-weight: 600;*/
         font-size: 16px;
         line-height: 24px;
         text-transform: capitalize;
-        color: var(--secondary);
+        /*color: var(--secondary);*/
     }
     
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_price {
@@ -2141,7 +2141,7 @@ right: 0;
         font-weight: 700;
         font-size: 17px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
         background: none;
@@ -2186,8 +2186,8 @@ transform: translateY(-50%); */
     .round_cut_lab_checkbox input+.shape_img {
         width: 100%;
         width: 100%;
-        min-width: 50px;
-        min-height: 50px;
+        min-width: 45px;
+        min-height: 45px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 5px;
     }
@@ -2357,10 +2357,10 @@ opacity: 1;
     
     .round_cut_lab_diamonds_price span.ui-slider-handle.ui-state-default.ui-corner-all {
         position: absolute;
-        top: -2px;
+        top: -4px;
         z-index: 2;
-        height: 8px;
-        width: 8px;
+        height: 12px;
+        width: 12px;
         text-align: left;
         margin-left: -3px;
         cursor: pointer;
@@ -2417,7 +2417,7 @@ opacity: 1;
         line-height: 24px;
         text-transform: capitalize;
         color: var(--primary);
-        opacity: 0.5;
+        opacity: 0.8;
     }
     
     .round_cut_lab_range_slider .form-group label:before {
@@ -2495,7 +2495,7 @@ opacity: 1;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: var(--secondary);
     }
@@ -2535,7 +2535,6 @@ opacity: 1;
     }
     
     .round_cut_lab_diamonds_info_clarity {
-        font-family: 'Jost';
         font-weight: 400;
         font-size: 14px;
         line-height: 23px;
@@ -2545,7 +2544,7 @@ opacity: 1;
     
     .round_cut_lab_diamonds_info_price {
         font-weight: normal;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 32px;
         text-transform: capitalize;
         color: #0B1727;
@@ -3017,7 +3016,7 @@ opacity: 1;
         font-weight: 700;
         font-size: 17px;
         line-height: 20px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
         color: #0B1727;
         border: 1px solid rgba(11, 23, 39, 0.1);
@@ -3559,6 +3558,7 @@ border: 0;
         padding: 5px 0;
         text-align: center;
         height: 62px;
+        margin-bottom: 10px;
     }
     
     .header-icon {
@@ -3742,7 +3742,7 @@ border: 0;
         font-weight: 600;
         font-size: 16px;
         line-height: 30px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #0B1727;
         font-family: 'Roboto', sans-serif;
@@ -3812,7 +3812,7 @@ border: 0;
         font-weight: 600;
         font-size: 16px;
         line-height: 30px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--secondary);
         font-family: 'Roboto', sans-serif;
@@ -4204,7 +4204,7 @@ width: 100%;
         color: #000;
         width: 80px;
         font-size: 12px;
-        padding: 4px 8px;
+        padding: 6px 10px
         outline: 0;
         border-radius: 6px;
     }
@@ -4287,7 +4287,7 @@ width: 100%;
     
     .header-logo img {
         width: auto;
-        max-height: 52px;
+        max-height: 60px;
     }
     
     .smiling_gemver_banner {
@@ -4322,14 +4322,14 @@ width: 100%;
         font-weight: 600;
         font-size: 17px;
         line-height: 26px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
     }
     
     .smiling_box_paragraph {
         font-weight: 400;
         font-size: 13px;
         line-height: 15px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4558,7 +4558,7 @@ width: 100%;
         font-weight: 600;
         font-size: 24px;
         line-height: 28px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -4594,7 +4594,7 @@ width: 100%;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4602,7 +4602,7 @@ width: 100%;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4645,11 +4645,11 @@ width: 100%;
     }
     
     .cart_product_name {
-        font-weight: 500;
-        font-size: 15px;
+        /*font-weight: 500;*/
+        font-size: 16px;
         line-height: 16px;
-        letter-spacing: 0.1em;
-        color: #808080;
+        letter-spacing: 0.05em;
+        color: #0B1727;
         margin-bottom: 15px;
     }
     
@@ -4661,7 +4661,7 @@ width: 100%;
         font-weight: 400;
         font-size: 13px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         display: inline-block;
     }
@@ -4691,7 +4691,7 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         padding: 15px 40px;
         border: 0;
@@ -4703,7 +4703,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
         min-width: 389px;
         height: 43px;
@@ -4737,7 +4737,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         opacity: 0.8;
         padding: 14px;
@@ -4751,7 +4751,7 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         min-width: 92px;
         height: 43px;
@@ -4768,7 +4768,7 @@ width: 100%;
         font-weight: 600;
         font-size: 24px;
         line-height: 28px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -4778,7 +4778,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #FFFFFF;
         border: 0;
         height: 52px;
@@ -4789,7 +4789,7 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -4817,7 +4817,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         border: 0;
     }
@@ -4839,7 +4839,7 @@ width: 100%;
         font-weight: 600;
         font-size: 18px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -4847,7 +4847,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 18px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         text-transform: capitalize;
         color: var(--primary);
     }
@@ -4877,7 +4877,7 @@ width: 100%;
     }
     
     .add-to-wishlist-btn-diamond svg path {
-        fill: #fff;
+        fill: #ff0000;
     }
     
     .your_order_box {
@@ -4890,7 +4890,7 @@ width: 100%;
         font-weight: 500;
         font-size: 18px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -4898,7 +4898,7 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4920,7 +4920,7 @@ width: 100%;
         font-weight: 600;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         margin-bottom: 5px;
     }
@@ -4929,7 +4929,7 @@ width: 100%;
         font-weight: 500;
         font-size: 10px;
         line-height: 12px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4937,7 +4937,7 @@ width: 100%;
         font-weight: 500;
         font-size: 11px;
         line-height: 13px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -4946,7 +4946,7 @@ width: 100%;
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #FFFFFF;
         height: 60px;
         width: 100%;
@@ -4978,7 +4978,7 @@ width: 100%;
         font-weight: 600;
         font-size: 15px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary) !important;
         border: 0 !important;
         box-shadow: none !important;
@@ -5016,7 +5016,7 @@ width: 100%;
         font-weight: 600;
         font-size: 18px;
         line-height: 26px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
     }
     
@@ -5060,7 +5060,7 @@ width: 100%;
         font-weight: 600;
         font-size: 16px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary) !important;
     }
     
@@ -5096,7 +5096,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5116,7 +5116,7 @@ width: 100%;
         font-weight: 600;
         font-size: 18px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -5141,7 +5141,7 @@ width: 100%;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5149,7 +5149,7 @@ width: 100%;
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5181,7 +5181,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5211,7 +5211,7 @@ width: 100%;
         font-weight: 600;
         font-size: 18px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5238,7 +5238,7 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
         border-bottom: 0px;
     }
@@ -5266,7 +5266,7 @@ width: 100%;
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5274,7 +5274,7 @@ width: 100%;
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5296,7 +5296,7 @@ width: 100%;
         font-weight: 700;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
     }
     
@@ -5324,7 +5324,7 @@ width: 100%;
         font-weight: 600;
         font-size: 24px;
         line-height: 36px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
     }
     
@@ -5338,15 +5338,31 @@ width: 100%;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
         box-shadow: none;
-        padding: 24px 40px;
+        padding: 15px;
         border: 0;
     }
     
     .table_part_product tr td {
         border: 0;
+    }
+
+    .comparelist td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .comparelist .comparesave svg path {
+        fill: var(--secondary);
+    }
+    .comparelist a.comparesave {
+        cursor: pointer;
+    }
+
+    .comparelist td img {
+        width: auto;
+        height: 50px;
     }
     
     .move_to_cart_btn,
@@ -5356,7 +5372,7 @@ width: 100%;
         font-weight: 600;
         font-size: 12px;
         line-height: 18px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
         border: 0;
         padding: 5px 20px;
@@ -5373,7 +5389,7 @@ width: 100%;
         font-weight: 600;
         font-size: 14px;
         line-height: 16px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
     }
     
@@ -5381,7 +5397,7 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         text-decoration: line-through;
     }
@@ -5390,8 +5406,9 @@ width: 100%;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--secondary);
+        margin-top: 5px;
     }
     
     .wishlist_table .cart-image {
@@ -5433,7 +5450,7 @@ width: 100%;
         background: #0B1727;
         font-weight: 500;
         font-size: 10px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #FFFFFF;
     }
     
@@ -5468,7 +5485,7 @@ width: 100%;
         font-weight: 600;
         font-size: 40px;
         line-height: 47px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5477,7 +5494,7 @@ width: 100%;
         font-size: 16px;
         line-height: 19px;
         text-align: left;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         max-width: 600px;
     }
@@ -5488,7 +5505,7 @@ width: 100%;
         border-radius: 7px;
         font-weight: 500;
         font-size: 15px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #FFFFFF;
         min-width: 240px;
         height: 48px;
@@ -5516,7 +5533,7 @@ width: 100%;
         font-weight: normal;
         font-size: 13px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         padding: 10px 30px;
         text-align: left;
@@ -5539,7 +5556,7 @@ width: 100%;
         font-weight: 600;
         font-size: 30px;
         line-height: 35px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5547,7 +5564,7 @@ width: 100%;
         font-weight: 400;
         font-size: 17px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5564,7 +5581,7 @@ width: 100%;
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5581,7 +5598,7 @@ width: 100%;
         font-weight: 600;
         font-size: 20px;
         line-height: 35px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5590,7 +5607,7 @@ width: 100%;
         font-size: 16px;
         line-height: 19px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         max-width: 480px;
         margin: auto;
@@ -5604,7 +5621,7 @@ width: 100%;
         font-weight: 600;
         font-size: 30px;
         line-height: 35px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     
@@ -5638,7 +5655,7 @@ width: 100%;
         font-size: 15px;
         line-height: 19px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         max-width: 317px;
         margin: auto;
@@ -5648,7 +5665,7 @@ width: 100%;
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #000000;
     }
     
@@ -5681,7 +5698,7 @@ width: 100%;
         font-size: 15px;
         line-height: 19px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #0B1727;
     }
     
@@ -5699,7 +5716,7 @@ width: 100%;
         font-size: 16px;
         line-height: 19px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
         max-width: 700px;
         margin: auto;
@@ -5714,7 +5731,7 @@ width: 100%;
         font-size: 14px;
         line-height: 16px;
         text-align: center;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: #808080;
     }
     
@@ -5722,7 +5739,7 @@ width: 100%;
         font-weight: 500;
         font-size: 18px;
         line-height: 21px;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         color: var(--primary);
     }
     

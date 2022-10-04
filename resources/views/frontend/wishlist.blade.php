@@ -113,11 +113,13 @@
                         </thead>
                         <tbody class="">
                         @foreach ($wishlist_data as $data)
-                        <?php 
+                            <?php 
                             if($data['item_type'] == 0){
                                 $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                                 $item_name = $item->product->product_title;
                                 $sale_price = $item->sale_price;
+                                $regular_price = $item->regular_price;
+                                $auto_discount_percent = $item->auto_discount_percent;
                                 $item_image = explode(',',$item->images);
                             }else{
                                 $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
@@ -128,10 +130,10 @@
 
                                 $sale_price = $item->Sale_Amt;
                                 $item_image = explode(',',$item->Stone_Img_url);
+                                $regular_price = 0;
+                                $auto_discount_percent = 0;
                             }
-                        
-                            
-                        ?>
+                            ?>
                             <tr class="cartpage product-data">
                             
                                 <td class="cart-image">
@@ -193,12 +195,16 @@
                             
                                 <td class="cart-product-sub-total">
                                     <span class="cart-sub-total-price amount_price">${{ number_format($sale_price, 2) }}</span>
+                                    @if($regular_price > 0)
                                     <span class="cart-dublicate-price">
-                                        $800
+                                        ${{ number_format($regular_price, 2) }}
                                     </span>
+                                    @endif
+                                    @if($regular_price > 0)
                                     <div class="cart-offer-price">
-                                        25%off
+                                        {{ $auto_discount_percent }}% off
                                     </div>
+                                    @endif
                                 </td>
                                 
                                 <td style="font-size: 20px;">
@@ -208,7 +214,7 @@
                                     </a>
                                 </td>
                             </tr>
-                            @endforeach
+                        @endforeach
                         </tbody>  
                         </table>
                     </div>
