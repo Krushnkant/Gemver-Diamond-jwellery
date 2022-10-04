@@ -192,13 +192,13 @@
                                                         <?php
                                                             $atr = 0;
                                                         ?>
-                                                        @foreach($item->product_variant_variants as $vitem)
-                                                            <span class="cart_product_specification d-block">
+                                                        <span class="cart_product_specification d-block">
+                                                            @foreach($item->product_variant_variants as $vitem)
                                                                 <?php if($atr > 0){
                                                                     echo '|'; } ?>{{ $vitem->attribute_term->attrterm_name }} 
                                                                 <?php $atr++; ?>
-                                                            </span>
-                                                        @endforeach
+                                                            @endforeach
+                                                        </span>
                                                     
                                                         @if(isset($specifications))
                                                             @foreach ($specifications as $specification)
