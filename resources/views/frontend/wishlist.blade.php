@@ -146,12 +146,18 @@
 
                                     <div class="ms-3">
                                         <a href="#" class="cart_product_name">{!! $item_name !!}</a>
-                                        @if($data['item_type'] == 0)
+                                        @if($data['item_type'] != 1)
                                             @foreach ($item->product_variant_variants as $vitem)
                                                 <span class="cart_product_specification d-block">
                                                     {{ $vitem->attribute_term->attribute->attribute_name }}: {{ $vitem->attribute_term->attrterm_name }}
                                                 </span>
                                             @endforeach
+                                        @endif
+
+                                        @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                            <span class="cart_product_specification d-block">
+                                                {!! $item_terms !!}
+                                            </span>
                                         @endif
                                     </div>
                                     <div class="d-flex flex-wrap" id="speci_multi143">
