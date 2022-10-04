@@ -82,6 +82,7 @@ class AuthController extends Controller
                             'user_id' => $user_id,
                             'item_quantity' => $cart['item_quantity'],
                             'item_id' => $cart['item_id'],
+                            'diamond_id' => $cart['diamond_id'],
                             'item_type' => $cart['item_type'],
                             'specification' => (isset($cart['specification']))?json_encode($cart['specification']) :""
                         ]);

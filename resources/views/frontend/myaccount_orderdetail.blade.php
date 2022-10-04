@@ -107,7 +107,8 @@
                                         </span>
                                     </div>
                                     <div class="order-col-part-2 col-9">
-                                        {{ $orderdetails->address->first_name }} {{ $orderdetails->address->last_name }}
+                                       <?php $delivery_address = json_decode($orderdetails->delivery_address,true);  ?> 
+                                        {{ $delivery_address['CustomerName'] }} 
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -118,7 +119,7 @@
                                         </span>
                                     </div>
                                     <div class="order-col-part-2 col-9">
-                                        {{ $orderdetails->address->mobile_no }}
+                                        {{ $delivery_address['CustomerMobile'] }}
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -126,7 +127,9 @@
                                         Email  
                                         <span class="dots">
                                             :
-                                        </span>              
+                                        </span>  
+                                        
+                                       
                                     </div>
                                     <div class="order-col-part-2 col-9">
                                         {{ $orderdetails->address->email }}
@@ -140,7 +143,7 @@
                                         </span>           
                                     </div>
                                     <div class="order-col-part-2 col-9">
-                                        {{ $orderdetails->address->address }}, {{ $orderdetails->address->city }}, {{$orderdetails->address->state }},{{ $orderdetails->address->pincode }},{{ $orderdetails->address->country }}
+                                        {{ $delivery_address['DelAddress1'] }}, {{ $delivery_address['City'] }}, {{ $delivery_address['State'] }},{{ $delivery_address['Pincode'] }},{{ $delivery_address['Country'] }}
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +184,7 @@
                                             :
                                         </span>              
                                     </div>
-                                    <div class="order-col-part-2 confirm_status col-9">
+                                    <div class="order-col-part-2  col-9">
                                         <?php 
                                         if(isset($orderdetails->order_status)) {
                                             
@@ -225,7 +228,7 @@
                                     <div class="order-col-part-2 col-9 pending_status">
                                         <?php
                                        
-                                            $payment_status = getPaymentStatus($orderdetails->payment_status);
+                                            $payment_status = getPaymentStatusUser($orderdetails->payment_status);
                                             $payment_status = '<span class="'.$payment_status['class'].'">'.$payment_status['payment_status'].'</span>';
                                         
                                             
@@ -258,10 +261,47 @@
                                 @foreach($orderdetails->order_item as $items)
                                 <?php  
                                   $item_details = json_decode($items->item_details,true);
-                                  //dd($item_details['spe']); 
+                                  //dd($item_details);
+                                 
                                 ?>
                                 <tr>
                                     <td class="number_part">{{ $no }}.</td>
+                                    @if($item_details['ItemType'] == 2)
+                                    <td class="table_product_part">
+                                        <span class="table_img">
+                                            <img src="{{ url($item_details['ProductImage']) }}" alt="">
+                                           
+                                        </span>
+                                        <span class="ms-3 cart_product_part">
+                                            <div class="cart_product_name">
+                                                {{ $item_details['ProductTitle'] }}
+                                            </div>
+                                            @foreach($item_details['spe'] as $spe)
+                                            <div class="cart_product_specification d-block"> 
+                                                
+                                                {{$spe['term']}} : {{$spe['term_name']}}
+                                                
+                                            </div>
+                                            @endforeach
+                                        </span>
+                                        <span class="table_img">
+                                            
+                                            <img src="{{ $item_details['DiamondImage'] }}" alt="">
+                                        </span>
+                                        <span class="ms-3 cart_product_part">
+                                            <div class="cart_product_name">
+                                                {{ $item_details['ProductTitle'] }}
+                                            </div>
+                                            @foreach($item_details['sped'] as $sped)
+                                            <div class="cart_product_specification d-block"> 
+                                                
+                                                {{$sped['term']}} : {{$sped['term_name']}}
+                                                
+                                            </div>
+                                            @endforeach
+                                        </span>
+                                    </td>
+                                    @else
                                     <td class="table_product_part">
                                         <span class="table_img">
                                             <img src="{{ url($item_details['ProductImage']) }}" alt="">
@@ -279,6 +319,7 @@
                                             @endforeach
                                         </span>
                                     </td>
+                                    @endif
                                     <td class="amount_price">
                                         ${{ $item_details['orderItemPrice'] }} ×  {{ $item_details['itemQuantity'] }}
                                     </td>

@@ -98,8 +98,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col">Order Id</th>
-                                <th scope="col">Total Order Cost</th>
+                                <th scope="col">Order No</th>
+                                <th scope="col">Amount Info</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Date</th>
                                 <th scope="col" style="width:7%;">Action</th>
@@ -117,20 +117,24 @@
                                 </td>
                                 <td class="address_table_part">
                                    <div>
-                                        <b>$ {{ $order->total_ordercost }}</b>
+                                        <b>${{ $order->total_ordercost }}</b>
                                    </div>
                                    <div>
-                                        2 item
+                                    <?php 
+                                    $payment_status = getPaymentStatusUser($order->payment_status);
+                                    $payment_status = '<span class="'.$payment_status['class'].'">'.$payment_status['payment_status'].'</span>';
+                                    ?>
+                                    {!! $payment_status !!}
+                                   </div>
+                                   <div>
+                                        {{ count_order_items($order->id) }} item
                                    </div>
                                 </td>
                                 <td class="address_table_part">
                                    <div class="confirm_status">
                                     <?php
-                                       
-                                    $order_status = getOrderStatus($order->order_status);
-                                    $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
-                                
-                                    
+                                        $order_status = getOrderStatus($order->order_status);
+                                        $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
                                     ?>
                                     {!! $order_status !!}
                                    </div>
@@ -142,6 +146,13 @@
                                 </td>
                                 <td class="address_table_part">
                                    <button type="button" class="btn btn-primary edit-button viewOrderBtn " data-id="{{ $order->id }}">View</button>
+                                   @if($order->order_status == 1)
+                                   <button type="button" class="btn btn-danger edit-button CancelRequestBtn" data-id="{{ $order->id }}">Cancel</button>
+                                   @endif
+                                   @if($order->order_status == 3)
+                                   {{-- <button type="button" class="btn btn-danger edit-button ReturnRequestBtn" data-id="{{ $order->id }}">Return Request</button> --}}
+                                   <button id="ReturnRequestBtn" class="btn btn-danger edit-button text-white btn-sm" data-bs-toggle="modal" data-bs-target="#ReturnRequestModal" data-id="{{ $order->id }}" >Return Request</button>
+                                   @endif
                                 </td>
                             </tr>
                             <?php $no++; ?>
@@ -166,11 +177,202 @@
         </div>
     </div>
 
+
+
+    <div class="modal fade" id="ReturnRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-6">
+                    <div class="address_heading">Add Return Request</div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>    
+                </div>
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                
+            </div>
+               <div class="modal-body">
+                   <form id="ReturnRequestForm" method="post">
+                    <div class="row mb-3 mb-md-4">
+                            <div class="col-md-12 mb-3 mb-md-0 popup_padding">
+                                <label class="col-form-label" for="order_action_reason" >Reason<span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control input-flat" id="order_action_reason" name="order_action_reason" placeholder="">
+                                <div id="order_action_reason-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                <input type="hidden" name="order_id" value="" class="form-control" id="order_id" >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-form-label" for="order_return_imgs" >Image
+                                </label>
+                                <input type="file" class="form-control input-flat" id="order_return_imgs" name="order_return_imgs[]" placeholder="" multiple>
+                                <div id="order_return_imgs-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                       
+                        
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="col-form-label" for="order_return_video" >Video
+                                </label>
+                                <input type="file" class="form-control input-flat" id="order_return_video" name="order_return_video" placeholder="">
+                                <div id="order_return_video-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                           
+                        </div>
+                      
+
+                        <div class="modal-footer">
+                          
+                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                     
+                            <button type="button" id="AddReturnRequestBtn" class="btn btn-primary chnage_address_btn">Submit <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
+                        </div>
+                   
+                       
+                    </form>
+                </div>
+            </div>
+              
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $('body').on('click', '.viewOrderBtn', function () {
             var order_id = $(this).attr('data-id');
             var url = "{{ url('orderdetails') }}" + "/" + order_id;
             window.open(url);
+        });
+
+        $('body').on('click', '.CancelRequestBtn', function () {
+        $('#ordercoverspin').show();
+       // var tab_type = get_orders_page_tabType();
+        var order_id = $(this).attr('data-id');
+        swal.fire({
+		  	title: 'Are you sure?',
+		  	text: "You won't be able to revert this!",
+		  	icon: 'warning',
+		  	//showCancelButton: true,
+		  	confirmButtonColor: '#3085d6',
+		  	cancelButtonColor: '#d33',
+		  	confirmButtonText: 'Yes, cancel it!',
+		}).then((result) => {
+		  	if (result.value){
+            $.ajax ({
+                type:"POST",
+                url: '{{ url("admin/change_order_status") }}',
+                data: {order_id: order_id, action: 'cancel',  "_token": "{{csrf_token()}}"},
+                success: function(res) {
+                    if(res['status'] == 200){
+                        toastr.success("Order Cancelled",'Success',{timeOut: 5000});
+                        location.reload();
+                    } else {
+                        toastr.error("Please try again",'Error',{timeOut: 5000});
+                    }
+                },
+                complete: function(){
+                    $('#ordercoverspin').hide();
+                    order_table(tab_type);
+                },
+                error: function() {
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        }
+        });
+        });
+
+        $('body').on('click', '.ReturnRequestBtn', function () {
+        $('#ordercoverspin').show();
+       // var tab_type = get_orders_page_tabType();
+        var order_id = $(this).attr('data-id');
+            $.ajax ({
+                type:"POST",
+                url: '{{ url("admin/change_order_status") }}',
+                data: {order_id: order_id, action: 'returnreuest',  "_token": "{{csrf_token()}}"},
+                success: function(res) {
+                    if(res['status'] == 200){
+                        toastr.success("Order Send Return Reuest",'Success',{timeOut: 5000});
+                        location.reload();
+                    } else {
+                        toastr.error("Please try again",'Error',{timeOut: 5000});
+                    }
+                },
+                complete: function(){
+                    $('#ordercoverspin').hide();
+                    order_table(tab_type);
+                },
+                error: function() {
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        });
+
+
+        $('body').on('click', '#ReturnRequestBtn', function () {
+            var order_id = $(this).attr('data-id');
+            $('#order_id').val(order_id);
+        });
+
+        $('body').on('click', '#AddReturnRequestBtn', function () {
+           
+            $(this).prop('disabled',true);
+            $(this).find('.loadericonfa').show();
+            var btn = $(this);
+
+            var formData = new FormData($('#ReturnRequestForm')[0]);
+            formData.append("action",'returnreuest');
+        
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('admin.change_order_status') }}",
+                    data: formData,
+                    dataType: 'json',
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        console.log(res);
+                        if(res['status'] == 'failed'){
+                            $(btn).prop('disabled',false);
+                            $(btn).find('.loadericonfa').hide();
+                            if (res.errors.order_action_reason) {
+                                $('#order_action_reason-error').show().text(res.errors.order_action_reason);
+                            } else {
+                                $('#order_action_reason-error').hide();
+                            }
+                        
+                        }
+                        if(res['status']==200){
+                            //location.href = "{{ route('admin.orders.list') }}";
+                            $("#ReturnRequestModal").modal('hide');
+                           // order_table(tab_type);
+                            toastr.success("Tracking URL Updated",'Success',{timeOut: 5000});
+                            location.reload();
+                        }
+
+                        if(res['status'] == 400){
+                            $("#ReturnRequestModal").modal('hide');
+                            $(btn).find('.loadericonfa').hide();
+                            $(btn).prop('disabled',false);
+                            toastr.error("Please try again",'Error',{timeOut: 5000});
+                        }
+                        
+                    },
+                    error: function (data) {
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+                        toastr.error("Please try again",'Error',{timeOut: 5000});
+                    }
+            });    
         });
 
        

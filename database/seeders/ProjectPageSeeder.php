@@ -614,6 +614,16 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.orders.list,admin.allOrderlist,admin.updateOrdernote,admin.orders.view,admin.orders.save,admin.change_order_status,admin.change_order_item_status,admin.orders.pdf,admin.orders.play_video'
         ]);
 
+        ProjectPage::create([
+            'id' => 77,
+            'parent_menu' => 75,
+            'label' => 'Order Return Request',
+            'route_url' => 'admin.return_requests_order.list',
+            'sr_no' => 2,
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.return_requests.list,admin.allReturnRequestlist,admin.change_order_status',
+        ]);
+
         
         
         $users = User::where('role',"!=",1)->get();

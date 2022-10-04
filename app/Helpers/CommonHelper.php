@@ -437,6 +437,39 @@ function getPaymentStatus($payment_status){
     return ['payment_status' => $payment_status, 'class' => $class];
 }
 
+function getPaymentStatusUser($payment_status){
+    if($payment_status == 1){
+        $payment_status = "Pending";
+        $class = "text-primary";
+    }
+    elseif($payment_status == 2){
+        $payment_status = "Success";
+        $class = "text-success";
+    }
+    elseif($payment_status == 3){
+        $payment_status = "Refunded";
+        $class = "text-info";
+    }
+    elseif($payment_status == 4){
+        $payment_status = "Cancelled";
+        $class = "text-warning";
+    }
+    elseif($payment_status == 5){
+        $payment_status = "Refund Request";
+        $class = "text-muted";
+    }
+    elseif($payment_status == 6){
+        $payment_status = "Refund Processing";
+        $class = "text-dark";
+    }
+    elseif($payment_status == 7){
+        $payment_status = "Failed";
+        $class = "text-danger";
+    }
+
+    return ['payment_status' => $payment_status, 'class' => $class];
+}
+
 function getPaymentType($payment_type)
 {
     if ($payment_type == 1){
@@ -455,7 +488,7 @@ function getOrderStatus($order_status){
         $class = "label label-warning";
     }
     elseif($order_status == 2){
-        $order_status = "Out for Delivery";
+        $order_status = "Shipped";
         $class = "label label-info";
     }
     elseif($order_status == 3){

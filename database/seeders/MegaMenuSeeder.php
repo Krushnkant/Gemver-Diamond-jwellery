@@ -22,16 +22,37 @@ class MegaMenuSeeder extends Seeder
         MegaMenu::create([
             'title' => 'Engagement Ring',
             'menu_thumb' => '',
+            'redirect_url' => '/engagement',
         ]);
 
         MegaMenu::create([
             'title' => 'Wedding Ring',
             'menu_thumb' => '',
+            'redirect_url' => '/weddingbands',
         ]);
 
         MegaMenu::create([
             'title' => 'Fine Jewelry',
             'menu_thumb' => '',
+            'redirect_url' => '/finejewellery',
+        ]);
+
+        MegaMenu::create([
+            'title' => 'Lab Grown Diamond',
+            'menu_thumb' => '',
+            'redirect_url' => '/labgrowndiamonds',
+        ]);
+
+        MegaMenu::create([
+            'title' => 'Create Your Own',
+            'menu_thumb' => '',
+            'redirect_url' => '/custommadejewellery',
+        ]);
+
+        MegaMenu::create([
+            'title' => 'About Us',
+            'menu_thumb' => '',
+            'redirect_url' => '/infopage/about-us',
         ]);
 
         $MegaMenus = MegaMenu::get();

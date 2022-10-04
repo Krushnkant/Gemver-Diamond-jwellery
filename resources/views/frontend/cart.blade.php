@@ -151,9 +151,6 @@
                                     $specifications = $data['specification'];
                                     }
 
-                                    
-
-
                                     $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
                                 }else{
                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
@@ -452,14 +449,16 @@ $('body').on('change', '.qty', function () {
         'action':'update_qty'
     };
 
+    console.log(data);
     $.ajax({
         url: "{{ url('/add-to-cart') }}",  
         method: "POST",
         data: data,
         success: function (response) {
-           // console.log(response);
+            location.reload();
         }
     });
+
  
 });
 
@@ -505,6 +504,7 @@ $('.redeem').click(function (e) {
                     var coupon_amount = response.data.coupon_amount;
                 }
                 $('#coupan_discount_amount').val(coupon_amount);
+                $('.coupan_discount_amount').html(coupon_amount);
                 toastr.success(response.message,'Success',{timeOut: 5000});
                 $("#coupon_code").val('');
                 $(".qty").change();

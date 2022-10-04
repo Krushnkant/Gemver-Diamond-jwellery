@@ -716,12 +716,12 @@ img.productListThumb {
 td.details-control {
     background: url('../icons/add.svg') no-repeat center center;
     cursor: pointer;
-    background-size: 50% 50%;
+    background-size: 40% 50%;
 }
 
 tr.shown td.details-control {
     background: url('../icons/cancel.svg') no-repeat center center;
-    background-size: 50% 50%;
+    background-size: 40% 50%;
 }
 
 .subTable th {

@@ -57,10 +57,10 @@
                                                     <select class="form-control" id="order_status" name="order_status">
                                                         @if($Order->order_status == 1)
                                                             <option value="1" selected>New Order</option>
-                                                            <option value="2">Out for Delivery</option>
+                                                            <option value="2">Ship Now</option>
                                                             <option value="8">Cancel</option>
                                                         @elseif($Order->order_status == 2)
-                                                            <option value="2" selected>Out for Delivery</option>
+                                                            <option value="2" selected>Shipped</option>
                                                             <option value="3">Delivered</option>
                                                             <option value="8">Cancel</option>
                                                         @elseif($Order->order_status == 3)
@@ -80,6 +80,16 @@
                                                         @endif
                                                     </select>
                                                 </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row custom-row tracking" style="{{ ($Order->order_status != 2)?'display: none':'' }}">
+                                            <div class="col-sm-4">
+                                                <b>Tracking URL  <span class="editorderListGem">:</span></b>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control input-flat" id="tracking_url" name="tracking_url" value="{{ $Order->tracking_url }}" placeholder="Enter Tracking URL">
+                                                <label id="tracking_url-error" class="error invalid-feedback animated fadeInDown" for="tracking_url" ></label>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +120,7 @@
                                             </div>
                                             <div class="col-sm-8">
                                                 <!-- <select class="form-control" id="payment_status" name="payment_status" @if($Order->order_status == 4) disabled @endif> -->
-                                                <select class="form-control" id="payment_status" name="payment_status">    
+                                                {{-- <select class="form-control" id="payment_status" name="payment_status">    
                                                     <option value="1" @if($Order->payment_status == 1) selected @endif>Pending</option>
                                                     <option value="2" @if($Order->payment_status == 2) selected @endif>Success</option>
                                                     <option value="3" @if($Order->payment_status == 3) selected @endif>Refunded</option>
@@ -118,7 +128,17 @@
                                                     <option value="5" @if($Order->payment_status == 5) selected @endif>Refund Request</option>
                                                     <option value="6" @if($Order->payment_status == 6) selected @endif>Pay Refund</option>
                                                     <option value="7" @if($Order->payment_status == 7) selected @endif>Failed</option>
-                                                </select>
+                                                </select> --}}
+                                                <?php 
+                                                $payment_status = 0;
+                                                if(isset($Order->payment_status)) {
+                                                    $payment_status = getPaymentStatus($Order->payment_status);
+                                                    $payment_type = getPaymentType($Order->payment_type);
+                                                    $payment_status = '<span class="'.$payment_status['class'].'">'.$payment_status['payment_status'].'</span>';
+                                                }
+                                                 
+                                                ?>
+                                                {!! $payment_status !!}
                                             </div>
                                         </div>
                                     </div>
@@ -268,11 +288,29 @@
                                             <span class="{{ $order_item_status['class'] }}">{{ $order_item_status['order_status'] }}</span>
                                         @endif
                                     </td> --}}
-                                    <td>@if(isset($ProductVariant->variant_images))<img src="{{ url($item_details['ProductImage']) }}" width="50px" height="50px">@endif</td>
+                                    @if(isset($item_details['ItemType']) && $item_details['ItemType'] == 0)
+                                    <td>@if(isset($item_details['ProductImage']))<img src="{{ url($item_details['ProductImage']) }}" width="50px" height="50px">@endif</td>
+                                    @elseif(isset($item_details['ItemType']) && $item_details['ItemType'] == 1)
+                                    <td>@if(isset($item_details['ProductImage']))<img src="{{ $item_details['ProductImage'] }}" width="50px" height="50px">@endif</td>
+                                    @else
+                                    <td>@if(isset($item_details['ProductImage'])) <img src="{{ url($item_details['ProductImage']) }}" width="50px" height="50px"> <img src="{{ $item_details['DiamondImage'] }}" width="50px" height="50px">@endif</td>
+                                    @endif
+
                                     <td class="multirow">
-                                        @if(isset($item_details['ProductTitle']))
-                                        <span>{{ $item_details['ProductTitle'] }}</span>
+                                        @if(isset($item_details['ItemType']) && $item_details['ItemType'] == 0)
+                                            @if(isset($item_details['ProductTitle']))
+                                            <span>{{ $item_details['ProductTitle'] }}</span>
+                                            @endif
+                                        @elseif(isset($item_details['ItemType']) && $item_details['ItemType'] == 1)
+                                            @if(isset($item_details['DiamondTitle']))
+                                            <span>{{ $item_details['DiamondTitle'] }}</span>
+                                            @endif
+                                        @else    
+                                            @if(isset($item_details['ProductTitle']))
+                                            <span>{{ $item_details['ProductTitle'] }}</span><span>{{ $item_details['DiamondTitle'] }}</span>
+                                            @endif
                                         @endif
+
                                         {{-- <span>{{ $item_details['attribute'] }}: {{ $item_details['attributeTerm'] }}</span> --}}
                                     </td>
                                     <td>{{ $item_details['orderItemPrice'] }}</td>
@@ -298,11 +336,11 @@
                                     <td></td>
                                     <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->discount_amount }}</h5></td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td class="text-right" colspan="4"><h5>Refund Amount</h5></td>
                                     <td></td>
                                     <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->total_refund_amount }}</h5></td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Order Total Cost</h5></td>
                                     <td></td>
@@ -557,6 +595,15 @@ $('body').on('click', '#OrderItemSubmit', function () {
             toastr.error("Please try again",'Error',{timeOut: 5000});
         }
     });
+});
+
+$("#order_status").change(function() {
+    var order_status = $('option:selected', this).val();
+    if(order_status == 2){
+        $(".tracking").show();
+    }else{
+        $(".tracking").hide(); 
+    }
 });
 </script>
 <!-- order view page JS end -->

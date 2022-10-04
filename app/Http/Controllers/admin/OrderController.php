@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Coupon;
 use App\Models\Address;
 use App\Models\OrderItem;
+use App\Models\Diamond;
 use App\Models\Product;
 use App\Models\Level;
 use App\Models\UserLevel;
@@ -333,10 +334,16 @@ class OrderController extends Controller
 
                     $action = '';
                    // $action .= '<button id="invoiceBtn" class="btn btn-gray text-blue btn-sm" onclick="getInvoiceData(\''.$Order->id.'\')"><i class="fa fa-print" aria-hidden="true"></i></button>';
+                    if($Order->tracking_url != ""){
+                        $action .= '<a href="'.$Order->tracking_url.'" id="" class="btn btn-gray text-dark btn-sm" ><i class="fa fa-truck" aria-hidden="true"></i></a>';
+                    }else{
+                        $action .= '<button id="editTrackingBtn" class="btn btn-gray text-dark btn-sm" data-toggle="modal" data-target="#TrackingModal" onclick="" data-id="' .$Order->id. '" ><i class="fa fa-truck" aria-hidden="true"></i></button>';
+                    }
 
                     if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ) {
-                        $action .= '<button id="ViewOrderBtn" class="btn gradient-9 btn-sm" onclick="editOrder(' . $Order->id . ')"><i class="fa fa-eye" aria-hidden="true"></i></button>';
+                        $action .= '<button id="ViewOrderBtn" target="blank" class="btn gradient-9 btn-sm" onclick="editOrder(' . $Order->id . ')"><i class="fa fa-eye" aria-hidden="true"></i></button>';
                     }
+                    
                     if ( isset($Order->order_status) && $Order->order_status == 4 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
                         $action .= '<button type="button" class="btn mb-1 btn-success btn-xs" data-id="'.$Order->id.'" id="ApproveReturnRequestBtn">Approve</button>';
                         $action .= '<button type="button" class="btn mb-1 btn-danger btn-xs" data-id="'.$Order->id.'" id="RejectReturnRequestBtn">Reject</button>';
@@ -356,9 +363,9 @@ class OrderController extends Controller
                     }
 
                     if($delivery_address['DelAddress1'] != ""){
-                        $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i>'.$delivery_address['DelAddress1'].'</span>';
+                        $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i> '.$delivery_address['DelAddress1'].'</span>';
                     }else{
-                        $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i>'.$user_info->mobile_no.'</span>';
+                        $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i> '.$user_info->mobile_no.'</span>';
                     }
 
                     $NoteBoxDisplay = $Order->order_note;
@@ -380,7 +387,7 @@ class OrderController extends Controller
                     if ($Order->order_status == 4 || $Order->order_status == 6){
                         $returnreq_images = explode(",",$Order->order_return_imgs);
                         $returnreq_images_paths = array_map(function ($val){
-                            return url('public/'.$val);
+                            return url($val);
                         }, $returnreq_images);
                         $returnreq_images_paths = "['".implode("','",$returnreq_images_paths)."']";
                         $order_status .= '<span class="returnReqImgs" id="returnReqImgs_'.$Order->id.'">
@@ -401,15 +408,25 @@ class OrderController extends Controller
                     $item = 1;
                     foreach ($Order->order_item as $order_item){
                         $item_details = json_decode($order_item->item_details,true);
+
+                        // if($item_details['ItemType'] == 2){
+                        //     $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
+                        //     $Diamond = Diamond::where('id',$item_details['diamondId'])->first(); 
+                        // }else if($item_details['ItemType'] == 1){
+                        //     $ProductVariant = Diamond::where('id',$item_details['variantId'])->first(); 
+                        // }else{
+                        //     $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
+                        // }
                         
-                        $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
                         $table .='<tr>';
                         if(isset($item_details['ItemType']) && $item_details['ItemType'] == 0){
-                            if(isset($ProductVariant->variant_images)){
+                            if(isset($item_details['ProductImage'])){
                                 $table .='<td>'.$item.'</td><td class="multirow"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
                             }
                         }else if(isset($item_details['ItemType']) &&  $item_details['ItemType'] == 1){
                             $table .='<td>'.$item.'</td><td class="multirow"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
+                        }else{
+                            $table .='<td>'.$item.'</td><td class="multirow"><img src="'.$item_details['DiamondImage'].'" width="50px" height="50px"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
                         }
                         $table .='<td class="multirow text-left">
                                     <b>'.$item_details['ProductTitle'].'</b>';
@@ -692,14 +709,15 @@ class OrderController extends Controller
 
     public function save(Request $request)
     {
-
+       
         $Order = Order::with('order_item')->where('id',$request->order_id)->first();
+
         if(!$Order){
             return ['status' => 400];
         }
         $old_order_status = $Order->order_status;
 //      $Order->order_status = $request->order_status;
-        $Order->payment_status = $request->payment_status;
+        //$Order->payment_status = $request->payment_status;
         if(isset($request->action)){
            
         }else{
@@ -723,6 +741,12 @@ class OrderController extends Controller
         $Order->save();
 
         if ($old_order_status == 1 && ($request->order_status==2 || $request->order_status==8)){
+        // dd($request->order_status==2);
+            if($request->order_status==2){
+                if(isset($request->tracking_url)){
+                    $Order->tracking_url = $request->tracking_url;
+                }
+            }
             
             $Order->order_status = $request->order_status;
 
@@ -761,6 +785,12 @@ class OrderController extends Controller
             $Order->order_status = $request->order_status;
             if($request->order_status == 3 && $Order->delivery_date == null) {
                 $Order->delivery_date = Carbon::now();
+            }
+
+            if($old_order_status == 2){
+                if(isset($request->tracking_url)){
+                    $Order->tracking_url = $request->tracking_url;
+                }
             }
 
             foreach ($Order->order_item as $order_item){
@@ -872,16 +902,8 @@ class OrderController extends Controller
         return ['status' => 200];
     }
 
-    public function save_notification($user_id,$notification_array){
-        $Notification = new Notification();
-        $Notification->user_id = $user_id;
-        $Notification->notify_title = $notification_array['title'];
-        $Notification->notify_desc = $notification_array['message'];
-        $Notification->type = "order";
-        $Notification->save();
-    }
-
     public function change_order_status(Request $request){
+        //dd($request->all());
         if (isset($request->order_id)) {
             $order = Order::find($request->order_id);
             $old_order_status = $order->order_status;
@@ -890,11 +912,9 @@ class OrderController extends Controller
             }
 
             if (isset($request->action) && $request->action == 'approve'){
+                $order->payment_status = 6;
                 $order->order_status = 6;
                 $order->save();
-                if ($old_order_status==4 && $order->order_status==6){
-                    minus_commission_amount($order->id);
-                }
                 return ['status' => 200];
             }
 
@@ -903,34 +923,43 @@ class OrderController extends Controller
                 $order->save();
                 return ['status' => 200];
             }
-        }
 
-        if (isset($request->item_id)){
-            $orderItem = OrderItem::find($request->item_id);
-            if (!$orderItem) {
-                return ['status' => 400];
+            if (isset($request->action) && $request->action == 'cancel'){
+                $order->payment_status = 6;
+                $order->order_status = 7;
+                $order->save();
+                return ['status' => 200];
             }
 
-            if (isset($request->action) && $request->action == 'item_approve'){
-                $old_item_status = $orderItem->order_status;
-                $orderItem->order_status = 6;
-                $orderItem->save();
+            if (isset($request->action) && $request->action == 'returnreuest'){
+                $order->order_status = 4;
+                //dd($request->hasFile('order_return_imgs'));
+                if($request->hasFile('order_return_imgs')) {   
+                    $order_return_imgs = array();
+                    foreach ($request->file('order_return_imgs') as $image) {
+                        $image_name = 'Return_request_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                        $destinationPath = public_path('images/order_return_imgs');
+                        $image->move($destinationPath, $image_name);
+                        array_push($order_return_imgs,'images/order_return_imgs/'.$image_name);
+                    }
 
-                //For refund amount in case of Returned item
-                if ($old_item_status == 4 && $orderItem->order_status == 6){
-                    $orderItem->order->total_refund_amount = $orderItem->order->total_refund_amount + $orderItem->total_item_amount;
-                    $orderItem->order->total_ordercost = $orderItem->order->total_ordercost - $orderItem->total_item_amount;
-                    $orderItem->order->save();
+                    $order->order_return_imgs = implode(",",$order_return_imgs);
                 }
-                return ['status' => 200];
-            }
 
-            if (isset($request->action) && $request->action == 'item_reject'){
-                $orderItem->order_status = 3;
-                $orderItem->save();
+                if ($request->hasFile('order_return_video')){
+                    $image = $request->file('order_return_video');
+                    $image_name = 'order_return_video_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                    $destinationPath = public_path('images/order_return_videos');
+                    $image->move($destinationPath, $image_name);
+                    $order->order_return_video = 'images/order_return_videos/'.$image_name;
+                }
+                $order->order_action_reason = $request->order_action_reason;
+                $order->save();
                 return ['status' => 200];
             }
         }
+
+      
 
 
         return ['status' => 400];
@@ -1091,6 +1120,7 @@ class OrderController extends Controller
                     }
 
                     $action = '';
+                   
                     if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ) {
                         $action .= '<button id="ViewOrderBtn" class="btn gradient-9 btn-sm" onclick="editOrder(' . $return_request->order_id . ')"><i class="fa fa-eye" aria-hidden="true"></i></button>';
                     }
@@ -1158,7 +1188,19 @@ class OrderController extends Controller
             );
 
             $tab_type = $request->tab_type;
-            $order_status = [4,5,6];
+            if ($tab_type == "Success_orders_tab"){
+                $payment_status = [2];
+            }
+            elseif ($tab_type == "Returned_orders_tab"){
+                $payment_status = [3];
+            }
+            elseif ($tab_type == "RefundRequest_orders_tab"){
+                $payment_status = [5];
+            }
+            elseif ($tab_type == "PayRefund_orders_tab"){
+                $payment_status = [6];
+            }
+            
             $limit = $request->input('length');
             $start = $request->input('start');
             $order = $columns[$request->input('order.0.column')];
@@ -1170,16 +1212,16 @@ class OrderController extends Controller
             }
 
             $totalData = Order::count();
-            if (isset($order_status)){
-                $totalData = Order::whereIn('order_status',$order_status)->count();
+            if (isset($payment_status)){
+                $totalData = Order::whereIn('payment_status',$payment_status)->count();
             }
             $totalFiltered = $totalData;
 
             if(empty($request->input('search.value')))
             {
                 $Orders = Order::with('order_item');
-                if (isset($order_status)){
-                    $Orders = $Orders->whereIn('order_status',$order_status);
+                if (isset($payment_status)){
+                    $Orders = $Orders->whereIn('payment_status',$payment_status);
                 }
                 $Orders = $Orders->offset($start)
                     ->limit($limit)
@@ -1189,8 +1231,8 @@ class OrderController extends Controller
             else {
                 $search = $request->input('search.value');
                 $Orders = Order::with('order_item');
-                if (isset($order_status)){
-                    $Orders = $Orders->whereIn('order_status',$order_status);
+                if (isset($payment_status)){
+                    $Orders = $Orders->whereIn('payment_status',$payment_status);
                 }
                 $Orders = $Orders->where(function($query) use($search){
                     $query->where('custom_orderid','LIKE',"%{$search}%")
@@ -1213,37 +1255,37 @@ class OrderController extends Controller
                     $page_id = ProjectPage::where('route_url','admin.orders.list')->pluck('id')->first();
 
                     $action = '';
-                    $action .= '<button id="invoiceBtn" class="btn btn-gray text-blue btn-sm" onclick="getInvoiceData(\''.$Order->id.'\')"><i class="fa fa-print" aria-hidden="true"></i></button>';
+                   // $action .= '<button id="invoiceBtn" class="btn btn-gray text-blue btn-sm" onclick="getInvoiceData(\''.$Order->id.'\')"><i class="fa fa-print" aria-hidden="true"></i></button>';
 
                     if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ) {
                         $action .= '<button id="ViewOrderBtn" class="btn gradient-9 btn-sm" onclick="editOrder(' . $Order->id . ')"><i class="fa fa-eye" aria-hidden="true"></i></button>';
                     }
                     if ( isset($Order->order_status) && $Order->order_status == 4 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                        $action .= '<button type="button" class="btn mb-1 btn-success btn-xs" data-id="'.$Order->id.'" id="ApproveReturnRequestBtn">Approve</button>';
-                        $action .= '<button type="button" class="btn mb-1 btn-danger btn-xs" data-id="'.$Order->id.'" id="RejectReturnRequestBtn">Reject</button>';
+                       // $action .= '<button type="button" class="btn mb-1 btn-success btn-xs" data-id="'.$Order->id.'" id="ApproveReturnRequestBtn">Approve</button>';
+                      //  $action .= '<button type="button" class="btn mb-1 btn-danger btn-xs" data-id="'.$Order->id.'" id="RejectReturnRequestBtn">Reject</button>';
                     }
                     if ( (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) && $Order->payment_status==6 ){
                         $action .= '<button id="PayReturnAmountBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#PayReturnAmountModal" onclick="" data-id="' .$Order->id. '">Pay</button>';
                     }
 
-                    $order_info = '<span>Order ID: '.$Order->custom_orderid.'</span>';
-                    $order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i> '.$Order->total_ordercost.'</span>';
-                    $order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
+                    $order_info = '<span>Order No: '.$Order->custom_orderid.'</span>';
+                    //$order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i>'.$Order->total_ordercost.'</span>';
+                    //$order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
                     $customer_info = $delivery_address['CustomerName'];
-                    if($delivery_address['CustomerMobile'] != ""){
-                        $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> '.$delivery_address['CustomerMobile'].'</span>';
-                    }
+                    // if($delivery_address['CustomerMobile'] != ""){
+                    //     $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> '.$delivery_address['CustomerMobile'].'</span>';
+                    // }
 
-                    if($delivery_address['DelAddress1'] != ""){
-                        $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i>'.$delivery_address['DelAddress1'].'</span>';
-                    }
+                    // if($delivery_address['DelAddress1'] != ""){
+                    //     $customer_info .= '<span><i class="fa fa-map-marker" aria-hidden="true"></i>'.$delivery_address['DelAddress1'].'</span>';
+                    // }
 
-                    $NoteBoxDisplay = $Order->order_note;
-                    if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ) {
-                        $NoteBoxDisplay = '<textarea class="custom-textareaBox orderNoteBox" id="orderNoteBox' . $Order->id . '" rows="4" data-id="' . $Order->id . '">' . $Order->order_note . '</textarea>';
-                    }
+                    // $NoteBoxDisplay = $Order->order_note;
+                    // if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ) {
+                    //     $NoteBoxDisplay = '<textarea class="custom-textareaBox orderNoteBox" id="orderNoteBox' . $Order->id . '" rows="4" data-id="' . $Order->id . '">' . $Order->order_note . '</textarea>';
+                    // }
 
                     if(isset($Order->payment_status)) {
                         $payment_status = getPaymentStatus($Order->payment_status);
@@ -1256,59 +1298,74 @@ class OrderController extends Controller
                         $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
                     }
 
-                    if ($Order->order_status == 4 || $Order->order_status == 6){
-                        $returnreq_images = explode(",",$Order->order_return_imgs);
-                        $returnreq_images_paths = array_map(function ($val){
-                            return url('public/'.$val);
-                        }, $returnreq_images);
-                        $returnreq_images_paths = "['".implode("','",$returnreq_images_paths)."']";
-                        $order_status .= '<span class="returnReqImgs" id="returnReqImgs_'.$Order->id.'">
-                                <a href="javascript:void(0)" class="btn btn-dark btn-sm"><i class="fa fa-image"></i></a>
-                                <script type="text/javascript">
-                                    $("#returnReqImgs_'.$Order->id.'").slickLightbox({images: '.$returnreq_images_paths.'});
-                                </script>
-                                </span>';
-                        $order_status .= '<button id="VideoBtn" class="btn btn-sm text-blue" data-id="'.$Order->id.'" data-toggle="modal" data-target="#ReturnReqVideoModal"><i class="fa fa-video-camera" aria-hidden="true"></i></button>';
-                    }
+                    // if ($Order->order_status == 4 || $Order->order_status == 6){
+                    //     $returnreq_images = explode(",",$Order->order_return_imgs);
+                    //     $returnreq_images_paths = array_map(function ($val){
+                    //         return url('public/'.$val);
+                    //     }, $returnreq_images);
+                    //     $returnreq_images_paths = "['".implode("','",$returnreq_images_paths)."']";
+                    //     $order_status .= '<span class="returnReqImgs" id="returnReqImgs_'.$Order->id.'">
+                    //             <a href="javascript:void(0)" class="btn btn-dark btn-sm"><i class="fa fa-image"></i></a>
+                    //             <script type="text/javascript">
+                    //                 $("#returnReqImgs_'.$Order->id.'").slickLightbox({images: '.$returnreq_images_paths.'});
+                    //             </script>
+                    //             </span>';
+                    //     $order_status .= '<button id="VideoBtn" class="btn btn-sm text-blue" data-id="'.$Order->id.'" data-toggle="modal" data-target="#ReturnReqVideoModal"><i class="fa fa-video-camera" aria-hidden="true"></i></button>';
+                    // }
 
                     $date = '<span><b>Order Date:</b></span><span>'.date('d-m-Y h:i A', strtotime($Order->created_at)).'</span>';
-                    if(isset($Order->delivery_date)){
-                        $date .= '<span><b>Delivery Date:</b></span><span>'.$Order->delivery_date.'</span>';
-                    }
+                    // if(isset($Order->delivery_date)){
+                    //     $date .= '<span><b>Delivery Date:</b></span><span>'.$Order->delivery_date.'</span>';
+                    // }
 
-                    $table = '<table class="subclass text-center" cellpadding="6" cellspacing="0" border="0" style="padding-left:50px; width: 50%">';
-                    $item = 1;
-                    foreach ($Order->order_item as $order_item){
-                        $item_details = json_decode($order_item->item_details,true);
-                        $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
-                        $table .='<tr>';
-                        if(isset($ProductVariant->variant_images)){
-                            $table .='<td>'.$item.'</td><td class="multirow"><img src="'.url($ProductVariant->variant_images[0]).'" width="50px" height="50px"></td>';
-                        }
-                        $table .='<td class="multirow text-left">
-                                    <b>'.$item_details['ProductTitle'].'</b>';
-                        $table .='<span>'.$item_details['attribute'].': '.$item_details['attributeTerm'].'</span>';
-                        $orderItemPrice = '';
-                        if (isset($item_details['itemQuantity'])){
-                            $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
-                        }
-                        if (isset($item_details['orderItemPrice'])){
-                            // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                            $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
-                        }
-                        if (isset($item_details['SubDiscount'])){
-                            $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
-                        }
-                        if (isset($item_details['totalItemAmount'])){
-                            $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
-                        }
-                        if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
-                        }
-                        $table .= '</tr>';
-                        $item++;
-                    }
-                    $table .='</table>';
+                    // $table = '<table class="subclass text-center" cellpadding="6" cellspacing="0" border="0" style="padding-left:50px; width: 50%">';
+                    // $item = 1;
+                    // foreach ($Order->order_item as $order_item){
+                    //     $item_details = json_decode($order_item->item_details,true);
+
+                    //     // if($item_details['ItemType'] == 2){
+                    //     //     $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
+                    //     //     $Diamond = Diamond::where('id',$item_details['diamondId'])->first(); 
+                    //     // }else if($item_details['ItemType'] == 1){
+                    //     //     $ProductVariant = Diamond::where('id',$item_details['variantId'])->first(); 
+                    //     // }else{
+                    //     //     $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
+                    //     // }
+                        
+                    //     $table .='<tr>';
+                    //     if(isset($item_details['ItemType']) && $item_details['ItemType'] == 0){
+                    //         if(isset($item_details['ProductImage'])){
+                    //             $table .='<td>'.$item.'</td><td class="multirow"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
+                    //         }
+                    //     }else if(isset($item_details['ItemType']) &&  $item_details['ItemType'] == 1){
+                    //         $table .='<td>'.$item.'</td><td class="multirow"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
+                    //     }else{
+                    //         $table .='<td>'.$item.'</td><td class="multirow"><img src="'.$item_details['DiamondImage'].'" width="50px" height="50px"><img src="'.url($item_details['ProductImage']).'" width="50px" height="50px"></td>';
+                    //     }
+                    //     $table .='<td class="multirow text-left">
+                    //                 <b>'.$item_details['ProductTitle'].'</b>';
+                    //     //$table .='<span>'.$item_details['attribute'].': '.$item_details['attributeTerm'].'</span>';
+                    //     $orderItemPrice = '';
+                    //     if (isset($item_details['itemQuantity'])){
+                    //         $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
+                    //     }
+                    //     if (isset($item_details['orderItemPrice'])){
+                    //         // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
+                    //         $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                    //     }
+                    //     if (isset($item_details['SubDiscount'])){
+                    //         $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                    //     }
+                    //     if (isset($item_details['totalItemAmount'])){
+                    //         $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                    //     }
+                    //     if (isset($item_details['itemPayableAmt'])){
+                    //         $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                    //     }
+                    //     $table .= '</tr>';
+                    //     $item++;
+                    // }
+                    // $table .='</table>';
 
                     $nestedData['order_info'] = $order_info;
                     $nestedData['customer_info'] = $customer_info;
@@ -1317,7 +1374,7 @@ class OrderController extends Controller
                     $nestedData['order_status'] = $order_status;
                     $nestedData['created_at'] = $date;
                     $nestedData['action'] = $action;
-                    $nestedData['table1'] = $table;
+                    //$nestedData['table1'] = $table;
                     $data[] = $nestedData;
                 }
             }
@@ -1757,6 +1814,23 @@ class OrderController extends Controller
 
         //return $this->sendResponseSuccess("Order Submitted Successfully");
         return ['status' => 200 ];
+    }
+
+
+    public function updatetrackingurl(Request $request){
+        if (isset($request->order_id)) {
+            $order = Order::find($request->order_id);
+            if (!$order) {
+                return ['status' => 400];
+            }
+            if (isset($request->tracking_url) && $request->tracking_url != ''){
+                $order->tracking_url = $request->tracking_url;
+                $order->save();
+                
+                return ['status' => 200];
+            }
+        }
+        return ['status' => 400];
     }
 
     
