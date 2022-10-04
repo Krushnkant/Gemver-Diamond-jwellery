@@ -160,7 +160,7 @@
                                                 {!! $item_terms !!}
                                             </span>
                                         @endif
-                                        <div class="d-flex flex-wrap" id="speci_multi143">
+                                        <div class="d-flex flex-wrap mt-2" id="speci_multi143">
                                             <?php
                                             if($data['item_type'] == 0){
                                                 $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
