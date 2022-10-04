@@ -178,54 +178,56 @@
                                                 <path d="M11.267 13.9987C11.4917 13.9987 11.7072 13.9095 11.866 13.7507C12.025 13.5918 12.1142 13.3764 12.1142 13.1517V5.95106C12.1142 5.64851 11.9527 5.36873 11.6907 5.21746C11.4284 5.06619 11.1055 5.06619 10.8434 5.21746C10.5814 5.36873 10.4199 5.64851 10.4199 5.95106V13.1517C10.4199 13.3764 10.5092 13.5918 10.668 13.7507C10.8269 13.9095 11.0423 13.9987 11.267 13.9987H11.267Z" fill="#E10000"/>
                                             </svg>
                                         </a>
-                                        <span class="item_data">
-                                            <span class="product_img">
-                                                <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
-                                            </span>
-                                            <span class="product_part">
-                                                <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
-                                                <span class="cart_product_specification d-block">
-                                                    
-                                                    @if(isset($data['item_type']) && $data['item_type'] != 1)    
-                                                        <!-- @foreach($item->product_variant_variants as $vitem)
-                                                            <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
-                                                        @endforeach -->
+                                        <ul class="item_data">
+                                            <li>
+                                                <span class="product_img">
+                                                    <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
+                                                </span>
+                                                <span class="product_part">
+                                                    <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
+                                                    <span class="cart_product_specification d-block">
+                                                        
+                                                        @if(isset($data['item_type']) && $data['item_type'] != 1)    
+                                                            <!-- @foreach($item->product_variant_variants as $vitem)
+                                                                <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                            @endforeach -->
 
-                                                        <?php
-                                                            $atr = 0;
-                                                        ?>
-                                                        @foreach($item->product_variant_variants as $vitem)
-                                                            <span class="cart_product_specification"><?php if($atr > 0){ ?>| <?php } ?>{{ $vitem->attribute_term->attrterm_name }}</span> 
-                                                            <?php $atr++; ?>
-                                                        @endforeach
-                                                    
-                                                        @if(isset($specifications))
-                                                            @foreach ($specifications as $specification)
-                                                                <span class="cart_product_specification d-block">{{ $specification['key'] }} : {{ $specification['value'] }}</span>
+                                                            <?php
+                                                                $atr = 0;
+                                                            ?>
+                                                            @foreach($item->product_variant_variants as $vitem)
+                                                                <span class="cart_product_specification"><?php if($atr > 0){ ?>| <?php } ?>{{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                                <?php $atr++; ?>
                                                             @endforeach
+                                                        
+                                                            @if(isset($specifications))
+                                                                @foreach ($specifications as $specification)
+                                                                    <span class="cart_product_specification d-block">{{ $specification['key'] }} : {{ $specification['value'] }}</span>
+                                                                @endforeach
+                                                            @endif
                                                         @endif
-                                                    @endif
-                                                    @if(isset($data['item_type']) && $data['item_type'] == 1)
-                                                        {!! $item_terms !!}
-                                                    @endif
+                                                        @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                                            {!! $item_terms !!}
+                                                        @endif
+                                                    </span>
                                                 </span>
-                                            </span>
-                                        </span>
+                                            </li>
 
-                                        @if($data['item_type'] == 2)
-                                        <span class="item_data">
-                                            <span class="product_img">
-                                                <img src="{{ asset($item_image_diamond[0]) }}" height="100px" width="100px" alt="">
-                                            </span>
-                                            <span class="product_part">
-                                                <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
-                                                <span class="cart_product_specification d-block">
-                                                    
-                                                    {!! $diamond_terms !!}
+                                            @if($data['item_type'] == 2)
+                                            <li>
+                                                <span class="product_img">
+                                                    <img src="{{ asset($item_image_diamond[0]) }}" height="100px" width="100px" alt="">
                                                 </span>
-                                            </span>
-                                        </span>
-                                        @endif
+                                                <span class="product_part">
+                                                    <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
+                                                    <span class="cart_product_specification d-block">
+                                                        
+                                                        {!! $diamond_terms !!}
+                                                    </span>
+                                                </span>
+                                            </li>
+                                            @endif
+                                        </ul>
                                     </td>
                                     <td class="amount_price">
                                         <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
