@@ -5350,6 +5350,7 @@ width: 100%;
     
     .table_part_product tr td {
         border: 0;
+        font-size: 14px;
     }
 
     .comparelist td {
