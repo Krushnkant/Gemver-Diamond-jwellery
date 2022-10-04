@@ -133,9 +133,7 @@
 
                                     $diamond = \App\Models\Diamond::where('id',$data['diamond_id'])->first();
                                     $diamond_name = $diamond->Shape.' '. round($diamond->Weight,2) .' ct';
-                                    $diamond_terms = '<span class="cart_product_specification d-block">'. $diamond->Clarity .' Clarity |</span>
-                                            <span class="cart_product_specification">'. $diamond->Color .' Color |</span>
-                                            <span class="cart_product_specification">'. $diamond->Lab .' Certified</span>';
+                                    $diamond_terms = $diamond->Clarity .' Clarity | '. $diamond->Color .' Color | '. $diamond->Lab .' Certified';
                                     $sale_price_diamond = $diamond->Sale_Amt;
                                     $item_image_diamond = explode(',',$diamond->Stone_Img_url); 
                                     $url =  "";
@@ -160,9 +158,7 @@
                                 }else{
                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
                                     $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
-                                    $item_terms = '<span class="cart_product_specification d-block">'. $item->Clarity .' Clarity |</span>
-                                            <span class="cart_product_specification">'. $item->Color .' Color |</span>
-                                            <span class="cart_product_specification">'. $item->Lab .' Certified</span>';
+                                    $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
                                     $sale_price = $item->Sale_Amt;
                                     $item_image = explode(',',$item->Stone_Img_url); 
                                     $url =  "";
@@ -182,7 +178,7 @@
                                                 <path d="M11.267 13.9987C11.4917 13.9987 11.7072 13.9095 11.866 13.7507C12.025 13.5918 12.1142 13.3764 12.1142 13.1517V5.95106C12.1142 5.64851 11.9527 5.36873 11.6907 5.21746C11.4284 5.06619 11.1055 5.06619 10.8434 5.21746C10.5814 5.36873 10.4199 5.64851 10.4199 5.95106V13.1517C10.4199 13.3764 10.5092 13.5918 10.668 13.7507C10.8269 13.9095 11.0423 13.9987 11.267 13.9987H11.267Z" fill="#E10000"/>
                                             </svg>
                                         </a>
-                                        <div class="item_data">
+                                        <span class="item_data">
                                             <span class="product_img">
                                                 <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                                             </span>
@@ -214,10 +210,10 @@
                                                     @endif
                                                 </span>
                                             </span>
-                                        </div>
+                                        </span>
 
                                         @if($data['item_type'] == 2)
-                                        <div class="item_data d-block">
+                                        <span class="item_data">
                                             <span class="product_img">
                                                 <img src="{{ asset($item_image_diamond[0]) }}" height="100px" width="100px" alt="">
                                             </span>
@@ -228,7 +224,7 @@
                                                     {!! $diamond_terms !!}
                                                 </span>
                                             </span>
-                                        </div>
+                                        </span>
                                         @endif
                                     </td>
                                     <td class="amount_price">
