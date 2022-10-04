@@ -114,6 +114,7 @@
                         <tbody class="">
                         @foreach ($wishlist_data as $data)
                             <?php 
+                            $item_terms = '';
                             if($data['item_type'] == 0){
                                 $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                                 $item_name = $item->product->product_title;
@@ -145,7 +146,7 @@
                                     </div>
 
                                     <div class="ms-3">
-                                        <a href="#" class="cart_product_name">{!! $item_name !!}</a>
+                                        <a href="#" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                         @if($data['item_type'] != 1)
                                             @foreach ($item->product_variant_variants as $vitem)
                                                 <span class="cart_product_specification d-block">

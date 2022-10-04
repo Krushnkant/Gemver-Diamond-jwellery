@@ -337,7 +337,7 @@
                 <div class="tab-pane" id="2a">
                     <table class="table table-bordered table-hover table_part_product">
                     <thead>
-                        <tr class="table-active">
+                        <tr class="table-active text-center">
                             <th>Image</th>
                             <th>Shape</th>
                             <th>Carat</th>

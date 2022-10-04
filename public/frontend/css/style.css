@@ -5372,7 +5372,7 @@ width: 100%;
     .remove_btn {
         background: #F1F1F1;
         border-radius: 5px;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 12px;
         line-height: 18px;
         letter-spacing: 0.05em;
@@ -5389,7 +5389,7 @@ width: 100%;
     }
     
     .amount_price {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 14px;
         line-height: 16px;
         letter-spacing: 0.05em;
