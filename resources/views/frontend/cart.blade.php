@@ -158,10 +158,10 @@
                                     $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
                                 }else{
                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                    $item_name = $item->Shape.' '. round($item->Weight,2) .' ct <br>';
-                                    $item_name .= '<span>'. $item->Clarity .' clarity |</span>
-                                            <span>'. $item->Color .' color |</span>
-                                            <span>'. $item->Lab .' certified</span>';
+                                    $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
+                                    $item_terms = '<span class="cart_product_specification">'. $item->Clarity .' clarity |</span>
+                                            <span class="cart_product_specification">'. $item->Color .' color |</span>
+                                            <span> class="cart_product_specification"'. $item->Lab .' certified</span>';
                                     $sale_price = $item->Sale_Amt;
                                     $item_image = explode(',',$item->Stone_Img_url); 
                                     $url =  "";
@@ -188,8 +188,16 @@
                                             <span class="cart_product_specification d-block">
                                                 <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
                                                 @if(isset($data['item_type']) && $data['item_type'] == 0)    
-                                                    @foreach($item->product_variant_variants as $vitem)
+                                                    <!-- @foreach($item->product_variant_variants as $vitem)
                                                         <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                    @endforeach -->
+
+                                                    <?php
+                                                        $atr = 0;
+                                                    ?>
+                                                    @foreach($item->product_variant_variants as $vitem)
+                                                        <span class="cart_product_specification d-block"><?php if($atr > 0) ?>| <?php } ?>{{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                        <?php $atr++; ?>
                                                     @endforeach
                                                 
                                                     @if(isset($specifications))
@@ -197,6 +205,9 @@
                                                             <span class="cart_product_specification d-block">{{ $specification['key'] }} : {{ $specification['value'] }}</span>
                                                         @endforeach
                                                     @endif
+                                                @endif
+                                                @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                                    {!! $item_terms !!}
                                                 @endif
                                             </span>
                                         </span>
@@ -214,8 +225,6 @@
                                     </td>
                                     <td class="amount_price">
                                         <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
-                                        
-
                                     </td>
                                     
                                     <td class="text-center">

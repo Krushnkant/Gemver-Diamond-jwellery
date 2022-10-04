@@ -4652,6 +4652,9 @@ width: 100%;
         color: #0B1727;
         margin-bottom: 15px;
     }
+    .cart_product_name span {
+        font-size: 13px;
+    }
     
     .cart_product_name:hover {
         color: #808080;
