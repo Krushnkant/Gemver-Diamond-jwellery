@@ -184,7 +184,7 @@
                                                     <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                                                 </span>
                                                 <span class="product_part">
-                                                    <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
+                                                    <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                                     
                                                         
                                                     @if(isset($data['item_type']) && $data['item_type'] != 1)   
@@ -207,7 +207,9 @@
                                                         @endif
                                                     @endif
                                                     @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                                    <span class="cart_product_specification d-block">
                                                         {!! $item_terms !!}
+                                                    </span>
                                                     @endif
                                                 </span>
                                             </li>
@@ -218,7 +220,7 @@
                                                     <img src="{{ asset($item_image_diamond[0]) }}" height="100px" width="100px" alt="">
                                                 </span>
                                                 <span class="product_part">
-                                                    <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
+                                                    <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
                                                     <span class="cart_product_specification d-block">
                                                         {!! $diamond_terms !!}
                                                     </span>
