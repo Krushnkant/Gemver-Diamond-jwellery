@@ -162,7 +162,7 @@
                                     $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
                                     $item_terms = '<span class="cart_product_specification d-block">'. $item->Clarity .' Clarity |</span>
                                             <span class="cart_product_specification">'. $item->Color .' Color |</span>
-                                            <span class="cart_product_specification"'. $item->Lab .' Certified</span>';
+                                            <span class="cart_product_specification">'. $item->Lab .' Certified</span>';
                                     $sale_price = $item->Sale_Amt;
                                     $item_image = explode(',',$item->Stone_Img_url); 
                                     $url =  "";
@@ -187,8 +187,9 @@
                                                 <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
                                             </span>
                                             <span class="product_part">
+                                                <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
                                                 <span class="cart_product_specification d-block">
-                                                    <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
+                                                    
                                                     @if(isset($data['item_type']) && $data['item_type'] != 1)    
                                                         <!-- @foreach($item->product_variant_variants as $vitem)
                                                             <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
@@ -221,8 +222,9 @@
                                                 <img src="{{ asset($item_image_diamond[0]) }}" height="100px" width="100px" alt="">
                                             </span>
                                             <span class="product_part">
+                                                <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
                                                 <span class="cart_product_specification d-block">
-                                                    <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
+                                                    
                                                     {!! $diamond_terms !!}
                                                 </span>
                                             </span>
