@@ -160,44 +160,44 @@
                                                 {!! $item_terms !!}
                                             </span>
                                         @endif
-                                    </div>
-                                    <div class="d-flex flex-wrap" id="speci_multi143">
-                                
-                                    <?php
-
-                                    if($data['item_type'] == 0){
-                                        $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                                        $spe = '';
-                                        foreach($ProductVariantSpecification as $productvariants)
-                                        {
-                                        ?>
-                                        <div class="me-4"> <span class="wire_bangle_select mb-3 me-3 d-inline-block">
-                                            <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
-                                                <option value="">--{{ $productvariants->attribute_name }}--</option>  
-                                        <?php
-                                            $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
-                                            
-                                            foreach($product_attribute as $attribute_term){
-                                            $term_array = explode(',',$attribute_term->terms_id);
-                                            $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
-                                        
-                                            $v = 1;
-                                            foreach($product_attributes as $term){
-                                        ?>            
-                                                <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
-                                        <?php        
+                                        <div class="d-flex flex-wrap" id="speci_multi143">
+                                            <?php
+                                            if($data['item_type'] == 0){
+                                                $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
+                                                $spe = '';
+                                                foreach($ProductVariantSpecification as $productvariants)
+                                                {
+                                                ?>
+                                                <div class="me-4"> 
+                                                    <span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                                        <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
+                                                            <option value="">--{{ $productvariants->attribute_name }}--</option>  
+                                                            <?php
+                                                            $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
+                                                            
+                                                            foreach($product_attribute as $attribute_term){
+                                                                $term_array = explode(',',$attribute_term->terms_id);
+                                                                $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                                                            
+                                                                $v = 1;
+                                                                foreach($product_attributes as $term){
+                                                                    ?>            
+                                                                    <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
+                                                                    <?php        
+                                                                }
+                                                            }
+                                                            ?>        
+                                                        </select>
+                                                        <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                                    </span>
+                                                </div>
+                                                <?php
+                                                }
                                             }
-                                            }
-                                        ?>        
-                                            </select>
-                                            <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                            </span> 
+                                            ?>
                                         </div>
-                                        <?php
-                                        }
-                                    }
-                                    ?>
                                     </div>
+                                    
                                 </td>
                             
                                 <td class="cart-product-sub-total">
