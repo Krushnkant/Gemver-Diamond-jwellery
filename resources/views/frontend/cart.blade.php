@@ -185,31 +185,30 @@
                                                 </span>
                                                 <span class="product_part">
                                                     <a href="{{ $url }}" class="cart_product_name">{!! $item_name !!}</a>
-                                                    <span class="cart_product_specification d-block">
+                                                    
                                                         
-                                                        @if(isset($data['item_type']) && $data['item_type'] != 1)    
-                                                            <!-- @foreach($item->product_variant_variants as $vitem)
-                                                                <span class="cart_product_specification d-block">{{ $vitem->attribute_term->attribute->attribute_name }} : {{ $vitem->attribute_term->attrterm_name }}</span> 
-                                                            @endforeach -->
+                                                    @if(isset($data['item_type']) && $data['item_type'] != 1)   
 
-                                                            <?php
-                                                                $atr = 0;
-                                                            ?>
-                                                            @foreach($item->product_variant_variants as $vitem)
-                                                                <span class="cart_product_specification"><?php if($atr > 0){ ?>| <?php } ?>{{ $vitem->attribute_term->attrterm_name }}</span> 
+                                                        <?php
+                                                            $atr = 0;
+                                                        ?>
+                                                        @foreach($item->product_variant_variants as $vitem)
+                                                            <span class="cart_product_specification d-block">
+                                                                <?php if($atr > 0){
+                                                                    echo '|'; } ?>{{ $vitem->attribute_term->attrterm_name }} 
                                                                 <?php $atr++; ?>
+                                                            </span>
+                                                        @endforeach
+                                                    
+                                                        @if(isset($specifications))
+                                                            @foreach ($specifications as $specification)
+                                                                <span class="cart_product_specification d-block">{{ $specification['key'] }}: {{ $specification['value'] }}</span>
                                                             @endforeach
-                                                        
-                                                            @if(isset($specifications))
-                                                                @foreach ($specifications as $specification)
-                                                                    <span class="cart_product_specification d-block">{{ $specification['key'] }} : {{ $specification['value'] }}</span>
-                                                                @endforeach
-                                                            @endif
                                                         @endif
-                                                        @if(isset($data['item_type']) && $data['item_type'] == 1)
-                                                            {!! $item_terms !!}
-                                                        @endif
-                                                    </span>
+                                                    @endif
+                                                    @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                                        {!! $item_terms !!}
+                                                    @endif
                                                 </span>
                                             </li>
 
@@ -221,7 +220,6 @@
                                                 <span class="product_part">
                                                     <a href="{{ $url }}" class="cart_product_name">{!! $diamond_name !!}</a>
                                                     <span class="cart_product_specification d-block">
-                                                        
                                                         {!! $diamond_terms !!}
                                                     </span>
                                                 </span>
