@@ -178,13 +178,8 @@ fill: #0B1727;
     
     .header_row {
         position: relative;
+        width: 100%;
     }
-    /* .header ul li:last-child>.mega-menu,
-.header ul li:last-child(2)>.mega-menu {
-left: auto;
-transform: none;
-right: 0;
-} */
     
     .header ul li:hover>.mega-menu {
         opacity: 1;
@@ -3572,10 +3567,6 @@ border: 0;
         color: var(--primary);
     }
     
-    .header_row {
-        background-color: #fff;
-    }
-    
     .home-page-bg {
         padding: 5px 0;
         border-bottom: 1px var(--secondary) solid;
@@ -4869,15 +4860,18 @@ width: 100%;
     
     .add-to-wishlist-btn {
         position: absolute;
-        top: 0;
-        right: 14px;
+        top: 10px;
+        right: 21px;
+        background-color: rgb(255 255 255 / 50%);
+        border-radius: 50%;
+        padding: 4px 8px;
     }
     
     .add-to-wishlist-btn-diamond {
         position: absolute;
         top: 14px;
         right: 14px;
-        z-index: 9;
+        z-index: 99;
     }
     
     .your_order_box {
@@ -5431,10 +5425,6 @@ width: 100%;
         border-bottom: 0 !important;
     }
     
-    .header_row {
-        position: relative;
-    }
-    
     .cart-icon-part svg {
         height: 20px;
         width: 20px;
@@ -5462,7 +5452,8 @@ width: 100%;
     }
     
     .shopping-part .cart-icon-label {
-        right: 18px;
+        right: 0;
+        left: auto;
         bottom: -1px;
     }
     
@@ -5520,6 +5511,10 @@ width: 100%;
         padding: 0;
         position: relative;
         box-shadow: none !important;
+    }
+    
+    .cart-icon-part .dropdown-toggle:after {
+        content: none;
     }
     
     .cart-icon-part .dropdown-menu {
@@ -5765,7 +5760,10 @@ width: 100%;
         height: 62px;
     }
     
-    .header-part {
+    .cart-icon-part .dropdown-toggle {
+        margin-right: 15px;
+    }
+    /* .header-part {
         position: fixed;
         transition: all 0.8s ease;
         background-color: #fff;
@@ -5775,8 +5773,31 @@ width: 100%;
     
     .header-part.sticky {
         position: fixed;
-        background: #efc47D;
         top: 0;
+    } */
+    
+    .header-part {
+        width: 100%;
+        transition: all 1s ease;
+    }
+    
+    .header-part.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        animation: smoothScroll 1s forwards;
+        z-index: 9999;
+        width: 100%;
+        background-color: #fff;
+    }
+    
+    @keyframes smoothScroll {
+        0% {
+            transform: translateY(-40px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
     }
     
     div#toast-container .toast-success {

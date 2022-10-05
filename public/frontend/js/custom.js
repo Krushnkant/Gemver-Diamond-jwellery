@@ -377,10 +377,14 @@ $(document).ready(function() {
     $(".products_item > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#fff"/></svg>');
 });
 $(window).scroll(function() {
-    if ($(this).scrollTop() > 1) {
-        $('.header').addClass("sticky");
+    var sticky = $('.header-part'),
+        scroll = $(window).scrollTop();
+
+    if (scroll >= 40) {
+        sticky.addClass('fixed');
     } else {
-        $('.header').removeClass("sticky");
+        sticky.removeClass('fixed');
+
     }
 });
 $(document).on("click", "#cust_btn", function() {
@@ -393,14 +397,6 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     $('.loader-btn').fadeOut(); // will first fade out the loading animation 
     $('.header-loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
     $('body').delay(350).css({ 'overflow': 'visible' });
-});
-
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 1) {
-        $('.header-part').addClass("sticky");
-    } else {
-        $('.header-part').removeClass("sticky");
-    }
 });
 
 $(function() {
@@ -469,7 +465,7 @@ $(document).ready(function() {
                     thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart text-danger"></i>');
                     //wishload();
                 } else if (response.action == 'remove') {
-                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart text-light"></i>');
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
                     //wishload();
                 }
             },
