@@ -1,4 +1,5 @@
-var base_url = window.location.origin + '/public';
+// var base_url = window.location.origin + '/public';
+var base_url = window.location.origin;
 $(document).ready(function() {
 
     var asset = $('#asset').val();
@@ -394,6 +395,14 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     $('body').delay(350).css({ 'overflow': 'visible' });
 });
 
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 1) {
+        $('.header-part').addClass("sticky");
+    } else {
+        $('.header-part').removeClass("sticky");
+    }
+});
+
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
 });
@@ -425,10 +434,10 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.action == 'add') {
-                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart"></i>');
+                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart text-danger"></i>');
                     // wishload();
                 } else if (response.action == 'remove') {
-                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart"></i>');
+                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart" ></i>');
                     //wishload();
                 }
             },
@@ -457,10 +466,10 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.action == 'add') {
-                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart"></i>');
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart text-danger"></i>');
                     //wishload();
                 } else if (response.action == 'remove') {
-                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart text-light"></i>');
                     //wishload();
                 }
             },
