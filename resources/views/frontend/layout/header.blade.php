@@ -2,7 +2,7 @@
         <div class="home-page-bg">
                     <div class="container">
                         <div class="row mt-0 mb-0 align-items-center">
-                            <div class="col-md-4 col-lg-3 text-center">
+                            <div class="col-md-6 col-lg-6 col-xl-3 text-center">
                                 <div class="home-page-header">
                                     <a class="header-icon-part" href="tel:{{ $settings->company_mobile_no }}" ><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
                                     <a class="header-icon-part" href="mailto:{{ $settings->company_email }}" ><span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span></a>
@@ -11,7 +11,7 @@
                                 </div>
                             </div>
                            
-                            <div class="col-md-4 col-lg-8 text-end">
+                            <div class="col-md-6 col-lg-6 col-xl-8 text-end">
                                 <div class="home-page-header navbar_header">
                                   <?php 
                                       $offers = \App\Models\Offer::where('estatus',1)->get();

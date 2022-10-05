@@ -208,7 +208,7 @@ class ProductController extends Controller
                             <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                            
                             if(is_wishlist($row->variant_id,0)){    
-                                $output .= ' <i class="fas fa-heart"></i>';
+                                $output .= ' <i class="fas fa-heart text-danger"></i>';
                              }else{ 
                                 $output .= ' <i class="far fa-heart"></i> ';
                             }

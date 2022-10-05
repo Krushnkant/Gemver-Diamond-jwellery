@@ -100,7 +100,7 @@
         <div class="shop_by_category shop_by_category_padding">
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                    <div class="mb-md-5 mb-3 mt-md-0">
+                    <div class="mb-3 mt-md-0">
                         <h2 class="heading-h2">{{ $homesetting->section_category_title }}</h2>
                         <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
                         <div class="sub_title">
@@ -629,7 +629,7 @@
     <div class="engagement_ring_section">
         <div class="container">
             <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                    <div class="mb-md-5 mb-3 mt-md-0">
+                    <div class="mb-3 mt-md-0">
                         <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
                         <div class="sub_title">
                             {{ $homesetting->section_shop_by_style_shotline }}

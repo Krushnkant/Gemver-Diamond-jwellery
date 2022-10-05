@@ -217,14 +217,14 @@
                             @endforeach
 
                             <div class="row product-border mt-4">
-                                <div class="col-md-6 text-start ps-0 product-delivery-start">
+                                <div class="col-md-4 text-center ps-0 product-delivery-start">
                                     <div class="mt-3">
                                     <p>Estimated Date of Delivery <br>
                                     <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                     </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-end pe-0 product-delivery-end">
+                                <div class="col-md-5 offset-md-3 text-center pe-0 product-delivery-end">
                                     <div class="mt-3">
                                         <p>Estimated Date of Shipment <br>
                                         <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
@@ -507,11 +507,11 @@
                                 <a href="{{ $url }}">{{ $Diamond->Shape }}</a>
                                 <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
                                 <input type="hidden" class="item_type" value="1">    
-                                <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                                 @if(is_wishlist($Diamond->id,1))    
-                                    <i class="fas fa-heart"></i> 
+                                    <i class="fas fa-heart text-danger"></i> 
                                 @else
-                                    <i class="far fa-heart"></i>
+                                    <i class="far fa-heart "></i>
                                 @endif
                                 </span>
                             </div>

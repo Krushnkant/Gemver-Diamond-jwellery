@@ -383,14 +383,14 @@
                             </div>
 
                             <div class="row product-border mt-4">
-                                <div class="col-md-6 text-start ps-0 product-delivery-start">
+                                <div class="col-md-4 text-center ps-0 product-delivery-start">
                                     <div class="mt-3">
                                     <p>Estimated Date of Delivery <br>
                                     <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
                                     </p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-end pe-0 product-delivery-end">
+                                <div class="col-md-5 offset-md-3 text-center pe-0 product-delivery-end">
                                     <div class="mt-3">
                                     <p>Estimated Date of Shipment <br>
                                     <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
@@ -654,7 +654,7 @@
                             <input type="hidden" class="item_type" value="0">    
                             <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                                 <?php if(is_wishlist($Related->variant_id,0)){ ?>
-                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-heart text-danger"></i>
                                 <?php }else{ ?>
                                     <i class="far fa-heart"></i> 
                                 <?php }

@@ -280,12 +280,12 @@ class DiamondController extends Controller
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                     <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
                                     <input type="hidden" class="item_type" value="1">    
-                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    
                                         $artilces .= '<i class="fas fa-heart text-danger"></i> ';
                                     }else{ 
-                                        $artilces .= '<i class="far fa-heart text-light"></i> ';
+                                        $artilces .= '<i class="far fa-heart"></i> ';
                                     }
                                     $artilces .= '</span>
                                 </div>
@@ -838,12 +838,12 @@ class DiamondController extends Controller
                                     '.$Diamond->Shape.'
                                     <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
                                     <input type="hidden" class="item_type" value="1">    
-                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    
                                         $artilces .= '<i class="fas fa-heart text-danger"></i> ';
                                     }else{ 
-                                        $artilces .= '<i class="far fa-heart text-light"></i> ';
+                                        $artilces .= '<i class="far fa-heart"></i> ';
                                     }
                                     $artilces .= '</span>
                                 </div>

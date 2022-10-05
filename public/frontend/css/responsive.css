@@ -604,6 +604,9 @@
     .cart_product_name {
         font-size: 13px;
     }
+    .header_logo_cart {
+        position: initial;
+    }
 }
 
 @media (max-width:1199px) {
