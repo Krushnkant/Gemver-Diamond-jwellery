@@ -331,16 +331,24 @@
 
                            
                             
-                            <div class="mt-3">
-                                <p>Estimated Date of Delivery <br>
-                                <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
-                                </p>
+                            <div class="row product-border mt-4">
+                                <div class="col-md-6 text-start ps-0 product-delivery-start">
+                                    <div class="mt-3">
+                                        <p>Estimated Date of Delivery <br>
+                                        <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end pe-0 product-delivery-end">
+                                    <div class="mt-3">
+                                        <p>Estimated Date of Shipment <br>
+                                        <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-3">
-                                <p>Estimated Date of Shipment <br>
-                                <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
-                                </p>
-                            </div>
+                            
+                           
                             
 
                             <div class=" mt-3">
@@ -573,7 +581,7 @@
                     <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
                         {{ $OrderIncludes->title }}
                     </div>
-                    <div class="row mt-2 mt-md-0">
+                    <div class="row mt-2 mt-md-0 justify-content-center">
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
                         <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
                             <div class="order-box">
