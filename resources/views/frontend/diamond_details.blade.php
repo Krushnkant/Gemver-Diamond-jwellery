@@ -318,7 +318,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-xxl-5 offset-xxl-3 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
+                                <div class="col-sm-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
                                         <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
@@ -326,7 +326,7 @@
                                     </div>
                                 </div>
                             </div>
-            
+
                             <div class="mt-3">
                                 <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> 
                                     <i class="fa-solid fa-user me-2"></i>
@@ -461,6 +461,98 @@
                 </div>
             </div>
        
+        </div>
+
+        <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
+            <div class="review_description_heading order-includes-heading">
+                Reviews
+            </div>
+            <div class="review_description_heading mb-3">
+                10 Reviews For Cenforce
+            </div>
+            <div class="row">    
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn show_more_btn">Show more</button>
+            </div>
         </div>
 
         @if(isset($OrderIncludes->orderincludesdata))
