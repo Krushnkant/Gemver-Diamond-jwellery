@@ -568,7 +568,7 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Engagement Ring', 
             'route_url' => 'admin.menupage.engagementpage', 
             'is_display_in_menu' => 0, 
-            'inner_routes' => 'admin.menupage.engagementpage',
+            'inner_routes' => 'admin.menupage.engagementpage,admin.menupage.updateEngagementPage',
             'icon_class' => 'fa fa-step-forward',
             'sr_no' => 23 
         ]);
@@ -579,7 +579,7 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Wedding Brands', 
             'route_url' => 'admin.menupage.weddingpage', 
             'is_display_in_menu' => 0, 
-            'inner_routes' => 'admin.menupage.weddingpage',
+            'inner_routes' => 'admin.menupage.weddingpage,admin.menupage.updateWeddingPage',
             'icon_class' => 'fa fa-step-forward',
             'sr_no' => 23 
         ]);
@@ -590,13 +590,35 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Lab Grown Diamonds', 
             'route_url' => 'admin.menupage.growndiamondpage', 
             'is_display_in_menu' => 0, 
-            'inner_routes' => 'admin.menupage.growndiamondpage',
+            'inner_routes' => 'admin.menupage.growndiamondpage,admin.menupage.updateGrownDiamondPage',
+            'icon_class' => 'fa fa-step-forward',
+            'sr_no' => 23 
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 75, 
+            'parent_menu' => 0, 
+            'label' => 'Fine Jewellery', 
+            'route_url' => 'admin.menupage.finejewellerypage', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.menupage.finejewellerypage,admin.menupage.updateFineJewellerypagePage',
+            'icon_class' => 'fa fa-step-forward',
+            'sr_no' => 23 
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 76, 
+            'parent_menu' => 0, 
+            'label' => 'Custom Made Jewellery', 
+            'route_url' => 'admin.menupage.customjewellerypage', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.menupage.customjewellerypage,admin.menupage.updateCustomJewellerypagePage',
             'icon_class' => 'fa fa-step-forward',
             'sr_no' => 23 
         ]);
 
         ProjectPage::create([
-            'id' => 75,
+            'id' => 77,
             'parent_menu' => 0,
             'label' => 'Orders',
             'route_url' => null,
@@ -606,7 +628,7 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         ProjectPage::create([
-            'id' => 76,
+            'id' => 78,
             'parent_menu' => 75,
             'label' => 'Order',
             'route_url' => 'admin.orders.list',
@@ -615,7 +637,7 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         ProjectPage::create([
-            'id' => 77,
+            'id' => 79,
             'parent_menu' => 75,
             'label' => 'Order Return Request',
             'route_url' => 'admin.return_requests_order.list',

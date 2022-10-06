@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\Infopage;
 use App\Models\DiamondAnatomy;
+use App\Models\MenuPage;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\GenverDifference;
 use App\Models\SmilingDifference;
 use Illuminate\Http\Request;
 
 class OtherPageController extends Controller
 {
     public function gemverdifference(){
-        $Infopage= Infopage::first();
-        return view('frontend.gemverdifference',compact('Infopage'));
+        $GenverDifference = GenverDifference::first();
+        return view('frontend.gemverdifference',compact('GenverDifference'));
     }
 
     public function freeengraving(){
@@ -83,33 +86,34 @@ class OtherPageController extends Controller
 
 
     public function engagement(){
-       
-        return view('frontend.engagement');
-    }
-
-    public function finejewellery(){
-       
-        return view('frontend.finejewellery');
-    }
-
-    public function labgrowndiamonds(){
-        $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
-        $SmilingDifference = SmilingDifference::get();
-        return view('frontend.labgrowndiamonds',compact('products','SmilingDifference'));
-    }
-
-    public function custommadejewellery(){
-        $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
-        $SmilingDifference = SmilingDifference::get();
-
-        return view('frontend.custommadejewellery',compact('products','SmilingDifference'));
+        $MenuPage = MenuPage::with('menupageshapestyle')->where('id',1)->first();
+        return view('frontend.engagement',compact('MenuPage'));
     }
 
     public function weddingbands(){
+        $MenuPage = MenuPage::with('menupageshapestyle')->where('id',2)->first();
         $products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
-        $SmilingDifference = SmilingDifference::get();
-        return view('frontend.weddingbands',compact('products','SmilingDifference'));
+        return view('frontend.weddingbands',compact('products','MenuPage'));
     }
+
+    public function labgrowndiamonds(){
+        $MenuPage = MenuPage::with('menupageshapestyle')->where('id',3)->first();
+        $SmilingDifference = SmilingDifference::get();
+        return view('frontend.labgrowndiamonds',compact('MenuPage','SmilingDifference'));
+    }
+
+    public function finejewellery(){
+        $MenuPage = MenuPage::with('menupageshapestyle')->where('id',4)->first();
+        return view('frontend.finejewellery',compact('MenuPage'));
+    }
+
+    public function custommadejewellery(){
+        $MenuPage = MenuPage::with('menupageshapestyle')->where('id',5)->first();
+        $custom_categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
+        return view('frontend.custommadejewellery',compact('MenuPage','custom_categories'));
+    }
+
+    
 
    
 
