@@ -636,7 +636,7 @@
                     </div>
                 </div> -->
                 <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
-                    <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
+                    <div class="order-includes-heading mb-lg-5 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-center d-none d-xl-block">
                     {{ $OrderIncludes->title }}
                     </div>
                     <div class="row mt-2 mt-md-0 justify-content-center">
