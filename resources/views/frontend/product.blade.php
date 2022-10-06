@@ -78,7 +78,6 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        
                         <div class="wire_bangle_heading mb-0 pb-0">{{ $Product->product_title }}</div>
                         <div class=" review_star mb-2">
                             <span class="">
@@ -99,7 +98,7 @@
                        
                         <!-- <p class="blog_box_paragraph mb-xl-4">{!! Str::limit($Product->desc, 170, ' ...<a style="color: #BB9761;" href="#description">Read More </a>');  !!}</p> -->
                         
-                        <form action="" class="mb-2 mb-lg-4" >
+                        <form action="" class="mb-2" >
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
                            
                            <!-- <?php
@@ -141,7 +140,7 @@
                              if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             ?>
                             <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
-                                <div class="wire_bangle_color mb-xxl-2 pb-md-2 wire_bangle_color_img_part">
+                                <div class="wire_bangle_color wire_bangle_color_img_part">
                                 <?php 
                                 $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                     $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
@@ -260,7 +259,7 @@
                             <span class="inquiry_now_btn product-data">
                                 <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
                                 <input type="hidden" class="item_type" value="0"> 
-                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart</button>
+                                <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-3" type="button">Add To Cart</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                             
@@ -357,7 +356,7 @@
                            
                             
 
-                            <div class=" mt-3">
+                            <div class="">
                                 <button class="select_contact_btn diamond-btn get_opinion_btn" type="button">
                                     <i class="fa-solid fa-user me-2"></i>
                                      Get a gemologist opinion
@@ -365,7 +364,7 @@
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
-                            <div class="row detail_label my-2 my-md-4 py-0">
+                            <div class="row detail_label my-2 my-md-4 py-0 mt-4">
                                 <div class="col-sm-4 col-md-4 d-flex align-items-center justify-content-center detail_label_col">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 15 12" fill="none">
                                         <path d="M14.1575 0.0417425L0.848077 0C0.627869 0.000233189 0.416405 0.0836041 0.258216 0.232506C0.100138 0.381407 0.00766281 0.584171 0.000468788 0.798137C-0.00684743 1.0121 0.071712 1.22037 0.219357 1.37905L4.07735 5.48494C4.1739 5.58743 4.23903 5.71406 4.26542 5.85061L5.30239 11.3251H5.30251C5.35097 11.5791 5.51888 11.7963 5.75623 11.9122C5.99359 12.0281 6.27305 12.0293 6.5115 11.9155C6.63012 11.8576 6.73314 11.7736 6.81242 11.6699L14.8293 1.36355C14.956 1.19984 15.0156 0.996246 14.9965 0.792309C14.9773 0.588373 14.8809 0.398556 14.7259 0.259902C14.5708 0.121263 14.3684 0.043488 14.1577 0.0418552L14.1575 0.0417425ZM14.2918 1.20148L5.06055 5.65214C4.87801 5.74006 4.65673 5.66753 4.56615 5.49018C4.47572 5.31271 4.5502 5.09759 4.73275 5.00953L13.9477 0.558873C14.1303 0.470838 14.3515 0.543364 14.4421 0.720717C14.5326 0.898185 14.458 1.11331 14.2755 1.20136L14.2918 1.20148Z" fill="#0B1727"/>
@@ -595,11 +594,11 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
                         </div>
                         <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
                         </div>
                     </div>
                 </div>
@@ -621,11 +620,11 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
                         </div>
                         <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
                         </div>
                     </div>
                 </div>
@@ -647,11 +646,11 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
                         </div>
                         <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
                         </div>
                     </div>
                 </div>
