@@ -172,9 +172,11 @@
                                 <ul aria-expanded="false">
                                     @foreach($submenupages as $subpage)
                                     <li><a href="{{ isset($subpage['route_url']) ? route($subpage['route_url']) : '#' }}">{{ $subpage['label'] }} 
+                                      
                                         @if($subpage['route_url'] == "admin.orders.list")
                                         <?php
                                         $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                                        
                                         ?>
                                             <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
                                         @endif

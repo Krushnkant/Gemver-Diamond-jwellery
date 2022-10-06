@@ -308,7 +308,7 @@
                                         </span>
                                         <span class="ms-3 cart_product_part">
                                             <div class="cart_product_name">
-                                                {{ $item_details['ProductTitle'] }}
+                                                {{ $item_details['ProductTitle'] }} - <a id="addReviewBtn" order-id="{{ $items->id }}" data-id="{{ $item_details['variantId'] }}" data-bs-toggle="modal" data-bs-target="#addReviewModel">Add Review</a>
                                             </div>
                                             @foreach($item_details['spe'] as $spe)
                                             <div class="cart_product_specification d-block"> 
@@ -325,6 +325,7 @@
                                     </td>
                                     <td class="amount_total_price">
                                         ${{ $item_details['orderItemPrice'] * $item_details['itemQuantity']}}
+                                        
                                     </td>
                                 </tr>
                                 <?php $no++; ?>
@@ -371,6 +372,277 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade inquiry_now_modal" id="addReviewModel" tabindex="-1" aria-labelledby="addReviewModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+            <div class="modal-content p-3 p-md-4">
+                <div class="row">
+                    <div class="col-8 col-sm-6 ps-0 text-start">
+                        <div class="mb-xl-4 mb-3 product_heading">Add Review</div>
+                    </div>
+                    <div class="col-4 col-sm-6 text-end pe-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="alert alert-success" id="success-alert" style="display: none;"></div>
+                <div class="row">
+              
+                <form action="" method="post" id="AddReviewForm" name="AddReviewForm" class="px-0">
+                @csrf
+                
+                <div class="row mb-4 mb-xxl-4">
+                    <h4 class="text-center mt-2 mb-4">
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                    </h4>
+                    <div class="mb-3 col-md-12 ps-0">
+                        <input type="hidden" name="item_id" id="item_id">
+                        <input type="hidden" name="order_item_id" id="order_item_id">
+                        <input type="hidden" name="rating" id="rating">
+                        <input type="text" name="reviewText" id="reviewText" placeholder="Review" class="d-block wire_bangle_input">
+                        <div id="reviewText-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-6 ps-0">
+                        <div class="form-group ">
+                            <input type="file" class="form-control-file" id="profile_pic" onchange="" name="profile_pic">
+                            <div id="profilepic-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    {{-- <div class="mb-3 col-md-6 ps-0">
+                        <div class="form-group ">
+                            
+                            <img src="{{ asset('images/default_avatar.jpg') }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px;width:50px;">
+                        </div>
+                    </div> --}}
+                    
+                    
+
+                    </div>  
+                    <button type="button" class="send_inquiry_btn product_detail_inquiry_btn newReviewBtn" id="save_newInquiryBtn" >Add  
+                    <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                   </button>
+              </form>
+            </div>
+        </div>
+       </div>
+    </div>
+
+ <script>
+  
+  var rating_data = 0;
+
+    $('#add_review').click(function(){
+
+        $('#review_modal').modal('show');
+
+    });
+
+    $(document).on('mouseenter', '.submit_star', function(){
+
+        var rating = $(this).data('rating');
+
+        reset_background();
+
+        for(var count = 1; count <= rating; count++)
+        {
+
+            $('#submit_star_'+count).addClass('text-warning');
+
+        }
+
+    });
+
+    function reset_background()
+    {
+        for(var count = 1; count <= 5; count++)
+        {
+
+            $('#submit_star_'+count).addClass('star-light');
+
+            $('#submit_star_'+count).removeClass('text-warning');
+
+        }
+    }
+
+    $(document).on('mouseleave', '.submit_star', function(){
+      
+        reset_background();
+
+        for(var count = 1; count <= rating_data; count++)
+        {
+
+            $('#submit_star_'+count).removeClass('star-light');
+
+            $('#submit_star_'+count).addClass('text-warning');
+        }
+
+    });
+
+    $(document).on('mouseenter', '.submit_star', function(){
+
+        rating_data = $(this).data('rating');
+        
+        $('#rating').val(rating_data);
+
+    });
+
+    $('#save_review').click(function(){
+
+        var user_name = $('#user_name').val();
+
+        var user_review = $('#user_review').val();
+
+        if(user_name == '' || user_review == '')
+        {
+            alert("Please Fill Both Field");
+            return false;
+        }
+        else
+        {
+            $.ajax({
+                url:"submit_rating.php",
+                method:"POST",
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+                success:function(data)
+                {
+                    $('#review_modal').modal('hide');
+
+                    load_rating_data();
+
+                    alert(data);
+                }
+            })
+        }
+
+    });
+
+    $('body').on('click', '#addReviewBtn', function () {
+        var id = $(this).attr('data-id');
+        var order_id = $(this).attr('order-id');
+            $('#item_id').val(id); 
+            $('#order_item_id').val(order_id); 
+    });
+
+    $('body').on('click', '.newReviewBtn', function () {
+        add_review($(this));
+    });
+
+    function add_review(btn){
+        alert();
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
+
+        var formData = new FormData($("#AddReviewForm")[0]);
+        
+        $.ajax({
+            type: 'POST',
+            url: "{{ url('/AddReview') }}",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if(res.status == 'failed'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    if (res.errors.first_name) {
+                        $('#first_name-error').show().text(res.errors.first_name);
+                    } else {
+                        $('#first_name-error').hide();
+                    }
+
+                    if (res.errors.last_name) {
+                        $('#last_name-error').show().text(res.errors.last_name);
+                    } else {
+                        $('#last_name-error').hide();
+                    }
+
+                    if (res.errors.email) {
+                        $('#email-error').show().text(res.errors.email);
+                    } else {
+                        $('#email-error').hide();
+                    }
+
+                    if (res.errors.mobile_no) {
+                        $('#mobile_no-error').show().text(res.errors.mobile_no);
+                    } else {
+                        $('#mobile_no-error').hide();
+                    }
+
+                    if (res.errors.address) {
+                        $('#address-error').show().text(res.errors.address);
+                    } else {
+                        $('#address-error').hide();
+                    }
+
+                    if (res.errors.country) {
+                        $('#country-error').show().text(res.errors.country);
+                    } else {
+                        $('#country-error').hide();
+                    }
+
+                    if (res.errors.state) {
+                        $('#state-error').show().text(res.errors.state);
+                    } else {
+                        $('#state-error').hide();
+                    }
+
+                    if (res.errors.city) {
+                        $('#city-error').show().text(res.errors.city);
+                    } else {
+                        $('#city-error').hide();
+                    }
+
+                    if (res.errors.pincode) {
+                        $('#pincode-error').show().text(res.errors.pincode);
+                    } else {
+                        $('#pincode-error').hide();
+                    }
+                }
+
+                if(res.status == 200){
+                    $("#addressEditModel").modal('hide');
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.success("Address Updated",'Success',{timeOut: 5000});
+                    $('#address_id').val("");
+                    $('#firs_tname-error').html("");
+                    $('#last_name-error').html("");
+                    $('#email-error').html("");
+                    $('#mobile_no-error').html("");
+                    $('#address-error').html("");
+                    $('#address2-error').html("");
+                    $('#city-error').html("");
+                    $('#state-error').html("");
+                    $('#country-error').html("");
+                    $('#pincode-error').html("");
+                    location.reload();
+                }
+
+                if(res.status == 400){
+                    $("#addressEditModel").modal('hide');
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            },
+            error: function (data) {
+                $("#addressEditModel").modal('hide');
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+              
+                toastr.error("Please try again",'Error',{timeOut: 5000});
+            }
+        });
+    }
+    
+</script>   
   
 
 @endsection()

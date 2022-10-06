@@ -68,25 +68,25 @@
                                <form id="AddressCreateForm" method="post">
                                     <div class="row mb-3 mb-md-4">
                                         <div class="col-md-6 mb-3 mb-md-0 popup_padding">
-                                            <label for="" class="form-label form_heading">First Name</label>
+                                            <label for="" class="form-label form_heading">First Name <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter Your First Name">
                                             <div id="first_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                             <input type="hidden" name="user_id" value="{{ session('customer.id') }}" class="form-control" id="user_id" >
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="" class="form-label form_heading">Last Name</label>
+                                            <label for="" class="form-label form_heading">Last Name <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Your Last Name">
                                             <div id="last_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                     </div>
                                     <div class="row mb-3 mb-md-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="" class="form-label form_heading">Email Address</label>
+                                            <label for="" class="form-label form_heading">Email Address <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email Address">
                                             <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="" class="form-label form_heading">Phone</label>
+                                            <label for="" class="form-label form_heading">Phone <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Your Phone">
                                             <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="row mb-3 mb-md-4">
                                         <div class="col-md-12">
-                                            <label for="" class="form-label form_heading">Street Address</label>
+                                            <label for="" class="form-label form_heading">Street Address <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control mb-3" id="address" name="address" placeholder="Enter Your Address">
                                             <div id="address-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                             <input type="text" class="form-control" id="address2" name="address2" placeholder="Enter Your Address">
@@ -103,24 +103,24 @@
                                     </div>
                                     <div class="row mb-3 mb-md-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="" class="form-label form_heading">City</label>
+                                            <label for="" class="form-label form_heading">City <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="city" name="city" placeholder="Enter Your City">
                                             <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="" class="form-label form_heading">State</label>
+                                            <label for="" class="form-label form_heading">State <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="state" name="state" placeholder="Enter Your State">
                                             <div id="state-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                     </div>
                                     <div class="row mb-3 mb-md-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="" class="form-label form_heading">Country</label>
+                                            <label for="" class="form-label form_heading">Country <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="country" name="country" placeholder="Enter Your Country">
                                             <div id="country-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="" class="form-label form_heading">Pin Code</label>
+                                            <label for="" class="form-label form_heading">Pin Code <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your Pincode">
                                             <div id="pincode-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>

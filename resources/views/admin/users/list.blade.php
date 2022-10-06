@@ -88,7 +88,7 @@
                             </label>
                             <input type="file" class="form-control-file" id="profile_pic" onchange="" name="profile_pic">
                             <div id="profilepic-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            <img src="{{ asset('images/default_avatar.jpg') }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                            <img src="{{ asset('images/default_avatar.jpg') }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px;width:50px;">
                         </div>
                         <div class="form-group ">
                             <label class="col-form-label" for="full_name">Full Name <span class="text-danger">*</span>
