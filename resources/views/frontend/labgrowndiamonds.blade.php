@@ -3,16 +3,15 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <img src="{{ asset('frontend/image/labgrowndiamond.png') }}" alt="">
+    <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
     <div class="container engagement_text_part">
         <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">Lab Grown Diamonds</h1>
+            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
             <p class="engagement_paragraph mb-4">
-                Explore our extensive collection of 
-                loose diamond at your fingertips.
+                {{ $MenuPage->main_shotline }}
             </p>
             <div class="engagement_button">
-                <button class="engagement_start_diamond">Lab Diamond</button>
+                <button class="engagement_start_diamond">{{ $MenuPage->main_first_button_name }}</button>
             </div>
         </div>
     </div>
@@ -23,16 +22,16 @@
         <div class="container my-5">
             <div class="row">
                 <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img">
-                    <img src="{{ asset('frontend/image/design_your_engagement.png') }}" alt="">
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
                 <div class="col-md-6">
                     <div class="choose_your_setting_box text-center">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                                Design Your Engagement Ring
+                                {{ $MenuPage->section1_title }}
                             </div>
                             <p class="custom_engagement_paragrph">
-                                Customise your engagement ring and choose from our extensive range of ring styles, diamonds, and precious metals of your choice.
+                                {{ $MenuPage->section1_description }}
                             </p>
                             <div class="engagement_button mt-3 mt-sm-0 mt-md-3 mt-xl-4 text-start text-sm-center">
                                 <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto">Start with Diamond</button>
@@ -115,30 +114,17 @@
     <div class="container">
         <div class="choose_your_setting_heading text-center mb-2 mb-md-5">Fancy Colour Diamonds</div>
         <div class="owl-carousel owl-theme fancy-color-diamonds">
+            @if($MenuPage->menupageshapestyle)
+            @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
             <div class="item">
-                <img src="{{ asset('frontend/image/fancy-color-diamond-yellow.png') }}" alt="" class="fancy-color-duiamonds-img">
+                <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="" class="fancy-color-duiamonds-img">
                 <div class="fancy-color-heading mt-3">
-                    Yellow
+                    {{ $menupageshapestyle->title }}
                 </div>
             </div>
-            <div class="item">
-                <img src="{{ asset('frontend/image/fancy-color-diamond-pink.png') }}" alt="" class="fancy-color-duiamonds-img">
-                <div class="fancy-color-heading mt-3">
-                    Pink
-                </div>
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/image/fancy-color-diamond-purple.png') }}" alt="" class="fancy-color-duiamonds-img">
-                <div class="fancy-color-heading mt-3">
-                    Purple
-                </div>
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/image/fancy-color-diamond-light-blue.png') }}" alt="" class="fancy-color-duiamonds-img">
-                <div class="fancy-color-heading mt-3">
-                    Blue
-                </div>
-            </div>
+            @endforeach
+            @endif
+            
         </div>
     </div>
 </div>
@@ -205,10 +191,10 @@
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                        Lab Grown Diamonds
+                        {{ $MenuPage->section4_title }}
                     </div>
                     <p class="custom_engagement_paragrph">
-                        Our Lab Grown Diamonds and Earth Natural Diamonds offer identical sparkle and chemical compositions.
+                        {{ $MenuPage->section4_description }}
                     </p>
                     <div class="engagement_button">
                         <button class="engagement_start_diamond mt-3 mt-xl-4">Explore Lab grown</button>
@@ -217,7 +203,7 @@
             </div>
         </div>
         <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 lab-diamond-img">
-            <img src="{{ asset('frontend/image/labgrowndiamonds.png') }}" alt="">
+            <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>
 </div>

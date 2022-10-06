@@ -40,7 +40,7 @@
                                 <div id="main_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                             </div>
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                               <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                    <label class="col-form-label" for="banner_image">Banner Image <span class="text-danger">*</span>
                                    </label>
@@ -49,7 +49,72 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                   </div>
                                </div>
+                               <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="main_first_button_name">Button Name 
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_first_button_name" name="main_first_button_name" >
+                                    <div id="main_first_button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
+                                
                             </div>
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Section 1
+                        </h4>
+                      
+                        <div class="row col-lg-12">
+                        
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                              <div class="form-group">
+                                <label class="col-form-label" for="section1_title"> Title <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section1_title" name="section1_title" >
+                                <div id="section1_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                             
+                             <div class="form-group">
+                                <label class="col-form-label" for="section1_description"> Contant <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="section1_description" name="section1_description"></textarea>
+                                <div id="section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                            </div>
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                   <label class="col-form-label" for="Logo"> Image <span class="text-danger">*</span>
+                                   </label>
+                                   <input type="file" class="form-control-file" id="section1_image" name="section1_image" placeholder="">
+                                  <div id="section1_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section1_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                  </div>
+                               </div>
+                               <div class="col-lg-6 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <select  name="cat_id" id="category_select" class="form-control">
+                                    <option value="">Select Category</option>
+                                        @foreach($custom_categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                           
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,7 +127,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
-                            Section 1
+                            Section 2
                         </h4>
                       
                         <div class="row add-value">
@@ -104,7 +169,7 @@
                                     <div class="form-group ">
                                         <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $shapestyle->id }}"> 
                                         <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
-                                        <img src="{{ asset('images/order_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                                        <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -137,48 +202,6 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            Section 2
-                        </h4>
-                      
-                        <div class="row col-lg-12">
-                        
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                              <div class="form-group">
-                                <label class="col-form-label" for="section1_title"> Title <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control input-flat" id="section1_title" name="section1_title" >
-                                <div id="section1_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-                             
-                             <div class="form-group">
-                                <label class="col-form-label" for="section1_description"> Contant <span class="text-danger">*</span>
-                                </label>
-                                <textarea class="form-control" id="section1_description" name="section1_description"></textarea>
-                                <div id="section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-                            </div>
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                                <div class="form-group">
-                                   <label class="col-form-label" for="Logo"> Image <span class="text-danger">*</span>
-                                   </label>
-                                   <input type="file" class="form-control-file" id="section1_image" name="section1_image" placeholder="">
-                                  <div id="section1_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section1_image_show" height="100px" width="100px"  style="margin-top: 5px">
-                                  </div>
-                               </div>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid">
         <div class="row">
@@ -187,107 +210,6 @@
                     <div class="card-body">
                         <h4 class="card-title">
                             Section 3
-                        </h4>
-                      
-                        <div class="row col-lg-12">
-                            <div class="col-lg-12 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section3_title">Main Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section3_title" name="section3_title" >
-                                    <div id="section3_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                            </div>
-                        
-                            {{-- <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section31_image"> Image <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="file" class="form-control-file" id="section31_image" name="section31_image">
-                                    <div id="section31_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section31_image_show" height="100px" width="100px"  style="margin-top: 5px">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section31_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section31_title" name="section31_title" >
-                                    <div id="section31_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section31_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section31_description" name="section31_description"></textarea>
-                                    <div id="section31_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                                
-                            </div>
-
-                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section32_image"> Image <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="file" class="form-control-file" id="section32_image" name="section32_image">
-                                    <div id="section32_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section32_image_show" height="100px" width="100px"  style="margin-top: 5px">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section32_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section32_title" name="section32_title" >
-                                    <div id="section32_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section32_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section32_description" name="section32_description"></textarea>
-                                    <div id="section32_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                                
-                            </div>
-
-
-                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section33_image"> Image <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="file" class="form-control-file" id="section33_image" name="section33_image">
-                                    <div id="section33_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section33_image_show" height="100px" width="100px"  style="margin-top: 5px">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section33_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section33_title" name="section33_title" >
-                                    <div id="section33_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section33_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section33_description" name="section33_description"></textarea>
-                                    <div id="section33_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                                
-                            </div> --}}
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            Section 4
                         </h4>
                         <div class="row col-lg-12">
                              
@@ -336,10 +258,17 @@
             placeholder: "Select Category",
             allowClear: false
         });
+
+        $('#category_select').select2({
+            width: '100%',
+            placeholder: "Select Custom Category",
+            allowClear: false
+        });
         
-        $.get("{{ url('admin/menupage') }}" +'/2/edit', function (data) {
+        $.get("{{ url('admin/menupage') }}" +'/3/edit', function (data) {
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
+           $('#main_first_button_name').val(data.main_first_button_name);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
            $('#section2_title').val(data.section2_title);
@@ -354,6 +283,7 @@
            $('#section33_description').val(data.section33_description);
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
+           $('[name=cat_id]').val(data.category_id).change();
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;
@@ -404,7 +334,7 @@
         var formData = new FormData($("#MenuForm")[0]);
         $.ajax({
             type: 'POST',
-            url: "{{ url('admin/updateEngagementPage') }}",
+            url: "{{ url('admin/updateGrownDiamondPage') }}",
             data: formData,
             processData: false,
             contentType: false,

@@ -24,6 +24,16 @@
                         </h4>
                       
                         <div class="row col-lg-12">
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <select  name="cat_id" id="category_select" class="form-control">
+                                    <option value="">Select Category</option>
+                                        @foreach($custom_categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                            
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
@@ -39,8 +49,9 @@
                                 <textarea class="form-control" id="main_shotline" name="main_shotline"></textarea>
                                 <div id="main_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
+                            
                             </div>
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                    <label class="col-form-label" for="banner_image">Banner Image <span class="text-danger">*</span>
                                    </label>
@@ -48,7 +59,27 @@
                                   <div id="banner_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                   </div>
-                               </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="main_first_button_name">First Button Name 
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_first_button_name" name="main_first_button_name" >
+                                    <div id="main_first_button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
+                                
+                            </div>
+
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                 <div class="form-group">
+                                    <label class="col-form-label" for="main_second_button_name">Second Button Name 
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_second_button_name" name="main_second_button_name" >
+                                    <div id="main_second_button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
+                            </div>
+                            
                             </div>
                     </div>
                 </div>
@@ -104,7 +135,7 @@
                                     <div class="form-group ">
                                         <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $shapestyle->id }}"> 
                                         <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
-                                        <img src="{{ asset('images/order_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                                        <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -336,10 +367,19 @@
             placeholder: "Select Category",
             allowClear: false
         });
+
+        $('#category_select').select2({
+            width: '100%',
+            placeholder: "Select Custom Category",
+            allowClear: false
+        });
         
         $.get("{{ url('admin/menupage') }}" +'/1/edit', function (data) {
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
+           
+           $('#main_first_button_name').val(data.main_first_button_name);
+           $('#main_second_button_name').val(data.main_second_button_name);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
            $('#section2_title').val(data.section2_title);
@@ -354,6 +394,9 @@
            $('#section33_description').val(data.section33_description);
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
+
+           //$('#cat_id option[value="'+data.category_id+'"]');
+           $('[name=cat_id]').val(data.category_id).change();
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;

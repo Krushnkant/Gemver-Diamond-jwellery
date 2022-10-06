@@ -521,14 +521,20 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('coupons/{id}/delete',[\App\Http\Controllers\admin\CouponController::class,'deletecoupon'])->name('coupons.delete');
 
     Route::get('menupage/engagementpage',[\App\Http\Controllers\admin\MenuPageController::class,'engagementpage'])->name('menupage.engagementpage');
-    Route::post('updateEngagementPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateEngagementPage'])->name('infopage.updateEngagementPage');
+    Route::post('updateEngagementPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateEngagementPage'])->name('menupage.updateEngagementPage');
     Route::get('menupage/{id}/edit',[\App\Http\Controllers\admin\MenuPageController::class,'editmenupage'])->name('menupage.edit');
 
     Route::get('menupage/weddingpage',[\App\Http\Controllers\admin\MenuPageController::class,'weddingpage'])->name('menupage.weddingpage');
-    Route::post('updateWeddingPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateWeddingPage'])->name('infopage.updateWeddingPage');
+    Route::post('updateWeddingPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateWeddingPage'])->name('menupage.updateWeddingPage');
 
     Route::get('menupage/growndiamondpage',[\App\Http\Controllers\admin\MenuPageController::class,'growndiamondpage'])->name('menupage.growndiamondpage');
-    Route::post('updateGrownDiamondPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateGrownDiamondPage'])->name('infopage.updateGrownDiamondPage');
+    Route::post('updateGrownDiamondPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateGrownDiamondPage'])->name('menupage.updateGrownDiamondPage');
+
+    Route::get('menupage/finejewellerypage',[\App\Http\Controllers\admin\MenuPageController::class,'finejewellerypage'])->name('menupage.finejewellerypage');
+    Route::post('updateFineJewelleryPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateFineJewelleryPage'])->name('menupage.updateFineJewelleryPage');
+
+    Route::get('menupage/customjewellerypage',[\App\Http\Controllers\admin\MenuPageController::class,'customjewellerypage'])->name('menupage.customjewellerypage');
+    Route::post('updateCustomJewelleryPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateCustomJewelleryPage'])->name('menupage.updateCustomJewelleryPage');
 
 
     Route::get('orders',[\App\Http\Controllers\admin\OrderController::class,'index'])->name('orders.list');

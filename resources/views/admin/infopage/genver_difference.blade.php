@@ -26,14 +26,14 @@
                            
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
-                                <label class="col-form-label" for="section1_title">Second Section Title <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section1_title"> Title <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" class="form-control input-flat" id="section1_title" name="section1_title" >
                                 <div id="section1_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                              
                              <div class="form-group">
-                                <label class="col-form-label" for="section1_description">Second Section Contant <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section1_description"> Contant <span class="text-danger">*</span>
                                 </label>
                                 <textarea class="form-control" id="section1_description" name="section1_description"></textarea>
                                 <div id="section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
-                                   <label class="col-form-label" for="section1_image">Section Image <span class="text-danger">*</span>
+                                   <label class="col-form-label" for="section1_image"> Image <span class="text-danger">*</span>
                                    </label>
                                    <input type="file" class="form-control-file" id="section1_image" name="section1_image" placeholder="">
                                   <div id="section1_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -66,7 +66,7 @@
                         <div class="row col-lg-12">
                         <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                             <div class="form-group">
-                               <label class="col-form-label" for="Logo">Section Image <span class="text-danger">*</span>
+                               <label class="col-form-label" for="Logo"> Image <span class="text-danger">*</span>
                                </label>
                                <input type="file" class="form-control-file" id="section2_image" name="section2_image" placeholder="">
                               <div id="section2_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -75,14 +75,14 @@
                            </div>
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
-                                <label class="col-form-label" for="section2_title">Section Title <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section2_title"> Title <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" class="form-control input-flat" id="section2_title" name="section2_title" >
                                 <div id="section2_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                              
                              <div class="form-group">
-                                <label class="col-form-label" for="section2_description">Section Contant <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section2_description"> Contant <span class="text-danger">*</span>
                                 </label>
                                 <textarea class="form-control" id="section2_description" name="section2_description"></textarea>
                                 <div id="section2_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -106,14 +106,14 @@
                        
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
-                                <label class="col-form-label" for="section3_title">Section Title <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section3_title"> Title <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" class="form-control input-flat" id="section3_title" name="section3_title" >
                                 <div id="section3_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                              
                              <div class="form-group">
-                                <label class="col-form-label" for="section3_description">Section Contant <span class="text-danger">*</span>
+                                <label class="col-form-label" for="section3_description"> Contant <span class="text-danger">*</span>
                                 </label>
                                 <textarea class="form-control" id="section3_description" name="section3_description"></textarea>
                                 <div id="section3_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -122,7 +122,7 @@
 
                             <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
-                                   <label class="col-form-label" for="Logo">Section Image <span class="text-danger">*</span>
+                                   <label class="col-form-label" for="Logo"> Image <span class="text-danger">*</span>
                                    </label>
                                    <input type="file" class="form-control-file" id="section3_image" name="section3_image" placeholder="">
                                   <div id="section3_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -228,7 +228,7 @@
         var formData = new FormData($("#GemverDifferenceForm")[0]);
         $.ajax({
             type: 'POST',
-            url: "{{ url('admin/updateGenverDifference') }}",
+            url: "{{ url('admin/updateGemverDifference') }}",
             data: formData,
             processData: false,
             contentType: false,
