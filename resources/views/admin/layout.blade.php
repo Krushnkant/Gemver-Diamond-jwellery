@@ -171,7 +171,21 @@
                                 </a>
                                 <ul aria-expanded="false">
                                     @foreach($submenupages as $subpage)
-                                    <li><a href="{{ isset($subpage['route_url']) ? route($subpage['route_url']) : '#' }}">{{ $subpage['label'] }}</a></li>
+                                    <li><a href="{{ isset($subpage['route_url']) ? route($subpage['route_url']) : '#' }}">{{ $subpage['label'] }} 
+                                        @if($subpage['route_url'] == "admin.orders.list")
+                                        <?php
+                                        $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                                        ?>
+                                            <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
+                                        @endif
+
+                                        @if($subpage['route_url'] == "admin.return_requests_order.list")
+                                        <?php
+                                            $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                                        ?>
+                                            <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
+                                        @endif
+                                    </a> </li>
                                     @endforeach
                                 </ul>
                             </li>

@@ -22,32 +22,32 @@
     </div>
 
     <div class="container about_us_product mt-2 mt-md-5">
-        @if($Infopage->first_section_contant != '')
+        @if($GenverDifference->section1_description != '')
         <div class="row gemver_difference_us_product_row align-items-center px-0 px-md-3">
             <div class="col-md-6 order-2 order-md-1">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">Lab Grown Diamond</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
+                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section1_title }}</h3>
+                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section1_description !!}</p>
                 </div>
             </div>
             <div class="col-md-6 order-1 order-md-2">
                 <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $Infopage->first_section_image)}}" alt="">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section1_image)}}" alt="">
                 </div>
             </div>
         </div>
         @endif
-        @if($Infopage->second_section_contant != '')
+        @if($GenverDifference->section2_description != '')
         <div class="row gemver_difference_us_product_row mt-4 align-items-center px-0 px-md-3">
             <div class="col-md-6">
                 <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $Infopage->second_section_image)}}" alt="">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section2_image)}}" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">Eco Friendly</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
+                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section2_title }}</h3>
+                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section2_description !!}</p>
                 </div>
             </div>
         </div>
@@ -55,13 +55,13 @@
         <div class="row gemver_difference_us_product_row align-items-center px-0 px-md-3">
             <div class="col-md-6 order-2 order-md-1">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">Hand Made Jewellry</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
+                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section3_title }}</h3>
+                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section3_description !!}</p>
                 </div>
             </div>
             <div class="col-md-6 order-1 order-md-2">
                 <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $Infopage->first_section_image)}}" alt="">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section3_image)}}" alt="">
                 </div>
             </div>
         </div>
@@ -69,13 +69,13 @@
         <div class="row gemver_difference_us_product_row mt-4 align-items-center px-0 px-md-3">
             <div class="col-md-6">
                 <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $Infopage->second_section_image)}}" alt="">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section4_image)}}" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">100% Certified Diamonds</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
+                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section4_title }}</h3>
+                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section4_description !!}</p>
                 </div>
             </div>
         </div>

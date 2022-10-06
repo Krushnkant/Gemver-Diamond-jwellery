@@ -19,6 +19,8 @@ class CreateMenuPagesTable extends Migration
             $table->integer('category_id');
             $table->string('main_title',255)->nullable();
             $table->string('main_shotline',255)->nullable();
+            $table->string('main_first_button_name',255)->nullable();
+            $table->string('main_second_button_name',255)->nullable();
             $table->text('banner_image')->nullable();
 
             $table->string('section1_title',255)->nullable();
@@ -31,18 +33,23 @@ class CreateMenuPagesTable extends Migration
             $table->text('section2_image')->nullable();
 
             $table->string('section3_title',255)->nullable();
+            $table->string('section3_description',255)->nullable();
 
             $table->string('section31_title',255)->nullable();
             $table->text('section31_description')->nullable();
             $table->text('section31_image')->nullable();
+            $table->text('section31_category_id')->nullable();
+            
 
             $table->string('section32_title',255)->nullable();
             $table->text('section32_description')->nullable();
             $table->text('section32_image')->nullable();
+            $table->text('section32_category_id')->nullable();
 
             $table->string('section33_title',255)->nullable();
             $table->text('section33_description')->nullable();
             $table->text('section33_image')->nullable();
+            $table->text('section33_category_id')->nullable();
 
             $table->string('section4_title',255)->nullable();
             $table->text('section4_description')->nullable();

@@ -3,13 +3,12 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <img src="{{ asset('frontend/image/engagement-bg.png') }}" alt="">
+    <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
     <div class="container engagement_text_part">
         <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">Wedding Bands</h1>
+            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
             <p class="engagement_paragraph mb-4">
-                A wedding band is a symbol of commitment; a
-                promise, a pledge, and a vow.
+                {{ $MenuPage->main_shotline }}
             </p>
         </div>
     </div>
@@ -24,42 +23,17 @@
         </p>
 
         <div class="row">
+            @if($MenuPage->menupageshapestyle)
+            @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
             <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
                 <img src="{{ asset('frontend/image/ring_setting_1.png') }}" alt="">
                 <div class="choose_sub_heading mt-3">
                     Solitaire
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
-                <img src="{{ asset('frontend/image/ring_setting_2.png') }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    Halo
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
-                <img src="{{ asset('frontend/image/ring_setting_3.png') }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    Three Stone
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
-                <img src="{{ asset('frontend/image/ring_setting_4.png') }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    Vintage
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
-                <img src="{{ asset('frontend/image/ring_setting_5.png') }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    Bridal Sets
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0">
-                <img src="{{ asset('frontend/image/ring_setting_5.png') }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    Bridal Sets
-                </div>
-            </div>
+            @endforeach
+            @endif
+            
         </div>
     </div>
 </div>
@@ -71,16 +45,16 @@
                 <div class="text-center">
                     <div class="">
                         <div class="choose_your_setting_heading text-center text-center mb-3 mb-xl-3">
-                            Custom-Made Wedding Bands
+                            {{ $MenuPage->section1_title }}
                         </div>
                         <p class="custom_engagement_paragrph custom_made_paragraph">  
-                            Design your perfect wedding band. Select from our range of wedding bands styles, customise it with diamonds, the precious metal of your choice and preferred metal finishing.
+                            {{ $MenuPage->section1_description }}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-5">
-                <img src="{{ asset('frontend/image/wedding_bands.png') }}" alt="">
+                <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
             </div>  
         </div>
     </div> 
@@ -90,10 +64,10 @@
     <div class="shop_dimond_by_shape1 choose_your_setting_section">
         <div class="container">
             <div class="">
-                <div class="choose_your_setting_heading text-center mb-2 mb-lg-3">Top Selling Wedding Bands</div>
-                <div class="choose_your_setting_paragraph text-center mb-3 mb-md-4 mb-xl-5">
+                <div class="choose_your_setting_heading text-center mb-2 mb-lg-3">{{ $MenuPage->section2_title }}</div>
+                {{-- <div class="choose_your_setting_paragraph text-center mb-3 mb-md-4 mb-xl-5">
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
-                </div>
+                </div> --}}
             </div>
             <div>
                 <div class="owl-carousel owl-theme products_item">
@@ -225,17 +199,16 @@
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                        Ready to Ship
+                        {{ $MenuPage->section4_title }}
                     </div>
                     <p class="custom_engagement_paragrph">
-                        Ready to ship brings you engagement ring you
-                        can get when you are in a rush.
+                        {{ $MenuPage->section4_description }}
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
-            <img src="{{ asset('frontend/image/ready_to_ship.png') }}" alt="">
+            <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>
 </div>

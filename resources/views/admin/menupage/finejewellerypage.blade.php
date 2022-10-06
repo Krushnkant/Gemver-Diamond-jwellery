@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Wedding Brands Page</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Fine Jewellery Page</a></li>
             </ol>
         </div>
     </div>
@@ -29,7 +29,7 @@
                               <div class="form-group">
                                 <label class="col-form-label" for="main_title"> Title <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control input-flat" id="main_title" name="main_title" >
+                                <input type="text" class="form-control input-flat" id="main_title" name="main_title">
                                 <div id="main_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                              
@@ -104,7 +104,7 @@
                                     <div class="form-group ">
                                         <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $shapestyle->id }}"> 
                                         <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
-                                        <img src="{{ asset('images/order_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                                        <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -197,9 +197,15 @@
                                     <input type="text" class="form-control input-flat" id="section3_title" name="section3_title" >
                                     <div id="section3_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section3_description"> Contant <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="section3_description" name="section3_description"></textarea>
+                                    <div id="section3_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
                             </div>
                         
-                            {{-- <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                     <label class="col-form-label" for="section31_image"> Image <span class="text-danger">*</span>
                                     </label>
@@ -208,19 +214,13 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="section31_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-form-label" for="section31_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section31_title" name="section31_title" >
-                                    <div id="section31_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <select  name="section31_category_id" id="category_select" class="form-control">
+                                    <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section31_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section31_description" name="section31_description"></textarea>
-                                    <div id="section31_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
-                                
                             </div>
 
                             <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
@@ -231,19 +231,16 @@
                                     <div id="section32_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="section32_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-form-label" for="section32_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section32_title" name="section32_title" >
-                                    <div id="section32_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <select  name="section32_category_id" id="category_select" class="form-control">
+                                    <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section32_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section32_description" name="section32_description"></textarea>
-                                    <div id="section32_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
+                                
                                 
                             </div>
 
@@ -256,21 +253,22 @@
                                     <div id="section33_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="section33_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-form-label" for="section33_title"> Title <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control input-flat" id="section33_title" name="section33_title" >
-                                    <div id="section33_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <select  name="section33_category_id" id="category_select" class="form-control">
+                                    <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                            
-                                <div class="form-group">
-                                    <label class="col-form-label" for="section33_description"> Description <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="section33_description" name="section33_description"></textarea>
-                                    <div id="section33_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                </div>
+                               
                                 
-                            </div> --}}
+                            </div>
+
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
+                                <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            </div>
 
                         </div>
                     </div>
@@ -280,48 +278,6 @@
     </div>
 
     
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            Section 4
-                        </h4>
-                        <div class="row col-lg-12">
-                             
-                        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                              <div class="form-group">
-                                <label class="col-form-label" for="section4_title"> Title <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control input-flat" id="section4_title" name="section4_title" >
-                                <div id="section4_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="section4_description"> Description <span class="text-danger">*</span>
-                                </label>
-                                <textarea class="form-control" id="section4_description" name="section4_description"></textarea>
-                                <div id="section4_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
-                            <div class="form-group">
-                               <label class="col-form-label" for="section4_image"> Image <span class="text-danger">*</span>
-                               </label>
-                               <input type="file" class="form-control-file" id="section4_image" name="section4_image" placeholder="">
-                              <div id="section4_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                <img src="{{ url('images/placeholder_image.png') }}" class="" id="section4_image_show" height="100px" width="100px"  style="margin-top: 5px">
-                              </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
-                        <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </form>
 
 @endsection
@@ -337,7 +293,7 @@
             allowClear: false
         });
         
-        $.get("{{ url('admin/menupage') }}" +'/2/edit', function (data) {
+        $.get("{{ url('admin/menupage') }}" +'/4/edit', function (data) {
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
            $('#section1_title').val(data.section1_title);
@@ -345,6 +301,11 @@
            $('#section2_title').val(data.section2_title);
            $('#section2_description').val(data.section2_description);
            $('#section3_title').val(data.section3_title);
+           $('#section3_description').val(data.section3_description);
+
+           $('[name=section31_category_id]').val(data.section31_category_id).change();
+           $('[name=section32_category_id]').val(data.section32_category_id).change();
+           $('[name=section33_category_id]').val(data.section33_category_id).change();
 
            $('#section31_title').val(data.section31_title);
            $('#section31_description').val(data.section31_description);
@@ -404,7 +365,7 @@
         var formData = new FormData($("#MenuForm")[0]);
         $.ajax({
             type: 'POST',
-            url: "{{ url('admin/updateWeddingPage') }}",
+            url: "{{ url('admin/updateFineJewelleryPage') }}",
             data: formData,
             processData: false,
             contentType: false,
