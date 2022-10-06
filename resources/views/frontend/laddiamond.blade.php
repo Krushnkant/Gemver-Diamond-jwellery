@@ -438,6 +438,7 @@
     
             function filter_data(page,scroll=0)
             {
+               
                 $('.filter_data').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var minimum_price = $('#hidden_minimum_price').val();
@@ -521,6 +522,7 @@
             }
         
             $('.common_selector').click(function(){
+                var page = 1;
                 filter_data(page);
             });
         
@@ -543,7 +545,7 @@
         
             $(function() {
              var maxPrice = '{{ $Maxprice  }}';
-             
+             var page = 1;
             $( "#slider-range" ).slider({
               range: true,
               min: 0,
@@ -584,7 +586,7 @@
 
           $(function() {
              var maxPrice = 7;
-             
+             var page = 1;
             $( "#slider-range-carat" ).slider({
               range: true,
               min: 0,
@@ -627,6 +629,7 @@
 
           $(function() {
              var maxDepth = '{{ $MaxDepth  }}';
+             var page = 1;
              
             $( "#slider-range-depth" ).slider({
               range: true,
@@ -671,6 +674,7 @@
 
           $(function() {
              var maxRatio = 3;
+             var page = 1;
              
             $( "#slider-range-ratio" ).slider({
               range: true,
@@ -717,7 +721,7 @@
 
           $(function() {
              var maxTable = '{{ $MaxTable  }}';
-             
+             var page = 1;
             $( "#slider-range-table" ).slider({
               range: true,
               min: 40,

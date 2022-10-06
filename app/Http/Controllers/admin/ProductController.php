@@ -775,6 +775,7 @@ class ProductController extends Controller
 
 
                     $action='';
+                    $action .='<a href="'.url('admin/review/create/'.$product->id).'" class="btn btn-gray text-green btn-sm"><i class="fa fa-star-o" aria-hidden="true"></i></a>';
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
                         $action .= '<button id="editProductBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$product->product_id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                     }

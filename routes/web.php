@@ -143,6 +143,9 @@ Route::post('postresetpassword',[\App\Http\Controllers\AuthController::class,'po
 Route::post('redeem_coupon',[\App\Http\Controllers\CartController::class,'redeem_coupon'])->name('frontend.redeem_coupon');
 
 
+Route::post('AddReview',[\App\Http\Controllers\ReviewController::class,'AddReview'])->name('frontend.AddReview');
+
+
 
 Route::group(['middleware'=>['frontendauth']],function (){
 
@@ -560,6 +563,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('return_requests_order',[\App\Http\Controllers\admin\OrderController::class,'return_requests_order'])->name('return_requests_order.list');
     Route::post('allReturnRequestOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allReturnRequestOrderlist'])->name('allReturnRequestOrderlist');
     Route::get('payment_status_update/{order_id}',[\App\Http\Controllers\admin\OrderController::class,'payment_status_update'])->name('payment_status_update');
+
+    Route::get('review',[\App\Http\Controllers\admin\ReviewController::class,'index'])->name('review.list');
+    Route::post('allReviewlist',[\App\Http\Controllers\admin\ReviewController::class,'allReviewlist'])->name('allReviewlist');
+    Route::get('review/create/{id}',[\App\Http\Controllers\admin\ReviewController::class,'create'])->name('review.add');
+    Route::post('review/save',[\App\Http\Controllers\admin\ReviewController::class,'save'])->name('review.save');
+    Route::get('rejectstatus/{id}',[\App\Http\Controllers\admin\ReviewController::class,'rejectstatus'])->name('review.rejectstatus');
+    Route::get('acceptstatus/{id}',[\App\Http\Controllers\admin\ReviewController::class,'acceptstatus'])->name('review.acceptstatus');
 
     
 });

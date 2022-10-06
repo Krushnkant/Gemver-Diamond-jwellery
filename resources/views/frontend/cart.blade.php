@@ -100,6 +100,11 @@
                     <div class="tab-content1 clearfix px-0">
                         @if(isset($cart_data) && count($cart_data))
                         <div class="tab-pane table-responsive">
+                           
+                            <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
+                                Only add inquiry
+                            </div>
+                           
                             <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
                             <thead>
                                 <tr class="table-active">
@@ -381,7 +386,10 @@
         return true;
     }
      $(document).ready(function () {
-
+     
+     if("{{ $setting->max_order_price <  $total - $coupan_discount_amount }}"){
+        $('.inquiry-alert').show();
+     }   
     
     $('.delete_cart_data').click(function (e) {
         e.preventDefault();
