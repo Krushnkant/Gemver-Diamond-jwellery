@@ -613,6 +613,7 @@
     }
     .gemver_diffrence_box {
         padding: 15px;
+        margin-top: 0;
     }
     .gemver_diffrence_img img {
         height: 250px;
@@ -1726,6 +1727,9 @@
     .gemver_diffrence_paragraph {
         font-size: 14px;
     }
+    .gemver_diffrence_box {
+        margin-top: 35px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1847,6 +1851,13 @@
     }
     .finejewellery-heading {
         font-size: 17px;
+    }
+    /* --------------------------------- gemver difference ---------------------------------------------------------- */
+    .gemver_diffrence_box {
+        padding: 25px;
+    }
+    .gemver_diffrence_heading {
+        font-size: 23px;
     }
 }
 
@@ -2086,6 +2097,9 @@
     }
     .custom_made_heading {
         font-size: 23px;
+    }
+    .gemver_diffrence_heading {
+        font-size: 26px;
     }
 }
 

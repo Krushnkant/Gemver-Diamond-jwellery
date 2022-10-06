@@ -5877,6 +5877,7 @@ width: 100%;
         box-shadow: 0px 6px 10px 5px rgba(49, 46, 46, 0.15);
         border-radius: 7px;
         padding: 50px;
+        margin-top: 52px;
     }
     
     .gemver_diffrence_img {
@@ -5884,6 +5885,6 @@ width: 100%;
     }
     
     .gemver_diffrence_img img {
-        height: 450px;
+        height: 370px;
         object-fit: cover;
     }
