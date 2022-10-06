@@ -254,7 +254,11 @@
                             <span class="inquiry_now_btn product-data">
                                 <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
                                 <input type="hidden" class="item_type" value="0"> 
-                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart</button>
+                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart 
+                                    <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                             
@@ -1143,7 +1147,9 @@ $('.select_cart_btn').click(function (e) {
     })
 
     if(valid){
-        
+        var btn = $(this);
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1165,6 +1171,8 @@ $('.select_cart_btn').click(function (e) {
                 'arrspe': arrspe 
             },
             success: function (response) {
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
                 //alertify.set('notifier','position','top-right');

@@ -16,12 +16,12 @@
                 <form method="post" id="LoginForm">
                     {{ csrf_field() }}    
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <label for="exampleFormControlInput1" class="form-label">Email <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
                         <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                     <div class="mb-3 password_text">
-                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <label for="exampleFormControlInput1" class="form-label">Password <span class="text-danger">*</span></label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         <div class="forgot_password_text text-end mt-3">
@@ -80,8 +80,7 @@
                 if(res.status == 200){
                     $('#loginSubmit').prop('disabled',false);
                     toastr.success("You have Successfully loggedin",'Success',{timeOut: 5000});
-                   
-                     location.href ="{{ url('/') }}";
+                    location.href ="{{ url('/account') }}";
                 }
 
                 if(res.status == 400){

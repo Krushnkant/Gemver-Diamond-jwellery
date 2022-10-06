@@ -16,8 +16,8 @@
                 <form method="post" id="ForgetForm">
                         {{ csrf_field() }} 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Enter your Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                        <label for="email" class="form-label">Enter your Email <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email">
                         <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                    <div class="login_btn mt-3 mt-md-4 mt-xl-5">
@@ -62,7 +62,7 @@
                 if(res.status == 200){
                     $('#forgetSubmit').prop('disabled',false);
                     toastr.success("You have Successfully loggedin",'Success',{timeOut: 5000});
-                    location.href ="{{ url('/') }}";
+                    location.href ="{{ url('/messagebox') }}";
                     //return redirect()->back();
                 }
 

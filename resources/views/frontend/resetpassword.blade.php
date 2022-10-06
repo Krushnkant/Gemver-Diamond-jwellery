@@ -16,13 +16,13 @@
                 <form method="post" id="ResetForm">
                     {{ csrf_field() }}    
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                         <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <input type="password" class="form-control" id="password" name="password" placeholder="********" value="{{ old('password') }}">
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                     <div class="mb-3 password_text">
-                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <label for="confirm_password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
                         <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="********" value="{{ old('confirm_password') }}">
                         <div id="confirm_password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                        

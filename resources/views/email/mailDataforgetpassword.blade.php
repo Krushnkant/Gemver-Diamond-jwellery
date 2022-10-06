@@ -20,7 +20,10 @@
                      Our Representative will contact you soon.
                 </div> --}}
                 <div style="margin-bottom: 5px; font-size: 13px;">
-                    {{ $message1 }}
+                    {{ $message1 }} <br>
+                <a href="{{ $message1 }}" style="background-color: #4CAF50; border: none;color: white;text-align: center; text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Reset password</a>
+
+
                     
                 </div>
                 <div style="margin-bottom: 5px; font-size: 13px;">

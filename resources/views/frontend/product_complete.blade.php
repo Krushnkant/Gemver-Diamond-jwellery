@@ -378,7 +378,11 @@
                                 </span> -->
                                 <span class="inquiry_now_btn">
                                     <button class="select_setting_btn diamond-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
-                                    <button class="select_setting_btn diamond-btn add-to-cart" type="button" >add to cart</button>
+                                    <button class="select_setting_btn diamond-btn add-to-cart" type="button" >add to cart 
+                                        <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </button>
                                 </span>
                             </div>
                             
@@ -846,6 +850,9 @@ $('.add-to-cart').click(function (e) {
           }
       })
       if(valid){
+        var btn = $(this);
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
           
           $.ajaxSetup({
               headers: {
@@ -872,6 +879,8 @@ $('.add-to-cart').click(function (e) {
                   'arrspe': arrspe 
               },
               success: function (response) {
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
                   toastr.success(response.status,'Success',{timeOut: 5000});
                   cartload();
                   //alertify.set('notifier','position','top-right');

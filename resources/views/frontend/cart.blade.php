@@ -235,7 +235,7 @@
                                         <span class="wire_bangle_input" >
                                             <div class="wire_bangle_number number-input">
                                                 <button  class="sp-minus"></button>
-                                                <input class="qty qty-input" min="0" placeholder="0" name="qty" id="qty" value="{{ $data['item_quantity'] }}" type="number">
+                                                <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
                                                 <button  class="plus sp-plus "></button>
                                             </div>
                                         </span>
@@ -292,9 +292,14 @@
                     <div class="row">
                         <div class="col-8 ps-0">
                             <input type="text" placeholder="Enter your code" class="enter_yout_code_input" name="coupon_code" id="coupon_code">
+                            <div id="coupon_code-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn btn-primary apply_btn redeem" >Apply <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            <button type="button" class="btn btn-primary apply_btn redeem" >Apply 
+                                <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
                     <div class="order_summary_heading text-start mt-4">
@@ -367,172 +372,189 @@
    
     <script type="text/javascript">
      // Delete Cart Data
+     function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
      $(document).ready(function () {
 
-$('.delete_cart_data').click(function (e) {
-    e.preventDefault();
-
-    var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
-   
-    var data = {
-        '_token': $('input[name=_token]').val(),
-        "product_id": variant_id,
-    };
-
-    // $(this).closest(".cartpage").remove();
-
-    $.ajax({
-        url: '/delete-from-cart',
-        type: 'DELETE',
-        data: data,
-        success: function (response) {
-            window.location.reload();
-        }
-    });
-});
-
-
-$('body').on('change', '.qty', function () {  
     
-    var sum = 0;
-    var total = 0;
-    var maintotal = 0;
-    var qtytotal = 0;
-    $('.price_jq').each(function () {
-        var price = $(this);
-        var count = price.closest('tr').find('.qty');
-        var amount = Number(price.html());
-        var qty = Number(count.val());
-        sum = amount * qty;
-        total = total + sum;
-        console.log(price.closest('tr').find('.cart-total-price'));
-        price.closest('tr').find('.cart-total-price').html(sum);
-        qtytotal = qtytotal + qty;
-    })
+    $('.delete_cart_data').click(function (e) {
+        e.preventDefault();
 
-    $('.cart-maintotal-price').html(total);
-    $('.total_qty').html(qtytotal);
+        var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
+    
+        var data = {
+            '_token': $('input[name=_token]').val(),
+            "product_id": variant_id,
+        };
 
-    if("{{ session()->has('coupon') }}"){
-        if("{{ session('coupon.discount_type_id') }}" == 1){
-            var coupan_discount_per  =  "{{ session('coupon.coupon_amount') }}";
-            var coupan_discount_amount = total * coupan_discount_per/100;
-        }else{
-            var coupan_discount_amount  =  "{{ session('coupon.coupon_amount') }}";
-        }
-    }else{
-        var coupan_discount_amount  =  0;    
-    } 
-    //var coupan_discount_amount = $('#coupan_discount_amount').val();
-    $('.coupan_discount_amount').html(coupan_discount_amount);
-    var main_total =  total - coupan_discount_amount;
-    var max_order_amount = "{{ $setting->max_order_price }}";
-    if(main_total < max_order_amount){
-        $("#proceed_to_checkout_btn").addClass("proceed_to_checkout_btn");
-    }else{
-        $("#proceed_to_checkout_btn").removeClass("proceed_to_checkout_btn");
-    }
+        // $(this).closest(".cartpage").remove();
 
-    $('.final_price').html(main_total);
-    var quantity = $(this).closest(".cartpage").find('.qty-input').val();
-    var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
-    var diamond_id = $(this).closest(".cartpage").find('.diamond_id').val();
-    var item_type = $(this).closest(".cartpage").find('.item_type').val();
-
-   
-    var data = {
-        '_token': $('input[name=_token]').val(),
-        'quantity':quantity,
-        'variant_id':variant_id,
-        'diamond_id':diamond_id,
-        'item_type':item_type,
-        'action':'update_qty'
-    };
-
-    console.log(data);
-    $.ajax({
-        url: "{{ url('/add-to-cart') }}",  
-        method: "POST",
-        data: data,
-        success: function (response) {
-            location.reload();
-        }
-    });
-
- 
-});
-
-$('.sp-plus').on('click', function(){
-    var count = $(this).closest('tr').find('.qty').val();
-    var newVal = (parseInt(count,10) +1);
-    $(this).closest('tr').find('.qty').val(newVal).trigger('change');
-});
-
-$('.sp-minus').on('click', function(){
-    var count = $(this).closest('tr').find('.qty').val();
-    var newVal = (parseInt(count,10) -1);
-    $(this).closest('tr').find('.qty').val(newVal).trigger('change');
-});
-
-$('.redeem').click(function (e) {
-    e.preventDefault();
-    var btn = $(this);
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
-
-    var coupon_code = $('#coupon_code').val();
-    //var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
-   
-    var data = {
-        '_token': $('input[name=_token]').val(),
-        "coupon_code": coupon_code,
-    };
-    $.ajax({
-        url: '/redeem_coupon',
-        type: 'Post',
-        data: data,
-        success: function (response) {
-            if(response.status == 200){
-                $(btn).find('.loadericonfa').hide();
-                $(btn).prop('disabled',false);
-                if(response.data.discount_type_id == 1){
-                   var coupon_amount_per = response.data.coupon_amount;
-                   var total  = $('.cart-maintotal-price').html();
-                   var coupon_amount = (total * coupon_amount_per)/100;
-                 
-                }else{
-                    var coupon_amount = response.data.coupon_amount;
-                }
-                $('#coupan_discount_amount').val(coupon_amount);
-                $('.coupan_discount_amount').html(coupon_amount);
-                toastr.success(response.message,'Success',{timeOut: 5000});
-                $("#coupon_code").val('');
-                $(".qty").change();
-            }else{
-                $(btn).find('.loadericonfa').hide();
-                $(btn).prop('disabled',false);
-                toastr.error(response.message,'Success',{timeOut: 5000});
+        $.ajax({
+            url: "{{ url('/delete-from-cart') }}",
+            type: 'DELETE',
+            data: data,
+            success: function (response) {
+                window.location.reload();
             }
+        });
+    });
+
+
+    $('body').on('change', '.qty', function () {  
+        
+        var sum = 0;
+        var total = 0;
+        var maintotal = 0;
+        var qtytotal = 0;
+        $('.price_jq').each(function () {
+            var price = $(this);
+            var count = price.closest('tr').find('.qty');
+            var amount = Number(price.html());
+            var qty = Number(count.val());
+            sum = amount * qty;
+            total = total + sum;
+            console.log(price.closest('tr').find('.cart-total-price'));
+            price.closest('tr').find('.cart-total-price').html(sum);
+            qtytotal = qtytotal + qty;
+        })
+
+        $('.cart-maintotal-price').html(total);
+        $('.total_qty').html(qtytotal);
+
+        if("{{ session()->has('coupon') }}"){
+            if("{{ session('coupon.discount_type_id') }}" == 1){
+                var coupan_discount_per  =  "{{ session('coupon.coupon_amount') }}";
+                var coupan_discount_amount = total * coupan_discount_per/100;
+            }else{
+                var coupan_discount_amount  =  "{{ session('coupon.coupon_amount') }}";
+            }
+        }else{
+            var coupan_discount_amount  =  0;    
+        } 
+        //var coupan_discount_amount = $('#coupan_discount_amount').val();
+        $('.coupan_discount_amount').html(coupan_discount_amount);
+        var main_total =  total - coupan_discount_amount;
+        var max_order_amount = "{{ $setting->max_order_price }}";
+        if(main_total < max_order_amount){
+            $("#proceed_to_checkout_btn").addClass("proceed_to_checkout_btn");
+        }else{
+            $("#proceed_to_checkout_btn").removeClass("proceed_to_checkout_btn");
+        }
+
+        $('.final_price').html(main_total);
+        var quantity = $(this).closest(".cartpage").find('.qty-input').val();
+        var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
+        var diamond_id = $(this).closest(".cartpage").find('.diamond_id').val();
+        var item_type = $(this).closest(".cartpage").find('.item_type').val();
+        var data = {
+            '_token': $('input[name=_token]').val(),
+            'quantity':quantity,
+            'variant_id':variant_id,
+            'diamond_id':diamond_id,
+            'item_type':item_type,
+            'action':'update_qty'
+        };
+        $.ajax({
+            url: "{{ url('/add-to-cart') }}",  
+            method: "POST",
+            data: data,
+            success: function (response) {
+                location.reload();
+            }
+        });
+
+    
+    });
+
+    $('.sp-plus').on('click', function(){
+        var count = $(this).closest('tr').find('.qty').val();
+        var newVal = (parseInt(count,10) +1);
+        $(this).closest('tr').find('.qty').val(newVal).trigger('change');
+    });
+
+    $('.sp-minus').on('click', function(){
+        var count = $(this).closest('tr').find('.qty').val();
+        if ($(this).next().val() > 1) {
+        var newVal = (parseInt(count,10) -1);
+        $(this).closest('tr').find('.qty').val(newVal).trigger('change');
         }
     });
-});
 
-$('.proceed_to_checkout_btn').click(function (e) {
-    e.preventDefault();
-    var check_login = "{{ is_login() }}";
-    if(check_login) {
-        location.href="{{ url('/checkout') }}";
-    } else {
-        location.href="{{ url('/login') }}";
-         "{{ Session::put('afterLogin','/cart');}}";
-    }
-});
+    $('.redeem').click(function (e) {
+        e.preventDefault();
+        var btn = $(this);
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
 
-$('.continue_shopping_btn').click(function () {
-    location.href="{{ url('/') }}";
-});
+        var coupon_code = $('#coupon_code').val();
+        //var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
+    
+        var data = {
+            '_token': $('input[name=_token]').val(),
+            "coupon_code": coupon_code,
+        };
+        $.ajax({
+            url: "{{ url('/redeem_coupon') }}",
+            type: 'Post',
+            data: data,
+            success: function (response) {
+                if(response.status == 'failed'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
 
-});
+                    if (response.errors.coupon_code) {
+                        $('#coupon_code-error').show().text(response.errors.coupon_code);
+                    } else {
+                        $('#coupon_code-error').hide();
+                    }
+                    
+                }else if(response.status == 200){
+                    $(btn).find('.loadericonfa').hide();
+                    $(btn).prop('disabled',false);
+                    if(response.data.discount_type_id == 1){
+                    var coupon_amount_per = response.data.coupon_amount;
+                    var total  = $('.cart-maintotal-price').html();
+                    var coupon_amount = (total * coupon_amount_per)/100;
+                    
+                    }else{
+                        var coupon_amount = response.data.coupon_amount;
+                    }
+                    $('#coupan_discount_amount').val(coupon_amount);
+                    $('.coupan_discount_amount').html(coupon_amount);
+                    toastr.success(response.message,'Success',{timeOut: 5000});
+                    $("#coupon_code").val('');
+                    $(".qty").change();
+                }else{
+                    $(btn).find('.loadericonfa').hide();
+                    $(btn).prop('disabled',false);
+                    toastr.error(response.message,'Success',{timeOut: 5000});
+                }
+            }
+        });
+    });
+
+    $('.proceed_to_checkout_btn').click(function (e) {
+        e.preventDefault();
+        var check_login = "{{ is_login() }}";
+        if(check_login) {
+            location.href="{{ url('/checkout') }}";
+        } else {
+            location.href="{{ url('/login') }}";
+            "{{ Session::put('afterLogin','/cart');}}";
+        }
+    });
+
+    $('.continue_shopping_btn').click(function () {
+        location.href="{{ url('/shop') }}";
+    });
+
+    });
      
 </script>
 

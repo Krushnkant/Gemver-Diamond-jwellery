@@ -15,7 +15,7 @@ use Response;
 
 class ProductController extends Controller
 {
-    public function index($id){
+    public function index($id=0){
         $CatId = $id;
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
         $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => 0])->get();

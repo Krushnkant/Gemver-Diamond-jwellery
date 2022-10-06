@@ -11,7 +11,7 @@
                 {{ $MenuPage->main_shotline }}
             </p>
             <div class="engagement_button">
-                <button class="engagement_start_diamond">{{ $MenuPage->main_first_button_name }}</button>
+                <button   class="engagement_start_diamond labDiamondBtn">{{ $MenuPage->main_first_button_name }}</button>
             </div>
         </div>
     </div>
@@ -34,8 +34,8 @@
                                 {{ $MenuPage->section1_description }}
                             </p>
                             <div class="engagement_button mt-3 mt-sm-0 mt-md-3 mt-xl-4 text-start text-sm-center">
-                                <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto">Start with Diamond</button>
-                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto">Start with Setting</button>
+                                <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto" id="settingDiamondBtn" data-id="{{ $MenuPage->category_id }}">Start with Diamond</button>
+                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto" id="settingProductBtn" data-id="{{ $MenuPage->category_id }}">Start with Setting</button>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
         <div class="owl-carousel owl-theme fancy-color-diamonds">
             @if($MenuPage->menupageshapestyle)
             @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="item">
+            <div class="item" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                 <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="" class="fancy-color-duiamonds-img">
                 <div class="fancy-color-heading mt-3">
                     {{ $menupageshapestyle->title }}
@@ -197,7 +197,7 @@
                         {{ $MenuPage->section4_description }}
                     </p>
                     <div class="engagement_button">
-                        <button class="engagement_start_diamond mt-3 mt-xl-4">Explore Lab grown</button>
+                        <button class="engagement_start_diamond mt-3 mt-xl-4 labDiamondBtn">Explore Lab grown</button>
                     </div>
                 </div>
             </div>
@@ -207,5 +207,33 @@
         </div>  
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {    
+        $('body').on('click', '#settingProductBtn', function () {
+            var category_id = $(this).attr('data-id');
+            var url = "{{ url('product-setting/') }}" + "/" + category_id;
+            window.open(url,"_blank");
+        });
+    
+        $('body').on('click', '#settingDiamondBtn', function () {
+            var category_id = $(this).attr('data-id');
+            var url = "{{ url('diamond-setting/') }}" + "/" + category_id;
+            window.open(url,"_blank");
+        });
+    
+        $('body').on('click', '.labDiamondBtn', function () {
+            var url = "{{ url('lab-diamond') }}";
+            window.open(url,"_blank");
+        });
+
+        $('body').on('click', '#shopProductBtn', function () {
+            var category_id = $(this).attr('data-id');
+            var url = "{{ url('shop/') }}" + "/" + category_id;
+            window.open(url,"_blank");
+        });
+    
+    });
+    </script>
 
 @endsection

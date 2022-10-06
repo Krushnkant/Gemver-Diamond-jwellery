@@ -439,7 +439,7 @@
                     $('#saveMenuPage').prop('disabled',false);
                     $('#saveMenuPage').find('.loadericonfa').hide();
                  
-                    toastr.success("Engagement Page Updated",'Success',{timeOut: 5000});
+                    toastr.success("Grown Diamond Page Updated",'Success',{timeOut: 5000});
                 }
 
                 if(res.status == 400){

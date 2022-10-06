@@ -237,6 +237,11 @@ class AuthController extends Controller
 
     }
 
+    public function messagebox(){
+        $user = user::where('id',session('customer.id'))->first();
+        return  view('frontend.message-box',compact('user'));
+    }
+
     public function updatePassword(Request $request){
        
         $messages = [

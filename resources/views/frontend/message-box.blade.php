@@ -12,10 +12,10 @@
         </div>
         <p class="message_box_paragraph">
             A link to reset your password has been sent to
-            Emilyjohn1212@gmail.com
+            {{ session('customer.email') }}
         </p>
         <div class="login_btn mt-3 mt-md-4 mt-xl-5">
-            <button class="login_button" type="submit" id="RegisterSubmit">Continue to Log In</button>
+            <button class="login_button"  id="LoginSubmit">Continue to Log In</button>
         </div>
    </div>
 
@@ -32,6 +32,15 @@
         </span>
    </div>
 </div>
-  
 
+<script type="text/javascript">
+    $(document).ready(function() {    
+        $('body').on('click', '#LoginSubmit', function () {
+           
+            var url = "{{ url('/login') }}";
+            window.open(url,"_blank");
+        });
+    });
+</script>
+  
 @endsection()
