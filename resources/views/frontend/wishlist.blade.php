@@ -262,7 +262,7 @@ $('.delete_wishlist_data').click(function (e) {
     // $(this).closest(".cartpage").remove();
 
     $.ajax({
-        url: '/delete-from-wishlist',
+        url: "{{ url('/delete-from-wishlist') }}",
         type: 'DELETE',
         data: data,
         success: function (response) {
@@ -325,7 +325,7 @@ $('.select_cart_btn').click(function (e) {
                     };
 
                     $.ajax({
-                        url: '/delete-from-wishlist',
+                        url: "{{ url('/delete-from-wishlist') }}",
                         type: 'DELETE',
                         data: datawish,
                         success: function (response) {

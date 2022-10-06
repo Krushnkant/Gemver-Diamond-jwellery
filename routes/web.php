@@ -76,7 +76,7 @@ Route::get('custommadejewellery',[OtherPageController::class,'custommadejeweller
 Route::get('weddingbands',[OtherPageController::class,'weddingbands']);
 
 
-Route::get('/shop/{catid}',[ProductController::class,'index'])->name('frontend.shop'); 
+Route::get('/shop/{catid?}',[ProductController::class,'index'])->name('frontend.shop'); 
 Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
@@ -136,6 +136,7 @@ Route::post('frontendpostlogin', [\App\Http\Controllers\AuthController::class, '
 Route::get('register',[\App\Http\Controllers\AuthController::class,'register'])->name('frontend.register');
 Route::post('frontendpostregister', [\App\Http\Controllers\AuthController::class, 'postRegister'])->name('frontend.postregister');
 Route::get('forget-password',[\App\Http\Controllers\AuthController::class,'forgetpassword'])->name('frontend.forgetpassword');
+Route::get('messagebox',[\App\Http\Controllers\AuthController::class,'messagebox'])->name('frontend.messagebox');
 Route::post('postforgetpassword',[\App\Http\Controllers\AuthController::class,'postForgetpassword'])->name('frontend.postforgetpassword');
 Route::get('resetpassword/{slug}',[\App\Http\Controllers\AuthController::class,'resetpassword'])->name('frontend.resetpassword');
 Route::post('postresetpassword',[\App\Http\Controllers\AuthController::class,'postResetpassword'])->name('frontend.postresetpassword');

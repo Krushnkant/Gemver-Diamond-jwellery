@@ -104,7 +104,7 @@
                                     <div class="form-group ">
                                         <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $shapestyle->id }}"> 
                                         <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
-                                        <img src="{{ asset('images/order_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                                        <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -509,7 +509,7 @@
                     $('#saveMenuPage').prop('disabled',false);
                     $('#saveMenuPage').find('.loadericonfa').hide();
                  
-                    toastr.success("Engagement Page Updated",'Success',{timeOut: 5000});
+                    toastr.success("Wedding Page Updated",'Success',{timeOut: 5000});
                 }
 
                 if(res.status == 400){

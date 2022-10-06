@@ -209,7 +209,11 @@
                             </div>
             
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
-                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart</button>
+                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart
+                                <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
                             @foreach($Category as $cat)
                             
                             <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
@@ -650,6 +654,9 @@ function save_inquiry(btn,btn_type){
 
 $('.add-to-cart').click(function (e) {
       e.preventDefault();
+        var btn = $(this);
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -669,6 +676,8 @@ $('.add-to-cart').click(function (e) {
                 'item_type': item_type 
             },
             success: function (response) {
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
                 //alertify.set('notifier','position','top-right');

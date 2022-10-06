@@ -20,7 +20,7 @@
 
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                <div class="col-md-6 col-lg-3 finejewellery-img mb-4">
+                <div class="col-md-6 col-lg-3 finejewellery-img mb-4" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                     <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     <div class="finejewellery-box mt-3">
                         <div class="finejewellery-heading text-center mb-3">
@@ -63,13 +63,13 @@
     <div class="container mb-4 pt-4">
         <div class="choose_your_setting_heading text-center mb-3 mb-xl-5">{{ $MenuPage->section3_title }}</div>
         <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section31_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section32_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section33_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
         </div>
@@ -80,6 +80,21 @@
 
     
  
+    <script type="text/javascript">
+        $(document).ready(function() {    
+            $('body').on('click', '#shopProductBtn', function () {
+                var category_id = $(this).attr('data-id');
+                var url = "{{ url('shop/') }}" + "/" + category_id;
+                window.open(url,"_blank");
+            });
 
+            $('body').on('click', '.shopProductBtn', function () {
+                var category_id = $(this).attr('data-id');
+                var url = "{{ url('shop/') }}" + "/" + category_id;
+                window.open(url,"_blank");
+            });
+        
+        });
+    </script>
 
 @endsection

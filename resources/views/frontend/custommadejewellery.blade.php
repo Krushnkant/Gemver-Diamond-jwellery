@@ -25,12 +25,12 @@
                                 <div class="custom_made_heading text-center mb-2 mb-xl-3">
                                     Create your own {{ $category->category_name }}
                                 </div>
-                                {{-- <p class="custom_engagement_paragrph mb-4">
+                                <p class="custom_engagement_paragrph mb-4">
                                     Classic, opulent, or delicate - regardless of the occasion, we have the perfect ring to complement every look.
-                                </p> --}}
+                                </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $category->id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $category->id }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -122,8 +122,8 @@
                                     From classic designs to creative twists, our exquisite hand-crafted earrings are a must-have fashion accessory.
                                 </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $category->id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $category->id }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -135,5 +135,20 @@
     <?php $num++; ?>
     @endforeach
 
-
+    <script type="text/javascript">
+        $(document).ready(function() {    
+            $('body').on('click', '#settingProductBtn', function () {
+                var category_id = $(this).attr('data-id');
+                var url = "{{ url('product-setting/') }}" + "/" + category_id;
+                window.open(url,"_blank");
+            });
+        
+            $('body').on('click', '#settingDiamondBtn', function () {
+                var category_id = $(this).attr('data-id');
+                var url = "{{ url('diamond-setting/') }}" + "/" + category_id;
+                window.open(url,"_blank");
+            });
+        
+        });
+        </script>
 @endsection

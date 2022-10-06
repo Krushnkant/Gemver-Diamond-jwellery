@@ -10,6 +10,7 @@ use App\Models\Diamond;
 use Illuminate\Http\Request;
 use App\Models\Settings;
 use Config;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -90,7 +91,7 @@ class CartController extends Controller
                        ]);
                 }
                 
-                return response()->json(['status'=>'Update to Cart']);
+                return response()->json(['status'=>'Add to cart']);
             }else{
                 $cart = New ItemCart();
                 $cart->user_id = $user_id;
@@ -100,7 +101,7 @@ class CartController extends Controller
                 $cart->item_type = $item_type;
                 $cart->specification = (isset($arrspe) && $arrspe != "")?json_encode($arrspe) :"";
                 $cart->save();
-                return response()->json(['status'=>'Update to Cart']);
+                return response()->json(['status'=>'Add to cart']);
             }
         }else{    
             if(Cookie::get('shopping_cart'))
@@ -271,6 +272,18 @@ class CartController extends Controller
 
     public function redeem_coupon(Request $request)
     {
+        $messages = [
+            'coupon_code.required' =>'Please provide a coupon code',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'coupon_code' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+
         $coupon = Coupon::where('coupon_code', $request->coupon_code)->first();
         if (!$coupon) {
             return response()->json(['status' => '400','message'=>' Invalid coupon code. Please try again.']);

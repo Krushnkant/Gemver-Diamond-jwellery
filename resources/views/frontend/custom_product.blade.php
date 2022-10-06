@@ -340,30 +340,6 @@
     @endif
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-    
-        // function infinteLoadMore(page) {
-        //     $.ajax({
-        //             url: ENDPOINT + "/diamonds?page=" + page,
-        //             datatype: "html",
-        //             type: "get",
-        //             beforeSend: function () {
-        //                 $('.auto-load').show();
-        //             }
-        //         })
-        //         .done(function (response) {
-        //             if (response.length == 0) {
-        //                 $('.auto-load').html("We don't have more data to display ");
-        //                 return;
-        //             }
-        //             $('.auto-load').hide();
-        //             $("#data-wrapper").append(response);
-        //         })
-        //         .fail(function (jqXHR, ajaxOptions, thrownError) {
-        //             console.log('Server error occured');
-        //         });
-        // }
-    </script>
 
     <script>
         $(document).ready(function(){
