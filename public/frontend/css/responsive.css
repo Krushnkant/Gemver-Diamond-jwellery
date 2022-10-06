@@ -607,6 +607,22 @@
     .header_logo_cart {
         position: initial;
     }
+    /* --------------------------------- gemver difference ---------------------------------------------------------- */
+    .gemver_diffrence_img {
+        margin-right: 0;
+    }
+    .gemver_diffrence_box {
+        padding: 15px;
+    }
+    .gemver_diffrence_img img {
+        height: 250px;
+    }
+    .gemver_diffrence_paragraph {
+        font-size: 15px;
+    }
+    .gemver_diffrence_heading {
+        font-size: 20px;
+    }
 }
 
 @media (max-width:1199px) {
@@ -1701,6 +1717,13 @@
     }
     /* ------------------------------------------------------- */
     .dainty-ring-gifts-paragraph {
+        font-size: 14px;
+    }
+    /* ------------------ gemver difference -------------------------------------- */
+    .gemver_diffrence_img {
+        margin-right: -70px;
+    }
+    .gemver_diffrence_paragraph {
         font-size: 14px;
     }
 }

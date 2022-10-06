@@ -21,61 +21,61 @@
         </div>
     </div>
 
-    <div class="container about_us_product mt-2 mt-md-5">
+    <div class="container about_us_product">
         @if($GenverDifference->section1_description != '')
-        <div class="row gemver_difference_us_product_row align-items-center px-0 px-md-3">
-            <div class="col-md-6 order-2 order-md-1">
-                <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section1_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section1_description !!}</p>
+        <div class="row gemver_difference_us_product_row pb-xl-5 mb-5 align-items-center px-0 px-md-3">
+            <div class="col-md-5 col-lg-6">
+                <div class="gemver_diffrence_img mb-3">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section1_image)}}" alt="">
                 </div>
             </div>
-            <div class="col-md-6 order-1 order-md-2">
-                <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $GenverDifference->section1_image)}}" alt="">
+            <div class="col-md-7 col-lg-6">
+                <div class="gemver_diffrence_box">
+                    <h3 class="text-center text-md-start gemver_diffrence_heading mb-2 mb-md-0">{{ $GenverDifference->section1_title }}</h3>
+                    <p class="gemver_diffrence_paragraph  text-center text-md-start">{!! $GenverDifference->section1_description !!}</p>
                 </div>
             </div>
         </div>
         @endif
         @if($GenverDifference->section2_description != '')
-        <div class="row gemver_difference_us_product_row mt-4 align-items-center px-0 px-md-3">
-            <div class="col-md-6">
-                <div class="about_us_img">
+        <div class="row gemver_difference_us_product_row pb-xl-5 mb-5 align-items-center px-0 px-md-3">
+            <div class="col-md-5 col-lg-6">
+                <div class="gemver_diffrence_img mb-3">
                     <img src="{{ url('images/aboutus/'. $GenverDifference->section2_image)}}" alt="">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section2_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section2_description !!}</p>
+            <div class="col-md-7 col-lg-6">
+                <div class="gemver_diffrence_box">
+                    <h3 class="text-center text-md-start gemver_diffrence_heading mb-2 mb-md-0">{{ $GenverDifference->section2_title }}</h3>
+                    <p class="gemver_diffrence_paragraph  text-center text-md-start">{!! $GenverDifference->section2_description !!}</p>
                 </div>
             </div>
         </div>
         @endif
-        <div class="row gemver_difference_us_product_row align-items-center px-0 px-md-3">
-            <div class="col-md-6 order-2 order-md-1">
-                <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section3_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section3_description !!}</p>
+        <div class="row gemver_difference_us_product_row pb-xl-5 mb-5 align-items-center px-0 px-md-3">
+            <div class="col-md-5 col-lg-6">
+                <div class="gemver_diffrence_img mb-3">
+                    <img src="{{ url('images/aboutus/'. $GenverDifference->section3_image)}}" alt="">
                 </div>
             </div>
-            <div class="col-md-6 order-1 order-md-2">
-                <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $GenverDifference->section3_image)}}" alt="">
+            <div class="col-md-7 col-lg-6 order-2 order-md-1">
+                <div class="gemver_diffrence_box">
+                    <h3 class="text-center text-md-start gemver_diffrence_heading mb-2 mb-md-0">{{ $GenverDifference->section3_title }}</h3>
+                    <p class="gemver_diffrence_paragraph  text-center text-md-start">{!! $GenverDifference->section3_description !!}</p>
                 </div>
             </div>
         </div>
 
-        <div class="row gemver_difference_us_product_row mt-4 align-items-center px-0 px-md-3">
-            <div class="col-md-6">
-                <div class="about_us_img">
+        <div class="row gemver_difference_us_product_row pb-xl-5 mb-5 align-items-center px-0 px-md-3">
+            <div class="col-md-5 col-lg-6">
+                <div class="gemver_diffrence_img mb-3">
                     <img src="{{ url('images/aboutus/'. $GenverDifference->section4_image)}}" alt="">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $GenverDifference->section4_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $GenverDifference->section4_description !!}</p>
+            <div class="col-md-7 col-lg-6">
+                <div class="gemver_diffrence_box">
+                    <h3 class="text-center text-md-start gemver_diffrence_heading mb-2 mb-md-0">{{ $GenverDifference->section4_title }}</h3>
+                    <p class="gemver_diffrence_paragraph  text-center text-md-start">{!! $GenverDifference->section4_description !!}</p>
                 </div>
             </div>
         </div>
