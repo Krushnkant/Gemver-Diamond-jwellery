@@ -279,6 +279,11 @@
     .finejewellery-heading {
         font-size: 17px;
     }
+    .product-border:after,
+    .product-delivery-start:after,
+    .product-delivery-end:after {
+        content: none;
+    }
 }
 
 @media (max-width:575px) {
@@ -389,7 +394,7 @@
         max-width: 400px;
         width: 80%;
         transition: all 1s ease;
-        height: 100%;
+        height: 100vh;
     }
     ul.mobile-sub-menu.active {
         top: 0;
@@ -624,6 +629,15 @@
     .gemver_diffrence_heading {
         font-size: 20px;
     }
+    .product-delivery-start,
+    .product-delivery-end {
+        font-size: 15px;
+    }
+    .product-border:after,
+    .product-delivery-start:after,
+    .product-delivery-end:after {
+        content: none;
+    }
 }
 
 @media (max-width:1199px) {
@@ -678,6 +692,7 @@
     .explore-category-btn {
         min-width: 164px;
         min-height: 47px;
+        line-height: 47px;
         font-size: 12px;
     }
     .category-heading {
@@ -1592,7 +1607,7 @@
         font-size: 23px;
     }
     .inquiry_now_modal .modal-content {
-        padding: 20px 0;
+        padding: 20px;
     }
     /* ----------------------------------------------------- */
     .detail_label {
@@ -1859,6 +1874,11 @@
     .gemver_diffrence_heading {
         font-size: 23px;
     }
+    .product-border:after,
+    .product-delivery-start:after,
+    .product-delivery-end:after {
+        content: none;
+    }
 }
 
 @media (min-width:992px) {
@@ -2100,6 +2120,10 @@
     }
     .gemver_diffrence_heading {
         font-size: 26px;
+    }
+    .product-border:after {
+        left: calc(48% + 0px);
+        width: 60%;
     }
 }
 

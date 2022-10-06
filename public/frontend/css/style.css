@@ -4264,6 +4264,7 @@ width: 100%;
     
     .home-page-header marquee {
         height: 24px;
+        margin-top: 2px;
     }
     
     .sub_title {
