@@ -79,7 +79,13 @@
                 <div class="wire_bangle_content">
                     <div class="">
                         
-                        <div class="wire_bangle_heading mb-2 mb-xl-2 pb-xxl-2">{{ $Product->product_title }}</div>
+                        <div class="wire_bangle_heading mb-0 pb-0">{{ $Product->product_title }}</div>
+                        <div class=" review_star mb-2">
+                            <span class="">
+                                <span class="me-1">4.5</span>
+                                <svg class="svg-inline--fa fa-star" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg>
+                            </span>
+                        </div>
                         <div class="d-flex mb-2 mb-xl-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
                                 @if($Product->product_variant['0']->regular_price != '' || $Product->product_variant['0']->regular_price != 0 )
@@ -254,11 +260,7 @@
                             <span class="inquiry_now_btn product-data">
                                 <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
                                 <input type="hidden" class="item_type" value="0"> 
-                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart 
-                                    <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </button>
+                                <button class="select_cart_btn diamond-btn mb-2 mt-2" type="button">Add To Cart</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                             
@@ -343,7 +345,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-xxl-5 offset-xxl-3 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
+                                <div class="col-sm-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
                                         <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
@@ -567,6 +569,98 @@
             </div>
         </div>
 
+        <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
+            <div class="review_description_heading order-includes-heading">
+                Reviews
+            </div>
+            <div class="review_description_heading mb-3">
+                10 Reviews For Cenforce
+            </div>
+            <div class="row">    
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                    <div class="review_box">
+                        <div class="row">
+                            <div class="col-6 ps-0 review_heading">
+                                Elizajones
+                            </div>
+                            <div class="col-6 text-end review_star pe-0">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review_description_paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                        </div>
+                        <div class="review_thumb_part mt-3">
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">    
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1">  
+                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img" data-bs-toggle="modal" data-bs-target="#exampleModal1"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn show_more_btn">Show more</button>
+            </div>
+        </div>
+
         <!-- <div class="gemver_diamonds_section p-0 dbdfbdf" id="spe_desc">
           
         </div> -->
@@ -582,7 +676,7 @@
                     </div>
                 </div> -->
                 <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
-                    <div class="order-includes-heading mb-lg-4 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-start d-none d-xl-block">
+                    <div class="order-includes-heading mb-lg-5 mb-2 mt-lg-3 mt-2 px-xl-3 px-xxl-0 text-center text-lg-center d-none d-xl-block">
                         {{ $OrderIncludes->title }}
                     </div>
                     <div class="row mt-2 mt-md-0 justify-content-center">
@@ -1147,9 +1241,7 @@ $('.select_cart_btn').click(function (e) {
     })
 
     if(valid){
-        var btn = $(this);
-        $(btn).prop('disabled',true);
-        $(btn).find('.loadericonfa').show();
+        
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1171,8 +1263,6 @@ $('.select_cart_btn').click(function (e) {
                 'arrspe': arrspe 
             },
             success: function (response) {
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
                 //alertify.set('notifier','position','top-right');

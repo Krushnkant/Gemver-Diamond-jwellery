@@ -19,7 +19,6 @@
 
         </div>
         <div class="container shop_page round_cut_lab_diamonds_page">
-                
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="row">
