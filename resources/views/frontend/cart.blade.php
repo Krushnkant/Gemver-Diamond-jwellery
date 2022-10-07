@@ -386,10 +386,11 @@
         return true;
     }
      $(document).ready(function () {
-     
-     if("{{ $setting->max_order_price <  $total - $coupan_discount_amount }}"){
-        $('.inquiry-alert').show();
-     }   
+     if("{{ isset($total) }}"){
+        if("{{ $setting->max_order_price <  $total - $coupan_discount_amount }}"){
+            $('.inquiry-alert').show();
+        } 
+     }  
     
     $('.delete_cart_data').click(function (e) {
         e.preventDefault();

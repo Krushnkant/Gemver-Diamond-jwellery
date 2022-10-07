@@ -234,6 +234,21 @@ class ReviewController extends Controller
         $review = Review::find($id);
         $review->status = 1;
         $review->save();
+
+       // dd($review->item_id);
+
+        $productvariant = ProductVariant::find($review->item_id);
+
+        if($productvariant){
+            $product_rating = (($productvariant->total_rate_value + $review->rating)/($productvariant->total_review + 1));
+            $productvariant->total_review = $productvariant->total_review + 1;
+            $productvariant->total_rate_value = $productvariant->total_rate_value + $review->rating;
+            $productvariant->product_rating = $product_rating;
+            $productvariant->save();
+        }
+
+
+
         return response()->json(['status' => '200']);
        
     }

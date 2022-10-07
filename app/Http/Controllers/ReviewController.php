@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\ProjectPage;
-use App\Models\ProductVariant;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,9 +51,14 @@ class ReviewController extends Controller
             }
             $review->review_imgs = 'images/profile_pic/'.$image_name;
         }
-           
-       
         $review->save();
+
+        $OrderItem = OrderItem::find($review->order_item_id);
+        if($OrderItem){
+            $OrderItem->is_review = 1;
+            $OrderItem->save();
+        }
+
         return response()->json(['status' => '200', 'action' => $action]);
     }
 }
