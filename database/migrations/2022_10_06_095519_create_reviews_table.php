@@ -16,12 +16,15 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('reviewer','255')->nullable();
             $table->integer('item_id');
             $table->integer('order_item_id');
             $table->text('review_imgs')->nullable();
             $table->text('description')->nullable();
             $table->integer('rating')->nullable();
+            $table->integer('type')->default(0)->comment('0->Product,1->Diamond');
             $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('status')->default(0)->comment('0->Pending,1->Accept,2->Reject');
             $table->timestamps();
             $table->softDeletes();
         });

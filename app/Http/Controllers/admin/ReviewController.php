@@ -4,8 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
-use App\Models\ProjectPage;
 use App\Models\ProductVariant;
+use App\Models\Diamond;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -72,7 +73,6 @@ class ReviewController extends Controller
             $review->rating = $request->ratingStar;
             $review->item_id = $request->product;
             $review->review_imgs = $request->catImg;
-           
         }
         $review->save();
         return response()->json(['status' => '200', 'action' => $action]);
@@ -158,30 +158,31 @@ class ReviewController extends Controller
             {
                 foreach ($reviews as $review)
                 {
-                    $page_id = ProjectPage::where('route_url','admin.banners.list')->pluck('id')->first();
-                    
-                    $product = ProductVariant::with('product')->where('id',$review->item_id)->first();
-                    
-                    // if( $review->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                    //     $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $review->id .'" onchange="chagebannerstatus('. $review->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
-                    // }
-                    // elseif ($review->estatus==1){
-                    //     $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $review->id .'" value="1" checked="checked"><span class="slider round"></span></label>';
-                    // }
+                    if($review->user_id == 1){
+                        $user = $review->reviewer;
+                    }else{
+                        $userdata = User::where('id',$review->user_id)->first();
+                        $user = $userdata->full_name;
+                    }
+                    if($review->type = 0){
+                        $product = ProductVariant::with('product')->where('id',$review->item_id)->first();
+                        $images = [];
+                        if(isset($product->images) && $product->images!=null){
+                            $images = explode(',',$product->images);
+                        }
+                        $title = $product->product->product_title;
+                    }else{
+                        $product = Diamond::where('id',$review->item_id)->first();
+                        $images = [];
+                        if(isset($product->Stone_Img_url) && $product->Stone_Img_url!=null){
+                            $images = explode(',',$product->Stone_Img_url);
+                        }
+                        $title = $product->Shape.' '. round($product->Weight,2) .' ct';
 
-                    // if( $review->estatus==2 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                    //     $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $review->id .'" onchange="chagebannerstatus('. $review->id .')" value="2"><span class="slider round"></span></label>';
-                    // }
-                    // elseif ($review->estatus==2){
-                    //     $estatus = '<label class="switch"><input type="checkbox" id="bannerstatuscheck_'. $review->id .'" value="2"><span class="slider round"></span></label>';
-                    // }
-
-                    if(isset($product->images) && $product->images!=null){
-                        $images = explode(',',$product->images);
                     }
 
                     if(isset($review->review_imgs) && $review->review_imgs!=null){
-                        $thumb_path = url($review->review_imgs);
+                        $thumb_path = explode(',',$review->review_imgs);
                     }
 
                     $action='';
@@ -200,9 +201,9 @@ class ReviewController extends Controller
                     //     $action .= '<button id="deleteBannerBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBannerModal" onclick="" data-id="' .$review->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     // }
                     $nestedData['image'] = '<img src="'. url($images[0]) .'" width="50px" height="50px" alt="Thumbnail">';
-                    $nestedData['product'] = $product->product->product_title;
-                    $nestedData['user'] = $review->reviewer ;
-                    $nestedData['review_image'] = '<img src="'. $thumb_path .'" width="50px" height="50px" alt="Thumbnail">';
+                    $nestedData['product'] = $title;
+                    $nestedData['user'] = $user;
+                    $nestedData['review_image'] = '<img src="'. url($thumb_path[0]) .'" width="50px" height="50px" alt="Thumbnail">';
                     $nestedData['review_text'] = $review->description;
                     $nestedData['review_rating'] = $review->rating .' <i class="fa fa-star checked"></i>';
                    // $nestedData['estatus'] = $estatus;
@@ -234,20 +235,17 @@ class ReviewController extends Controller
         $review = Review::find($id);
         $review->status = 1;
         $review->save();
-
-       // dd($review->item_id);
-
-        $productvariant = ProductVariant::find($review->item_id);
-
-        if($productvariant){
-            $product_rating = (($productvariant->total_rate_value + $review->rating)/($productvariant->total_review + 1));
-            $productvariant->total_review = $productvariant->total_review + 1;
-            $productvariant->total_rate_value = $productvariant->total_rate_value + $review->rating;
-            $productvariant->product_rating = $product_rating;
-            $productvariant->save();
+        if($review->type == 0){
+            
+            $productvariant = ProductVariant::find($review->item_id);
+            if($productvariant){
+                $product_rating = (($productvariant->total_rate_value + $review->rating)/($productvariant->total_review + 1));
+                $productvariant->total_review = $productvariant->total_review + 1;
+                $productvariant->total_rate_value = $productvariant->total_rate_value + $review->rating;
+                $productvariant->product_rating = $product_rating;
+                $productvariant->save();
+            }
         }
-
-
 
         return response()->json(['status' => '200']);
        

@@ -592,7 +592,7 @@
             
         </div>
 
-        <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
+        {{-- <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
             <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
@@ -682,7 +682,7 @@
             <div class="text-end">
                 <button type="button" class="btn show_more_btn">Show more</button>
             </div>
-        </div>
+        </div> --}}
         @if(isset($OrderIncludes->orderincludesdata))
         <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
              {{ $OrderIncludes->title }}

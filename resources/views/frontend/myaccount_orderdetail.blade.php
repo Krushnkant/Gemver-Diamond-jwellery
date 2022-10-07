@@ -316,7 +316,7 @@
                                             <div class="cart_product_name">
                                                 {{ $item_details['ProductTitle'] }}
                                                 @if($items->is_review == 0)
-                                                     - <a href="javascript:void(0)" id="addReviewBtn" order-id="{{ $items->id }}" data-id="{{ $item_details['variantId'] }}" data-bs-toggle="modal" data-bs-target="#addReviewModel">Add Review</a>
+                                                     - <a href="javascript:void(0)" id="addReviewBtn" data-type="{{ $item_details['ItemType'] }}" order-id="{{ $items->id }}" data-id="{{ $item_details['variantId'] }}" data-bs-toggle="modal" data-bs-target="#addReviewModel">Add Review</a>
                                                 @endif
                                             </div>
                                              <?php
@@ -412,6 +412,7 @@
                     </h4>
                     <div class="mb-3 col-md-12 ps-0">
                         <input type="hidden" name="item_id" id="item_id">
+                        <input type="hidden" name="type" id="type">
                         <input type="hidden" name="order_item_id" id="order_item_id">
                         <input type="hidden" name="rating" id="rating">
                         <input type="text" name="reviewText" id="reviewText" placeholder="Review" class="d-block wire_bangle_input">
@@ -420,20 +421,10 @@
                     
                     <div class="mb-3 col-md-6 ps-0">
                         <div class="form-group ">
-                            <input type="file" class="form-control-file" id="profile_pic" onchange="" name="profile_pic">
-                            <div id="profilepic-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            <input type="file" class="form-control-file" id="review_pic"  name="review_pic[]" multiple>
+                            <div id="review_pic-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
-
-                    {{-- <div class="mb-3 col-md-6 ps-0">
-                        <div class="form-group ">
-                            
-                            <img src="{{ asset('images/default_avatar.jpg') }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px;width:50px;">
-                        </div>
-                    </div> --}}
-                    
-                    
-
                     </div>  
                     <button type="button" class="send_inquiry_btn product_detail_inquiry_btn newReviewBtn" id="save_newInquiryBtn" >Add  
                     <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
@@ -500,13 +491,14 @@
 
     });
 
-  
-
     $('body').on('click', '#addReviewBtn', function () {
         var id = $(this).attr('data-id');
         var order_id = $(this).attr('order-id');
+        var type = $(this).attr('data-type');
+       
             $('#item_id').val(id); 
             $('#order_item_id').val(order_id); 
+            $('#type').val(type); 
     });
 
     $('body').on('click', '.newReviewBtn', function () {
@@ -535,72 +527,14 @@
                     } else {
                         $('#first_name-error').hide();
                     }
-
-                    if (res.errors.last_name) {
-                        $('#last_name-error').show().text(res.errors.last_name);
-                    } else {
-                        $('#last_name-error').hide();
-                    }
-
-                    if (res.errors.email) {
-                        $('#email-error').show().text(res.errors.email);
-                    } else {
-                        $('#email-error').hide();
-                    }
-
-                    if (res.errors.mobile_no) {
-                        $('#mobile_no-error').show().text(res.errors.mobile_no);
-                    } else {
-                        $('#mobile_no-error').hide();
-                    }
-
-                    if (res.errors.address) {
-                        $('#address-error').show().text(res.errors.address);
-                    } else {
-                        $('#address-error').hide();
-                    }
-
-                    if (res.errors.country) {
-                        $('#country-error').show().text(res.errors.country);
-                    } else {
-                        $('#country-error').hide();
-                    }
-
-                    if (res.errors.state) {
-                        $('#state-error').show().text(res.errors.state);
-                    } else {
-                        $('#state-error').hide();
-                    }
-
-                    if (res.errors.city) {
-                        $('#city-error').show().text(res.errors.city);
-                    } else {
-                        $('#city-error').hide();
-                    }
-
-                    if (res.errors.pincode) {
-                        $('#pincode-error').show().text(res.errors.pincode);
-                    } else {
-                        $('#pincode-error').hide();
-                    }
                 }
-
                 if(res.status == 200){
                     $("#addressEditModel").modal('hide');
                     $(btn).prop('disabled',false);
                     $(btn).find('.loadericonfa').hide();
                     toastr.success("Address Updated",'Success',{timeOut: 5000});
                     $('#address_id').val("");
-                    $('#firs_tname-error').html("");
-                    $('#last_name-error').html("");
-                    $('#email-error').html("");
-                    $('#mobile_no-error').html("");
-                    $('#address-error').html("");
-                    $('#address2-error').html("");
-                    $('#city-error').html("");
-                    $('#state-error').html("");
-                    $('#country-error').html("");
-                    $('#pincode-error').html("");
+                    
                     location.reload();
                 }
 

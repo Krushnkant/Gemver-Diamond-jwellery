@@ -371,15 +371,21 @@
             </div>
        
         </div>
+        <?php 
+        $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
+        if(count($diamond_reviews)){
+        ?>
 
         <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
             <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
             <div class="review_description_heading mb-3">
-                10 Reviews For Cenforce
+                {{ count($diamond_reviews) }} Reviews For Cenforce
             </div>
-            <div class="row">    
+            <div class="row">   
+                
+                @foreach($diamond_reviews as $diamond_review)
                 <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
                     <div class="review_box">
                         <div class="row">
@@ -406,63 +412,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
-                    <div class="review_box">
-                        <div class="row">
-                            <div class="col-6 ps-0 review_heading">
-                                Elizajones
-                            </div>
-                            <div class="col-6 text-end review_star pe-0">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="review_description_paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
-                        </div>
-                        <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
-                    <div class="review_box">
-                        <div class="row">
-                            <div class="col-6 ps-0 review_heading">
-                                Elizajones
-                            </div>
-                            <div class="col-6 text-end review_star pe-0">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="review_description_paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
-                        </div>
-                        <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+                
             </div>
             <div class="text-end">
                 <button type="button" class="btn show_more_btn">Show more</button>
             </div>
         </div>
+        <?php } ?>
 
         @if(isset($OrderIncludes->orderincludesdata))
         <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
