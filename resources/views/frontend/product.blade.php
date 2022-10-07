@@ -458,7 +458,7 @@
                                         
                                         <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
                                         @csrf
-                                        <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value=""> 
+                                        <input type="hidden" class="d-block mb-3 wire_bangle_input SKU"  name="SKU" value=""> 
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input">
@@ -792,6 +792,7 @@ $(document).ready(function(){
                     $('.sale_price').html(data.result.sale_price);
                     $('.regular_price').html(data.result.regular_price); 
                     $('#SKU').val(data.result.SKU);
+                    $('.SKU').val(data.result.SKU);
                     $('.variant_id').val(data.result.variant_id);
                     // var sale_amount = data.result.sale_price;
                     // var max_order_amount = "{{ $settings->max_order_price }}";
