@@ -159,7 +159,7 @@ class ContactUsController extends Controller
     }
 
     public function hint_save(Request $request){
-        dd($request);
+        //dd($request);
         $setting = Settings::first();
         $validator = Validator::make($request->all(), [
             'hintname' => 'required',
