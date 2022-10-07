@@ -93,6 +93,10 @@
             </li>
         </ul>
         @endif
+        <?php
+         $total = 0;
+         $coupan_discount_amount = 0;
+        ?>
         <div class="my-xl-5 my-4">
                 <div class="my_cart_heading mb-3">My Cart</div>
                 <div class="row">
@@ -116,7 +120,7 @@
                             </thead>
                             <tbody class="">
                                 <?php 
-                                    $total = 0;
+                                    
                                     $total_qty = 0;
                                 // dd($cart_data);
                                 ?> 
