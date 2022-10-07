@@ -276,13 +276,16 @@
                                             <div class="cart_product_name">
                                                 {{ $item_details['ProductTitle'] }}
                                             </div>
+                                            <?php
+                                                $atr = 0;
+                                            ?>
+                                            <div class="cart_product_specification d-block">
                                             @foreach($item_details['spe'] as $spe)
-                                            <div class="cart_product_specification d-block"> 
-                                                
-                                                {{$spe['term']}} : {{$spe['term_name']}}
-                                                
-                                            </div>
+                                                <?php if($atr > 0){
+                                                    echo ' | '; } ?> {{$spe['term_name']}} 
+                                                <?php $atr++; ?>
                                             @endforeach
+                                            </div>
                                         </span>
                                         <span class="table_img">
                                             
@@ -292,13 +295,16 @@
                                             <div class="cart_product_name">
                                                 {{ $item_details['ProductTitle'] }}
                                             </div>
-                                            @foreach($item_details['sped'] as $sped)
-                                            <div class="cart_product_specification d-block"> 
-                                                
-                                                {{$sped['term']}} : {{$sped['term_name']}}
-                                                
-                                            </div>
+                                            <?php
+                                            $atr = 0;
+                                            ?>
+                                            <div class="cart_product_specification d-block">
+                                            @foreach($item_details['spe'] as $spe)
+                                                <?php if($atr > 0){
+                                                    echo ' | '; } ?> {{$spe['term_name']}} 
+                                                <?php $atr++; ?>
                                             @endforeach
+                                            </div>
                                         </span>
                                     </td>
                                     @else
@@ -308,15 +314,21 @@
                                         </span>
                                         <span class="ms-3 cart_product_part">
                                             <div class="cart_product_name">
-                                                {{ $item_details['ProductTitle'] }} - <a id="addReviewBtn" order-id="{{ $items->id }}" data-id="{{ $item_details['variantId'] }}" data-bs-toggle="modal" data-bs-target="#addReviewModel">Add Review</a>
+                                                {{ $item_details['ProductTitle'] }}
+                                                @if($items->is_review == 0)
+                                                     - <a href="javascript:void(0)" id="addReviewBtn" order-id="{{ $items->id }}" data-id="{{ $item_details['variantId'] }}" data-bs-toggle="modal" data-bs-target="#addReviewModel">Add Review</a>
+                                                @endif
                                             </div>
+                                             <?php
+                                                $atr = 0;
+                                            ?>
+                                            <div class="cart_product_specification d-block">
                                             @foreach($item_details['spe'] as $spe)
-                                            <div class="cart_product_specification d-block"> 
-                                                
-                                                {{$spe['term']}} : {{$spe['term_name']}}
-                                                
-                                            </div>
+                                                <?php if($atr > 0){
+                                                    echo ' | '; } ?> {{$spe['term_name']}} 
+                                                <?php $atr++; ?>
                                             @endforeach
+                                            </div>
                                         </span>
                                     </td>
                                     @endif
@@ -392,7 +404,7 @@
                 
                 <div class="row mb-4 mb-xxl-4">
                     <h4 class="text-center mt-2 mb-4">
-                        <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                        <i class="fas fa-star star-light submit_star mr-1 text-warning" id="submit_star_1" data-rating="1"></i>
                         <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
                         <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
                         <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
@@ -438,11 +450,6 @@
   
   var rating_data = 0;
 
-    $('#add_review').click(function(){
-
-        $('#review_modal').modal('show');
-
-    });
 
     $(document).on('mouseenter', '.submit_star', function(){
 
@@ -493,35 +500,7 @@
 
     });
 
-    $('#save_review').click(function(){
-
-        var user_name = $('#user_name').val();
-
-        var user_review = $('#user_review').val();
-
-        if(user_name == '' || user_review == '')
-        {
-            alert("Please Fill Both Field");
-            return false;
-        }
-        else
-        {
-            $.ajax({
-                url:"submit_rating.php",
-                method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
-                success:function(data)
-                {
-                    $('#review_modal').modal('hide');
-
-                    load_rating_data();
-
-                    alert(data);
-                }
-            })
-        }
-
-    });
+  
 
     $('body').on('click', '#addReviewBtn', function () {
         var id = $(this).attr('data-id');
@@ -535,7 +514,7 @@
     });
 
     function add_review(btn){
-        alert();
+       
         $(btn).prop('disabled',true);
         $(btn).find('.loadericonfa').show();
 
