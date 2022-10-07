@@ -1170,11 +1170,12 @@ fill: #0B1727;
     }
     
     .about_us_background .sub_heading {
-        font-weight: 700;
+        font-weight: 600;
         font-size: 30px;
         line-height: 30px;
         text-transform: uppercase;
         color: #FFFFFF;
+        font-family: 'Poppins', sans-serif;
     }
     
     .about_us_link a {
@@ -4068,6 +4069,7 @@ width: 100%;
         font-weight: 500;
         line-height: 30px;
         color: var(--secondary);
+        font-family: 'Poppins', sans-serif;
     }
     
     .order-box-part .order-box {
@@ -4871,7 +4873,7 @@ width: 100%;
         position: absolute;
         top: 14px;
         right: 14px;
-        z-index: 99;
+        z-index: 9;
     }
     
     .your_order_box {
@@ -5481,6 +5483,7 @@ width: 100%;
         line-height: 47px;
         letter-spacing: 0.05em;
         color: var(--primary);
+        font-family: 'Poppins', sans-serif;
     }
     
     .engagement_paragraph {
@@ -5556,6 +5559,7 @@ width: 100%;
         line-height: 35px;
         letter-spacing: 0.05em;
         color: var(--primary);
+        font-family: 'Poppins', sans-serif;
     }
     
     .choose_your_setting_paragraph {
@@ -5872,6 +5876,7 @@ width: 100%;
         font-size: 30px;
         line-height: 35px;
         color: #0B1727;
+        font-family: 'Poppins', sans-serif;
     }
     
     .gemver_diffrence_box {
