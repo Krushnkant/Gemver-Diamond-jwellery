@@ -157,4 +157,89 @@ class ContactUsController extends Controller
             }
         }
     }
+
+    public function hint_save(Request $request){
+        $setting = Settings::first();
+        $validator = Validator::make($request->all(), [
+            'hintname' => 'required',
+            'friendname' => 'required',
+            //'mobile_no' => 'required',
+            'hintemail' => 'required',
+            'friendemail' => 'required',
+           // 'inquiry' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }else{
+            $data = $request->all();
+            
+                if($request->SKU != ''){
+                    $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $request->SKU)->first();
+                    if($product){
+                    $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
+                    $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
+                        $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
+                      })->leftJoin('attribute_terms', function($join) {
+                        $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                      })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
+                       
+                    foreach($Productvariantvariants as $Productvariantvariant){
+                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span>';
+                    }
+                    }else{
+                        $product_info = '-';
+                    }
+                    }else{
+                        $product_info = '-';
+                    }
+
+                    $diamond = Diamond::where('stone_no',$request->stone_no)->first();
+                    if($diamond){
+                       $diamond_info = '<span>'.$diamond->Stone_No.'</span>
+                                        <span> Weight: '.$diamond->Weight.'</span>
+                                        <span> Color: '.$diamond->Color.'</span>
+                                        <span> Clarity: '.$diamond->Clarity.'</span>
+                                        <span> Cut: '.$diamond->Cut.'</span>';
+                    }else{
+                       $diamond_info = '-';
+                    }
+
+                    if($request->stone_no == "" && $request->SKU == ""){
+                        $product_info = 'bulk order inquiry'; 
+                    }
+
+                    
+                    $spe_info ='';
+
+                    if($request->specification_term_id != ""){
+                        $term_ids = explode(',', $request->specification_term_id);
+                        foreach($term_ids as $term_id){
+                            $Productterms = AttributeTerm::leftJoin('attributes', function($join) {
+                                $join->on('attributes.id', '=', 'attribute_terms.attribute_id');
+                            })->where('attribute_terms.id',$term_id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
+                            if($Productterms){
+                            foreach($Productterms as $Productterm){
+                                $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span>';
+                            }
+                            }else{
+                                $spe_info .= '-';
+                            }
+                        }
+                    }else{
+                       $spe_info ='-';   
+                    }
+               
+                $data1 = [
+                    'product_info' => $product_info,
+                    'diamond_info' => $diamond_info,
+                    'spe_info' => $spe_info
+                ];
+                $templateName = 'email.mailDatahint';
+                $mail_sending = Helpers::MailSending($templateName, $data1, $request->friendemail, 'Hint');
+                //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
+                return response()->json(['status' => '200']); 
+            
+        }
+    }
 }

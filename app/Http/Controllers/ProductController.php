@@ -9,6 +9,7 @@ use App\Models\ProductAttribute;
 use App\Models\ProductVariantVariant;
 use App\Models\OrderIncludes;
 use App\Models\Settings;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Response;
@@ -426,7 +427,8 @@ class ProductController extends Controller
             }
             //echo $vatid; die;
             if($vatid != 0){
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
+               
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id','product_variants.product_rating')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
             if($vatid > 0){
                 $query = $query->where('product_variants.id',$vatid);
@@ -549,7 +551,7 @@ class ProductController extends Controller
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attributes_term_des = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('description')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
-            
+                
                 $spe_desc .='<div class="px-0 mt-4 pt-xl-2">
                     <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
                 </div>
@@ -562,10 +564,64 @@ class ProductController extends Controller
                     </div>';
                 }
                 $spe_desc .='</div>';
-                }     
-                $data = ['result' => $result,'speci' => $str,'specificationstr' => $specificationstr,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr,'specificationstr123' => $specificationstr123 ]; 
+                }
+                
+                $product_reviews = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->get();
+                //dd($product_reviews);
+                $review = '';
+                if(count($product_reviews) > 0){
+                $review .=  '<div class="review_description_heading order-includes-heading">
+                Reviews
+                    </div>
+                    <div class="review_description_heading mb-3">
+                        '.count($product_reviews).' Reviews For Cenforce
+                    </div>
+                    <div class="row">';
+                    foreach($product_reviews as $product_review){
+                            
+                    $review .=  '<div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+                                    <div class="review_box">
+                                        <div class="row">
+                                            <div class="col-6 ps-0 review_heading">
+                                                '.$product_review->reviewer.'
+                                            </div>
+                                            <div class="col-6 text-end review_star pe-0">';
+                                            for($x = 1; $x <= 5; $x++){
+                                                if($x <= $product_review->rating){
+                                                    $review .= '<i class="fa-solid fa-star"></i>';
+                                                }else{
+                                                    $review .= '<i class="fa-regular fa-star"></i>';
+                                                }
+                                            } 
+                                            
+                                            $review .= '</div>
+                                        </div>
+                                        <div class="review_description_paragraph">
+                                           '.$product_review->description.'
+                                        </div>
+                                        <div class="review_thumb_part mt-3">';
+                                        $review_images = explode(',',$product_review->review_imgs);
+                                        foreach($review_images as $review_image){
+                                                
+                                            $review .=  '<img src='. url($review_image) .' id="inquiry_image" alt="" class="review_thumb_part_img">'; 
+                                               
+                                        } 
+
+                            $review .=  '</div>
+                                    </div>
+                                </div>';
+                                
+                            
+                    }
+                $review .=  '</div>
+                <div class="text-end">
+                    <button type="button" class="btn show_more_btn">Show more</button>
+                </div>';
+                }
+
+                $data = ['result' => $result,'speci' => $str,'specificationstr' => $specificationstr,'speci_multi' => $spe,'vimage' => $vimage,'spe_desc' => $spe_desc,'variantstr' => $variantstr,'specificationstr123' => $specificationstr123,'review_list' => $review ]; 
                 return \Response()->json($data);
-            
+
             }else{
 
                 $data = ['result' => 'data not found']; 

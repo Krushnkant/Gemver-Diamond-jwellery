@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label class="col-form-label" for="Thumbnail">Thumbnail  <span class="text-danger">*</span>
                                     </label>
-                                    <input type="file" name="files[]" id="catIconFiles" multiple="multiple">
+                                    <input type="file" name="files[]" id="reviewIconFiles" multiple="multiple">
                                     <input type="hidden" name="catImg" id="catImg" value="">
                                     <div id="catthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </div>

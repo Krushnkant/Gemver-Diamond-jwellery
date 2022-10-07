@@ -37,19 +37,32 @@ class ReviewController extends Controller
         $review->rating = $request->rating;
         $review->item_id = $request->item_id;
         $review->order_item_id = $request->order_item_id;
+        $review->type = $request->type;
       
-        if ($request->hasFile('profile_pic')) {
-            $image = $request->file('profile_pic');
-            $image_name = 'profilePic_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/profile_pic');
-            $image->move($destinationPath, $image_name);
-            if(isset($old_image)) {
-                $old_image = public_path('images/profile_pic/' . $old_image);
-                if (file_exists($old_image)) {
-                    unlink($old_image);
-                }
+        // if ($request->hasFile('review_pic')) {
+        //     $image = $request->file('profile_pic');
+        //     $image_name = 'profilePic_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+        //     $destinationPath = public_path('images/profile_pic');
+        //     $image->move($destinationPath, $image_name);
+        //     if(isset($old_image)) {
+        //         $old_image = public_path('images/profile_pic/' . $old_image);
+        //         if (file_exists($old_image)) {
+        //             unlink($old_image);
+        //         }
+        //     }
+        //     $review->review_imgs = 'images/profile_pic/'.$image_name;
+        // }
+
+        if ($request->hasFile('review_pic')) {
+            $images = $request->file('review_pic');
+            $rimages = [];
+            foreach ($images as $image) {
+                $image_name = 'ReviewImg_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('images/categoryThumb');
+                $image->move($destinationPath, $image_name);
+                $rimages[]  = 'images/categoryThumb/'.$image_name;
             }
-            $review->review_imgs = 'images/profile_pic/'.$image_name;
+            $review->review_imgs =  implode(',',$rimages); 
         }
         $review->save();
 

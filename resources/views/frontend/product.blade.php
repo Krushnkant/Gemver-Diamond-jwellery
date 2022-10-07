@@ -81,7 +81,7 @@
                         <div class="wire_bangle_heading mb-0 pb-0">{{ $Product->product_title }}</div>
                         <div class=" review_star mb-2">
                             <span class="">
-                                <span class="me-1">4.5</span>
+                                <span class="me-1 total_review_star">4.5</span>
                                 <svg class="svg-inline--fa fa-star" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg>
                             </span>
                         </div>
@@ -370,7 +370,7 @@
                                         <path d="M14.1575 0.0417425L0.848077 0C0.627869 0.000233189 0.416405 0.0836041 0.258216 0.232506C0.100138 0.381407 0.00766281 0.584171 0.000468788 0.798137C-0.00684743 1.0121 0.071712 1.22037 0.219357 1.37905L4.07735 5.48494C4.1739 5.58743 4.23903 5.71406 4.26542 5.85061L5.30239 11.3251H5.30251C5.35097 11.5791 5.51888 11.7963 5.75623 11.9122C5.99359 12.0281 6.27305 12.0293 6.5115 11.9155C6.63012 11.8576 6.73314 11.7736 6.81242 11.6699L14.8293 1.36355C14.956 1.19984 15.0156 0.996246 14.9965 0.792309C14.9773 0.588373 14.8809 0.398556 14.7259 0.259902C14.5708 0.121263 14.3684 0.043488 14.1577 0.0418552L14.1575 0.0417425ZM14.2918 1.20148L5.06055 5.65214C4.87801 5.74006 4.65673 5.66753 4.56615 5.49018C4.47572 5.31271 4.5502 5.09759 4.73275 5.00953L13.9477 0.558873C14.1303 0.470838 14.3515 0.543364 14.4421 0.720717C14.5326 0.898185 14.458 1.11331 14.2755 1.20136L14.2918 1.20148Z" fill="#0B1727"/>
                                     </svg>
                                     <div class="ms-2">
-                                        <a href="#" class="select_hint_btn">
+                                        <a href="#" class="select_hint_btn hint-box">
                                            Drop hint
                                         </a>
                                     </div>
@@ -453,36 +453,36 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                         </div>
-                                        <div class="alert alert-success" id="opinionsuccess-alert" style="display: none;">
+                                        <div class="alert alert-success" id="hintsuccess-alert" style="display: none;">
                                         </div>
                                         
-                                        <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
+                                        <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
                                         @csrf
-                                        <input type="hidden" name="product_id" value="{{ $Product->id }}"> 
+                                        <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value=""> 
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
-                                                <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="hintname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                           
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
-                                                <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="hintemail"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                <div id="hintemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
 
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your friend name" class="d-block wire_bangle_input">
-                                                <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="friendname" placeholder="your friend name" class="d-block wire_bangle_input">
+                                                <div id="hintfriendname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                           
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email"  placeholder="enter your friend email" class="d-block wire_bangle_input">
-                                                <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <input type="text" name="friendemail"  placeholder="enter your friend email" class="d-block wire_bangle_input">
+                                                <div id="hintfriendemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="message"  class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 
-                                                <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
+                                                <div id="hintmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;"></div>
                                             </div>
                                         </div>
 
@@ -569,13 +569,14 @@
         </div>
 
         <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
-            <div class="review_description_heading order-includes-heading">
+            {{-- <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
             <div class="review_description_heading mb-3">
                 10 Reviews For Cenforce
             </div>
-            <div class="row">    
+            <div class="row">   
+                
                 <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
                     <div class="review_box">
                         <div class="row">
@@ -602,62 +603,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
-                    <div class="review_box">
-                        <div class="row">
-                            <div class="col-6 ps-0 review_heading">
-                                Elizajones
-                            </div>
-                            <div class="col-6 text-end review_star pe-0">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="review_description_paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
-                        </div>
-                        <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
-                    <div class="review_box">
-                        <div class="row">
-                            <div class="col-6 ps-0 review_heading">
-                                Elizajones
-                            </div>
-                            <div class="col-6 text-end review_star pe-0">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="review_description_paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
-                        </div>
-                        <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="text-end">
                 <button type="button" class="btn show_more_btn">Show more</button>
-            </div>
+            </div> --}}
         </div>
 
         <!-- <div class="gemver_diamonds_section p-0 dbdfbdf" id="spe_desc">
@@ -790,8 +740,6 @@
    
 <script> 
 
-
-
 $(document).ready(function(){
 
     //filter_data_variant();
@@ -853,6 +801,9 @@ $(document).ready(function(){
                     //     $('.select_cart_btn').prop('disabled',false);
                     // }
                     $('#specificationproduct123').html(data.specificationstr123);
+                    $('.resview_list').html(data.review_list);
+                   
+                    $('.total_review_star').html(data.result.product_rating);
                    // console.log($('.wire_bangle_share_my').next());
                     //$('.wire_bangle_share_my').next().html(data.specificationstr123);
                     
@@ -1002,15 +953,9 @@ $(document).ready(function(){
         filter_data();
     });
 
-    
-
 });
 
-
-
-
 </script>
-
 
 <script type="text/javascript">
 $( document ).ready(function() {
@@ -1049,8 +994,30 @@ $('body').on('click', '.select_contact_btn', function () {
     jQuery("#opinionModal").modal('show');
 }); 
 
-$('body').on('click', '.select_hint_btn', function () {
+$('body').on('click', '.hint-box', function () {
+    var valid = true;
+    var arrspe = [];
+    $('#specificationstr').html('');
+    $(document).find('.specification').each(function() {
+        var thi = $(this);
+        var this_err = $(thi).attr('name') + "-error";
+        if($(thi).val()=="" || $(thi).val()==null){
+            $("#"+this_err).html("Please select any value");
+            $("#"+this_err).show();
+            valid = false;
+        }else{
+            var element = $(this).find('option:selected'); 
+            var DataSpe = element.attr("data-spe");
+            var DataTerm = element.attr("data-term");
+            arrspe.push({'key' : DataSpe,'value' : DataTerm });
+            $("#"+this_err).hide();
+            valid = true;
+        }
+    })
+
+    if(valid){
     jQuery("#hintModal").modal('show');
+    }
 });
       
 $('body').on('click', '#save_newInquiryBtn', function () {
@@ -1152,6 +1119,8 @@ function save_inquiry(btn,btn_type){
 }
 
 
+
+
 $('body').on('click', '#save_newopinionBtn', function () {
     save_opinion($(this),'save_new');
 });
@@ -1202,6 +1171,104 @@ function save_opinion(btn,btn_type){
                 $('#opinionsuccess-alert').text(success_message);
                 $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
                 $("#opinionsuccess-alert").slideUp(1000);
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+$('body').on('click', '#save_newhintBtn', function () {
+    save_hint($(this),'save_new');
+});
+
+function save_hint(btn,btn_type){
+    
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#hintCreateForm")[0]);
+    //var dataspecification = $("input:radio.specification:checked").val();
+    // $(".specification").each(function( index ) {
+    //  console.log( index + ": " + $( this ).text() );
+    // });
+
+    var dataarray = [];
+
+    // $('.specification').each(function (index) {
+    //     if(this.selected){
+    //         dataarray.push($(this).val());
+    //     }
+    //  });
+    $(".specification").each(function () {
+      dataarray.push($(this).val());
+   })
+   
+    var dataspecification = dataarray.join(",");
+    
+    var qty = $('#qty').val();
+    formData.append('specification_term_id',dataspecification);
+    formData.append('qty',qty);
+     
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.hint.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+
+                if (res.errors.hintname) {
+                    $('#hintname-error').show().text(res.errors.hintname);
+                } else {
+                    $('#hintname-error').hide();
+                }
+                if (res.errors.hintemail) {
+                    $('#hintemail-error').show().text(res.errors.hintemail);
+                } else {
+                    $('#hintemail-error').hide();
+                }
+
+                if (res.errors.friendname) {
+                    $('#friendname-error').show().text(res.errors.friendname);
+                } else {
+                    $('#friendname-error').hide();
+                }
+                if (res.errors.friendemail) {
+                    $('#friendemail-error').show().text(res.errors.friendemail);
+                } else {
+                    $('#friendemail-error').hide();
+                }
+
+            
+                // if (res.errors.inquiry) {
+                //     $('#inquiry-error').show().text(res.errors.inquiry);
+                // } else {
+                //     $('#inquiry-error').hide();
+                // } 
+            }
+            if(res.status == 200){
+                $('#inquiry-error').hide();
+                $('#mobile_no-error').hide();
+                $('#email-error').hide();
+                $('#name-error').hide();
+                document.getElementById("InquiryCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Product Inquiry';
+                $('#success-alert').text(success_message);
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                  $("#success-alert").slideUp(1000);
                 });
             }
 

@@ -90,6 +90,7 @@ Route::get('infopage/testimonials',[TestimonialsController::class,'index'])->nam
 
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');
+Route::post('/hint',[ContactUsController::class,'hint_save'])->name('frontend.hint.save');
 
 Route::get('/diamond-setting/{catid}/{id?}',[DiamondController::class,'index']);
 Route::post('/diamonds',[DiamondController::class,'getDiamonds']);

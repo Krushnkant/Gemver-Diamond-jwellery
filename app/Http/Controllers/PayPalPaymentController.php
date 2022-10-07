@@ -146,7 +146,22 @@ class PayPalPaymentController extends Controller
                 $item_name = $product_item->Shape.' '. round($product_item->Weight,2) .' ct ';
                
                 $sale_price = $product_item->Sale_Amt;
-                $item_image = explode(',',$product_item->Stone_Img_url); 
+                $item_image = explode(',',$product_item->Stone_Img_url);
+                
+                $spe[] = array(
+                    'term_name' => $product_item->Clarity,
+                    'term' => 'Clarity'
+                );
+
+                $spe[] = array(
+                    'term_name' => $product_item->Color,
+                    'term' => 'Color'
+                );
+
+                $spe[] = array(
+                    'term_name' => $product_item->Lab,
+                    'term' => 'certified'
+                );
 
             }else{
 
