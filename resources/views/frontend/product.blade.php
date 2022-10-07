@@ -1258,15 +1258,15 @@ function save_hint(btn,btn_type){
                 // } 
             }
             if(res.status == 200){
-                $('#inquiry-error').hide();
-                $('#mobile_no-error').hide();
-                $('#email-error').hide();
-                $('#name-error').hide();
-                document.getElementById("InquiryCreateForm").reset();
+               
+               
+                $('#hintemail-error').hide();
+                $('#hintname-error').hide();
+                document.getElementById("hintCreateForm").reset();
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
                 //location.href="{{ route('frontend.contactus')}}";
-                var success_message = 'Thank You For Product Inquiry';
+                var success_message = 'Thank You For send hint';
                 $('#success-alert').text(success_message);
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
                   $("#success-alert").slideUp(1000);
