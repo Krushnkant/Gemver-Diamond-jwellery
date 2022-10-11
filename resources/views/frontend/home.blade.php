@@ -641,7 +641,7 @@
                     <div class="engagement_ring_diamond_part">
                         <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                         <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                        <a style="" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a>
+                        <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('lab-diamond') }}"> Buy Lab Diamonds</a>
                     </div>
                 </div>
                 <div class="col-md-6 pe-0 px-0 order-1 order-md-2">

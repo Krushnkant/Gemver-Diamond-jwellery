@@ -837,7 +837,7 @@ fill: #0B1727;
         left: 0;
         width: 100%;
         height: 100%;
-        background: url(../image/diamond_layer_bg.jpg);
+        background: url(../image/diamond_layer_bg.png);
         z-index: -11;
     }
     
@@ -4391,6 +4391,11 @@ width: 100%;
         line-height: 63px;
         text-align: center;
     }
+    
+    .black_hover_btn {
+        background-color: var(--primary);
+        color: #fff !important;
+    }
     /* ------------------------------------------ */
     
     .catrgory_img {
@@ -5817,41 +5822,19 @@ width: 100%;
     .cart-icon-part .dropdown-toggle {
         margin-right: 15px;
     }
-    /* .header-part {
-        position: fixed;
-        transition: all 0.8s ease;
-        background-color: #fff;
-        z-index: 99;
-        width: 100%;
-    }
-    
-    .header-part.sticky {
-        position: fixed;
-        top: 0;
-    } */
     
     .header-part {
+        position: fixed;
+        z-index: 9;
+        background-color: #fff;
         width: 100%;
-        transition: all 1s ease;
+        top: 35px;
+        transition: all 0.5s ease-in-out;
     }
     
     .header-part.fixed {
-        position: fixed;
         top: 0;
-        left: 0;
-        /* animation: smoothScroll 1s forwards; */
-        z-index: 99;
-        width: 100%;
-        background-color: #fff;
     }
-    /* @keyframes smoothScroll {
-        0% {
-            transform: translateY(-40px);
-        }
-        100% {
-            transform: translateY(0px);
-        }
-    } */
     
     div#toast-container .toast-success {
         background-color: green;
