@@ -286,7 +286,7 @@
     <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center ">
-                <h2 class="heading-h2">{{ $homesetting->section_diamond_title }}</h2>
+                <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
                 <div class="sub_title">
                     {{ $homesetting->section_diamond_shotline }}
                 </div>
@@ -307,51 +307,61 @@
                     <div class="item">
                         <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/round.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">round</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/oval.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">oval</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/princess.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">princess</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">cushion</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">marquise</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/pear.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">pear</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">radiant</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/heart.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">heart</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">emerald</div>
                         </a>
                     </div>
                     <div class="item">
                         <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
+                            <div class="shop_by_diamond_shpae_name">asscher</div>
                         </a>
                     </div>
                    
@@ -609,7 +619,7 @@
     @endif
    
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="customise_own_ring_section">
             <div class="row align-items-center ps-4">
                 <div class="col-md-7 text-center text-md-start pe-4">
@@ -624,7 +634,23 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+        <div class="customise_own_ring_section">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-3 mt-md-0 py-4 order-2 order-md-1">
+                    <div class="engagement_ring_diamond_part">
+                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
+                        <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
+                        <a style="" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a>
+                    </div>
+                </div>
+                <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
+                    <div class="own_ring_img">
+                        <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
      @if(count($shopbystyle) > 0)
     <div class="engagement_ring_section">
         <div class="container">

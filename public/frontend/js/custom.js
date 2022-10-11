@@ -58,7 +58,7 @@
                  items: 5
              },
              1800: {
-                 items: 8
+                 items: 9
              }
          }
      });
@@ -100,7 +100,7 @@
      });
      $('.shop-by-category').owlCarousel({
          loop: true,
-         margin: 25,
+         margin: 0,
          nav: true,
          dots: false,
          responsive: {
@@ -399,7 +399,7 @@
      var sticky = $('.header-part'),
          scroll = $(window).scrollTop();
 
-     if (scroll >= 40) {
+     if (scroll > 1) {
          sticky.addClass('fixed');
      } else {
          sticky.removeClass('fixed');

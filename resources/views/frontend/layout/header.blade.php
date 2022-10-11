@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-part">
+                <div class="header-part" id="site-header">
                     <div class="container">
                         <div class="row align-items-center header_row">
                         <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
