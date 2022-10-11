@@ -12,6 +12,7 @@
         --primary: #0B1727;
         --secondary: #2C3E50;
         --white-secondary: #f6faff;
+        --light-bg: #EAEFF5;
     }
     
     .home_page_heading {
@@ -625,7 +626,7 @@ fill: #0B1727;
     .shop-by-style-slider .owl-dots .owl-dot span {
         width: 7px !important;
         height: 7px !important;
-        background: #9d9999 !important;
+        background: #fff !important;
     }
     
     .shop_dimond_by_shape .owl-nav .owl-next img,
@@ -778,7 +779,7 @@ fill: #0B1727;
     .engagement_diamond_box {
         width: 127px;
         height: 103px;
-        background: #EAEFF5;
+        background: var(--light-bg);
         padding-left: 25px;
         padding-top: 15px;
     }
@@ -998,7 +999,7 @@ fill: #0B1727;
     }
     
     .gemver_diamods_bg {
-        background: #EAEFF5;
+        background: var(--light-bg);
         min-height: auto;
         height: 100%;
     }
@@ -1013,7 +1014,7 @@ fill: #0B1727;
     
     .footer-part-section {
         padding: 60px 60px 30px;
-        background: #EAEFF5;
+        background: var(--light-bg);
     }
     
     .footer-part-heading {
@@ -2810,7 +2811,7 @@ opacity: 1;
         background-size: 150px;
         background-position: 33%center;
         background-repeat: no-repeat;
-        background-color: #EAEFF5;
+        background-color: var(--light-bg);
     }
     
     .about_us_background .sub_heading {
@@ -3554,7 +3555,7 @@ border: 0;
     }
     
     .testimonial-box-des {
-        background-color: #eee;
+        background-color: var(--light-bg);
         padding: 80px 15px 50px 15px;
         height: 100%;
     }
@@ -3615,6 +3616,7 @@ border: 0;
         background-color: #0B1727;
         color: #fff;
         background-color: var(--secondary);
+        margin-bottom: 136px;
     }
     
     .header-loader {
@@ -4034,7 +4036,7 @@ width: 100%;
     }
     
     .step-progressbar-part.active {
-        background: #dcdee1;
+        background: var(--light-bg);
         -webkit-clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
         clip-path: polygon(92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%, 0 0);
         border: none;
@@ -4236,7 +4238,7 @@ width: 100%;
     
     .from_text input,
     .to_text input {
-        background-color: #EAEFF5;
+        background-color: var(--light-bg);
         border: 0;
         color: #000;
         width: 100px;
@@ -4342,7 +4344,7 @@ width: 100%;
         left: 0;
         width: 100%;
         height: 100%;
-        background: #EAEFF5;
+        background: var(--light-bg);
         z-index: -9;
     }
     
@@ -4372,7 +4374,7 @@ width: 100%;
     }
     
     .detail_label {
-        background: #fff4e4;
+        background: var(--light-bg);
     }
     
     .detail_label_col {
@@ -4498,9 +4500,9 @@ width: 100%;
     .login_btn button {
         min-width: 281px;
         height: 48px;
-        background: #BB9761;
+        background: var(--secondary);
         border-radius: 5px;
-        background: #BB9761;
+        background: var(--secondary);
         border-radius: 5px;
         font-weight: 500;
         font-size: 18px;
@@ -4925,7 +4927,7 @@ width: 100%;
         position: absolute;
         top: 14px;
         right: 14px;
-        z-index: 9;
+        z-index: 1;
     }
     
     .your_order_box {
@@ -4990,7 +4992,7 @@ width: 100%;
     }
     
     .place_order_btn {
-        background: #BB9761;
+        background: var(--secondary);
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
@@ -5005,7 +5007,7 @@ width: 100%;
     
     .place_order_btn:focus,
     .place_order_btn:hover {
-        background: #BB9761;
+        background: var(--secondary);
     }
     
     .address_form_part .form-check-input {
@@ -5171,7 +5173,7 @@ width: 100%;
     }
     
     .save_chnages_btn {
-        background: #BB9761 !important;
+        background: var(--secondary) !important;
         border-radius: 6px;
         font-weight: 500;
         font-size: 14px;
@@ -5184,7 +5186,7 @@ width: 100%;
     
     .save_chnages_btn:focus {
         box-shadow: none;
-        background: #BB9761 !important;
+        background: var(--secondary) !important;
     }
     
     .table_part_view tr th {
@@ -5648,7 +5650,7 @@ width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: #FBF4EB;
+        background: var(--light-bg);
     }
     
     .custom_made_heading {
@@ -5742,7 +5744,7 @@ width: 100%;
     }
     
     .smiling_gemver_banner_section {
-        background: #FBF4EB;
+        background: var(--light-bg);
     }
     
     .fancy_color_diamonds {
@@ -5829,7 +5831,7 @@ width: 100%;
         background-color: #fff;
         width: 100%;
         top: 35px;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
     
     .header-part.fixed {
@@ -5859,8 +5861,8 @@ width: 100%;
         content: "";
         position: absolute;
         transform: translateX(-50%);
-        left: calc(44% + 1px);
-        width: 58%;
+        left: calc(44% + 0px);
+        width: 61%;
         height: 1px;
         background: #000;
     }

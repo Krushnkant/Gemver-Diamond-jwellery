@@ -19,7 +19,7 @@
                                 <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
                             </span>
                             <span class="ms-md-2">
-                                <button type="submit" id="save_newNewsLatterBtn" class="submit_btn btn-hover-effect btn-hover-effect-black">submit</button>
+                                <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
                             </span>
                             <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>    
