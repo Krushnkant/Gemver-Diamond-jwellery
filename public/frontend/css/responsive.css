@@ -652,6 +652,10 @@
     .product-delivery-end:after {
         content: none;
     }
+    .customise_own_ring_section {
+        margin: 0;
+        padding: 0 !important;
+    }
 }
 
 @media (max-width:1199px) {
@@ -1893,6 +1897,9 @@
     .product-delivery-end:after {
         content: none;
     }
+    .customise_own_ring_section {
+        margin: 0;
+    }
 }
 
 @media (min-width:992px) {
@@ -1999,7 +2006,7 @@
     .diamond-btn {
         min-width: 277px;
         font-size: 16px;
-        line-height: 20px;
+        line-height: 61px;
         min-height: 61px;
     }
     .footer-col ul li a {
@@ -2138,6 +2145,9 @@
     .product-border:after {
         left: calc(48% + 0px);
         width: 60%;
+    }
+    .customise_own_ring_section {
+        margin: 0;
     }
 }
 

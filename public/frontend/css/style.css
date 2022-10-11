@@ -10,7 +10,7 @@
     
      :root {
         --primary: #0B1727;
-        --secondary: #bb9c6d;
+        --secondary: #2C3E50;
         --white-secondary: #f6faff;
     }
     
@@ -34,9 +34,10 @@
         margin: 0;
         padding: 0;
     }
-    /* .container {
-max-width: 1300px;
-} */
+    
+    .container {
+        max-width: 1440px;
+    }
     
     img {
         width: 100%;
@@ -158,7 +159,8 @@ fill: #0B1727;
         border-radius: 0 0 20px 20px;
         opacity: 0;
         visibility: hidden;
-        box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
+        /* box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         pointer-events: none;
     }
     
@@ -470,6 +472,21 @@ fill: #0B1727;
         text-transform: capitalize;
     }
     
+    .shop_diamond_by_shape_heading {
+        color: #fff !important;
+    }
+    
+    .shop_by_diamond_shpae_name {
+        color: #fff;
+        text-align: center;
+        margin-top: 5px;
+        text-transform: capitalize;
+    }
+    
+    .shop-dimond-by-shape-slider svg path {
+        fill: #fff;
+    }
+    
     .catrgery_box {
         background: #FFFFFF;
         padding: 0 0 0 0;
@@ -477,8 +494,9 @@ fill: #0B1727;
         display: grid;
         align-items: center;
         border-radius: 10px;
-        box-shadow: 3px 3px 10px rgb(117 117 117 / 20%);
-        margin: 20px 0;
+        /* box-shadow: 3px 3px 10px rgb(117 117 117 / 20%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
+        margin: 20px 15px;
         margin-left: 10px;
     }
     
@@ -496,7 +514,7 @@ fill: #0B1727;
     }
     
     .catrgery_box .catrgory_img img {
-        height: 220px;
+        height: 270px;
         min-width: 154px;
         object-fit: cover;
     }
@@ -570,7 +588,7 @@ fill: #0B1727;
     .diamond_margin {
         margin-top: 120px;
         margin-bottom: 60px;
-        background: #fff9f1;
+        background: var(--primary);
     }
     
     .shop_dimond_by_shape .owl-item img {
@@ -760,7 +778,7 @@ fill: #0B1727;
     .engagement_diamond_box {
         width: 127px;
         height: 103px;
-        background: #fff9f1;
+        background: #EAEFF5;
         padding-left: 25px;
         padding-top: 15px;
     }
@@ -773,7 +791,7 @@ fill: #0B1727;
     .engagement_diamond_img img {
         height: 100%;
         object-fit: cover;
-        box-shadow: 5px 4px 7px rgb(0 0 0 / 8%);
+        /* box-shadow: 5px 4px 7px rgb(0 0 0 / 8%); */
     }
     
     .engagement_diamond_sub_heading {
@@ -797,7 +815,30 @@ fill: #0B1727;
     .own_ring_img img {
         max-height: 550px;
         object-fit: cover;
-        border-radius: 0 15px 15px 0;
+        border-radius: 0;
+    }
+    
+    .engagement_ring_col_part {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .engagement_ring_diamond_part {
+        max-width: 550px;
+        margin: auto;
+    }
+    
+    .engagement_ring_col_part:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(../image/diamond_layer_bg.jpg);
+        z-index: -11;
     }
     
     .heading-h2-yellow-color {
@@ -932,9 +973,8 @@ fill: #0B1727;
     
     .customise_own_ring_section {
         padding: 0;
-        box-shadow: 2px 2px 10px rgb(117 117 117 / 20%);
         border-radius: 15px;
-        margin: 80px 0 60px 0;
+        margin: 60px 0 40px 0;
     }
     
     .gemver_diamonds_section {
@@ -958,7 +998,7 @@ fill: #0B1727;
     }
     
     .gemver_diamods_bg {
-        background: #EEE5D7;
+        background: #EAEFF5;
         min-height: auto;
         height: 100%;
     }
@@ -973,7 +1013,7 @@ fill: #0B1727;
     
     .footer-part-section {
         padding: 60px 60px 30px;
-        background: #EEE5D7;
+        background: #EAEFF5;
     }
     
     .footer-part-heading {
@@ -1906,7 +1946,8 @@ fill: #0B1727;
     }
     
     .wire_bangle_product_setting {
-        box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
+        /* box-shadow: 0px 8px 10px rgb(117 117 117 / 20%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 10px;
     }
     
@@ -1989,8 +2030,8 @@ fill: #0B1727;
     }
     
     .wire_bangle_img_radio_button {
-        box-shadow: 0px 8px 10px rgb(117 117 117 / 20%);
         border-radius: 10px;
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
     }
     
     .wire_bangle_img:before {
@@ -2359,7 +2400,8 @@ opacity: 1;
         text-align: left;
         margin-left: -3px;
         cursor: pointer;
-        box-shadow: 0 3px 8px rgb(0 0 0 / 40%);
+        /* box-shadow: 0 3px 8px rgb(0 0 0 / 40%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         background-color: var(--secondary);
         border-radius: 50%;
         outline: none;
@@ -2676,7 +2718,8 @@ opacity: 1;
         right: -100%;
         padding: 60px 20px 20px 20px;
         background-color: #fff;
-        box-shadow: 1px 3px 7px 2px hwb(0deg 0% 100% / 10%);
+        /* box-shadow: 1px 3px 7px 2px hwb(0deg 0% 100% / 10%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         top: 0;
         z-index: 999;
         width: 320px;
@@ -2767,7 +2810,7 @@ opacity: 1;
         background-size: 150px;
         background-position: 33%center;
         background-repeat: no-repeat;
-        background-color: #EEE5D7;
+        background-color: #EAEFF5;
     }
     
     .about_us_background .sub_heading {
@@ -3562,10 +3605,9 @@ border: 0;
         font-size: 15px;
         color: #fff;
     }
-    
-    .header-icon:hover {
+    /* .header-icon:hover {
         color: var(--primary);
-    }
+    } */
     
     .home-page-bg {
         padding: 5px 0;
@@ -4061,7 +4103,8 @@ width: 100%;
     
     .order-include-img img {
         border-radius: 11px;
-        box-shadow: 2px 4px 4px rgb(0 0 0 / 25%);
+        /* box-shadow: 2px 4px 4px rgb(0 0 0 / 25%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
     }
     
     .order-includes-heading {
@@ -4074,7 +4117,8 @@ width: 100%;
     
     .order-box-part .order-box {
         background: #fff;
-        box-shadow: 3px 4px 12px rgb(0 0 0 / 25%);
+        /* box-shadow: 3px 4px 12px rgb(0 0 0 / 25%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 10px;
         padding: 13px 0;
         height: 100%;
@@ -4136,7 +4180,8 @@ width: 100%;
     .blog-sidebar-top-selling img {
         width: 80px;
         height: 80px;
-        box-shadow: 4px 4px 12px rgb(0 0 0 / 25%);
+        /* box-shadow: 4px 4px 12px rgb(0 0 0 / 25%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
     }
     
     .customer-stories img {
@@ -4191,7 +4236,7 @@ width: 100%;
     
     .from_text input,
     .to_text input {
-        background-color: #ebe9e7;
+        background-color: #EAEFF5;
         border: 0;
         color: #000;
         width: 100px;
@@ -4297,7 +4342,7 @@ width: 100%;
         left: 0;
         width: 100%;
         height: 100%;
-        background: #EEE5D7;
+        background: #EAEFF5;
         z-index: -9;
     }
     
@@ -4398,7 +4443,8 @@ width: 100%;
     
     .Login_page_box {
         background: #FAFAFA;
-        box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13);
+        /* box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 15px;
         padding: 80px;
     }
@@ -4408,6 +4454,7 @@ width: 100%;
         font-size: 40px;
         line-height: 47px;
         color: var(--secondary);
+        font-family: 'Poppins', sans-serif;
     }
     
     .Login_page_box .form-label,
@@ -5018,7 +5065,8 @@ width: 100%;
     
     .my_account_tab {
         background: #FFFFFF;
-        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.1);
+        /* box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.1); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 4px;
         display: flex;
         justify-content: space-around;
@@ -5083,7 +5131,8 @@ width: 100%;
     
     .account-part {
         padding: 50px 35px;
-        box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13);
+        /* box-shadow: 0px 5px 10px rgba(117, 117, 117, 0.13); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 15px;
         background: #FFFFFF;
     }
@@ -5525,7 +5574,8 @@ width: 100%;
         top: calc(100% + 15px) !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        box-shadow: 0 2px 12px 2px rgb(0 0 0 / 10%);
+        /* box-shadow: 0 2px 12px 2px rgb(0 0 0 / 10%); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border: 0;
         padding: 5px 0;
     }
@@ -5789,20 +5839,19 @@ width: 100%;
         position: fixed;
         top: 0;
         left: 0;
-        animation: smoothScroll 1s forwards;
+        /* animation: smoothScroll 1s forwards; */
         z-index: 99;
         width: 100%;
         background-color: #fff;
     }
-    
-    @keyframes smoothScroll {
+    /* @keyframes smoothScroll {
         0% {
             transform: translateY(-40px);
         }
         100% {
             transform: translateY(0px);
         }
-    }
+    } */
     
     div#toast-container .toast-success {
         background-color: green;
@@ -5881,7 +5930,8 @@ width: 100%;
     
     .gemver_diffrence_box {
         background: #FFFFFF;
-        box-shadow: 0px 6px 10px 5px rgba(49, 46, 46, 0.15);
+        /* box-shadow: 0px 6px 10px 5px rgba(49, 46, 46, 0.15); */
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 7px;
         padding: 50px;
         margin-top: 52px;
