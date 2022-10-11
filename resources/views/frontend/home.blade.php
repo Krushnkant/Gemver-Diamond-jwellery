@@ -2,22 +2,6 @@
 
 @section('content')
 
-        <!--<div class="background-slider">-->
-        <!--    <div class="background-smoke-slider position-relative">-->
-        <!--        <img src="{{ asset('frontend/image/smoke-2.png') }}" alt="">-->
-        <!--        <div class="background-text-part">-->
-        <!--            <img src="{{ asset('frontend/image/line.png') }}" alt="" class="line-image d-none d-md-block mx-auto">-->
-        <!--            <h1 class="heading-h1 m-0 mt-md-3">Jewellery for each event.</h1>-->
-        <!--            <div class="paragraph mt-0 mt-md-3">-->
-        <!--                Tiniest piece of jewellery tells a great story-->
-        <!--            </div>-->
-        <!--            <button class="explore-ring-btn mt-3 mt-md-4 mt-xxl-5 btn-hover-effect">-->
-        <!--                explore ring-->
-        <!--            </button>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--</div>-->
-        
         @if(count($banners) > 0)
          <div class="owl-carousel owl-theme home-page-slider">
             @foreach($banners as $banner)
@@ -107,29 +91,7 @@
                            {{ $homesetting->section_category_shotline }}
                         </div>
                     </div>
-                    <!-- <div class="category-line-img d-none d-md-block">
-                        <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
-                    </div> -->
                 </div>
-                <!-- <div class="col-md-12 pe-md-0 mb-5 mb-md-0 mx-auto">
-                    <div class="row">
-                    <?php
-                    $col = 6;
-                    if(count($categories) > 4){  
-                        $col = 4;
-                    }  
-                    ?> 
-                    @foreach($categories as $category)
-                        <a href="{{ URL('/shop/'.$category->id)}}" class="col-md-3 px-0 position-relative shop_by_category_hover">
-                            <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}" width="100%">
-                            <div class="category-heading">
-                                {{ $category->category_name }}
-                            </div>
-                        </a>
-                    @endforeach 
-                    </div>
-                </div> -->
-             
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
                     @foreach($categories as $category)
                     <div class="item">
@@ -293,17 +255,6 @@
             </div>
             <div>
                 <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
-                    
-                <!-- <?php $shape_no = 1;  ?>
-                    @foreach($diamondshape as $shape)  
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/'.$shape) }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ url('frontend/image/dimond-'.$shape_no.'.png') }}" alt="{{ $shape }}" title="{{ $shape }}">
-                        </a>
-                    </div>
-                    <?php $shape_no++;  ?>
-                    @endforeach -->
-                    
                     <div class="item">
                         <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
                             <img src="{{ asset('frontend/image/round.png') }}" alt="">
@@ -371,41 +322,6 @@
     </div>
 
     <div class="engagement_ring_section px-0">
-        <!-- <div class="container">
-            <h2 class="heading-h2 text-center text-white">{{ strtolower($step->main_title) }}</h2>
-            <div class="engagement_ring_paragraph mb-3 pb-0 mb-xl-4 mb-xxl-5 pb-xxl-5">{{ $step->main_shotline }}</div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="engagement_ring_box">
-                        <div class="engagement_ring_number">1</div>
-                        <a href="{{ url('/step/'.$step->slug.'/one'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step1_title }}</div></a>
-                        <p class="engagement_ring_paragraph text-start">{{ $step->step1_shotline }}</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="engagement_ring_box">
-                        <div class="engagement_ring_number">2</div>
-                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step2_title }}</div></a>
-                        <p class="engagement_ring_paragraph text-start">{{ $step->step2_shotline }}</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="engagement_ring_box">
-                        <div class="engagement_ring_number">3</div>
-                        <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step3_title }}</div></a>
-                        <p class="engagement_ring_paragraph text-start">{{ $step->step3_shotline }}</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                    <div class="engagement_ring_box">
-                        <div class="engagement_ring_number">4</div>
-                        <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_ring_heading mb-4">{{ $step->step4_title }}</div></a>
-                        <p class="engagement_ring_paragraph text-start">{{ $step->step4_shotline }}</p>
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
         <div class="container engagement_diamond_section">
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
@@ -584,7 +500,6 @@
                         <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
                         <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
                         <div class="customer_stories_img">
-                            <!-- <img src="{{ asset('frontend/image/customer_stories.png') }}" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -617,24 +532,6 @@
     </div>
 
     @endif
-   
-
-    <!-- <div class="container">
-        <div class="customise_own_ring_section">
-            <div class="row align-items-center ps-4">
-                <div class="col-md-7 text-center text-md-start pe-4">
-                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
-                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                        <a style="" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn" href="{{ url('lab-diamond') }}">Buy Lab Diamonds</a>
-                </div>
-                <div class="col-md-5 mt-4 mt-md-0 pe-0">
-                    <div class="own_ring_img">
-                        <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
         <div class="customise_own_ring_section">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-3 mt-md-0 py-4 order-2 order-md-1">
@@ -691,7 +588,6 @@
             <div class="row">
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative ">
                     <div class="gemver_diamods_bg">
-                        <!-- <img src="{{ asset('frontend/image/smoke-bg.png') }}" alt="" width="100%"> -->
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
                                  {{ $homesetting->section_why_gemver_title1 }}
@@ -779,125 +675,6 @@
         </div>
     </div>
 
-
-
-    <!-- <div class="container">
-        <div class="owl-carousel owl-theme excellent-slider mb-5">
-        <div class="item">
-            <div class="excellent_slider">
-                <div class="row">
-                    <div class="col-md-6 star mb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="col-md-6 text-end mb-2">
-                        <div class="date_part">4 days ago</div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good. They had a wonderful selection of rings or earring or anyth...
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="excellent_slider">
-                    <div class="row">
-                        <div class="col-md-6 mb-2">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <div class="col-md-6 text-end mb-2">
-                            <div class="date_part">4 days ago</div>
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            Everything was good
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            Everything was good. They had a wonderful selection of rings or earring or anyth...
-                        </div>
-                    </div>
-                    
-                </div>
-        </div>
-        <div class="item">
-            <div class="excellent_slider">
-                    <div class="row">
-                        <div class="col-md-6 mb-2">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <div class="col-md-6 text-end mb-2">
-                            <div class="date_part">4 days ago</div>
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            Everything was good
-                        </div>
-                        <div class="col-md-12 mb-2">
-                            Everything was good. They had a wonderful selection of rings or earring or anyth...
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div class="item">
-            <div class="excellent_slider">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="col-md-6 text-end mb-2">
-                        <div class="date_part">May 23</div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good. They had a wonderful selection of rings or earring or anyth...
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="excellent_slider">
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="col-md-6 text-end mb-2">
-                        <div class="date_part">May 23</div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        Everything was good. They had a wonderful selection of rings or earring or anyth...
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div> -->
-    
-    
 <script>
         
 $(document).ready(function(){
@@ -980,14 +757,7 @@ function save_inquiry(btn,btn_type){
     
 });
 
-
-$(document).ready(function () {
-   
-});
-
 </script>
 
-        
-<!-- dfbvnfjfdbfddfjkldfj -->
  @endsection
    

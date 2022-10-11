@@ -102,7 +102,7 @@
                                 <th scope="col">Amount Info</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Date</th>
-                                <th scope="col" style="width:7%;">Action</th>
+                                <th scope="col" style="width:14%;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
