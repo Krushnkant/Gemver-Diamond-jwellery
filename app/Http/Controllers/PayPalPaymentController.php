@@ -117,6 +117,8 @@ class PayPalPaymentController extends Controller
         //Save Order Item Data
         $order_item = array();
         $diamond_name = "";
+        $spe = array();
+        $sped = array();
         foreach($request->item as $key => $item){
             $OrderItem = new OrderItem();
             $OrderItem->order_id = $order->id;
@@ -125,8 +127,7 @@ class PayPalPaymentController extends Controller
             $OrderItem->updated_by = 0;
             $OrderItem->order_note = '';
 
-            $spe = array();
-            $sped = array();
+            
             if($request->item_type[$key] == 0){
                 $product_item = ProductVariant::with('product','product_variant_variants.attribute_term','product_variant_variants.attribute')->where('id',$item)->first();
             
@@ -195,7 +196,8 @@ class PayPalPaymentController extends Controller
                     'term_name' => $diamond_item->Lab,
                     'term' => 'certified'
                 );
-              
+                
+               
 
             }
 

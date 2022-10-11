@@ -482,25 +482,38 @@
                     <div class="review_box">
                         <div class="row">
                             <div class="col-6 ps-0 review_heading">
-                                Elizajones
+                                {{ $diamond_review->reviewer }}
                             </div>
                             <div class="col-6 text-end review_star pe-0">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                            <?php    
+                                for($x = 1; $x <= 5; $x++){
+                                    if($x <= $diamond_review->rating){
+                                    ?>
+                                       <i class="fa-solid fa-star"></i>
+                            <?php           
+                                    }else{
+                                        ?>
+                                        <i class="fa-regular fa-star"></i>
+                            <?php            
+                                    }
+                                }
+                               
+                            ?>   
+                             
                             </div>
                         </div>
                         <div class="review_description_paragraph">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla eligendi expedita enim quae possimus ab magni facilis dicta, illum quas ipsum quis deleniti iusto eum quibusdam et? Ullam, ad dolorum.
+                            {{ $diamond_review->description }}
                         </div>
                         <div class="review_thumb_part mt-3">
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">    
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img">  
-                            <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
+                            <?php
+                            $review_images = explode(',',$diamond_review->review_imgs);
+                            foreach($review_images as $review_image){
+                            ?>        
+                                <img src="{{ url($review_image) }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
+                            <?php        
+                            }
+                            ?> 
                         </div>
                     </div>
                 </div>

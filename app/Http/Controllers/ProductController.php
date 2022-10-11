@@ -566,17 +566,11 @@ class ProductController extends Controller
                 $spe_desc .='</div>';
                 }
                 
-                $product_reviews = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->get();
+                $product_reviews = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->orderBy('id', 'DESC')->limit(6)->get();
                 //dd($product_reviews);
                 $review = '';
                 if(count($product_reviews) > 0){
-                $review .=  '<div class="review_description_heading order-includes-heading">
-                Reviews
-                    </div>
-                    <div class="review_description_heading mb-3">
-                        '.count($product_reviews).' Reviews For Cenforce
-                    </div>
-                    <div class="row">';
+             
                     foreach($product_reviews as $product_review){
                             
                     $review .=  '<div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
@@ -610,12 +604,12 @@ class ProductController extends Controller
                             $review .=  '</div>
                                     </div>
                                 </div>';
-                                
+                               $last_id   =$product_review->id;
                             
                     }
-                $review .=  '</div>
+                $review .=  '
                 <div class="text-end">
-                    <button type="button" class="btn show_more_btn">Show more</button>
+                    <button type="button" class="btn show_more_btn" data-id="'.$last_id.'" id="load_more_button">Show more</button>
                 </div>';
                 }
 

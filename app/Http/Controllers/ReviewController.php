@@ -74,4 +74,75 @@ class ReviewController extends Controller
 
         return response()->json(['status' => '200', 'action' => $action]);
     }
+
+    function load_data(Request $request)
+    {
+     if($request->ajax())
+     {
+      $vatid = $request->variant_id;
+      if($request->id > 0)
+      {
+       $data = Review::where('id', '<', $request->id)->where('status',1)->where('type',0)->where('item_id',$vatid)
+          ->orderBy('id', 'DESC')
+          ->limit(6)
+          ->get();
+      }
+      else
+      {
+       $data = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->orderBy('id', 'DESC')
+          ->limit(6)
+          ->get();
+      }
+      $output = '';
+      $last_id = '';
+      
+      if(!$data->isEmpty())
+      {
+       foreach($data as $product_review)
+       {
+        $output .= '<div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+        <div class="review_box">
+            <div class="row">
+                <div class="col-6 ps-0 review_heading">
+                    '.$product_review->reviewer.'
+                </div>
+                <div class="col-6 text-end review_star pe-0">';
+                for($x = 1; $x <= 5; $x++){
+                    if($x <= $product_review->rating){
+                        $output .= '<i class="fa-solid fa-star"></i>';
+                    }else{
+                        $output .= '<i class="fa-regular fa-star"></i>';
+                    }
+                } 
+                
+                $output .= '</div>
+            </div>
+            <div class="review_description_paragraph">
+               '.$product_review->description.'
+            </div>
+            <div class="review_thumb_part mt-3">';
+            $review_images = explode(',',$product_review->review_imgs);
+            foreach($review_images as $review_image){
+                    
+                $output .=  '<img src='. url($review_image) .' id="inquiry_image" alt="" class="review_thumb_part_img">'; 
+                   
+            } 
+
+           $output .=  '</div>
+        </div>
+    </div>';
+        $last_id = $product_review->id;
+       }
+       $output .= '
+      
+       <div class="text-end">
+            <button type="button" class="btn show_more_btn" data-id="'.$last_id.'" id="load_more_button">Show more</button>
+        </div>
+       ';
+      }
+      echo $output;
+     }
+    }
+
+
 }

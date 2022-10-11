@@ -293,13 +293,13 @@
                                         </span>
                                         <span class="ms-3 cart_product_part">
                                             <div class="cart_product_name">
-                                                {{ $item_details['ProductTitle'] }}
+                                                {{ $item_details['DiamondTitle'] }}
                                             </div>
                                             <?php
                                             $atr = 0;
                                             ?>
                                             <div class="cart_product_specification d-block">
-                                            @foreach($item_details['spe'] as $spe)
+                                            @foreach($item_details['sped'] as $spe)
                                                 <?php if($atr > 0){
                                                     echo ' | '; } ?> {{$spe['term_name']}} 
                                                 <?php $atr++; ?>

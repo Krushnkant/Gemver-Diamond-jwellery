@@ -146,6 +146,10 @@ Route::post('redeem_coupon',[\App\Http\Controllers\CartController::class,'redeem
 
 Route::post('AddReview',[\App\Http\Controllers\ReviewController::class,'AddReview'])->name('frontend.AddReview');
 
+Route::post('loadmore',[\App\Http\Controllers\ReviewController::class,'review'])->name('frontend.review');
+Route::post('/loadmore/load_data',[\App\Http\Controllers\ReviewController::class,'load_data'])->name('frontend.load_data');
+
+
 
 
 Route::group(['middleware'=>['frontendauth']],function (){

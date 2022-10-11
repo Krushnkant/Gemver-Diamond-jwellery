@@ -570,16 +570,17 @@
             </div>
         </div>
 
-        <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
-            {{-- <div class="review_description_heading order-includes-heading">
+        <div class=" mt-md-5 mt-4 px-3 mb-md-5 mb-4">
+
+            <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
-            <div class="review_description_heading mb-3">
+            {{-- <div class="review_description_heading mb-3">
                 10 Reviews For Cenforce
-            </div>
-            <div class="row">   
+            </div> --}}
+            <div class="row resview_list">   
                 
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
+              {{--  <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
                     <div class="review_box">
                         <div class="row">
                             <div class="col-6 ps-0 review_heading">
@@ -604,12 +605,12 @@
                             <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 
             </div>
-            <div class="text-end">
+            {{-- <div class="text-end">
                 <button type="button" class="btn show_more_btn">Show more</button>
-            </div> --}}
+            </div>  --}}
         </div>
 
         <!-- <div class="gemver_diamonds_section p-0 dbdfbdf" id="spe_desc">
@@ -638,7 +639,7 @@
                                 <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
                             </span>
                             <span class="order-text text-center d-block">
-                                    {{ $orderincludesdata->title }}
+                                {{ $orderincludesdata->title }}
                             </span>
                             </div>    
                         </div>
@@ -1260,8 +1261,8 @@ function save_hint(btn,btn_type){
                 // } 
             }
             if(res.status == 200){
-               
-               
+
+                
                 $('#hintemail-error').hide();
                 $('#hintname-error').hide();
                 document.getElementById("hintCreateForm").reset();
@@ -1341,6 +1342,39 @@ $('.select_cart_btn').click(function (e) {
 
     }
   });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+ 
+ var _token = $('input[name="_token"]').val();
+
+ //load_data('', _token);
+
+ function load_data(id="", _token)
+ {
+
+  var variant_id = $('.variant_id').val();
+  $.ajax({
+   url:"{{ route('frontend.load_data') }}",
+   method:"POST",
+   data:{id:id,variant_id:variant_id, _token:_token},
+   success:function(data)
+   {
+    console.log(data);
+    $('#load_more_button').remove();
+    $('.resview_list').append(data);
+   }
+  })
+ }
+
+ $(document).on('click', '#load_more_button', function(){
+  var id = $(this).data('id');
+  $('#load_more_button').html('<b>Loading...</b>');
+  load_data(id, _token);
+ });
+
 });
 </script>
 
