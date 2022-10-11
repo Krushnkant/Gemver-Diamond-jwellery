@@ -482,7 +482,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion detailsspecii px-3" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

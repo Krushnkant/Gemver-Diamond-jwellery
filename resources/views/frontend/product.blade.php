@@ -252,16 +252,18 @@
                             </form>
                             
                             
-                            <span class="inquiry_now_btn ">
-                                <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
-                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            </span>
-                            <span class="inquiry_now_btn product-data">
-                                <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
-                                <input type="hidden" class="item_type" value="0"> 
-                                <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-3" type="button">Add To Cart</button>
-                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            </span>
+                            <div class="d-sm-flex">
+                                <span class="inquiry_now_btn d-block d-sm-inline-block">
+                                    <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
+                                    <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </span>
+                                <span class="inquiry_now_btn product-data d-block d-sm-inline-block">
+                                    <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
+                                    <input type="hidden" class="item_type" value="0"> 
+                                    <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-sm-3" type="button">Add To Cart</button>
+                                    <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </span>
+                            </div>
                             
                            
                             
@@ -512,7 +514,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion detailsspecii px-3" id="accordionExample">
+        <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
