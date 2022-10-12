@@ -16,7 +16,7 @@ class Helpers{
          $message->to($to);
          $message->subject($sub);
       });
-		 dump('Mail Send Successfully');
+		// dump('Mail Send Successfully');
 	}
 
 	public static function UploadImage($image, $path){
