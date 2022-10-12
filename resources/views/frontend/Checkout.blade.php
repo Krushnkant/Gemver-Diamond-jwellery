@@ -21,37 +21,137 @@
   
    
     <div class="container my-5 address_form_part">
-        <div class="row">
-            <div class="col-md-12 col-lg-6">
+        
+           <form action="{{ route('make.payment') }}" method="post" id="paymentForm">
+            {{ csrf_field() }}
+            <div class="row">
+               <div class="col-md-12 col-lg-6 ">
                 <div class="address_heading mb-4">Other Addresses</div>
-                <div class="other_address">
-                    @if($address)
-                    @foreach($address as $addr)
-                    <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
-                        <input class="form-check-input check_address" type="radio" name="check_address" id="check_address"  value="{{ $addr->id }}">
-                        <label class="form-check-label d-flex" for="check_address">
-                            <span class="ms-2">
-                                <div class="radio_button_part">
-                                    {{ $addr->first_name }} {{ $addr->last_name }}
-                                </div>
-                                <div class="radio_button_paragraph">
-                                    {{ $addr->address }},{{ $addr->city }},{{ $addr->state }},{{ $addr->pincode }},{{ $addr->country }}
-                                </div>
-                            </span>
-                        </label>
+                <div class="other_address row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
+                            <input class="form-check-input check_address" type="radio" name="check_address" id="check_address" checked value="new">
+                            <label class="form-check-label d-flex" for="check_address">
+                                <span class="ms-2">
+                                    <div class="radio_button_part">
+                                        Add New Address
+                                    </div>
+                                </span>
+                            </label>
+                        </div>
                     </div>
-                    @endforeach
-                    @endif
-                </div>
+                    <div class="col-md-12 col-lg-6">
+                        <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
+                            <input class="form-check-input check_address" type="radio" name="check_address" id="check_address" value="existing">
+                            <label class="form-check-label d-flex" for="check_address">
+                                <span class="ms-2">
+                                    <div class="radio_button_part">
+                                        Select Existing Address
+                                    </div>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                
                
-                <button type="button" class="mb-3 add_new_address_btn px-0" data-bs-toggle="modal" data-bs-target="#addressModal">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700" class="plus_icon">
-                        <path d="m350 520.01c-7.2461 0-13.125-5.8789-13.125-13.125v-213.76h-213.76c-7.2461 0-13.125-5.8789-13.125-13.125s5.8789-13.125 13.125-13.125h213.76v-213.76c0-7.2461 5.8789-13.125 13.125-13.125s13.125 5.8789 13.125 13.125v213.76h213.76c7.2461 0 13.125 5.8789 13.125 13.125s-5.8789 13.125-13.125 13.125h-213.76v213.76c0 7.2461-5.8789 13.125-13.125 13.125z"/>
-                    </svg> -->
+                {{-- <button type="button" class="mb-3 add_new_address_btn px-0" data-bs-toggle="modal" data-bs-target="#addressModal">
                      + Add New Address
-                </button>   
+                </button>  --}}
+                
+                    <div class="col-md-12 col-lg-6" id="other_address" style="display: none;">
+                        @if($address)
+                        @foreach($address as $addr)
+                        <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
+                            <input class="form-check-input new_address" type="radio" name="new_address" id="new_address"  value="{{ $addr->id }}">
+                            <label class="form-check-label d-flex" for="new_address">
+                                <span class="ms-2">
+                                    <div class="radio_button_part">
+                                        {{ $addr->first_name }} {{ $addr->last_name }}
+                                    </div>
+                                    <div class="radio_button_paragraph">
+                                        {{ $addr->address }},{{ $addr->city }},{{ $addr->state }},{{ $addr->pincode }},{{ $addr->country }}
+                                    </div>
+                                </span>
+                            </label>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div id="add_address">
+                   
+                         <div class="row mb-3 mb-md-4">
+                             <div class="col-md-6 mb-3 mb-md-0 popup_padding">
+                                 <label for="" class="form-label form_heading">First Name <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter Your First Name">
+                                 <div id="first_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 <input type="hidden" name="user_id" value="{{ session('customer.id') }}" class="form-control" id="user_id" >
+                             </div>
+                             <div class="col-md-6">
+                                 <label for="" class="form-label form_heading">Last Name <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Your Last Name">
+                                 <div id="last_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                         </div>
+                         <div class="row mb-3 mb-md-4">
+                             <div class="col-md-6 mb-3 mb-md-0">
+                                 <label for="" class="form-label form_heading">Email Address <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email Address">
+                                 <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                             <div class="col-md-6">
+                                 <label for="" class="form-label form_heading">Phone <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Enter Your Phone">
+                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                            
+                         </div>
+                         <div class="row mb-3 mb-md-4">
+                             <div class="col-md-12">
+                                 <label for="" class="form-label form_heading">Street Address <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control mb-3" id="address" name="address" placeholder="Enter Your Address">
+                                 <div id="address-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 <input type="text" class="form-control" id="address2" name="address2" placeholder="Enter Your Address">
+                                 <div id="address2-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                         </div>
+                         <div class="row mb-3 mb-md-4">
+                             <div class="col-md-6 mb-3 mb-md-0">
+                                 <label for="" class="form-label form_heading">City <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="city" name="city" placeholder="Enter Your City">
+                                 <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                             <div class="col-md-6">
+                                 <label for="" class="form-label form_heading">State <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="state" name="state" placeholder="Enter Your State">
+                                 <div id="state-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                         </div>
+                         <div class="row mb-3 mb-md-4">
+                             <div class="col-md-6 mb-3 mb-md-0">
+                                 <label for="" class="form-label form_heading">Country <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="country" name="country" placeholder="Enter Your Country">
+                                 <div id="country-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                             <div class="col-md-6">
+                                 <label for="" class="form-label form_heading">Pin Code <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your Pincode">
+                                 <div id="pincode-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                         </div>
 
-                <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         {{-- <div class="modal-footer">
+                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                             <button type="button" id="save_closeAddressBtn" class="btn btn-primary chnage_address_btn">Save changes <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                 <span class="visually-hidden">Loading...</span>
+                                 </div>
+                             </button>
+                         </div> --}}
+                        
+                    
+             
+                    </div>
+                {{-- <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -139,16 +239,16 @@
                         </div>
                           
                         </div>
-                    </div>
+                </div> --}}
+                    
                 </div>
 
               
             
             <div class="col-md-12 col-lg-6 ps-md-3 ps-lg-5">
                 <div class="your_order_box">
-                    <form action="{{ route('make.payment') }}"  method="post" id="paymentForm">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="address_id" value="" id="address_id">
+                    
+                    <input type="hidden" name="address_id" value="" id="address_id">
                     <div class="your_order_heading sub_heading mb-lg-3 mb-md-3 mb-lg-2 mb-xxl-4"> Your order</div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
@@ -315,12 +415,15 @@
                         Your personal data will be uesd to process your order, support your experience
                         throughout this website, and for other purposes described in our privacy policy.
                     </div>
-                    <button type="submit" class="btn btn-primary place_order_btn">Place Order <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
-                </form>
+                    <button type="submit" class="btn btn-primary place_order_btn">Place Order 
+                        <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i>
+                    </button>
+                
                 </div>
             </div>
-           
         </div>
+        </form>
+        
     </div>
     
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
@@ -490,34 +593,267 @@
             });
         }
 
-        $(document).ready (function () {  
-            $('form[id="paymentForm"]').validate({  
-            ignore: [],    
-            errorElement: 'span',
-                errorPlacement: function (error, element) {
-            },
-            highlight: function (element, errorClass, validClass) {
-                toastr.error("Please Choose Address Required",'Success',{timeOut: 5000});
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            },
-            rules: {  
-            address_id: 'required',  
-            },  
-            messages: {  
-            address_id: 'This field is required',
-            },  
-            submitHandler: function(form) {  
-            form.submit();  
-            }  
+        $(document).ready (function () {
+            
+               
+            $("#paymentForm").validate({
+                
+                rules: {
+                    check_address: {
+                        required: true,
+                    },
+                    
+                },
+                messages: {
+                    check_address: {
+                        required: "Check Address Type",
+                    },
+                    
+                },
+                submitHandler: function(form) {
+                $('.place_order_btn').prop('disabled',false);
+                $('.place_order_btn').find('.loadericonfa').hide();    
+               
+                var formData = new FormData($("#paymentForm")[0]);
+                // formData.append('action',action);
+            
+                if($('input[name=check_address]:checked').val() == 'new'){
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('address.save') }}",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                
+                        if(res.status == 'failed'){
+                         
+                            if (res.errors.first_name) {
+                                $('#first_name-error').show().text(res.errors.first_name);
+                            } else {
+                                $('#first_name-error').hide();
+                            }
+
+                            if (res.errors.last_name) {
+                                $('#last_name-error').show().text(res.errors.last_name);
+                            } else {
+                                $('#last_name-error').hide();
+                            }
+
+                            if (res.errors.email) {
+                                $('#email-error').show().text(res.errors.email);
+                            } else {
+                                $('#email-error').hide();
+                            }
+                            if (res.errors.mobile_no) {
+                                $('#mobile_no-error').show().text(res.errors.mobile_no);
+                            } else {
+                                $('#mobile_no-error').hide();
+                            }
+                            if (res.errors.address) {
+                                $('#address-error').show().text(res.errors.address);
+                            } else {
+                                $('#address-error').hide();
+                            }
+                            if (res.errors.country) {
+                                $('#country-error').show().text(res.errors.country);
+                            } else {
+                                $('#country-error').hide();
+                            }
+                            if (res.errors.state) {
+                                $('#state-error').show().text(res.errors.state);
+                            } else {
+                                $('#state-error').hide();
+                            }
+                            if (res.errors.city) {
+                                $('#city-error').show().text(res.errors.city);
+                            } else {
+                                $('#city-error').hide();
+                            }
+                            if (res.errors.pincode) {
+                                $('#pincode-error').show().text(res.errors.pincode);
+                            } else {
+                                $('#pincode-error').hide();
+                            }  
+                        }
+                        if(res.status == 200){
+                           $('.place_order_btn').prop('disabled',false);
+                           $('.place_order_btn').find('.loadericonfa').hide();
+                           // location.href="{{ url('admin.blogbanners.list')}}";
+                            //toastr.success("Address Added",'Success',{timeOut: 5000});
+                            $("#addressModal").find('form').trigger('reset');
+                            $('#first_name-error').html("");
+                            $('#last_name-error').html("");
+                            $('#email-error').html("");
+                            $('#mobile_no-error').html("");
+                            $('#address-error').html("");
+                            $('#country-error').html("");
+                            $('#state-error').html("");
+                            $('#city-error').html("");
+                            $('#pincode-error').html("");
+                            $('#address_id').val(res.address.id);
+
+                            
+                            // $("#first_name").focus();
+                            // $(".other_address").append('<div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address"><input class="form-check-input" type="radio" name="check_address" id="check_address" class="check_address" value="'+ res.address.id +'" checked><label class="form-check-label d-flex" for="flexRadioDefault3"><span class="ms-2"><div class="radio_button_part">'+ res.address.first_name +' '+ res.address.last_name +'</div><div class="radio_button_paragraph">'+ res.address.address +','+ res.address.city +','+ res.address.state +','+ res.address.pincode +','+ res.address.country +'</div></span></label></div>');
+                            // $("#addressModal").modal('hide');
+
+                            form.submit(); 
+                        } 
+
+                    },
+                    error: function (data) {
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+                        toastr.error("Please try again",'Error',{timeOut: 5000});
+                    }
+                });
+                }else{
+                   
+                   if($('input[name=new_address]:checked').val() == undefined){
+                    toastr.error("Please Choose Address Required",'Success',{timeOut: 5000});
+                   }else{
+                    form.submit();
+                   }
+            
+                }
+                }
+            }) 
+          
+            // $('#paymentForm').validate({  
+            // ignore: [],    
+            // errorElement: 'span',
+            //     errorPlacement: function (error, element) {
+            // },
+            // highlight: function (element, errorClass, validClass) {
+            //     toastr.error("Please Choose Address Required",'Success',{timeOut: 5000});
+            // },
+            // unhighlight: function (element, errorClass, validClass) {
+            //     $(element).removeClass('is-invalid');
+            // },
+            // rules: {  
+            //   check_address: 'required',  
+            // },  
+            // messages: {  
+            //   check_address: 'This field is required',
+            // },  
+            // submitHandler: function(form) { 
+            //     console.log("fgdgdfd")
+            //     var formData = new FormData($("#paymentForm")[0]);
+            //     formData.append('action',action);
+
+            //     // $.ajax({
+            //     //     type: 'POST',
+            //     //     url: "{{ route('address.save') }}",
+            //     //     data: formData,
+            //     //     processData: false,
+            //     //     contentType: false,
+            //     //     success: function (res) {
+            //     //         alert('demo');
+            //     //         if(res.status == 'failed'){
+            //     //             $(btn).prop('disabled',false);
+            //     //             $(btn).find('.loadericonfa').hide();
+            //     //             if (res.errors.first_name) {
+            //     //                 $('#first_name-error').show().text(res.errors.first_name);
+            //     //             } else {
+            //     //                 $('#first_name-error').hide();
+            //     //             }
+
+            //     //             if (res.errors.last_name) {
+            //     //                 $('#last_name-error').show().text(res.errors.last_name);
+            //     //             } else {
+            //     //                 $('#last_name-error').hide();
+            //     //             }
+
+            //     //             if (res.errors.email) {
+            //     //                 $('#email-error').show().text(res.errors.email);
+            //     //             } else {
+            //     //                 $('#email-error').hide();
+            //     //             }
+            //     //             if (res.errors.mobile_no) {
+            //     //                 $('#mobile_no-error').show().text(res.errors.mobile_no);
+            //     //             } else {
+            //     //                 $('#mobile_no-error').hide();
+            //     //             }
+            //     //             if (res.errors.address) {
+            //     //                 $('#address-error').show().text(res.errors.address);
+            //     //             } else {
+            //     //                 $('#address-error').hide();
+            //     //             }
+            //     //             if (res.errors.country) {
+            //     //                 $('#country-error').show().text(res.errors.country);
+            //     //             } else {
+            //     //                 $('#country-error').hide();
+            //     //             }
+            //     //             if (res.errors.state) {
+            //     //                 $('#state-error').show().text(res.errors.state);
+            //     //             } else {
+            //     //                 $('#state-error').hide();
+            //     //             }
+            //     //             if (res.errors.city) {
+            //     //                 $('#city-error').show().text(res.errors.city);
+            //     //             } else {
+            //     //                 $('#city-error').hide();
+            //     //             }
+            //     //             if (res.errors.pincode) {
+            //     //                 $('#pincode-error').show().text(res.errors.pincode);
+            //     //             } else {
+            //     //                 $('#pincode-error').hide();
+            //     //             }  
+            //     //         }
+            //     //         if(res.status == 200){
+            //     //             $(btn).prop('disabled',false);
+            //     //             $(btn).find('.loadericonfa').hide();
+            //     //         // location.href="{{ url('admin.blogbanners.list')}}";
+            //     //             toastr.success("Address Added",'Success',{timeOut: 5000});
+            //     //             $("#addressModal").find('form').trigger('reset');
+            //     //             $('#first_name-error').html("");
+            //     //             $('#last_name-error').html("");
+            //     //             $('#email-error').html("");
+            //     //             $('#mobile_no-error').html("");
+            //     //             $('#address-error').html("");
+            //     //             $('#country-error').html("");
+            //     //             $('#state-error').html("");
+            //     //             $('#city-error').html("");
+            //     //             $('#pincode-error').html("");
+            //     //             $('#address_id').val(res.address.id);
+
+                            
+            //     //             $("#first_name").focus();
+            //     //             $(".other_address").append('<div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address"><input class="form-check-input" type="radio" name="check_address" id="check_address" class="check_address" value="'+ res.address.id +'" checked><label class="form-check-label d-flex" for="flexRadioDefault3"><span class="ms-2"><div class="radio_button_part">'+ res.address.first_name +' '+ res.address.last_name +'</div><div class="radio_button_paragraph">'+ res.address.address +','+ res.address.city +','+ res.address.state +','+ res.address.pincode +','+ res.address.country +'</div></span></label></div>');
+            //     //             $("#addressModal").modal('hide');
+
+            //     //             form.submit(); 
+            //     //         } 
+
+            //     //     },
+            //     //     error: function (data) {
+            //     //         $(btn).prop('disabled',false);
+            //     //         $(btn).find('.loadericonfa').hide();
+            //     //         toastr.error("Please try again",'Error',{timeOut: 5000});
+            //     //     }
+            //     // });
+                 
+            // }  
         });  
 
         $('.check_address').on('change', function() {
           var address_id = $('input[name=check_address]:checked').val();
           $('#address_id').val(address_id);
         });
-});    
+
+        $('.check_address').on('change', function() {
+          var check_address = $('input[name=check_address]:checked').val();
+          if(check_address == 'existing'){
+            $('#other_address').show();
+            $('#add_address').hide();
+          }else{
+            $('#other_address').hide();
+            $('#add_address').show();
+          }
+          $('#address_id').val(address_id);
+        });
+// });    
         
         
 </script>
