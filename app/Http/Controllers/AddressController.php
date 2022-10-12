@@ -14,6 +14,9 @@ class AddressController extends Controller
     }
 
     public function addresssave(Request $request){
+        //dd($request->all());
+
+        if($request->check_address == 'new'){
         $messages = [
             'first_name.required' =>'Please provide a First Name ',
             'last_name.required' =>'Please provide a Last Name',
@@ -37,6 +40,18 @@ class AddressController extends Controller
             'country' =>'required',
             'pincode' =>'required'
         ], $messages);
+       }else{
+
+        $messages = [
+            'new_address.required' =>'Please select address',
+        ];
+        
+        $validator = Validator::make($request->all(), [
+            'new_address' =>'required',
+      
+        ], $messages);
+
+       }
     
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
