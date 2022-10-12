@@ -837,8 +837,8 @@
             // }  
         });  
 
-        $('.check_address').on('change', function() {
-          var address_id = $('input[name=check_address]:checked').val();
+        $('.new_address').on('change', function() {
+          var address_id = $('input[name=new_address]:checked').val();
           $('#address_id').val(address_id);
         });
 
@@ -851,7 +851,6 @@
             $('#other_address').hide();
             $('#add_address').show();
           }
-          $('#address_id').val(address_id);
         });
 // });    
         

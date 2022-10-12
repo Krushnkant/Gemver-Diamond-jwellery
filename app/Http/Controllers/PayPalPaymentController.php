@@ -89,7 +89,7 @@ class PayPalPaymentController extends Controller
         $user['State'] = isset($address_info->state) ? $address_info->state: '';
         $user['Country'] = isset($address_info->country) ? $address_info->country: '';
         $user['Pincode'] = isset($address_info->pincode) ? $address_info->pincode: '';
-
+        
     
         $order = new Order();
         $order->user_id = session('customer.id');
