@@ -7,10 +7,11 @@ use App\Models\OrderItem;
 use App\Models\ItemCart;
 use App\Models\ProductVariant;
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
 use Srmklive\PayPal\Services\ExpressCheckout;
+use App\Http\Helpers;
 
 class PayPalPaymentController extends Controller
 {
@@ -112,6 +113,21 @@ class PayPalPaymentController extends Controller
         $order->order_status = 1;
         $order->delivery_date = Carbon::now();
         $order->save();
+
+        if($order){
+           
+            $user = User::where('id',session('customer.id'))->first();
+            $data = [
+                'CustomerFullAddr' => $address_info->address.','.$address_info->city.','.$address_info->state.','.$address_info->pincode.','.$address_info->country,
+                'OrderId' => $order->id,
+                'CustomerName' => isset($address_info->first_name) ? $address_info->first_name .' '.$address_info->last_name: '',
+            ];
+            
+            
+            $templateName = 'email.mailDataorder';
+            $mail_sending = Helpers::MailSending($templateName, $data, $user->email, 'New Order');
+
+        }
 
         //dd($request->all());
         //Save Order Item Data
