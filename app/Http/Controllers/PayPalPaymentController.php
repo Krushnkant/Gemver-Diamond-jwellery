@@ -125,8 +125,8 @@ class PayPalPaymentController extends Controller
             
             
             $templateName = 'email.mailDataorder';
-            $mail_sending = Helpers::MailSending($templateName, $data1, $user->email, 'New Order');
-            dd($mail_sending);
+            $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'New Order');
+            //dd($mail_sending);
         }
 
         //dd($request->all());
