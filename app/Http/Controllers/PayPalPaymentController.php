@@ -117,7 +117,7 @@ class PayPalPaymentController extends Controller
         if($order){
            
             $user = User::where('id',session('customer.id'))->first();
-            $data = [
+            $data1 = [
                 'CustomerFullAddr' => $address_info->address.','.$address_info->city.','.$address_info->state.','.$address_info->pincode.','.$address_info->country,
                 'OrderId' => $order->id,
                 'CustomerName' => isset($address_info->first_name) ? $address_info->first_name .' '.$address_info->last_name: '',
@@ -125,7 +125,7 @@ class PayPalPaymentController extends Controller
             
             
             $templateName = 'email.mailDataorder';
-            $mail_sending = Helpers::MailSending($templateName, $data, $user->email, 'New Order');
+            $mail_sending = Helpers::MailSending($templateName, $data1, $user->email, 'New Order');
             dd($mail_sending);
         }
 
