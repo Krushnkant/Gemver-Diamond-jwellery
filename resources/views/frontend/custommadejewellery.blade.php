@@ -119,7 +119,7 @@
                                     Create your own {{ $category->category_name }}
                                 </div>
                                 <p class="custom_engagement_paragrph mb-4">
-                                    From classic designs to creative twists, our exquisite hand-crafted earrings are a must-have fashion accessory.
+                                     From classic designs to creative twists, our exquisite hand-crafted earrings are a must-have fashion accessory.
                                 </p>
                                 <div class="engagement_button text-center">
                                     <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $category->id }}">Start with Diamond</button>

@@ -47,7 +47,7 @@
     <div class="shop_dimond_by_shape explore_diamonds_section mt-3 ">
         <div class="container">
             <div class="mb-4 text-center ">
-                <div class="choose_your_setting_heading text-center mb-2 mb-md-3">Explore Diamonds By Shape</div>
+                <div class="choose_your_setting_heading text-center mb-2 mb-md-3 explore_diamonds_heading">Explore Diamonds By Shape</div>
                 <div class="choose_your_setting_paragraph text-center mb-3 mb-md-4 mb-xl-5">
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
                 </div>
