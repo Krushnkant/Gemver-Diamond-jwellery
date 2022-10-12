@@ -93,6 +93,6 @@ $CustomerName = "demo";
                 $Refmsg .= '</td></tr></tbody></table></div></div></div></div></div></div></td></tr></tbody></table>';
                 $Refmsg .= "</body></html>";
 
-     echo $Refmsg; die;           
+     echo $Refmsg;           
 
      ?>
