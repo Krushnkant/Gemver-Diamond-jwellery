@@ -129,8 +129,8 @@
         min-width: 150px;
     }
     .order_summary_box {
-        padding: 15px;
-        margin-left: 0;
+        padding: 0 15px;
+        margin-left: auto;
         margin-right: auto;
     }
     .product_name_paragraph {
@@ -298,6 +298,9 @@
     .review_heading {
         font-size: 15px;
     }
+    .checkout_box {
+        padding: 25px 0;
+    }
 }
 
 @media (max-width:575px) {
@@ -347,6 +350,9 @@
         font-weight: 400;
         padding: 7px 0;
         font-size: 15px;
+        border-right: 0;
+    }
+    .checkout_box_col {
         border-right: 0;
     }
 }
@@ -1501,6 +1507,10 @@
     .cart-product-name-info {
         min-width: 300px;
     }
+    /* -------------------------------------------------------------------------- */
+    .checkout_box .checkout_box_col:nth-child(even) {
+        border-right: 0;
+    }
 }
 
 @media (min-width:576px) and (max-width:767px) {
@@ -1513,6 +1523,14 @@
     }
     .round_cut_lab_diamonds_layer .round_product_part_1 {
         min-width: 90px;
+    }
+    .my_account_tab li {
+        font-size: 14px;
+        border-right: 1px solid var(--primary);
+    }
+    .my_account_tab svg {
+        width: 15px;
+        height: 15px;
     }
 }
 
@@ -1772,6 +1790,12 @@
     .gemver_diffrence_box {
         margin-top: 35px;
     }
+    .checkout_box {
+        padding: 20px 0;
+    }
+    .order_summary_box {
+        padding: 10px 15px;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -1911,6 +1935,9 @@
     }
     .customise_own_ring_section {
         margin: 0;
+    }
+    .checkout_box .checkout_box_col:nth-child(even) {
+        border-right: 1px solid #0B1727;
     }
 }
 
