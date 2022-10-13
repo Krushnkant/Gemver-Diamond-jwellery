@@ -6060,6 +6060,9 @@ width: 100%;
         letter-spacing: 0.1em;
         color: #808080;
     }
+    .checkout_box_part_paragraph  a{
+        color: #808080;
+    }
     
     .checkout_box_part_img {
         text-align: center;
