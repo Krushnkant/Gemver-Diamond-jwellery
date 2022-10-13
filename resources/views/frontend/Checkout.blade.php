@@ -441,7 +441,7 @@
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
                             Estimated date of shipment<br>
-                            27 October, Thursday
+                            {{ date('dS M , Y', strtotime ('+2 day')) }}
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
@@ -450,7 +450,7 @@
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
                             Send in your queries at<br>
-                            Coustomerservice@gemver.com
+                           <a href="mailto:{{ $settings->company_email }}"> {{ $settings->company_email }}</a>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
@@ -459,7 +459,7 @@
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
                             Call us at <br>
-                            +1 789 654 7896
+                           <a href="tel:{{ $settings->company_mobile_no }}"> {{ $settings->company_mobile_no }}</a>
                         </div>
                     </div>
                 </div>
