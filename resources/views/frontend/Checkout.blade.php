@@ -244,6 +244,7 @@
                 </div>
 
               
+              
             
             <div class="col-md-12 col-lg-6 ps-md-3 ps-lg-5">
                 <div class="your_order_box">
@@ -412,8 +413,10 @@
                         
                         
                     <div class="place_order_paragraph mt-4 mb-4">
-                        Your personal data will be uesd to process your order, support your experience
-                        throughout this website, and for other purposes described in our privacy policy.
+                        By placing your order you agree to our 
+                        <a href="{{ Route('frontend.termcondition') }}"> Terms & Conditions,</a>  
+                        <a href="{{ Route('frontend.privacypolicy') }}">Privacy</a> and 
+                        <a href="{{ Route('frontend.returndays') }}">Return Policies</a>
                     </div>
                     <button type="submit" class="btn btn-primary place_order_btn">Place Order 
                         <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i>
@@ -421,7 +424,46 @@
                 
                 </div>
             </div>
-        </div>
+
+            <div class="row mt-5 checkout_box">
+                    <div class="col-sm-6 col-lg-3 checkout_box_col">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
+                        </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Free Shipping I fully Insured<br>
+                            Trusted Delivery Partners: Fedex, UPS
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
+                        </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Estimated date of shipment<br>
+                            27 October, Thursday
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/calendar-message.png') }}" alt="">
+                        </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Send in your queries at<br>
+                            Coustomerservice@gemver.com
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/calendar-phone.png') }}" alt="">
+                        </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Call us at <br>
+                            +1 789 654 7896
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
         
     </div>

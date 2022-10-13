@@ -4769,13 +4769,22 @@ width: 100%;
     }
     
     .order_summary_box {
-        background: #FFFFFF;
+        background: var(--light-bg);
         border: 1px solid #DEDEDE;
         border-radius: 9px;
         max-width: 389px;
         margin-right: 0;
         margin-left: auto;
-        padding: 30px;
+        padding: 10px 30px;
+    }
+    
+    .order_summary_input_part {
+        border-bottom: 1px #DEDEDE solid;
+        padding: 15px 0;
+    }
+    
+    .order_summary_proceed_checkout {
+        border-bottom: 1px #DEDEDE solid;
     }
     
     .product_close_icon {
@@ -4797,18 +4806,23 @@ width: 100%;
     }
     
     .apply_btn {
-        background: #EFEFEF;
+        background: var(--primary);
         border-radius: 4px;
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
         letter-spacing: 0.05em;
-        color: var(--primary);
+        color: #fff;
         min-width: 92px;
         height: 43px;
         border: 0;
         outline: 0;
         box-shadow: none !important;
+    }
+    
+    .order_summary_proceed_checkout {
+        border-bottom: 1px #DEDEDE solid;
+        padding: 20px 0;
     }
     
     .apply_btn:hover {
@@ -4824,7 +4838,7 @@ width: 100%;
     }
     
     .proceed_to_checkout_btn {
-        background: var(--secondary);
+        background: var(--secondary) !important;
         border-radius: 6px;
         font-weight: 500;
         font-size: 14px;
@@ -4833,6 +4847,12 @@ width: 100%;
         color: #FFFFFF;
         border: 0;
         height: 52px;
+        box-shadow: none !important;
+        outline: 0;
+    }
+    
+    .proceed_to_checkout_btn:hover {
+        background: var(--secondary);
     }
     
     .order_table_heading,
@@ -4842,6 +4862,10 @@ width: 100%;
         line-height: 14px;
         letter-spacing: 0.05em;
         color: var(--primary);
+    }
+    
+    .accepted_payment_methods_icon {
+        cursor: pointer;
     }
     
     .delete_icon_svg {
@@ -4989,6 +5013,11 @@ width: 100%;
         line-height: 13px;
         letter-spacing: 0.05em;
         color: #808080;
+    }
+    
+    .place_order_paragraph a {
+        color: #808080;
+        text-decoration: underline;
     }
     
     .place_order_btn {
@@ -5554,7 +5583,7 @@ width: 100%;
     
     .engagement_start_diamond,
     .engagement_start_setting {
-        background: #0B1727;
+        background: var(--primary);
         border-radius: 7px;
         font-weight: 500;
         font-size: 15px;
@@ -5562,6 +5591,7 @@ width: 100%;
         color: #FFFFFF;
         min-width: 240px;
         height: 48px;
+        border: 0;
     }
     
     .cart-icon-part .dropdown-toggle {
@@ -5619,12 +5649,16 @@ width: 100%;
         font-family: 'Poppins', sans-serif;
     }
     
+    .explore_diamonds_heading {
+        color: #fff;
+    }
+    
     .choose_your_setting_paragraph {
         font-weight: 400;
         font-size: 17px;
         line-height: 21px;
         letter-spacing: 0.05em;
-        color: #808080;
+        color: #fff;
     }
     
     .choose_your_setting_section,
@@ -5740,7 +5774,7 @@ width: 100%;
     }
     
     .explore_diamonds_section {
-        background: #Fbfbfb;
+        background: var(--primary);
     }
     
     .smiling_gemver_banner_section {
@@ -5783,6 +5817,8 @@ width: 100%;
     
     .finejewellery-img img {
         border-radius: 10px;
+        height: 280px;
+        object-fit: cover;
     }
     
     .finejewellery-paragraph {
@@ -6009,4 +6045,39 @@ width: 100%;
     .show_more_btn {
         color: #a7a7a7;
         box-shadow: none;
+    }
+    
+    .checkout_box {
+        background-color: var(--light-bg);
+        padding: 33px 0;
+        border-radius: 8px;
+    }
+    
+    .checkout_box_col {
+        border-right: 1px solid #0B1727;
+    }
+    
+    .checkout_box_part_paragraph {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 17px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        color: #808080;
+    }
+    
+    .checkout_box_part_img {
+        text-align: center;
+        height: 40px;
+        display: flex;
+    }
+    
+    .checkout_box_part_img img {
+        max-height: 40px;
+        margin: auto;
+        max-width: 40px;
+    }
+    
+    .checkout_box_col:last-child {
+        border-right: 0 !important;
     }
