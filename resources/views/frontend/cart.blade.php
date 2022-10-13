@@ -375,28 +375,29 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-6 text-start ps-0 order_table_heading">
+                            <div class="col-6 text-start ps-0 order_table_heading total_amount_part">
                                 Total Amount
                             </div>
-                            <div class="col-6 text-end order_summary_price">
+                            <div class="col-6 text-end order_summary_price total_amount_part_price">
                                 $<span class="cart-maintotal-price final_price">{{ $total - $coupan_discount_amount  }}</span>
                             </div>
                         </div>
+                        <div class="py-3 py-md-4 mt-4 order-payment-methohs">
+                            <div class="order_table_heading text-start">
+                                Accepted payment methods :
+                            </div>
+                            <div class="accepted_payment_methods_icon mt-3">
+                                <img src="{{ asset('frontend/image/visa_icon.png') }}" alt="" class="">
+                            </div>
+                        </div>
                         @if($setting->max_order_price >  $total - $coupan_discount_amount)
-                        <button type="button" class="btn btn-dark w-100 mt-3 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                        <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
                         @else
-                        <button type="button" class="btn btn-dark w-100 mt-3 " id="proceed_to_checkout_btn">Proceed to checkout</button>
+                        <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
                         @endif
                     </div>
 
-                    <div class="py-3 py-md-4">
-                        <div class="order_table_heading text-start">
-                            Accepted payment methods :
-                        </div>
-                        <div class="accepted_payment_methods_icon mt-3">
-                            <img src="{{ asset('frontend/image/visa_icon.png') }}" alt="" class="">
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
            
