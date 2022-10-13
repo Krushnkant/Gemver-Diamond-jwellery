@@ -21,11 +21,11 @@
         <div class="container shop_page round_cut_lab_diamonds_page">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">category</div>
-                            <div class="wire_bangle_carat col-lg-12">
+                            <div class="wire_bangle_carat col-lg-12 owl-carousel owl-theme category-slider">
                                 @foreach($Categories as $category)
-                                <span class="form-check d-inline-block position-relative me-1 ps-0 mb-3">
+                                <span class="item form-check d-inline-block position-relative me-1 ps-0">
                                         <input class="form-check-input category common_selector" type="checkbox" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
                                         <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
                                             {{ $category->category_name }}
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="round_cut_lab_range_slider mt-3 mt-md-0 row">
+                        <div class="round_cut_lab_range_slider mt-md-0 row">
                             <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                             <div class="round_cut_lab_diamonds_price col-lg-12">
                                 <div class="align-items-center mb-2 position-relative">

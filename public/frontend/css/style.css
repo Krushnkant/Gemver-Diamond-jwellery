@@ -1853,10 +1853,6 @@ fill: #0B1727;
         height: 1px;
     }
     
-    .wire_bangle_tabs_part li a {
-        color: var(--secondary);
-    }
-    
     .wire_bangle_tabs_part li a:hover,
     .wire_bangle_tabs_part li a:focus {
         color: var(--secondary);
@@ -6084,4 +6080,59 @@ width: 100%;
     .total_amount_part,
     .total_amount_part_price {
         font-size: 18px;
+    }
+    
+    .filter-tab li:last-child a {
+        border-right: 0;
+    }
+    
+    .filter-part-shape li a {
+        opacity: 0.8;
+    }
+    
+    .filter-part-shape li.active a {
+        opacity: 1;
+    }
+    
+    .filter-part-shape li a {
+        position: relative;
+    }
+    
+    .filter-part-shape li a:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 1px;
+        height: 70%;
+        background-color: var(--primary);
+    }
+    
+    .filter-part-shape li:last-child a:after {
+        content: none;
+    }
+    
+    .category-slider .owl-prev {
+        border-radius: 50% !important;
+        background: transparent !important;
+        width: 20px;
+        position: absolute;
+        left: -30px;
+        top: 23%;
+        transform: translateY(-50%);
+    }
+    
+    .category-slider .owl-next {
+        border-radius: 50% !important;
+        background: transparent !important;
+        width: 20px;
+        position: absolute;
+        right: -30px;
+        top: 16%;
+        transform: translateY(-50%);
+    }
+    
+    .category-slider .owl-nav {
+        margin-top: 0;
     }
