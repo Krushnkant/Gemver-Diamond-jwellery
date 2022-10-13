@@ -431,8 +431,8 @@
                             <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
-                            Free Shipping I fully Insured<br>
-                            Trusted Delivery Partners: Fedex, UPS
+                            Insured Shipping WorldWide <br>
+                             Delivered At Your Door Step
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3 checkout_box_col mt-3 mt-lg-0">
