@@ -4783,10 +4783,6 @@ width: 100%;
         padding: 15px 0;
     }
     
-    .order_summary_proceed_checkout {
-        border-bottom: 1px #DEDEDE solid;
-    }
-    
     .product_close_icon {
         fill: #E10000;
     }
@@ -4806,7 +4802,7 @@ width: 100%;
     }
     
     .apply_btn {
-        background: var(--primary);
+        background: var(--primary) !important;
         border-radius: 4px;
         font-weight: 500;
         font-size: 12px;
@@ -4821,12 +4817,11 @@ width: 100%;
     }
     
     .order_summary_proceed_checkout {
-        border-bottom: 1px #DEDEDE solid;
         padding: 20px 0;
     }
     
     .apply_btn:hover {
-        background: var(--secondary);
+        background: var(--primary);
     }
     
     .order_summary_heading {
@@ -4849,6 +4844,10 @@ width: 100%;
         height: 52px;
         box-shadow: none !important;
         outline: 0;
+    }
+    
+    .order-payment-methohs {
+        border-top: 1px #DEDEDE solid;
     }
     
     .proceed_to_checkout_btn:hover {
@@ -6080,4 +6079,9 @@ width: 100%;
     
     .checkout_box_col:last-child {
         border-right: 0 !important;
+    }
+    
+    .total_amount_part,
+    .total_amount_part_price {
+        font-size: 18px;
     }
