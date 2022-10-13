@@ -120,49 +120,120 @@
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</span>
+                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
+                    <ul  class="nav wire_bangle_tabs_part justify-content-center justify-content-sm-start" id="myTab" role="tablist">
+                        <li class="active nav-item">
+                            <a  class="nav-link " href="#1aa" data-toggle="tab">Color </a>
+                        </li>
+                        <li>
+                            <a class="nav-link " href="#2aa" data-toggle="tab">Fancy Color</a>
+                        </li>
+                    </ul>
+                </span>
                     <span class="col-md-12">
-                      
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="D" name="color[]" class="color common_selector" id="colorsD">
-                            <label for="colorsD">D</label>
+                        <div id="exTab1" class="container px-0">	
+
+                        <div class="tab-content clearfix">
+                        
+                        <div class="tab-pane active" id="1aa">
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="D" name="color[]" class="color common_selector" id="colorsD">
+                                <label for="colorsD">D</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="E" name="color[]" class="color common_selector" id="colorsE">
+                                <label for="colorsE">E</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="F" name="color[]" class="color common_selector" id="colorsF">
+                                <label for="colorsF">F</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="G" name="color[]" class="color common_selector" id="colorsG">
+                                <label for="colorsG">G</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="H" name="color[]" class="color common_selector" id="colorsH">
+                                <label for="colorsH">H</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="I" name="color[]" class="color common_selector" id="colorsI">
+                                <label for="colorsI">I</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="J" name="color[]" class="color common_selector" id="colorsJ">
+                                <label for="colorsJ">J</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="K" name="color[]" class="color common_selector" id="colorsK">
+                                <label for="colorsK">K</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="L" name="color[]" class="color common_selector" id="colorsL">
+                                <label for="colorsL">L</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="M" name="color[]" class="color common_selector" id="colorsM">
+                                <label for="colorsM">M</label>
+                            </div>
                         </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="E" name="color[]" class="color common_selector" id="colorsE">
-                            <label for="colorsE">E</label>
+                        <div class="tab-pane" id="2aa">
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Yellow" name="fancycolor[]" class="fancycolor common_selector" id="colorsYellow">
+                                <label for="colorsYellow">Yellow</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Orange" name="fancycolor[]" class="fancycolor common_selector" id="colorsOrange">
+                                <label for="colorsOrange">Orange</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Pink" name="fancycolor[]" class="fancycolor common_selector" id="colorsPink">
+                                <label for="colorsPink">Pink</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Blue" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlue">
+                                <label for="colorsBlue">Blue</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Green" name="fancycolor[]" class="fancycolor common_selector" id="colorsGreen">
+                                <label for="colorsGreen">Green</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Brown" name="fancycolor[]" class="fancycolor common_selector" id="colorsBrown">
+                                <label for="colorsI">Brown</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Red" name="fancycolor[]" class="fancycolor common_selector" id="colorsRed">
+                                <label for="colorsRed">Red</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="White" name="fancycolor[]" class="fancycolor common_selector" id="colorsWhite">
+                                <label for="colorsWhite">White</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Violet" name="fancycolor[]" class="fancycolor common_selector" id="colorsViolet">
+                                <label for="colorsViolet">Violet</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Purple" name="fancycolor[]" class="fancycolor common_selector" id="colorsPurple">
+                                <label for="colorsPurple">Purple</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="Purple" name="fancycolor[]" class="fancycolor common_selector" id="colorsPurple">
+                                <label for="colorsPurple">Purple</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsL">
+                                <label for="colorsOlive">Olive</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsL">
+                                <label for="colorsBlack">Black</label>
+                            </div>
+                           
                         </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="F" name="color[]" class="color common_selector" id="colorsF">
-                            <label for="colorsF">F</label>
                         </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="G" name="color[]" class="color common_selector" id="colorsG">
-                            <label for="colorsG">G</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="H" name="color[]" class="color common_selector" id="colorsH">
-                            <label for="colorsH">H</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="I" name="color[]" class="color common_selector" id="colorsI">
-                            <label for="colorsI">I</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="J" name="color[]" class="color common_selector" id="colorsJ">
-                            <label for="colorsJ">J</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="K" name="color[]" class="color common_selector" id="colorsK">
-                            <label for="colorsK">K</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="L" name="color[]" class="color common_selector" id="colorsL">
-                            <label for="colorsL">L</label>
-                        </div>
-                        <div class="form-group d-inline-block mb-2">
-                            <input type="checkbox"  value="M" name="color[]" class="color common_selector" id="colorsM">
-                            <label for="colorsM">M</label>
-                        </div>
+                    </div>
                        
                     </span>
                 </div>
