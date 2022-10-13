@@ -32,6 +32,9 @@
                                     </label>
                                 </span>
                                 @endforeach
+                                {{-- @if($CatId > 0)
+                                  <input class="form-check-input category common_selector" type="checkbox"  checked value="{{ $CatId }}"  name="category[]">
+                                @endif --}}
                             </div>
                         </div>
                     </div>
@@ -127,7 +130,7 @@
         
 $(document).ready(function(){
     filter_data();
-
+    
     //$('product-image').hover(function () {
     $('body').on('mouseover', '.product-image', function () {    
     }, function () {

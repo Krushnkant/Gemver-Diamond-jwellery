@@ -255,12 +255,46 @@
                     <div class="round_cut_lab_range_slider round_cut_lab_range_color row mb-3">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</div>
                         <div class="col-md-12">
-                            @foreach($diamondcolor as $color) 
-                            <div class="form-group d-inline-block mb-0">
-                                <input type="checkbox"  value="{{ $color }}" name="color[]" class="color common_selector" id="colors{{ $color }}">
-                                <label for="colors{{ $color }}">{{ $color }}</label>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="D" name="color[]" class="color common_selector" id="colorsD">
+                                <label for="colorsD">D</label>
                             </div>
-                            @endforeach
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="E" name="color[]" class="color common_selector" id="colorsE">
+                                <label for="colorsE">E</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="F" name="color[]" class="color common_selector" id="colorsF">
+                                <label for="colorsF">F</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="G" name="color[]" class="color common_selector" id="colorsG">
+                                <label for="colorsG">G</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="H" name="color[]" class="color common_selector" id="colorsH">
+                                <label for="colorsH">H</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="I" name="color[]" class="color common_selector" id="colorsI">
+                                <label for="colorsI">I</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="J" name="color[]" class="color common_selector" id="colorsJ">
+                                <label for="colorsJ">J</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="K" name="color[]" class="color common_selector" id="colorsK">
+                                <label for="colorsK">K</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="L" name="color[]" class="color common_selector" id="colorsL">
+                                <label for="colorsL">L</label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2">
+                                <input type="checkbox"  value="M" name="color[]" class="color common_selector" id="colorsM">
+                                <label for="colorsM">M</label>
+                            </div>
         
                         </div>
                     </div>
@@ -269,13 +303,48 @@
                     <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                             <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
                             <div class="col-md-12">
-                                @foreach($diamondclarity as $clarity) 
-                                <div class="form-group d-inline-block mb-0">
-                                    <input type="checkbox" value="{{ $clarity }}" name="clarity[]" class="clarity common_selector" id="clarity{{ $clarity }}">
-                                    <label for="clarity{{ $clarity }}">{{ $clarity }}</label>
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="FL" name="clarity[]" class="clarity common_selector" id="clarityFL">
+                                    <label for="clarityFL">FL</label>
                                 </div>
-                                @endforeach
-                                
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="IF" name="clarity[]" class="clarity common_selector" id="clarityIF">
+                                    <label for="clarityIF">IF</label>
+                                </div>
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="VVS1" name="clarity[]" class="clarity common_selector" id="clarityVVS1">
+                                    <label for="clarityVVS1">VVS1</label>
+                                </div>
+                                 
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="VVS2" name="clarity[]" class="clarity common_selector" id="clarityVVS2">
+                                    <label for="clarityVVS2">VVS2</label>
+                                </div>
+        
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="VS1" name="clarity[]" class="clarity common_selector" id="clarityVS1">
+                                    <label for="clarityVS1">VS1</label>
+                                </div>
+                                 
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="VS2" name="clarity[]" class="clarity common_selector" id="clarityVS2">
+                                    <label for="clarityVS2">VS2</label>
+                                </div>
+                                 
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="SI1" name="clarity[]" class="clarity common_selector" id="claritySI1">
+                                    <label for="claritySI1">SI1</label>
+                                </div>
+                                 
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="SI2" name="clarity[]" class="clarity common_selector" id="claritySI2">
+                                    <label for="claritySI2">SI2</label>
+                                </div>
+        
+                                <div class="form-group d-inline-block mb-2">
+                                    <input type="checkbox" value="I1" name="clarity[]" class="clarity common_selector" id="clarityI1">
+                                    <label for="clarityI1">I1</label>
+                                </div>
                             </div>
                         </div>
                 </div>
@@ -283,12 +352,30 @@
                     <div class="round_cut_lab_range_slider row">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</div>
                         <div class="col-md-12">
-                            @foreach($diamondcut as $cut) 
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="{{ $cut }}" class="cut common_selector" name="cut[]" id="cut{{ $cut }}">
-                                <label for="cut{{ $cut }}">{{ $cut }}</label>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
+                                <label for="cutID">Ideal</label>
                             </div>
-                            @endforeach
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="cutEX">
+                                <label for="cutEX">Excellent</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="VG" class="cut common_selector" name="cut[]" id="cutVG">
+                                <label for="cutVG">Very Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="G" class="cut common_selector" name="cut[]" id="cutG">
+                                <label for="cutG">Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="F" class="cut common_selector" name="cut[]" id="cutF">
+                                <label for="cutF">Fair</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="P" class="cut common_selector" name="cut[]" id="cutP">
+                                <label for="cutP">Poor</label>
+                            </div>
                             
                         </div>
                     </div>
@@ -318,12 +405,18 @@
                 <div class="round_cut_lab_range_slider row">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">Certificate</div>
                         <div class="col-md-12">
-                            @foreach($diamondreport as $report) 
                             <div class="form-group d-inline-block me-3 mb-2">
-                                <input type="checkbox" name="report[]" value="{{ $report }}" class="report common_selector" id="report{{ $report }}">
-                                <label for="report{{ $report }}">{{ $report }}</label>
+                                <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
+                                <label for="reportGCAL">GCAL</label>
                             </div>
-                            @endforeach
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="report[]" value="IGI" class="report common_selector" id="reportIGI">
+                                <label for="reportIGI">IGI</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="report[]" value="GIA" class="report common_selector" id="reportGIA">
+                                <label for="reportGIA">GIA</label>
+                            </div>
                             
                         </div>
                     </div> 
@@ -353,12 +446,30 @@
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
                         <span class="col-md-12">
-                            @foreach($diamondpolish as $polish) 
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="{{ $polish }}" class="polish common_selector" name="polish[]" id="polish{{ $polish }}">
-                                <label for="polish{{ $polish }}">{{ $polish }}</label>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
+                                <label for="polishID">Ideal</label>
                             </div>
-                            @endforeach
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
+                                <label for="polishEX">Excellent</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
+                                <label for="polishVG">Very Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
+                                <label for="polishG">Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
+                                <label for="polishF">Fair</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
+                                <label for="polishP">Poor</label>
+                            </div>
                         </span>
                     </div>
             </div>
@@ -383,17 +494,35 @@
             </div>
 
             <div class="col-lg-6 mb-3 mb-lg-0 collapse round_cut_lab_filter" id="collapseExample">
-                    <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
-                        <span class="col-md-12">
-                            @foreach($diamondsymm as $symm) 
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="{{ $symm }}" class="symm common_selector" name="symm[]" id="symm{{ $symm }}">
-                                <label for="symm{{ $symm }}">{{ $symm }}</label>
-                            </div>
-                            @endforeach
-                        </span>
-                    </div>
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
+                    <span class="col-md-12">
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
+                            <label for="symmID">Ideal</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
+                            <label for="symmEX">Excellent</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
+                            <label for="symmVG">Very Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
+                            <label for="symmG">Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
+                            <label for="symmF">Fair</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
+                            <label for="symmP">Poor</label>
+                        </div>
+                    </span>
+                </div>
             </div>
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
