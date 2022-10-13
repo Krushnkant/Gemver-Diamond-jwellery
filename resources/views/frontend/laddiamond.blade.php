@@ -121,12 +121,12 @@
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
-                    <ul  class="nav wire_bangle_tabs_part justify-content-center justify-content-sm-start" id="myTab" role="tablist">
+                    <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-center justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item">
-                            <a  class="nav-link " href="#1aa" data-toggle="tab">Color </a>
+                            <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
-                            <a class="nav-link " href="#2aa" data-toggle="tab">Fancy Color</a>
+                            <a class="nav-link py-0" href="#2aa" data-toggle="tab">Fancy Color</a>
                         </li>
                     </ul>
                 </span>
