@@ -171,7 +171,7 @@
             //console.log(data);
             $('#manage_id').val(data.id);
             $('#title').val(data.title);
-            $('#category_id').find('option[value="' + data.category_id + '"]').attr('selected', 'selected');
+            $('#category_id').find('option[value="' + data.category_id + '"]').attr('selected', 'selected').trigger('change');
             
             if(data.icon==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
