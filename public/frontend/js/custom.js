@@ -177,7 +177,7 @@
          }
      });
      $('.category-slider').owlCarousel({
-         loop: true,
+         loop: false,
          margin: 10,
          nav: true,
          autoWidth: true,
