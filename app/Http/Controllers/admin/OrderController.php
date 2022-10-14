@@ -5,14 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Commission;
 use App\Models\MonthlyCommission;
-use App\Models\Notification;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Coupon;
 use App\Models\Address;
 use App\Models\OrderItem;
-use App\Models\Diamond;
-use App\Models\Product;
 use App\Models\Level;
 use App\Models\UserLevel;
 use App\Models\ProductVariant;
@@ -23,6 +20,7 @@ use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Helpers;
 
 class OrderController extends Controller
 {
@@ -743,6 +741,24 @@ class OrderController extends Controller
         if ($old_order_status == 1 && ($request->order_status==2 || $request->order_status==8)){
         // dd($request->order_status==2);
             if($request->order_status==2){
+                  
+                    if(isset($request->tracking_url)){
+                       $tracking_url =  'tracking url :'.$request->tracking_url;
+                    }else{
+                        $tracking_url = "";
+                    }
+
+                    $data1 = [
+                        'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
+                        'OrderId' => $Order->id,
+                        'CustomerName' => isset($request->CustomerName) ? $request->CustomerName : '',
+                        'OrderStatus' => 'Shipped',
+                        'OrderMessage' => 'Where glad to inform you that we shipped your order.'.$tracking_url,
+                    ];
+                    
+                    $templateName = 'email.mailDataorder';
+                    $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'Gemver Affordable Luxury');
+
                 if(isset($request->tracking_url)){
                     $Order->tracking_url = $request->tracking_url;
                 }
@@ -785,6 +801,20 @@ class OrderController extends Controller
             $Order->order_status = $request->order_status;
             if($request->order_status == 3 && $Order->delivery_date == null) {
                 $Order->delivery_date = Carbon::now();
+
+               
+
+                 $data1 = [
+                     'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
+                     'OrderId' => $Order->id,
+                     'CustomerName' => isset($request->CustomerName) ? $request->CustomerName : '',
+                     'OrderStatus' => 'Delivered',
+                     'OrderMessage' => 'Where glad to inform you that we delivered your order.',
+                 ];
+                 
+                 $templateName = 'email.mailDataorder';
+                 $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'Gemver Affordable Luxury');
+
             }
 
             if($old_order_status == 2){
