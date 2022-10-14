@@ -121,8 +121,9 @@ class PayPalPaymentController extends Controller
                 'CustomerFullAddr' => $address_info->address.','.$address_info->city.','.$address_info->state.','.$address_info->pincode.','.$address_info->country,
                 'OrderId' => $order->id,
                 'CustomerName' => isset($address_info->first_name) ? $address_info->first_name .' '.$address_info->last_name: '',
+                'OrderStatus' => 'New Order',
+                'OrderMessage' => 'Thank you for shopping with Friendly Diamonds! Where glad to inform you that weve received your order.',
             ];
-            
             
             $templateName = 'email.mailDataorder';
             $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'New Order');
