@@ -46,8 +46,8 @@
             </div>
             <div class="col-md-6">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $Infopage->first_section_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
+                    <h3 class="h3-heading text-center text-md-start">{{ $Infopage->second_section_title }}</h3>
+                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->second_section_contant !!}</p>
                 </div>
             </div>
         </div>

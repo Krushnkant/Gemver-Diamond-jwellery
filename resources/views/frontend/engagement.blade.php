@@ -20,7 +20,7 @@
 <div class="container">
     <div class="choose_your_setting_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
-            Choose Your Setting Stlye
+            Choose Your Setting  Style
         </div>
         <div class="row">
             @if($MenuPage->menupageshapestyle)

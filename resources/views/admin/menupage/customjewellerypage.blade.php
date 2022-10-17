@@ -50,9 +50,142 @@
                                   </div>
                                </div>
                             </div>
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
-                                <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{-- <h4 class="card-title">
+                            Section 1
+                        </h4> --}}
+                      
+                        <div class="row add-value">
+                            <div class="row col-lg-12">
+                                <div class="col-lg-2 ">
+                                    <div class="form-group ">
+                                        <label class="col-form-label" for="section_category_title"> Image 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Title 
+                                        </label>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Discription 
+                                        </label>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        </label>
+                                    </div>
+                                </div>
+                                
                             </div>
+                            <div class="row col-lg-12">
+                            <div class="col-lg-2 ">
+                                <div class="form-group ">
+                                    <input type="file" class="form-control-file" id="image[]" onchange="" name="image[]">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 ">
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]" placeholder="Enter Title">
+                                    <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </div>
+                            </div>
+                            <div class="col-lg-3 ">
+                                <div class="form-group">
+                                    <textarea name="subdiscription[]" class="form-control input-flat"></textarea>
+                                    <div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </div>
+                            </div>
+                            <div class="col-lg-3 ">
+                                <div class="form-group">
+                                    <select  name="category_id[]" class="form-control category_id">
+                                    <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            </div>
+                            @if(isset($menupages->menupageshapestyle))
+                            @foreach($menupages->menupageshapestyle as $shapestyle)
+                    
+                            <div class="row col-lg-12">
+                                <div class="col-lg-2">
+                                    <div class="form-group ">
+                                        <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $shapestyle->id }}"> 
+                                        <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
+                                        <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-flat" id="subtitleold" value="{{ $shapestyle->title }}" name="subtitleold[]">
+                                        <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <textarea name="subdiscriptionold[]" class="form-control input-flat">{{ $shapestyle->subdiscription }}</textarea>
+                                        <div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <select  name="category_id_old[]" class="form-control category_id">
+                                        <option value="">Select Category</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category['id'] }}" {{ ($shapestyle->category_id == $category['id']) ? "selected" : "" }} >{{ $category['category_name'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 ">
+                                    <button type="button" class="minus_btn btn mb-1  btn-outline-danger" ><i class='fa fa-remove'></i> </button>
+                                </div>
+                            </div>
+
+                            
+                                 
+                            @endforeach
+                            @endif
+                            
+                        </div>
+                        <div class="col-lg-2 mt-2">
+                            <div class="form-group">
+                            <button type="button" class="btn btn-outline-primary " id="Add" data-action="add">Add New </button>
+                           </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4 mb-4">
+                        <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                     </div>
                 </div>
             </div>
@@ -463,14 +596,20 @@
         '<input type="file" class="form-control-file" id="image" onchange="" name="image[]">'+
         '</div>'+
         '</div>'+
-        '<div class="col-lg-4 ">'+
+        '<div class="col-lg-3 ">'+
         '<div class="form-group">'+
        
-        '<input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]">'+
+        '<input type="text" class="form-control input-flat" placeholder="Enter Title" id="subtitle" name="subtitle[]">'+
         '<div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
         '</div>'+
         '</div>'+
-        '<div class="col-lg-4 ">'+
+        '<div class="col-lg-3 ">'+
+        '<div class="form-group">'+
+        '<textarea name="subdiscription[]" class="form-control input-flat"></textarea>'+
+        '<div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
+        '</div>'+
+        '</div>'+
+        '<div class="col-lg-3 ">'+
         '<div class="form-group">'+
         '<select  name="category_id[]" class="form-control category_id">'+
         '<option value="">Select Category</option>'+
@@ -480,8 +619,8 @@
         '</select>'+
         '</div>'+
         '</div>'+
-        '<div class="col-md-2">'+
-            '<button type="button"  class="minus_btn btn mb-1 btn-dark">-</button>'+
+        '<div class="col-md-1">'+
+            '<button type="button"  class="minus_btn btn mb-1 btn-outline-danger" ><i class="fa fa-remove"></i></button>'+
         '</div>'+
         '</div></div>';
                

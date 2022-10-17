@@ -13,8 +13,12 @@
         </div>
     </div>
 </div>
+
+
+
     <?php $num = 1; ?>
-    @foreach($custom_categories as $category)
+   
+    @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
     @if($num == 1)
         <div class="my-3 mb-xl-4 mt-5 pt-4"> 
             <div class="container mb-xl-5 text-center">
@@ -23,20 +27,20 @@
                         <div class="choose_your_setting_box text-center">
                             <div class="">
                                 <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                                    Create your own {{ $category->category_name }}
+                                    {{ $menupageshapestyle->title }}
                                 </div>
                                 <p class="custom_engagement_paragrph mb-4">
-                                    Classic, opulent, or delicate - regardless of the occasion, we have the perfect ring to complement every look.
+                                    {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $category->id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $category->id }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2 ps-md-0">
-                        <img src="{{ url($category->category_thumb) }}" alt="">
+                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     </div> 
                 </div>
             </div>
@@ -106,24 +110,33 @@
             </div>
         </div>
     @else
+        <?php
+
+        $arr = ["Even", "Odd"];
+      
+        
+        
+        
+        ?>
+        @if($arr[$num % 2] == 'Even')
         <div class="my-3 my-xl-4"> 
             <div class="container mb-xl-5 text-center">
                 <div class="row">
                     <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0">
-                        <img src="{{ url($category->category_thumb) }}" alt="">
+                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     </div> 
                     <div class="col-md-6 ps-md-0">
                         <div class="choose_your_setting_box text-center">
                             <div class="">
                                 <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                                    Create your own {{ $category->category_name }}
+                                    {{ $menupageshapestyle->title }}
                                 </div>
                                 <p class="custom_engagement_paragrph mb-4">
-                                     From classic designs to creative twists, our exquisite hand-crafted earrings are a must-have fashion accessory.
+                                    {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $category->id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $category->id }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +144,34 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="my-3 my-xl-4"> 
+            <div class="container mb-xl-5 text-center">
+                <div class="row">
+                    
+                    <div class="col-md-6 ps-md-0">
+                        <div class="choose_your_setting_box text-center">
+                            <div class="">
+                                <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                                    {{ $menupageshapestyle->title }}
+                                </div>
+                                <p class="custom_engagement_paragrph mb-4">
+                                    {{ $menupageshapestyle->subdiscription }}
+                                </p>
+                                <div class="engagement_button text-center">
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0">
+                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        @endif
     @endif
     <?php $num++; ?>
     @endforeach
