@@ -110,7 +110,7 @@
         </div>
     </div>
 
-<div class="fancy_color_diamonds shop_dimond_by_shape px-0">
+{{-- <div class="fancy_color_diamonds shop_dimond_by_shape px-0">
     <div class="container">
         <div class="choose_your_setting_heading text-center mb-2 mb-md-5">Fancy Colour Diamonds</div>
         <div class="owl-carousel owl-theme fancy-color-diamonds">
@@ -127,7 +127,7 @@
             
         </div>
     </div>
-</div>
+</div> --}}
 
     <div class="smiling_gemver_banner shop_dimond_by_shape smiling_gemver_banner_section">
       <div class="container">
