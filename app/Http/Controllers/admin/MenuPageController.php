@@ -731,7 +731,7 @@ class MenuPageController extends Controller
     public function customjewellerypage()
     {
         $menupages = Menupage::with('menupageshapestyle')->where('id',5)->first();
-        $categories = Category::where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
+        $categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
         return view('admin.menupage.customjewellerypage',compact('menupages','categories'))->with('page',$this->page);
     }
 
@@ -869,6 +869,7 @@ class MenuPageController extends Controller
                         $shapdata = new MenuPageShapeStyle();
                         $shapdata->page_id = $menupages->id;
                         $shapdata->title = $subtitle;
+                        $shapdata->subdiscription = $request->subdiscription[$key];
                         $shapdata->category_id = $request->category_id[$key];
                         $path = public_path("images/shopstyle_image/");
                         if(isset($request->image[$key]) && $request->image[$key] != ""){
@@ -886,6 +887,7 @@ class MenuPageController extends Controller
                     if($subtitleold != ""){
                         $shapdataold = MenuPageShapeStyle::find($request->orderdataid[$key]);
                         $shapdataold->title = $subtitleold;
+                        $shapdata->subdiscription = $request->subdiscriptionold[$key];
                         $shapdataold->category_id = (isset($request->category_id_old[$key])  && $request->category_id_old[$key] != "" ? $request->category_id_old[$key] : 0);
                         $path = public_path("images/shopstyle_image/");
                         if(isset($request->imageold[$key]) && $request->imageold[$key] != ""){

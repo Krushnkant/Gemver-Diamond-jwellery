@@ -769,7 +769,7 @@
         '<div class="col-lg-4 ">'+
         '<div class="form-group">'+
        
-        '<input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]">'+
+        '<input type="text" class="form-control input-flat" id="subtitle" placeholder="Enter Title" name="subtitle[]">'+
         '<div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
         '</div>'+
         '</div>'+
