@@ -116,7 +116,7 @@
         <div class="owl-carousel owl-theme fancy-color-diamonds">
             @if($MenuPage->menupageshapestyle)
             @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="item" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+            <div class="item fancy-color-diamonds-item" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                 <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="" class="fancy-color-duiamonds-img">
                 <div class="fancy-color-heading mt-3">
                     {{ $menupageshapestyle->title }}

@@ -5812,8 +5812,8 @@ width: 100%;
     
     .finejewellery-img img {
         border-radius: 10px;
-        height: 280px;
-        object-fit: cover;
+        min-height: 280px;
+        /* object-fit: cover; */
     }
     
     .finejewellery-paragraph {
@@ -5825,6 +5825,10 @@ width: 100%;
         color: #808080;
     }
     
+    .wedding_bands_paragraph {
+        color: #808080;
+    }
+    
     .finejewellery-heading {
         font-weight: 500;
         font-size: 18px;
@@ -5832,11 +5836,11 @@ width: 100%;
         letter-spacing: 0.05em;
         color: var(--primary);
     }
-    
-    .explore_diamonds_section .owl-dots,
+    /* .explore_diamonds_section .owl-dots,
     .explore_diamonds_section .owl-nav {
         display: none;
     }
+     */
     
     .to_text {
         position: absolute;
@@ -6138,4 +6142,14 @@ width: 100%;
     
     .category-slider .owl-nav {
         margin-top: 0;
+    }
+    
+    .explore_diamonds_heading {
+        color: #fff;
+    }
+    
+    .choose_your_setting_section .choose_your_setting_col,
+    .choose_your_setting_col,
+    .fancy-color-diamonds-item {
+        cursor: pointer;
     }
