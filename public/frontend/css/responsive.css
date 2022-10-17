@@ -301,6 +301,12 @@
     .checkout_box {
         padding: 25px 0;
     }
+    .engagement_start_diamond,
+    .engagement_start_setting {
+        min-width: 120px;
+        height: 37px;
+        padding: 11px 19px;
+    }
 }
 
 @media (max-width:575px) {
@@ -1805,6 +1811,9 @@
     }
     .order_summary_box {
         padding: 10px 15px;
+    }
+    .choose_sub_heading {
+        font-size: 14px;
     }
 }
 
