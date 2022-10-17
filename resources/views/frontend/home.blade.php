@@ -249,7 +249,7 @@
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center ">
                 <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
-                <div class="sub_title">
+                <div class="sub_title shop_diamond_paragraph">
                     {{ $homesetting->section_diamond_shotline }}
                 </div>
             </div>
