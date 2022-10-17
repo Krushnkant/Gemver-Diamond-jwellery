@@ -25,7 +25,7 @@
         <div class="row">
             @if($MenuPage->menupageshapestyle)
             @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 mb-xl-0 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+            <div class="col-sm-4 col-md-4 col-xl-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                 <img src="{{ asset('frontend/image/ring_setting_1.png') }}" alt="">
                 <div class="choose_sub_heading mt-3">
                     Solitaire
