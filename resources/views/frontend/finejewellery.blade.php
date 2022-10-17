@@ -17,18 +17,23 @@
     <div class="pt-5 py-xl-5 mt-xl-5"> 
         <div class="container">
             <div class="row">
-
+                <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
+                    Choose Your Setting Style
+                </div>
+                <p class="choose_your_setting_paragraph wedding_bands_paragraph text-center mb-3 mb-md-4 mb-xl-5">
+                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                </p>
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                <div class="col-md-6 col-lg-3 finejewellery-img mb-4" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+                <div class="col-md-6 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                     <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     <div class="finejewellery-box mt-3">
                         <div class="finejewellery-heading text-center mb-3">
                             {{ $menupageshapestyle->title }}
                         </div>
-                        {{-- <p class="finejewellery-paragraph">
+                         <p class="finejewellery-paragraph">
                             Classic, opulent, or delicate - regardless of the occasion, we have the perfect ring to complement every look.
-                        </p> --}}
+                        </p> 
                     </div>
                 </div> 
                 @endforeach
@@ -60,8 +65,11 @@
         </div>
     </div>
 
-    <div class="container mb-4 pt-4">
-        <div class="choose_your_setting_heading text-center mb-3 mb-xl-5">{{ $MenuPage->section3_title }}</div>
+    <div class="container mb-4 pt-4 mb-5 pb-xxl-5">
+        <div class="choose_your_setting_heading text-center mb-3 mb-xl-3">{{ $MenuPage->section3_title }}</div>
+        <p class="dainty-ring-gifts-paragraph mt-3  mb-xl-4">  
+            {{ $MenuPage->section3_description }}
+        </p>
         <div class="row">
             <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section31_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
@@ -73,9 +81,7 @@
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
         </div>
-        <p class="dainty-ring-gifts-paragraph mt-3 mt-xl-5 mb-xl-5 pb-xl-5">  
-            {{ $MenuPage->section3_description }}
-        </p>
+        
     </div>
 
     
