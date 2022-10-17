@@ -802,8 +802,6 @@ class OrderController extends Controller
             if($request->order_status == 3 && $Order->delivery_date == null) {
                 $Order->delivery_date = Carbon::now();
 
-               
-
                  $data1 = [
                      'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
                      'OrderId' => $Order->id,

@@ -153,13 +153,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-2 ">
-                                <div class="form-group">
-                                    
-                                <button type="button" class="btn btn-outline-primary " id="Add" data-action="add">+ </button>
-                                    
-                               </div>
-                            </div>
+                            
                             </div>
                             @if(isset($menupages->menupageshapestyle))
                             @foreach($menupages->menupageshapestyle as $shapestyle)
@@ -189,12 +183,19 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-2 ">
-                                    <button type="button" class="minus_btn btn mb-1 btn-dark" >- </button>
+                                    <button type="button" class="minus_btn btn mb-1 btn-outline-danger" ><i class="fa fa-remove"></i> </button>
                                 </div>
                             </div>
                                  
                             @endforeach
                             @endif
+                        </div>
+                        <div class="col-lg-2 ">
+                            <div class="form-group">
+                                
+                            <button type="button" class="btn btn-outline-primary " id="Add" data-action="add">Add New </button>
+                                
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -669,7 +670,7 @@
         '</div>'+
         '</div>'+
         '<div class="col-md-2">'+
-            '<button type="button"  class="minus_btn btn mb-1 btn-dark">-</button>'+
+            '<button type="button"  class="minus_btn btn mb-1 btn-outline-danger" ><i class="fa fa-remove"></i></button>'+
         '</div>'+
         '</div></div>';
                

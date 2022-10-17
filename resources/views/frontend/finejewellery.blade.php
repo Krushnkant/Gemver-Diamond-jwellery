@@ -31,9 +31,9 @@
                         <div class="finejewellery-heading text-center mb-3">
                             {{ $menupageshapestyle->title }}
                         </div>
-                         <p class="finejewellery-paragraph">
+                         {{-- <p class="finejewellery-paragraph">
                             Classic, opulent, or delicate - regardless of the occasion, we have the perfect ring to complement every look.
-                        </p> 
+                        </p>  --}}
                     </div>
                 </div> 
                 @endforeach
