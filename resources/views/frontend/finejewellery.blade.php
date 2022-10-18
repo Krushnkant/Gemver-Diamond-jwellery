@@ -71,13 +71,13 @@
             {{ $MenuPage->section3_description }}
         </p>
         <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section31_category_id }}">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section32_category_id }}">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn" data-id="{{ $MenuPage->section33_category_id }}">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category_id }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
         </div>
