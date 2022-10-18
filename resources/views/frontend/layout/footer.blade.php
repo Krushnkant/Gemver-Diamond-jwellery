@@ -10,17 +10,19 @@
                     <div>
                         <div class="footer-part-heading mb-3">newsletter</div>
                         <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about <br>sample sales, special deals, and new releases.</p>
-                        <div>
+                        <div class="">
                         <form action="test" method="post" id="NewsLatterForm">
                             @csrf
                             <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
                             </div>
-                            <span class="email_input mb-3 mb-md-0 d-inline-block"> 
-                                <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
-                            </span>
-                            <span class="ms-md-2">
-                                <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
-                            </span>
+                            <div class="d-flex">
+                                <span class="email_input mb-0 d-inline-block"> 
+                                    <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
+                                </span>
+                                <span class="ms-2">
+                                    <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
+                                </span>
+                            </div>
                             <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>    
                         </div>

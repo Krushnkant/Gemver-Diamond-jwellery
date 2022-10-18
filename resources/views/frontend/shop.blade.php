@@ -59,7 +59,7 @@
                     
                     @foreach($Attributes as $attribute)
                     <div class="col-md-6">
-                        <div class="round_cut_lab_range_slider mb-xxl-4 mb-4 mt-3 mt-md-0">
+                        <div class="round_cut_lab_range_slider">
                             <ul class="right_side_ul round_cut_lab_range_slider row">
                                 <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
                                 <div class="col-lg-12">
@@ -77,10 +77,16 @@
                         
                         
                 </div>
-                
+                <div class="row text-end mb-3">
+                    <div class="col-md-12">
+                        <button type="button" class="reset-btn">Reset</button>
+                    </div>
+                </div>
+        </div>
+
                 <div class="container">
                     <div class="wire_bangle_line"></div>
-                    <div class="row align-items-center">
+                    <div class="row align-items-center w-100">
                         <div class="col-sm-6 col-md-6">
                             <div class="my-5 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
                         </div>
@@ -119,10 +125,9 @@
                 </div>
             
             <!-- <div class="wire_bangle_line"></div> -->
-            <div class="row mt-0 mb-5 filter_data">
+            <div class="row mt-0 mb-5 filter_data justify-content-center">
                 
             </div>
-        </div>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

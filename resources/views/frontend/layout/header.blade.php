@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="row align-items-center header_row">
                         <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
-                            <div class="logo-image header-logo mx-lg-auto">
+                            <div class="logo-image header-logo mx-lg-auto mb-0">
                                 <a href="{{ URL('/') }}">
                                     <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
                                 </a>
@@ -116,11 +116,13 @@
                                             //dd($megamenu->sub_menu);
                                             if($megamenu != ""){   
                                         ?>
-                                        <li class="" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
+                                        <li class="" >
+                                            <a href="{{ url($megamenu->redirect_url) }}">
+                                                {{ $megamenu->title }}
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                                 </svg>
-                                            </a>
                                             
                                             <div class="mega-menu">
                                                 <div class="sub-pack">
@@ -163,7 +165,7 @@
                                                             $twocolum = 'mega-menu-two-colum';
                                                         }
                                                     ?>
-                                                    <div class="submenu-box">
+                                                    <div class="submenu-box mt-4">
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">{{ $sub->title }}</span>
                                                     </div>      
@@ -210,10 +212,10 @@
                                         ?>
 
                                         <li class="" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                                 </svg>
-                                            </a>
                                         
                                             <div class="mega-menu">
                                                 <div class="sub-pack">
@@ -304,10 +306,11 @@
                                         ?>
 
                                         <li class="" ><a href="{{ url($megamenu->redirect_url) }}">Fine Jewelry 
+                                           
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-menu-icon">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="white"/>
                                                 </svg>
-                                            </a>
                                             
                                             <div class="mega-menu">
                                                 <div class="sub-pack">
@@ -420,10 +423,11 @@
                                             if($megamenu != ""){   
                                         ?>
                                         <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }}" ><a href="{{ url($megamenu->redirect_url) }}">{{  $megamenu->title }}
+                                            
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                                 </svg>
-                                            </a>
                                             <div class="mega-menu ">
                                                 <div class="sub-pack">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
@@ -506,7 +510,7 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="submenu-box">
+                                                        <div class="submenu-box mt-4">
                                                             <ul>
                                                                 <li class="menu-part-img two_part_padding">
                                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
@@ -523,10 +527,11 @@
                                         ?>
                                         
                                         <li class="{{ (request()->segment(1) == 'diamond-setting' || request()->segment(1) == 'product-setting' || request()->segment(1) == 'diamond-details' || request()->segment(1) == 'custom-product-details') ? 'active' : '' }}" ><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
+                                            
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                                 </svg>
-                                            </a>
                                             <div class="mega-menu ">
                                                 <div class="sub-pack">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">
@@ -587,10 +592,11 @@
                                         
                                         <li class="{{ (request()->is('infopage*')) ? 'active' : '' }}">
                                             <a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
+                                           
+                                            </a>
                                             <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z " fill="white "/>
                                             </svg>
-                                            </a>
                                             <div class="mega-menu ">
                                                 <div class="sub-pack">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none" class="mobile-sub-menu-icon">

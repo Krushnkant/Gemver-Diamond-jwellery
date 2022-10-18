@@ -244,6 +244,11 @@
                 </div>      
                 @endforeach
             
+                <div class="row text-end mb-3">
+                    <div class="col-md-12">
+                        <button type="button" class="reset-btn">Reset</button>
+                    </div>
+                </div>
         </div>
         <div class="wire_bangle_line"></div>
         <div class="row align-items-center d-flex justify-content-center">

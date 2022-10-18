@@ -81,6 +81,7 @@
      });
      $('.shop-by-style-slider').owlCarousel({
          loop: true,
+         dots: false,
          margin: 25,
          nav: true,
          responsive: {
@@ -223,6 +224,9 @@
          } else {
              $(".sub-pack").removeClass("sub-pack-active");
          }
+     });
+     $(".mobile-menu-icon").click(function() {
+         $(".mega-menu").toggleClass("mega-menu-sub-part");
      });
      $(".mega-menu-mobile-icon").click(function() {
          $("#nav-icon1").removeClass('open');

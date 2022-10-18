@@ -36,23 +36,33 @@
                 </div>
             </div>
         </div>
-        @endif
-        @if($Infopage->second_section_contant != '')
-        <div class="row about_us_product_row mt-4 align-items-center px-0 px-md-3">
-            <div class="col-md-6">
-                <div class="about_us_img">
-                    <img src="{{ url('images/aboutus/'. $Infopage->second_section_image)}}" alt="">
+    </div>
+
+    <div class="about_us_bg_part py-5">
+        <div class="container">
+            @endif
+            @if($Infopage->second_section_contant != '')
+            <div class="row about_us_product_row mt-4 align-items-center px-0 px-md-3">
+                <div class="col-md-6">
+                    <div class="about_us_img">
+                        <img src="{{ url('images/aboutus/'. $Infopage->second_section_image)}}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about_us_product_padding">
+                        <h3 class="h3-heading text-center text-md-start">{{ $Infopage->second_section_title }}</h3>
+                        <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->second_section_contant !!}</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $Infopage->second_section_title }}</h3>
-                    <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->second_section_contant !!}</p>
-                </div>
-            </div>
+            @endif
         </div>
-        @endif
-        <div class="about_us_box mt-5">
+    </div>
+
+
+
+    <div class="container my-5">
+        <div class="about_us_box">
             <div class="row">
                 @if($Infopage->title1 != "")
                 <div class="col-sm-6 col-lg-3 mb-3">
