@@ -6172,13 +6172,15 @@ width: 100%;
     }
     
     .reset-btn {
-        background: var(--primary);
+        border: 1px var(--primary) solid !important;
+        background: transparent !important;
         border-radius: 0;
         font-weight: 400;
         font-size: 15px;
         letter-spacing: 0.05em;
-        color: #FFFFFF;
+        color: var(--primary);
         min-width: 100px;
         height: 40px;
+        line-height: 37px;
         border: 0;
     }

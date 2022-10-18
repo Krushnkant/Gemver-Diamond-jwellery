@@ -79,7 +79,7 @@
                 </div>
                 <div class="row text-end mb-3">
                     <div class="col-md-12">
-                        <button type="button" class="reset-btn">Reset</button>
+                        <button type="button" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </div>
                 </div>
         </div>
