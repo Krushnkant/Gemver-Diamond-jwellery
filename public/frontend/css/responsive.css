@@ -14,6 +14,9 @@
     .custom_product_detail .custom_product_des {
         padding-right: 0 !important;
     }
+    .header-logo img {
+        max-height: 50px;
+    }
     .home-page-slider-header .header-logo {
         max-width: 90px;
     }
@@ -434,8 +437,8 @@
     .header ul li a {
         font-size: 14px;
         padding: 16px 22px;
-        border-bottom: 1px solid #eaeaea;
-        display: block;
+        display: inline-block;
+        color: #0B1727;
     }
     .header,
     .header ul li {
@@ -444,6 +447,23 @@
     .mobile-sub-menu li {
         display: block !important;
         pointer-events: auto;
+        position: relative;
+    }
+    .mobile-sub-menu>li {
+        border-bottom: 1px solid #eaeaea;
+    }
+    .mobile-sub-menu li svg path {
+        fill: #808080 !important;
+    }
+    .mobile-sub-menu li svg {
+        width: 18px;
+        height: 18px;
+        float: right;
+        margin-right: 15px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(270deg);
     }
     .mega-menu-img {
         width: 30px;
@@ -455,9 +475,26 @@
         float: right;
         transform: rotate(270deg);
     }
-    .header ul li a {
-        color: #0B1727;
+    .header ul li>.mega-menu.mega-menu-sub-part {
+        left: auto;
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: scroll;
     }
+    /* .header ul li:nth-child(3) {
+        position: relative;
+    }
+    .header ul li:nth-child(3) .mega-menu {
+        left: auto;
+        right: 0;
+        transform: none;
+        min-height: 100vh;
+        overflow: scroll;
+    } */
     /* .header.sticky ul li {
         padding: 0;
     }
@@ -482,6 +519,9 @@
     .header ul li>.mega-menu {
         position: initial;
         transform: none;
+    }
+    .header ul li .mega-menu li {
+        padding: 0;
     }
     .header ul li .mega-menu li a {
         color: var(--primary);
@@ -553,9 +593,6 @@
     }
     .header ul li>.mega-menu {
         box-shadow: none;
-    }
-    .header ul li .mega-menu li {
-        padding: 0;
     }
     .header ul li .mega-menu li a {
         padding: 8px 30px;
@@ -683,6 +720,12 @@
         right: 0;
         position: initial;
         transform: none;
+    }
+    .finejewellery-img img {
+        min-height: auto;
+    }
+    .finejewellery-heading {
+        font-size: 15px;
     }
 }
 
@@ -827,7 +870,7 @@
         font-size: 14px;
     }
     .footer-part-section {
-        padding: 15px;
+        padding: 15px 0;
     }
     .shop-by-style-slider .engagement_ring_img img {
         height: 150px;
@@ -859,6 +902,7 @@
         padding: 11px 21px;
         font-size: 14px;
         min-height: 44px;
+        min-width: 123px;
     }
     .footer-social-media-icons li {
         width: 43px;
@@ -929,7 +973,7 @@
         transition: all 1s ease;
     }
     body.mobile-sub-menu-active {
-        overflow: hidden;
+        overflow: hidden !important;
     }
     body.mobile-sub-menu-active:after {
         content: "";
@@ -1300,7 +1344,7 @@
     }
     /* ---------------------------------------------------------------- */
     .policy_page_section p {
-        font-size: 16px;
+        font-size: 15px;
     }
     .policy_page_heading {
         font-size: 16px;
@@ -1933,9 +1977,6 @@
     }
     .finejewellery-paragraph {
         font-size: 13px;
-    }
-    .finejewellery-heading {
-        font-size: 17px;
     }
     .home-page-bg {
         margin-bottom: 116px;

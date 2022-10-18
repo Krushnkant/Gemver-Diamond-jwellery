@@ -139,7 +139,7 @@
     </div>
 </div> --}}
 
-    <div class="smiling_gemver_banner shop_dimond_by_shape smiling_gemver_banner_section">
+    <div class="smiling_gemver_banner shop_dimond_by_shape mt-0">
       <div class="container">
       <div class="choose_your_setting_heading text-center mb-4 mb-md-5">Smiling  Gemver Difference</div>
         <!-- <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">Smiling  Gemver Difference</h2> -->
@@ -189,6 +189,9 @@
                     </div>
                 </div>
                 
+            </div>
+            <div class="text-center">
+                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-5" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
       </div>
       

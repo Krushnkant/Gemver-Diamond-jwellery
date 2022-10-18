@@ -120,78 +120,79 @@
             </div>
         </div> -->
 
-        <div class="container where_to_start_section">
-            <div class="">
-                <div class="cut_shape_heading  text-center text-md-start mb-3">SHOP LAB DIAMONDS BY SHAPE </div>
+
+        <div class="shop_dimond_by_shape explore_diamonds_section mt-3 my-md-5">
+            <div class="container">
+                <div class="mb-4 text-center ">
+                    <div class="choose_your_setting_heading text-center mb-2 mb-md-3 explore_diamonds_heading">SHOP LAB DIAMONDS BY SHAPE</div>
+                </div>
                 <div>
-                    <div class="owl-carousel owl-theme shop-dimond-by-shape-slider shop-lab-diamonds-by-shape-slider">
-                        
-                        
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/round.png') }}" alt="Round">
-                        </a>
-                        <div class="shape_heading">Round</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/oval.png') }}" alt="oval">
-                        </a>
-                        <div class="shape_heading">oval</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/princess.png') }}" alt="">
-                        </a>
-                        <div class="shape_heading">princess</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/cushion.png') }}" alt="cushion">
-                        </a>
-                        <div class="shape_heading">cushion</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/marquise.png') }}" alt="marquise">
-                        </a>
-                        <div class="shape_heading">marquise</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/pear.png') }}" alt="pear">
-                        </a>
-                        <div class="shape_heading">pear</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/radiant.png') }}" alt="radiant">
-                        </a>
-                        <div class="shape_heading">radiant</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/heart.png') }}" alt="heart">
-                        </a>
-                        <div class="shape_heading">heart</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/emerald.png') }}" alt="emerald">
-                        </a>
-                        <div class="shape_heading">emerald</div>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
-                        </a>
-                        <div class="shape_heading">asscher</div>
-                    </div>
-                        
+                    <div class="owl-carousel owl-theme shop-dimond-by-shape-slider explore_diamonds_section">
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/round.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">round</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/oval.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">oval</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/princess.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">princess</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">cushion</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">marquise</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/pear.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">pear</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">radiant</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/heart.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">heart</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">emerald</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">asscher</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <div class="choose_setting_section where_to_start_section_2">
             <div class="container where_to_start_section">

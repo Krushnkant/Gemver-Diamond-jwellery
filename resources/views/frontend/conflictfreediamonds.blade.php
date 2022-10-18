@@ -19,9 +19,13 @@
 
         </div>
         <div class="container">
-            <div class="policy_page_section mt-3 mt-md-5 mb-md-5">
-              {!! $Infopage->conflict_free_diamonds !!} 
-            </div>
+           <div class="row">
+                <div class="col-md-12">
+                    <div class="policy_page_section mt-3 mt-md-5 mb-md-5">
+                    {!! $Infopage->conflict_free_diamonds !!} 
+                    </div>
+                </div>
+           </div>
         </div>
     </div>
   @endsection

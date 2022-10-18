@@ -25,7 +25,7 @@
                 </p>
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                <div class="col-md-6 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+                <div class="col-6 col-md-3 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                     <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     <div class="finejewellery-box mt-3">
                         <div class="finejewellery-heading text-center mb-3">

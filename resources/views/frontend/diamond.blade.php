@@ -544,14 +544,26 @@
                 </div>
             </div>
 
-            <span class="d-inline-block float-end">
-                <div class="round_cut_lab_range_slider text-end me-3">
-                    <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <input type="checkbox" value="" name=""  id="checkbox_1">
-                        <label for="checkbox_1">advanced filters</label>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-md-12 text-center text-sm-end">
+                    <span class="d-inline-block">
+                        <div class="row text-end mb-3">
+                            <div class="col-md-12">
+                                <button type="button" class="reset-btn">Reset</button>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="d-inline-block">
+                        <div class="round_cut_lab_range_slider text-end me-3">
+                            <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <input type="checkbox" value="" name=""  id="checkbox_1">
+                                <label for="checkbox_1">advanced filters</label>
+                            </div>
+                        </div>
+                    </span>
                 </div>
-            </span>
+            </div>
+
            
         </div>
         <div class="mt-4 mt-md-5"></div>

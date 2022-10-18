@@ -25,7 +25,7 @@
         <div class="row">
             @if($MenuPage->menupageshapestyle)
             @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="col-sm-4 col-md-4 col-lg-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+            <div class="col-6 col-sm-4 col-md-4 col-lg-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
                 <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                 <div class="choose_sub_heading mt-3 ">
                     {{ $menupageshapestyle->title }}
