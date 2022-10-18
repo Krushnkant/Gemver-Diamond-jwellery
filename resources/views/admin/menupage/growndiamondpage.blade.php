@@ -76,6 +76,7 @@
                         <h4 class="card-title">
                             Section 1
                         </h4>
+                        
                       
                         <div class="row col-lg-12">
                         
@@ -131,6 +132,28 @@
                         </h4>
                       
                         <div class="row add-value">
+                            <div class="row col-lg-12">
+                                <div class="col-lg-2 ">
+                                    <div class="form-group ">
+                                        <label class="col-form-label" for="section_category_title"> Image 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Title 
+                                        </label>
+                                   </div>
+                                </div>
+                                
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <div class="row col-lg-12">
                             <div class="col-lg-2 ">
                                 <div class="form-group ">
