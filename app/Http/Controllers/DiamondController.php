@@ -10,11 +10,10 @@ use App\Models\Attribute;
 use App\Models\OrderIncludes;
 use App\Models\ProductVariant;
 use App\Models\ShopByStyle;
+use App\Models\Settings;
 use App\Models\StepPopup;
 use App\Models\ProductVariantVariant;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Response;
 
 class DiamondController extends Controller
 {
@@ -344,7 +343,8 @@ class DiamondController extends Controller
         $Diamond = Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated'));
+        $settings = Settings::first();
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated','settings'));
     }
 
     public function customproducts($id,$shopbyid = 0){
@@ -570,8 +570,9 @@ class DiamondController extends Controller
         $Product= Product::with('primary_category','product_variant','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$vid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        $settings = Settings::first();
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$id)->groupBy('products.id')->get();
-        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated'));
+        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated','settings'));
     }
 
     public function getProductComplete($catid){
@@ -585,8 +586,8 @@ class DiamondController extends Controller
        
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$Product->product_id)->groupBy('products.id')->get();
         
-        
-        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated'));
+        $settings = Settings::first();
+        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated','settings'));
     }
 
     public function editproductsetting($catid){
@@ -877,7 +878,8 @@ class DiamondController extends Controller
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
-        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes','DiamondRelated'));
+        $settings = Settings::first();
+        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes','DiamondRelated','settings'));
     }
 
 }
