@@ -380,67 +380,19 @@
         </div>
         <?php 
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
-        if(count($diamond_reviews)){
         ?>
-
-        <div class="resview_list mt-md-5 mt-4 px-3 mb-md-5 mb-4">
+        <div class="mt-md-5 mt-4 px-3 mb-md-5 mb-4">
             <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
             <div class="review_description_heading mb-3">
                 {{ count($diamond_reviews) }} Reviews For Cenforce
             </div>
-            <div class="row">   
+            <div class="row resview_list">   
                 
-                @foreach($diamond_reviews as $diamond_review)
-                <div class="col-md-6 mb-4 ps-0 pe-0 pe-md-3">
-                    <div class="review_box">
-                        <div class="row">
-                            <div class="col-6 ps-0 review_heading">
-                                {{ $diamond_review->reviewer }}
-                            </div>
-                            <div class="col-6 text-end review_star pe-0">
-                            <?php    
-                                for($x = 1; $x <= 5; $x++){
-                                    if($x <= $diamond_review->rating){
-                                    ?>
-                                       <i class="fa-solid fa-star"></i>
-                            <?php           
-                                    }else{
-                                        ?>
-                                        <i class="fa-regular fa-star"></i>
-                            <?php            
-                                    }
-                                }
-                               
-                            ?>   
-                             
-                            </div>
-                        </div>
-                        <div class="review_description_paragraph">
-                            {{ $diamond_review->description }}
-                        </div>
-                        <div class="review_thumb_part mt-3">
-                            <?php
-                            $review_images = explode(',',$diamond_review->review_imgs);
-                            foreach($review_images as $review_image){
-                            ?>        
-                                <img src="{{ url($review_image) }}" id="inquiry_image" alt="" class="review_thumb_part_img"> 
-                            <?php        
-                            }
-                            ?> 
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-
-                
-            </div>
-            <div class="text-end">
-                <button type="button" class="btn show_more_btn">Show more</button>
             </div>
         </div>
-        <?php } ?>
+       
 
         @if(isset($OrderIncludes->orderincludesdata))
         <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
@@ -924,10 +876,43 @@ function save_hint(btn,btn_type){
         }
     });
 }
+});
+</script>
 
+<script>
+$(document).ready(function(){
+ 
+ var _token = $('input[name="_token"]').val();
+
+ load_data('', _token);
+
+ function load_data(id="", _token)
+ {
+
+  var variant_id = $('#diamond_id').val();
+  $.ajax({
+   url:"{{ route('frontend.load_data') }}",
+   method:"POST",
+   data:{id:id,variant_id:variant_id,type:1, _token:_token},
+   success:function(data)
+   {
+    $('#load_more_button').remove();
+    $('.resview_list').append(data);
+   }
+  })
+ }
+
+ $(document).on('click', '#load_more_button', function(){
+  var id = $(this).data('id');
+  $('#load_more_button').html('<b>Loading...</b>');
+  load_data(id, _token);
+ });
 
 });
 </script>
+
+
+
 @endsection
 
     

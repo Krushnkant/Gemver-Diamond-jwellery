@@ -1324,7 +1324,7 @@ function save_hint(btn,btn_type){
       $.ajax({
        url:"{{ route('frontend.load_data') }}",
        method:"POST",
-       data:{id:id,variant_id:variant_id, _token:_token},
+       data:{id:id,variant_id:variant_id,type:0, _token:_token},
        success:function(data)
        {
        

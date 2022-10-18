@@ -82,16 +82,30 @@ class ReviewController extends Controller
       $vatid = $request->variant_id;
       if($request->id > 0)
       {
-       $data = Review::where('id', '<', $request->id)->where('status',1)->where('type',0)->where('item_id',$vatid)
-          ->orderBy('id', 'DESC')
-          ->limit(6)
-          ->get();
+        if($request->type == 0){
+            $data = Review::where('id', '<', $request->id)->where('status',1)->where('type',0)->where('item_id',$vatid)
+            ->orderBy('id', 'DESC')
+            ->limit(6)
+            ->get();
+        }else{
+            $data = Review::where('id', '<', $request->id)->where('status',1)->where('type',1)->where('item_id',$vatid)
+            ->orderBy('id', 'DESC')
+            ->limit(6)
+            ->get();
+        }
+       
       }
       else
       {
-       $data = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->orderBy('id', 'DESC')
-          ->limit(6)
-          ->get();
+        if($request->type == 0){
+            $data = Review::where('status',1)->where('type',0)->where('item_id',$vatid)->orderBy('id', 'DESC')
+                ->limit(6)
+                ->get();
+        }else{
+            $data = Review::where('status',1)->where('type',1)->where('item_id',$vatid)->orderBy('id', 'DESC')
+                ->limit(6)
+                ->get();
+        }        
       }
       $output = '';
       $last_id = '';
