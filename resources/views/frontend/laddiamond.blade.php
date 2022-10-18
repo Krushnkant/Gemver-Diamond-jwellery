@@ -484,14 +484,7 @@
             </div>
 
             <div class="row align-items-center">
-                <div class="col-md-12 text-center text-sm-end">
-                    <span class="d-inline-block">
-                        <div class="row text-end mb-3">
-                            <div class="col-md-12">
-                                <button type="button" class="reset-btn">Reset</button>
-                            </div>
-                        </div>
-                    </span>
+                <div class="col-md-12 text-center text-sm-end px-0">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
                             <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -499,6 +492,9 @@
                                 <label for="checkbox_1">advanced filters</label>
                             </div>
                         </div>
+                    </span>
+                    <span class="d-inline-block">
+                        <button type="button" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </span>
                 </div>
             </div>
