@@ -551,7 +551,7 @@ class MenuPageController extends Controller
     }
 
     public function updateFineJewelleryPage(Request $request){
-        //dd($request->all());
+        
         $messages = [
             'banner_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
             'main_shotline.required' =>'Please provide a main shotline',
@@ -688,6 +688,7 @@ class MenuPageController extends Controller
                         $shapdata = new MenuPageShapeStyle();
                         $shapdata->page_id = $menupages->id;
                         $shapdata->title = $subtitle;
+                        $shapdata->subdiscription = $request->subdiscription[$key];
                         $shapdata->category_id = $request->category_id[$key];
                         $path = public_path("images/shopstyle_image/");
                         if(isset($request->image[$key]) && $request->image[$key] != ""){
@@ -705,6 +706,7 @@ class MenuPageController extends Controller
                     if($subtitleold != ""){
                         $shapdataold = MenuPageShapeStyle::find($request->orderdataid[$key]);
                         $shapdataold->title = $subtitleold;
+                        $shapdataold->subdiscription = $request->subdiscriptionold[$key];
                         $shapdataold->category_id = (isset($request->category_id_old[$key])  && $request->category_id_old[$key] != "" ? $request->category_id_old[$key] : 0);
                         $path = public_path("images/shopstyle_image/");
                         if(isset($request->imageold[$key]) && $request->imageold[$key] != ""){

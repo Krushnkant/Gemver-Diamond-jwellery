@@ -67,18 +67,52 @@
                       
                         <div class="row add-value">
                             <div class="row col-lg-12">
+                                <div class="col-lg-2 ">
+                                    <div class="form-group ">
+                                        <label class="col-form-label" for="section_category_title"> Image 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Title 
+                                        </label>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Discription 
+                                        </label>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="row col-lg-12">
                             <div class="col-lg-2 ">
                                 <div class="form-group ">
                                     <input type="file" class="form-control-file" id="image[]" onchange="" name="image[]">
                                 </div>
                             </div>
-                            <div class="col-lg-4 ">
+                            <div class="col-lg-3 ">
                                 <div class="form-group">
                                     <input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]" placeholder="Enter Title">
                                     <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                </div>
                             </div>
-                            <div class="col-lg-4 ">
+                            <div class="col-lg-3 ">
+                                <div class="form-group">
+                                    <textarea name="subdiscription[]" class="form-control input-flat"></textarea>
+                                    <div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </div>
+                            </div>
+                            <div class="col-lg-3 ">
                                 <div class="form-group">
                                     <select  name="category_id[]" class="form-control category_id">
                                     <option value="">Select Category</option>
@@ -101,13 +135,19 @@
                                         <img src="{{ asset('images/shopstyle_image/'.$shapestyle->image) }}" class="" id="profilepic_image_show" height="50px" width="50px" style="margin-top: 5px">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 ">
+                                <div class="col-lg-3 ">
                                     <div class="form-group">
                                         <input type="text" class="form-control input-flat" id="subtitleold" value="{{ $shapestyle->title }}" name="subtitleold[]">
                                         <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 ">
+                                <div class="col-lg-3 ">
+                                    <div class="form-group">
+                                        <textarea name="subdiscriptionold[]" class="form-control input-flat">{{ $shapestyle->subdiscription }}</textarea>
+                                        <div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                   </div>
+                                </div>
+                                <div class="col-lg-3 ">
                                     <div class="form-group">
                                         <select  name="category_id_old[]" class="form-control category_id">
                                         <option value="">Select Category</option>
@@ -117,7 +157,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 ">
+                                <div class="col-lg-1 ">
                                     <button type="button" class="minus_btn btn mb-1 btn-outline-danger" ><i class="fa fa-remove"></i> </button>
                                 </div>
                             </div>
@@ -683,14 +723,20 @@
         '<input type="file" class="form-control-file" id="image" onchange="" name="image[]">'+
         '</div>'+
         '</div>'+
-        '<div class="col-lg-4 ">'+
+        '<div class="col-lg-3 ">'+
         '<div class="form-group">'+
        
         '<input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]">'+
         '<div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
         '</div>'+
         '</div>'+
-        '<div class="col-lg-4 ">'+
+        '<div class="col-lg-3 ">'+
+        '<div class="form-group">'+
+        '<textarea name="subdiscription[]" class="form-control input-flat"></textarea>'+
+        '<div id="subdiscription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
+        '</div>'+
+        '</div>'+
+        '<div class="col-lg-3 ">'+
         '<div class="form-group">'+
         '<select  name="category_id[]" class="form-control category_id">'+
         '<option value="">Select Category</option>'+
@@ -700,7 +746,7 @@
         '</select>'+
         '</div>'+
         '</div>'+
-        '<div class="col-md-2">'+
+        '<div class="col-md-1">'+
             '<button type="button"  class="minus_btn btn mb-1 btn-outline-danger" ><i class="fa fa-remove"></i></button>'+
         '</div>'+
         '</div></div>';

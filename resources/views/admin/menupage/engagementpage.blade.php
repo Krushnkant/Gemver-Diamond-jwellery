@@ -98,6 +98,28 @@
                       
                         <div class="row add-value">
                             <div class="row col-lg-12">
+                                <div class="col-lg-2 ">
+                                    <div class="form-group ">
+                                        <label class="col-form-label" for="section_category_title"> Image 
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Title 
+                                        </label>
+                                   </div>
+                                </div>
+                               
+                                <div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row col-lg-12">
                             <div class="col-lg-2 ">
                                 <div class="form-group ">
                                     <input type="file" class="form-control-file" id="image[]" onchange="" name="image[]">
