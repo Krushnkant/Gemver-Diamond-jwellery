@@ -390,24 +390,7 @@
 
             
 
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-            <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-ratio" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
-                            </div>
-                        </div>
-                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_ratio" />
-                        <input type="hidden" id="hidden_maximum_ratio" />
-                    </span>
-                </div>
-            </div>
+            
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
@@ -441,27 +424,29 @@
                     </span>
                 </div>
             </div>
- 
-            
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-            <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-table" class="mb-0"></div>
+                            <div id="slider-range-ratio" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
                             </div>
                         </div>
-                        <!-- <p class="mb-0"> <span id="table"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="table-start"></span><span id="table-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_table" />
-                        <input type="hidden" id="hidden_maximum_table" />
+                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
+                        <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_ratio" />
+                        <input type="hidden" id="hidden_maximum_ratio" />
                     </span>
                 </div>
             </div>
+ 
+            
+
+          
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
@@ -492,6 +477,24 @@
                             <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
                             <label for="symmP">Poor</label>
                         </div>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+            <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
+                        <div class="align-items-center mb-2 position-relative">
+                            <div id="slider-range-table" class="mb-0"></div>
+                            <div class="d-flex mt-3">
+                                <span class="from_text"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                            </div>
+                        </div>
+                        <!-- <p class="mb-0"> <span id="table"></span></p> -->
+                        <p class="mb-0 range-slider-p"><span id="table-start"></span><span id="table-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_table" />
+                        <input type="hidden" id="hidden_maximum_table" />
                     </span>
                 </div>
             </div>
