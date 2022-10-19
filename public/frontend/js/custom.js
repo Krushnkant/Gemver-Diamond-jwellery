@@ -539,3 +539,7 @@
          }
      });
  }
+
+ $('body').on('click', '#reSet', function () {
+    location.reload();
+ });

@@ -631,7 +631,7 @@ class DiamondController extends Controller
 
     public function getLadDiamonds(Request $request)
     {
-        //dd($request->all());
+        
         $data = $request->all();
         $query = Diamond::where('estatus',1);
         if($data["minimum_price"] && $data["maximum_price"]){

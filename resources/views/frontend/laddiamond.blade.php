@@ -289,36 +289,31 @@
                 </div>
             </div>
             <div class="col-lg-6  round_cut_lab_filter" >
-                    <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</span>
-                        <span class="col-md-12">
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
-                                <label for="cutID">Ideal</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="cutEX">
-                                <label for="cutEX">Excellent</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="VG" class="cut common_selector" name="cut[]" id="cutVG">
-                                <label for="cutVG">Very Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="G" class="cut common_selector" name="cut[]" id="cutG">
-                                <label for="cutG">Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="F" class="cut common_selector" name="cut[]" id="cutF">
-                                <label for="cutF">Fair</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="P" class="cut common_selector" name="cut[]" id="cutP">
-                                <label for="cutP">Poor</label>
-                            </div>
-                        </span>
-                    </div>
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">finish</span>
+                    <span class="col-md-12">
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="radio" value="3X" class="finish "  name="finish" id="finish3X">
+                            <label for="finish3X">3X</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="radio" value="EX-" class="finish " name="finish" id="finishEX-">
+                            <label for="finishEX-">EX-</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="radio" value="VG+" class="finish " name="finish" id="finishVG+">
+                            <label for="finishVG+">VG+</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="radio" value="VG-" class="finish " name="finish" id="finishVG-">
+                            <label for="finishVG-">VG-</label>
+                        </div>
+                        
+                    </span>
+                </div>
             </div>
+            
+            
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
@@ -337,27 +332,39 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
+
+            <div class="col-lg-6  collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</span>
                     <span class="col-md-12">
-                        
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
-                            <label for="reportGCAL">GCAL</label>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
+                            <label for="cutID">Ideal</label>
                         </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="report[]" value="IGI" class="report common_selector" id="reportIGI">
-                            <label for="reportIGI">IGI</label>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="cutEX">
+                            <label for="cutEX">Excellent</label>
                         </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="report[]" value="GIA" class="report common_selector" id="reportGIA">
-                            <label for="reportGIA">GIA</label>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="VG" class="cut common_selector" name="cut[]" id="cutVG">
+                            <label for="cutVG">Very Good</label>
                         </div>
-                      
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="G" class="cut common_selector" name="cut[]" id="cutG">
+                            <label for="cutG">Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="F" class="cut common_selector" name="cut[]" id="cutF">
+                            <label for="cutF">Fair</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="P" class="cut common_selector" name="cut[]" id="cutP">
+                            <label for="cutP">Poor</label>
+                        </div>
                     </span>
                 </div>
             </div>
+            
           
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
@@ -380,37 +387,28 @@
             </div>
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                    <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
-                        <span class="col-md-12">
-                            
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
-                                <label for="polishID">Ideal</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
-                                <label for="polishEX">Excellent</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
-                                <label for="polishVG">Very Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
-                                <label for="polishG">Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
-                                <label for="polishF">Fair</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-0">
-                                <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
-                                <label for="polishP">Poor</label>
-                            </div>
-                        </span>
-                    </div>
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">report</span>
+                    <span class="col-md-12">
+                        
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
+                            <label for="reportGCAL">GCAL</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="report[]" value="IGI" class="report common_selector" id="reportIGI">
+                            <label for="reportIGI">IGI</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="report[]" value="GIA" class="report common_selector" id="reportGIA">
+                            <label for="reportGIA">GIA</label>
+                        </div>
+                      
+                    </span>
+                </div>
             </div>
+
+            
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
@@ -430,39 +428,41 @@
                     </span>
                 </div>
             </div>
- 
+
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                    <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
-                        <span class="col-md-12">
-                           
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
-                                <label for="symmID">Ideal</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
-                                <label for="symmEX">Excellent</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
-                                <label for="symmVG">Very Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
-                                <label for="symmG">Good</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
-                                <label for="symmF">Fair</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3">
-                                <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
-                                <label for="symmP">Poor</label>
-                            </div>
-                        </span>
-                    </div>
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
+                    <span class="col-md-12">
+                        
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
+                            <label for="polishID">Ideal</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
+                            <label for="polishEX">Excellent</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
+                            <label for="polishVG">Very Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
+                            <label for="polishG">Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
+                            <label for="polishF">Fair</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-0">
+                            <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
+                            <label for="polishP">Poor</label>
+                        </div>
+                    </span>
+                </div>
             </div>
+ 
+            
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row">
@@ -483,6 +483,39 @@
                 </div>
             </div>
 
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
+                    <span class="col-md-12">
+                       
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
+                            <label for="symmID">Ideal</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
+                            <label for="symmEX">Excellent</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
+                            <label for="symmVG">Very Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
+                            <label for="symmG">Good</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
+                            <label for="symmF">Fair</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3">
+                            <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
+                            <label for="symmP">Poor</label>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
             <div class="row align-items-center">
                 <div class="col-md-12 text-center text-sm-end px-0">
                     <span class="d-inline-block">
@@ -494,7 +527,7 @@
                         </div>
                     </span>
                     <span class="d-inline-block">
-                        <button type="button" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                        <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </span>
                 </div>
             </div>
@@ -627,6 +660,8 @@
 
     <script>
         $(document).ready(function(){
+
+           
             
             var ENDPOINT = "{{ url('/') }}";
             var page = 1;
@@ -962,6 +997,86 @@
             $( "#table-end" ).html( " $" + $( "#slider-range-table" ).slider( "values", 1 ) );
              
           });
+
+            $(document).on("click", ".finish", function(){
+            {
+                    $("#cutID").prop("checked", false);
+                    $("#cutEX").prop("checked", false);
+                    $("#polishID").prop("checked", false);
+                    $("#polishEX").prop("checked", false);
+                    $("#symmID").prop("checked", false);
+                    $("#symmEX").prop("checked", false);
+
+                    $("#cutID").prop("checked", false);
+                    $("#cutEX").prop("checked", false);
+                    $("#polishID").prop("checked", false);
+                    $("#polishEX").prop("checked", false);
+                    $("#symmID").prop("checked", false);
+                    $("#symmEX").prop("checked", false);
+
+                    $("#cutID").prop("checked", false);
+                    $("#cutVG").prop("checked", false);
+                    $("#cutEX").prop("checked", false);
+                    $("#polishVG").prop("checked", false);
+                    $("#polishEX").prop("checked", false);
+                    $("#symmVG").prop("checked", false);
+                    $("#symmEX").prop("checked", false);
+
+                    $("#cutVG").prop("checked", false);
+                    $("#cutG").prop("checked", false);
+                    $("#polishVG").prop("checked", false);
+                    $("#polishG").prop("checked", false);
+                    $("#symmVG").prop("checked", false);
+                    $("#symmG").prop("checked", false);
+
+                var finish = $('input[name="finish"]:checked').val();
+                if(finish == "3X"){
+                    $("#cutID").prop("checked", true);
+                    $("#cutEX").prop("checked", true);
+                    $("#polishID").prop("checked", true);
+                    $("#polishEX").prop("checked", true);
+                    $("#symmID").prop("checked", true);
+                    $("#symmEX").prop("checked", true);
+                }else if(finish == "EX-"){
+                    $("#cutEX").prop("checked", true);
+                    $("#polishVG").prop("checked", true);
+                    $("#polishEX").prop("checked", true);
+                    $("#symmVG").prop("checked", true);
+                    $("#symmEX").prop("checked", true);
+
+                }else if(finish == "VG+"){
+                    $("#cutID").prop("checked", true);
+                    $("#cutVG").prop("checked", true);
+                    $("#cutEX").prop("checked", true);
+                    $("#polishVG").prop("checked", true);
+                    $("#polishEX").prop("checked", true);
+                    $("#symmVG").prop("checked", true);
+                    $("#symmEX").prop("checked", true);
+                    
+                }else if(finish == "VG-"){
+                    $("#cutVG").prop("checked", true);
+                    $("#cutG").prop("checked", true);
+                    $("#polishVG").prop("checked", true);
+                    $("#polishG").prop("checked", true);
+                    $("#symmVG").prop("checked", true);
+                    $("#symmG").prop("checked", true);
+                }
+                filter_data(1); 
+                
+            }
+        });
+
+            $(document).on("click", ".common_selector", function(){
+            {
+                $("#finish3X").prop("checked", false);
+                $("#finishVG-").prop("checked", false);
+                $("#finishVG+").prop("checked", false);
+                $("#finishVG-").prop("checked", false);
+                
+            }
+        });
+
+           
 
         });
    </script>
