@@ -709,7 +709,7 @@
         top: 59px;
     }
     .home-page-bg {
-        margin-bottom: 72px;
+        margin-bottom: 0;
     }
     .category-slider .owl-prev {
         left: 0;
