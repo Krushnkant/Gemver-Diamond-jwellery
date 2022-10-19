@@ -79,7 +79,7 @@
                 </div>
                 <div class="row text-end mb-3">
                     <div class="col-md-12">
-                        <button type="button" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                        <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </div>
                 </div>
         </div>
@@ -125,7 +125,7 @@
                 </div>
             
             <!-- <div class="wire_bangle_line"></div> -->
-            <div class="row mt-0 mb-5 filter_data justify-content-center">
+            <div class="row mt-0 mb-5 filter_data">
                 
             </div>
     </div>
@@ -234,10 +234,10 @@ $(document).ready(function(){
      
   });
 
+
+
+
    
-  
-
-
 });
 </script>
 
