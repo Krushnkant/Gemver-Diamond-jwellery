@@ -1312,7 +1312,9 @@ $('.select_cart_btn').click(function (e) {
     })
 
     if(valid){
-        
+        var btn = $(this);
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1334,6 +1336,8 @@ $('.select_cart_btn').click(function (e) {
                 'arrspe': arrspe 
             },
             success: function (response) {
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
                 //alertify.set('notifier','position','top-right');
