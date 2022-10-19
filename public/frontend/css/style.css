@@ -2205,8 +2205,8 @@ transform: translateY(-50%); */
     
     .round_cut_lab_checkbox input[type="checkbox"] {
         opacity: 0;
-        width: 54px;
-        height: 54px;
+        width: 55px;
+        height: 55px;
         margin: 0;
         padding: 0;
         position: relative;
@@ -2230,8 +2230,8 @@ transform: translateY(-50%); */
     .round_cut_lab_checkbox input+.shape_img {
         width: 100%;
         width: 100%;
-        min-width: 45px;
-        min-height: 45px;
+        min-width: 55px;
+        min-height: 55px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 5px;
     }
@@ -2506,12 +2506,12 @@ opacity: 1;
         vertical-align: middle;
         cursor: pointer;
         margin-right: 10px;
-        height: 24px;
+        height: 30px;
         text-align: center;
         font-size: 14px;
         padding: 0 5px;
-        min-width: 70px;
-        line-height: 22px;
+        min-width: 76px;
+        line-height: 30px;
     }
     
     .round_cut_lab_range_color .form-group input:checked+label {
