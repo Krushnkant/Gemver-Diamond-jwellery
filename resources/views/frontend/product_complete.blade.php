@@ -67,7 +67,8 @@
                 <li class="step-progressbar-part">
                     <div class="step-progressbar-step-part">
                         <span class="step-progressbar-img ms-3">
-                            <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                            {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
+                            <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
                         </span>
                            <div>
                             <span class="step-progressbar-text">
@@ -93,10 +94,11 @@
                     </div>
                   
                 </li>
-                <li class="step-progressbar-part active">
+                <li class="step-progressbar-part ">
                     <div class="step-progressbar-step-part">
                         <span class="step-progressbar-img ms-3">
-                            <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                            {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                            <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
                         </span>
                         <div>
                             <span class="step-progressbar-text">
@@ -122,10 +124,11 @@
                     </div>
                     
                 </li>
-                <li class="step-progressbar-part">
+                <li class="step-progressbar-part active">
                     <div class="step-progressbar-step-part">
                         <span class="step-progressbar-img ms-3">
-                            <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                            {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
+                            <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
                         </span>
                         <div>
                             <span class="step-progressbar-text">

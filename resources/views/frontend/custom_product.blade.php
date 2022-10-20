@@ -102,7 +102,8 @@
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part ">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -131,7 +132,8 @@
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -145,7 +147,8 @@
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -163,7 +166,8 @@
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -177,7 +181,8 @@
                         <div class="step-progressbar-step-part">
         
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -195,7 +200,8 @@
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -216,8 +222,8 @@
                         <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input" value="0"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input" value="{{ $Maxprice  }}"></span>
                             </div>
                         </div>
                         <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>

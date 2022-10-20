@@ -255,7 +255,7 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="section31_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                 </div>
                                 <div class="form-group">
-                                    <select  name="section31_category_id" id="category_select" class="form-control">
+                                    <select  name="section31_category_id" id="section31_category_id" class="form-control">
                                     <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
@@ -274,7 +274,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select  name="section32_category_id" id="category_select" class="form-control">
+                                    <select  name="section32_category_id" id="section32_category_id" class="form-control">
                                     <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
@@ -296,7 +296,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select  name="section33_category_id" id="category_select" class="form-control">
+                                    <select  name="section33_category_id" id="section33_category_id" class="form-control">
                                     <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
@@ -333,6 +333,26 @@
             placeholder: "Select Category",
             allowClear: false
         });
+
+        $('#section31_category_id').select2({
+            width: '100%',
+            placeholder: "Select Category",
+            allowClear: false
+        });
+
+        $('#section32_category_id').select2({
+            width: '100%',
+            placeholder: "Select Category",
+            allowClear: false
+        });
+
+        $('#section33_category_id').select2({
+            width: '100%',
+            placeholder: "Select Category",
+            allowClear: false
+        });
+
+        
         
         $.get("{{ url('admin/menupage') }}" +'/4/edit', function (data) {
             $('#main_title').val(data.main_title);
