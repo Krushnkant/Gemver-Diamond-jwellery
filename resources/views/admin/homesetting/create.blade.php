@@ -186,7 +186,7 @@
                             
                             <hr>
                             <h4 class="card-title">
-                              Certified Grown Diamonds Section
+                              Colored Diamond Jewellery Section
                             </h4>
 
                             <div class="form-group">
@@ -203,8 +203,15 @@
                                 <div id="section_customise_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_customise_label">Button Label 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_customise_label" name="section_customise_label" value="{{ $homesettings->section_customise_label }}">
+                                <div id="section_customise_label-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
 
-                            <div class="form-group"  style="display:none;">
+
+                            <div class="form-group"  >
                                 <label class="col-form-label" for="button_url">Select Category URL
                                 </label>
                                 <select id='button_url' name="button_url" class="form-control">
@@ -414,7 +421,7 @@
                             </div> -->
 
                             <button type="button" class="btn btn-outline-primary mt-4" id="save_newHomeBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-                            <button type="button" class="btn btn-primary mt-4" id="save_closeHomeBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            {{-- <button type="button" class="btn btn-primary mt-4" id="save_closeHomeBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button> --}}
 
                             </div>
                         </form>
