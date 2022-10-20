@@ -40,6 +40,7 @@ class HomeSettingController extends Controller
         $Settings->section_stories_description = $request->section_stories_description;
         $Settings->section_customise_title = $request->section_customise_title;
         $Settings->section_customise_description = $request->section_customise_description;
+        $Settings->section_customise_label = $request->section_customise_label;
         $Settings->section_customise_link = $request->button_url;
         $Settings->section_customise_image = ($request->homeImg != "") ? $request->homeImg :$Settings->section_customise_image;
         $Settings->section_shop_by_style_title = $request->section_shop_by_style_title;
