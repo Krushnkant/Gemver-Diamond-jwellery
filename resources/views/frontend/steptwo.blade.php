@@ -28,7 +28,7 @@
                         <p class="customer_stories_paragraph">{!! $Step->step2_section1_description !!}</p>
                     </div>
                     <div class="row mt-3 mt-md-5">
-                        <div class="col-md-4">
+                        <div class="col-md-12 text-center">
                             <div class="jewellery-diamond-shape">
                                 <img src="{{ url('images/steps/'.$Step->step2_section1_image) }}" alt="">
                             </div>

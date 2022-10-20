@@ -3777,10 +3777,9 @@ border: 0;
         color: var(--secondary);
         text-transform: capitalize;
     }
-    
-    .step_two_design .jewellery-diamond-shape img {
+    /* .step_two_design .jewellery-diamond-shape img {
         width: 207px;
-    }
+    } */
     
     .step_two_design .jewellery-diamond-shape-name {
         font-weight: 600;
@@ -3790,6 +3789,10 @@ border: 0;
         text-transform: capitalize;
         color: #0B1727;
         font-family: 'Roboto', sans-serif;
+    }
+    
+    .jewellery-diamond-shape img {
+        width: auto;
     }
     
     .step_two_design .jewellery-step-two-img {
