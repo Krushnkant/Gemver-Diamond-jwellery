@@ -36,7 +36,8 @@
                    <li class="step-progressbar-part ">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -66,7 +67,8 @@
                         <div class="step-progressbar-step-part active">
 
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -84,7 +86,8 @@
                                 3
                             </span> -->
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -102,7 +105,8 @@
                         <div class="step-progressbar-step-part">
         
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_1.png') }}" alt="">
+                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -119,7 +123,8 @@
                                 2
                             </span>  -->
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_2.png') }}" alt="">
+                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -138,7 +143,8 @@
                         <div class="step-progressbar-step-part">
   
                             <span class="step-progressbar-img ms-3">
-                                <img src="{{ url('frontend/image/step_3.png') }}" alt="">
+                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
+                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
@@ -241,8 +247,8 @@
                             <div class="align-items-center mb-2 position-relative">
                                 <div id="slider-range-carat" class="mb-0"></div>
                                     <div class="d-flex mt-3">
-                                        <span class="from_text"><input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                        <span class="to_text"><input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                        <span class="from_text"><input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
+                                        <span class="to_text"><input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input" value="7"></span>
                                     </div>
                             </div>
                             <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
@@ -380,8 +386,8 @@
                         <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $Maxprice  }}"></span>
                             </div>
                         </div>
                         <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
@@ -435,8 +441,8 @@
                         <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range-depth" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxDepth  }}"></span>
                             </div>
                         </div>
                         <!-- <p class="mb-0"> <span id="depth"></span></p> -->
@@ -476,8 +482,8 @@
                         <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range-ratio" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3"></span>
                             </div>
                         </div>
                         <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
@@ -528,8 +534,8 @@
                         <div class="align-items-center mb-2 position-relative">
                             <div id="slider-range-table" class="mb-0"></div>
                             <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input"></span>
+                                <span class="from_text"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxTable  }}"></span>
                             </div>
                         </div>
                         <!-- <p class="mb-0"> <span id="table"></span></p> -->

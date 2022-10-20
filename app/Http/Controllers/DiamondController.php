@@ -61,8 +61,8 @@ class DiamondController extends Controller
         $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice'));
+        $StepPopup = StepPopup::where(['category_id'=>$id])->get();
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice','StepPopup'));
     } 
 
     public function getDiamonds(Request $request)
@@ -308,6 +308,7 @@ class DiamondController extends Controller
         }
 
        $TotalDiamond = Diamond::get();
+       
        // $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']]; 
        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => 0];  
        return $data;
@@ -344,7 +345,8 @@ class DiamondController extends Controller
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
         $settings = Settings::first();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated','settings'));
+        $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated','settings','StepPopup'));
     }
 
     public function customproducts($id,$shopbyid = 0){
@@ -571,8 +573,9 @@ class DiamondController extends Controller
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$vid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first();
+        $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$id)->groupBy('products.id')->get();
-        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated','settings'));
+        return view('frontend.custom_product_details',compact('Product','Category','check_diamond','CatId','DiamondPrice','attribute_term_ids','OrderIncludes','ProductRelated','settings','StepPopup'));
     }
 
     public function getProductComplete($catid){
@@ -587,7 +590,8 @@ class DiamondController extends Controller
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.estatus' => 1,'product_variants.estatus' => 1,'primary_category_id' => $catid])->where('products.id','<>',$Product->product_id)->groupBy('products.id')->get();
         
         $settings = Settings::first();
-        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated','settings'));
+        $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
+        return view('frontend.product_complete',compact('Category','Product','Diamond','CatId','cart','OrderIncludes','ProductRelated','settings','StepPopup'));
     }
 
     public function editproductsetting($catid){

@@ -45,8 +45,8 @@
                                 <div class="align-items-center mb-2 position-relative">
                                     <div id="slider-range" class="mb-0"></div>
                                     <div class="d-flex mt-3">
-                                        <span class="from_text"><input type="numner" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input"></span>
-                                        <span class="to_text"><input type="numner" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input"></span>
+                                        <span class="from_text"><input type="numner" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input" value="0"></span>
+                                        <span class="to_text"><input type="numner" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input" value="{{ $Maxprice  }}"></span>
                                    </div>
                                 </div>
                                 <!-- <p class="mb-0"> <span id="amount"></span></p> -->
