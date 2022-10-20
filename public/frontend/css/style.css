@@ -2502,7 +2502,6 @@ opacity: 1;
         background-color: transparent;
         border: 1px solid var(--primary);
         border-radius: 3px;
-        display: inline-block;
         vertical-align: middle;
         cursor: pointer;
         margin-right: 10px;
@@ -2512,6 +2511,9 @@ opacity: 1;
         padding: 0 5px;
         min-width: 76px;
         line-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .round_cut_lab_range_color .form-group input:checked+label {
@@ -6183,4 +6185,10 @@ width: 100%;
         height: 40px;
         line-height: 37px;
         border: 0;
+    }
+    
+    .fancy_color_img {
+        width: 10px;
+        height: auto;
+        margin-right: 5px;
     }
