@@ -258,9 +258,23 @@
                     </div>
                 </div>
                 <div class="col-lg-6 round_cut_lab_filter">
-                    <div class="round_cut_lab_range_slider round_cut_lab_range_color row mb-3">
-                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">color</div>
-                        <div class="col-md-12">
+                <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
+                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
+                    <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-center justify-content-sm-start filter-tab" id="myTab" role="tablist">
+                        <li class="active nav-item">
+                            <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
+                        </li>
+                        <li>
+                            <a class="nav-link py-0" href="#2aa" data-toggle="tab">Fancy Color</a>
+                        </li>
+                    </ul>
+                </span>
+                    <span class="col-md-12">
+                        <div id="exTab1" class="container px-0">	
+
+                        <div class="tab-content clearfix">
+                        
+                        <div class="tab-pane active" id="1aa">
                             <div class="form-group d-inline-block mb-2">
                                 <input type="checkbox"  value="D" name="color[]" class="color common_selector" id="colorsD">
                                 <label for="colorsD">D</label>
@@ -301,10 +315,100 @@
                                 <input type="checkbox"  value="M" name="color[]" class="color common_selector" id="colorsM">
                                 <label for="colorsM">M</label>
                             </div>
-        
+                        </div>
+                        <div class="tab-pane" id="2aa">
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Yellow" name="fancycolor[]" class="fancycolor common_selector" id="colorsYellow">
+                                <label for="colorsYellow">
+                                    <img src="{{ url('frontend/image/yellow.png') }}" alt="asscher" class="fancy_color_img">
+                                    Yellow
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Orange" name="fancycolor[]" class="fancycolor common_selector" id="colorsOrange">
+                                <label for="colorsOrange">
+                                    <img src="{{ url('frontend/image/orange.png') }}" alt="asscher" class="fancy_color_img">
+                                    Orange
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Pink" name="fancycolor[]" class="fancycolor common_selector" id="colorsPink">
+                                <label for="colorsPink">
+                                    <img src="{{ url('frontend/image/pink.png') }}" alt="asscher" class="fancy_color_img">
+                                    Pink
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Blue" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlue">
+                                <label for="colorsBlue">
+                                <img src="{{ url('frontend/image/blue.png') }}" alt="asscher" class="fancy_color_img">
+                                    Blue
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Green" name="fancycolor[]" class="fancycolor common_selector" id="colorsGreen">
+                                <label for="colorsGreen">
+                                <img src="{{ url('frontend/image/green.png') }}" alt="asscher" class="fancy_color_img">
+                                    Green
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Brown" name="fancycolor[]" class="fancycolor common_selector" id="colorsBrown">
+                                <label for="colorsBrown">
+                                    <img src="{{ url('frontend/image/brown.png') }}" alt="asscher" class="fancy_color_img">
+                                    Brown
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Red" name="fancycolor[]" class="fancycolor common_selector" id="colorsRed">
+                                <label for="colorsRed">
+                                    <img src="{{ url('frontend/image/red.png') }}" alt="asscher" class="fancy_color_img">
+                                    Red
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="White" name="fancycolor[]" class="fancycolor common_selector" id="colorsWhite">
+                                <label for="colorsWhite">
+                                    <img src="{{ url('frontend/image/white.png') }}" alt="asscher" class="fancy_color_img">
+                                    White
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Violet" name="fancycolor[]" class="fancycolor common_selector" id="colorsViolet">
+                                <label for="colorsViolet">
+                                    <img src="{{ url('frontend/image/violet.png') }}" alt="asscher" class="fancy_color_img">
+                                    Violet
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="Purple" name="fancycolor[]" class="fancycolor common_selector" id="colorsPurple">
+                                <label for="colorsPurple">
+                                    <img src="{{ url('frontend/image/purple.png') }}" alt="asscher" class="fancy_color_img">
+                                    Purple
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsOlive">
+                                <label for="colorsOlive">
+                                    <img src="{{ url('frontend/image/olive.png') }}" alt="asscher" class="fancy_color_img">
+                                    Olive
+                                </label>
+                            </div>
+                            <div class="form-group d-inline-block mb-2 position-relative">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlack">
+                                <label for="colorsBlack">
+                                    <img src="{{ url('frontend/image/black.png') }}" alt="asscher" class="fancy_color_img">
+                                    Black
+                                </label>
+                            </div>
+                           
+                        </div>
                         </div>
                     </div>
+                       
+                    </span>
                 </div>
+            </div>
                 <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                             <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
@@ -452,47 +556,9 @@
                     </span>
                 </div>
             </div>
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row">
-                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">Certificate</div>
-                        <div class="col-md-12">
-                            <div class="form-group d-inline-block me-3 mb-2">
-                                <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
-                                <label for="reportGCAL">GCAL</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-2">
-                                <input type="checkbox" name="report[]" value="IGI" class="report common_selector" id="reportIGI">
-                                <label for="reportIGI">IGI</label>
-                            </div>
-                            <div class="form-group d-inline-block me-3 mb-2">
-                                <input type="checkbox" name="report[]" value="GIA" class="report common_selector" id="reportGIA">
-                                <label for="reportGIA">GIA</label>
-                            </div>
-                            
-                        </div>
-                    </div> 
-            </div>
+           
 
             
-
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-            <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-ratio" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3"></span>
-                            </div>
-                        </div>
-                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_ratio" />
-                        <input type="hidden" id="hidden_maximum_ratio" />
-                    </span>
-                </div>
-            </div>
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
@@ -525,9 +591,7 @@
                 </div>
         </div>
 
-            
-
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+        <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
@@ -576,6 +640,52 @@
                         </div>
                     </span>
                 </div>
+            </div>
+
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+            <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
+                        <div class="align-items-center mb-2 position-relative">
+                            <div id="slider-range-ratio" class="mb-0"></div>
+                            <div class="d-flex mt-3">
+                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
+                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3"></span>
+                            </div>
+                        </div>
+                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
+                        <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_ratio" />
+                        <input type="hidden" id="hidden_maximum_ratio" />
+                    </span>
+                </div>
+            </div>
+          
+        
+            
+
+         
+
+           
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row">
+                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">Report</div>
+                        <div class="col-md-12">
+                            <!-- <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
+                                <label for="reportGCAL">GCAL</label>
+                            </div> -->
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="report[]" value="IGI" class="report common_selector" id="reportIGI">
+                                <label for="reportIGI">IGI</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="report[]" value="GIA" class="report common_selector" id="reportGIA">
+                                <label for="reportGIA">GIA</label>
+                            </div>
+                            
+                        </div>
+                    </div> 
             </div>
 
             <div class="row align-items-center">
