@@ -194,7 +194,7 @@
 
 
 <div class="container mb-5 pb-5">
-    <div class="row">
+    <div class="row two_part_box_section">
         <div class="col-md-6 order-2 order-md-1">
             <div class="choose_your_setting_box text-center">
                 <div class="">
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
+        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 design_engagemnt_image">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>

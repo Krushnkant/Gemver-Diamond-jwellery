@@ -22,7 +22,7 @@
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
             Choose Your Setting  Style
         </div>
-        <div class="row">
+        <div class="row ">
             @if($MenuPage->menupageshapestyle)
             @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
             <div class="col-6 col-sm-4 col-md-4 col-lg-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
@@ -39,7 +39,7 @@
 </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row two_part_box_section">
         <div class="col-md-6 order-2 order-md-1">
             <div class="choose_your_setting_box text-center">
                 <div class="">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
+        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 design_engagemnt_image">
             <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
         </div>  
     </div>
@@ -118,7 +118,7 @@
 </div>
 
 <div class="container mb-5 pb-5">
-    <div class="row">
+    <div class="row two_part_box_section">
         <div class="col-md-6">
             <div class="choose_your_setting_box text-center">
                 <div class="">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 design_engagemnt_image">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>

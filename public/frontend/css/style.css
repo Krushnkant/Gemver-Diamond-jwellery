@@ -69,8 +69,7 @@ height: 700px;
 background: url(../image/smoke.png) #0B1727 no-repeat;
 background-size: cover;
 } */
-    
-    .background-smoke-slider img {
+    /* .background-smoke-slider img {
         width: 100%;
     }
     
@@ -79,7 +78,7 @@ background-size: cover;
         background-size: 100% !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
-    }
+    } */
     
     .logo-image {
         max-width: 150px;
@@ -88,40 +87,9 @@ background-size: cover;
     }
     
     .header {
-        /* position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-padding: 40px 70px; */
         z-index: 111;
         transition: all 0.5s ease;
     }
-    /* .header.sticky {
-position: fixed;
-top: 0;
-background: #fff;
-padding: 0 70px;
-box-shadow: 3px 6px 7px 1px hwb(0deg 0% 100% / 10%);
-} */
-    /* .header.sticky ul li a {
-color: #0b1727;
-}
-
-.header ul li a:hover svg path {
-fill: var(--secondary);
-}
-
-.header.sticky ul li:hover>.mega-menu {
-top: calc(100% + 0);
-}
-
-.header.sticky ul li {
-padding: 0 40px 20px 40px;
-}
-
-.header.sticky li a svg path {
-fill: #0B1727;
-} */
     
     .header ul li {
         display: inline-block;
@@ -499,8 +467,7 @@ fill: #0B1727;
         border-radius: 10px;
         /* box-shadow: 3px 3px 10px rgb(117 117 117 / 20%); */
         box-shadow: 3px 3px 10px 0px rgb(191 207 223);
-        margin: 20px 15px;
-        margin-left: 10px;
+        margin: 20px 8px;
     }
     
     .catrgery_heading {
@@ -4327,6 +4294,31 @@ width: 100%;
         margin-top: 2px;
     }
     
+    .marquee {
+        overflow: hidden;
+        position: relative;
+        height: 25px;
+        width: 100%;
+    }
+    
+    .marquee div {
+        display: block;
+        width: 200%;
+        height: 30px;
+        position: absolute;
+        overflow: hidden;
+        animation: marquee 15s linear infinite;
+    }
+    
+    @keyframes marquee {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: -200%;
+        }
+    }
+    
     .sub_title {
         font-size: 16px;
         color: gray;
@@ -6194,4 +6186,8 @@ width: 100%;
         width: 10px;
         height: auto;
         margin-right: 5px;
+    }
+    
+    .two_part_box_section .design_engagemnt_image img {
+        height: 400px;
     }

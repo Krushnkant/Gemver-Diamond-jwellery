@@ -20,7 +20,7 @@
 
 <div class="">
         <div class="container my-5">
-            <div class="row">
+            <div class="row two_part_box_section">
                 <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img">
                     <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
@@ -199,7 +199,7 @@
 
 
     <div class="container mb-5 mb-md-5 pb-md-5 mt-5">
-    <div class="row">
+    <div class="row two_part_box_section">
         <div class="col-md-6 order-2 order-md-1">
             <div class="choose_your_setting_box text-center">
                 <div class="">
@@ -215,7 +215,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 lab-diamond-img">
+        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 lab-diamond-img design_engagemnt_image">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>

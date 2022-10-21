@@ -106,13 +106,16 @@
          dots: false,
          responsive: {
              0: {
-                 items: 1
-             },
-             576: {
                  items: 1,
              },
-             768: {
+             576: {
                  items: 2,
+             },
+             768: {
+                 items: 3,
+             },
+             992: {
+                 items: 4,
              },
              1200: {
                  items: 5
@@ -366,7 +369,7 @@
      // });
 
      $('.home-page-slider').owlCarousel({
-         loop: true,
+         loop: false,
          margin: 10,
          nav: true,
          dots: false,
@@ -540,6 +543,13 @@
      });
  }
 
- $('body').on('click', '#reSet', function () {
-    location.reload();
+ $('body').on('click', '#reSet', function() {
+     location.reload();
+ });
+
+ jQuery(function() {
+     jQuery('marquee').marquee({
+         pauseOnHover: true,
+         duration: 8000
+     });
  });
