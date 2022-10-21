@@ -22,8 +22,8 @@
     @if($num == 1)
         <div class="my-3 mb-xl-4 mt-5 pt-4"> 
             <div class="container mb-xl-5 text-center">
-                <div class="row">
-                    <div class="col-md-6 ps-md-0 order-2 order-md-1 pe-md-0">
+                <div class="row two_part_box_section">
+                    <div class="col-md-6 ps-md-0 order-2 order-md-1">
                         <div class="choose_your_setting_box text-center">
                             <div class="">
                                 <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2 ps-md-0">
+                    <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
                         <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     </div> 
                 </div>
@@ -131,11 +131,11 @@
         @if($arr[$num % 2] == 'Even')
         <div class="my-3 my-xl-4"> 
             <div class="container mb-xl-5 text-center">
-                <div class="row">
-                    <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img pe-md-0">
+                <div class="row two_part_box_section">
+                    <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img">
                         <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     </div> 
-                    <div class="col-md-6 ps-md-0">
+                    <div class="col-md-6">
                         <div class="choose_your_setting_box text-center">
                             <div class="">
                                 <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -157,7 +157,7 @@
         @else
         <div class="my-3 my-xl-4"> 
             <div class="container mb-xl-5 text-center">
-                <div class="row">
+                <div class="row two_part_box_section">
                     
                     <div class="col-md-6 ps-md-0">
                         <div class="choose_your_setting_box text-center">
