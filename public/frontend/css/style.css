@@ -3952,6 +3952,10 @@ width: 100%;
         margin-top: 30px;
     }
     
+    .mobile-sub-menu .lab_grown_diamond_li .mega-menu {
+        left: 37%;
+    }
+    
     .shop-by-category .owl-next,
     .product-detail .owl-next,
     .products_item .owl-next {
