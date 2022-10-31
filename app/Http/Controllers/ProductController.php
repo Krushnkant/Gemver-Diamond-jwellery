@@ -132,25 +132,26 @@ class ProductController extends Controller
                 $query = $query->where('product_variant_specifications.attribute_term_id',$specification);
                 $query = $query->where('product_variant_specifications.estatus',1);
             }
-
+            $result_total = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->get();
+           
              if(isset($data["sorting"])){ 
                 if($data["sorting"]== "date")   
                 {
-                    $result = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(12);  
+                    $result = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(8);  
                 }
                 else if($data["sorting"] == "price")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(12); 
+                    $result = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(8); 
                 }
                 else if($data["sorting"]=="price-desc")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(12); 
+                    $result = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(8); 
                 }else{
-                    $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);  
+                    $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);  
                 }
            }else{
                
-            $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
+            $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);
            }
           // dd(\DB::getQueryLog());
            //$result = $query->groupBy('products.id')->paginate(12);
@@ -260,9 +261,9 @@ class ProductController extends Controller
                 ';
             }
             }else{
-                $output .= 'Data Not Found';  
+                $output .= '';  
             } 
-            $data = ['output' => $output,'datacount' => count($result)];   
+            $data = ['output' => $output,'datacount' => count($result_total)];   
             return $data;
             }
     }

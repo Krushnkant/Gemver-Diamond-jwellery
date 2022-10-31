@@ -542,7 +542,7 @@
                                 @endif
                                 </span>
                             </div>
-                            <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">{{ $Diamond->Shape .' '. round($Diamond->Weight,2) }} ct</a></div>
+                            <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->Shape .' '. round($Diamond->Weight,2) }} ct</a></div>
                             <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                 <span>{{ $Diamond->Clarity }} clarity |</span>
                                 <span>{{ $Diamond->Color }} color |</span>
