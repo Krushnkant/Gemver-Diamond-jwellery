@@ -4328,10 +4328,10 @@ width: 100%;
         color: gray;
     }
     
-    .navbar_header {
+    /* .navbar_header {
         height: 24px;
         line-height: normal;
-    }
+    } */
     
     .header-logo img {
         width: auto;

@@ -610,6 +610,15 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.settings.list,admin.settings.edit'
         ]);
 
+        ProjectPage::create([
+            'id' => 61,
+            'parent_menu' => 52,
+            'label' => 'Customer List',
+            'route_url' => 'admin.end_users.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.end_users.list,admin.end_users.addorupdate,admin.allEnduserlist,admin.end_users.changeEnduserstatus,admin.end_users.edit,admin.end_users.delete'
+        ]);
+
     
         
 

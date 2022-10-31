@@ -201,6 +201,7 @@ Route::get('admin/403_page',[\App\Http\Controllers\admin\AuthController::class,'
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'admin.'],function () {
     Route::get('dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::post('TodayallOrderlist',[\App\Http\Controllers\admin\DashboardController::class,'TodayallOrderlist'])->name('TodayallOrderlist');
 
     Route::get('attributes',[\App\Http\Controllers\admin\AttributeController::class,'index'])->name('attributes.list');
     Route::post('addorupdateattribute',[\App\Http\Controllers\admin\AttributeController::class,'addorupdateattribute'])->name('attributes.addorupdate');
@@ -263,6 +264,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('users/{id}/delete',[\App\Http\Controllers\admin\UserController::class,'deleteuser'])->name('users.delete');
     Route::get('users/{id}/permission',[\App\Http\Controllers\admin\UserController::class,'permissionuser'])->name('users.permission');
     Route::post('savepermission',[\App\Http\Controllers\admin\UserController::class,'savepermission'])->name('users.savepermission');
+
+    Route::get('end_users',[\App\Http\Controllers\admin\EndUserController::class,'index'])->name('end_users.list');
+    Route::post('addorupdateEnduser',[\App\Http\Controllers\admin\EndUserController::class,'addorupdateEnduser'])->name('end_users.addorupdate');
+    Route::post('allEnduserlist',[\App\Http\Controllers\admin\EndUserController::class,'allEnduserlist'])->name('allEnduserlist');
+    Route::get('changeEnduserstatus/{id}',[\App\Http\Controllers\admin\EndUserController::class,'changeEnduserstatus'])->name('end_users.changeEnduserstatus');
+    Route::get('end_users/{id}/delete',[\App\Http\Controllers\admin\EndUserController::class,'deleteEnduser'])->name('end_users.delete');
 
 
     Route::get('faqs',[\App\Http\Controllers\admin\FaqController::class,'index'])->name('faqs.list');

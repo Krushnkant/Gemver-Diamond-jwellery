@@ -293,7 +293,7 @@
 <script src="{{ asset('plugins/summernote/dist/summernote-init.js') }}"></script>
 <script src="{{ asset('js/CatImgJs.js') }}" type="text/javascript"></script>
 
-
+<script src="{{ url('plugins/chart.js/Chart.bundle.min.js') }}"></script>
 
 @yield('js')
 

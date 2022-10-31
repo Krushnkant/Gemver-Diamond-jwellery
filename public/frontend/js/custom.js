@@ -1,5 +1,5 @@
- var base_url = window.location.origin + '/public';
- //var base_url = window.location.origin;
+ //var base_url = window.location.origin + '/public';
+ var base_url = window.location.origin;
  $(document).ready(function() {
 
      var asset = $('#asset').val();
@@ -547,9 +547,9 @@
      location.reload();
  });
 
- jQuery(function() {
-     jQuery('marquee').marquee({
-         pauseOnHover: true,
-         duration: 8000
-     });
- });
+//  jQuery(function() {
+//      jQuery('marquee').marquee({
+//          pauseOnHover: true,
+//          duration: 8000
+//      });
+//  });
