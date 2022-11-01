@@ -94,7 +94,7 @@
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Sub Total</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> <input type="hidden" id="subamount" name="sub_totalcost" value=""><span id="sub_amount"> 0 </span></h5></td>
+                                    <td><h5>$ <input type="hidden" id="subamount" name="sub_totalcost" value=""><span id="sub_amount"> 0 </span></h5></td>
                                 </tr>
                                
                                 <tr>
@@ -113,7 +113,7 @@
                                     </td>
                                     <td></td>
                                     <td>
-                                        <h5><i class="fa fa-inr" aria-hidden="true"></i> <input type="hidden" id="coupandiscount" name="coupan_discount" value="0"><span id="coupan_discount">  0 </span></h5>
+                                        <h5>$ <input type="hidden" id="coupandiscount" name="coupan_discount" value="0"><span id="coupan_discount">  0 </span></h5>
                                        
                                             
                                           
@@ -123,7 +123,7 @@
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Order Total Cost</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> <input type="hidden" id="totalamount" name="payble_ordercost" value=""><span id="total_amount">  0 </span></h5></td>
+                                    <td><h5>$ <input type="hidden" id="totalamount" name="payble_ordercost" value=""><span id="total_amount">  0 </span></h5></td>
                                 </tr>
                             </table>
                         </div>

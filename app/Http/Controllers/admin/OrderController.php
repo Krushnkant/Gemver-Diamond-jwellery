@@ -134,7 +134,7 @@ class OrderController extends Controller
                     }
 
                     $order_info = '<span>Order ID: '.$Order->custom_orderid.'</span>';
-                    $order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i> '.$Order->total_ordercost.'</span>';
+                    $order_info .= '<span>Total Order Cost: $ '.$Order->total_ordercost.'</span>';
                     $order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
@@ -200,17 +200,17 @@ class OrderController extends Controller
                             $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
                         }
                         if (isset($item_details['orderItemPrice'])){
-                            // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                            $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                            // $table .= '<td>Price: $ '.$item_details['orderItemPrice'].'</td>';
+                            $table .= '<td class="multirow text-right">Item Price: $ '.$item_details['orderItemPrice'].$orderItemPrice;
                         }
                         if (isset($item_details['SubDiscount'])){
-                            $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                            $table .= '<span>Sub Discount: $ '.$item_details['SubDiscount'].'</span>';
                         }
                         if (isset($item_details['totalItemAmount'])){
-                            $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                            $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
                         if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                            $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                         }
                         $table .= '</tr>';
                         $item++;
@@ -348,7 +348,7 @@ class OrderController extends Controller
                     }
 
                     $order_info = '<span>Order ID: '.$Order->custom_orderid.'</span>';
-                    $order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i> '.$Order->total_ordercost.'</span>';
+                    $order_info .= '<span>Total Order Cost: $ '.$Order->total_ordercost.'</span>';
                     $order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
@@ -434,17 +434,17 @@ class OrderController extends Controller
                             $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
                         }
                         if (isset($item_details['orderItemPrice'])){
-                            // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                            $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                            // $table .= '<td>Price: $ '.$item_details['orderItemPrice'].'</td>';
+                            $table .= '<td class="multirow text-right">Item Price: $ '.$item_details['orderItemPrice'].$orderItemPrice;
                         }
                         if (isset($item_details['SubDiscount'])){
-                            $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                            $table .= '<span>Sub Discount: $ '.$item_details['SubDiscount'].'</span>';
                         }
                         if (isset($item_details['totalItemAmount'])){
-                            $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                            $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
                         if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                            $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                         }
                         $table .= '</tr>';
                         $item++;
@@ -575,7 +575,7 @@ class OrderController extends Controller
                     }
 
                     $order_info = '<span>Order ID: '.$Order->custom_orderid.'</span>';
-                    $order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i> '.$Order->total_ordercost.'</span>';
+                    $order_info .= '<span>Total Order Cost: $ '.$Order->total_ordercost.'</span>';
                     $order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
@@ -641,17 +641,17 @@ class OrderController extends Controller
                             $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
                         }
                         if (isset($item_details['orderItemPrice'])){
-                            // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                            $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                            // $table .= '<td>Price: $ '.$item_details['orderItemPrice'].'</td>';
+                            $table .= '<td class="multirow text-right">Item Price: $ '.$item_details['orderItemPrice'].$orderItemPrice;
                         }
                         if (isset($item_details['SubDiscount'])){
-                            $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                            $table .= '<span>Sub Discount: $ '.$item_details['SubDiscount'].'</span>';
                         }
                         if (isset($item_details['totalItemAmount'])){
-                            $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                            $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
                         if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                            $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                         }
                         $table .= '</tr>';
                         $item++;
@@ -1124,16 +1124,16 @@ class OrderController extends Controller
                         $qty = ' &times; '.$return_request->item_quantity.' Qty';
                     }
                     if (isset($return_request->order_item_price)){
-                        $price_info .= '<span>Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$return_request->order_item_price.$qty.'</span>';
+                        $price_info .= '<span>Item Price: $ '.$return_request->order_item_price.$qty.'</span>';
                     }
                     if (isset($return_request->sub_discount)){
-                        $price_info .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$return_request->sub_discount.'</span>';
+                        $price_info .= '<span>Sub Discount: $ '.$return_request->sub_discount.'</span>';
                     }
                     if (isset($return_request->total_item_amount)){
-                        $price_info .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$return_request->total_item_amount.'</span>';
+                        $price_info .= '<span>total Amount: $ '.$return_request->total_item_amount.'</span>';
                     }
                     if (isset($return_request->item_payable_amt)){
-                        $price_info .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$return_request->item_payable_amt.'</span>';
+                        $price_info .= '<span>Payable Amount: $ '.$return_request->item_payable_amt.'</span>';
                     }
 
                     if(isset($return_request->payment_status)) {
@@ -1297,7 +1297,7 @@ class OrderController extends Controller
                     }
 
                     $order_info = '<span>Order No: '.$Order->custom_orderid.'</span>';
-                    //$order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i>'.$Order->total_ordercost.'</span>';
+                    //$order_info .= '<span>Total Order Cost: $'.$Order->total_ordercost.'</span>';
                     //$order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
@@ -1378,17 +1378,17 @@ class OrderController extends Controller
                     //         $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
                     //     }
                     //     if (isset($item_details['orderItemPrice'])){
-                    //         // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                    //         $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                    //         // $table .= '<td>Price: $ '.$item_details['orderItemPrice'].'</td>';
+                    //         $table .= '<td class="multirow text-right">Item Price: $ '.$item_details['orderItemPrice'].$orderItemPrice;
                     //     }
                     //     if (isset($item_details['SubDiscount'])){
-                    //         $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                    //         $table .= '<span>Sub Discount: $ '.$item_details['SubDiscount'].'</span>';
                     //     }
                     //     if (isset($item_details['totalItemAmount'])){
-                    //         $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                    //         $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                     //     }
                     //     if (isset($item_details['itemPayableAmt'])){
-                    //         $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                    //         $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                     //     }
                     //     $table .= '</tr>';
                     //     $item++;
@@ -1627,9 +1627,9 @@ class OrderController extends Controller
             <td class="multirow">
                 '.$item.'
             </td>
-            <td ><i class="fa fa-inr" aria-hidden="true"></i><span class="price_jq">'. $product['sale_price'] .'</span></td>
+            <td >$<span class="price_jq">'. $product['sale_price'] .'</span></td>
             <td><input type="number" class="qty" name="qty[]" id="qty" min="1" onkeypress="return isNumber(event)" max="5000" value="'.$item_qty.'" ></td>
-            <td ><i class="fa fa-inr" aria-hidden="true"></i><span class="cart_total_price">'. $product['sale_price'] * $item_qty .'</span></td>
+            <td >$<span class="cart_total_price">'. $product['sale_price'] * $item_qty .'</span></td>
         </tr>';
         $sub_amount = $sub_amount + $product['sale_price'] * $item_qty;
         $total_amount = $total_amount + ($product['sale_price'] * $item_qty);

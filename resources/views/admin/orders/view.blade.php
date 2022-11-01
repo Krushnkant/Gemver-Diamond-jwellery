@@ -322,29 +322,29 @@
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Sub Total</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->sub_totalcost }}</h5></td>
+                                    <td><h5>$ {{ $Order->sub_totalcost }}</h5></td>
                                 </tr>
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Shipping Cost</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->shipping_charge }}</h5></td>
+                                    <td><h5>$ {{ $Order->shipping_charge }}</h5></td>
                                 </tr>
                                 <tr>
                                     <td class="text-right" colspan="4">
                                         <h5>Coupan Discount</h5>
                                     </td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->discount_amount }}</h5></td>
+                                    <td><h5>$ {{ $Order->discount_amount }}</h5></td>
                                 </tr>
                                 {{-- <tr>
                                     <td class="text-right" colspan="4"><h5>Refund Amount</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->total_refund_amount }}</h5></td>
+                                    <td><h5>$ {{ $Order->total_refund_amount }}</h5></td>
                                 </tr> --}}
                                 <tr>
                                     <td class="text-right" colspan="4"><h5>Order Total Cost</h5></td>
                                     <td></td>
-                                    <td><h5><i class="fa fa-inr" aria-hidden="true"></i> {{ $Order->total_ordercost }}</h5></td>
+                                    <td><h5>$ {{ $Order->total_ordercost }}</h5></td>
                                 </tr>
                                 </tbody>
                             </table>

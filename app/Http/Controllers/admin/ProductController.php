@@ -965,10 +965,10 @@ class ProductController extends Controller
                     
                     $price = '<ul>';
                     if(isset($product->regular_price)){
-                        $price .= '<li class="regularprice"><i class="fa fa-inr" aria-hidden="true"></i> '.$product->regular_price.'</li>';
+                        $price .= '<li class="regularprice">$ '.$product->regular_price.'</li>';
                     }
                     if (isset($product->sale_price)){
-                        $price .= '<li><i class="fa fa-inr" aria-hidden="true"></i> '.$product->sale_price.'</li></ul>';
+                        $price .= '<li>$ '.$product->sale_price.'</li></ul>';
                     }
 
                     $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';

@@ -10,7 +10,9 @@
         </div>
     </div>--}}
     <!-- row -->
-
+    <?php $page_id = \App\Models\ProjectPage::where('route_url',\Illuminate\Support\Facades\Route::currentRouteName())->pluck('id')->first(); ?>
+    @if(getUSerRole()==1 || (getUSerRole()!=1 && is_read($page_id)) )
+   
     <div class="container-fluid">
         <div class="container-fluid">
             <div class="container-fluid mt-3">
@@ -33,9 +35,9 @@
                                     <div class="card-body">
                                         <h3 class="card-title text-white">Today Sales</h3>
                                         <div class="d-inline-block">
-                                            <h2 class="text-white"><i class="fa fa-inr" aria-hidden="true"></i> {{ $today_order_sum }} </h2>
+                                            <h2 class="text-white">$ {{ $today_order_sum }} </h2>
                                             <p class="text-white mb-0">Yester Sales</p>
-                                            <h4 class="text-white mb-0"><i class="fa fa-inr" aria-hidden="true"></i> {{ $yesterday_order_sum }} </h4>
+                                            <h4 class="text-white mb-0">$ {{ $yesterday_order_sum }} </h4>
                                         </div>
                                         <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
                                     </div>
@@ -50,7 +52,7 @@
                                             <p class="text-white mb-0">Today Opinion</p>
                                             <h4 class="text-white mb-0"> {{ $today_opinion_count }} </h4>
                                         </div>
-                                        <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                                        <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -63,47 +65,38 @@
                                             <p class="text-white mb-0"> All Users</p>
                                             <h4 class="text-white mb-0"> {{ $yesterday_user_count }} </h4>
                                         </div>
-                                        <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
+                                        <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                        
         
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Order Chart</h4>
-                                        <canvas id="lineChart" width="500" height="250"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body pb-0 d-flex justify-content-between">
                                                 <div>
-                                                    <h4 class="mb-1">Product Sales</h4>
-                                                    <p>Total Earnings of the Month</p>
-                                                    <h3 class="m-0">$ 12,555</h3>
+                                                    <h4 class="mb-1">Orders</h4>
+                                                    <p>Total Orders of the Month</p>
+                                                    <h3 class="m-0"> {{ $chattotalorders->charttotalorder }} </h3>
                                                 </div>
-                                                <div>
+                                                {{-- <div>
                                                     <ul>
                                                         <li class="d-inline-block mr-3"><a class="text-dark" href="#">Day</a></li>
                                                         <li class="d-inline-block mr-3"><a class="text-dark" href="#">Week</a></li>
                                                         <li class="d-inline-block"><a class="text-dark" href="#">Month</a></li>
                                                     </ul>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="chart-wrapper">
-                                                <canvas id="chart_widget_2"></canvas>
+                                                <canvas id="chart_orders"></canvas>
                                             </div>
-                                            <div class="card-body">
+                                            {{-- <div class="card-body">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="w-100 mr-2">
                                                         <h6>Pixel 2</h6>
@@ -118,11 +111,53 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body pb-0 d-flex justify-content-between">
+                                                <div>
+                                                    <h4 class="mb-1">Product Sales</h4>
+                                                    <p>Total Earnings of the Month</p>
+                                                    <h3 class="m-0">$ {{ $chattotalsalesorders->charttotalamount }}</h3>
+                                                </div>
+                                                {{-- <div>
+                                                    <ul>
+                                                        <li class="d-inline-block mr-3"><a class="text-dark" href="#">Day</a></li>
+                                                        <li class="d-inline-block mr-3"><a class="text-dark" href="#">Week</a></li>
+                                                        <li class="d-inline-block"><a class="text-dark" href="#">Month</a></li>
+                                                    </ul>
+                                                </div> --}}
+                                            </div>
+                                            <div class="chart-wrapper">
+                                                <canvas id="chart_sales_order"></canvas>
+                                            </div>
+                                            {{-- <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="w-100 mr-2">
+                                                        <h6>Pixel 2</h6>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-danger" style="width: 40%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-2 w-100">
+                                                        <h6>iPhone X</h6>
+                                                        <div class="progress" style="height: 6px">
+                                                            <div class="progress-bar bg-primary" style="width: 80%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                      
                         
@@ -209,6 +244,8 @@
             </div>
         </div>
     </div>
+    
+    @endif
     @endsection
     @section('js')
     <!-- user list JS start -->
@@ -419,8 +456,12 @@ $('body').on('click', '#AddTrackingBtn', function () {
     for(var i = 1; i <= total_days; i++){
         total_dayss.push(i);
     }
-    console.log(total_dayss);
-    let ctx = document.getElementById("chart_widget_2");
+
+    var level1 = "{{ $string_version_1 }}";
+    var numbersArray1 = level1.split(',');
+
+    //console.log(total_dayss);
+    let ctx = document.getElementById("chart_orders");
     ctx.height = 280;
     new Chart(ctx, {
         type: 'line',
@@ -429,8 +470,8 @@ $('body').on('click', '#AddTrackingBtn', function () {
             type: 'line',
             defaultFontFamily: 'Montserrat',
             datasets: [{
-                data: [0, 15, 57, 12, 85, 10, 50, 1500, 57, 12, 85, 10, 50, 15, 57, 12, 85, 10, 50, 15, 57, 12, 85, 10, 50, 57, 12, 85, 10, 50],
-                label: "iPhone X",
+                data: numbersArray1,
+                label: "Orders",
                 backgroundColor: '#847DFA',
                 borderColor: '#847DFA',
                 borderWidth: 0.5,
@@ -438,9 +479,95 @@ $('body').on('click', '#AddTrackingBtn', function () {
                 pointRadius: 5,
                 pointBorderColor: 'transparent',
                 pointBackgroundColor: '#847DFA',
-            }, {
-                label: "Pixel 2",
-                data: [0, 30, 5, 53, 15, 55, 0, 15, 57, 12, 85, 10, 50, 15, 57, 12, 100, 80, 40, 40, 57, 19, 90, 20, 70, 57, 19, 90, 20, 70],
+            }]
+        },
+        options: {
+            responsive: !0,
+            maintainAspectRatio: false,
+            tooltips: {
+                mode: 'index',
+                titleFontSize: 12,
+                titleFontColor: '#000',
+                bodyFontColor: '#000',
+                backgroundColor: '#fff',
+                titleFontFamily: 'Montserrat',
+                bodyFontFamily: 'Montserrat',
+                cornerRadius: 3,
+                intersect: false,
+            },
+            legend: {
+                display: false,
+                position: 'top',
+                labels: {
+                    usePointStyle: true,
+                    fontFamily: 'Montserrat',
+                },
+
+
+            },
+            scales: {
+                xAxes: [{
+                    display: false,
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    scaleLabel: {
+                        display: false,
+                        labelString: 'Month'
+                    }
+                }],
+                yAxes: [{
+                    display: false,
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Value'
+                    }
+                }]
+            },
+            title: {
+                display: false,
+            }
+        }
+    });
+
+
+    
+
+
+})(jQuery);
+
+ //Sales chart
+ (function($) {
+    "use strict"
+
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1;
+    var total_dayss = [];
+    var total_days = daysInMonth(currentMonth,currentYear);
+    for(var i = 1; i <= total_days; i++){
+        total_dayss.push(i);
+    }
+
+    var level1 = "{{ $string_version_2 }}";
+    var numbersArray1 = level1.split(',');
+
+    //console.log(total_dayss);
+    let ctx = document.getElementById("chart_sales_order");
+    ctx.height = 280;
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: total_dayss,
+            type: 'line',
+            defaultFontFamily: 'Montserrat',
+            datasets: [{
+                data: numbersArray1,
+                label: "Sales Order amount",
                 backgroundColor: '#F196B0',
                 borderColor: '#F196B0',
                 borderWidth: 0.5,
