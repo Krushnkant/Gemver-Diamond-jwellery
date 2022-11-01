@@ -126,11 +126,11 @@
     <div class="nk-sidebar">
         <div class="nk-nav-scroll">
             <ul class="metismenu" id="menu">
-                <li>
+                {{-- <li>
                     <a href="{{ route('admin.dashboard') }}" aria-expanded="false">
                     <i class="fa fa-dashboard"></i><span class="nav-text">Dashboard</span>
                     </a>
-                </li>
+                </li> --}}
                 @php $leftMenuPages = getLeftMenuPages(); @endphp
 
                 @foreach($leftMenuPages as $page)
@@ -178,14 +178,18 @@
                                         $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
                                         
                                         ?>
-                                            <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
+                                            @if(count($order_count) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
+                                            @endif
                                         @endif
 
                                         @if($subpage['route_url'] == "admin.return_requests_order.list")
                                         <?php
                                             $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
                                         ?>
-                                            <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
+                                            @if(count($payment_count) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
+                                            @endif
                                         @endif
                                     </a> </li>
                                     @endforeach

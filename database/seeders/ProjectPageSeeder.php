@@ -619,19 +619,21 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.end_users.list,admin.end_users.addorupdate,admin.allEnduserlist,admin.end_users.changeEnduserstatus,admin.end_users.edit,admin.end_users.delete'
         ]);
 
+        ProjectPage::create([ 
+            'id' => 62, 
+            'parent_menu' => 0, 
+            'label' => 'Dashboard', 
+            'route_url' => 'admin.dashboard', 
+            'is_display_in_menu' => 0, 
+            'inner_routes' => 'admin.dashboard,admin.TodayallOrderlist',
+            'icon_class' => 'fa fa-dashboard', 
+            'sr_no' => 0 
+        ]);
+
     
         
 
-        
-
-        
-        
-
-        
-
-        
-        
-        
+    
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();
         $project_page_ids2 = ProjectPage::where('parent_menu',"!=",0)->where('is_display_in_menu',1)->pluck('id')->toArray();

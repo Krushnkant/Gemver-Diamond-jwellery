@@ -83,6 +83,12 @@
                     location.href ="{{ url('/account') }}";
                 }
 
+                if(res.status == 300){
+                    $('#loginSubmit').find('.loadericonfa').hide();
+                    $('#loginSubmit').prop('disabled',false);
+                    toastr.error("Your Account is Deactive..Please Contact Admin",'Error',{timeOut: 5000});
+                }
+
                 if(res.status == 400){
                     $('#loginSubmit').find('.loadericonfa').hide();
                     $('#loginSubmit').prop('disabled',false);

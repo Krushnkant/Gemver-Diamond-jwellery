@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Opinion;
 use App\Models\Inquiry;
 use App\Models\ProjectPage;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class DashboardController extends Controller
@@ -35,10 +37,109 @@ class DashboardController extends Controller
         $today_opinion =  Opinion::whereDate('created_at', '=', date('Y-m-d'))->get();
         $today_opinion_count = $today_opinion->count();
 
-        return view('admin.dashboard',compact('today_order_amount','yesterday_order_amount','today_user_count','yesterday_user_count','today_order_sum','yesterday_order_sum','today_inquiry_count','today_opinion_count'));
+        $now = Carbon::now();
+        $month = $now->month;
+        $years = $now->year;
+        $level_1_month_commisionn_current = [];
+        $chatorders = Order::select("*")->whereMonth('created_at', '=', $month)
+                                                ->whereYear('created_at', '=', $years)
+                                                ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))
+                                                ->selectRaw('count(id) as amount')
+                                                ->get();
+
+        if($chatorders != null){
+            foreach($chatorders as $com){
+                $ddd = date('d', strtotime($com->created_at));
+                $level_1_month_commisionn_current[(int)$ddd] =  $com->amount;
+               // array_push($level_1_month_commisionn_current, $sss);
+            }
+        }                                        
+        //dd($level_1_month_commisionn_current);
+        
+        $number = cal_days_in_month(CAL_GREGORIAN, $month, $years);
+        $order_current_string = [];
+        for($i = 1; $i <= $number; $i++){
+            
+            if($chatorders != null){
+                //dump($i);
+               // dump($level_1_month_commisionn_current);
+                if(array_key_exists($i,$level_1_month_commisionn_current)){
+                   // dd($level_1_month_commisionn_current[$i]);
+                //foreach($chatorders as $aa){
+                   // $ddd = date('d', strtotime($aa->created_at));
+                    //if($ddd == $i){
+                        $amount = $level_1_month_commisionn_current[$i];
+                        array_push($order_current_string, $amount);
+                    //}
+                }else{
+                    array_push($order_current_string, 0);
+                }
+
+            }else{
+                array_push($order_current_string, 0);
+            }
+           
+        }
+        $string_version_1 = implode(',', $order_current_string);
+
+
+        $level_2_month_commisionn_current = [];
+        $chatsalesorders = Order::select("*")->whereMonth('created_at', '=', $month)
+                                                ->whereYear('created_at', '=', $years)
+                                                ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))
+                                                ->selectRaw('sum(total_ordercost) as amount')
+                                                ->get();
+
+        if($chatsalesorders != null){
+            foreach($chatsalesorders as $com){
+                $ddd = date('d', strtotime($com->created_at));
+                $level_2_month_commisionn_current[(int)$ddd] =  $com->amount;
+               // array_push($level_1_month_commisionn_current, $sss);
+            }
+        }                                        
+        //dd($level_1_month_commisionn_current);
+        
+        $number = cal_days_in_month(CAL_GREGORIAN, $month, $years);
+        $order_sales_current_string = [];
+        for($i = 1; $i <= $number; $i++){
+            
+            if($chatsalesorders != null){
+                //dump($i);
+               // dump($level_1_month_commisionn_current);
+                if(array_key_exists($i,$level_2_month_commisionn_current)){
+                   // dd($level_1_month_commisionn_current[$i]);
+                //foreach($chatorders as $aa){
+                   // $ddd = date('d', strtotime($aa->created_at));
+                    //if($ddd == $i){
+                        $amount = $level_2_month_commisionn_current[$i];
+                        array_push($order_sales_current_string, $amount);
+                    //}
+                }else{
+                    array_push($order_sales_current_string, 0);
+                }
+
+            }else{
+                array_push($order_sales_current_string, 0);
+            }
+           
+        }
+        $string_version_2 = implode(',', $order_sales_current_string);
+
+        $chattotalorders = Order::whereMonth('created_at', '=', $month)
+                                                ->whereYear('created_at', '=', $years)
+                                                ->selectRaw('count(id) as charttotalorder')
+                                                ->first();
+
+        $chattotalsalesorders = Order::whereMonth('created_at', '=', $month)
+        ->whereYear('created_at', '=', $years)
+        ->selectRaw('sum(total_ordercost) as charttotalamount')
+        ->first();                                        
+        
+        return view('admin.dashboard',compact('today_order_amount','yesterday_order_amount','today_user_count','yesterday_user_count','today_order_sum','yesterday_order_sum','today_inquiry_count','today_opinion_count','string_version_1','string_version_2','chattotalorders','chattotalsalesorders'));
     }
 
     public function TodayallOrderlist(Request $request){
+  
         if ($request->ajax()) {
             $columns = array(
                 0 =>'id',
@@ -124,7 +225,7 @@ class DashboardController extends Controller
                     $user_info = User::find($Order->user_id);
                     // dump($user_info);
                     $page_id = ProjectPage::where('route_url','admin.orders.list')->pluck('id')->first();
-
+                   
                     $action = '';
                    // $action .= '<button id="invoiceBtn" class="btn btn-gray text-blue btn-sm" onclick="getInvoiceData(\''.$Order->id.'\')"><i class="fa fa-print" aria-hidden="true"></i></button>';
                     if($Order->tracking_url != ""){
@@ -143,7 +244,7 @@ class DashboardController extends Controller
                     }
 
                     $order_info = '<span>Order ID: '.$Order->custom_orderid.'</span>';
-                    $order_info .= '<span>Total Order Cost: <i class="fa fa-inr" aria-hidden="true"></i> '.$Order->total_ordercost.'</span>';
+                    $order_info .= '<span>Total Order Cost: $ '.$Order->total_ordercost.'</span>';
                     $order_info .= '<span>Total Items: '.count($Order->order_item).'</span>';
 
                     $delivery_address = json_decode($Order->delivery_address,true);
@@ -229,17 +330,17 @@ class DashboardController extends Controller
                             $orderItemPrice = ' &times; '.$item_details['itemQuantity'].' Qty';
                         }
                         if (isset($item_details['orderItemPrice'])){
-                            // $table .= '<td>Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].'</td>';
-                            $table .= '<td class="multirow text-right">Item Price: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['orderItemPrice'].$orderItemPrice;
+                            // $table .= '<td>Price: $ '.$item_details['orderItemPrice'].'</td>';
+                            $table .= '<td class="multirow text-right">Item Price: $ '.$item_details['orderItemPrice'].$orderItemPrice;
                         }
                         if (isset($item_details['SubDiscount'])){
-                            $table .= '<span>Sub Discount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['SubDiscount'].'</span>';
+                            $table .= '<span>Sub Discount: $ '.$item_details['SubDiscount'].'</span>';
                         }
                         if (isset($item_details['totalItemAmount'])){
-                            $table .= '<span>total Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['totalItemAmount'].'</span>';
+                            $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
                         if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: <i class="fa fa-inr" aria-hidden="true"></i> '.$item_details['itemPayableAmt'].'</span></td>';
+                            $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                         }
                         $table .= '</tr>';
                         $item++;
@@ -270,4 +371,6 @@ class DashboardController extends Controller
             echo json_encode($json_data);
         }
     }
+
+    
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -32,13 +33,19 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
-
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-//            dd(Auth::user()->toArray());
-            return response()->json(['status'=>200]);
-            /*return redirect()->intended('admin/dashboard')
-                ->withSuccess('You have Successfully loggedin');*/
+        $user = User::where('email',$request->email)->where('decrypted_password',$request->password)->whereNotIn('role',['3'])->first();
+        if ($user) {
+        if($user->estatus == 1){    
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+    //            dd(Auth::user()->toArray());
+                return response()->json(['status'=>200]);
+                /*return redirect()->intended('admin/dashboard')
+                    ->withSuccess('You have Successfully loggedin');*/
+            }
+        }else{
+            return response()->json(['status'=>300]);
+        }    
         }
         return response()->json(['status'=>400]);
 //        return redirect("admin")->withSuccess('Oppes! You have entered invalid credentials');

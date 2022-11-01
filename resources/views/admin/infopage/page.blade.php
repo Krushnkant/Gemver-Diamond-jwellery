@@ -319,7 +319,7 @@
                     $("#ShippingCostModal").modal('hide');
                     $('#saveShippingCostBtn').prop('disabled',false);
                     $('#saveShippingCostBtn').find('.loadericonfa').hide();
-                    $("#ShippingCostVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.shipping_cost);
+                    $("#ShippingCostVal").html('$ ' + res.shipping_cost);
                     toastr.success("Settings Updated",'Success',{timeOut: 5000});
                 }
 
@@ -365,7 +365,7 @@
                     $("#PremiumUserMembershipFeeModal").modal('hide');
                     $('#savePremiumUserMembershipFeeBtn').prop('disabled',false);
                     $('#savePremiumUserMembershipFeeBtn').find('.loadericonfa').hide();
-                    $("#PremiumUserMembershipFeeVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.premium_user_membership_fee);
+                    $("#PremiumUserMembershipFeeVal").html('$ ' + res.premium_user_membership_fee);
                     toastr.success("Settings Updated",'Success',{timeOut: 5000});
                 }
 
@@ -444,7 +444,7 @@
                     $("#MinOrderAmountModal").modal('hide');
                     $('#saveMinOrderAmountBtn').prop('disabled',false);
                     $('#saveMinOrderAmountBtn').find('.loadericonfa').hide();
-                    $("#MinOrderAmountVal").html('<i class="fa fa-inr" aria-hidden="true"></i> ' + res.min_order_amount);
+                    $("#MinOrderAmountVal").html('$ ' + res.min_order_amount);
                     toastr.success("Settings Updated",'Success',{timeOut: 5000});
                 }
 

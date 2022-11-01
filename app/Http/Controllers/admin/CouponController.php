@@ -136,7 +136,7 @@ class CouponController extends Controller
                         $discount_type = $Coupon->coupon_amount.' <i class="fa fa-percent" aria-hidden="true"></i> Off';
                     }
                     elseif($Coupon->discount_type_id == 2){
-                        $discount_type = $Coupon->coupon_amount.' <i class="fa fa-inr" aria-hidden="true"></i> Off';
+                        $discount_type = $Coupon->coupon_amount.' $ Off';
                     }
 
                     if (isset($Coupon->allow_cod) && $Coupon->allow_cod!=0){

@@ -41,58 +41,63 @@ class AuthController extends Controller
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
 
-        $user = User::where('email',$request->email)->where('decrypted_password',$request->password)->where('role',3)->where('estatus',1)->first();
+        $user = User::where('email',$request->email)->where('decrypted_password',$request->password)->where('role',3)->first();
         if ($user) {
-            $data = array(
-                'id' => $user->id,
-                'full_name' => $user->full_name,
-                'email' => $user->email,
-                'mobile_no' => $user->mobile_no,
-                'profile_pic' => $user->profile_pic
-            );
-            $request->session()->put('customer',$data);
-            $user_id = session('customer.id');
+            if($user->estatus == 1){
+                $data = array(
+                    'id' => $user->id,
+                    'full_name' => $user->full_name,
+                    'email' => $user->email,
+                    'mobile_no' => $user->mobile_no,
+                    'profile_pic' => $user->profile_pic
+                );
+                $request->session()->put('customer',$data);
+                $user_id = session('customer.id');
 
-            $cookie_data = stripslashes(Cookie::get('product_wishlist'));
-            $wishlist_data = json_decode($cookie_data, true);
-            if($wishlist_data){  
-                foreach($wishlist_data as $wishlist){
-                    $wishlist_data = Wishlist::where(['user_id' => session('customer.id'),'item_id' => $wishlist['item_id'],'item_type' => $wishlist['item_type'] ])->first();
-                    if(!$wishlist_data){
-                        Wishlist::create([
-                            'user_id' => $user_id,
-                            'item_id' => $wishlist['item_id'],
-                            'item_type' => $wishlist['item_type']
-                        ]);
+                $cookie_data = stripslashes(Cookie::get('product_wishlist'));
+                $wishlist_data = json_decode($cookie_data, true);
+                if($wishlist_data){  
+                    foreach($wishlist_data as $wishlist){
+                        $wishlist_data = Wishlist::where(['user_id' => session('customer.id'),'item_id' => $wishlist['item_id'],'item_type' => $wishlist['item_type'] ])->first();
+                        if(!$wishlist_data){
+                            Wishlist::create([
+                                'user_id' => $user_id,
+                                'item_id' => $wishlist['item_id'],
+                                'item_type' => $wishlist['item_type']
+                            ]);
+                        }
                     }
                 }
-            }
-            Cookie::queue(Cookie::forget('product_wishlist'));
+                Cookie::queue(Cookie::forget('product_wishlist'));
 
-            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-            $cart_datas = json_decode($cookie_data, true);
-            //dd($cart_data);
-            if($cart_datas){  
-                foreach($cart_datas as $cart){
-                  
-                    $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $cart['item_id'],'item_type' => $cart['item_type'] ])->first();
-                    //dd($cart);
-                    if(!$cart_data){
-                        ItemCart::create([
-                            'user_id' => $user_id,
-                            'item_quantity' => $cart['item_quantity'],
-                            'item_id' => $cart['item_id'],
-                            'diamond_id' => $cart['diamond_id'],
-                            'item_type' => $cart['item_type'],
-                            'specification' => (isset($cart['specification']))?json_encode($cart['specification']) :""
-                        ]);
+                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                $cart_datas = json_decode($cookie_data, true);
+                //dd($cart_data);
+                if($cart_datas){  
+                    foreach($cart_datas as $cart){
+                    
+                        $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $cart['item_id'],'item_type' => $cart['item_type'] ])->first();
+                        //dd($cart);
+                        if(!$cart_data){
+                            ItemCart::create([
+                                'user_id' => $user_id,
+                                'item_quantity' => $cart['item_quantity'],
+                                'item_id' => $cart['item_id'],
+                                'diamond_id' => $cart['diamond_id'],
+                                'item_type' => $cart['item_type'],
+                                'specification' => (isset($cart['specification']))?json_encode($cart['specification']) :""
+                            ]);
+                        }
                     }
                 }
-            }
-           // Cookie::queue(Cookie::forget('shopping_cart'));
+            // Cookie::queue(Cookie::forget('shopping_cart'));
 
-            return response()->json(['status'=>200]);
+                return response()->json(['status'=>200]);
+            }else{
+                return response()->json(['status'=>300]);
+            }
         }
+        
         return response()->json(['status'=>400]);
     }
 

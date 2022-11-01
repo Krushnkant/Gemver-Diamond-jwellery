@@ -35,6 +35,14 @@ function is_delete($page_id){
     return false;
 }
 
+function is_read($page_id){
+    $is_read = \App\Models\UserPermission::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->where('project_page_id',$page_id)->where('can_read',1)->first();
+    if ($is_read){
+        return true;
+    }
+    return false;
+}
+
 function UploadImage($image, $path){
     $imageName = Str::random().'.'.$image->getClientOriginalExtension();
     $path = $image->move(public_path($path), $imageName);
