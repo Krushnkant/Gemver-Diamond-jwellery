@@ -173,6 +173,7 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
 
     Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
+    Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
 
 
     Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('order.orders');

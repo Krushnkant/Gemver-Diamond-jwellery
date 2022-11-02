@@ -136,9 +136,19 @@
                 @foreach($leftMenuPages as $page)
                     @if($page['is_display_in_menu'] == 0)
                         @if(getUSerRole()==1)
+                        
                             <li>
                                 <a href="{{ isset($page['route_url']) ? route($page['route_url']) : '#' }}" aria-expanded="false">
-                                <i class="{{ $page['icon_class'] }}" aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }}</span>
+                                <i class="{{ $page['icon_class'] }}" aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }}
+                                    @if($page['route_url'] == "admin.review.list")
+                                        <?php
+                                        $review_count = \App\Models\Review::where('status',0)->get()->toArray();
+                                        ?>
+                                        @if(count($order_count) > 0)
+                                            <span class="badge badge-primary text-white float-right">{{ count($review_count) }}</span>
+                                        @endif
+                                    @endif
+                                </span>
                                 </a>
                             </li>
                         @else
@@ -163,34 +173,78 @@
                     @if($page['is_display_in_menu'] == 1)
                         <?php
                         $submenupages = \App\Models\ProjectPage::where('parent_menu',$page['id'])->where('is_display_in_menu',1)->get()->toArray();
+                        $menu_count = 0;
                         ?>
                         @if(getUSerRole()==1)
+                        
+                        @foreach($submenupages as $subpage)
+                            @if($subpage['route_url'] == "admin.orders.list")
+                            <?php
+                            $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                            
+                            ?>
+                                @if(count($order_count) > 0)
+                                    <?php $menu_count = $menu_count + count($order_count); ?>
+                                @endif
+                            @endif
+
+                            @if($subpage['route_url'] == "admin.return_requests_order.list")
+                            <?php
+                                $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                            ?>
+                                @if(count($payment_count) > 0)
+                                  <?php $menu_count = $menu_count + count($payment_count); ?>
+                                @endif
+                            @endif
+
+                            @if($subpage['route_url'] == "admin.inquiries.list")
+                                <?php
+                                    $inquiry_count = \App\Models\Inquiry::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
+                                ?>
+                                @if(count($inquiry_count) > 0)
+                                   <?php $menu_count = $menu_count + count($inquiry_count); ?>
+                                @endif
+                            @endif
+                        @endforeach
                             <li>
                                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                                <i class=" {{ $page['icon_class'] }} " aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }}</span>
+                                    <i class=" {{ $page['icon_class'] }} " aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }} 
+                                        @if($menu_count > 0)
+                                            <span class="badge badge-primary text-white" style="margin-left: 90px;">{{ $menu_count }}</span>
+                                        @endif
+                                    </span>
                                 </a>
                                 <ul aria-expanded="false">
                                     @foreach($submenupages as $subpage)
                                     <li><a href="{{ isset($subpage['route_url']) ? route($subpage['route_url']) : '#' }}">{{ $subpage['label'] }} 
                                       
                                         @if($subpage['route_url'] == "admin.orders.list")
-                                        <?php
-                                        $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
-                                        
-                                        ?>
+                                            <?php
+                                            $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                                            ?>
                                             @if(count($order_count) > 0)
                                                 <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
                                             @endif
                                         @endif
 
                                         @if($subpage['route_url'] == "admin.return_requests_order.list")
-                                        <?php
-                                            $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
-                                        ?>
+                                            <?php
+                                                $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                                            ?>
                                             @if(count($payment_count) > 0)
                                                 <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
                                             @endif
                                         @endif
+
+                                        @if($subpage['route_url'] == "admin.inquiries.list")
+                                            <?php
+                                                $inquiry_count = \App\Models\Inquiry::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
+                                            ?>
+                                            @if(count($inquiry_count) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($inquiry_count) }}</span>
+                                            @endif
+                                        @endif
+
                                     </a> </li>
                                     @endforeach
                                 </ul>
@@ -208,14 +262,57 @@
                                     })
                                     ->get()->toArray();
                             ?>
+                             @foreach($check_user_permissions as $subpage)
+                             @if($subpage['project_page']['route_url'] == "admin.orders.list")
+                             <?php
+                             $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                             
+                             ?>
+                                 @if(count($order_count) > 0)
+                                     <?php $menu_count = $menu_count + count($order_count); ?>
+                                 @endif
+                             @endif
+ 
+                             @if($subpage['project_page']['route_url'] == "admin.return_requests_order.list")
+                             <?php
+                                 $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                             ?>
+                                 @if(count($payment_count) > 0)
+                                   <?php $menu_count = $menu_count + count($payment_count); ?>
+                                 @endif
+                             @endif
+ 
+                            @endforeach
                             @if(isset($check_user_permissions) && !empty($check_user_permissions))
                                 <li>
                                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                                        <i class="{{ $page['icon_class'] }}" aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }}</span>
+                                        <i class="{{ $page['icon_class'] }}" aria-hidden="true"></i><span class="nav-text">{{ $page['label'] }}
+                                            @if($menu_count > 0)
+                                                <span class="badge badge-primary text-white " style="margin-left: 100px;">{{ $menu_count }}</span>
+                                            @endif
+                                        </span>
                                     </a>
                                     <ul aria-expanded="false">
                                         @foreach($check_user_permissions as $subpage)
-                                            <li class="leftmenu_page" data-id="{{ $subpage['project_page']['id'] }}"><a href="{{ isset($subpage['project_page']['route_url']) ? route($subpage['project_page']['route_url']) : '#' }}">{{ $subpage['project_page']['label'] }}</a></li>
+                                            <li class="leftmenu_page" data-id="{{ $subpage['project_page']['id'] }}"><a href="{{ isset($subpage['project_page']['route_url']) ? route($subpage['project_page']['route_url']) : '#' }}">{{ $subpage['project_page']['label'] }}
+                                                @if($subpage['project_page']['route_url'] == "admin.orders.list")
+                                                    <?php
+                                                    $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
+                                                    ?>
+                                                    @if(count($order_count) > 0)
+                                                        <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
+                                                    @endif
+                                                @endif
+        
+                                                @if($subpage['project_page']['route_url'] == "admin.return_requests_order.list")
+                                                    <?php
+                                                        $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                                                    ?>
+                                                    @if(count($payment_count) > 0)
+                                                        <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
+                                                    @endif
+                                                @endif
+                                            </a></li>
                                         @endforeach
                                     </ul>
                                 </li>
