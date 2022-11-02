@@ -49,16 +49,14 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([
             'id' => 4,
-            'parent_menu' => 1,
+            'parent_menu' => 0,
             'label' => 'Review',
             'route_url' => 'admin.review.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.review.list,admin.allReviewlist,admin.review.add,admin.review.save'
+            'icon_class' => 'fa fa-comment',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.review.list,admin.allReviewlist,admin.review.add,admin.review.save',
+            'sr_no' => 8
         ]);
-
-
-
-
 
         ProjectPage::create([
             'id' => 5,

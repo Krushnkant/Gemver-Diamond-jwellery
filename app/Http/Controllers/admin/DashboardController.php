@@ -18,18 +18,18 @@ class DashboardController extends Controller
     public function index(){
         $yesterday_date = date('Y-m-d',strtotime("-1 days"));
       
-        $today_order =  Order::whereDate('created_at', '=', date('Y-m-d'))->get();
+        $today_order =  Order::whereNotIn('order_status', [7,8])->whereDate('created_at', '=', date('Y-m-d'))->get();
         $today_order_amount = $today_order->count();
         $today_order_sum = $today_order->sum('total_ordercost');
       
-        $yesterday_order =  Order::whereDate('created_at', '=',$yesterday_date)->get();
+        $yesterday_order =  Order::whereNotIn('order_status', [7,8])->whereDate('created_at', '=',$yesterday_date)->get();
         $yesterday_order_amount = $yesterday_order->count();
         $yesterday_order_sum = $yesterday_order->sum('total_ordercost');
 
-        $today_user =  User::whereDate('created_at', '=', date('Y-m-d'))->get();
+        $today_user =  User::where('role',3)->whereDate('created_at', '=', date('Y-m-d'))->get();
         $today_user_count = $today_user->count();
         
-        $yesterday_user =  User::whereDate('created_at', '=', $yesterday_date)->get();
+        $yesterday_user =  User::where('role',3)->whereDate('created_at', '=', $yesterday_date)->get();
         $yesterday_user_count = $yesterday_user->count();
 
         $today_inquiry =  Inquiry::whereDate('created_at', '=', date('Y-m-d'))->get();
@@ -41,7 +41,7 @@ class DashboardController extends Controller
         $month = $now->month;
         $years = $now->year;
         $level_1_month_commisionn_current = [];
-        $chatorders = Order::select("*")->whereMonth('created_at', '=', $month)
+        $chatorders = Order::select("*")->whereNotIn('order_status', [7,8])->whereMonth('created_at', '=', $month)
                                                 ->whereYear('created_at', '=', $years)
                                                 ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))
                                                 ->selectRaw('count(id) as amount')
@@ -84,7 +84,7 @@ class DashboardController extends Controller
 
 
         $level_2_month_commisionn_current = [];
-        $chatsalesorders = Order::select("*")->whereMonth('created_at', '=', $month)
+        $chatsalesorders = Order::select("*")->whereNotIn('order_status', [7,8])->whereMonth('created_at', '=', $month)
                                                 ->whereYear('created_at', '=', $years)
                                                 ->groupBy(DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y')"))
                                                 ->selectRaw('sum(total_ordercost) as amount')
@@ -125,12 +125,12 @@ class DashboardController extends Controller
         }
         $string_version_2 = implode(',', $order_sales_current_string);
 
-        $chattotalorders = Order::whereMonth('created_at', '=', $month)
+        $chattotalorders = Order::whereNotIn('order_status', [7,8])->whereMonth('created_at', '=', $month)
                                                 ->whereYear('created_at', '=', $years)
                                                 ->selectRaw('count(id) as charttotalorder')
                                                 ->first();
 
-        $chattotalsalesorders = Order::whereMonth('created_at', '=', $month)
+        $chattotalsalesorders = Order::whereNotIn('order_status', [7,8])->whereMonth('created_at', '=', $month)
         ->whereYear('created_at', '=', $years)
         ->selectRaw('sum(total_ordercost) as charttotalamount')
         ->first();                                        

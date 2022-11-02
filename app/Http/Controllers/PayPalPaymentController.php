@@ -50,7 +50,9 @@ class PayPalPaymentController extends Controller
    
     public function paymentCancel()
     {
-        dd('Your payment has been declend. The payment cancelation page goes here!');
+        //dd('Your payment has been declend. The payment cancelation page goes here!');
+        return redirect(url('/paymentcancel'));
+
     }
   
     public function paymentSuccess(Request $request)
@@ -267,6 +269,11 @@ class PayPalPaymentController extends Controller
     public function paymentsuccesspage()
     {
         return view('frontend.paymentsuccess');
-    }    
+    }
+    
+    public function paymentcancelpage()
+    {
+        return view('frontend.paymentcancel');
+    }
 
 }

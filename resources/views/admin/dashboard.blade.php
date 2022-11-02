@@ -93,12 +93,12 @@
                                                     </ul>
                                                 </div> --}}
                                             </div>
-                                            <div class="chart-wrapper">
+                                            <div class="chart-wrapper ml-3 mr-3">
                                                 <canvas id="chart_orders"></canvas>
                                             </div>
-                                            {{-- <div class="card-body">
+                                            <div class="card-body">
                                                 <div class="d-flex justify-content-between">
-                                                    <div class="w-100 mr-2">
+                                                    {{-- <div class="w-100 mr-2">
                                                         <h6>Pixel 2</h6>
                                                         <div class="progress" style="height: 6px">
                                                             <div class="progress-bar bg-danger" style="width: 40%"></div>
@@ -109,9 +109,9 @@
                                                         <div class="progress" style="height: 6px">
                                                             <div class="progress-bar bg-primary" style="width: 80%"></div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                                                 <div>
                                                     <h4 class="mb-1">Product Sales</h4>
                                                     <p>Total Earnings of the Month</p>
-                                                    <h3 class="m-0">$ {{ $chattotalsalesorders->charttotalamount }}</h3>
+                                                    <h3 class="m-0">$ {{ ($chattotalsalesorders->charttotalamount)?$chattotalsalesorders->charttotalamount:0 }}</h3>
                                                 </div>
                                                 {{-- <div>
                                                     <ul>
@@ -134,12 +134,12 @@
                                                     </ul>
                                                 </div> --}}
                                             </div>
-                                            <div class="chart-wrapper">
+                                            <div class="chart-wrapper ml-3 mr-3">
                                                 <canvas id="chart_sales_order"></canvas>
                                             </div>
-                                            {{-- <div class="card-body">
+                                            <div class="card-body">
                                                 <div class="d-flex justify-content-between">
-                                                    <div class="w-100 mr-2">
+                                                    {{-- <div class="w-100 mr-2">
                                                         <h6>Pixel 2</h6>
                                                         <div class="progress" style="height: 6px">
                                                             <div class="progress-bar bg-danger" style="width: 40%"></div>
@@ -150,9 +150,9 @@
                                                         <div class="progress" style="height: 6px">
                                                             <div class="progress-bar bg-primary" style="width: 80%"></div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
