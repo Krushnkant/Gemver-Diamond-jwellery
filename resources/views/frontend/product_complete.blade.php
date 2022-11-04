@@ -87,7 +87,8 @@
                                             price:
                                         </span>
                                         <span class="price_part">
-                                            ${{ $Diamond->Sale_Amt }}
+                                            
+                                            ${{ $Product->sale_price }}
                                         </span>
                                     </div>
                                 </div>
@@ -117,7 +118,7 @@
                                         price:
                                     </span>
                                     <span class="price_part">
-                                        ${{ $Product->sale_price }}
+                                        ${{ $Diamond->Sale_Amt }}
                                     </span>
                                 </div>
                             </div>
