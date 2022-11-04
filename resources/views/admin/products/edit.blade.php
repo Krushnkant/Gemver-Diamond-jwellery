@@ -625,7 +625,7 @@
 
                                                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                                     <div class="form-group row font-weight-bold">
-                                                        <label class="col-lg-12 col-form-label" for="">{{ $name_main }}  Veriation</label>
+                                                        <label class="col-lg-12 col-form-label" for="">{{ $name_main }}  Variation</label>
                                     
                                                     </div>
                                                 </div>

@@ -1544,7 +1544,7 @@ class ProductController extends Controller
         $html .= '
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <div class="form-group row">
-                        <label class="col-lg-12 col-form-label" for="varRegularPrice">'.$AttributeTermc->attrterm_name.' Veriation</label>
+                        <label class="col-lg-12 col-form-label" for="varRegularPrice">'.$AttributeTermc->attrterm_name.' Variation</label>
                         
                     </div>
                 </div>';          

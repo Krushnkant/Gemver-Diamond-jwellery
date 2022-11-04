@@ -72,7 +72,8 @@
                         </span>
                            <div>
                             <span class="step-progressbar-text">
-                                    choose diamonds
+                                    
+                                    choose settings
                                 </span>
                                 <div class="d-flex edit_price_text mt-1">
                                     <span class="me-2">
@@ -102,7 +103,7 @@
                         </span>
                         <div>
                             <span class="step-progressbar-text">
-                                choose settings
+                                choose diamonds
                             </span> 
                             <div class="d-flex edit_price_text mt-1">
                                 <span class="me-2">
