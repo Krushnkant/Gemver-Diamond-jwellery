@@ -14,6 +14,7 @@ class AddReviewToProductVariantsTable extends Migration
     public function up()
     {
         Schema::table('product_variants', function (Blueprint $table) {
+            $table->integer('total_orders')->after('term_item_id');
             $table->integer('total_review')->after('total_orders');
             $table->integer('total_rate_value')->after('total_review');
             $table->integer('product_rating')->after('total_rate_value');
