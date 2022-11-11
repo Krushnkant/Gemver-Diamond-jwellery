@@ -987,8 +987,7 @@ class OrderController extends Controller
             }
         }
 
-      
-
+    
 
         return ['status' => 400];
     }
