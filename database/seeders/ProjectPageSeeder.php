@@ -41,7 +41,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([
             'id' => 3,
             'parent_menu' => 1,
-            'label' => 'Order Return Request',
+            'label' => 'Pay Refund',
             'route_url' => 'admin.return_requests_order.list',
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.return_requests.list,admin.allReturnRequestlist,admin.change_order_status'
@@ -96,10 +96,6 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.opinions.list'
             
         ]);
-
-
-
-
 
         ProjectPage::create([
             'id' => 9,
@@ -390,6 +386,15 @@ class ProjectPageSeeder extends Seeder
         ]);
 
         ProjectPage::create([
+            'id' => 63,
+            'parent_menu' => 22,
+            'label' => 'Testimonials',
+            'route_url' => 'admin.testimonials.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.testimonials.list,admin.alltestimonialslist,admin.testimonials.changetestimonialstatus,admin.testimonials.addorupdatetestimonial,admin.testimonials.edit,admin.testimonials.delete'
+        ]);
+
+        ProjectPage::create([
             'id' => 39,
             'parent_menu' => 22,
             'label' => 'Gemver Difference',
@@ -412,7 +417,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([ 
             'id' => 41, 
             'parent_menu' => 22, 
-            'label' => 'Wedding Brands', 
+            'label' => 'Wedding Bands', 
             'route_url' => 'admin.menupage.weddingpage', 
             'is_display_in_menu' => 1, 
             'inner_routes' => 'admin.menupage.weddingpage,admin.menupage.updateWeddingPage' 

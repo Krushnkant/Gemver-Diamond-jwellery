@@ -390,7 +390,8 @@
                             </div>
                         </div>
                         @if($setting->max_order_price >  $total - $coupan_discount_amount)
-                        <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                      
+                        <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>
                         @else
                         <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
                         @endif
@@ -485,9 +486,9 @@
         var main_total =  total - coupan_discount_amount;
         var max_order_amount = "{{ $setting->max_order_price }}";
         if(main_total < max_order_amount){
-            $("#proceed_to_checkout_btn").addClass("proceed_to_checkout_btn");
+            $("#proceed_to_checkout_btn").addClass("check_max_amounty");
         }else{
-            $("#proceed_to_checkout_btn").removeClass("proceed_to_checkout_btn");
+            $("#proceed_to_checkout_btn").removeClass("check_max_amounty");
         }
 
         $('.final_price').html(main_total);
@@ -582,7 +583,7 @@
         });
     });
 
-    $('.proceed_to_checkout_btn').click(function (e) {
+    $('.check_max_amounty').click(function (e) {
         e.preventDefault();
         var check_login = "{{ is_login() }}";
         if(check_login) {
