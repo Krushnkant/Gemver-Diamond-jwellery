@@ -1,6 +1,7 @@
 jQuery(document).ready(function(){
     var ImageUrl = $("#web_url").val() + "/admin/";
-    var FileforEditUrl = $("#web_url").val() + "/public/";
+    //var FileforEditUrl = $("#web_url").val() + "/public/";
+	var FileforEditUrl = $("#web_url").val();
     var catImg = $("#catImg").val();
     var FileforEdit = null;
     if (catImg!=''){

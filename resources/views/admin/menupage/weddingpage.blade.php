@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Wedding Brands Page</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Wedding Bands Page</a></li>
             </ol>
         </div>
     </div>

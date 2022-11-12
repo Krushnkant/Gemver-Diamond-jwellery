@@ -532,11 +532,11 @@ class MenuPageController extends Controller
                 }
             }
 
-            foreach($shapdataidold as $shapdataids){
-                if(!in_array($shapdataids,$neworderids)){
-                    MenuPageShapeStyle::where('id',$shapdataids)->delete();  
-                }
-            }
+            // foreach($shapdataidold as $shapdataids){
+            //     if(!in_array($shapdataids,$neworderids)){
+            //         MenuPageShapeStyle::where('id',$shapdataids)->delete();  
+            //     }
+            // }
         }
 
         

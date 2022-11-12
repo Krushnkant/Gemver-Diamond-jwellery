@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -224,7 +224,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="container-fluid">
@@ -233,7 +233,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
-                            Section 3
+                            Section 2
                         </h4>
                         <div class="row col-lg-12">
                              
