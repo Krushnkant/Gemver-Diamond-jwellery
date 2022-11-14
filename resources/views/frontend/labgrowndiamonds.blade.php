@@ -3,8 +3,14 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-    <div class="container engagement_text_part">
+    <div class="d-none d-md-block mobile-view-img">  
+        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
+   </div>
+   <div class="d-block d-md-none desktop-view-img">
+        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
+   </div>
+    <!-- <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt=""> -->
+    <!-- <div class="container engagement_text_part">
         <div class="engagement_text_part">
             <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
             <p class="engagement_paragraph mb-4">
@@ -14,7 +20,7 @@
                 <button   class="engagement_start_diamond labDiamondBtn">{{ $MenuPage->main_first_button_name }}</button>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 

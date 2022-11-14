@@ -316,6 +316,18 @@
     .catrgery_box {
         margin: 20px 10px;
     }
+    .mega-menu-sub-part {
+        display: none;
+    }
+    .engagement_paragraph {
+        color: #323232;
+    }
+    .mega-menu-four-part img {
+        display: none;
+    }
+    .two_part_box_section .design_engagemnt_image img {
+        height: auto;
+    }
 }
 
 @media (max-width:575px) {
@@ -490,6 +502,7 @@
         height: 100vh;
         min-height: 100vh;
         overflow: scroll;
+        display: block;
     }
     /* .header ul li:nth-child(3) {
         position: relative;
@@ -561,6 +574,9 @@
         transition: all 1s ease;
         height: 100%;
         border-radius: 0;
+    }
+    .header ul li .mega-menu .menu-part-img {
+        display: none !important;
     }
     .mega-menu-open ul li>.mega-menu {
         right: -100% !important;
@@ -733,6 +749,9 @@
     .finejewellery-heading {
         font-size: 15px;
     }
+    .two_part_box_section .design_engagemnt_image img {
+        object-fit: cover;
+    }
 }
 
 @media (max-width:1199px) {
@@ -764,6 +783,7 @@
         min-width: 130px;
         min-height: 42px;
         font-size: 11px;
+        line-height: 42px;
     }
     .shop_by_category,
     .shop_dimond_by_shape,

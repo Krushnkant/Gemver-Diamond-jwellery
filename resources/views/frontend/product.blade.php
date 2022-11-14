@@ -198,7 +198,7 @@
                              foreach($ProductVariantSpecification as $productvariants)
                              {
 
-                             $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute_name.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                             $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute_name.'</div><span class="wire_bangle_select me-3 d-inline-block">
                                        <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
                                          <option value="">-- '.$productvariants->attribute_name .'--</option>';   
                             
@@ -254,11 +254,11 @@
                             
                             
                             <div class="d-sm-flex">
-                                <span class="inquiry_now_btn d-block d-sm-inline-block">
+                                <span class="inquiry_now_btn d-sm-inline-block">
                                     <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
                                     <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </span>
-                                <span class="inquiry_now_btn product-data d-block d-sm-inline-block">
+                                <span class="inquiry_now_btn product-data d-sm-inline-block">
                                     <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
                                     <input type="hidden" class="item_type" value="0"> 
                                     <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-sm-3" type="button">Add To Cart</button>

@@ -207,7 +207,7 @@
                                                 </div>
                                                 <div class="submenu-box mt-4">
                                                     <ul>
-                                                        <li class="menu-part-img two_part_padding">
+                                                        <li class="menu-part-img two_part_padding ">
                                                             <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                                         </li>
                                                     </ul>
