@@ -1200,6 +1200,7 @@ background-size: cover;
     
     .background-sub-slider {
         margin-top: 0;
+        /* padding: 50px 0; */
     }
     
     .about_us_product {
@@ -2782,8 +2783,7 @@ opacity: 1;
     
     .background-sub-slider {
         position: relative;
-        /* background: url(../image/about_us.png); */
-        height: 130px;
+        height: 200px;
         background-size: 150px;
         background-position: 33%center;
         background-repeat: no-repeat;
@@ -3953,7 +3953,8 @@ width: 100%;
     }
     
     .mobile-sub-menu .lab_grown_diamond_li .mega-menu {
-        left: 37%;
+        right: auto;
+        overflow-y: scroll;
     }
     
     .shop-by-category .owl-next,
@@ -6193,4 +6194,26 @@ width: 100%;
     
     .two_part_box_section .design_engagemnt_image img {
         height: 400px;
+    }
+    
+    .footer-angle svg {
+        width: 16px;
+        height: 16px;
+        transform: rotate(180deg);
+    }
+    
+    .footer-col .footer-angle {
+        transform: rotate(0deg);
+    }
+    
+    .footer-col .foote-heading-acive .footer-angle {
+        transform: rotate(180deg);
+    }
+    
+    .foote-heading-acive {
+        margin-bottom: 24px;
+    }
+    
+    .footer-ul-part {
+        margin-bottom: 24px;
     }

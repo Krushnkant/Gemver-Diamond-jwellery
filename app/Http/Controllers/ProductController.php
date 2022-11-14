@@ -644,7 +644,7 @@ class ProductController extends Controller
                 if($productvariants->attribute_terms['0']->attrterm_thumb == ''){
            
          
-            $variantmulti .='<div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->attribute_name .'</div>
+            $variantmulti .='<div class="wire_bangle_color_heading mb-2">' .$productvariants->attribute->attribute_name .'</div>
             <div class="wire_bangle_carat">';
            
             $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->whereIn('product_variant_id',$product_attributes_variant_ids)->groupBy('attribute_term_id')->get();
