@@ -748,7 +748,8 @@ $(document).ready(function(){
 
     //filter_data_variant();
     filter_data();
-
+    selectjs();
+    sliderjs();
     function filter_data_variant1()
     {
         var action = 'fetch_data';
@@ -827,8 +828,8 @@ $(document).ready(function(){
                     var img = data.result.images.split(",");
                     $img_in = "{{ url('/') }}"+"/"+img[0];
                     $('#inquiry_image').attr('src', $img_in);
-                    selectjs();
-                    sliderjs();
+                    // selectjs();
+                    // sliderjs();
                 } 
             }
         });

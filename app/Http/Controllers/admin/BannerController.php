@@ -32,6 +32,7 @@ class BannerController extends Controller
         $messages = [
             'title.required' =>'Please provide a Title ',
             'catImg.required' =>'Please provide a banner Image',
+            'bannerImg.required' =>'Please provide a mobile banner Image',
             'description.required' =>'Please provide a Description',
         ];
         
@@ -39,6 +40,7 @@ class BannerController extends Controller
             $validator = Validator::make($request->all(), [
                // 'title' =>'required',
                 'catImg' =>'required',
+                'bannerImg' =>'required',
                // 'description' =>'required',
             ], $messages);
         }
@@ -46,7 +48,8 @@ class BannerController extends Controller
        
             $validator = Validator::make($request->all(), [
               //  'title' =>'required',
-                'catImg' =>'required',
+              'catImg' =>'required',
+                'bannerImg' =>'required',
                // 'description' =>'required',
             ], $messages);
         }
@@ -56,7 +59,8 @@ class BannerController extends Controller
 
             $validator = Validator::make($request->all(), [
                // 'title' =>'required',
-                'catImg' =>'required',
+               'catImg' =>'required',
+                'bannerImg' =>'required',
                // 'description' =>'required',
                 'value' => 'required',
             ], $messages);
@@ -84,6 +88,16 @@ class BannerController extends Controller
                 }
                 $banner->banner_thumb = $request->catImg;
             }
+
+            if ($banner->mobile_banner_thumb != $request->bannerImg){
+                if(isset($banner->mobile_banner_thumb)) {
+                    $image = public_path($banner->mobile_banner_thumb);
+                    if (file_exists($image)) {
+                        unlink($image);
+                    }
+                }
+                $banner->mobile_banner_thumb = $request->bannerImg;
+            }
             $banner->title = $request->title;
             $banner->description = $request->description;
             $banner->button_name = $request->button_name;
@@ -98,6 +112,7 @@ class BannerController extends Controller
             $banner->title = $request->title;
             $banner->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $banner->banner_thumb = $request->catImg;
+            $banner->mobile_banner_thumb = $request->bannerImg;
             $banner->description = $request->description;
             $banner->application_dropdown_id = $request->BannerInfo;
             $banner->value = $request->value;

@@ -775,6 +775,8 @@
 <script>    
 $(document).ready(function(){
     filter_data();
+    selectjs();
+    sliderjs();
     $("#sorting").change(function() {
         filter_data();
     });
@@ -819,8 +821,8 @@ $(document).ready(function(){
                     $('#spe_desc').html(data.spe_desc);
                     $('.resview_list').html(data.review_list);
                     $('.total_review_star').html(data.result.product_rating);
-                    selectjs();
-                    sliderjs();
+                    // selectjs();
+                    // sliderjs();
                 }    
                 
             }

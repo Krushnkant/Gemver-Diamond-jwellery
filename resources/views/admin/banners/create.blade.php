@@ -27,6 +27,14 @@
     </div>
 
     <div class="form-group">
+        <label class="col-form-label" for="Thumbnail">Mobile Thumbnail  <span class="text-danger">*</span>
+        </label>
+        <input type="file" name="files[]" id="bannerIconFiles" multiple="multiple">
+        <input type="hidden" name="bannerImg" id="bannerImg" value="">
+        <div id="bannerthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+    </div>
+
+    <div class="form-group">
         <label class="col-form-label" for="button_name">Button Name 
         </label>
         <input type="text" class="form-control input-flat" id="button_name" name="button_name">

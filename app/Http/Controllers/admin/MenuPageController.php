@@ -64,6 +64,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
 
         $old_banner_image = $menupages->banner_image;
+        $old_banner_image = $menupages->banner_image;
         if ($request->hasFile('banner_image')) {
             $image = $request->file('banner_image');
             $image_name = 'banner_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
@@ -76,6 +77,21 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->banner_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
         }
 
         $old_section1_image = $menupages->section1_image;
@@ -253,6 +269,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
 
         $old_banner_image = $menupages->banner_image;
+        $old_banner_image = $menupages->banner_image;
         if ($request->hasFile('banner_image')) {
             $image = $request->file('banner_image');
             $image_name = 'banner_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
@@ -265,6 +282,21 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->banner_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
         }
 
         $old_section1_image = $menupages->section1_image;
@@ -444,6 +476,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
 
         $old_banner_image = $menupages->banner_image;
+        $old_banner_image = $menupages->banner_image;
         if ($request->hasFile('banner_image')) {
             $image = $request->file('banner_image');
             $image_name = 'banner_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
@@ -456,6 +489,21 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->banner_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
         }
 
         $old_section1_image = $menupages->section1_image;
@@ -586,6 +634,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
 
         $old_banner_image = $menupages->banner_image;
+        $old_banner_image = $menupages->banner_image;
         if ($request->hasFile('banner_image')) {
             $image = $request->file('banner_image');
             $image_name = 'banner_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
@@ -598,6 +647,21 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->banner_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
         }
 
         $old_section1_image = $menupages->section1_image;
@@ -741,14 +805,16 @@ class MenuPageController extends Controller
         //dd($request->all());
         $messages = [
             'banner_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
-            'main_shotline.required' =>'Please provide a main shotline',
-            'main_title.required' =>'Please provide a main title',
+            'banner_mobile_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
+            //'main_shotline.required' =>'Please provide a main shotline',
+           // 'main_title.required' =>'Please provide a main title',
         ];
 
         $validator = Validator::make($request->all(), [
             'banner_image' => 'image|mimes:jpeg,png,jpg',
-            'main_shotline' => 'required',
-            'main_title' => 'required',
+            'banner_mobile_image' => 'image|mimes:jpeg,png,jpg',
+            //'main_shotline' => 'required',
+           // 'main_title' => 'required',
          
         ], $messages);
 
@@ -769,6 +835,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
 
         $old_banner_image = $menupages->banner_image;
+        $old_banner_image = $menupages->banner_image;
         if ($request->hasFile('banner_image')) {
             $image = $request->file('banner_image');
             $image_name = 'banner_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
@@ -781,6 +848,36 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->banner_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
+        }
+
+        $old_banner_mobile_image = $menupages->banner_mobile_image;
+        if ($request->hasFile('banner_mobile_image')) {
+            $image = $request->file('banner_mobile_image');
+            $image_name = 'banner_mobile_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_banner_mobile_image)) {
+                $old_banner_mobile_image = public_path('images/aboutus/' . $old_banner_mobile_image);
+                if (file_exists($old_banner_mobile_image)) {
+                    unlink($old_banner_mobile_image);
+                }
+            }
+            $menupages->banner_mobile_image = $image_name;
         }
 
         $old_section1_image = $menupages->section1_image;

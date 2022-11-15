@@ -50,31 +50,49 @@
         </div>
         <?php } ?>
         <div id="catthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-        
+    </div>
+
+
         <div class="form-group">
-        <label class="col-form-label" for="button_name">Button Name 
-        </label>
-        <input type="text" class="form-control input-flat" id="button_name" value="{{ isset($banner)?($banner->button_name):'' }}" name="button_name">
-        <div id="button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+            <label class="col-form-label" for="Thumbnail">Mobile Thumbnail  <span class="text-danger">*</span>
+            </label>
+            <input type="file" name="files[]" id="bannerIconFiles" multiple="multiple">
+            <input type="hidden" name="bannerImg" id="bannerImg" value="{{ isset($banner)?($banner->mobile_banner_thumb):'' }}">
+    
+            <?php
+            if( isset($banner) && isset($banner->mobile_banner_thumb) ){
+            ?>
+            <div class="jFiler-items jFiler-row oldImgDisplayBox">
+                <ul class="jFiler-items-list jFiler-items-grid">
+                    <li id="ImgBox" class="jFiler-item" data-jfiler-index="1" style="">
+                        <div class="jFiler-item-container">
+                            <div class="jFiler-item-inner">
+                                <div class="jFiler-item-thumb">
+                                    <div class="jFiler-item-status"></div>
+                                    <div class="jFiler-item-thumb-overlay"></div>
+                                    <div class="jFiler-item-thumb-image"><img src="{{ url($banner->mobile_banner_thumb) }}" draggable="false"></div>
+                                </div>
+                                <div class="jFiler-item-assets jFiler-row">
+                                    <ul class="list-inline pull-right">
+                                        <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBox', 'bannerImg','<?php echo $banner->mobile_banner_thumb;?>');"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <?php } ?>
+            <div id="bannerthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label" for="button_name">Button Name 
+            </label>
+            <input type="text" class="form-control input-flat" id="button_name" value="{{ isset($banner)?($banner->button_name):'' }}" name="button_name">
+            <div id="button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
         </div>
 
-        <!--<div class="form-group">-->
-        <!--<label class="col-form-label" for="button_url">Button URL -->
-        <!--</label>-->
-        <!--<input type="text" class="form-control input-flat" id="button_url" value="{{ isset($banner)?($banner->button_url):'' }}" name="button_url">-->
-        <!--<div id="button_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>-->
-        <!--</div>-->
-        
-        <!-- <div class="form-group" >
-        <label class="col-form-label" for="button_url">Select Category URL
-        </label>
-        <select id='button_url' name="button_url" class="form-control">
-        <option value="">Select Category</option>
-            @foreach($categories as $category)
-                <option value="{{ URL('/shop/'.$category['id'])}}" @if(isset($category) && URL('/shop/'.$category['id']) == $banner->button_url) selected @endif >{{ $category['category_name'] }}</option>
-            @endforeach
-        </select>
-    </div> -->
+     
 
         <div class="form-group">
             <select class="form-control" id="BannerInfo" name="BannerInfo">
