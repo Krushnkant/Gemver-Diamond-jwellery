@@ -73,16 +73,16 @@
             </div>
             <div class="line"></div>
             <div class="row mt-4 mt-md-5">
-                <div class="col-sm-6 col-md-4 footer-col mb-md-0">
-                    <div class="footer-heading mb-4 mb-md-0 d-flex justify-content-between"> 
+                <div class="col-md-4 footer-col mb-md-0">
+                    <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between"> 
                         about
-                       <div class="footer-angle">
+                       <div class="footer-angle d-block d-md-none">
                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30" fill="none" class="float-end">
                             <path d="M0.686462 0.753148C1.60174 -0.251049 3.08575 -0.251049 4.00103 0.753148L25 23.7919L45.9991 0.753148C46.9144 -0.251049 48.3982 -0.251049 49.3135 0.753148C50.2288 1.75735 50.2288 3.38551 49.3135 4.38971L26.6572 29.2468C25.7419 30.2511 24.2582 30.2511 23.3428 29.2468L0.686462 4.38971C-0.228821 3.38551 -0.228821 1.75735 0.686462 0.753148Z" fill="#212121"/>
                         </svg>
                        </div>
                     </div>
-                    <ul class="footer-ul-part">
+                    <ul class="footer-ul-part d-md-block">
                         <li>
                             <a href="{{ Route('frontend.customervalues')}}">customer values</a>
                         </li>
@@ -104,16 +104,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6 col-md-4 footer-col mb-md-0">
-                    <div class="footer-heading mb-4 mb-md-0 d-flex justify-content-between">
+                <div class="col-md-4 footer-col mb-md-0">
+                    <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                         Why Gemver?
-                    <div class="footer-angle">
+                    <div class="footer-angle d-block d-md-none">
                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30" fill="none" class="float-end">
                             <path d="M0.686462 0.753148C1.60174 -0.251049 3.08575 -0.251049 4.00103 0.753148L25 23.7919L45.9991 0.753148C46.9144 -0.251049 48.3982 -0.251049 49.3135 0.753148C50.2288 1.75735 50.2288 3.38551 49.3135 4.38971L26.6572 29.2468C25.7419 30.2511 24.2582 30.2511 23.3428 29.2468L0.686462 4.38971C-0.228821 3.38551 -0.228821 1.75735 0.686462 0.753148Z" fill="#212121"/>
                         </svg>
                        </div>
                     </div>
-                    <ul class="footer-ul-part">
+                    <ul class="footer-ul-part d-md-block">
                         <li>
                             <a href="{{ Route('frontend.freeshipping') }}">Free Shipping </a>
                         </li>
@@ -137,16 +137,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6 col-md-4 footer-col mb-md-0">
-                    <div class="footer-heading mb-4 mb-md-0 d-flex justify-content-between">
+                <div class="col-md-4 footer-col mb-md-0">
+                    <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                         contact
-                        <div class="footer-angle">
+                        <div class="footer-angle d-block d-md-none">
                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30" fill="none" class="float-end">
                             <path d="M0.686462 0.753148C1.60174 -0.251049 3.08575 -0.251049 4.00103 0.753148L25 23.7919L45.9991 0.753148C46.9144 -0.251049 48.3982 -0.251049 49.3135 0.753148C50.2288 1.75735 50.2288 3.38551 49.3135 4.38971L26.6572 29.2468C25.7419 30.2511 24.2582 30.2511 23.3428 29.2468L0.686462 4.38971C-0.228821 3.38551 -0.228821 1.75735 0.686462 0.753148Z" fill="#212121"/>
                         </svg>
                        </div>
                     </div>
-                    <ul class="footer-ul-part">
+                    <ul class="footer-ul-part d-md-block">
                         <li>
                             <a href="{{ Route('frontend.contactus') }}">Contact Us</a>
                         </li>

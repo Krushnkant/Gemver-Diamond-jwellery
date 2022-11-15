@@ -6217,3 +6217,7 @@ width: 100%;
     .footer-ul-part {
         margin-bottom: 24px;
     }
+    
+    .contact-us-map {
+        overflow: hidden;
+    }

@@ -202,10 +202,15 @@
              }
          }
      });
-     $(".footer-heading").click(function() {
-         $(this).toggleClass("foote-heading-acive");
-         $(this).parent(".footer-col").find(".footer-ul-part").slideToggle();
-     });
+     $(".footer-ul-part").css({ "display": "none" });
+
+     if ($(window).width() < 767) {
+         $(".footer-heading").click(function() {
+             $(this).toggleClass("foote-heading-acive");
+             $(this).parent(".footer-col").find(".footer-ul-part").slideToggle();
+         });
+     }
+
 
 
      $(".blog_filter_btn").click(function() {
