@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                            
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
                               <div class="form-group">
                                 <label class="col-form-label" for="main_title"> Title <span class="text-danger">*</span>
                                 </label>
@@ -61,7 +61,7 @@
                                   </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
                                 <div class="form-group">
                                     <label class="col-form-label" for="main_first_button_name">First Button Name 
                                     </label>
@@ -71,13 +71,23 @@
                                 
                             </div>
 
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
                                  <div class="form-group">
                                     <label class="col-form-label" for="main_second_button_name">Second Button Name 
                                     </label>
                                     <input type="text" class="form-control input-flat" id="main_second_button_name" name="main_second_button_name" >
                                     <div id="main_second_button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                  </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="banner_mobile_image">Banner Mobile Image <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" class="form-control-file" id="banner_mobile_image" name="banner_mobile_image" placeholder="">
+                                    <div id="banner_mobile_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                        <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_mobile_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                </div>
                             </div>
                             
                             </div>
@@ -427,6 +437,11 @@
                 $('#banner_image_show').attr('src', banner_image);
             }
 
+            if(data.banner_mobile_image!=null){
+                var banner_mobile_image = "{{ url('images/aboutus') }}" +"/" + data.banner_mobile_image;
+                $('#banner_mobile_image_show').attr('src', banner_mobile_image);
+            } 
+
            if(data.section1_image!=null){
                 var section1_image = "{{ url('images/aboutus') }}" +"/" + data.section1_image;
                 $('#section1_image_show').attr('src', section1_image);
@@ -611,6 +626,26 @@
             let reader = new FileReader();
             reader.onload = (e) => {
                 $('#banner_image_show').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $('#banner_mobile_image').change(function(){
+        $('#banner_mobile_image-error').hide();
+        var file = this.files[0];
+      
+        var fileType = file["type"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/svg+xml"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            $('#banner_mobile_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png .svg)");
+            var default_image = "{{ url('public/images/placeholder_image.png') }}";
+            $('#banner_mobile_image_show').attr('src', default_image);
+        }
+        else {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#banner_mobile_image_show').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }

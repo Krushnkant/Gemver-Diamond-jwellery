@@ -29,11 +29,11 @@
             <div class="item">
                     <div class="background-slider ">
                         <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
-                        <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
-                            <div class="d-none d-md-block mobile-view-img">
-                                <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                        <div class="background-smoke-slider position-relative">
+                            <div class="d-block d-md-none mobile-view-img">
+                                <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
                             </div>
-                            <div class="d-block d-md-none desktop-view-img">
+                            <div class="d-none d-md-block desktop-view-img">
                                 <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
                             </div>
                             <div class="">

@@ -246,6 +246,12 @@ function save_banner(btn,btn_type){
                     $('#catthumb-error').hide();
                 }
 
+                if (res.errors.bannerImg) {
+                    $('#bannerthumb-error').show().text(res.errors.bannerImg);
+                } else {
+                    $('#bannerthumb-error').hide();
+                }
+
                 if (res.errors.value) {
                     if($("#BannerInfo").val() == 2) {
                         $('#value-error').show().text("Please provide a Category");
