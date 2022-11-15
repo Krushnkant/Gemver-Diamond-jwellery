@@ -1,5 +1,6 @@
  //var base_url = window.location.origin + '/public';
- var base_url = window.location.origin;
+ //var base_url = window.location.origin;
+ var base_url = $("#web_url").val();
  $(document).ready(function() {
 
      var asset = $('#asset').val();
