@@ -30,7 +30,12 @@
                     <div class="background-slider ">
                         <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
                         <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});">
-                            <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                            <div class="d-none d-md-block mobile-view-img">
+                                <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                            </div>
+                            <div class="d-block d-md-none desktop-view-img">
+                                <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                            </div>
                             <div class="">
                                 <div class="background-text-part px-3 px-lg-4 container">
                                     <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
