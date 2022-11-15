@@ -58,7 +58,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6 ps-md-0">
+                <div class="col-md-6 ps-md-0 contact-us-map mt-4 overflow-hidden">
                     <div class="contact_us_bg p-3 p-xl-5">
                         <div class="contact_us_part mb-2 mb-md-4">
                             <div class="contact_us_sub_heading mb-2">

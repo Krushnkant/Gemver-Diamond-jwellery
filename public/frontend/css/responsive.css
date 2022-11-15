@@ -322,11 +322,12 @@
     .engagement_paragraph {
         color: #323232;
     }
-    .mega-menu-four-part img {
-        display: none;
-    }
     .two_part_box_section .design_engagemnt_image img {
         height: auto;
+    }
+    .footer-angle svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
@@ -752,6 +753,12 @@
     .two_part_box_section .design_engagemnt_image img {
         object-fit: cover;
     }
+    .mobile-sub-menu {
+        height: 100%;
+    }
+    .mega-menu-four-part img {
+        display: none;
+    }
 }
 
 @media (max-width:1199px) {
@@ -1169,7 +1176,7 @@
         width: 2rem;
     }
     .inquiry_now_btn button {
-        min-width: 164px;
+        min-width: 138px;
         min-height: 47px;
         font-size: 12px;
     }
@@ -1893,6 +1900,9 @@
     }
     .catrgery_box .catrgory_img img {
         height: 220px;
+    }
+    .footer-logo {
+        max-width: 100px;
     }
 }
 
