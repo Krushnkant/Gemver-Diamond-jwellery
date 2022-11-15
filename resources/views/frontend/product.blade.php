@@ -508,7 +508,7 @@
         <div class="row mt-xl-5 pt-xxl-0 mb-xxl-4 mt-3" id="description">
             <div class="col-md-12">
                 <div class="description_heading">
-                    description
+                    Description
                 </div>
             </div>
             <div class="col-md-12">
