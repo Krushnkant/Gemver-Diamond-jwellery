@@ -88,8 +88,8 @@ class ContactUsController extends Controller
                 $headers  = "From: info@gmail.com" ;
                 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-                mail($contact->email,$contact->subject,$message,$headers);
-                //$mail_sending = Helpers::MailSending($templateName, $data2, $contact->email, $contact->subject);
+                //mail($contact->email,$contact->subject,$message,$headers);
+                $mail_sending = Helpers::MailSending($templateName, $data2, $contact->email, $contact->subject);
                 //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $contact->subject);
                 return response()->json(['status' => '200']); 
             }
