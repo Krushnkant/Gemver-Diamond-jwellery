@@ -85,8 +85,11 @@ class ContactUsController extends Controller
                     '</div>'.
                 '</body>'.
                 '</html>';
-                $headers  = "From: info@gmail.com" ;
-                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                 // To send HTML mail, the Content-type header must be set
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+                $headers .= 'From: info@gmail.com' . "\r\n";
 
                 mail($contact->email,$contact->subject,$message,$headers);
                 //$mail_sending = Helpers::MailSending($templateName, $data2, $contact->email, $contact->subject);
