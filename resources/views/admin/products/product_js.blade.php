@@ -472,6 +472,10 @@ $(document).ready(function(){
     
         if(valid_product==true && valid_variants==true){
             var formData = new FormData($('#ProductForm')[0]);
+            var meta_title = $('#meta_title').val();
+            var meta_description = $('#meta_description').val();
+            formData.append('meta_title',meta_title);
+            formData.append('meta_description',meta_description);
             var cnt = 1;
             $('.variantForm').each(function () {
                 var thi = $(this);

@@ -561,6 +561,8 @@ class ProductController extends Controller
         $product->primary_category_id = $category_ids;
         $product->product_u_id = isset($request->product_u_id) ? $request->product_u_id : null;
         $product->product_title = isset($request->ProductName) ? $request->ProductName : null;
+        $product->meta_title = isset($request->meta_title) ? $request->meta_title : null;
+        $product->meta_description = isset($request->meta_description) ? $request->meta_description : null;
         $product->design_number = isset($request->DesignNumber) ? $request->DesignNumber : null;
 
         $product->desc = isset($request->desc) ? $request->desc : null;

@@ -12,6 +12,8 @@ $settings = \App\Models\Settings::first();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="title" content="{{ isset($meta_title) ? $meta_title:"" }}"/>
+    <meta name="description" content="{{ isset($meta_description) ? $meta_description :"" }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
