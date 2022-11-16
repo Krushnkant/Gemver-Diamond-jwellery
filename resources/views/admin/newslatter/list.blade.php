@@ -16,6 +16,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
+                        @if(isset($action) && $action=='list')
                         <div class="action-section">
                             <div class="d-flex">
                                 <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.newslatter.list')->pluck('id')->first(); ?>
@@ -24,6 +25,7 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
                         @if(isset($action) && $action=='list')
                             <div class="table-responsive">
                                 <table id="NewsLatterform" class="table zero-configuration customNewtable" style="width:100%">
