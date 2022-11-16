@@ -1,4 +1,12 @@
+<?php 
 
+//dd($setting['company_address']);
+$CompanyAddress = $setting['company_address'];
+$CompanyName = $setting['company_name'];
+$CompanyLogo = $setting['company_logo'];
+$CompanyEmail = $setting['company_email'];
+
+?>
 
 <!doctype html>
 <html>
@@ -11,7 +19,7 @@
     <div style="margin: auto; align-items: center; justify-content: center;margin-top: 50px;min-height: 100vh;">
         <div style="font-family: 'Roboto', sans-serif; margin-left:20px; ">
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="{{ url('frontend/image/logo-transparent.png') }}" alt=""  style="width: 150px;">
+                <img src="{{ url('images/company/'.$CompanyLogo) }}" alt=""  style="width: 150px;">
             </div>
             
             <div style="margin-left:100px;background-color: #fff; padding: 50px; min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%); ">
@@ -20,20 +28,20 @@
                      Our Representative will contact you soon.
                 </div> --}}
                 <div style="margin-bottom: 5px; font-size: 13px;">
-                    {{ $message1 }} <br>
-                <a href="{{ $message1 }}" style="background-color: #4CAF50; border: none;color: white;text-align: center; text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Reset password</a>
+                    {{ $data['message1'] }} <br>
+                <a href="{{ $data['message1'] }}" style="background-color: #4CAF50; border: none;color: white;text-align: center; text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;">Reset password</a>
 
 
                     
                 </div>
                 <div style="margin-bottom: 5px; font-size: 13px;">
                     Thank you!
-                    <div style="margin-top:3px;">Gemver Affordable Luxury Team</div>
+                    <div style="margin-top:3px;">{{ $CompanyName }} Team</div>
                 </div>
             </div>
           
             <div style="text-align: center; margin-top: 50px;color: #b7b7b7;font-size: 13px;">
-                © 2022 Gemver Affordable Luxury 
+                © 2022 {{ $CompanyName }} 
             </div>
         </div>
     </div>
