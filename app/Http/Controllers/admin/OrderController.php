@@ -750,7 +750,7 @@ class OrderController extends Controller
 
                     $data1 = [
                         'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
-                        'OrderId' => $Order->id,
+                        'OrderId' => $Order->custom_orderid,
                         'CustomerName' => isset($request->CustomerName) ? $request->CustomerName : '',
                         'OrderStatus' => 'Shipped',
                         'OrderMessage' => 'Where glad to inform you that we shipped your order.'.$tracking_url,
@@ -804,7 +804,7 @@ class OrderController extends Controller
 
                  $data1 = [
                      'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
-                     'OrderId' => $Order->id,
+                     'OrderId' => $Order->custom_orderid,
                      'CustomerName' => isset($request->CustomerName) ? $request->CustomerName : '',
                      'OrderStatus' => 'Delivered',
                      'OrderMessage' => 'Where glad to inform you that we delivered your order.',
