@@ -19,7 +19,7 @@
                             <div class="marquee">
                                 <div>
                                     @foreach($offers as $offer)
-                                    <span class="me-3 header-icon" style="padding-right:100px;">{{ $offer->title }}</span>
+                                    <span class="me-3 header-icon" style="padding-right:300px;">{{ $offer->title }}</span>
                                     @endforeach
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                 //dd($megamenu->sub_menu);
                                 if ($megamenu != "") {
                                 ?>
-                                    <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }} lab_grown_diamond_li"><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
+                                    <li class="{{ (request()->segment(1) == 'lab-diamond') ? 'active' : '' }} lab_grown_diamond_li lab_grown_diamond_part"><a href="{{ url($megamenu->redirect_url) }}">{{ $megamenu->title }}
 
                                         </a>
                                         <svg xmlns="http://www.w3.org/2000/svg " width="12 " height="8 " viewBox="0 0 12 8 " fill="none " class="mobile-menu-icon ">
