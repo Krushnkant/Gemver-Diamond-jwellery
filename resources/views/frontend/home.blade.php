@@ -540,7 +540,7 @@
     @endif
         <div class="customise_own_ring_section">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-3 mt-md-0 py-4 order-2 order-md-1">
+                <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
                     <div class="engagement_ring_diamond_part">
                         <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                         <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
@@ -592,7 +592,7 @@
                 <div class="customer_stories_paragraph mb-3 mb-md-5 text-center text-md-start">{{ $homesetting->section_why_gemver_description }}</div>
             </div>
             <div class="row">
-                <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative ">
+                <div class="col-md-6 mt-md-0 px-0 px-md-3 position-relative order-2 order-md-1">
                     <div class="gemver_diamods_bg">
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
@@ -602,17 +602,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative">
+                <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
+                <div class="col-md-6 mt-4 px-0 px-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 px-0 px-md-3 position-relative">
+                <div class="col-md-6 px-0 px-md-3 position-relative order-4">
                     <div class="gemver_diamods_bg">
 
                         <div class="diamonds_part">

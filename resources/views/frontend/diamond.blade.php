@@ -30,7 +30,7 @@
         </div> -->
 
 
-        <div class="mt-5">
+        <div class="mt-5 px-3">
         @if($check_variant == 1)
             <ul class="d-block d-lg-flex progressbar_ul">
                    <li class="step-progressbar-part ">

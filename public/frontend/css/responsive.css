@@ -310,9 +310,6 @@
         height: 37px;
         padding: 11px 19px;
     }
-    .background-sub-slider {
-        height: auto;
-    }
     .catrgery_box {
         margin: 20px 10px;
     }
@@ -328,6 +325,12 @@
     .footer-angle svg {
         width: 14px;
         height: 14px;
+    }
+    .about_us_background .sub_heading {
+        display: none;
+    }
+    .round_cut_lab_range_color .form-group label {
+        height: 26px;
     }
 }
 
@@ -382,6 +385,9 @@
     }
     .checkout_box_col {
         border-right: 0;
+    }
+    .background-sub-slider {
+        height: auto;
     }
 }
 
@@ -545,7 +551,7 @@
     }
     .header ul li .mega-menu li a {
         color: var(--primary);
-        font-size: 13px;
+        font-size: 14px;
     }
     .header ul li .mega-menu li a:hover {
         color: var(--secondary);
@@ -1348,7 +1354,8 @@
         height: 30px;
     }
     .round_cut_lab_range_slider .form-group label {
-        font-size: 15px;
+        font-size: 13px;
+        min-width: 58px;
     }
     .round_cut_lab_range_slider .form-group label:before {
         width: 20px;
@@ -1508,6 +1515,9 @@
     }
     .order-col-part-2 {
         width: 65%;
+    }
+    .description_paragraph {
+        font-size: 15px;
     }
 }
 
@@ -2064,6 +2074,10 @@
     .sub-pack {
         display: none;
     }
+    .header ul .lab_grown_diamond_part .mega-menu {
+        transform: none;
+        left: 0;
+    }
 }
 
 @media (min-width:992px) and (max-width:1600px) {
@@ -2151,12 +2165,6 @@
     }
     .engagement_diamond_paragraph {
         width: 100%;
-    }
-    .diamond-btn {
-        min-width: 277px;
-        font-size: 16px;
-        line-height: 61px;
-        min-height: 61px;
     }
     .footer-col ul li a {
         font-size: 15px;

@@ -252,6 +252,7 @@ background-size: cover;
     
     .header ul li .mega-menu .mega-menu-two-part .two_part_padding {
         margin-left: 20px !important;
+        height: 205px;
     }
     
     .menu-part-img img {
@@ -861,6 +862,7 @@ background-size: cover;
         line-height: 30px;
         color: #0B1727;
         font-family: 'Roboto', sans-serif;
+        text-indent: 61px;
     }
     
     .customer-name {
@@ -896,6 +898,10 @@ background-size: cover;
         height: 100%;
         pointer-events: none;
         background-position-x: 36px;
+    }
+    
+    .customer-stories-quotes::after {
+        background-size: 11%;
     }
     
     .engagement_ring_section {
@@ -1351,7 +1357,7 @@ background-size: cover;
     }
     
     .wire_bangle_page .wire_bangle_price {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 30px;
         line-height: 43px;
         text-transform: capitalize;
@@ -1371,8 +1377,8 @@ background-size: cover;
     }
     
     .product_detail_regular_price {
-        font-weight: 600;
-        font-size: 16px;
+        font-weight: 500;
+        font-size: 15px;
         line-height: 22px;
         text-decoration-line: line-through;
         text-transform: capitalize;
@@ -1666,7 +1672,8 @@ background-size: cover;
     
     .wire_bangle_color_theme,
     .wire_bangle_color_theme a {
-        color: #0B1727;
+        /* color: #0B1727; */
+        color: #868686;
     }
     
     .select_setting_btn {
@@ -1718,7 +1725,8 @@ background-size: cover;
         font-size: 16px;
         line-height: 25px;
         text-transform: capitalize;
-        color: #0B1727;
+        /* color: #0B1727; */
+        color: #868686;
         font-family: 'Roboto', sans-serif;
     }
     
@@ -1897,13 +1905,13 @@ background-size: cover;
         font-weight: 500;
         font-size: 14px;
         line-height: 14px;
-        color: var(--secondary);
+        color: gray;
         margin-bottom: 5px !important;
     }
     
     .wire_bangle_sub_heading a {
         font-weight: 500;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 22px;
         text-transform: capitalize;
         min-height: auto;
@@ -1951,8 +1959,8 @@ background-size: cover;
     }
     
     .wire_bangle_price_part {
-        font-size: 18px;
-        /*font-weight: 600;*/
+        font-size: 16px;
+        font-weight: 500;
     }
     
     .wire_bangle_box {
@@ -2008,6 +2016,7 @@ background-size: cover;
     .wire_bangle_img_radio_button {
         border-radius: 10px;
         box-shadow: 3px 3px 10px 0px rgb(191 207 223);
+        height: 100%;
     }
     
     .wire_bangle_img:before {
@@ -2783,7 +2792,7 @@ opacity: 1;
     
     .background-sub-slider {
         position: relative;
-        height: 200px;
+        height: 150px;
         background-size: 150px;
         background-position: 33%center;
         background-repeat: no-repeat;
@@ -3109,13 +3118,13 @@ opacity: 1;
         bottom: 0;
         left: 0;
         background-color: transparent;
-        color: #000;
+        color: #868686;
         padding: 8px 15px;
         -moz-transition: all 0.2s ease-in;
         -o-transition: all 0.2s ease-in;
         -webkit-transition: all 0.2s ease-in;
         transition: all 0.2s ease-in;
-        border: 1px solid rgba(11, 23, 39, 0.1);
+        border: 1px solid rgb(11 23 39 / 60%);
         font-size: 15px;
     }
     
@@ -3954,7 +3963,7 @@ width: 100%;
     
     .mobile-sub-menu .lab_grown_diamond_li .mega-menu {
         right: auto;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
     }
     
     .shop-by-category .owl-next,
@@ -4039,6 +4048,7 @@ width: 100%;
         margin: 0 auto;
         border: 2px solid var(--white-secondary);
         background: var(--white-secondary);
+        padding: 0;
     }
     
     .step-progressbar-part:last-child {
@@ -4172,7 +4182,9 @@ width: 100%;
     
     .customer-stories img {
         height: 230px;
-        object-fit: cover;
+        /* object-fit: cover; */
+        width: auto !important;
+        margin: auto;
     }
     
     .header-icon-part {
@@ -4264,7 +4276,8 @@ width: 100%;
     }
     
     .wire_bangle_heading_part_1 {
-        color: #868686;
+        /* color: #868686; */
+        color: #0B1727;
     }
     
     .get_opinion_btn {
@@ -4279,7 +4292,9 @@ width: 100%;
     }
     
     .description_heading {
-        color: #868686;
+        /* color: #868686; */
+        color: #0B1727;
+        text-transform: capitalize;
     }
     
     .avoid-clicks {
@@ -4291,7 +4306,8 @@ width: 100%;
     }
     
     .wire_bangle_description .wire_bangle_sub_heading a {
-        height: 44px;
+        height: auto;
+        font-size: 16px;
     }
     
     .home-page-header marquee {
@@ -4453,6 +4469,7 @@ width: 100%;
     .select_hint_btn,
     .select_hint_btn:hover {
         color: #212529;
+        font-size: 14px;
     }
     /* --------------------------------- login page ------------------------------------------------------------- */
     
@@ -6220,4 +6237,12 @@ width: 100%;
     
     .contact-us-map {
         overflow: hidden;
+    }
+    
+    .customer-stories .owl-dots {
+        display: none;
+    }
+    
+    .lab_grown_diamond_part {
+        position: relative;
     }
