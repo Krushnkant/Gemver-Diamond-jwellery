@@ -42,7 +42,9 @@ class ProductController extends Controller
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first();
-        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes','settings'));
+        $meta_title = $Product->meta_title;
+        $meta_description = $Product->meta_description;
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes','settings'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function fetchproduct(Request $request){

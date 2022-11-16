@@ -765,6 +765,29 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="product-section">
+                            <div class="col-sm-12">
+                                <div class="row" >
+                                    <div class="col-md-6">
+                                         <label class="col-form-label" for="meta_title">Meta Title </label>
+                                        <input type="text" class="form-control input-default ProductName" id="meta_title" name="meta_title" value="{{ isset($product->meta_title)?$product->meta_title:'' }}" >
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-form-label" for="Desc">Meta Description </label>
+                                        <textarea type="meta_description" class="form-control input-default" id="meta_description" name="meta_description">{{ isset($product->meta_description)?$product->meta_description:'' }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row" id="saveBtn-box">
             <div class="col-md-12">
                 <div class="card" id="">
