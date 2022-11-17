@@ -862,7 +862,7 @@ background-size: cover;
         line-height: 30px;
         color: #0B1727;
         font-family: 'Roboto', sans-serif;
-        text-indent: 61px;
+        text-indent: 11px;
     }
     
     .customer-name {
@@ -3962,7 +3962,7 @@ width: 100%;
     }
     
     .mobile-sub-menu .lab_grown_diamond_li .mega-menu {
-        right: auto;
+        /* right: auto; */
         /* overflow-y: scroll; */
     }
     

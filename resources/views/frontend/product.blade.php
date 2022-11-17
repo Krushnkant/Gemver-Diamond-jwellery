@@ -829,7 +829,7 @@ $(document).ready(function(){
                     $img_in = "{{ url('/') }}"+"/"+img[0];
                     $('#inquiry_image').attr('src', $img_in);
                     // selectjs();
-                    // sliderjs();
+                     sliderjs();
                 } 
             }
         });
