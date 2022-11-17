@@ -993,13 +993,12 @@
         fill: #000;
         width: 20px;
         height: 20px;
-        opacity: 0;
+        opacity: 1;
         position: absolute;
         top: 25px;
         left: 20px;
         right: 0;
         transform: rotate(90deg);
-        pointer-events: none;
         transition: all 1s ease;
     }
     .sub-pack-active .mobile-sub-menu-icon {
