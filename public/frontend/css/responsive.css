@@ -348,7 +348,7 @@
         position: initial;
         transform: none;
         width: 100%;
-        padding: 30px 0;
+        padding: 30px 15px;
         background-color: var(--light-bg);
     }
     .background-sub-slider {
@@ -371,18 +371,18 @@
         margin-bottom: 0;
     }
     /* --------------------------------------------------------------------------------------- */
-    .detail_label {
+    /* .detail_label {
         height: auto;
         background: transparent;
-    }
-    .detail_label_col {
+    } */
+    /* .detail_label_col {
         border-right: 1px solid #010101;
         background: var(--light-bg);
         font-weight: 400;
         padding: 7px 0;
         font-size: 15px;
         border-right: 0;
-    }
+    } */
     .checkout_box_col {
         border-right: 0;
     }
@@ -842,7 +842,7 @@
     }
     .customer-stories-paragraph {
         font-size: 14px;
-        text-indent: 55px;
+        text-indent: 41px;
     }
     .customer-name {
         font-size: 18px;
@@ -854,7 +854,7 @@
         width: 100%;
     }
     .customer-stories-quotes::after {
-        top: 12px;
+        top: 19px;
     }
     .customer-stories .owl-dots {
         position: initial;
@@ -1284,7 +1284,7 @@
         font-size: 16px;
     }
     .wire_bangle_sub_heading a {
-        font-size: 18px;
+        font-size: 16px;
     }
     .wire_bangle_paragraph {
         font-size: 16px;

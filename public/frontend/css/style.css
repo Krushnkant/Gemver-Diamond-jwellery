@@ -24,10 +24,9 @@
         overflow: hidden;
         font-family: 'Roboto', sans-serif;
     }
-    
-     :root {
+    /* :root {
         scroll-behavior: auto;
-    }
+    } */
     
     body,
     ul,
@@ -900,7 +899,7 @@ background-size: cover;
     }
     
     .customer-stories-quotes::after {
-        background-size: 38px;
+        background-size: 25px;
     }
     
     .engagement_ring_section {
@@ -1915,14 +1914,9 @@ background-size: cover;
         text-transform: capitalize;
         min-height: auto;
         color: #0B1727;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
     
     .wire_bangle_description a {
-        /* font-family: 'Roboto', sans-serif; */
         font-size: 16px;
         font-weight: 400;
         margin-bottom: 5px !important;
@@ -4304,9 +4298,13 @@ width: 100%;
         padding-bottom: 30px;
     }
     
-    .wire_bangle_description .wire_bangle_sub_heading a {
-        height: auto;
+    .wire_bangle_description .wire_bangle_sub_heading {
         font-size: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 44px;
     }
     
     .home-page-header marquee {
@@ -6215,7 +6213,7 @@ width: 100%;
     .footer-angle svg {
         width: 16px;
         height: 16px;
-        transform: rotate(180deg);
+        transform: rotate(0deg);
     }
     
     .footer-col .footer-angle {

@@ -128,6 +128,7 @@ $(document).ready(function() {
         margin: 0,
         nav: true,
         dots: false,
+        autoHeight: false,
         responsive: {
             0: {
                 items: 1
@@ -222,10 +223,9 @@ $(document).ready(function() {
         $("body").toggleClass("mobile-sub-menu-active");
     });
 
-    $(".mobile-sub-menu>li>a").click(function() {
-        $(this).parent(".mobile-sub-menu>li").find(".mega-menu").toggleClass("slide_up_menu");
-        // $(".sub-pack").toggleClass("sub-pack-active");
-    });
+    // $(".mobile-sub-menu>li>a").click(function() {
+    //     $(this).parent(".mobile-sub-menu>li").find(".mega-menu").toggleClass("slide_up_menu");
+    // });
     $(document).ready(function() {
         $(".accordion").on("click", function() {
             $(this).toggleClass("active");

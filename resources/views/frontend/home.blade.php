@@ -491,7 +491,7 @@
                 
             </div>
             <div class="text-center">
-                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-5" href="{{ url('gemver-difference') }}">Gemver Difference</a>
+                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
       </div>
       
