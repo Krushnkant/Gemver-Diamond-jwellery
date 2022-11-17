@@ -612,7 +612,7 @@
                         <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 px-0 px-md-3 position-relative order-4">
+                <div class="col-md-6 mt-md-4 px-0 px-md-3 position-relative order-4">
                     <div class="gemver_diamods_bg">
 
                         <div class="diamonds_part">
