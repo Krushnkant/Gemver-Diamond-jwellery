@@ -80,6 +80,8 @@ class CategoryController extends Controller
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
             $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
+            $category->meta_title = $request->meta_title;
+            $category->meta_description = $request->meta_description;
             
 
             // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
@@ -115,6 +117,8 @@ class CategoryController extends Controller
             $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
             $category->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $category->category_thumb = $request->catImg;
+            $category->meta_title = $request->meta_title;
+            $category->meta_description = $request->meta_description;
          
             // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
             //     $attribute_id_variation = implode(",",$request->attribute_id_variation);

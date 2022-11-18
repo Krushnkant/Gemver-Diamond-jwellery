@@ -37,6 +37,20 @@
         <input type="hidden" name="catImg" id="catImg" value="">
         <div id="catthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
+     
+    <div class="form-group">
+        <label class="col-form-label" for="meta_title">Meta Title 
+        </label>
+        <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+    </div>
+    
+
+    <div class="form-group">
+        <label class="col-form-label" for="meta_description">Meta Description 
+        </label>
+        <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+    </div>
+    
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newBlogBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
     <button type="button" class="btn btn-primary mt-4" id="save_closeBlogBtn" data-action="add">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
 

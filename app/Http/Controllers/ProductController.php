@@ -23,7 +23,10 @@ class ProductController extends Controller
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
-        return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'));
+        $Category = Category::where(['id' => $id])->first();
+        $meta_title = isset($Category->meta_title)?$Category->meta_title:"";
+        $meta_description = isset($Category->meta_description)?$Category->meta_description:"";
+        return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function product_detail($id,$variantid)
@@ -42,8 +45,8 @@ class ProductController extends Controller
         $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first();
-        $meta_title = $Product->meta_title;
-        $meta_description = $Product->meta_description;
+        $meta_title = isset($Product->meta_title)?$Product->meta_title:"";
+        $meta_description = isset($Product->meta_description)?$Product->meta_description:"";
         return view('frontend.product',compact('Product','variantid','attribute_term_ids','ProductRelated','OrderIncludes','settings'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 

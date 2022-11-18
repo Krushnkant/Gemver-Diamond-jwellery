@@ -78,6 +78,8 @@ class BlogController extends Controller
             $blog->title = $request->title;
             $blog->description = $request->description;
             $blog->category_id = $request->category_id;
+            $blog->meta_title = $request->meta_title;
+            $blog->meta_description = $request->meta_description;
         }
         else{
             $action = "add";
@@ -87,6 +89,8 @@ class BlogController extends Controller
             $blog->blog_thumb = $request->catImg;
             $blog->description = $request->description;
             $blog->category_id = $request->category_id;
+            $blog->meta_title = $request->meta_title;
+            $blog->meta_description = $request->meta_description;
         }
         $blog->save();
         return response()->json(['status' => '200', 'action' => $action]);
