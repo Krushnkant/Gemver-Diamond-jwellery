@@ -90,7 +90,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([
             'id' => 8,
             'parent_menu' => 5,
-            'label' => 'Custom wants Opinion',
+            'label' => 'Customer wants Opinion',
             'route_url' => 'admin.opinions.list',
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.opinions.list'

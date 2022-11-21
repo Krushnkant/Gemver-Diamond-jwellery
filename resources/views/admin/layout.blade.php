@@ -395,7 +395,16 @@
 <script src="{{ asset('js/CatImgJs.js') }}" type="text/javascript"></script>
 
 <script src="{{ url('plugins/chart.js/Chart.bundle.min.js') }}"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+ //$('.ckeditor').ckeditor();
+   
+//    CKEDITOR.replace('.ckeditor', {
+//        filebrowserUploadUrl: "{{route('admin.categories.uploadfile', ['_token' => csrf_token() ])}}",
+//        filebrowserUploadMethod: 'form'
+//    });
 
+</script>
 @yield('js')
 
 </body>
