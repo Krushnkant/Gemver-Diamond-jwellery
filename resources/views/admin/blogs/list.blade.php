@@ -102,6 +102,14 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+    
+   
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+
+
     blog_table(true);
     $('#category_id').select2({
         width: '100%',

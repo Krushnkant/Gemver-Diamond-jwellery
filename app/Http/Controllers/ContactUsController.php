@@ -87,7 +87,7 @@ class ContactUsController extends Controller
                 if($inquiry->SKU != ''){
                     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->SKU)->first();
                     if($product){
-                    $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
+                    $product_info = '<span>'.$product->product->product_title.'</span><br><span> SKU: '.$product->SKU.'</span><br>';
                     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
                         $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
                       })->leftJoin('attribute_terms', function($join) {
@@ -95,24 +95,24 @@ class ContactUsController extends Controller
                       })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
                        
                     foreach($Productvariantvariants as $Productvariantvariant){
-                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span>';
+                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span><br>';
                     }
                     }else{
-                        $product_info = '-';
+                        //$product_info = '-';
                     }
                     }else{
-                        $product_info = '-';
+                        //$product_info = '-';
                     }
-
+                    $diamond_info = "";
                     $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
                     if($diamond){
-                       $diamond_info = '<span>'.$diamond->Stone_No.'</span>
-                                        <span> Weight: '.$diamond->Weight.'</span>
-                                        <span> Color: '.$diamond->Color.'</span>
-                                        <span> Clarity: '.$diamond->Clarity.'</span>
-                                        <span> Cut: '.$diamond->Cut.'</span>';
+                       $diamond_info = '<span>'.$diamond->Stone_No.'</span><br>
+                                        <span> Weight: '.$diamond->Weight.'</span><br>
+                                        <span> Color: '.$diamond->Color.'</span><br>
+                                        <span> Clarity: '.$diamond->Clarity.'</span><br>
+                                        <span> Cut: '.$diamond->Cut.'</span><br>';
                     }else{
-                       $diamond_info = '-';
+                       //$diamond_info = '-';
                     }
 
                     if($inquiry->stone_no == "" && $inquiry->SKU == ""){
@@ -130,14 +130,14 @@ class ContactUsController extends Controller
                             })->where('attribute_terms.id',$term_id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
                             if($Productterms){
                             foreach($Productterms as $Productterm){
-                                $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span>';
+                                $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span><br>';
                             }
                             }else{
-                                $spe_info .= '-';
+                               // $spe_info .= '-';
                             }
                         }
                     }else{
-                       $spe_info ='-';   
+                       //$spe_info ='-';   
                     }
                
                 $data1 = [
@@ -179,7 +179,7 @@ class ContactUsController extends Controller
                 if($request->SKU != ''){
                     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $request->SKU)->first();
                     if($product){
-                    $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
+                    $product_info = '<span>'.$product->product->product_title.'</span><br><span> SKU: '.$product->SKU.'</span><br>';
                     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
                         $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
                       })->leftJoin('attribute_terms', function($join) {
@@ -187,24 +187,24 @@ class ContactUsController extends Controller
                       })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
                        
                     foreach($Productvariantvariants as $Productvariantvariant){
-                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span>';
+                        $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span><br>';
                     }
                     }else{
-                        $product_info = '-';
+                       // $product_info = '-';
                     }
                     }else{
-                        $product_info = '-';
+                       // $product_info = '-';
                     }
-
+                    $diamond_info = "";
                     $diamond = Diamond::where('stone_no',$request->stone_no)->first();
                     if($diamond){
-                       $diamond_info = '<span>'.$diamond->Stone_No.'</span>
-                                        <span> Weight: '.$diamond->Weight.'</span>
-                                        <span> Color: '.$diamond->Color.'</span>
-                                        <span> Clarity: '.$diamond->Clarity.'</span>
-                                        <span> Cut: '.$diamond->Cut.'</span>';
+                       $diamond_info = '<span>'.$diamond->Stone_No.'</span><br>
+                                        <span> Weight: '.$diamond->Weight.'</span><br>
+                                        <span> Color: '.$diamond->Color.'</span><br>
+                                        <span> Clarity: '.$diamond->Clarity.'</span><br>
+                                        <span> Cut: '.$diamond->Cut.'</span><br>';
                     }else{
-                       $diamond_info = '-';
+                       //$diamond_info = '-';
                     }
 
                     if($request->stone_no == "" && $request->SKU == ""){
@@ -222,14 +222,14 @@ class ContactUsController extends Controller
                             })->where('attribute_terms.id',$term_id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
                             if($Productterms){
                             foreach($Productterms as $Productterm){
-                                $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span>';
+                                $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span><br>';
                             }
                             }else{
-                                $spe_info .= '-';
+                                //$spe_info .= '-';
                             }
                         }
                     }else{
-                       $spe_info ='-';   
+                      // $spe_info ='-';   
                     }
                
                 $data1 = [

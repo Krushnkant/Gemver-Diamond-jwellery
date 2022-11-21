@@ -26,7 +26,7 @@
     <div class="form-group">
         <label class="col-form-label" for="description">Description <span class="text-danger">*</span>
         </label>
-        <textarea class="summernote" id="description" name="description"></textarea>
+        <textarea class="" id="description" name="description"></textarea>
         <div id="description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 

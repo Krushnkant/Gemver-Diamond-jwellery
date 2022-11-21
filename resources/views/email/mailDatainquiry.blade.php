@@ -17,12 +17,12 @@ $CompanyEmail = $setting['company_email'];
 
 <body style="background-color: #f5f5f5;">
     <div style="margin: auto; align-items: center; justify-content: center;margin-top: 50px;min-height: 100vh;">
-        <div style="font-family: 'Roboto', sans-serif; margin-left:20px; ">
+        <div style="font-family: 'Roboto', sans-serif; margin:20px; ">
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="{{ url('images/company/'.$CompanyLogo) }}" alt=""  style="width: 150px;">
             </div>
             
-            <div style="margin-left:100px;background-color: #fff; padding: 50px; min-width:650px;box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 1%); ">
+            <div style="text-align: center;background-color: #fff; padding: 50px; min-width:650px; ">
                 <div style="margin-bottom: 25px; font-weight: 900;font-size: 18px;">Thank you for inquiry</div>
                 <div style="margin-bottom: 25px;font-size: 13px;">
                      Our Representative will contact you soon.

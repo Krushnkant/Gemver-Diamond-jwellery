@@ -876,6 +876,68 @@ function save_hint(btn,btn_type){
         }
     });
 }
+
+$('body').on('click', '#save_newopinionBtn', function () {
+    save_opinion($(this),'save_new');
+});
+
+function save_opinion(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#opinionCreateForm")[0]);
+    formData.append('type',2);
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.opinion.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                if (res.errors.name) {
+                    $('#opinionname-error').show().text(res.errors.name);
+                } else {
+                    $('#opinionname-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#opinionemail-error').show().text(res.errors.email);
+                } else {
+                    $('#opinionemail-error').hide();
+                }
+                if (res.errors.message) {
+                    $('#opinionmessage-error').show().text(res.errors.message);
+                } else {
+                    $('#opinionmessage-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#opinionmessage-error').hide();
+               
+                $('#opinionemail-error').hide();
+                $('#opinionname-error').hide();
+                document.getElementById("opinionCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Opinion';
+                $('#opinionsuccess-alert').text(success_message);
+                $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $("#opinionsuccess-alert").slideUp(1000);
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
 });
 </script>
 
