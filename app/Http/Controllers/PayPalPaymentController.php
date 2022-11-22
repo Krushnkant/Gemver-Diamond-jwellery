@@ -113,7 +113,7 @@ class PayPalPaymentController extends Controller
         $order->delivery_address = isset($request->delivery_address) ? $request->delivery_address : json_encode($user);
         $order->order_note = '';
         $order->order_status = 1;
-        $order->delivery_date = Carbon::now();
+        //$order->delivery_date = Carbon::now();
         $order->save();
 
         if($order){
@@ -121,14 +121,16 @@ class PayPalPaymentController extends Controller
             $user = User::where('id',session('customer.id'))->first();
             $data1 = [
                 'CustomerFullAddr' => $address_info->address.','.$address_info->city.','.$address_info->state.','.$address_info->pincode.','.$address_info->country,
-                'OrderId' => $order->id,
+                'OrderId' => $order->custom_orderid,
                 'CustomerName' => isset($address_info->first_name) ? $address_info->first_name .' '.$address_info->last_name: '',
                 'OrderStatus' => 'New Order',
-                'OrderMessage' => 'Thank you for shopping with Friendly Diamonds! Where glad to inform you that weve received your order.',
+                'OrderMessage' => 'Thank you for shopping with Gemver Affordable Luxury Diamonds! Where glad to inform you that weve received your order.',
             ];
             
-            $templateName = 'email.mailDataorder';
-            $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'New Order');
+            if(isset($user->email) && $user->email != ""){
+                $templateName = 'email.mailDataorder';
+                $mail_sending = Helpers::MailSending($templateName, $data1, $user->email, 'New Order');
+            }
             //dd($mail_sending);
         }
 
