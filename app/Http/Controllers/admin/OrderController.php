@@ -707,8 +707,8 @@ class OrderController extends Controller
 
     public function save(Request $request)
     {
-       
-        $Order = Order::with('order_item')->where('id',$request->order_id)->first();
+      
+        $Order = Order::with('order_item','user')->where('id',$request->order_id)->first();
 
         if(!$Order){
             return ['status' => 400];
@@ -756,8 +756,12 @@ class OrderController extends Controller
                         'OrderMessage' => 'Where glad to inform you that we shipped your order.'.$tracking_url,
                     ];
                     
-                    $templateName = 'email.mailDataorder';
-                    $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'Gemver Affordable Luxury');
+                    
+                    $user = User::where('id',$Order->user_id)->first();
+                    if(isset($user->email) && $user->email != ""){
+                        $templateName = 'email.mailDataorder';
+                        $mail_sending = Helpers::MailSending($templateName, $data1, $user->email, 'Gemver Affordable Luxury');
+                    }
 
                 if(isset($request->tracking_url)){
                     $Order->tracking_url = $request->tracking_url;
@@ -799,9 +803,9 @@ class OrderController extends Controller
         }
         elseif ($old_order_status == 2 && ($request->order_status==3 || $request->order_status==8)){
             $Order->order_status = $request->order_status;
+            //dd($Order->delivery_date);
             if($request->order_status == 3 && $Order->delivery_date == null) {
                 $Order->delivery_date = Carbon::now();
-
                  $data1 = [
                      'CustomerFullAddr' => $request->DelAddress1.','.$request->City.','.$request->State.','.$request->Pincode.','.$request->Country,
                      'OrderId' => $Order->custom_orderid,
@@ -810,8 +814,11 @@ class OrderController extends Controller
                      'OrderMessage' => 'Where glad to inform you that we delivered your order.',
                  ];
                  
-                 $templateName = 'email.mailDataorder';
-                 $mail_sending = Helpers::MailSending($templateName, $data1, 'pankajahir631@gmail.com', 'Gemver Affordable Luxury');
+                 $user = User::where('id',$Order->user_id)->first();
+                 if(isset($user->email) && $user->email != ""){
+                    $templateName = 'email.mailDataorder';
+                    $mail_sending = Helpers::MailSending($templateName, $data1, $user->email, 'Gemver Affordable Luxury');
+                 }
 
             }
 

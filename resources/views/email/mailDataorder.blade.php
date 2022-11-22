@@ -22,10 +22,14 @@ $Refmsg = '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-micro
                 $Refmsg .= '</td></tr></tbody></table></div></div></div></div></div></div>';
                 $Refmsg .= '<div class="u-row-container" style="padding: 0px;background-color: transparent"><div style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ecf0f1;" class="u-row"><div style="border-collapse: collapse;display: table;width: 100%;background-color: #ecf0f1;">';
                 $Refmsg .= '<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;"><div style="width: 100% !important;"><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">';
-                $Refmsg .= '<table id="u_content_text_8" class="u_content_text" style="font-family:Montserrat,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody>';
-                $Refmsg .= '<tr><td style="overflow-wrap:break-word;word-break:break-word;padding:33px 10px 0px;font-family:Montserrat,sans-serif;" align="left">';
-                $Refmsg .= '<div class="v-text-align" style="color: #00c399; line-height: 140%; text-align: center; word-wrap: break-word;"><p style="font-size: 14px; line-height: 140%;"><span style="font-size: 34px; line-height: 47.6px;"><strong><span style="line-height: 47.6px; font-size: 34px;">Thank You</span></strong></span></p></div>';
-                $Refmsg .= '</td></tr></tbody></table>';
+
+                if($data['OrderStatus'] == 'Delivered'){
+                    $Refmsg .= '<table id="u_content_text_8" class="u_content_text" style="font-family:Montserrat,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody>';
+                    $Refmsg .= '<tr><td style="overflow-wrap:break-word;word-break:break-word;padding:33px 10px 0px;font-family:Montserrat,sans-serif;" align="left">';
+                    $Refmsg .= '<div class="v-text-align" style="color: #00c399; line-height: 140%; text-align: center; word-wrap: break-word;"><p style="font-size: 14px; line-height: 140%;"><span style="font-size: 34px; line-height: 47.6px;"><strong><span style="line-height: 47.6px; font-size: 34px;">Thank You</span></strong></span></p></div>';
+                    $Refmsg .= '</td></tr></tbody></table>';
+                }
+
                 $Refmsg .= '<table id="u_content_text_5" class="u_content_text" style="font-family:Montserrat,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody>';
                 //$Refmsg .= '<tr><td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px 10px;font-family:Montserrat,sans-serif;" align="left">';
                // $Refmsg .= '<div class="v-text-align" style="color: #2C3E50; line-height: 140%; text-align: left; word-wrap: break-word; padding: 11px 44px 18px;"><p style="text-align: center; font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><strong><span style="line-height: 30.8px; font-size: 22px;">Order '.$SubOrderId.'</span></strong></span></p></div>';
@@ -38,9 +42,11 @@ $Refmsg = '<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-micro
                 $Refmsg .= '<tr><td style="overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:Montserrat,sans-serif;" align="left">';
                 //$Refmsg .= '<div class="v-text-align" align="center"><a href="'.$SupplierUrl.'order?oid='.$OrderId.'" target="_blank" class="v-size-width" style="box-sizing: border-box;display: inline-block;font-family:Montserrat,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #843fa1; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;"><span class="v-padding" style="display:block;padding:15px 35px;line-height:120%;"><strong><span style="font-size: 14px; line-height: 16.8px;">More Details</span></strong></span></a>';
                 $Refmsg .= '</td></tr></tbody></table>';
+
                 $Refmsg .= '<table id="u_content_text_9" class="u_content_text" style="font-family:Montserrat,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="overflow-wrap:break-word;word-break:break-word;padding:11px 44px 18px;font-family:Montserrat,sans-serif;" align="left">';
-                $Refmsg .= '<div class="v-text-align" style="color: #000000; line-height: 190%; text-align: center; word-wrap: break-word; padding: 11px 44px 18px;"><p style="font-size: 14px; line-height: 190%; text-align: left;"><strong>Customer Shipping Address</strong></p>'.$data['CustomerFullAddr'].'</div>';
+                $Refmsg .= '<div class="v-text-align" style="color: #000000; line-height: 190%; word-wrap: break-word; padding: 11px 44px 18px;"><p style="font-size: 14px; line-height: 190%; text-align: left;"><strong>Customer Shipping Address</strong></p>'.$data['CustomerFullAddr'].'</div>';
                 $Refmsg .= '</td></tr></tbody></table>';
+
                 $Refmsg .= '<table id="u_content_divider_1" class="u_content_divider" style="font-family:Montserrat,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody>';
                 $Refmsg .= '<tr><td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:Montserrat,sans-serif;" align="left">';
                 $Refmsg .= '<table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="87%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #2C3E50;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%"><tbody>';
