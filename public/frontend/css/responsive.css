@@ -703,6 +703,7 @@
         position: initial;
         transform: none;
         margin-top: 9px;
+        margin-right: -3px;
     }
     .cart-icon-part .dropdown-toggle {
         margin-right: 2px;
@@ -712,11 +713,13 @@
         top: calc(100% + 15px);
         width: 177px;
         left: 0;
-        opacity: 1;
+        opacity: 0;
         transition: all 0.5s ease;
+        visibility: hidden;
     }
     .mobile-menu-search-box-part.active-part-cart {
-        opacity: 0;
+        opacity: 1;
+        visibility: visible;
     }
     .mobile-menu-search-box-part .search-box-icon {
         position: absolute;
@@ -728,18 +731,18 @@
         transform: translateY(-50%);
     }
     .mobile-search-close .close-icon {
-        display: inline-block;
+        display: none;
         width: 15px;
         height: 15px;
     }
     .mobile-search-close.mobile-search-close-active .close-icon {
-        display: none;
+        display: inline-block;
     }
     .mobile-search-close .search-box-icon {
-        display: none;
+        display: inline-block;
     }
     .mobile-search-close.mobile-search-close-active .search-box-icon {
-        display: inline-block;
+        display: none;
         width: 25px;
         height: 25px;
         margin-right: -5px;
@@ -1722,9 +1725,15 @@
         width: 15px;
         height: 15px;
     }
+    .cart-icon-part .dropdown-toggle {
+        margin-right: 5px;
+    }
 }
 
 @media (min-width:768px) and (max-width:1199px) {
+    .cart-icon-part .dropdown-toggle {
+        margin-right: 10px;
+    }
     .shop-by-style-slider .engagement_ring_img img {
         height: 200px;
     }
