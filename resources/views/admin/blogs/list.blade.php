@@ -103,7 +103,7 @@
 
 $(document).ready(function() {
     
-   
+
     CKEDITOR.replace('description', {
         filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
@@ -136,6 +136,9 @@ function save_blog(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
+    for ( instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();
+    }
     var formData = new FormData($("#BlogCreateForm")[0]);
     formData.append('action',action);
 
