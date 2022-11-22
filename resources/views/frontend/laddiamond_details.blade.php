@@ -208,6 +208,7 @@
                                 </div>
                             </div>
             
+                            <div class="d-flex flex-wrap">
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                             <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart
                                 <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
@@ -219,6 +220,7 @@
                             <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 mt-1 save_addToCart me-2">add to {{ $cat->category_name }}</button>
 
                             @endforeach
+                            </div>
                             
 
                             <div class="row product-border mt-xl-4">

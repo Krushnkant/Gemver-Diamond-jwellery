@@ -1,3 +1,9 @@
+@media (max-width:500px) {
+    .mobile-menu-search-box-part {
+        width: 172px !important;
+    }
+}
+
 @media (max-width:767px) {
     .customer-stories-img,
     .customer-stories-img img {
@@ -236,7 +242,7 @@
         font-size: 13px;
     }
     .choose_your_setting_box {
-        padding: 15px;
+        padding: 60px 15px;
         line-height: normal;
     }
     .choose_your_setting_section,
@@ -306,7 +312,7 @@
     }
     .engagement_start_diamond,
     .engagement_start_setting {
-        min-width: 120px;
+        min-width: 170px;
         height: 37px;
         padding: 11px 19px;
     }
@@ -511,6 +517,9 @@
         overflow: scroll;
         display: block;
     }
+    .engagement-section .owl-nav {
+        position: initial;
+    }
     /* .header ul li:nth-child(3) {
         position: relative;
     }
@@ -669,6 +678,72 @@
     .background-sub-slider {
         margin-top: 0 !important;
     }
+    .engagement-section .owl-prev {
+        position: initial;
+    }
+    .products_item .owl-nav,
+    .products_item .owl-prev,
+    .products_item .owl-next {
+        position: initial;
+        transform: none;
+        width: auto;
+    }
+    .owl-theme .owl-nav {
+        margin-top: 0;
+    }
+    .products_item .owl-prev {
+        margin-right: 15px;
+    }
+    .products_item .owl-next {
+        margin-left: 15px;
+    }
+    .cart-icon-part .search-box-icon {
+        width: 30px;
+        height: 30px;
+        position: initial;
+        transform: none;
+        margin-top: 9px;
+    }
+    .cart-icon-part .dropdown-toggle {
+        margin-right: 2px;
+    }
+    .mobile-menu-search-box-part {
+        position: absolute;
+        top: calc(100% + 15px);
+        width: 177px;
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+    .mobile-menu-search-box-part.active-part-cart {
+        opacity: 0;
+    }
+    .mobile-menu-search-box-part .search-box-icon {
+        position: absolute;
+    }
+    .search-box-mobile-icon {
+        position: absolute !important;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+    .mobile-search-close .close-icon {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+    }
+    .mobile-search-close.mobile-search-close-active .close-icon {
+        display: none;
+    }
+    .mobile-search-close .search-box-icon {
+        display: none;
+    }
+    .mobile-search-close.mobile-search-close-active .search-box-icon {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: -5px;
+    }
     /* --------------------- blog detail page--------------------------------- */
     .blog-detail-heading {
         font-size: 17px;
@@ -765,6 +840,16 @@
     .mega-menu-four-part img {
         display: none;
     }
+    .wire_bangle_tabs_part li a {
+        font-size: 17px;
+    }
+    .loose-lab-diamonds-diamond li {
+        padding: 2px 0 !important;
+    }
+    .mobile-menu-searchbox {
+        position: absolute;
+        top: 0;
+    }
 }
 
 @media (max-width:1199px) {
@@ -818,7 +903,7 @@
         line-height: normal;
     }
     .explore-category-btn {
-        min-width: 164px;
+        min-width: 200px;
         min-height: 47px;
         line-height: 47px;
         font-size: 12px;
@@ -1200,9 +1285,9 @@
         font-size: 14px;
     }
     .select_setting_btn {
-        min-width: 164px;
-        min-height: 47px;
-        font-size: 12px;
+        min-width: 137px;
+        min-height: 39px;
+        font-size: 11px;
     }
     .select_contact_btn {
         min-width: 164px;
@@ -1915,6 +2000,13 @@
     }
 }
 
+@media (min-width:768px) and (max-width:991px) {
+    .mobile-menu-search-box-part {
+        left: auto;
+        right: 0;
+    }
+}
+
 @media (min-width:992px) and (max-width:1199px) {
     .footer-social-media-icons li {
         width: 40px;
@@ -2057,6 +2149,9 @@
     .category-slider .owl-next {
         position: initial;
         transform: none;
+    }
+    .search-icon-part {
+        width: 250px;
     }
 }
 

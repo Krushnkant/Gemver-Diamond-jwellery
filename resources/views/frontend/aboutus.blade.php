@@ -24,13 +24,14 @@
     <div class="container about_us_product mt-2 mt-md-5">
         @if($Infopage->first_section_contant != '')
         <div class="row about_us_product_row align-items-center px-0 px-md-3">
-            <div class="col-md-6 order-2 order-md-1">
+            <div class="col-md-6 order-2 order-md-1 mt-4 mt-md-0">
                 <div class="about_us_product_padding">
-                    <h3 class="h3-heading text-center text-md-start">{{ $Infopage->first_section_title }}</h3>
+                    <h3 class="h3-heading text-center text-md-start d-none d-md-block">{{ $Infopage->first_section_title }}</h3>
                     <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->first_section_contant !!}</p>
                 </div>
             </div>
             <div class="col-md-6 order-1 order-md-2">
+                <h3 class="h3-heading text-center text-md-start mb-3 d-block d-md-none">{{ $Infopage->first_section_title }}</h3>
                 <div class="about_us_img">
                     <img src="{{ url('images/aboutus/'. $Infopage->first_section_image)}}" alt="">
                 </div>
@@ -45,12 +46,13 @@
             <div class="row about_us_product_row mt-4 align-items-center px-0 px-md-3">
                 <div class="col-md-6">
                     <div class="about_us_img">
+                        <h3 class="h3-heading text-center text-md-start d-block d-md-none mb-4">{{ $Infopage->second_section_title }}</h3>
                         <img src="{{ url('images/aboutus/'. $Infopage->second_section_image)}}" alt="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="about_us_product_padding">
-                        <h3 class="h3-heading text-center text-md-start">{{ $Infopage->second_section_title }}</h3>
+                        <h3 class="h3-heading text-center text-md-start d-none d-md-block">{{ $Infopage->second_section_title }}</h3>
                         <p class="customer_stories_paragraph  text-center text-md-start">{!! $Infopage->second_section_contant !!}</p>
                     </div>
                 </div>

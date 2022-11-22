@@ -41,13 +41,125 @@
                             </a>
                         </div>
                         <span class="d-flex align-items-center justify-content-end header_logo_cart">
+                           <div class="search-icon-part me-3 d-none d-lg-block">
+                                <div class="position-relative">
+                                    <input type="search" class="form-control" id="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" width="22" height="22" version="1.1" viewBox="0 0 700 700">
+                                            <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
+                                        </svg>
+                                </div>
+                                <div class="mega-menu-part" id="mega-menu-scrollbar">
+                                    <ul>
+                                        <li class="">
+                                            <a href="#" class="header-mega-menu-part">
+                                            <div class="d-flex">
+                                                    <span>
+                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
+                                                    </span>
+                                                    <span class="ms-3">
+                                                        <div class="product_name"> 
+                                                            ring section
+                                                        </div>
+                                                        <div class="product_price">
+                                                            $ 44.45
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="header-mega-menu-part">
+                                            <div class="d-flex">
+                                                    <span>
+                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
+                                                    </span>
+                                                    <span class="ms-3">
+                                                        <div class="product_name"> 
+                                                            ring section
+                                                        </div>
+                                                        <div class="product_price">
+                                                            $ 44.45
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="header-mega-menu-part">
+                                            <div class="d-flex">
+                                                    <span>
+                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
+                                                    </span>
+                                                    <span class="ms-3">
+                                                        <div class="product_name"> 
+                                                            ring section
+                                                        </div>
+                                                        <div class="product_price">
+                                                            $ 44.45
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#" class="header-mega-menu-part">
+                                            <div class="d-flex">
+                                                    <span>
+                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
+                                                    </span>
+                                                    <span class="ms-3">
+                                                        <div class="product_name"> 
+                                                            ring section
+                                                        </div>
+                                                        <div class="product_price">
+                                                            $ 44.45
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="header-mega-menu-part">
+                                            <div class="d-flex">
+                                                    <span>
+                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
+                                                    </span>
+                                                    <span class="ms-3">
+                                                        <div class="product_name"> 
+                                                            ring section
+                                                        </div>
+                                                        <div class="product_price">
+                                                            $ 44.45
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="cart-icon-part">
+                                <span class="position-relative dropdown d-lg-none search-box-icon">
+                                    <a href="#" class="mobile-search-close">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" width="22" height="22" version="1.1" viewBox="0 0 700 700">
+                                                <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="close-icon" width="15" height="15" viewBox="0 0 50 50" fill="none">
+                                            <path d="M0.474356 0.97997L0.708614 0.708614C1.56755 -0.150322 2.91162 -0.228386 3.85875 0.474356L4.1301 0.708614L25 21.5774L45.87 0.708614C46.8149 -0.236193 48.3465 -0.236193 49.2913 0.708614C50.2362 1.65342 50.2362 3.18529 49.2913 4.1301L28.4226 25L49.2913 45.87C50.1504 46.7287 50.2284 48.0729 49.5255 49.02L49.2913 49.2913C48.4326 50.1504 47.0884 50.2284 46.1413 49.5255L45.87 49.2913L25 28.4226L4.1301 49.2913C3.18529 50.2362 1.65342 50.2362 0.708614 49.2913C-0.236193 48.3465 -0.236193 46.8149 0.708614 45.87L21.5774 25L0.708614 4.1301C-0.150322 3.27117 -0.228386 1.9271 0.474356 0.97997L0.708614 0.708614L0.474356 0.97997Z" fill="#212121"/>
+                                            </svg>
+                                        </a>
+                                    <div class="mobile-menu-search-box-part">   
+                                        <input type="search" class="form-control" id="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="search-box-mobile-icon" width="22" height="22" version="1.1" viewBox="0 0 700 700">
+                                                <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
+                                            </svg>
+                                    </div>
+                                </span>
                                 <span class="position-relative dropdown">
                                     <a href="{{ URL('/wishlist') }}" class="btn btn-secondary dropdown-toggle" id="">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                             <path d="M12.9281 1.28566C13.3235 1.28566 16.7942 1.40862 16.7942 5.66679C16.7942 9.74438 13.7221 12.4739 8.99974 16.3748C4.27727 12.4743 1.20579 9.74505 1.20579 5.66679C1.20579 1.40863 4.67606 1.28566 5.07153 1.28566C6.81061 1.28566 8.12232 2.68565 8.13085 2.69429L8.99491 3.64184L9.86484 2.69972C9.87804 2.685 11.1891 1.28566 12.9282 1.28566M12.9282 0C10.6253 0 9.00016 1.80327 9.00016 1.80327C9.00016 1.80327 7.37437 0 5.07148 0C2.99149 0 0 1.38785 0 5.66712C0.000203061 10.5688 3.708 13.6402 9.00026 18C14.2917 13.6399 18 10.5689 18 5.66712C18 1.38818 15.0077 0.000554306 12.9281 0.000554306L12.9282 0Z" fill="#2E2E2E" />
                                         </svg>
-
                                     </a>
                                 </span>
                                 <span class="position-relative dropdown shopping-part">
@@ -135,14 +247,12 @@
                                                 <span></span>
                                             </div>
 
-                                            <div class="mega-menu-two-part">
+                                            <div class="mega-menu-three-part">
                                                 <div class="submenu-box">
-
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                     </div>
                                                     <ul class="mega-menu-two-colum">
-
                                                         <li>
                                                             <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
                                                                 <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img "></span>
@@ -204,6 +314,87 @@
                                                             </a>
                                                         </li>
                                                     </ul>
+                                                  
+                                                </div>
+                                                <div class="submenu-box ms-lg-5 me-lg-4">
+                                                    <div class="d-block mb-2">
+                                                        <span class="menus_title menus_title_part">Fancy Color</span>
+                                                    </div>
+                                                    <ul class="mega-menu-two-colum loose-lab-diamonds-diamond">
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/yellow.png') }}" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Yellow</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/HEART') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/orange.png') }}" alt="HEART" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Orange</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/PRINCESS') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/pink.png') }}" alt="PRINCESS" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Pink</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/PEAR') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/yellow.png') }}" alt="PEAR" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Blue</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/OVAL') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/blue.png') }}" alt="OVAL" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Green</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/CUSHION') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/green.png') }}" alt="CUSHION" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Brown</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/EMERALD') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/brown.png') }}" alt="EMERALD" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Red</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/MARQUISE') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/red.png') }}" alt="MARQUISE" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">White</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/ASSCHER') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/white.png') }}" alt="ASSCHER" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Violet</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/violet.png') }}" alt="RADIANT" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Purple</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/purple.png') }}" alt="RADIANT" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Olive</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
+                                                                <span class="d-inline-block"><img src="{{ url('frontend/image/olive.png') }}" alt="RADIANT" class="diamond-mega-menu-img"></span>
+                                                                <span class="ms-2 ms-md-3 d-inline-block">Black</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                  
                                                 </div>
                                                 <div class="submenu-box mt-4">
                                                     <ul>
