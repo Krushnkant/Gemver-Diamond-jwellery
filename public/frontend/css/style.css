@@ -3980,7 +3980,9 @@ width: 100%;
     }
     
     .products_item .owl-next svg path,
-    .products_item .owl-prev svg path {
+    .products_item .owl-prev svg path,
+    .engagement-section .owl-next svg path,
+    .engagement-section .owl-prev svg path {
         fill: var(--primary);
     }
     
@@ -5741,7 +5743,6 @@ width: 100%;
     
     .create_your_own_section {
         position: relative;
-        background: var(--light-bg);
     }
     
     .create_your_own_section:after {
@@ -5752,6 +5753,8 @@ width: 100%;
         width: 100%;
         height: 100%;
         pointer-events: none;
+        background: var(--light-bg);
+        z-index: -9;
     }
     
     .create_your_own_image {
@@ -6242,4 +6245,134 @@ width: 100%;
     
     .lab_grown_diamond_part {
         position: relative;
+    }
+    
+    .loose-lab-diamonds-diamond img {
+        width: 12px;
+    }
+    
+    .loose-lab-diamonds-diamond li {
+        padding: 10px 0 !important;
+    }
+    
+    .engegement_ring_box_part {
+        padding: 40px 0;
+    }
+    
+    .engagement-section .owl-prev,
+    .engagement-section .owl-next {
+        background: transparent !important;
+        opacity: 1 !important;
+    }
+    
+    .engagement-section .owl-nav {
+        position: absolute;
+        right: 0;
+    }
+    
+    .engagement-section .owl-prev {
+        position: absolute;
+        left: -34px;
+    }
+    
+    .view_all_rings_btn {
+        min-width: 275px;
+        min-height: 60px;
+        line-height: 60px;
+        cursor: pointer;
+    }
+    
+    .wedding_bands_section {
+        padding-bottom: 100px;
+    }
+    
+    .search-box-icon {
+        position: absolute;
+        top: 54%;
+        transform: translateY(-50%);
+        right: 14px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    
+    .search-icon-part input {
+        box-shadow: none !important;
+        border: 1px solid #e6e6e6 !important;
+    }
+    
+    .search-icon-part {
+        position: relative;
+        width: 300px;
+    }
+    
+    .mega-menu-part {
+        position: absolute;
+        width: 100%;
+        top: 101%;
+        background-color: #fff;
+        z-index: 999;
+        padding: 0;
+        border: 1px solid #e6e6e6 !important;
+        border-top: 0 !important;
+        overflow-y: auto;
+        height: 200px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .mega-menu-part li {
+        padding: 10px 15px;
+    }
+    
+    .mega-menu-part li a {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+    
+    .header-mega-menu-part img {
+        width: 30px;
+        height: 26px;
+    }
+    
+    .mega-menu-part li span {
+        font-size: 14px;
+    }
+    
+    .mega-menu-part ul li:hover {
+        background-color: var(--light-bg);
+    }
+    
+    .product_price {
+        color: gray;
+        font-size: 12px;
+    }
+    
+    .mega-menu-part.mega-menu-deactive-box {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    #mega-menu-scrollbar::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+    
+    #mega-menu-scrollbar::-webkit-scrollbar {
+        width: 4px;
+        background-color: var(--secondary);
+    }
+    
+    #mega-menu-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #2E2E2E;
+        border-radius: 10px;
+    }
+    
+    .search-box-icon svg {
+        margin-right: 0;
     }

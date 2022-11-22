@@ -19,27 +19,25 @@
         </div>
     </div> -->
 </div>
-<div class="container">
-    <div class="choose_your_setting_section">
-        <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
-            Choose Your Setting Style
-        </div>
-        <p class="choose_your_setting_paragraph wedding_bands_paragraph text-center mb-3 mb-md-4 mb-xl-5">
-            Whatever the occasion, we've got a beatiful piece of jewellery for you.
-        </p>
 
-        <div class="row">
-            @if($MenuPage->menupageshapestyle)
-            @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="col-6 col-sm-4 col-md-4 col-xl-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
-                <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
-                <div class="choose_sub_heading mt-3">
-                    {{ $menupageshapestyle->title }}
+<div class="container">
+    <div class="choose_your_setting_section wedding_bands_section">
+        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
+            Choose Your Setting  Style
+        </div>
+        <div class="owl-carousel owl-theme engagement-section">
+                @if($MenuPage->menupageshapestyle)
+                @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
+                <div class="item">
+                    <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                        <div class="choose_sub_heading mt-3 ">
+                            {{ $menupageshapestyle->title }}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            @endforeach
-            @endif
-            
+                @endforeach
+                @endif
         </div>
     </div>
 </div>
@@ -47,7 +45,7 @@
 <div class="create_your_own_section custom_made_wedding_bands_section">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-7">
+            <div class="col-md-7 mb-4">
                 <div class="text-center">
                     <div class="">
                         <div class="choose_your_setting_heading text-center text-center mb-3 mb-xl-3">
@@ -58,11 +56,17 @@
                         </p>
                     </div>
                 </div>
+                <div class="text-center mt-5">
+                    <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">
+                        create your own ring
+                    </a>
+                </div>
             </div>
             <div class="col-md-5">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
             </div>  
         </div>
+       
     </div> 
 </div>
 
@@ -201,7 +205,7 @@
 
 <div class="container mb-5 pb-5">
     <div class="row two_part_box_section">
-        <div class="col-md-6 order-2 order-md-1">
+        <div class="col-md-6 mb-3 mb-md-0">
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -213,7 +217,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 design_engagemnt_image">
+        <div class="col-md-6 design_engagemnt_image">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>

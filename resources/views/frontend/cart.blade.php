@@ -344,7 +344,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-6 text-start ps-0 order_table_heading">
-                                Coupan Discount
+                                Coupon Discount
                             </div>
                             <?php 
                                 if(session()->has('coupon')){

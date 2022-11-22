@@ -52,10 +52,10 @@
     <div class="my-xxl-5">
         <div class="container mb-xl-5">
             <div class="row two_part_box_section">
-                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img">
+                <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
                     <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
-                <div class="col-md-6">
+                <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
                     <div class="choose_your_setting_box text-center">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
