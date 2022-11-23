@@ -78,11 +78,11 @@ $settings = \App\Models\Settings::first();
                 },
                 success:function(response){
                     if(response != ""){
-                        $('.main_search_section').show();
+                        $('#mega-menu-scrollbar').show();
                         $('.main_search_section').html(response);
                         $('.serach-load').hide(); 
                     }else{
-                        $('.main_search_section').hide();
+                        $('#mega-menu-scrollbar').hide();
                         $('.main_search_section').html(response);
                         $('.serach-load').hide();   
                     }

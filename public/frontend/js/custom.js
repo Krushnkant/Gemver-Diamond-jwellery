@@ -225,7 +225,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".cart-icon-part").click(function() {
+    $(".mobile-search-close").click(function() {
         $(".mobile-menu-search-box-part").toggleClass("active-part-cart");
     });
     $(".search-box-icon").click(function() {
@@ -302,7 +302,6 @@ $(document).ready(function() {
         slidesToScroll: 1,
         arrows: true,
         nav: false,
-        adaptiveHeight: true,
         fade: false,
         adaptiveHeight: true,
         infinite: false,
@@ -320,6 +319,7 @@ $(document).ready(function() {
             slidesToScroll: 5,
             dots: false,
             nav: false,
+            adaptiveHeight: true,
             focusOnSelect: false,
             infinite: false,
             responsive: [{
@@ -607,10 +607,3 @@ function cartload() {
 $('body').on('click', '#reSet', function() {
     location.reload();
 });
-
-//  jQuery(function() {
-//      jQuery('marquee').marquee({
-//          pauseOnHover: true,
-//          duration: 8000
-//      });
-//  });
