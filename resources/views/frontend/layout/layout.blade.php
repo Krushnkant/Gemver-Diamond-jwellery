@@ -57,7 +57,62 @@ $settings = \App\Models\Settings::first();
 <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
 <script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.35/sweetalert2.min.js" ></script>
+<script>
+    $(document).ready(function() {   
+        $("#main_search").keyup(function() {
+            search_data($(this).val());
+        });
 
+        function search_data(keyword)
+        {
+        
+            var action = "search";
+            $.ajax({
+            // url:"{{ url('/product-filter') }}",
+            // url: ENDPOINT + "/search_products",
+                url:"{{ url('/search_products') }}",
+                method:"POST",
+                data:{action:action,keyword:keyword,_token: '{{ csrf_token() }}'},
+                beforeSend: function() {
+                    $('.serach-load').show();
+                },
+                success:function(response){
+                    if(response != ""){
+                        $('.main_search_section').show();
+                        $('.main_search_section').html(response);
+                        $('.serach-load').hide(); 
+                    }else{
+                        $('.main_search_section').hide();
+                        $('.main_search_section').html(response);
+                        $('.serach-load').hide();   
+                    }
+                    // if(scroll == 1){
+                    //     if (response['artilces'] == "") {
+                    //         $('.auto-load').html("We don't have more data to display ");
+                    //         return;
+                    //     }
+                    //     $('.auto-load').hide();   
+                    //     $("#data-wrapper").append(response['artilces']);
+                    // }else{
+                    //     if (response['artilces'] == "") {
+                    //         $('#data-wrapper').html("No Result Found");
+                    //         $('.auto-load').hide();
+                    //         return;
+                    //     }
+                    //     $("#data-wrapper").html(response['artilces']);  
+                    //     $('.auto-load').hide(); 
+                    // }  
+                    
+                }
+            });
+        }
+
+        $('body').on('click', '#searchBtn', function () {
+            var main_search = $("#main_search").val();
+            location.href = "{{ url('shop') }}?s="+main_search;
+        });
+   });
+   </script>
 
 </body>
 </html>
