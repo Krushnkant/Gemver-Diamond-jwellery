@@ -180,6 +180,19 @@
                         </h4>
                       
                         <div class="row col-lg-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  justify-content-center">
+                                <div class="form-group" >
+                                    <label class="col-form-label" for="button_url">Select Product
+                                    </label>
+                                    <?php $select_product = explode(',',$menupages->select_product); ?>
+                                    <select id='select_product_id' name="select_product_id[]" class="js-example-basic-multiple form-control" multiple="multiple">
+                                    <option value="">Select Product</option>
+                                        @foreach($products as $product)
+                                            <option value="{{ $product['id'] }}"  @if(in_array($product["id"],$select_product)) selected @endif >{{ $product['product_title'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div> 
+                            </div> 
                         
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                               <div class="form-group">
@@ -813,6 +826,12 @@
     $('body').on('click', '.minus_btn', function(){
         var tthis = $(this).parent().parent();
         var ddd = tthis.remove()
+    });
+
+    $('#select_product_id').select2({
+        width: '100%',
+        placeholder: "Select Product",
+        allowClear: true
     });
 
 
