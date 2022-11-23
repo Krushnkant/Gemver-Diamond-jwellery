@@ -6376,3 +6376,15 @@ width: 100%;
     .search-box-icon svg {
         margin-right: 0;
     }
+    
+    .mega-menu-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .mega-menu-spinner .spinner-border {
+        color: var(--secondary);
+        border-width: 3px !important;
+    }

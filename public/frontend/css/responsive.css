@@ -1,10 +1,7 @@
-@media (max-width:500px) {
-    .mobile-menu-search-box-part {
-        width: 172px !important;
-    }
-}
-
 @media (max-width:767px) {
+    .wire_bangle_page .product_slider_main_item img {
+        height: 100%;
+    }
     .customer-stories-img,
     .customer-stories-img img {
         height: 360px;
@@ -710,12 +707,20 @@
     }
     .mobile-menu-search-box-part {
         position: absolute;
-        top: calc(100% + 15px);
-        width: 177px;
+        top: calc(100% + 0px);
         left: 0;
+        right: 0;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
         opacity: 0;
         transition: all 0.5s ease;
         visibility: hidden;
+    }
+    .mobile-menu-search-box-part input {
+        box-shadow: none !important;
+        outline: 0 !important;
+        border: 1px solid #ced4da !important;
     }
     .mobile-menu-search-box-part.active-part-cart {
         opacity: 1;
@@ -1307,7 +1312,10 @@
         padding-right: 15px;
     }
     .wire_bangle_page .product_slider_main_item {
-        height: 300px;
+        height: 435px;
+    }
+    .wire_bangle_page .product_slider_main_item iframe {
+        height: 1068px !important;
     }
     .wire_bangle_page {
         padding: 30px 0;
@@ -2006,13 +2014,6 @@
     }
     .footer-logo {
         max-width: 100px;
-    }
-}
-
-@media (min-width:768px) and (max-width:991px) {
-    .mobile-menu-search-box-part {
-        left: auto;
-        right: 0;
     }
 }
 
