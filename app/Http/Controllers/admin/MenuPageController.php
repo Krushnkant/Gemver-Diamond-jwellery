@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\MenuPage;
 use App\Models\Category;
 use App\Models\MenuPageShapeStyle;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
@@ -20,7 +21,8 @@ class MenuPageController extends Controller
         $menupages = Menupage::with('menupageshapestyle')->where('id',1)->first();
         $categories = Category::where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
         $custom_categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
-        return view('admin.menupage.engagementpage',compact('menupages','categories','custom_categories'))->with('page',$this->page);
+        $products = Product::where('estatus',1)->where('is_custom',0)->get()->toArray();
+        return view('admin.menupage.engagementpage',compact('menupages','categories','custom_categories','products'))->with('page',$this->page);
     }
 
     public function updateEngagementPage(Request $request){
@@ -62,6 +64,7 @@ class MenuPageController extends Controller
         $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->select_product = implode(',',$request->select_product_id);
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;

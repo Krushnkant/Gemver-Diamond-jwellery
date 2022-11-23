@@ -729,7 +729,13 @@ class ProductController extends Controller
             else {
                 $search = $request->input('search.value');
                 $products =  ProductVariant::with('product.primary_category','product.attribute','attribute_term')
-                    ->where('product_title','LIKE',"%{$search}%")
+                    //->where('product_title','LIKE',"%{$search}%")
+                    ->whereHas('product', function ($query) use ($search) {
+                        $query->where(function ($q) use ($search) {
+                            $q->where('products.product_title', 'LIKE', '%'.$search.'%')
+                                ->orWhere('products.product_title', 'LIKE', '%'.$search.'%');
+                        });
+                    })
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '0');
@@ -742,7 +748,14 @@ class ProductController extends Controller
                     ->orderBy($order,$dir)
                     ->get();
 
-                $totalFiltered = ProductVariant::where('product_title','LIKE',"%{$search}%")
+                $totalFiltered = ProductVariant::
+                  whereHas('product', function ($query) use ($search) {
+                    $query->where(function ($q) use ($search) {
+                        $q->where('products.product_title', 'LIKE', '%'.$search.'%')
+                            ->orWhere('products.product_title', 'LIKE', '%'.$search.'%');
+                    });
+                })
+                //where('product_title','LIKE',"%{$search}%")
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '0');
