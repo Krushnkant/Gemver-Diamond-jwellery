@@ -81,6 +81,7 @@ Route::get('/product-details/{id}/{variantid}',[ProductController::class,'produc
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
 Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');
+Route::post('/search_products',[ProductController::class,'search_products'])->name('frontend.search_products'); 
 
 Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');

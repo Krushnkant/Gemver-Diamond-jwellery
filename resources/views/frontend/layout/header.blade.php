@@ -43,98 +43,19 @@
                         <span class="d-flex align-items-center justify-content-end header_logo_cart">
                            <div class="search-icon-part me-3 d-none d-lg-block">
                                 <div class="position-relative">
-                                    <input type="search" class="form-control" id="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" width="22" height="22" version="1.1" viewBox="0 0 700 700">
+                                    <input type="search"  value="" class="form-control" id="main_search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" id="searchBtn" width="22" height="22" version="1.1" viewBox="0 0 700 700">
                                             <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
                                         </svg>
                                 </div>
-                                <div class="mega-menu-part" id="mega-menu-scrollbar">
-                                    <ul>
-                                        <li class="">
-                                            <a href="#" class="header-mega-menu-part">
-                                            <div class="d-flex">
-                                                    <span>
-                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
-                                                    </span>
-                                                    <span class="ms-3">
-                                                        <div class="product_name"> 
-                                                            ring section
-                                                        </div>
-                                                        <div class="product_price">
-                                                            $ 44.45
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#" class="header-mega-menu-part">
-                                            <div class="d-flex">
-                                                    <span>
-                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
-                                                    </span>
-                                                    <span class="ms-3">
-                                                        <div class="product_name"> 
-                                                            ring section
-                                                        </div>
-                                                        <div class="product_price">
-                                                            $ 44.45
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#" class="header-mega-menu-part">
-                                            <div class="d-flex">
-                                                    <span>
-                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
-                                                    </span>
-                                                    <span class="ms-3">
-                                                        <div class="product_name"> 
-                                                            ring section
-                                                        </div>
-                                                        <div class="product_price">
-                                                            $ 44.45
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#" class="header-mega-menu-part">
-                                            <div class="d-flex">
-                                                    <span>
-                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
-                                                    </span>
-                                                    <span class="ms-3">
-                                                        <div class="product_name"> 
-                                                            ring section
-                                                        </div>
-                                                        <div class="product_price">
-                                                            $ 44.45
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="header-mega-menu-part">
-                                            <div class="d-flex">
-                                                    <span>
-                                                        <img src="http://127.0.0.1:8000/images/ProductImg/ProductImg_6156081661251753.jpg" alt="">
-                                                    </span>
-                                                    <span class="ms-3">
-                                                        <div class="product_name"> 
-                                                            ring section
-                                                        </div>
-                                                        <div class="product_price">
-                                                            $ 44.45
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                <div class="mega-menu-part " id="mega-menu-scrollbar">
+                                    <div class="mega-menu-spinner serach-load" style="display: none;align-items: center;justify-content: center;">
+                                        <div class="spinner-border text-secondary" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                      </div>
+                                    </div>
+                                    <ul class="main_search_section">
+
                                     </ul>
                                 </div>
                             </div>
