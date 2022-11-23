@@ -605,5 +605,7 @@ function cartload() {
 }
 
 $('body').on('click', '#reSet', function() {
-    location.reload();
+    var onlyUrl = window.location.href.replace(window.location.search,'');
+    window.location.href = onlyUrl;
+    //location.reload();
 });
