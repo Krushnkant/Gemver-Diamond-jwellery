@@ -78,6 +78,7 @@
                         '3gp'
                     );
                     $index = 0;
+                    
                 ?>
                     @foreach($products as $product) 
                      
