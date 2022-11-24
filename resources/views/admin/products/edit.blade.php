@@ -19,7 +19,7 @@
             <input type="hidden" id="action" name="action" value="editProduct">
             <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-lg-9 col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Note</h4>
@@ -218,7 +218,7 @@
                                             
                                                 ?>
                                               
-                                                <div id ="" class="single-variation-box col-lg-6 col-md-6  col-xs-12 panel panel-default active" data-term="{{ $attribute->attr_name }}">
+                                                <div id ="" class="single-variation-box col-lg-6 col-md-12  col-xs-12 panel panel-default active" data-term="{{ $attribute->attr_name }}">
                                                 <div class="variation-selection-box row panel-heading active">
                                                     <div class="col-lg-10 col-sm-8">
                                                         <label class="col-form-label"><b><span class="VariantCnt">{{ $attribute['attribute_name'] }} </span></b></label>
@@ -329,7 +329,7 @@
                                    
                                     ?>
                                     <?php $term = \App\Models\AttributeTerm::find($product_variant); ?>
-                                    <div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
+                                    <div id ="" class="single-variation-box col-lg-6 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
                                     <div class="variation-selection-box row panel-heading active">
                                         <div class="col-lg-10 col-sm-8">
                                             <label class="col-form-label"><b><span class="VariantCnt">{{ $term->attrterm_name }}</span></b></label>
@@ -355,7 +355,7 @@
                                                 <input type="hidden" name="varVariation" value="{{ implode(",",$required_vari_data['required_variation_ids']) }}">
                                                 <label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>
                                                 @foreach($required_vari_data['required_variations'] as $required_variation)
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                <div class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="VariationAttr">{{ $required_variation['attribute_name'] }} <span class="text-danger">*</span></label>
                                                         <div class="col-lg-12">
@@ -389,7 +389,7 @@
                                                  }
                                                 ?>   
                                                 <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                                         <label>Variant Product Image <span class="text-danger">*</span></label>
                                                         <input type="file" name="files[]" id="varImgFiles-{{ $term_item_id }}" multiple="multiple">
                                                         <input type="hidden" name="varImage" id="varImage-{{ $term_item_id }}" class="varImg" value="{{ isset($variant_image['images']) ? $variant_image['images'] : '' }}">
@@ -555,7 +555,7 @@
                                                         ?>
                                                         {!! $script_html !!}
                                                     </div>
-                                                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                                                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                                                         <label for="varUploadedImgBox">Thumbnail Display</label>
                                                         <div id="varUploadedImgBox-{{ $term_item_id }}" class="varUploadedImgBox">
                                                             <div class="jFiler-items jFiler-row oldImgDisplayBox">
