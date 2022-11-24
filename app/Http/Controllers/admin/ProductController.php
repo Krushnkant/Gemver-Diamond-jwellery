@@ -246,7 +246,7 @@ class ProductController extends Controller
         // }
 
         $html = '';
-        $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
+        $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
         $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
@@ -279,7 +279,7 @@ class ProductController extends Controller
         //                     </div>
         //                 </div>';
         $html .= '<div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                 <label>Variant Product Image <span class="text-danger">*</span></label>
                                 <input type="file" name="files[]" id="varImgFiles-'.$term_id.'" multiple="multiple">
                                 <input type="hidden" name="varImage" id="varImage-'.$term_id.'" class="varImg" value="">
@@ -441,7 +441,7 @@ class ProductController extends Controller
                                     });
                                 </script>
                             </div>
-                            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                                 <label for="varUploadedImgBox">Thumbnail Display</label>
                                 <div id="varUploadedImgBox-'.$term_id.'" class="varUploadedImgBox"></div>
                             </div>
@@ -1167,7 +1167,7 @@ class ProductController extends Controller
 
         
         $html = '';
-        $html .= '<div class="single-variation-box col-lg-6 col-md-6  col-xs-12 panel panel-default active" data-term="'.$spec['attribute_name'].'">';
+        $html .= '<div class="single-variation-box col-lg-6 col-md-12  col-xs-12 panel panel-default active" data-term="'.$spec['attribute_name'].'">';
         $html .= '<div class="variation-selection-box row panel-heading active ">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
@@ -1282,7 +1282,7 @@ class ProductController extends Controller
                                 $html_required_variation .= '<label class="col-lg-12 text-muted mt-3 mb-0">Variation (Required)</label>';
                                 $no = 1;
                                 foreach ($required_variations as $required_variation){
-                                    $html_required_variation.= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    $html_required_variation.= '<div class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
                                                                         <div class="form-group row">
                                                                             <label class="col-lg-12 col-form-label" for="VariationAttr">';
                                     $html_required_variation .= $required_variation['attribute_name'];
@@ -1307,7 +1307,7 @@ class ProductController extends Controller
                                 $html_required_variation .= '</div>';
                             }
                     
-                            $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-6 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
+                            $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
                             $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
                             $html .= '<div class="col-lg-10 col-sm-8">';
                             $html .= '<label class="col-form-label">';
@@ -1331,7 +1331,7 @@ class ProductController extends Controller
                             $html .= '<button type="button" style="background-color: #e7e7e7; color: black;" class="AddSubSub btn d-inline-block mb-3" id="AddSubSub" style="display: none"> Add </button>';
 
                             $html .= '<div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                <div class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
                                                     <label>Variant Product Image <span class="text-danger">*</span></label>
                                                     <input type="file" name="files[]" id="varImgFiles-'.$term_id.'" multiple="multiple">
                                                     <input type="hidden" name="varImage" id="varImage-'.$term_id.'" class="varImg" value="">

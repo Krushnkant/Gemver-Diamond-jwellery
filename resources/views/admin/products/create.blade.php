@@ -18,7 +18,7 @@
         {{ csrf_field() }}
         <input type="hidden" id="action" name="action" value="addProduct">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-lg-9 col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Note</h4>
