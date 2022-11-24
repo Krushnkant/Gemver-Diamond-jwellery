@@ -329,7 +329,7 @@
                                    
                                     ?>
                                     <?php $term = \App\Models\AttributeTerm::find($product_variant); ?>
-                                    <div id ="" class="single-variation-box col-lg-6 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
+                                    <div id ="" class="single-variation-box col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="{{ $term->attrterm_name }}">
                                     <div class="variation-selection-box row panel-heading active">
                                         <div class="col-lg-10 col-sm-8">
                                             <label class="col-form-label"><b><span class="VariantCnt">{{ $term->attrterm_name }}</span></b></label>
@@ -623,7 +623,7 @@
 
                                             
 
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  .d-xl-block">
                                                     <div class="form-group row font-weight-bold">
                                                         <label class="col-lg-12 col-form-label" for="">{{ $name_main }}  Variation</label>
                                     
@@ -633,26 +633,26 @@
                                                 
 
                                                 
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
                                     
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
                                                         
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
                                                        
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                     <div class="form-group row">
                                                         <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
             
@@ -701,14 +701,14 @@
 
                                                 
                             
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                     <div class=" row">
                                                         <div class="col-lg-12 font-weight-bold">
                                                             {{ $name }}
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         
                                                         <div class="col-lg-12">
@@ -717,7 +717,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         
                                                         <div class="col-lg-12">
@@ -726,7 +726,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                     <div class="form-group row">
                                                         
                                                         <div class="col-lg-12">
@@ -736,7 +736,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                     <div class="form-group row">
                                                        
                                                         <div class="col-lg-12">
