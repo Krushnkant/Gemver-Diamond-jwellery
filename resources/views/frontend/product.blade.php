@@ -787,11 +787,15 @@ $(document).ready(function(){
                     $("#inquiry-error").show();
                     $(".select_setting_btn").prop('disabled', true);
                     $(".select_setting_btn").css("background-color", "#808080");
+                    $(".select_cart_btn").prop('disabled', true);
+                    $(".select_cart_btn").css("background-color", "#808080");
                 }else{
                     $("#inquiry-error").html("");
                     $("#inquiry-error").hide();
                     $(".select_setting_btn").prop('disabled', false);
                     $(".select_setting_btn").css("background-color", "");
+                    $(".select_cart_btn").prop('disabled', false);
+                    $(".select_cart_btn").css("background-color", "");
                    
                     $('.discount_percent').html(data.result.auto_discount_percent);
                     $('.sale_price').html(data.result.sale_price);
