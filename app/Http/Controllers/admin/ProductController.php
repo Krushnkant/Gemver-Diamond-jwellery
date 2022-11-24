@@ -246,7 +246,7 @@ class ProductController extends Controller
         // }
 
         $html = '';
-        $html .= '<div id ="" class="single-variation-box col-lg-6 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
+        $html .= '<div id ="" class="single-variation-box col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 panel panel-default" data-term="'.$term_name.'">';
         $html .= '<div class="variation-selection-box row panel-heading active hfsufdss o">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
@@ -1167,7 +1167,7 @@ class ProductController extends Controller
 
         
         $html = '';
-        $html .= '<div class="single-variation-box col-lg-6 col-md-12  col-xs-12 panel panel-default active" data-term="'.$spec['attribute_name'].'">';
+        $html .= '<div class="single-variation-box col-xl-6 col-lg-12 col-md-12  col-xs-12 panel panel-default active" data-term="'.$spec['attribute_name'].'">';
         $html .= '<div class="variation-selection-box row panel-heading active ">';
         $html .= '<div class="col-lg-10 col-sm-8">';
         $html .= '<label class="col-form-label">';
@@ -1558,33 +1558,33 @@ class ProductController extends Controller
         $AttributeTermc = AttributeTerm::where('estatus',1)->where('id',$comman_id)->first(); 
         
         $html .= '
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="varRegularPrice">'.$AttributeTermc->attrterm_name.' Variation</label>
                         
                     </div>
                 </div>';          
         $html .= '
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="varRegularPrice">Regular Price</label>
                         
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="varSalePrice">Sale Price <span class="text-danger">*</span></label>
                        
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="stock">Stock <span class="text-danger">*</span></label>
                         
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
                        
@@ -1620,7 +1620,7 @@ class ProductController extends Controller
         //dd($required_variation_ids);
         
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
-        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        $html .= '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <div class="row">
                         <div class="col-lg-12 font-weight-bold">
                             '.$name.'
@@ -1628,7 +1628,7 @@ class ProductController extends Controller
                     </div>
                 </div>';    
         $html .= '
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
                     <div class="form-group row">
                         
                         <div class="col-lg-12">
@@ -1637,7 +1637,7 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                        
                         <div class="col-lg-12">
@@ -1646,7 +1646,7 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         
                         <div class="col-lg-12">
@@ -1656,7 +1656,7 @@ class ProductController extends Controller
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <input type="text" class="form-control input-default SKU" placeholder="SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
