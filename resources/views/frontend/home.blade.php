@@ -152,7 +152,7 @@
                         }else{
                             $images_array[] = $value;
                         } 
-                        //dump($index);
+        
                         }
                         $new_array = array_merge($video_array,$images_array);   
                         $image = URL($new_array['0']);
@@ -163,7 +163,12 @@
                         'jpeg',
                         'png'
                         );
-                     
+
+                        $alt_text = "";
+                        if($product->alt_text != ""){
+                            $alt_texts = explode(",",$product->alt_text);
+                            $alt_text = $alt_texts['0'];
+                        }
                     
                     ?>
                     <div class="hover_effect_part wire_bangle_shop_radio product-data">
@@ -175,7 +180,7 @@
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="{{ $image }}" alt="">
+                                <img src="{{ $image }}" alt="{{ $alt_text }}">
                                 <?php }else{ ?>
                                    
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>

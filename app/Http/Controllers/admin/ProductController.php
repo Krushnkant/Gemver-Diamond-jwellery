@@ -303,6 +303,7 @@ class ProductController extends Controller
                                                                                                     <div class="jFiler-item-thumb">\
                                                                                                         <div class="jFiler-item-status"></div>\
                                                                                                         {{fi-image}}\
+                                                                                                        <input type="text">
                                                                                                     </div>\
                                                                                                     <div class="jFiler-item-assets jFiler-row">\
                                                                                                         <ul class="list-inline pull-left">\
@@ -514,7 +515,8 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-        //dd($request->all());
+        // $data = $request->all();
+        // dd($data['variantForm1']);
         $category_ids = implode(",",$request['category_id']);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
@@ -605,6 +607,7 @@ class ProductController extends Controller
                 //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
                 $product_variant->term_item_id = $myValue['term_id'];
                 $product_variant->images = $myValue['varImage'];
+                $product_variant->alt_text =  implode(",",$myValue['alt_text']);
                 $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
 
                 $temp_new_images = explode(",",$myValue['varImage']);
@@ -1203,7 +1206,7 @@ class ProductController extends Controller
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-check">
                                 <input type="checkbox" class="check" name="use_comman'.$required_variation['id'].'" > 
-                                <label class="form-check-label"> User for Common Variation ?</label>
+                                <label class="form-check-label"> Use for Common Variation ?</label>
                             </div>
                         </div>
                     </div>
@@ -1356,6 +1359,7 @@ class ProductController extends Controller
                                                                                                                             <div class="jFiler-item-status"></div>\
                                                                                                                             {{fi-image}}\
                                                                                                                         </div>\
+                                                                                                                        <input type="text" name="alt_text[]" class="mt-2 form-control input-default" placeholder="Alter Text" name="alt_text[]" style="width: 85px;font-size: 12px; height:28px;">\
                                                                                                                         <div class="jFiler-item-assets jFiler-row">\
                                                                                                                             <ul class="list-inline pull-left">\
                                                                                                                                 <li>{{fi-progressBar}}</li>\
