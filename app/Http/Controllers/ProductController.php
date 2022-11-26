@@ -33,7 +33,7 @@ class ProductController extends Controller
     {
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
-        $Product = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        $Product = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
         $primary_category_idss = array();
         $primary_category_ids = explode(',',$Product->primary_category_id);
         foreach($primary_category_ids as $primary_category_id){
@@ -42,7 +42,7 @@ class ProductController extends Controller
     
         //$ProductRelated= Product::with('primary_category','product_variant')->where(['estatus' => 1,'primary_category_id' => $id])->get();
        
-        $ProductRelated= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
+        $ProductRelated= Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first();
         $meta_title = isset($Product->meta_title)?$Product->meta_title:"";
@@ -58,7 +58,7 @@ class ProductController extends Controller
            
             //$attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             //\DB::enableQueryLog(); 
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
+            $query = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
             if(isset($request->keyword) && $request->keyword != ""){
                 // This will only execute if you received any keyword
@@ -173,6 +173,13 @@ class ProductController extends Controller
 
                 $images = explode(",",$row->images);
                 $image = URL($images['0']);
+
+                $alt_text = "";
+              
+                if($row->alt_text != ""){
+                    $alt_texts = explode(",",$row->alt_text);
+                    $alt_text = $alt_texts['0'];
+                }
                 
                 $ext = pathinfo($image, PATHINFO_EXTENSION); 
                 $sale_price = $row->sale_price;
@@ -182,17 +189,23 @@ class ProductController extends Controller
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="'.$url.'">
+                            
                                '; 
                                if(in_array($ext, $supported_image)) {
-                                $output .=  '<img src="'.  $image  .'" alt="" class="main-product-image-'.$row->id.'">';
+                                $output .=  '<img src="'.  $image  .'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
                                }else{
                                 $image2 = URL($images['1']);
-                                $output .=  '<img src="'.  $image2  .'" alt="" class="main-product-image-'.$row->id.'">';
+                                $output .=  '<img src="'.  $image2  .'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
                                }
                             $output .=  '</a>
                         </div><div class="text-center">';
                         $image_no = 1;
-                        foreach($images as $image){
+                        foreach($images as $key => $image){
+                            $alt_text = "";
+                            if($row->alt_text != ""){
+                                $alt_texts = explode(",",$row->alt_text);
+                                $alt_text = $alt_texts[$key];
+                            }
                             
                         if($image_no <= 3){ 
                         $ext = pathinfo($image, PATHINFO_EXTENSION); 
@@ -200,7 +213,7 @@ class ProductController extends Controller
                         $output .= '<span class="form-check d-inline-block ">
                             <a href="">
                             
-                            <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
+                            <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="'.$alt_text.'" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
                             </a>
                             <div class="wire_bangle_color_input_label"></div>
                         </span>';
@@ -435,7 +448,7 @@ class ProductController extends Controller
             //echo $vatid; die;
             if($vatid != 0){
                
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id','product_variants.product_rating')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id','product_variants.product_rating')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
             if($vatid > 0){
                 $query = $query->where('product_variants.id',$vatid);
@@ -521,30 +534,40 @@ class ProductController extends Controller
                 }
                 $vimage = '';
                 $vimage .='<div class="slider slider-single mb-5">'; 
-                        foreach($images as $image){
+                        foreach($images as $key => $image){
+                            $alt_text = "";
+                            if($result->alt_text != ""){
+                                $alt_texts = explode(",",$result->alt_text);
+                                $alt_text = $alt_texts[$key];
+                            }
                             $ext = pathinfo($image, PATHINFO_EXTENSION); 
                             if(in_array($ext, $supported_image)) {
                                 $vimage .='<div class="product_slider_main_item">
-                                                <img src="'.URL($image).'" alt="">
+                                                <img src="'.URL($image).'" alt="'.$alt_text.'">
                                             </div>';
                             }else{
                                 $vimage .='<div class="product_slider_main_item">
-                                                <video cloop="true" autoplay="autoplay" style="width:100%; height:500px;" name="media"><source src="'. URL($image) .'" type="video/mp4"></video>
+                                                <video cloop="true" autoplay="autoplay" style="width:100%; height:500px;" name="media"><source src="'. URL($image) .'" type="video/mp4" alt="'.$alt_text.'></video>
                                             </div>';
 
                             }            
                         }
                 $vimage .='</div>
                         <div class="slider slider-nav">';
-                        foreach($images as $image){
+                        foreach($images as $key => $image){
+                            $alt_text = "";
+                            if($result->alt_text != ""){
+                                $alt_texts = explode(",",$result->alt_text);
+                                $alt_text = $alt_texts[$key];
+                            }
                             $ext = pathinfo($image, PATHINFO_EXTENSION);
                             if(in_array($ext, $supported_image)) {
                             $vimage .='<div class="product_slider_item">
-                                        <h3><img src="'.URL($image).'" alt=""></h3>
+                                        <h3><img src="'.URL($image).'" alt="'.$alt_text.'"></h3>
                                     </div>';  
                             }else{
                             $vimage .='<div class="product_slider_item">
-                                 <img src="'.URL('frontend/image/video-play.png').'" alt="">
+                                 <img src="'.URL('frontend/image/video-play.png').'" alt="'.$alt_text.'">
                             </div>';    
                             }   
                         }   

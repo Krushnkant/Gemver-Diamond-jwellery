@@ -674,12 +674,18 @@
                      $image = URL($images['0']);
                      $sale_price = $Related->sale_price;
                      $url =  URL('/product-details/'.$Related->id.'/'.$Related->variant_id); 
+
+                    $alt_text = "";
+                    if($Related->alt_text != ""){
+                        $alt_texts = explode(",",$Related->alt_text);
+                        $alt_text = $alt_texts['0'];
+                    }
                     
                     ?>
                     <div class="hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt=""></a>
+                            <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}"></a>
                         </div>
                         <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}
                             <input type="hidden" class="variant_id" value="{{ $Related->variant_id }}">    

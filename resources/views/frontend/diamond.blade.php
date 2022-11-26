@@ -483,6 +483,7 @@
                     </div>
                 </div>
                 
+                
                 <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
@@ -591,6 +592,8 @@
                 </div>
         </div>
 
+        
+
         <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
@@ -686,6 +689,55 @@
                             
                         </div>
                     </div> 
+            </div>
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Fluor</span>
+                    <span class="col-md-12">
+                        
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="None" class="report common_selector" id="None">
+                            <label for="None">NONE</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector" id="FNTVSLT">
+                            <label for="FNTVSLT">FNT/V SLT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="MEDSLT" class="report common_selector" id="MEDSLT">
+                            <label for="MEDSLT">MED/SLT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="STRONG" class="report common_selector" id="STRONG">
+                            <label for="STRONG">STRONG</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="VSTRG" class="report common_selector" id="VSTRG">
+                            <label for="VSTRG">V STRG</label>
+                        </div>
+                      
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">GROWTH TYPE</span>
+                    <span class="col-md-12">
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
+                            <label for="CVD">CVD</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="HPHT" class="report common_selector" id="HPHT">
+                            <label for="HPHT">HPHT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="OTHER" class="report common_selector" id="OTHER">
+                            <label for="OTHER">OTHER</label>
+                        </div>
+                    </span>
+                </div>
             </div>
 
             <div class="row align-items-center">

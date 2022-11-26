@@ -269,7 +269,7 @@
                                                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="form-check">
                                                                         <input type="checkbox" class="check avoid-clicks" style="pointer-events: none;" name="use_comman{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_comman == 1) ) checked @endif> 
-                                                                        <label class="form-check-label"> User for Common Variation ?</label>
+                                                                        <label class="form-check-label"> Use for Common Variation ?</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -416,6 +416,7 @@
                                                                                                 <div class="jFiler-item-status"></div>\
                                                                                                 {{fi-image}}\
                                                                                             </div>\
+                                                                                            <input type="text" name="alt_text[]" class="mt-1" style="width: 108px;font-size: 12px;">\
                                                                                         <div class="jFiler-item-assets jFiler-row">\
                                                                                             <ul class="list-inline pull-left">\
                                                                                                 <li>{{fi-progressBar}}</li>\
@@ -434,6 +435,7 @@
                                                                                         <div class="jFiler-item-status"></div>\
                                                                                         {{fi-image}}\
                                                                                     </div>\
+                                                                                    <input type="text" name="alt_text[]" class="mt-1" style="width: 108px;font-size: 12px;">\
                                                                                     <div class="jFiler-item-assets jFiler-row">\
                                                                                         <ul class="list-inline pull-left">\
                                                                                             <li><span class="jFiler-item-others">{{fi-icon}}</span></li>\
@@ -563,7 +565,8 @@
                                                                     <?php 
                                                                     if(isset($variant_image['images'])){
                                                                     $variant_images = explode(",",$variant_image['images']); $vcnt = 0; ?>
-                                                                    @foreach($variant_images as $v_img)
+                                                                    @foreach($variant_images as $key => $v_img)
+                                                                            <?php $textarray =   explode(',',$variant_image['alt_text']); ?>
                                                                             <li id="oldVarImgBox{{ $term_item_id }}-{{ $vcnt }}" class="jFiler-item" data-jfiler-index="1" style="">
                                                                                 <div class="jFiler-item-container">
                                                                                     <div class="jFiler-item-inner">
@@ -585,6 +588,10 @@
                                                                                             <?php } ?>    
 
                                                                                             </div>
+                                                                                            
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                        <input type="text" class="mt-2 form-control input-default" placeholder="Alter Text" name="alt_text[]" style="width: 85px;font-size: 12px; height:28px;" value="{{ isset($textarray[$key])?$textarray[$key]:"" }}" >
                                                                                         </div>
                                                                                         <div class="jFiler-item-assets jFiler-row">
                                                                                             <ul class="list-inline pull-right">

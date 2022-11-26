@@ -116,6 +116,12 @@
                         'jpeg',
                         'png'
                         );
+
+                        $alt_text = "";
+                        if($product->alt_text != ""){
+                            $alt_texts = explode(",",$product->alt_text);
+                            $alt_text = $alt_texts['0'];
+                        }
                      
                     
                     ?>
@@ -128,10 +134,10 @@
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="{{ $image }}" alt="">
+                                <img src="{{ $image }}" alt="{{ $alt_text }}">
                                 <?php }else{ ?>
                                    
-                                    <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
+                                    <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4" alt="{{ $alt_text }}"></video>
                                 <?php } ?>
                             </a>
                         </div>

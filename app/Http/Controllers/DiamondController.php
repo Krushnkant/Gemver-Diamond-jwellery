@@ -176,6 +176,16 @@ class DiamondController extends Controller
             $query = $query->whereIn('Symm',$symms);
         }
 
+        if(isset($data["fluor"])){
+            $fluor = $data["fluor"];
+            $query = $query->whereIn('fluor',$fluor);
+        }
+
+        if(isset($data["growth_type"])){
+            $growth_type = $data["growth_type"];
+            $query = $query->whereIn('growth_type',$growth_type);
+        }
+
         if($data["sorting"] == "price")
         {
             $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
@@ -418,6 +428,7 @@ class DiamondController extends Controller
                 $query = $query->WhereRaw("FIND_IN_SET($cat_id, primary_category_id)");
             }
             
+            
             if(isset($data["attribute"])){
                 $attribute=$data["attribute"];
                 $query = $query->where('product_variant_variants.attribute_term_id',$data["attribute"]);
@@ -454,6 +465,7 @@ class DiamondController extends Controller
                 foreach ($result as $product){
                     $images = explode(",",$product->images);
                     $image = URL($images['0']);
+                    
                     $sale_price = $product->sale_price;
                     $supported_image = array(
                         'jpg',
@@ -461,14 +473,26 @@ class DiamondController extends Controller
                         'png'
                     );
                     $url =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id.'/'.$product->variant_id);
+
+                    $alt_text = "";
+                    if($product->alt_text != ""){
+                        $alt_texts = explode(",",$product->alt_text);
+                        $alt_text = $alt_texts['0'];
+                    }
+
                     $artilces.='
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4 wire_bangle_shop_radio">
                         <div class="wire_bangle_product_setting">
                             <div class="wire_bangle_img mb-3 position-relative">
-                            <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $product->product_title .'" class="main-product-image-'.$product->id.'"></a>
+                            <a href="'.$url.'"><img src="'.  $image  .'" alt="'. $alt_text .'" class="main-product-image-'.$product->id.'"></a>
                             </div><div class="text-center">';
                             $image_no = 1;
-                            foreach($images as $image){
+                            foreach($images as $key => $image){
+                            $alt_text = "";    
+                            if($product->alt_text != ""){
+                                $alt_texts = explode(",",$product->alt_text);
+                                $alt_text = $alt_texts['0'];
+                            }   
                             if($image_no <= 3){ 
                                 $artilces .= '<span class="form-check d-inline-block ">
                                     <a href="">';
@@ -480,7 +504,7 @@ class DiamondController extends Controller
                                        // $artilces .=  '<img src="'.  $image2  .'" alt="" class="main-product-image-'.$product->id.'">';
                                        }
                                     
-                                       $artilces .= '<img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="" data-id="'.$product->id.'" class="wire_bangle_color_img pe-auto product-image ">';
+                                       $artilces .= '<img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="'.$alt_text.'" data-id="'.$product->id.'" class="wire_bangle_color_img pe-auto product-image ">';
                                        $artilces .= '</a>
                                     <div class="wire_bangle_color_input_label"></div>
                                 </span>';
@@ -743,6 +767,16 @@ class DiamondController extends Controller
         if(isset($data["report"])){
             $reports = $data["report"];
             $query = $query->whereIn('Lab',$reports);
+        }
+
+        if(isset($data["fluor"])){
+            $fluor = $data["fluor"];
+            $query = $query->whereIn('fluor',$fluor);
+        }
+
+        if(isset($data["growth_type"])){
+            $growth_type = $data["growth_type"];
+            $query = $query->whereIn('growth_type',$growth_type);
         }
         
         if($data["sorting"] == "price")

@@ -551,6 +551,55 @@
                     </span>
                 </div>
             </div>
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Fluor</span>
+                    <span class="col-md-12">
+                        
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="None" class="report common_selector" id="None">
+                            <label for="None">NONE</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector" id="FNTVSLT">
+                            <label for="FNTVSLT">FNT/V SLT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="MEDSLT" class="report common_selector" id="MEDSLT">
+                            <label for="MEDSLT">MED/SLT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="STRONG" class="report common_selector" id="STRONG">
+                            <label for="STRONG">STRONG</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="fluor[]" value="VSTRG" class="report common_selector" id="VSTRG">
+                            <label for="VSTRG">V STRG</label>
+                        </div>
+                      
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row"> 
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">GROWTH TYPE</span>
+                    <span class="col-md-12">
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
+                            <label for="CVD">CVD</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="HPHT" class="report common_selector" id="HPHT">
+                            <label for="HPHT">HPHT</label>
+                        </div>
+                        <div class="form-group d-inline-block me-3 mb-2">
+                            <input type="checkbox" name="growth_type[]" value="OTHER" class="report common_selector" id="OTHER">
+                            <label for="OTHER">OTHER</label>
+                        </div>
+                    </span>
+                </div>
+            </div>
 
             <div class="row align-items-center">
                 <div class="col-md-12 text-center text-sm-end px-0">
@@ -738,6 +787,8 @@
                 var report = get_filter('report');
                 var polish = get_filter('polish');
                 var symm = get_filter('symm');
+                var fluor = get_filter('fluor');
+                var growth_type = get_filter('growth_type');
                 var sorting = $('#sorting :selected').val();
 
                 var minimum_carat = $('#hidden_minimum_carat').val();
@@ -768,7 +819,7 @@
                     url: ENDPOINT + "/alllab-diamond?page=" + page,
                     method:"POST",
                     data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
-                        ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,_token: '{{ csrf_token() }}'},
+                        ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,fluor:fluor,growth_type:growth_type,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
@@ -917,7 +968,7 @@
              
             $( "#slider-range-depth" ).slider({
               range: true,
-              min: 40,
+              min: 0,
               max: maxDepth,
               step: 0.1,
               values: [ 0, maxDepth],
@@ -1008,7 +1059,7 @@
              var page = 1;
             $( "#slider-range-table" ).slider({
               range: true,
-              min: 40,
+              min: 0,
               max: maxTable,
               step: 0.1,
               values: [ 0, maxTable],
