@@ -57,6 +57,7 @@ class ImportDiamondNew implements WithHeadingRow,ToCollection
                         ->update([
                             'Amt' => $collection['total_sales_price'],
                             'Sale_Amt' => $sale_amt,
+                            'shape' => strtoupper($collection['shape']),
                         ]);
             }else{ 
                    $data = ([
@@ -72,7 +73,7 @@ class ImportDiamondNew implements WithHeadingRow,ToCollection
                     'Location' => $collection['city'].','.$collection['state'].','.$collection['country'],
                     'Amt' => $collection['total_sales_price'],
                     'Sale_Amt' => $sale_amt,
-                    'shape' => $collection['shape'],
+                    'shape' => strtoupper($collection['shape']),
                     'Color' => $collection['color'],
                     'Measurement' => $collection['meas_ratio'],
                     'Certificate_url' => $collection['cert_url'],
