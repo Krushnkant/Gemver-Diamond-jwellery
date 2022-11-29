@@ -68,6 +68,7 @@ class DiamondController extends Controller
     public function getDiamonds(Request $request)
     {
         $data = $request->all();
+        \DB::enableQueryLog();
         $query = Diamond::where('estatus',1);
 
         
@@ -113,19 +114,19 @@ class DiamondController extends Controller
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
 
-        if($data["minimum_ratio"] && $data["maximum_ratio"]){
-            $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
-            $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
-        }
+        // if($data["minimum_ratio"] && $data["maximum_ratio"]){
+        //     $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
+        //     $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
+        // }
 
-        if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
-            $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
-            $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
-        }elseif (!empty($data["minimum_ratio_input"])) {
-            $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
-        }elseif (!empty($data["maximum_ratio_input"])) {
-            $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
-        }
+        // if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
+        //     $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
+        //     $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
+        // }elseif (!empty($data["minimum_ratio_input"])) {
+        //     $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
+        // }elseif (!empty($data["maximum_ratio_input"])) {
+        //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
+        // }
 
         if($data["minimum_table"] && $data["maximum_table"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
@@ -664,6 +665,7 @@ class DiamondController extends Controller
     {
         
         $data = $request->all();
+        \DB::enableQueryLog();
         $query = Diamond::where('estatus',1);
         if($data["minimum_price"] && $data["maximum_price"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price"]);
@@ -707,19 +709,19 @@ class DiamondController extends Controller
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
 
-        if($data["minimum_ratio"] && $data["maximum_ratio"]){
-            $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
-            $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
-        }
+        // if($data["minimum_ratio"] && $data["maximum_ratio"]){
+        //     $query = $query->where('Ratio','>=',$data["minimum_ratio"]);
+        //     $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
+        // }
 
-        if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
-            $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
-            $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
-        }elseif (!empty($data["minimum_ratio_input"])) {
-            $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
-        }elseif (!empty($data["maximum_ratio_input"])) {
-            $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
-        }
+        // if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
+        //     $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
+        //     $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
+        // }elseif (!empty($data["minimum_ratio_input"])) {
+        //     $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
+        // }elseif (!empty($data["maximum_ratio_input"])) {
+        //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
+        // }
 
         if($data["minimum_table"] && $data["maximum_table"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
@@ -788,7 +790,7 @@ class DiamondController extends Controller
         }else{
             $results  = $query->paginate(20);
         }
-
+        
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
