@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\PriceRange;
 use Illuminate\Http\Request;
 use App\Imports\ImportDiamond;
+use App\Imports\ImportDiamondNew;
 use Excel;
 use Illuminate\Support\Facades\Validator;
 
@@ -189,6 +190,14 @@ class DiamondController extends Controller
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
         Excel::import(new ImportDiamond, $request->file('file')->store('files'));
+        $action = "add";
+        return response()->json(['status' => '200', 'action' => $action]);
+    }
+
+    public function importnew(Request $request){
+        
+        $public_path = public_path() . "\csv\diamond_response.csv";
+        Excel::import(new ImportDiamondNew, $public_path);
         $action = "add";
         return response()->json(['status' => '200', 'action' => $action]);
     }
