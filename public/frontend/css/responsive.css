@@ -427,6 +427,9 @@
         box-sizing: border-box !important;
         height: auto;
     }
+    .diamond_margin {
+        margin-top: 40px;
+    }
     .progressbar_ul {
         border: 0;
         background: none;
