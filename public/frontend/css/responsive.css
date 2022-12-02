@@ -26,6 +26,19 @@
     .footer-logo {
         max-width: 90px;
     }
+    .shop_by_style_slider_home .owl-nav {
+        top: calc(50% - 40px);
+        transform: translateY(-50%);
+        left: 0;
+    }
+    .shop_by_style_slider_home .owl-nav .owl-prev {
+        left: 0 !important;
+        position: absolute !important;
+    }
+    .shop_by_style_slider_home .owl-nav .owl-next {
+        right: 0 !important;
+        position: absolute !important;
+    }
     /* --------------------- blog page--------------------------------- */
     .blog_tabs ul li button {
         margin: 0 0 15px 0 !important;
@@ -976,10 +989,6 @@
     }
     .explore-ring-btn {
         color: #BB9761;
-    }
-    .shop-by-style-slider .owl-nav {
-        position: initial;
-        margin-top: 0 !important;
     }
     .shop-by-style-slider .owl-dots {
         position: initial;
