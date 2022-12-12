@@ -17,12 +17,15 @@ use App\Models\SmilingDifference;
 class HomeController extends Controller
 {
     public function index(){
-        $Products= Product::with('primary_categories','product_variant')->get();
-        foreach($Products->product_variant as $product){
-            ProductVariant::where('id', $product->id)
-            ->update([
-                'slug' => $this->createSlug($Products[0]->product_title)
-                ]);
+        $Products= Product::with('product_variant')->get();
+        
+        foreach($Products as $product){
+            foreach($product->product_variant as $var){
+                ProductVariant::where('id', $var->id)
+                ->update([
+                    'slug' => $this->createSlug($product->product_title)
+                    ]);
+            }
         }
 
         $Category= Category::get();
