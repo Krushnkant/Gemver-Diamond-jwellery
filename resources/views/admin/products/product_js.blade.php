@@ -659,6 +659,21 @@ $(document).ready(function(){
             if (!$(this).valid()) {
                 valid = false;
             }
+
+            $(this).find('.varRegularPrice').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                var RegularPrice = $(thi).val();
+                var ret = $(thi).attr('name').replace('varRegularPrice','');
+                var stringdata = 'varSalePrice'+ret;
+                var SellingPrice = $("input[name="+stringdata+"]").val();
+                if(Number(SellingPrice) > Number(RegularPrice))
+                {
+                    $(this_form).find("#"+this_err).html("Selling Price from should be less than Regular Price to");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+            })
             
            
             // var valid_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
