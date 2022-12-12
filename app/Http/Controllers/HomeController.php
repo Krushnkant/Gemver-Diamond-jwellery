@@ -18,10 +18,10 @@ class HomeController extends Controller
 {
     public function index(){
         $Products= Product::with('primary_categories','product_variant')->get();
-        foreach($Products as $product){
-            ProductVariant::where('product_id', $product->id)
+        foreach($Products->product_variant as $product){
+            ProductVariant::where('id', $product->id)
             ->update([
-                'slug' => $this->createSlug($product->product_title)
+                'slug' => $this->createSlug($Products[0]->product_title)
                 ]);
         }
 
