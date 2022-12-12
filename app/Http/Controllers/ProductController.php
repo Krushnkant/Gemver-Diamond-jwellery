@@ -18,8 +18,6 @@ class ProductController extends Controller
 {
     public function index($id=0)
     {
-       
-        
         $CatId = getSlugId('Category',$id);
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
         $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
@@ -748,36 +746,6 @@ class ProductController extends Controller
             }   
             return $output;
         }
-    }
-
-
-    public function createSlug($title, $id = 0)
-    {
-        $slug = str_slug($title);
-        $allSlugs = $this->getRelatedSlugs($slug, $id);
-        if (! $allSlugs->contains('slug', $slug)){
-            return $slug;
-        }
-
-        $i = 1;
-        $is_contain = true;
-        do {
-            $newSlug = $slug . '-' . $i;
-            if (!$allSlugs->contains('slug', $newSlug)) {
-                $is_contain = false;
-                return $newSlug;
-            }
-            $i++;
-        } while ($is_contain);
-    }
-    protected function getRelatedSlugs($slug, $id = 0)
-    {
-        return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
-        ->where('id', '<>', $id)
-        ->get();
-    }
-
-
-      
+    }    
     
 }
