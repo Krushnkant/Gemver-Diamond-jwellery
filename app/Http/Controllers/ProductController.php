@@ -18,13 +18,7 @@ class ProductController extends Controller
 {
     public function index($id=0)
     {
-        $Products= Product::with('primary_categories','product_variant')->get();
-        foreach($Products as $product){
-            ProductVariant::where('product_id', $product->id)
-            ->update([
-                'slug' => $this->createSlug($product->product_title)
-                ]);
-        }
+       
         
         $CatId = getSlugId('Category',$id);
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
