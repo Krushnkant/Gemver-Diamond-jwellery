@@ -17,25 +17,7 @@ use App\Models\SmilingDifference;
 class HomeController extends Controller
 {
     public function index(){
-        $Products= Product::with('product_variant')->get();
-        
-        foreach($Products as $product){
-            foreach($product->product_variant as $var){
-                ProductVariant::where('id', $var->id)
-                ->update([
-                    'slug' => $this->createSlug($product->product_title)
-                    ]);
-            }
-        }
-
-        $Category= Category::get();
-        foreach($Category as $Cat){
-            Category::where('id', $Cat->id)
-            ->update([
-                'slug' => $this->createSlugC($Cat->category_name)
-                ]);
-        }
-
+    
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
         $banners = Banner::where('estatus',1)->get();
@@ -49,55 +31,5 @@ class HomeController extends Controller
         return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference'));
     }
 
-    public function createSlug($title, $id = 0)
-    {
-        $slug = str_slug($title);
-        $allSlugs = $this->getRelatedSlugs($slug, $id);
-        if (! $allSlugs->contains('slug', $slug)){
-            return $slug;
-        }
-
-        $i = 1;
-        $is_contain = true;
-        do {
-            $newSlug = $slug . '-' . $i;
-            if (!$allSlugs->contains('slug', $newSlug)) {
-                $is_contain = false;
-                return $newSlug;
-            }
-            $i++;
-        } while ($is_contain);
-    }
-    protected function getRelatedSlugs($slug, $id = 0)
-    {
-        return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
-        ->where('id', '<>', $id)
-        ->get();
-    }
-
-    public function createSlugC($title, $id = 0)
-    {
-        $slug = str_slug($title);
-        $allSlugs = $this->getRelatedSlugsC($slug, $id);
-        if (! $allSlugs->contains('slug', $slug)){
-            return $slug;
-        }
-
-        $i = 1;
-        $is_contain = true;
-        do {
-            $newSlug = $slug . '-' . $i;
-            if (!$allSlugs->contains('slug', $newSlug)) {
-                $is_contain = false;
-                return $newSlug;
-            }
-            $i++;
-        } while ($is_contain);
-    }
-    protected function getRelatedSlugsC($slug, $id = 0)
-    {
-        return Category::select('slug')->where('slug', 'like', $slug.'%')
-        ->where('id', '<>', $id)
-        ->get();
-    }
+    
 }
