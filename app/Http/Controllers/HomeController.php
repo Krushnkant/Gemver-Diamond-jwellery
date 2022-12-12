@@ -29,7 +29,7 @@ class HomeController extends Controller
         foreach($Category as $Cat){
             Category::where('id', $Cat->id)
             ->update([
-                'slug' => $this->createSlugC($product->product_title)
+                'slug' => $this->createSlugC($Cat->category_name)
                 ]);
         }
 
