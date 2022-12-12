@@ -75,7 +75,7 @@ class CategoryController extends Controller
                 $category->category_thumb = $request->catImg;
 
             }
-
+            $category->slug = $this->createSlug($request->category_name,$request->category_id);
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
@@ -112,6 +112,7 @@ class CategoryController extends Controller
             $action = "add";
             $category = new Category();
             $category->sr_no = $request->sr_no;
+            $category->slug = $this->createSlug($request->category_name);
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
             $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
@@ -326,6 +327,32 @@ class CategoryController extends Controller
                 }
             }
         }
+    }
+
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return Category::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
     }
 
 

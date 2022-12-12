@@ -54,7 +54,7 @@
         <select id='button_url' name="button_url" class="form-control">
         <option value="">Select Category</option>
             @foreach($categories as $category)
-                <option value="{{ URL('/shop/'.$category['id'])}}">{{ $category['category_name'] }}</option>
+                <option value="{{ URL('/shop/'.$category['slug'])}}">{{ $category['category_name'] }}</option>
             @endforeach
         </select>
     </div> -->
