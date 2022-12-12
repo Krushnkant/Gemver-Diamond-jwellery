@@ -326,32 +326,7 @@ function getproducts($cat_id){
     return $products1;
 }
 
-function compressImage($source, $destination, $quality) { 
-    // Get image info 
-    $imgInfo = getimagesize($source); 
-    $mime = $imgInfo['mime']; 
-     
-    // Create a new image from file 
-    switch($mime){ 
-        case 'image/jpeg': 
-            $image = imagecreatefromjpeg($source); 
-            break; 
-        case 'image/png': 
-            $image = imagecreatefrompng($source); 
-            break; 
-        case 'image/gif': 
-            $image = imagecreatefromgif($source); 
-            break; 
-        default: 
-            $image = imagecreatefromjpeg($source); 
-    } 
-     
-    // Save image 
-    imagejpeg($image, $destination, $quality); 
-     
-    // Return compressed image 
-    return $destination; 
-}
+
 
 function is_wishlist($item_id,$item_type){
     if($item_id!=0 && $item_id!=""){
@@ -530,5 +505,48 @@ function getOrderStatus($order_status){
 function count_order_items($OrderId){
     $order_items = \App\Models\OrderItem::where('order_id',$OrderId)->whereNotIn('order_status',[6,7,8])->count();
     return $order_items;
+}
+
+function compressImage($source, $destination, $quality) { 
+    // Get image info 
+   
+    $imgInfo = getimagesize($source); 
+
+    $mime = $imgInfo['mime']; 
+    // Create a new image from file 
+    switch($mime){ 
+        case 'image/jpeg': 
+            $image = @imagecreatefromjpeg($source); 
+            break; 
+        case 'image/png': 
+            $image = @imagecreatefrompng($source); 
+            break; 
+        case 'image/gif': 
+            $image = @imagecreatefromgif($source); 
+            break; 
+        default: 
+            $image = @imagecreatefromjpeg($source); 
+    } 
+     
+    // Save image 
+    imagejpeg($image, $destination, 50); 
+     
+    // Return compressed image 
+    return $destination; 
+}
+
+function getSlugId($model,$slug){
+    if($model == 'ProductVariant'){
+      $item = ProductVariant::where('slug',$slug)->first();
+    }elseif($model == 'Category'){
+        $item = Category::where('slug',$slug)->first();
+    }else{
+      $item = ProductVariant::where('slug',$slug)->first();  
+    }
+    if(!isset($item->id)){
+        dd('Not Found');
+    }
+    return $item->id;
+    
 }
 

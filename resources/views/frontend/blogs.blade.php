@@ -76,12 +76,14 @@
                     <?php 
                         $url = "";
                         if($BlogBanners['0']['dropdown_id'] == 1){
-                            $url = url('/shop/'.$BlogBanners['0']['value']); 
+                            $category = Category::where('estatus',1)->where('id',$BlogBanners['0']['value'])->first();
+                            $url = url('/shop/'.$category->slug);
                         }elseif($BlogBanners['0']['dropdown_id'] == 2){
                             $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
                             $cat_id = $Product->primary_category_id;
                             $var_id = $Product->product_variant[0]->id;
-                            $url = url('/product-details/'.$cat_id.'/'.$var_id);
+                            $slug = $Product->product_variant[0]->slug;
+                            $url = url('/product-details/'.$slug);
                         }
                     ?>
                     <div class="mt-3">
@@ -123,13 +125,15 @@
                             <?php 
                             $url = "";
                             if($BlogBanner['dropdown_id'] == 1){
-                             $url = url('/shop/'.$BlogBanner['value']); 
+                            $category = Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
+                            $url = url('/shop/'.$category->slug);
                             }elseif($BlogBanner['dropdown_id'] == 2){
                             $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
                              //dd($Product->product_variant[0]->id);
                              $cat_id = $Product->primary_category_id;
                              $var_id = $Product->product_variant[0]->id;
-                             $url = url('/product-details/'.$BlogBanner['value'].'/'.$var_id);
+                             $slug = $Product->product_variant[0]->slug;
+                             $url = url('/product-details/'.$slug);
                             }
                             
                             ?>

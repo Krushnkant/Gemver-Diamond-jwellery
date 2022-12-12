@@ -503,10 +503,21 @@ class ProductController extends Controller
             if ($request->hasFile('files')) {
                 $images = $request->file('files');
 
-                foreach ($images as $image) {
+                foreach ($images as $key => $image) {
                     $image_name = 'ProductImg_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-                    $destinationPath = public_path('images/ProductImg');
-                    $image->move($destinationPath, $image_name);
+                    // $destinationPath = public_path('images/ProductImg');
+                    // $image->move($destinationPath, $image_name);
+
+                    $destinationPath = public_path('images/ProductImg/'.$image_name);
+                    $imageTemp = $_FILES["files"]["tmp_name"][$key];
+                  
+                    if($_FILES["files"]["size"][$key] > 500000){
+                        compressImage($imageTemp, $destinationPath, 90);
+                    }else{
+                        $destinationPath = public_path('images/ProductImg');
+                        $image->move($destinationPath, $image_name);  
+                    }
+
                     return response()->json(['data' => 'images/ProductImg/'.$image_name]);
                 }
 
@@ -594,6 +605,7 @@ class ProductController extends Controller
             for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
                 //dd($myValue['SKU-'.$term_id.'-'.$j]);
                 $product_variant = new ProductVariant();
+                $product_variant->slug = $this->createSlug($request->ProductName);
                 $product_variant->product_id = $product->id;
                 $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
                 $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
@@ -1878,6 +1890,33 @@ class ProductController extends Controller
         $html .= $html_required_variation;
         
         return ['data' => $html];
+    }
+
+
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
     }
 
 

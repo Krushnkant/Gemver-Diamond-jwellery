@@ -77,7 +77,7 @@ Route::get('weddingbands',[OtherPageController::class,'weddingbands']);
 
 
 Route::get('/shop/{catid?}',[ProductController::class,'index'])->name('frontend.shop'); 
-Route::get('/product-details/{id}/{variantid}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
+Route::get('/product-details/{variantslug}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
 Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');

@@ -88,7 +88,7 @@ class OtherPageController extends Controller
     public function engagement(){
         $MenuPage = MenuPage::with('menupageshapestyle')->where('id',1)->first();
         $select_product = explode(',',$MenuPage->select_product);
-        $products= Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('products.id', $select_product)->groupBy('products.id')->orderBy('products.created_at', 'DESC')->get();
+        $products= Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('products.id', $select_product)->groupBy('products.id')->orderBy('products.created_at', 'DESC')->get();
         return view('frontend.engagement',compact('MenuPage','products'));
     }
 
@@ -96,7 +96,7 @@ class OtherPageController extends Controller
         $MenuPage = MenuPage::with('menupageshapestyle')->where('id',2)->first();
         $select_product = explode(',',$MenuPage->select_product);
         //$products= Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
-        $products= Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('products.id', $select_product)->groupBy('products.id')->orderBy('products.created_at', 'DESC')->get();
+        $products= Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('products.id', $select_product)->groupBy('products.id')->orderBy('products.created_at', 'DESC')->get();
         return view('frontend.weddingbands',compact('products','MenuPage'));
     }
 

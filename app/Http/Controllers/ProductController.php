@@ -16,33 +16,39 @@ use Response;
 
 class ProductController extends Controller
 {
-    public function index($id=0){
-        $CatId = $id;
+    public function index($id=0)
+    {
+        $Products= Product::with('primary_categories','product_variant')->get();
+        foreach($Products as $product){
+            ProductVariant::where('product_id', $product->id)
+            ->update([
+                'slug' => $this->createSlug($product->product_title)
+                ]);
+        }
+        
+        $CatId = getSlugId('Category',$id);
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
         $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
-        $Category = Category::where(['id' => $id])->first();
+        $Category = Category::where(['id' => $CatId])->first();
         $meta_title = isset($Category->meta_title)?$Category->meta_title:"";
         $meta_description = isset($Category->meta_description)?$Category->meta_description:"";
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
-    public function product_detail($id,$variantid)
+    public function product_detail($variantslug)
     {
+        $variantid = getSlugId('ProductVariant',$variantslug);
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-        // $Product= Product::with('product','product_variant_variants')->where(['estatus' => 1,'id' => $id])->first();
-        $Product = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        $Product = Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
         $primary_category_idss = array();
         $primary_category_ids = explode(',',$Product->primary_category_id);
         foreach($primary_category_ids as $primary_category_id){
             $primary_category_idss[] = (int)$primary_category_id;
         }
-    
-        //$ProductRelated= Product::with('primary_category','product_variant')->where(['estatus' => 1,'primary_category_id' => $id])->get();
-       
-        $ProductRelated= Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_variant_specifications", "product_variant_specifications.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
+        $ProductRelated= Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->get();
         $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first();
         $meta_title = isset($Product->meta_title)?$Product->meta_title:"";
@@ -58,7 +64,7 @@ class ProductController extends Controller
            
             //$attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             //\DB::enableQueryLog(); 
-            $query = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
+            $query = Product::select('products.id','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
             if(isset($request->keyword) && $request->keyword != ""){
                 // This will only execute if you received any keyword
@@ -99,19 +105,6 @@ class ProductController extends Controller
             
             if(isset($data["attribute"])){
                 $attribute=$data["attribute"];
-                // $sql = "";
-                // foreach($attribute as $attr){
-                //     if($sql == ""){
-                //         $sql .= "FIND_IN_SET($attr, product_attributes.terms_id)";
-                //     }else{
-                //         $sql .= " OR FIND_IN_SET($attr, product_attributes.terms_id)";
-                //     } 
-                // }
-                // $query = $query->where($sql);
-                //dd($sql);
-                //$query = $query->where('product_variant_variants.attribute_term_id',$data["attribute"]);
-               // $query = $query->where('product_variant_variants.estatus',1);
-
                $query = $query->where(function($q) use($attribute){
                 foreach($attribute as $key=>$c){
                     if ($key == 0) {
@@ -124,14 +117,6 @@ class ProductController extends Controller
                 }
                });
             }
-
-            
-
-            // if(isset($data["attribute"])){
-            //     $attribute=$data["attribute"];
-            //     $query = $query->where('product_attributes.terms_id',$data["attribute"]);
-            //     //$query = $query->where('product_attributes.estatus',1);
-            // }
 
             if(isset($data["specification"])){
                 $specification=$data["specification"];
@@ -183,7 +168,7 @@ class ProductController extends Controller
                 
                 $ext = pathinfo($image, PATHINFO_EXTENSION); 
                 $sale_price = $row->sale_price;
-                $url =  URL('/product-details/'.$row->id.'/'.$row->variant_id);
+                $url =  URL('/product-details/'.$row->slug);
                 $output .= '
                 <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
                     <div class="wire_bangle_img_radio_button">
@@ -257,7 +242,7 @@ class ProductController extends Controller
                                     
                                     foreach($product_attribute as $attribute_term){
  
-                                        $attributeurl =  URL('/product-details/'.$row->id.'/'.$attribute_term->product_variant_id); 
+                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant_id); 
                                     
                                          $output .= '<span class="form-check d-inline-block">
                                             <a href="'.$attributeurl.'">
@@ -448,7 +433,7 @@ class ProductController extends Controller
             //echo $vatid; die;
             if($vatid != 0){
                
-            $query = Product::select('products.*','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id','product_variants.product_rating')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.auto_discount_percent','product_variants.regular_price','product_variants.SKU','product_variants.id as variant_id','product_variants.product_rating')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.estatus',1);
             
             if($vatid > 0){
                 $query = $query->where('product_variants.id',$vatid);
@@ -737,7 +722,7 @@ class ProductController extends Controller
                 $image = URL($images['0']);
                 
                 $ext = pathinfo($image, PATHINFO_EXTENSION);
-                $url =  URL('/product-details/'.$row->id.'/'.$row->variant_id);
+                $url =  URL('/product-details/'.$row->slug);
                 $output .= '
 
                 <li class="">
@@ -769,6 +754,33 @@ class ProductController extends Controller
             }   
             return $output;
         }
+    }
+
+
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
     }
 
 

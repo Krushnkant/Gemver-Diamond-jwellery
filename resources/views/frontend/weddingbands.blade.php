@@ -110,7 +110,7 @@
                         $new_array = array_merge($video_array,$images_array);   
                         $image = URL($new_array['0']);
                         $sale_price = $product->sale_price;
-                        $url =  URL('/product-details/'.$product->id.'/'.$product->variant_id); 
+                        $url =  URL('/product-details/'.$product->slug); 
                         $supported_image = array(
                         'jpg',
                         'jpeg',
@@ -177,7 +177,7 @@
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/product-details/'.$product->id.'/'.$attribute_term->product_variant_id); 
+                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant_id); 
                                      ?>
                                     <span class="form-check d-inline-block">
                                         <a href="{{ $attributeurl }}">

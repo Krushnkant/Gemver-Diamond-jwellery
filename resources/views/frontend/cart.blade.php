@@ -160,7 +160,7 @@
                                     $specifications = $data['specification'];
                                     }
 
-                                    $url =  URL('/product-details/'.$item['product_id'].'/'.$item['id']); 
+                                    $url =  URL('/product-details/'.$item['slug']); 
                                 }else{
                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
                                     $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
