@@ -825,6 +825,12 @@ $(document).ready(function(){
                     $('#specificationproduct123').html(data.specificationstr123);
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
+                    $('#specificationproduct123').html(data.specificationstr123);
+                    if(data.review_list == ""){
+                       $('.review_description_heading').hide(); 
+                    }else{
+                       $('.review_description_heading').show();
+                    }
                     $('.resview_list').html(data.review_list);
                     if(data.result.product_rating == 0){
                        $('.review_star').hide(); 
