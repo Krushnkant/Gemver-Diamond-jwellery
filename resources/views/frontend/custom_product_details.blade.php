@@ -826,6 +826,11 @@ $(document).ready(function(){
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
                     $('.resview_list').html(data.review_list);
+                    if(data.result.product_rating == 0){
+                       $('.review_star').hide(); 
+                    }else{
+                       $('.review_star').show();
+                    }
                     $('.total_review_star').html(data.result.product_rating);
                     // selectjs();
                     // sliderjs();

@@ -818,7 +818,11 @@ $(document).ready(function(){
                     // }
                     $('#specificationproduct123').html(data.specificationstr123);
                     $('.resview_list').html(data.review_list);
-                   
+                    if(data.result.product_rating == 0){
+                       $('.review_star').hide(); 
+                    }else{
+                       $('.review_star').show();
+                    }
                     $('.total_review_star').html(data.result.product_rating);
                    // console.log($('.wire_bangle_share_my').next());
                     //$('.wire_bangle_share_my').next().html(data.specificationstr123);
