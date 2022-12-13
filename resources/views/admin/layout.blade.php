@@ -144,7 +144,7 @@
                                         <?php
                                         $review_count = \App\Models\Review::where('status',0)->get()->toArray();
                                         ?>
-                                        @if(count($order_count) > 0)
+                                        @if(count($review_count) > 0)
                                             <span class="badge badge-primary text-white float-right">{{ count($review_count) }}</span>
                                         @endif
                                     @endif
