@@ -101,7 +101,7 @@
                         @foreach($mostviewproducts as $key => $mostviewproduct)
                         <?php 
                           $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
-                          $producturl = url('product-details/'.$mostviewproduct->id.'/'.$mostviewproduct->product_variant[0]->id); 
+                          $producturl = url('product-details/'.$mostviewproduct->product_variant[0]->slug); 
                         ?>
                         <div class="mt-3 d-flex align-items-center">
                             <div class="px-0">
