@@ -5,14 +5,14 @@
             <div class="">
                 <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3">{{ $Category->category_name }}</div>
+                    <div class="sub_heading mb-lg-3 main_header_title">{{ $Category->category_name }}</div>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
                             <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
                             <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
                         </svg>
-                        <a href="#">{{ $Category->category_name }}</a>
+                        <a href="#" class="main_header_title">{{ $Category->category_name }}</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                         <div class="wire_bangle_carat col-lg-12 owl-carousel owl-theme category-slider">
                             @foreach($Categories as $category)
                             <span class="item form-check d-inline-block position-relative me-1 ps-0">
-                                    <input class="form-check-input category common_selector" type="checkbox" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
+                                    <input class="form-check-input category common_selector" data-title="{{ $category->category_name }}" type="checkbox" {{ ($CatId == $category->id) ? "checked" : "" }} value="{{ $category->id}}"  name="category[]" id="category{{ $category->id}}">
                                     <label class="form-check-label wire_bangle_carat_label" for="category{{ $category->id}}">
                                         {{ $category->category_name }}
                                 </label>
@@ -255,6 +255,26 @@
                 $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
                 $( "#amount-end" ).html( " $" + $( "#slider-range" ).slider( "values", 1 ) );
             
+            });
+
+            $('.category').on('click', function() {
+                var array = "";
+                var num = 1; 
+                $(".category:checked").each(function() {
+                    //array.push($(this).attr('data-title'));
+                    if(num == 1){
+                      array = array  +$(this).attr('data-title');
+                    }else{
+                      array = array + " | " +$(this).attr('data-title') ;
+                    }
+                    num++;
+                });
+                if(array == ""){
+                    $('.main_header_title').text('shop');
+                }else{
+                    $('.main_header_title').text(array);
+                }
+                
             });
 
         });
