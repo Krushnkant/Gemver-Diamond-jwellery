@@ -663,11 +663,11 @@
                                                                 <span class="menus_title ">create your own {{ $car->category_name }}</span>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ URL('/product-setting/'.$car->id)}}" class="d-flex">
+                                                                <a href="{{ URL('/product-setting/'.$car->slug)}}" class="d-flex">
                                                                     <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img "> <span class="ms-3 ms-lg-2">Start with a Setting</span></a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{ URL('/diamond-setting/'.$car->id)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
+                                                                <a href="{{ URL('/diamond-setting/'.$car->slug)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
                                                             </li>
                                                         </ul>
                                                     </div>

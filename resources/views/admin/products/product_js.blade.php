@@ -1501,7 +1501,30 @@ $(document).ready(function(){
        
     });
 
-    
+    //$(".allattribute").click(function(){
+    $('body').on('click', '.allattribute', function () {    
+        if($(".allattribute").is(':checked') ){
+            $(this).parent().parent().parent().parent().find('.Attribute').select2('destroy').find('option').prop('selected', 'selected').end().select2({
+            width: '100%',
+            multiple: true,
+            placeholder: "Select...",
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
+        });
+            //$(this).parent().parent().parent().parent().find('.Attribute').find("option").trigger("change");
+        }else{
+            $(this).parent().parent().parent().parent().find('.Attribute').select2('destroy').find('option').prop('selected', false).end().select2({
+            width: '100%',
+            multiple: true,
+            placeholder: "Select...",
+            allowClear: true,
+            autoclose: false,
+            closeOnSelect: false,
+        });
+           // $(this).parent().parent().parent().parent().find('.Attribute').find("option").trigger("change");
+        }
+    });
     
     
 

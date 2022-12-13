@@ -243,7 +243,7 @@
                                                                     <label class="col-lg-12 col-form-label" for="">{{ $attribute['attribute_name'] }} <span class="text-danger">*</span></label>
                                                                     <div class="col-lg-12">
                                                                         <select class="form-control Attribute" id="" id-data="Attribute'.$required_variation['id'].'" name="Attribute{{ $attribute['id'] }}[]" multiple>
-                                                                            <option></option>
+                                                                         
                                                 
                                                                             @php
                                                                                $terms = \App\Models\AttributeTerm::where('attribute_id',$attribute['id'])->orderBy('sorting','asc')->get()->toArray(); 
@@ -257,16 +257,23 @@
                                                                 </div>
                                                                 <label id="Attribute{{ $attribute['id'] }}-error" class="error invalid-feedback animated fadeInDown" for=""></label>
                                                             </div>
-                                                            
+                                                          
                                                             <div class="form-group row ">
-                                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-check">
+                                                                    <input type="checkbox" id="" class="allattribute" > 
+                                                                    <label class="form-check-label">
+                                                                        Select All</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="form-check">
                                                                     <input type="checkbox" class="avoid-clicks" style="pointer-events: none;" name="attribute_variation{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_variation == 1) ) checked @endif "> 
                                                                     <label class="form-check-label">
                                                                     Use for Variations ?</label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="form-check">
                                                                         <input type="checkbox" class="check avoid-clicks" style="pointer-events: none;" name="use_comman{{ $attribute['id'] }}" @if(isset($product_attribute) && ($product_attribute->use_comman == 1) ) checked @endif> 
                                                                         <label class="form-check-label"> Use for Common Variation ?</label>
@@ -820,5 +827,10 @@
 
 @section('js')
     @include('admin.products.product_js')
+
+<script>       
+
+
+</script> 
 @endsection
 

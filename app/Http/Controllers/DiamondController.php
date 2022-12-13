@@ -17,7 +17,9 @@ use Illuminate\Http\Request;
 
 class DiamondController extends Controller
 {
-    public function index($id,$shopbyid = 0){
+    public function index($slug,$shopbyid = 0){
+        $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
+        $id = $Category->id;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_variant = 0;
@@ -200,7 +202,8 @@ class DiamondController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
-                $url =  URL('/diamond-details/'.$data['catid'].'/'.$Diamond->id);
+                $Category = Category::where(['estatus' => 1,'id'=>$data['catid']])->first();
+                $url =  URL('/diamond-details/'.$Category->slug.'/'.$Diamond->id);
                 
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
@@ -329,7 +332,9 @@ class DiamondController extends Controller
       
     }
 
-    public function getDiamondDetails($catid,$id){
+    public function getDiamondDetails($slug,$id){
+        $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
+        $catid = $Category->id;
         $CatId = $catid;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
@@ -363,7 +368,9 @@ class DiamondController extends Controller
         return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated','settings','StepPopup'));
     }
 
-    public function customproducts($id,$shopbyid = 0){
+    public function customproducts($slug,$shopbyid = 0){
+        $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
+        $id = $Category->id;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_diamond = 0;
@@ -386,7 +393,7 @@ class DiamondController extends Controller
         }  
         $CatId = $id;
         $ShopBy = ShopByStyle::where(['estatus' => 1,'id' => $shopbyid])->first();
-        $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
+        
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
