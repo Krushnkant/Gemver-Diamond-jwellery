@@ -248,6 +248,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('changeproductstatus/{id}',[\App\Http\Controllers\admin\ProductController::class,'changeproductstatus'])->name('products.changeproductstatus');
     Route::get('products/{id}/delete',[\App\Http\Controllers\admin\ProductController::class,'deleteproduct'])->name('products.delete');
     Route::post('products/checksku',[\App\Http\Controllers\admin\ProductController::class,'sku_check'])->name('products.sku_check');
+    Route::get('createSlugTitle/{title}',[\App\Http\Controllers\admin\ProductController::class,'createSlugTitle'])->name('createSlugTitle.slug');
 
     Route::get('addAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addAttributebox'])->name('addAttributebox');
     Route::get('addVariantAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addVariantAttributebox'])->name('addVariantAttributebox');

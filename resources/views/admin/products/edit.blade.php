@@ -138,6 +138,23 @@
                                         </div>
                                     </div>
 
+                                   
+                                    <div class="form-group row">
+                                        <label class="col-lg-12 col-form-label" for="">URL handle <span class="text-danger">*</span></label>
+                                        <div class="col-lg-12">
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text">https://gemver.com/product-details/</div>
+                                                </div>
+                                                <input type="text" id="slug" class="form-control input-default" name="slug" value="">
+                                              </div>
+                                            
+                                        </div>
+                                        <label id="Slug-error" class="error invalid-feedback animated fadeInDown" for=""></label>
+                                    </div>
+                                            
+                                        
+
                                     <div class="row" style="display:none;">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -352,9 +369,7 @@
                                     <div id="" role="tabpanel" class="panel-collapse collapse show variation-product-box">
                                         <form method="post" enctype="multipart/form-data" class="variantForm" id="variantForm">
                                             {{ csrf_field() }}
-                                            <input type="text" name="term_id" value="{{ $term_item_id }}">
-                                            
-
+                                            <input type="hidden" name="term_id" value="{{ $term_item_id }}">
                                             <?php $required_vari_data = get_required_variations_attribute(isset($product->product_u_id) ? $product->product_u_id : ''); ?>
                                             @if(isset($required_vari_data['required_variations']) && !empty($required_vari_data['required_variations']))
                                             <div class="row VariationSelect">
@@ -682,8 +697,9 @@
                                                 foreach($variant_terms as $variant_ter){
                                                    
                                                 $variant_term = \App\Models\ProductVariantVariant::Where('product_variant_id',$variant_ter)->get()->pluck('attribute_term_id');
-                                                
+                                               
                                                 $name = '';
+                                                $slug_name = $name_main;
                                                 $required_variation_ids ="";
                                                 foreach($variant_term as $key => $tt){
                                                     $ProductAttribute = \App\Models\ProductAttribute::whereRaw("FIND_IN_SET($tt, terms_id)")->where('product_id',$product->id)->where('use_comman',0)->first();
@@ -692,8 +708,10 @@
                                                         if(isset($AttributeTerm->attrterm_name)){
                                                             if($name != "" ){
                                                             $name = $name.' | '.$AttributeTerm->attrterm_name;
+                                                            $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
                                                             }else{
                                                             $name = $AttributeTerm->attrterm_name;  
+                                                            $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);  
                                                             }
                                                         }
                                                     }
@@ -712,6 +730,7 @@
 
                                             <input type="hidden" name="varVariation{{$term_item_id}}-{{$t}}" value="{{ $required_variation_ids }}">
                                             <input type="hidden" name="tmpdata[]" value="{{ $required_variation_ids }}">
+                                            <input type="hidden" name="slug-{{$term_item_id}}-{{$t}}" value="{{ str_replace('.', 'p', $slug_name); }}">
 
                                                 
                             

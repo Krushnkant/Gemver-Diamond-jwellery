@@ -600,7 +600,22 @@ $(document).ready(function(){
                 }
             });
         });
+
+        $('body').on('change', '#ProductName', function () {
+            var value = this.value;
+            $.ajax({
+                type:"get",
+                async: false,
+                url: "{{ url('admin/createSlugTitle/') }}"+"/"+value, 
+                success: function(data) {
+                    $('#slug').val(data);
+                }
+            });
+        });
     });
+
+    
+    
 
     function validateVariantsForm() {
         $(".variantForm").each(function() {
@@ -1526,7 +1541,9 @@ $(document).ready(function(){
         }
     });
     
-    
+    $("document").ready(function() { 
+       $("#ProductName").trigger('change'); 
+   });
 
 </script>
 
