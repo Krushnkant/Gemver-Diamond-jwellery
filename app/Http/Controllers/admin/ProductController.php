@@ -1163,7 +1163,7 @@ class ProductController extends Controller
                 $html_required_variation .= ' </label>';
                 $html_required_variation .= '<div class="col-lg-12">';
                 $html_required_variation .= '<select class="form-control Attribute" id="" id-data="Attribute'.$required_variation['id'].'" name="Attribute'.$required_variation['id'].'[]" multiple>';
-                $html_required_variation .= '<option></option>';
+                //$html_required_variation .= '<option></option>';
                 foreach ($required_variation['attributeterm'] as $term){
                     $html_required_variation .= '<option value="';
                     $html_required_variation .= $term['id'];
@@ -1209,13 +1209,20 @@ class ProductController extends Controller
         if($request->check_add == 0){
         $html .= '
                     <div class="form-group row">
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-check">
+                            <input type="checkbox" id="" class="allattribute" > 
+                            <label class="form-check-label">
+                                Select All</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-check">
                             <input type="checkbox" class="myClassA" name="attribute_variation'.$required_variation['id'].'" > <label class="form-check-label">
                                 Use for Variations ?</label>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-check">
                                 <input type="checkbox" class="check" name="use_comman'.$required_variation['id'].'" > 
                                 <label class="form-check-label"> Use for Common Variation ?</label>
