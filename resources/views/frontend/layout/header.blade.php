@@ -368,6 +368,7 @@
                                             <div class="mega-menu-{{ $menu_colum }}-part  ">
                                                 <?php
                                                 foreach ($megamenu->sub_menu as $sub) {
+                                                    
                                                     if (count($sub->sub_category) > 0) {
                                                         $twocolum = "";
                                                         if (count($sub->sub_category) > 5) {
@@ -381,15 +382,16 @@
                                                             <ul class="{{ $twocolum }}">
 
                                                                 <?php
-                                                                foreach ($sub->sub_category as $car) {
+                                                                foreach ($sub->sub_category as $car){
                                                                     if ($car->icon != "") {
                                                                         $icon = url('images/categoryicon/' . $car->icon);
                                                                     } else {
                                                                         $icon = url($car->category->category_thumb);
                                                                     }
+                                                               
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('/shop/'.$car->slug)}}">
+                                                                        <a href="{{ URL('/shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
@@ -479,7 +481,7 @@
                                                                     }
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('/shop/'.$car->slug)}}">
+                                                                        <a href="{{ URL('/shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
@@ -570,7 +572,7 @@
                                                                     }
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('/shop/'.$car->slug)}}">
+                                                                        <a href="{{ URL('/shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>

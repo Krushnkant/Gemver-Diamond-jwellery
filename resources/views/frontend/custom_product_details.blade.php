@@ -839,7 +839,7 @@ $(document).ready(function(){
                     }
                     $('.total_review_star').html(data.result.product_rating);
                     // selectjs();
-                    // sliderjs();
+                     sliderjs();
                 }    
                 
             }
