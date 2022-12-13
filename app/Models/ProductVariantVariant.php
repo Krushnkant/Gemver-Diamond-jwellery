@@ -37,4 +37,8 @@ class ProductVariantVariant extends Model
         //$instance->getQuery()->where('estatus','=', 1)->orderBy('sorting','asc');
         //return $instance;
     }
+
+    public function product_variant(){
+        return $this->hasOne(ProductVariant::class,'id','product_variant_id');
+    }
 }

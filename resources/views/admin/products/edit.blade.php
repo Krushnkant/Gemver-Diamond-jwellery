@@ -352,7 +352,7 @@
                                     <div id="" role="tabpanel" class="panel-collapse collapse show variation-product-box">
                                         <form method="post" enctype="multipart/form-data" class="variantForm" id="variantForm">
                                             {{ csrf_field() }}
-                                            <input type="hidden" name="term_id" value="{{ $term_item_id }}">
+                                            <input type="text" name="term_id" value="{{ $term_item_id }}">
                                             
 
                                             <?php $required_vari_data = get_required_variations_attribute(isset($product->product_u_id) ? $product->product_u_id : ''); ?>
