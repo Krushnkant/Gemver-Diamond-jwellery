@@ -714,10 +714,10 @@
                                 ?>
                                 <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">
                                 <?php
-                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
+                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant_id); 
+                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
                                      ?>
                                     <span class="form-check d-inline-block">
                                         <a href="{{ $attributeurl }}">
