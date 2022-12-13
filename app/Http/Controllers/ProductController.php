@@ -27,7 +27,7 @@ class ProductController extends Controller
         $Category = Category::where(['id' => $CatId])->first();
         $meta_title = isset($Category->meta_title)?$Category->meta_title:"";
         $meta_description = isset($Category->meta_description)?$Category->meta_description:"";
-        return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
+        return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId','Category'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function product_detail($variantslug)

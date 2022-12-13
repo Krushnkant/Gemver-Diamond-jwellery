@@ -1620,6 +1620,7 @@ class ProductController extends Controller
        
         //$name = $AttributeTermc->attrterm_name; 
         $name = "";
+        $slug_name = $AttributeTermc->attrterm_name;
         //dd($matrix[$i]); die; 
         $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
         $required_variation_ids = $comman_id;
@@ -1627,20 +1628,22 @@ class ProductController extends Controller
             $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
             if($key == 0){
             $name = $AttributeTerm->attrterm_name;
+            $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
             }else{
-            $name = $name.' | '.$AttributeTerm->attrterm_name;  
+            $name = $name.' | '.$AttributeTerm->attrterm_name; 
+            $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name); 
             }
 
             $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
             $required_variation_ids = $required_variation_ids.','.$tt;
-     
+            
         } 
         
         
         
-
+         
         //dd($required_variation_ids);
-        
+        $html .= '<input type="hidden" name="slug-'.$t.'-'.$term_id.'" value="'. str_replace('.', 'p', $slug_name) .'">';
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
         $html .= '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <div class="row">

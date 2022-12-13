@@ -178,7 +178,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Note</h4>
-                            <textarea class="form-control input-default" name="notes" id="notes" rows="16">{{ isset($product->note)?$product->note:'' }}</textarea>
+                            <textarea class="form-control input-default" name="notes" id="notes" rows="20">{{ isset($product->note)?$product->note:'' }}</textarea>
                         </div>
                     </div>
                 </div>
