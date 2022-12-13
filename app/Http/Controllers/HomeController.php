@@ -17,6 +17,37 @@ use App\Models\SmilingDifference;
 class HomeController extends Controller
 {
     public function index(){
+
+        $Products= Product::with('product_variant')->get();
+
+        foreach($Products as $product){
+            foreach($product->product_variant as $var){
+                
+                    $variant_term = \App\Models\ProductVariantVariant::Where('product_variant_id',$var->id)->get()->pluck('attribute_term_id');
+                                               
+                        $name = '';
+                        $slug_name = '';
+                        $required_variation_ids ="";
+                        foreach($variant_term as $key => $tt){
+                            $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+                            if(isset($AttributeTerm->attrterm_name)){
+                                if($name != "" ){
+                                $name = $name.' | '.$AttributeTerm->attrterm_name;
+                                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
+                                }else{
+                                $name = $AttributeTerm->attrterm_name;  
+                                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);  
+                                }
+                            }     
+                        } 
+                
+                 
+                ProductVariant::where('id', $var->id)
+                ->update([
+                    'slug' => $this->createSlug($product->product_title.str_replace('.', 'p', $slug_name))
+                    ]);
+            }
+        }
     
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
@@ -31,5 +62,31 @@ class HomeController extends Controller
         return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference'));
     }
 
+
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
+    }
     
 }
