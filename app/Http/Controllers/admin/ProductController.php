@@ -548,7 +548,7 @@ class ProductController extends Controller
                 $variants_status[$product_variant->term_item_id] = $product_variant->estatus;
                 $product_variant->estatus = 3;
                 $product_variant->save();
-                $product_variant->delete();
+                $product_variant->forceDelete();
             }
 
             $product_variant_specifications = ProductVariantSpecification::where('product_id',$request->product_id)->get();
@@ -556,7 +556,7 @@ class ProductController extends Controller
             {
                 $product_variant_specification->estatus = 3;
                 $product_variant_specification->save();
-                $product_variant_specification->delete();
+                $product_variant_specification->forceDelete();
             }
 
             $product_variant_variants = ProductVariantVariant::where('product_id',$request->product_id)->get();
@@ -564,7 +564,7 @@ class ProductController extends Controller
             {
                 $product_variant_variant->estatus = 3;
                 $product_variant_variant->save();
-                $product_variant_variant->delete();
+                $product_variant_variant->forceDelete();
             }
         }
 
@@ -599,13 +599,12 @@ class ProductController extends Controller
             $myValue = array();
             $str ="variantForm".$i;
             parse_str($request[$str],$myValue);
-            //dd($myValue);
             $term_id = $myValue['term_id'];
             
             for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
                 //dd($myValue['SKU-'.$term_id.'-'.$j]);
                 $product_variant = new ProductVariant();
-                $product_variant->slug = $this->createSlug($request->ProductName);
+                $product_variant->slug = $this->createSlug($request->slug.'-'.$myValue['slug-'.$myValue['term_id'].'-'.$j]);
                 $product_variant->product_id = $product->id;
                 $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
                 $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
@@ -1924,6 +1923,13 @@ class ProductController extends Controller
         return ProductVariant::select('slug')->where('slug', 'like', $slug.'%')
         ->where('id', '<>', $id)
         ->get();
+    }
+
+    public function createSlugTitle($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        return $slug;
+        
     }
 
 
