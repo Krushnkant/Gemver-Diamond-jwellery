@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="text-center mt-3 mt-xl-5">
-                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All Rings</a>
+                <a  href="{{ url('/shop/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All {{ $MenuPage->category->category_name }}</a>
             </div>
         </div>
     </div>
