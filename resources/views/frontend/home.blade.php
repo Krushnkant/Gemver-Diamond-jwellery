@@ -551,7 +551,7 @@
                     <div class="engagement_ring_diamond_part">
                         <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
                         <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                        <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->section_customise_link) }}"> {{ $homesetting->section_customise_label }}</a>
+                        <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
                     </div>
                 </div>
                 <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
@@ -577,7 +577,7 @@
                     <div class="owl-carousel owl-theme shop-by-style-slider">
                         @foreach($shopbystyle as $shopby)
                         <div class="item">
-                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category_id) }} @else {{ url('diamond-setting/'.$shopby->category_id.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
+                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
                                 <div class="shop_by_style_heading">
                                     {{ $shopby->title }}

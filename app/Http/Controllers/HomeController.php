@@ -18,44 +18,43 @@ class HomeController extends Controller
 {
     public function index(){
 
-        $Products= Product::with('product_variant')->get();
+        // $Products= Product::with('product_variant')->get();
 
-        foreach($Products as $product){
-            foreach($product->product_variant as $var){
+        // foreach($Products as $product){
+        //     foreach($product->product_variant as $var){
                 
-                    $variant_term = \App\Models\ProductVariantVariant::Where('product_variant_id',$var->id)->get()->pluck('attribute_term_id');
+        //             $variant_term = \App\Models\ProductVariantVariant::Where('product_variant_id',$var->id)->get()->pluck('attribute_term_id');
                                                
-                        $name = '';
-                        $slug_name = '';
-                        $required_variation_ids ="";
-                        foreach($variant_term as $key => $tt){
-                            $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
-                            if(isset($AttributeTerm->attrterm_name)){
-                                if($name != "" ){
-                                $name = $name.' | '.$AttributeTerm->attrterm_name;
-                                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
-                                }else{
-                                $name = $AttributeTerm->attrterm_name;  
-                                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);  
-                                }
-                            }     
-                        } 
+        //                 $name = '';
+        //                 $slug_name = '';
+        //                 $required_variation_ids ="";
+        //                 foreach($variant_term as $key => $tt){
+        //                     $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+        //                     if(isset($AttributeTerm->attrterm_name)){
+        //                         if($name != "" ){
+        //                         $name = $name.' | '.$AttributeTerm->attrterm_name;
+        //                         $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
+        //                         }else{
+        //                         $name = $AttributeTerm->attrterm_name;  
+        //                         $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);  
+        //                         }
+        //                     }     
+        //                 } 
                 
                  
-                ProductVariant::where('id', $var->id)
-                ->update([
-                    'slug' => $this->createSlug($product->product_title.str_replace('.', 'p', $slug_name))
-                    ]);
-            }
-        }
+        //         ProductVariant::where('id', $var->id)
+        //         ->update([
+        //             'slug' => $this->createSlug($product->product_title.str_replace('.', 'p', $slug_name))
+        //             ]);
+        //     }
+        // }
     
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
         $banners = Banner::where('estatus',1)->get();
         $step = Step::where('estatus',1)->first();
-        $homesetting = HomeSetting::first();
-        $shopbystyle = ShopByStyle::where('estatus',1)->get();
-        //$diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
+        $homesetting = HomeSetting::with('category')->first();
+        $shopbystyle = ShopByStyle::with('category')->where('estatus',1)->get();
         $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
         $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
         $SmilingDifference = SmilingDifference::get();
