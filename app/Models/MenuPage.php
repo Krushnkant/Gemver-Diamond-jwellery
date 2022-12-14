@@ -13,6 +13,10 @@ class MenuPage extends Model
         return $this->hasMany(MenuPageShapeStyle::class,'page_id','id');
     }
 
+    public function category(){
+        return $this->hasOne(Category::class,'id','category_id');
+    }
+
     public function section31_category(){
         return $this->hasOne(Category::class,'id','section31_category_id');
     }
