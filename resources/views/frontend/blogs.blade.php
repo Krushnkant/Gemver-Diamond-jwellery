@@ -67,19 +67,20 @@
                         </div>
                         <div class="col-9 col-lg-8 px-0 px-3 pe-3">
                             <div class="blog-detail-paragraph">
-                                <a href=" {{ url('/blog/'.$lblog->id) }} ">{{ $lblog->title }}</a>
+                                <a href=" {{ url('/blog/'.$lblog->slug) }} ">{{ $lblog->title }}</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
                     @if(isset($BlogBanners) && $BlogBanners != "")
                     <?php 
+                          
                         $url = "";
-                        if($BlogBanners['0']['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanners['0']['value'])->first();
+                        if($BlogBanners[0]['dropdown_id'] == 1){
+                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanners[0]['value'])->first();
                             $url = url('/shop/'.$category->slug);
-                        }elseif($BlogBanners['0']['dropdown_id'] == 2){
-                            $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
+                        }elseif($BlogBanners[0]['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::where('id',$BlogBanners[0]['value'])->first();
                             $cat_id = $Product->primary_category_id;
                             $var_id = $Product->product_variant[0]->id;
                             $slug = $Product->product_variant[0]->slug;
@@ -87,7 +88,7 @@
                         }
                     ?>
                     <div class="mt-3">
-                        <a href="{{ $url }}"><img src="{{ url($BlogBanners['0']['banner_thumb']) }}" alt=""></a>
+                        <a href="{{ $url }}"><img src="{{ url($BlogBanners[0]['banner_thumb']) }}" alt=""></a>
                     </div>
                     
                     @endif
@@ -100,8 +101,10 @@
                         </div>
                         @foreach($mostviewproducts as $key => $mostviewproduct)
                         <?php 
+                          if(isset($mostviewproduct->product_variant[0]->images)){
                           $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
                           $producturl = url('product-details/'.$mostviewproduct->product_variant[0]->slug); 
+                         
                         ?>
                         <div class="mt-3 d-flex align-items-center">
                             <div class="px-0">
@@ -116,6 +119,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                         @endforeach
                     @endif
 
