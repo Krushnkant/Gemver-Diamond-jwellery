@@ -40,8 +40,8 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -152,8 +152,8 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>

@@ -31,7 +31,7 @@
                 </p>
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                <div class="col-6 col-md-3 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+                <div class="col-6 col-md-3 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
                     <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                     <div class="finejewellery-box mt-3">
                         <div class="finejewellery-heading text-center mb-3">
@@ -77,13 +77,14 @@
             {{ $MenuPage->section3_description }}
         </p>
         <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category_id }}">
+
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category_id }}">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
             </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category_id }}">
+            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
         </div>

@@ -29,7 +29,7 @@
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
                 <div class="item">
-                    <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
+                    <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
                         <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         <div class="choose_sub_heading mt-3 ">
                             {{ $menupageshapestyle->title }}
