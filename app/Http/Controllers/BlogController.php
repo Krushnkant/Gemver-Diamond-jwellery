@@ -18,6 +18,7 @@ class BlogController extends Controller
         $homesetting = HomeSetting::first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
         $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
+      
         return view('frontend.blogs',compact('Categories','BlogBanners','blogs','homesetting','mostviewproducts'));
     }
 
@@ -60,12 +61,12 @@ class BlogController extends Controller
                                 </span>
                             </div>
                             <div class="blog_box_heading">
-                               <a href="'.url("/").'/blog/'.$row->id.'"> '.$row->title.'</a>
+                               <a href="'.url("/").'/blog/'.$row->slug.'"> '.$row->title.'</a>
                             </div>
                             <p class="blog_box_paragraph">
                                 '. $description .'
                             </p>
-                            <button class="explore-category-btn mb-0 mb-md-3 mt-3 read_more_btn cat-details" data-value="'.$row->id.'">Read more</button>
+                            <button class="explore-category-btn mb-0 mb-md-3 mt-3 read_more_btn cat-details" data-value="'.$row->slug.'">Read more</button>
                         </div>
                     </div>
                 </div>
@@ -77,13 +78,15 @@ class BlogController extends Controller
             }
     }
 
-    public function blogdetails($id){
-        $blog = Blog::with('category')->where(['id' => $id,'estatus' => 1])->first();
+    public function blogdetails($slug){
+          
+        $blog = Blog::with('category')->where(['slug' => $slug,'estatus' => 1])->first(); 
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
         $BlogBanners = Blogbanner::where(['estatus' => 1,'page' => 0])->get()->ToArray();
         $homesetting = HomeSetting::first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
         $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
+       
         $meta_title = isset($blog->meta_title)?$blog->meta_title:"";
         $meta_description = isset($blog->meta_description)?$blog->meta_description:"";
         return view('frontend.blog',compact('blog','blogs','BlogBanners','mostviewproducts'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);

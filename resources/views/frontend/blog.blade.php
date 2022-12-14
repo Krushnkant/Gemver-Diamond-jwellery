@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-9 col-lg-8 px-0 px-3 pe-3">
                         <div class="blog-detail-paragraph">
-                            <a href=" {{ url('/blog/'.$lblog->id) }} ">{{ $lblog->title }}</a>
+                            <a href=" {{ url('/blog/'.$lblog->slug) }} ">{{ $lblog->title }}</a>
                         </div>
                     </div>
                 </div>
@@ -87,6 +87,7 @@
                         </div>
                         @foreach($mostviewproducts as $key => $mostviewproduct)
                         <?php 
+                          if(isset($mostviewproduct->product_variant[0]->images)){
                           $productimages = explode(',',$mostviewproduct->product_variant[0]->images);
                           $producturl = url('product-details/'.$mostviewproduct->product_variant[0]->slug); 
                         ?>
@@ -103,6 +104,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                         @endforeach
                     @endif
                     
