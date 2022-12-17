@@ -11,7 +11,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <link href="{{asset('plugins/toastr/css/toastr.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    
 
 </head>
 
@@ -31,7 +34,7 @@
     Preloader end
 ********************-->
 <div class="login-form-bg h-100">
-    <div class="container h-100">
+    <div class="container-fluid h-100">
         @yield('content')
     </div>
 </div>
@@ -40,12 +43,15 @@
     Scripts
 ***********************************-->
 <script src="{{asset('js/common.min.js') }}"></script>
+<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{asset('js/custom.min.js') }}"></script>
 <script src="{{asset('js/settings.js') }}"></script>
 <script src="{{asset('js/gleek.js') }}"></script>
 <script src="{{asset('js/styleSwitcher.js') }}"></script>
 <script src="{{asset('plugins/toastr/js/toastr.min.js') }}"></script>
 <script src="{{asset('plugins/toastr/js/toastr.init.js') }}"></script>
+
+
 
 <!--login page JS start -->
 <script type="text/javascript">

@@ -579,7 +579,7 @@
                         <div class="item">
                             <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
-                                <div class="shop_by_style_heading">
+                                <div class="shop_by_style_heading text-center mt-2">
                                     {{ $shopby->title }}
                                 </div>
                             </a>
@@ -599,7 +599,7 @@
                 <div class="customer_stories_paragraph mb-3 mb-md-5 text-center text-md-start">{{ $homesetting->section_why_gemver_description }}</div>
             </div>
             <div class="row">
-                <div class="col-md-6 mt-md-0 px-0 px-md-3 position-relative order-2 order-md-1">
+                <div class="col-md-6 mt-md-0 px-0 ps-md-3 position-relative order-2 order-md-1">
                     <div class="gemver_diamods_bg">
                         <div class="diamonds_part">
                             <div class="diamonds_heading mb-3">
@@ -614,7 +614,7 @@
                         <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 px-0 px-md-3 position-relative order-3">
+                <div class="col-md-6 mt-4 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
                     </div>

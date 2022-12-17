@@ -21,8 +21,12 @@
                         <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                     <div class="mb-3 password_text">
-                        <label for="exampleFormControlInput1" class="form-label">Password <span class="text-danger">*</span></label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                        <label for="exampleFormControlInput1" class="form-label">Password 
+                            <span class="text-danger">*</span></label>
+                            <div class="position-relative">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                                <i class="fa-solid fa-eye eye-part-icon"></i>
+                            </div>
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         <div class="forgot_password_text text-end mt-3">
                             <a href="{{ url('forget-password') }}" class="forgot_password_text">
