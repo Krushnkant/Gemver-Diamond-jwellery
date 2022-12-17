@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @charset "UTF-8";
 
 /*
@@ -13531,12 +13532,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     font-size: 20px;
 }
 
-.login-form__btn.submit {
-    padding: 15px 40px;
-    background: #171E4E;
-    font-weight: 700;
-}
-
 .login-form__intro p,
 .login-form__intro h4 {
     margin-bottom: 0;
@@ -21158,3 +21153,148 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 
 /* sourceMappingURL=style.css.map */
+
+
+/* -------------------------------------------------- */
+
+.create-account-heading {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.admin-login-box {
+    border-radius: 25px;
+    height: 100%;
+    align-self: center;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.custom-form-label input,
+.custom-form-label input::placeholder {
+    font-size: 15px !important;
+}
+
+.login-form {
+    font-family: 'Lato', sans-serif;
+}
+
+.sign-up-btn {
+    background: var(--primary);
+    font-weight: 400;
+    padding: 9px 40px;
+    font-size: 16px !important;
+}
+
+.signup-slider .owl-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.admin-login-row {
+    min-height: 100vh;
+    align-self: center;
+}
+
+.signup-slider .item {
+    margin-left: -1px;
+}
+
+.signup-slider .item img {
+    width: auto;
+    height: 600px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.admin-card-body {
+    max-width: 100%;
+    margin: auto;
+}
+
+.gemver-logo img {
+    width: 80px;
+}
+
+.gemver-logo {
+    position: absolute;
+    top: 35px;
+}
+
+.signup-slider .owl-dot {
+    outline: 0 !important;
+}
+
+.signup-slider .owl-dot.active span {
+    opacity: 1;
+}
+
+.signup-slider .owl-dot span {
+    background: #fff !important;
+    opacity: 0.3;
+}
+
+
+/* ------------------------------------- responsive -------------------------------------------------- */
+
+@media (max-width:991px) {
+    .create-account-heading {
+        font-size: 20px;
+    }
+    .signup-slider .item img {
+        display: none !important;
+    }
+    .admin-login-box {
+        min-height: auto !important;
+    }
+    .sign-up-btn {
+        padding: 5px 34px;
+        font-size: 16px !important;
+    }
+    .login-input .form-group label {
+        font-size: 14px;
+    }
+    .custom-form-label input,
+    .custom-form-label input::placeholder {
+        font-size: 14px !important;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .admin-card-body {
+        max-width: 100%;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .admin-card-body {
+        max-width: 100%;
+    }
+    .create-account-heading {
+        font-size: 23px;
+    }
+    .custom-form-label input,
+    .custom-form-label input::placeholder {
+        font-size: 14px !important;
+    }
+    .login-input .form-group label {
+        font-size: 14px;
+    }
+    .sign-up-btn {
+        padding: 6px 35px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px) {
+    .create-account-heading {
+        font-size: 22px;
+    }
+    .sign-up-btn {
+        padding: 7px 37px;
+        font-size: 16px !important;
+    }
+}
