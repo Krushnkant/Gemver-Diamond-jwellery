@@ -75,7 +75,7 @@ class CategoryController extends Controller
                 $category->category_thumb = $request->catImg;
 
             }
-            $category->slug = $this->createSlug($request->category_name,$request->category_id);
+            $category->slug = $request->slug;
             $category->sr_no = $request->sr_no;
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
@@ -112,7 +112,7 @@ class CategoryController extends Controller
             $action = "add";
             $category = new Category();
             $category->sr_no = $request->sr_no;
-            $category->slug = $this->createSlug($request->category_name);
+            $category->slug = $request->slug;
             $category->category_name = $request->category_name;
             $category->parent_category_id = isset($request->parent_category_id)?$request->parent_category_id:0;
             $category->is_custom = isset($request->is_custom)?$request->is_custom:0;
