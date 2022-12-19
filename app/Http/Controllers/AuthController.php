@@ -134,6 +134,13 @@ class AuthController extends Controller
         $user->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
         $user->save();
 
+        $data2 = [
+            'message1' => 'Thank you for joining Gemver Affordable Luxury'
+        ]; 
+        $templateName = 'email.mailDataregister';
+        $subject = 'Welcome Gemver Affordable Luxury';
+        $mail_sending = Helpers::MailSending($templateName, $data2, $request->email, $subject);
+
         return response()->json(['status'=>200]);
 
     }
@@ -161,7 +168,8 @@ class AuthController extends Controller
             $user->save();
 
             $data2 = [
-                'message1' => 'https://gemver.matoresell.com/public/resetpassword/'.$string
+                //'message1' => 'https://gemver.matoresell.com/public/resetpassword/'.$string
+                'message1' => url('resetpassword/').$string
             ]; 
             $templateName = 'email.mailDataforgetpassword';
             $subject = 'Forget Password';
