@@ -108,36 +108,7 @@
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->Polish != "")
-                                    <div class="col-xl-12 ps-md-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> POLISH</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Polish }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @if($Diamond->Symm != "")
-                                    <div class="col-xl-12 ps-md-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> SYMMETRY</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Symm }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @if($Diamond->Measurement != "")
-                                    <div class="col-xl-12 ps-md-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Measurement </span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    <div class="col-xl-12 ps-md-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> LOT </span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Stone_No }}</span>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="col-xl-12 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>

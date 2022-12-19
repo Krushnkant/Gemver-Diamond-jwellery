@@ -79,12 +79,12 @@
                 <div class="wire_bangle_content">
                     <div class="">
                         <div class="wire_bangle_heading mb-0 pb-0">{{ $Product->product_title }}</div>
-                        <div class=" review_star mb-2">
-                            <span class="">
+                        <div class="review_star1 mb-2">
+                            {{-- <span class="">
                                 <span class="me-1 total_review_star">4.5</span>
                                 
                                 <i class="fa-solid fa-star"></i>
-                            </span>
+                            </span> --}}
                         </div>
                         <div class="d-flex mb-2 mb-xl-2 pb-xxl-2">
                             <span class="wire_bangle_price ">$<span class="sale_price">{{ $Product->product_variant['0']->sale_price }} </span>
