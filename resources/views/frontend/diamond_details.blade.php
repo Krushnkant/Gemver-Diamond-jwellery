@@ -257,7 +257,7 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
+                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->short_title }}</div>
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
                                 <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
@@ -299,9 +299,40 @@
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
                                         </div>
                                     </div>
+                                    
+                                    @if($Diamond->Polish != "")
                                     <div class="col-xl-12 ps-md-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Certified</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> POLISH</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Polish }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if($Diamond->Symm != "")
+                                    <div class="col-xl-12 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> SYMMETRY</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Symm }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if($Diamond->Measurement != "")
+                                    <div class="col-xl-12 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Measurement </span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    <div class="col-xl-12 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> LOT </span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Stone_No }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> certified</span>
                                             @if($Diamond->Certificate_url != "")
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
                                             @else
@@ -467,6 +498,36 @@
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Shape }}</span>
                                 </div>
                             </div>
+                            @if($Diamond->Polish != "")
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">POLISH</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Polish }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($Diamond->Symm != "")
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">SYMMETRY</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Symm }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            @if($Diamond->Measurement != "")
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Measurement</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Measurement }}</span>
+                                </div>
+                            </div>
+                            @endif
+                            <div class="col-xl-6 px-0">
+                                <div class="mt-4 wire_bangle_share row">
+                                <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">LOT</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Stone_No }}</span>
+                                </div>
+                            </div>
                          
                         </div>
                     </div>
@@ -484,9 +545,9 @@
             <div class="review_description_heading order-includes-heading">
                 Reviews
             </div>
-            <div class="review_description_heading mb-3">
+            {{-- <div class="review_description_heading mb-3">
                 {{ count($diamond_reviews) }} Reviews For Cenforce
-            </div>
+            </div> --}}
             <div class="row resview_list">   
                  
             </div>
@@ -995,6 +1056,11 @@ function save_opinion(btn,btn_type){
        success:function(data)
        {
         $('#load_more_button').remove();
+        if(data == ""){
+            $('.review_description_heading').hide(); 
+        }else{
+            $('.review_description_heading').show();
+        }
         $('.resview_list').append(data);
        }
       })

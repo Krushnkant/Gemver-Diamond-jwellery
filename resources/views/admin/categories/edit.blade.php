@@ -117,6 +117,20 @@
         <div id="categorythumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
+    <div class="form-group row">
+        <label class="col-lg-12 col-form-label" for="">URL handle <span class="text-danger">*</span></label>
+        <div class="col-lg-12">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">https://gemver.com/shop/</div>
+                </div>
+                <input type="text" id="slug" class="form-control input-default" name="slug" value="{{ isset($category)?($category->slug):'' }}">
+              </div>
+            
+        </div>
+        <label id="Slug-error" class="error invalid-feedback animated fadeInDown" for=""></label>
+    </div>
+
     <div class="form-group">
         <label class="col-form-label" for="meta_title">Meta Title 
         </label>

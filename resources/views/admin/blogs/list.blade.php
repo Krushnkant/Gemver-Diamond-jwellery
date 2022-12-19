@@ -374,6 +374,18 @@ function removeuploadedimg(divId ,inputId, imgName){
     }
 }
 
+$(document).on('change', '#title', function () {
+            var value = this.value;
+            $.ajax({
+                type:"get",
+                async: false,
+                url: "{{ url('admin/blogs/createSlug/') }}"+"/"+value, 
+                success: function(data) {
+                    $('#slug').val(data);
+                }
+            });
+        });
+
 </script>
 <!-- blog JS end -->
 @endsection

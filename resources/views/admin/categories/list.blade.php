@@ -461,6 +461,18 @@ $(document).on('change', '#is_custom', function() {
         $(".parent_category").show();
     }
 });
+
+$(document).on('change', '#category_name', function () {
+            var value = this.value;
+            $.ajax({
+                type:"get",
+                async: false,
+                url: "{{ url('admin/categories/createSlug/') }}"+"/"+value, 
+                success: function(data) {
+                    $('#slug').val(data);
+                }
+            });
+        });
 </script>
 <!-- category JS end -->
 @endsection

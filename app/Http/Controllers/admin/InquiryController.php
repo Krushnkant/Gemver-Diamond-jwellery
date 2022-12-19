@@ -181,7 +181,7 @@ class InquiryController extends Controller
                     
                     $action .= '<a href="mailto:'.$inquiry->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
                     if (isset($inquiry->whatsapp_number)){
-                     $action .= '<a href="https://api.whatsapp.com/send?phone=91'.$inquiry->whatsapp_number.'&text=" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
+                     $action .= '<a href="https://api.whatsapp.com/send?phone=91'.$inquiry->whatsapp_number.'&&text=Hello" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
                     }
                     $spe_info ='';
 

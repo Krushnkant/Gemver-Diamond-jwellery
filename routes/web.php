@@ -230,6 +230,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('categories/uploadfile',[\App\Http\Controllers\admin\CategoryController::class,'uploadfile'])->name('categories.uploadfile');
     Route::post('categories/removefile',[\App\Http\Controllers\admin\CategoryController::class,'removefile'])->name('categories.removefile');
     Route::get('categories/checkparentcat/{id}',[\App\Http\Controllers\admin\CategoryController::class,'checkparentcat'])->name('categories.checkparentcat');
+    Route::get('categories/createSlug/{title}',[\App\Http\Controllers\admin\CategoryController::class,'createSlug'])->name('categories.createSlug');
 
     Route::get('categorysteppopup/{id}',[\App\Http\Controllers\admin\StepPopupController::class,'index'])->name('categorysteppopup.list');
     Route::get('steppopup/{id}/edit',[\App\Http\Controllers\admin\StepPopupController::class,'editsteppopup'])->name('steppopup.edit');
@@ -408,6 +409,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('blogs/{id}/edit',[\App\Http\Controllers\admin\BlogController::class,'editblog'])->name('blogs.edit');
     Route::post('blogs/uploadfile',[\App\Http\Controllers\admin\BlogController::class,'uploadfile'])->name('blogs.uploadfile');
     Route::post('blogs/removefile',[\App\Http\Controllers\admin\BlogController::class,'removefile'])->name('blogs.removefile');
+    Route::get('blogs/createSlug/{title}',[\App\Http\Controllers\admin\BlogController::class,'createSlug'])->name('blogs.createSlug');
 
     
     Route::get('banners',[\App\Http\Controllers\admin\BannerController::class,'index'])->name('banners.list');

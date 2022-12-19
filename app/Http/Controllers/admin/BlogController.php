@@ -76,7 +76,7 @@ class BlogController extends Controller
             }
 
             $blog->title = $request->title;
-            $blog->slug = $this->createSlug($request->title,$request->blog_id);
+            $blog->slug = $request->slug;
             $blog->description = $request->description;
             $blog->category_id = $request->category_id;
             $blog->meta_title = $request->meta_title;
@@ -86,7 +86,7 @@ class BlogController extends Controller
             $action = "add";
             $blog = new Blog();
             $blog->title = $request->title;
-            $blog->slug = $this->createSlug($request->title);
+            $blog->slug = $request->slug;
             $blog->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $blog->blog_thumb = $request->catImg;
             $blog->description = $request->description;

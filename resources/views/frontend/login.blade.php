@@ -25,7 +25,8 @@
                             <span class="text-danger">*</span></label>
                             <div class="position-relative">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
-                                <i class="fa-solid fa-eye eye-part-icon"></i>
+                                <i toggle="#password-field" class="fa-solid fa-eye eye-part-icon toggle-password"></i>
+                            
                             </div>
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         <div class="forgot_password_text text-end mt-3">
@@ -54,6 +55,14 @@
 
 <!--login page JS start -->
 <script type="text/javascript">
+     $(document).on('click', '.toggle-password', function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+
+        var input = $("#password");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+    });
+
     $('#LoginForm').on('submit', function (e) {
         $("#email-error").html("");
         $("#password-error").html("");
