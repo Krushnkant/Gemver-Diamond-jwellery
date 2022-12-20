@@ -35,7 +35,7 @@
                                             <input type="password" class="form-control password-input" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
                                             <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
-                                        <button class="btn login-form__btn submit w-100 sign-up-btn" type="submit" id="loginSubmit">Sign Up <i class="fa fa-spinner fa-spin loadericonfa" style="display:none;"></i></button>
+                                        <button class="btn login-form__btn submit w-100 sign-up-btn" type="submit" id="loginSubmit">Login<i class="fa fa-spinner fa-spin loadericonfa" style="display:none;"></i></button>
                                     </form>
                                 </div>
                             </div>
