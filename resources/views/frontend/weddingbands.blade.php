@@ -56,8 +56,9 @@
                         </p>
                     </div>
                 </div>
+              
                 <div class="text-center mt-5">
-                    <a href="{{ url('/product-setting/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">
+                    <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">
                         create your own {{ $MenuPage->category->category_name }}
                     </a>
                 </div>
