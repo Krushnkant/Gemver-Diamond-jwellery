@@ -79,7 +79,7 @@
                 <div class="wire_bangle_content">
                     <div class="">
                         <div class="wire_bangle_heading mb-0 pb-0">{{ $Product->product_title }}</div>
-                        <div class="review_star1 mb-2">
+                        <div class="review_star mb-2">
                             {{-- <span class="">
                                 <span class="me-1 total_review_star">4.5</span>
                                 
@@ -755,7 +755,7 @@ $(document).ready(function(){
     //filter_data_variant();
     filter_data();
     selectjs();
-    sliderjs();
+    //sliderjs();
     function filter_data_variant1()
     {
         var action = 'fetch_data';
@@ -818,11 +818,11 @@ $(document).ready(function(){
                     // }
                     $('#specificationproduct123').html(data.specificationstr123);
                     if(data.review_list == ""){
-                       $('.review_description_heading').hide(); 
+                        $('.resview_list').html('Review Not Available');
                     }else{
-                       $('.review_description_heading').show();
+                       $('.resview_list').html(data.review_list);
                     }
-                    $('.resview_list').html(data.review_list);
+                    
                     if(data.result.product_rating == 0){
                        $('.review_star').hide(); 
                     }else{
