@@ -108,6 +108,43 @@
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
                                         </div>
                                     </div>
+
+                                    
+                                    @if($Diamond->POLISH != "")
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> polish</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Polish }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+
+                                    @if($Diamond->Symm != "")
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> symmetry</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Symm }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+
+                                    @if($Diamond->Measurement != "")
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> measurement</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
+
+                                    @if($Diamond->Stone_No != "")
+                                    <div class="col-xl-6 ps-md-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> LOT</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Stone_No }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
                                    
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -332,7 +369,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion wire_bangle_accordion mt-md-5 px-3" id="accordionExample">
+        {{-- <div class="accordion wire_bangle_accordion mt-md-5 px-3" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -413,7 +450,7 @@
                 </div>
             </div>
        
-        </div>
+        </div> --}}
         <?php 
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
         ?>

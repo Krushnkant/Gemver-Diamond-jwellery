@@ -570,7 +570,7 @@
                 </div>
             </div>
         </div>
-
+        <div></div>
         <div class=" mt-md-5 mt-4 px-3 mb-md-5 mb-4">
 
             <div class="review_description_heading order-includes-heading">
@@ -613,7 +613,7 @@
                 <button type="button" class="btn show_more_btn">Show more</button>
             </div>  --}}
         </div>
-
+         
         <!-- <div class="gemver_diamonds_section p-0 dbdfbdf" id="spe_desc">
           
         </div> -->
