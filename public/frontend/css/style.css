@@ -1676,7 +1676,7 @@ background-size: cover;
     }
     
     .select_setting_btn {
-        min-width: 223px;
+        min-width: 246px;
         min-height: 46px;
         border: 1px solid var(--secondary);
         font-weight: 700;
@@ -6395,8 +6395,7 @@ width: 100%;
     }
     
     .gemver-button-part {
-        min-width: 146px;
-        font-size: 12px;
+        min-width: 161px;
     }
     
     .eye-part-icon {
