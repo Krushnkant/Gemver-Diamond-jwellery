@@ -19,12 +19,22 @@ class ProductController extends Controller
     public function index($id=0)
     {
         $CatId = getSlugId('Category',$id);
+        $Category = Category::where(['id' => $CatId])->first();
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
-        $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
+        if($id != 0){
+            if($Category->parent_category_id == 0){
+                $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->id])->get();
+            }else{
+                $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->parent_category_id])->get();
+            }
+        }else{
+            $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
+        }
+        
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
-        $Category = Category::where(['id' => $CatId])->first();
+        
         $meta_title = isset($Category->meta_title)?$Category->meta_title:"";
         $meta_description = isset($Category->meta_description)?$Category->meta_description:"";
         return view('frontend.shop',compact('Products','Categories','Attributes','Maxprice','CatId','Category'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);

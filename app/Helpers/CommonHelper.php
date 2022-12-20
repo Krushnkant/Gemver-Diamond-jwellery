@@ -550,3 +550,5 @@ function getSlugId($model,$slug){
     
 }
 
+
+

@@ -528,7 +528,17 @@ class ProductController extends Controller
     public function save(Request $request){
         // $data = $request->all();
         // dd($data['variantForm1']);
-        $category_ids = implode(",",$request['category_id']);
+        $catArray = array();
+        $category1 = array();
+       // dd($request['category_id']);
+        if(isset($request['category_id'])){
+            foreach($request['category_id'] as $category){
+                if($category){
+                    $category1 = $this->getSubCategories($category);
+                }
+            }
+        } 
+        $category_ids = implode(",",$category1);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
         $product = new Product();
@@ -1935,9 +1945,18 @@ class ProductController extends Controller
         
     }
 
-
-    
-
-   
-    
+    public $catArray = array();
+    function getSubCategories($id){
+        $category = \App\Models\Category::where('estatus',1)->where('id',$id)->get()->toArray();
+        foreach ($category as $cat){
+            if(!in_array($cat['id'], $this->catArray)){
+                array_push($this->catArray,$cat['id']); 
+            }
+            if($cat['parent_category_id'] != 0){
+                $this->getSubCategories($cat['parent_category_id']);
+            }
+        }
+        return $this->catArray;
+    }
+ 
 }
