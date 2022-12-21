@@ -535,11 +535,12 @@ background-size: cover;
         color: var(--primary);
         font-weight: 600;
         font-size: 17px;
-        line-height: 36px;
+        line-height: normal;
         letter-spacing: 0.05em;
         text-transform: capitalize;
         text-align: left;
         font-family: 'Roboto', sans-serif;
+        padding: 17px 0;
     }
     
     .category-line-img {
@@ -6429,4 +6430,14 @@ width: 100%;
     .carat-input-part {
         display: grid !important;
         grid-template-columns: 45% 10% 45%;
+    }
+    
+    .shop_by_style_slider_part .item {
+        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
+        margin: 10px 0;
+        border-radius: 10px;
+    }
+    
+    .shop_by_style_slider_part img {
+        border-radius: 10px 10px 0 0;
     }
