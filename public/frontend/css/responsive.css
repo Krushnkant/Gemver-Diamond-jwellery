@@ -874,13 +874,17 @@
         position: absolute;
         top: 0;
     }
-    .comman_input_part {
+    /* .comman_input_part {
         width: 80px !important;
-    }
+    } */
     .filter_text_part {
         margin-left: 0;
         text-align: left;
         margin-bottom: 10px;
+    }
+    .carat-input-part {
+        display: flex !important;
+        grid-template-columns: auto;
     }
 }
 
@@ -2208,6 +2212,13 @@
     .header ul .lab_grown_diamond_part .mega-menu {
         transform: none;
         left: 0;
+    }
+    .from_text input,
+    .to_text input {
+        max-width: none;
+    }
+    .comman_input_part {
+        width: 100% !important;
     }
 }
 

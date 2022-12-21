@@ -247,16 +247,16 @@
                             <div class="round_cut_lab_diamonds_price col-md-10">
                                 <div class="mb-2 position-relative">
                                     <!-- <div id="slider-range-carat" class="mb-0"></div> -->
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center carat-input-part">
                                             <div class="from_text me-4">
                                                 <div class="d-flex align-items-center">
-                                                    <input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part" value="0">
+                                                    <input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part w-100" value="0">
                                                     <span class="ms-2 carat-ct-text">ct</span>
                                                 </div>
                                             </div>
-                                            <div class="me-4"> To</div>
+                                            <div class="me-4"> to</div>
                                             <div class="to_text d-flex align-items-center" style="position: initial !important;">
-                                                <input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part" value="7">
+                                                <input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part w-100" value="7">
                                                 <span class="ms-2 carat-ct-text">ct</span>
                                             </div>
                                         </div>
@@ -658,8 +658,8 @@
                             <div class="align-items-center mb-2 position-relative">
                                 <div id="slider-range" class="mb-0"></div>
                                 <div class="d-flex mt-3">
-                                    <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part" value="0"></span>
-                                    <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part" value="{{ $Maxprice  }}"></span>
+                                    <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
+                                    <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $Maxprice  }}"></span>
                                 </div>
                             </div>
                             <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
@@ -738,7 +738,7 @@
                 
            
                 <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row"> 
+                <div class="round_cut_lab_range_slider row mb-1"> 
                         <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Growth Type</span>
                         <span class="col-md-12">
                             <div class="form-group d-inline-block me-3 mb-2">
@@ -781,15 +781,15 @@
                     <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
                         <div class="align-items-center mb-2 position-relative">
                             <!-- <div id="slider-range-depth" class="mb-0"></div> -->
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center carat-input-part">
                                     <div class="from_text me-4">
                                         <div class="d-flex align-items-center">
-                                            <input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40">
+                                            <input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input w-100" value="40">
                                         </div>
                                     </div>
-                                    <div class="me-4"> To</div>
+                                    <div class="me-4"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
-                                        <input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxDepth  }}">
+                                        <input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input w-100" value="{{ $MaxDepth  }}">
                                     </div>
                                 </div>
                         </div>
@@ -802,15 +802,15 @@
                     <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">Table %</span>
                     <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
                         <div class="align-items-center mb-2 position-relative">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center carat-input-part">
                                     <div class="from_text me-4">
                                         <div class="d-flex align-items-center">
-                                            <input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40">
+                                            <input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input w-100" value="40">
                                         </div>
                                     </div>
-                                    <div class="me-4"> To</div>
+                                    <div class="me-4"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
-                                        <input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxTable  }}">
+                                        <input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input w-100" value="{{ $MaxTable  }}">
                                     </div>
                                 </div>
                             <!-- <div id="slider-range-table" class="mb-0"></div> -->
@@ -824,15 +824,15 @@
                     <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">L/W Ratio</span>
                     <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
                         <div class="align-items-center mb-2 position-relative">
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center carat-input-part">
                                     <div class="from_text me-4">
                                         <div class="d-flex align-items-center">
-                                            <input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                            <input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input w-100" value="0">
                                         </div>
                                     </div>
-                                    <div class="me-4"> To</div>
+                                    <div class="me-4"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
-                                        <input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3">
+                                        <input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input w-100" value="3">
                                     </div>
                                 </div>
                             <!-- <div id="slider-range-ratio" class="mb-0"></div> -->
