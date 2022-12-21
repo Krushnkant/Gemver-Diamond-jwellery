@@ -2413,7 +2413,7 @@ opacity: 1;
     
     .round_cut_lab_range_slider .form-group {
         display: block;
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
     
     .round_cut_lab_range_slider .form-group input {
@@ -2455,7 +2455,7 @@ opacity: 1;
         content: '';
         display: block;
         position: absolute;
-        top: 5px;
+        top: 6px;
         left: 8px;
         width: 4px;
         height: 11px;
@@ -4233,9 +4233,9 @@ width: 100%;
         background-color: var(--light-bg);
         border: 0;
         color: #000;
-        width: 100px;
+        width: 80px;
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 5px 10px;
         outline: 0;
         border-radius: 6px;
     }
@@ -6403,4 +6403,28 @@ width: 100%;
         top: 50%;
         transform: translateY(-50%);
         right: 15px;
+    }
+    
+    .min_max_part {
+        font-size: 11px;
+        opacity: 0.6;
+    }
+    
+    .filter_text_part {
+        font-size: 15px;
+        font-weight: 600;
+        text-align: center;
+        margin-left: -16px;
+    }
+    
+    .carat-ct-text {
+        opacity: 0.6;
+    }
+    
+    .filter_ct {
+        opacity: 0.6;
+    }
+    
+    .comman_input_part {
+        width: 130px !important;
     }

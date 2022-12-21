@@ -242,25 +242,97 @@
                 </div>
                 <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider row">
-                        <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">carat</div>
-                        <div class="round_cut_lab_diamonds_price col-md-12">
-                            <div class="align-items-center mb-2 position-relative">
-                                <div id="slider-range-carat" class="mb-0"></div>
-                                    <div class="d-flex mt-3">
-                                        <span class="from_text"><input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
-                                        <span class="to_text"><input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input" value="7"></span>
-                                    </div>
+                       <div class="col-md-12 row px-0">
+                        <div class="round_cut_lab_diamonds_heading col-md-2">carat</div>
+                            <div class="round_cut_lab_diamonds_price col-md-10">
+                                <div class="mb-2 position-relative">
+                                    <!-- <div id="slider-range-carat" class="mb-0"></div> -->
+                                        <div class="d-flex align-items-center">
+                                            <div class="from_text me-4">
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="" id="minimum_carat_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part" value="0">
+                                                    <span class="ms-2 carat-ct-text">ct</span>
+                                                </div>
+                                            </div>
+                                            <div class="me-4"> To</div>
+                                            <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                                <input type="text" name="" id="maximum_carat_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part" value="7">
+                                                <span class="ms-2 carat-ct-text">ct</span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
+                                <input type="hidden" id="hidden_minimum_carat" />
+                                <input type="hidden" id="hidden_maximum_carat" /> -->
                             </div>
-                            <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
-                            <input type="hidden" id="hidden_minimum_carat" />
-                            <input type="hidden" id="hidden_maximum_carat" />
+                       </div>
+                        <div class="row px-0 mt-3">
+                            <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
+                            <div class="round_cut_lab_diamonds_price col-md-10">
+                                <div class="align-items-center mb-2 position-relative">
+                                        <div class="d-md-flex flex-md-nowrap">
+                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                                <div class="filter_text_part">L</div>
+                                                <div class="d-flex flex-wrap flex-sm-nowrap">
+                                                    <div class="from_text me-1">
+                                                        <div class="min_max_part">Min</div>
+                                                        <div class="d-flex align-items-center">
+                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="from_text ms-1">
+                                                        <div class="min_max_part">Max</div>
+                                                        <div class="d-flex align-items-center">
+                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                            <div class="filter_text_part">W</div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                                <span class="from_text me-1">
+                                                    <div class="min_max_part">Min</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                    </div>
+                                                </span>
+                                                <span class="from_text ms-1">
+                                                    <div class="min_max_part">Max</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            </div>
+                                            <div class="position-relative">
+                                                <div class="filter_text_part me-md-4">D</div>
+                                                <div class="d-flex flex-wrap flex-md-nowrap">
+                                                <span class="from_text me-1">
+                                                    <div class="min_max_part">Min</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                    </div>
+                                                </span>
+                                                
+                                                <span class="from_text ms-1">
+                                                    <div class="min_max_part">Max</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                    </div>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
-                    <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-center justify-content-sm-start filter-tab" id="myTab" role="tablist">
+                    <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item">
                             <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
                         </li>
@@ -459,8 +531,9 @@
                         </div>
                 </div>
                 <div class="col-lg-6  round_cut_lab_filter" >
-                    <div class="round_cut_lab_range_slider row">
-                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">finish</span>
+                    <!-- Cut - Polish - Symm. -->
+                    <div class="round_cut_lab_range_slider row mb-3">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Sym.</span>
                         <span class="col-md-12">
                             <div class="form-group d-inline-block me-3 mb-0">
                                 <input type="radio" value="3X" class="finish "  name="finish" id="finish3X">
@@ -481,30 +554,155 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                
-                <div class="col-lg-6 round_cut_lab_filter">
-                <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $Maxprice  }}"></span>
+
+                    <!-- Cut -->
+                    <div class="round_cut_lab_range_slider row mb-3">
+                        <div class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</div>
+                        <div class="col-md-10">
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
+                                <label for="cutID">Ideal</label>
                             </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="cutEX">
+                                <label for="cutEX">Excellent</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="VG" class="cut common_selector" name="cut[]" id="cutVG">
+                                <label for="cutVG">Very Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="G" class="cut common_selector" name="cut[]" id="cutG">
+                                <label for="cutG">Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="F" class="cut common_selector" name="cut[]" id="cutF">
+                                <label for="cutF">Fair</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="P" class="cut common_selector" name="cut[]" id="cutP">
+                                <label for="cutP">Poor</label>
+                            </div>
+                            
                         </div>
-                        <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_price" />
-                        <input type="hidden" id="hidden_maximum_price" />
-                    </span>
+                    </div>
+
+                    <!-- Polish -->
+                    <div class="round_cut_lab_range_slider row mb-3">
+                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
+                        <span class="col-md-10">
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
+                                <label for="polishID">Ideal</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
+                                <label for="polishEX">Excellent</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
+                                <label for="polishVG">Very Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
+                                <label for="polishG">Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
+                                <label for="polishF">Fair</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-0">
+                                <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
+                                <label for="polishP">Poor</label>
+                            </div>
+                        </span>
+                    </div>
+
+                    <!-- Symm. -->
+                    <div class="round_cut_lab_range_slider row mb-3">
+                        <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Sym.</span>
+                        <span class="col-md-10">
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
+                                <label for="symmID">Ideal</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
+                                <label for="symmEX">Excellent</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
+                                <label for="symmVG">Very Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
+                                <label for="symmG">Good</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
+                                <label for="symmF">Fair</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3">
+                                <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
+                                <label for="symmP">Poor</label>
+                            </div>
+                        </span>
                     </div>
                 </div>
+                
+                <!-- Price -->
+                <div class="col-lg-6 round_cut_lab_filter">
+                    <div class="round_cut_lab_range_slider row">
+                        <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
+                        <span class="round_cut_lab_diamonds_price col-md-12">
+                            <div class="align-items-center mb-2 position-relative">
+                                <div id="slider-range" class="mb-0"></div>
+                                <div class="d-flex mt-3">
+                                    <span class="from_text"><input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part" value="0"></span>
+                                    <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part" value="{{ $Maxprice  }}"></span>
+                                </div>
+                            </div>
+                            <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
+                            <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>
+                            <input type="hidden" id="hidden_minimum_price" />
+                            <input type="hidden" id="hidden_maximum_price" />
+                        </span>
+                    </div>
+                    <div class="round_cut_lab_range_slider row"> 
+                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Fluor</span>
+                        <span class="col-md-12">
+                            
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="fluor[]" value="None" class="report common_selector" id="None">
+                                <label for="None">NONE</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector" id="FNTVSLT">
+                                <label for="FNTVSLT">FNT/V SLT</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="fluor[]" value="MEDSLT" class="report common_selector" id="MEDSLT">
+                                <label for="MEDSLT">MED/SLT</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="fluor[]" value="STRONG" class="report common_selector" id="STRONG">
+                                <label for="STRONG">STRONG</label>
+                            </div>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="fluor[]" value="VSTRG" class="report common_selector" id="VSTRG">
+                                <label for="VSTRG">V STRG</label>
+                            </div>
+                        
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Flour -->
+                <!-- <div class="col-lg-6  round_cut_lab_filter" >
+                    
+                </div> -->
             
-            
-                <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <!-- <div class="col-lg-6  round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider row">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">cut</div>
                         <div class="col-md-12">
@@ -535,142 +733,28 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> -->
             
+                
            
-
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Depth %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-depth" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxDepth  }}"></span>
+                <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                <div class="round_cut_lab_range_slider row"> 
+                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Growth Type</span>
+                        <span class="col-md-12">
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
+                                <label for="CVD">CVD</label>
                             </div>
-                        </div>
-                        <!-- <p class="mb-0"> <span id="depth"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="depth-start"></span><span id="depth-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_depth" />
-                        <input type="hidden" id="hidden_maximum_depth" />
-                    </span>
-                </div>
-            </div>
-           
-
-            
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Polish</span>
-                    <span class="col-md-12">
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
-                            <label for="polishID">Ideal</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
-                            <label for="polishEX">Excellent</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
-                            <label for="polishVG">Very Good</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
-                            <label for="polishG">Good</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
-                            <label for="polishF">Fair</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
-                            <label for="polishP">Poor</label>
-                        </div>
-                    </span>
-                </div>
-        </div>
-
-        
-
-        <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Table %</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-table" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxTable  }}"></span>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="growth_type[]" value="HPHT" class="report common_selector" id="HPHT">
+                                <label for="HPHT">HPHT</label>
                             </div>
-                        </div>
-                        <!-- <p class="mb-0"> <span id="table"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="table-start"></span><span id="table-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_table" />
-                        <input type="hidden" id="hidden_maximum_table" />
-                    </span>
-                </div>
-            </div>
-
-            <div class="col-lg-6 mb-3 mb-lg-0 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Sym.</span>
-                    <span class="col-md-12">
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
-                            <label for="symmID">Ideal</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
-                            <label for="symmEX">Excellent</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
-                            <label for="symmVG">Very Good</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
-                            <label for="symmG">Good</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
-                            <label for="symmF">Fair</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
-                            <label for="symmP">Poor</label>
-                        </div>
-                    </span>
-                </div>
-            </div>
-
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-            <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">L/W Ratio</span>
-                    <span class="round_cut_lab_diamonds_price col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range-ratio" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3"></span>
+                            <div class="form-group d-inline-block me-3 mb-2">
+                                <input type="checkbox" name="growth_type[]" value="OTHER" class="report common_selector" id="OTHER">
+                                <label for="OTHER">OTHER</label>
                             </div>
-                        </div>
-                        <!-- <p class="mb-0"> <span id="ratio"></span></p> -->
-                        <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
-                        <input type="hidden" id="hidden_minimum_ratio" />
-                        <input type="hidden" id="hidden_maximum_ratio" />
-                    </span>
-                </div>
-            </div>
-          
-        
-            
-
-         
-
-           
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+                        </span>
+                    </div>
                 <div class="round_cut_lab_range_slider row">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">Report</div>
                         <div class="col-md-12">
@@ -690,56 +774,86 @@
                         </div>
                     </div> 
             </div>
+            <!-- Depth -->
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Fluor</span>
-                    <span class="col-md-12">
-                        
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="fluor[]" value="None" class="report common_selector" id="None">
-                            <label for="None">NONE</label>
+                <div class="round_cut_lab_range_slider row mb-2">
+                    <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">Depth %</span>
+                    <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
+                        <div class="align-items-center mb-2 position-relative">
+                            <!-- <div id="slider-range-depth" class="mb-0"></div> -->
+                                <div class="d-flex align-items-center">
+                                    <div class="from_text me-4">
+                                        <div class="d-flex align-items-center">
+                                            <input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40">
+                                        </div>
+                                    </div>
+                                    <div class="me-4"> To</div>
+                                    <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                        <input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxDepth  }}">
+                                    </div>
+                                </div>
                         </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector" id="FNTVSLT">
-                            <label for="FNTVSLT">FNT/V SLT</label>
+                        <!-- <p class="mb-0 range-slider-p"><span id="depth-start"></span><span id="depth-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_depth" />
+                        <input type="hidden" id="hidden_maximum_depth" /> -->
+                    </span>
+                </div>
+                <div class="round_cut_lab_range_slider row mb-2">
+                    <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">Table %</span>
+                    <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
+                        <div class="align-items-center mb-2 position-relative">
+                                <div class="d-flex align-items-center">
+                                    <div class="from_text me-4">
+                                        <div class="d-flex align-items-center">
+                                            <input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input" value="40">
+                                        </div>
+                                    </div>
+                                    <div class="me-4"> To</div>
+                                    <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                        <input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $MaxTable  }}">
+                                    </div>
+                                </div>
+                            <!-- <div id="slider-range-table" class="mb-0"></div> -->
                         </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="fluor[]" value="MEDSLT" class="report common_selector" id="MEDSLT">
-                            <label for="MEDSLT">MED/SLT</label>
+                        <!-- <p class="mb-0 range-slider-p"><span id="table-start"></span><span id="table-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_table" />
+                        <input type="hidden" id="hidden_maximum_table" /> -->
+                    </span>
+                </div>
+                <div class="round_cut_lab_range_slider row">
+                    <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">L/W Ratio</span>
+                    <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
+                        <div class="align-items-center mb-2 position-relative">
+                            <div class="d-flex align-items-center">
+                                    <div class="from_text me-4">
+                                        <div class="d-flex align-items-center">
+                                            <input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="me-4"> To</div>
+                                    <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                        <input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input" value="3">
+                                    </div>
+                                </div>
+                            <!-- <div id="slider-range-ratio" class="mb-0"></div> -->
                         </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="fluor[]" value="STRONG" class="report common_selector" id="STRONG">
-                            <label for="STRONG">STRONG</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="fluor[]" value="VSTRG" class="report common_selector" id="VSTRG">
-                            <label for="VSTRG">V STRG</label>
-                        </div>
-                      
+                        <!-- <p class="mb-0 range-slider-p"><span id="ratio-start"></span><span id="ratio-end"></span></p>
+                        <input type="hidden" id="hidden_minimum_ratio" />
+                        <input type="hidden" id="hidden_maximum_ratio" /> -->
                     </span>
                 </div>
             </div>
+           
+
+            
+          
+            
 
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">GROWTH TYPE</span>
-                    <span class="col-md-12">
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
-                            <label for="CVD">CVD</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="HPHT" class="report common_selector" id="HPHT">
-                            <label for="HPHT">HPHT</label>
-                        </div>
-                        <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="OTHER" class="report common_selector" id="OTHER">
-                            <label for="OTHER">OTHER</label>
-                        </div>
-                    </span>
-                </div>
+               
             </div>
 
+            
             <div class="row align-items-center">
                 <div class="col-md-12 text-center text-sm-end px-0">
                     <span class="d-inline-block">

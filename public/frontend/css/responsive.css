@@ -865,7 +865,7 @@
         display: none;
     }
     .wire_bangle_tabs_part li a {
-        font-size: 17px;
+        font-size: 15px;
     }
     .loose-lab-diamonds-diamond li {
         padding: 2px 0 !important;
@@ -873,6 +873,14 @@
     .mobile-menu-searchbox {
         position: absolute;
         top: 0;
+    }
+    .comman_input_part {
+        width: 80px !important;
+    }
+    .filter_text_part {
+        margin-left: 0;
+        text-align: left;
+        margin-bottom: 10px;
     }
 }
 
@@ -1445,7 +1453,7 @@
         font-size: 14px;
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
-        font-size: 16px;
+        font-size: 15px;
     }
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
         width: 183px;
@@ -2175,6 +2183,13 @@
     .search-icon-part {
         width: 250px;
     }
+    .from_text input,
+    .to_text input {
+        width: 49px;
+    }
+    .comman_input_part {
+        width: 80px !important;
+    }
 }
 
 @media (min-width:992px) {
@@ -2424,6 +2439,10 @@
     }
     .home-page-bg {
         margin-bottom: 106px;
+    }
+    .from_text input,
+    .to_text input {
+        width: 63px;
     }
 }
 
