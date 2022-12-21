@@ -562,7 +562,7 @@
             </div>
         </div>
      @if(count($shopbystyle) > 0)
-    <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home">
+    <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
         <div class="container">
             <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div class="mb-3 mt-md-0">
@@ -579,7 +579,7 @@
                         <div class="item">
                             <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
                                 <img src="{{ url($shopby->image) }}" alt="">
-                                <div class="shop_by_style_heading text-center mt-2">
+                                <div class="shop_by_style_heading text-center">
                                     {{ $shopby->title }}
                                 </div>
                             </a>
