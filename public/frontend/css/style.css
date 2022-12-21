@@ -2122,7 +2122,7 @@ background-size: cover;
         font-weight: 500;
         font-size: 13px;
         line-height: 18px;
-        text-transform: capitalize;
+        /* text-transform: capitalize; */
         color: #0B1727;
         max-width: 100%;
     }
@@ -2455,7 +2455,7 @@ opacity: 1;
         content: '';
         display: block;
         position: absolute;
-        top: 6px;
+        top: 5px;
         left: 8px;
         width: 4px;
         height: 11px;
@@ -4238,6 +4238,7 @@ width: 100%;
         padding: 5px 10px;
         outline: 0;
         border-radius: 6px;
+        max-width: 80px;
     }
     
     span.from_text input,
@@ -6425,6 +6426,7 @@ width: 100%;
         opacity: 0.6;
     }
     
-    .comman_input_part {
-        width: 130px !important;
+    .carat-input-part {
+        display: grid !important;
+        grid-template-columns: 45% 10% 45%;
     }
