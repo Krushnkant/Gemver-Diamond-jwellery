@@ -4257,6 +4257,7 @@ width: 100%;
         outline: 0;
         border-radius: 6px;
         max-width: 80px;
+        height: 35px;
     }
     
     span.from_text input,
