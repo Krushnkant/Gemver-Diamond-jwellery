@@ -20,6 +20,7 @@ class ImportDiamondNew implements WithHeadingRow,ToCollection
     */
     public function collection(Collection $collections)
     {
+        set_time_limit(0);
         $vender_array = array(); 
         foreach($collections as $collection)
         {

@@ -13,7 +13,7 @@ $CompanyEmail = $setting['company_email'];
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Gemver Affordable Luxury</title>
 </head>
 <body style="background-color: #f5f5f5;">
     <div style="margin: auto; align-items: center; justify-content: center;margin-top: 50px;min-height: 100vh;">

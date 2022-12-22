@@ -7,6 +7,7 @@ use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
+use App\Models\Settings;
 
 class NewsLatterController extends Controller
 {
@@ -155,5 +156,34 @@ class NewsLatterController extends Controller
         }
 
         return response()->json(['status' => '200']);
+    }
+
+    public function welcome_mail(){
+        $action = "welcome_mail";
+        $setting = Settings::first();
+        return view('admin.newslatter.list',compact('action','setting'))->with('page',$this->page);
+    }
+
+    public function save_welcome_mail(Request $request){
+        $messages = [
+            'message.required' =>'Please provide a message',
+        ];
+        
+        $validator = Validator::make($request->all(), [
+            'message' =>'required',
+        ], $messages);
+        
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }
+        $setting = Settings::first();
+        
+        if($setting){
+            $setting->welcome_mail_message = $request->message;
+            $setting->save();
+
+            return response()->json(['status' => '200', 'action' => 'update']);
+        }
+        return response()->json(['status' => '400']);
     }
 }

@@ -28,11 +28,13 @@ $(document).ready(function(){
     });
 
     var newvalattr = $("#attr_ids").val();
+    if(newvalattr != ""){
     var matchattr = newvalattr.split(',');
 
     $.each(matchattr, function( index, value ) {
         AttributeSelCheckbox.push(value);
     });
+    }
     
     //console.log(TermSelCheckbox);
     // match.push(match); 
@@ -47,6 +49,10 @@ $(document).ready(function(){
 
     $('body').on('click', '#AddProductBtn', function () {
         location.href = "{{ route('admin.products.add') }}";
+    });
+
+    $('body').on('click', '#ShowDarfProductBtn', function () {
+        location.href = "{{ route('admin.drafproducts.list') }}";
     });
 
     $('.dropdown-item').click( function() {
@@ -536,6 +542,82 @@ $(document).ready(function(){
         }
     });
 
+    $('body').on('click', '#saveDraftBtn', function () {
+       
+       $(this).prop('disabled',true);
+       $(this).find('.draftloader').show();
+       var btn = $(this);
+      
+      
+       var valid_product = validateProductForm();
+       var valid_variants_draf = validateVariantsFormDraf();
+   
+       if(valid_product==true && valid_variants_draf ==true){
+           var formData = new FormData($('#ProductForm')[0]);
+           var meta_title = $('#meta_title').val();
+           var meta_description = $('#meta_description').val();
+           formData.append('meta_title',meta_title);
+           formData.append('meta_description',meta_description);
+           var cnt = 1;
+           $('.variantForm').each(function () {
+               var thi = $(this);
+               var specOptArr = [];
+               $(thi).find('.specOpt').each(function() {
+                  if($(this).val()!=""){
+                      specOptArr.push($(this).attr('data-id'));
+                  }
+               });
+              $(thi).find('input[name="varSpecOptional"]').val("");
+              $(thi).find('input[name="varSpecOptional"]').val(specOptArr.join(","));
+
+               var variantForm = $(this).serialize();
+               formData.append("variantForm" + cnt, variantForm);
+               cnt++;
+           });
+
+          
+
+           $.ajaxSetup({
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+           });
+
+           $.ajax({
+               type: 'POST',
+               url: "{{ route('admin.products.saveDraft') }}",
+               // data: {productFormData: productFormData, variantFormData: variantFormData},
+               data: formData,
+               dataType: 'json',
+               cache: false,
+               processData: false,
+               contentType: false,
+               // contentType: 'json',
+               success: function (res) {
+                   //console.log(res);
+                   if(res['status']==200){
+                       if(is_custom == 1){
+                           location.href = "{{ route('admin.drafproducts.list') }}";
+                       }else{
+                           location.href = "{{ route('admin.drafproducts.list') }}";
+                       }
+                       
+                       toastr.success("Product Added",'Success',{timeOut: 5000});
+                   }
+               },
+               error: function (data) {
+                   $(btn).prop('disabled',false);
+                   $(btn).find('.draftloader').hide();
+                   toastr.error("Please try again",'Error',{timeOut: 5000});
+               }
+           });
+       }
+       else{
+           $(btn).prop('disabled',false);
+           $(btn).find('.draftloader').hide();
+       }
+   });
+
     function validateProductForm() {
         $("#category-error").html("");
         $("#variationAttrsVal-error").html("");
@@ -821,6 +903,189 @@ $(document).ready(function(){
         return valid;
     }
 
+    function validateVariantsFormDraf() {
+        $(".variantForm").each(function() {
+
+            $(this).validate({
+                rules: {
+                    varProductName : {
+                        required: true,
+                    },
+                    varSalePrice: {
+                        required: true,
+                    },
+                    stock: {
+                        required: true,
+                    },
+                    SKU: {
+                        required: true,
+                    },
+                
+    
+                    
+                    /*weight: {
+                        required: {
+                            depends: function(elem) {
+                                return $("#age").val() > 50
+                            }
+                        },
+                        number: true,
+                        min: 0
+                    }*/
+                },
+
+                messages : {
+                    varProductName: {
+                        required: "Please provide a Product Title"
+                    },
+                    varSalePrice: {
+                        required: "Please provide a Sale Price",
+                    },
+                    stock: {
+                        required: "Please provide a Stock",
+                    },
+                    SKU: {
+                        required: "Please provide a SKU ",
+                    },
+                }
+            });
+        })
+
+        var valid = true;
+        var datavari = [];
+        var datavari1 = [];
+        SKUs = [];
+        $('.variantForm').each(function () {
+            var this_form = $(this);
+            if (!$(this).valid()) {
+                valid = false;
+            }
+
+            $(this).find('.varRegularPrice').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                var RegularPrice = $(thi).val();
+                var ret = $(thi).attr('name').replace('varRegularPrice','');
+                var stringdata = 'varSalePrice'+ret;
+                var SellingPrice = $("input[name="+stringdata+"]").val();
+                if(RegularPrice > 0){
+                    if(Number(SellingPrice) > Number(RegularPrice))
+                    {
+                        $(this_form).find("#"+this_err).html("Selling Price from should be less than Regular Price to");
+                        $(this_form).find("#"+this_err).show();
+                        valid = false;
+                    }
+                }
+            })
+            
+           
+            // var valid_extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+            // if(!valid_extensions.test($(this).find('input[name="varImage"]').val())){ 
+            //     $(this).find("#varImage-error").html("Please provide a product images");
+            //     $(this).find("#varImage-error").show();
+            //     valid = false;
+            // }    
+
+
+            // if($(this).find('input[name="varImage"]').val()==""){
+            //     $(this).find("#varImage-error").html("Please provide a product images");
+            //     $(this).find("#varImage-error").show();
+            //     valid = false;
+                
+            // }
+
+            $(this).find('.Variation').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please select any value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+            })
+
+            $(this).find('.specReq').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please select any value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+            })
+           
+            // $(this).find('.SKU').each(function() {
+            //     var thi = $(this);
+            //     var this_err = $(thi).attr('id-data') + "-error";
+                
+            //     if(SKUs.length !== 0) {
+            //         var check = SKUs.includes($(thi).val());
+            //         SKUs.push($(thi).val());
+            //         if(check){
+            //         $("#"+this_err).html("This sku code is already taken! Try another.");
+            //         $("#"+this_err).show();
+            //         valid = false;
+            //         }
+            //     }
+        
+            // })
+
+            $(this).find('.varSalePrice').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null) {
+                    $(this_form).find("#"+this_err).html("Please provide a value");
+                    $(this_form).find("#"+this_err).show();
+                    valid = false;
+                }
+              
+            })
+
+            // $(this).find('.stock').each(function() {
+            //     var thi = $(this);
+            //     var this_err = $(thi).attr('name') + "-error";
+            //     if($(thi).val()=="" || $(thi).val()==null) {
+            //         $(this_form).find("#"+this_err).html("Please provide a value");
+            //         $(this_form).find("#"+this_err).show();
+            //         valid = false;
+            //     }
+              
+            // })
+
+            // $(this).find('.SKU').each(function() {
+            //     var thi = $(this);
+            //     var this_err = $(thi).attr('name') + "-error";
+            //     if($(thi).val()=="" || $(thi).val()==null) {
+            //         $(this_form).find("#"+this_err).html("Please provide a value");
+            //         $(this_form).find("#"+this_err).show();
+            //         valid = false;
+            //     }
+            // })
+
+            var str = '';
+            $(this).find('.Variation').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('id-data') + "-error";
+                var vel =$(thi).val();
+                if(vel != ''){
+                 str += ','+vel;
+                }   
+            })
+            
+            // if(str != ''){
+            //     datavari1.push(str);
+            //     if (hasDuplicates(datavari1)) {
+                    
+            //         toastr.error("you have duplicates variation values !",'Error',{timeOut: 5000});
+            //         valid = false;
+            //     }
+            // }
+        });
+
+        return valid;
+    }
+
     function validateAttributesForm() {
 
         
@@ -1086,9 +1351,8 @@ $(document).ready(function(){
         var term_id = 1;
         var term_name = 'test';
         var check_add =$(this).attr('data-id');
-    
+        
         var term_no = $("#attributes_no").val();
-     
          term_no ++;
         $("#attributes_no").val(term_no);
        
@@ -1142,9 +1406,10 @@ $(document).ready(function(){
 
                 
             });
-
+            
             AttributeSelCheckbox.push(term_no);
             var attr_ids = AttributeSelCheckbox.join(",");
+           // alert(attr_ids);
             $("#attr_ids").val(attr_ids);
             $(this).prop('disabled',false);
 
@@ -1345,8 +1610,8 @@ $(document).ready(function(){
         $(this).find('.submitloader').show();
         var btn = $(this);
         //console.log(btn.next().next());
-        var demo = $(this).parent()[0];
-        var formData = new FormData(demo);
+        var formname = $(this).parent()[0];
+        var formData = new FormData(formname);
         //console.log(formData);
         // var is_custom = $('#is_custom').val();
        
