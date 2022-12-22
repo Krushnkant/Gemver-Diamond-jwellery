@@ -12,9 +12,6 @@ use App\Models\ProductVariant;
 use App\Models\ProductVariantSpecification;
 use App\Models\ProductVariantVariant;
 use App\Models\ProjectPage;
-use App\Models\Settings;
-use App\Models\Diamond;
-use App\Models\DiamondVariant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +28,10 @@ class ProductController extends Controller
 
     public function customproducts(){
         return view('admin.products.customproductlist')->with('page',$this->page);
+    }
+
+    public function drafproducts(){
+        return view('admin.products.drafproductlist')->with('page',$this->page);
     }
 
     public function create(){
@@ -71,11 +72,8 @@ class ProductController extends Controller
 
     public function addVariantbox($id,Request $request){
         if (isset($request->VariantCnt) && $request->VariantCnt!=''){
-//            $VariantCnt = $request->VariantCnt + 1;
             $primaryclass='';
-        }
-        else{
-//            $VariantCnt = 1;
+        }else{
             $primaryclass = 'primaryBox';
         }
 
@@ -495,9 +493,6 @@ class ProductController extends Controller
         return ['data' => $html, 'term_id' => $term_id];
     }
 
-
-   
-
     public function uploadfile(Request $request){
         if(isset($request->action) && $request->action == 'uploadProductImages'){
             if ($request->hasFile('files')) {
@@ -526,9 +521,180 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-        // $data = $request->all();
-        // dd($data['variantForm1']);
         $catArray = array();
+        $category1 = array();
+        if(isset($request['category_id'])){
+            foreach($request['category_id'] as $category){
+                if($category){
+                    $category1 = $this->getSubCategories($category);
+                }
+            }
+        } 
+        $category_ids = implode(",",$category1);
+        $attr_term_ids = explode(",",$request['attr_term_ids']);
+
+        $product = new Product();
+
+        $product_variant_old_images = array();
+        $variants_status = array();
+        if($request->action=="editProduct"){
+            $product = Product::find($request->product_id);
+
+            $product_variants = ProductVariant::where('product_id',$request->product_id)->get();
+            foreach ($product_variants as $product_variant)
+            {
+                $temp_images = explode(",",$product_variant->images);
+                foreach ($temp_images as $temp_img) {
+                    array_push($product_variant_old_images, $temp_img);
+                }
+                $variants_status[$product_variant->term_item_id] = $product_variant->estatus;
+                $product_variant->estatus = 3;
+                $product_variant->save();
+                $product_variant->forceDelete();
+            }
+
+            $product_variant_specifications = ProductVariantSpecification::where('product_id',$request->product_id)->get();
+            foreach ($product_variant_specifications as $product_variant_specification)
+            {
+                $product_variant_specification->estatus = 3;
+                $product_variant_specification->save();
+                $product_variant_specification->forceDelete();
+            }
+
+            $product_variant_variants = ProductVariantVariant::where('product_id',$request->product_id)->get();
+            foreach ($product_variant_variants as $product_variant_variant)
+            {
+                $product_variant_variant->estatus = 3;
+                $product_variant_variant->save();
+                $product_variant_variant->forceDelete();
+            }
+        }
+
+        if($request->action=="addProduct") {
+            $product->user_id = Auth::user()->id;
+        }
+        $product->primary_category_id = $category_ids;
+        $product->product_u_id = isset($request->product_u_id) ? $request->product_u_id : null;
+        $product->product_title = isset($request->ProductName) ? $request->ProductName : null;
+        $product->meta_title = isset($request->meta_title) ? $request->meta_title : null;
+        $product->meta_description = isset($request->meta_description) ? $request->meta_description : null;
+        $product->design_number = isset($request->DesignNumber) ? $request->DesignNumber : null;
+
+        $product->desc = isset($request->desc) ? $request->desc : null;
+        $product->attrid_for_variation = $request->attrid_for_variation;
+        $product->attr_term_ids = $request->attr_term_ids;
+        $product->attr_ids = $request->attr_ids;
+        $product->note = isset($request->notes) ? $request->notes : null;
+        $product->is_custom = isset($request->is_custom) ? $request->is_custom : 0;
+        $product->estatus = 1;
+        $product->save();
+
+        if($product){
+            $product_attributes = DB::table('product_attributes')
+            ->where('product_u_id', $request->product_u_id)
+            ->update(array('product_id' => $product->id));
+        }
+
+        $not_removable_images = array();
+        $ProductAttribute = ProductAttribute::where('product_u_id',$request->product_u_id)->where('use_comman',1)->first();
+        if($ProductAttribute){
+            $attr_term_ids = explode(',',$ProductAttribute->terms_id);
+            for ($i=1;$i<=count($attr_term_ids);$i++) {
+                $myValue = array();
+                $str ="variantForm".$i;
+                parse_str($request[$str],$myValue);
+                $term_id = $myValue['term_id'];
+                
+                for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
+                    //dd($myValue['SKU-'.$term_id.'-'.$j]);
+                    $product_variant = new ProductVariant();
+                    $product_variant->slug = $this->createSlug($request->slug.'-'.$myValue['slug-'.$myValue['term_id'].'-'.$j]);
+                    $product_variant->product_id = $product->id;
+                    $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
+                    $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
+                    $product_variant->sale_price = $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                    $product_variant->stock = $myValue['stock-'.$myValue['term_id'].'-'.$j];
+                    if (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") {
+                        $product_variant->auto_discount_rs = $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                        $product_variant->auto_discount_percent = (($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j]) * 100) / $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j];
+                    }
+                    //$user_discount_percentage = Settings::where('estatus',1)->pluck('user_discount_percentage')->first();
+                    //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
+                    $product_variant->term_item_id = $myValue['term_id'];
+                    $product_variant->images = $myValue['varImage'];
+                    $product_variant->alt_text =  implode(",",$myValue['alt_text']);
+                    $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
+
+                    $temp_new_images = explode(",",$myValue['varImage']);
+                    foreach ($temp_new_images as $temp_new_image){
+                        if(in_array($temp_new_image,$product_variant_old_images)){
+                            array_push($not_removable_images,$temp_new_image);
+                        }
+                    }
+                    $product_variant->save();
+                
+                    //dd($myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                    if(isset($myValue['varVariation'.$myValue['term_id'].'-'.$j])) {
+                        $Variation = explode(",", $myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                        //print_r($Variation); die;
+                        foreach ($Variation as $vari) {
+                        $Attributeterm = AttributeTerm::with('attribute')->where('id', $vari)->first()->toArray();
+                    
+                        //dd($vari);
+                            //foreach ($myValue['Variation' . $vari] as $vari1) {
+                                //dd($vari1);
+                                $product_variant_variant = new ProductVariantVariant();
+                                $product_variant_variant->product_variant_id = $product_variant->id;
+                                $product_variant_variant->product_id = $product->id;
+                                $product_variant_variant->attribute_id = $Attributeterm['attribute']['id'];
+                                $product_variant_variant->attribute_term_id = $vari;
+                                $product_variant_variant->save();
+                        // }
+                        }
+                    }
+
+            }
+    
+
+            }
+        }
+        foreach ($product_variant_old_images as $product_variant_old_image){
+            if (!in_array($product_variant_old_image,$not_removable_images) && $request->action=="editProduct"){
+                $image = public_path($product_variant_old_image);
+                if (file_exists($image)) {
+                    unlink($image);
+                }
+            }
+        }
+
+        //dd($product_variant_old_images,$not_removable_images);
+        if($request->action=="addProduct") {
+            $cat_id = isset($category_ids[0]) ? $category_ids[0] : $category_ids[0];
+            foreach($request['category_id'] as $cat_id){
+                $cnt_products = Product::whereRaw('FIND_IN_SET("'.$cat_id.'",primary_category_id)')->where('estatus',1)->count();
+                $category = Category::find($cat_id);
+                $category->total_products = $cnt_products;
+                $category->save();
+            }
+            // if (isset($category->parent_category_id) && $category->parent_category_id!=0){
+            //     $category = Category::find($category->parent_category_id);
+            //     $category->total_products = $category->total_products + 1;
+            //     $category->save();
+            //     if (isset($category->parent_category_id) && $category->parent_category_id!=0){
+            //         $category = Category::find($category->parent_category_id);
+            //         $category->total_products = $category->total_products + 1;
+            //         $category->save();
+            //     }
+            // }
+        }
+
+        return ['status' => 200];
+    }
+
+
+    public function saveDraft(Request $request){
+        //  $data = $request->all();
+        //  dd($data);
         $category1 = array();
        // dd($request['category_id']);
         if(isset($request['category_id'])){
@@ -594,6 +760,7 @@ class ProductController extends Controller
         $product->attr_ids = $request->attr_ids;
         $product->note = isset($request->notes) ? $request->notes : null;
         $product->is_custom = isset($request->is_custom) ? $request->is_custom : 0;
+        $product->estatus = 5;
         $product->save();
 
         if($product){
@@ -604,66 +771,67 @@ class ProductController extends Controller
 
         $not_removable_images = array();
         $ProductAttribute = ProductAttribute::where('product_u_id',$request->product_u_id)->where('use_comman',1)->first();
-        $attr_term_ids = explode(',',$ProductAttribute->terms_id);
-        for ($i=1;$i<=count($attr_term_ids);$i++) {
-            $myValue = array();
-            $str ="variantForm".$i;
-            parse_str($request[$str],$myValue);
-            $term_id = $myValue['term_id'];
-            
-            for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
-                //dd($myValue['SKU-'.$term_id.'-'.$j]);
-                $product_variant = new ProductVariant();
-                $product_variant->slug = $this->createSlug($request->slug.'-'.$myValue['slug-'.$myValue['term_id'].'-'.$j]);
-                $product_variant->product_id = $product->id;
-                $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
-                $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
-                $product_variant->sale_price = $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
-                $product_variant->stock = $myValue['stock-'.$myValue['term_id'].'-'.$j];
-                if (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") {
-                    $product_variant->auto_discount_rs = $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
-                    $product_variant->auto_discount_percent = (($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j]) * 100) / $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j];
-                }
-                //$user_discount_percentage = Settings::where('estatus',1)->pluck('user_discount_percentage')->first();
-                //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
-                $product_variant->term_item_id = $myValue['term_id'];
-                $product_variant->images = $myValue['varImage'];
-                $product_variant->alt_text =  implode(",",$myValue['alt_text']);
-                $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
-
-                $temp_new_images = explode(",",$myValue['varImage']);
-                foreach ($temp_new_images as $temp_new_image){
-                    if(in_array($temp_new_image,$product_variant_old_images)){
-                        array_push($not_removable_images,$temp_new_image);
+        if($ProductAttribute){
+            $attr_term_ids = explode(',',$ProductAttribute->terms_id);
+            for ($i=1;$i<=count($attr_term_ids);$i++) {
+                $myValue = array();
+                $str ="variantForm".$i;
+                parse_str($request[$str],$myValue);
+                $term_id = $myValue['term_id'];
+                
+                for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
+                    //dd($myValue['SKU-'.$term_id.'-'.$j]);
+                    $product_variant = new ProductVariant();
+                    $product_variant->slug = $this->createSlug($request->slug.'-'.$myValue['slug-'.$myValue['term_id'].'-'.$j]);
+                    $product_variant->product_id = $product->id;
+                    $product_variant->SKU = $myValue['SKU-'.$myValue['term_id'].'-'.$j];
+                    $product_variant->regular_price = (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") ? $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] : null;
+                    $product_variant->sale_price = $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                    $product_variant->stock = $myValue['stock-'.$myValue['term_id'].'-'.$j];
+                    if (isset($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]) && $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j]!="") {
+                        $product_variant->auto_discount_rs = $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j];
+                        $product_variant->auto_discount_percent = (($myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j] - $myValue['varSalePrice-'.$myValue['term_id'].'-'.$j]) * 100) / $myValue['varRegularPrice-'.$myValue['term_id'].'-'.$j];
                     }
-                }
-                $product_variant->save();
-            
-                //dd($myValue['varVariation'.$myValue['term_id'].'-'.$j]);
-                if(isset($myValue['varVariation'.$myValue['term_id'].'-'.$j])) {
-                    $Variation = explode(",", $myValue['varVariation'.$myValue['term_id'].'-'.$j]);
-                    //print_r($Variation); die;
-                    foreach ($Variation as $vari) {
-                    $Attributeterm = AttributeTerm::with('attribute')->where('id', $vari)->first()->toArray();
-                   
-                    //dd($vari);
-                        //foreach ($myValue['Variation' . $vari] as $vari1) {
-                            //dd($vari1);
-                            $product_variant_variant = new ProductVariantVariant();
-                            $product_variant_variant->product_variant_id = $product_variant->id;
-                            $product_variant_variant->product_id = $product->id;
-                            $product_variant_variant->attribute_id = $Attributeterm['attribute']['id'];
-                            $product_variant_variant->attribute_term_id = $vari;
-                            $product_variant_variant->save();
-                       // }
+                    //$user_discount_percentage = Settings::where('estatus',1)->pluck('user_discount_percentage')->first();
+                    //$product_variant->sale_price_for_premium_member = $myValue['varSalePrice'] - $user_discount_percentage;
+                    $product_variant->term_item_id = $myValue['term_id'];
+                    $product_variant->images = $myValue['varImage'];
+                    $product_variant->alt_text =  isset($myValue['alt_text'])?implode(",",$myValue['alt_text']):"";
+                    $product_variant->estatus = isset($variants_status[$myValue['term_id']]) ? $variants_status[$myValue['term_id']] : 1;
+
+                    $temp_new_images = explode(",",$myValue['varImage']);
+                    foreach ($temp_new_images as $temp_new_image){
+                        if(in_array($temp_new_image,$product_variant_old_images)){
+                            array_push($not_removable_images,$temp_new_image);
+                        }
                     }
-                }
+                    $product_variant->save();
+                
+                    //dd($myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                    if(isset($myValue['varVariation'.$myValue['term_id'].'-'.$j])) {
+                        $Variation = explode(",", $myValue['varVariation'.$myValue['term_id'].'-'.$j]);
+                        //print_r($Variation); die;
+                        foreach ($Variation as $vari) {
+                        $Attributeterm = AttributeTerm::with('attribute')->where('id', $vari)->first()->toArray();
+                    
+                        //dd($vari);
+                            //foreach ($myValue['Variation' . $vari] as $vari1) {
+                                //dd($vari1);
+                                $product_variant_variant = new ProductVariantVariant();
+                                $product_variant_variant->product_variant_id = $product_variant->id;
+                                $product_variant_variant->product_id = $product->id;
+                                $product_variant_variant->attribute_id = $Attributeterm['attribute']['id'];
+                                $product_variant_variant->attribute_term_id = $vari;
+                                $product_variant_variant->save();
+                        // }
+                        }
+                    }
 
-           }
- 
+            }
+    
 
+            }
         }
-      
         foreach ($product_variant_old_images as $product_variant_old_image){
             if (!in_array($product_variant_old_image,$not_removable_images) && $request->action=="editProduct"){
                 $image = public_path($product_variant_old_image);
@@ -673,7 +841,7 @@ class ProductController extends Controller
             }
         }
 
-//        dd($product_variant_old_images,$not_removable_images);
+        //dd($product_variant_old_images,$not_removable_images);
         if($request->action=="addProduct") {
             $cat_id = isset($category_ids[0]) ? $category_ids[0] : $category_ids[0];
             foreach($request['category_id'] as $cat_id){
@@ -744,6 +912,7 @@ class ProductController extends Controller
                 $products = ProductVariant::with('product.primary_category','product.attribute','attribute_term')
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '0');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->offset($start)
                     ->limit($limit)
@@ -763,6 +932,7 @@ class ProductController extends Controller
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '0');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
@@ -783,6 +953,7 @@ class ProductController extends Controller
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '0');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
@@ -918,6 +1089,7 @@ class ProductController extends Controller
                 $products = ProductVariant::with('product.primary_category','product.attribute','attribute_term')
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '1');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->offset($start)
                     ->limit($limit)
@@ -931,6 +1103,7 @@ class ProductController extends Controller
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '1');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
@@ -944,6 +1117,7 @@ class ProductController extends Controller
                     ->orWhere('sale_price','LIKE',"%{$search}%")
                     ->whereHas('product', function($q){
                         $q->where('is_custom', '=', '1');
+                        $q->where('estatus', '!=', '5');
                     })
                     ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
                         $mainQuery->where('category_name', 'Like', '%' . $search . '%');
@@ -1016,6 +1190,110 @@ class ProductController extends Controller
                     $nestedData['product_code'] = isset($product->product->hsn_code) ? $product->product->hsn_code : "-";
                     $nestedData['categories'] = $categories;
                     $nestedData['price'] = $price;
+                    $nestedData['estatus'] = $estatus;
+                    $nestedData['created_at'] = date('d-m-Y h:i A', strtotime($product->created_at));
+                    $nestedData['action'] = $action;
+                    $data[] = $nestedData;
+                }
+            }
+
+            $json_data = array(
+                "draw"            => intval($request->input('draw')),
+                "recordsTotal"    => intval($totalData),
+                "recordsFiltered" => intval($totalFiltered),
+                "data" => $data,
+            );
+
+
+            echo json_encode($json_data);
+        }
+    }
+
+    public function alldrafproductlist(Request $request){
+
+        if ($request->ajax()) {
+            $columns = array(
+                0 =>'id',
+                1 =>'image',
+                2 => 'product_title',
+                3 => 'categories',
+                4 => 'price',
+                5 => 'estatus',
+                6 => 'created_at',
+                7 => 'action',
+            );
+            $totalData = Product::with('primary_category')->where('estatus',5)->count();
+            $totalFiltered = $totalData;
+            $limit = $request->input('length');
+            $start = $request->input('start');
+            $order = $columns[$request->input('order.0.column')];
+            $dir = $request->input('order.0.dir');
+
+            if($order == "id"){
+                $order = "created_at";
+                $dir = 'desc';
+            }
+
+            if(empty($request->input('search.value')))
+            {
+                $products = Product::with('primary_category')->where('estatus',5)
+                    
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();    
+            }
+            else {
+                $search = $request->input('search.value');
+                $products =  Product::with('primary_category')->where('estatus',5)
+                    ->where('product_title','LIKE',"%{$search}%")
+                    ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
+                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                    })
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();
+
+                $totalFiltered = Product::with('primary_category')->where('estatus',5)
+                ->where('product_title','LIKE',"%{$search}%")
+                ->orWhereHas('product.primary_category',function ($mainQuery) use($search) {
+                    $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                })
+                ->count();
+            }
+
+            $data = array();
+
+            if(!empty($products))
+            {
+                foreach ($products as $product)
+                {
+                    $page_id = ProjectPage::where('route_url','admin.products.list')->pluck('id')->first();
+                    $estatus = 'Draf';
+                    $action='';
+                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
+                        $action .= '<button id="editProductBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$product->id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                    }
+                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
+                        $action .= '<button id="deleteProductBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteProductModal" onclick="" data-id="' .$product->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    }
+
+                    $images = explode(",",$product->images);
+                    if($images[0] == ""){
+                        $image = url('images/placeholder_image.png');   
+                    }else{
+                        $image = url($images[0]);
+                    }
+
+                    $primary_category_id = explode(",",$product->primary_category_id);
+                    $categoriesarray = Category::whereIn('id',$primary_category_id)->get()->pluck('category_name')->toArray();
+                    $categories = implode(', ',$categoriesarray);
+                    $product_info = '<span>'.$product->product_title.'</span>';
+                    $nestedData['image'] = '<img src="'.$image.'" width="50px" height="50px"/>';
+                    $nestedData['product_title'] = $product_info;
+                    $nestedData['product_code'] = isset($product->hsn_code) ? $product->hsn_code : "-";
+                    $nestedData['categories'] = $categories;
                     $nestedData['estatus'] = $estatus;
                     $nestedData['created_at'] = date('d-m-Y h:i A', strtotime($product->created_at));
                     $nestedData['action'] = $action;
@@ -1252,7 +1530,7 @@ class ProductController extends Controller
         $attr_ids = explode(",",$request['attr_ids']);
         $product_attributes = DB::table('product_attributes')->where('product_u_id', $request->product_u_id)->delete();
         $array_comman = [];
-        for ($i=1;$i<=count($attr_ids);$i++) {
+        for($i=1;$i<=count($attr_ids);$i++) {
             $myValue = array();
             $str ="attributeForm".$i;
             
@@ -1546,15 +1824,13 @@ class ProductController extends Controller
         return ['status' => 200,'array_comman' => $html,'action' => $action];
     }
 
-    
-
-
     public function subproductattributesave(Request $request){
         //dd($request->all());
         // $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II','656']);
         // dd($matrix);
          
         $attr_ids = explode(",",$request['varVariation']);
+        //dd($attr_ids);
         $Variation1 = isset($attr_ids[0])?$request['Variation'.$attr_ids[0]]:[];
         $Variation2 = isset($attr_ids[1])?$request['Variation'.$attr_ids[1]]:[];
         $Variation3 = isset($attr_ids[2])?$request['Variation'.$attr_ids[2]]:[];
@@ -1708,13 +1984,16 @@ class ProductController extends Controller
          return ['status' => 200,'data' => $html];
      }
 
+
+
      public function subproductattributeedit(Request $request){
-        //dd($request->all());
+       // dd($request->all());
         // $matrix = Arr::crossJoin([1, 2], ['a', 'b'], ['I', 'II','656']);
         // dd($matrix);
          
         
         $attr_ids = explode(",",$request['varVariation']);
+        
         $Variation1 = isset($attr_ids[0])?$request['Variation'.$attr_ids[0]]:[];
         $Variation2 = isset($attr_ids[1])?$request['Variation'.$attr_ids[1]]:[];
         $Variation3 = isset($attr_ids[2])?$request['Variation'.$attr_ids[2]]:[];
@@ -1751,19 +2030,20 @@ class ProductController extends Controller
         
        
         $res = []; 
-        for($j = 0; $j < count($request['tmpdata']); $j++){ 
-            $tmpdata = explode(",",$request['tmpdata'][$j]);
-            $res1 = array();
-            foreach($tmpdata  as $key => $value) {
-                if($value != $comman_id){
-                    
-                 $res1[] = $value;
+        if(isset($request['tmpdata'])){
+            for($j = 0; $j < count($request['tmpdata']); $j++){ 
+                $tmpdata = explode(",",$request['tmpdata'][$j]);
+                $res1 = array();
+                foreach($tmpdata  as $key => $value) {
+                    if($value != $comman_id){
+                        
+                    $res1[] = $value;
+                    }
                 }
-            }
-            //dd($res1);
-           $res[$j] = $res1;
-        } 
-         
+                //dd($res1);
+            $res[$j] = $res1;
+            } 
+        }
 
         for($i = 0; $i < count($matrix); $i++){
            
@@ -1775,16 +2055,25 @@ class ProductController extends Controller
     
         //$name = $AttributeTermc->attrterm_name; 
         $name = "";
+        $slug_name = "";
         //dd($matrix[$i]); die; 
         $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
         $required_variation_ids = $comman_id;
         
             foreach($matrix[$i] as $key => $tt){
                 $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
+                // if($key == 0){
+                // $name = $AttributeTerm->attrterm_name;
+                // }else{
+                // $name = $name.' | '.$AttributeTerm->attrterm_name;  
+                // }
+
                 if($key == 0){
                 $name = $AttributeTerm->attrterm_name;
+                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
                 }else{
-                $name = $name.' | '.$AttributeTerm->attrterm_name;  
+                $name = $name.' | '.$AttributeTerm->attrterm_name; 
+                $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name); 
                 }
 
                 $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$tt.'"  value="'.$tt.'">';
@@ -1794,7 +2083,7 @@ class ProductController extends Controller
              
         
         //dd($required_variation_ids);
-        
+        $html .= '<input type="hidden" name="slug-'.$t.'-'.$term_id.'" value="'. str_replace('.', 'p', $slug_name) .'">';
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
         $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="row">

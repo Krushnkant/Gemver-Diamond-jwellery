@@ -222,6 +222,7 @@
             <div class="col-md-6 wire_bangle_padding mb-4">
                 <div class="">
                     <div class="slider slider-single mb-5">
+                       
                         @if($Diamond->Stone_Img_url != '')
                         <div class="product_slider_main_item">
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">

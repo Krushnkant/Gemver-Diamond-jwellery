@@ -21,7 +21,8 @@
                             <div class="d-flex">
                                 <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.newslatter.list')->pluck('id')->first(); ?>
                                 @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
-                                    <button type="button" class="btn btn-primary" id="AddNewsLatterBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn btn-primary mr-2" id="AddNewsLatterBtn">Send Mail</button>
+                                    <button type="button" class="btn btn-primary" id="AddWelcomeMailBtn">Welcome Mail</button>
                                 @endif
                             </div>
                         </div>
@@ -50,6 +51,10 @@
                         @if(isset($action) && $action=='create')
                             @include('admin.newslatter.create')
                         @endif
+
+                        @if(isset($action) && $action=='welcome_mail')
+                            @include('admin.newslatter.welcome_mail')
+                        @endif
                     </div>
                 </div>
             </div>
@@ -69,6 +74,10 @@ $(document).ready(function() {
 
 $('body').on('click', '#AddNewsLatterBtn', function () {
     location.href = "{{ route('admin.newslatter.add') }}";
+});
+
+$('body').on('click', '#AddWelcomeMailBtn', function () {
+    location.href = "{{ route('admin.newslatter.welcome_mail') }}";
 });
 
 $('body').on('click', '#save_closeNewsLatterBtn', function () {
@@ -124,6 +133,61 @@ function save_newslatter(btn,btn_type){
                     $(btn).find('.loadericonfa').hide();
                     location.href="{{ route('admin.newslatter.add')}}";
                     toastr.success("Send Mail",'Success',{timeOut: 5000});
+                }
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+
+$('body').on('click', '#save_newWelcomeMailBtn', function () {
+    save_welcome_mail($(this),'save_new');
+});
+
+function save_welcome_mail(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+
+    var formData = new FormData($("#WelcomeMailCreateForm")[0]);
+    formData.append('action',action);
+
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('admin.newslatter.save_welcome_mail') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+
+                if (res.errors.message) {
+                    $('#message-error').show().text(res.errors.message);
+                } else {
+                    $('#message-error').hide();
+                }
+            }
+
+            if(res.status == 200){
+                if(btn_type == 'save_close'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    location.href="{{ route('admin.newslatter.list')}}";
+                    toastr.success("Welcome Mail Message",'Success',{timeOut: 5000});
+                }
+                if(btn_type == 'save_new'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    location.href="{{ route('admin.newslatter.list')}}";
+                    toastr.success("Welcome Mail Message",'Success',{timeOut: 5000});
                 }
             }
 

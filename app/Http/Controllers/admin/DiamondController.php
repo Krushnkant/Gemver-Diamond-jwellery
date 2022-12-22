@@ -195,8 +195,9 @@ class DiamondController extends Controller
     }
 
     public function importnew(Request $request){
-        
-        $public_path = public_path() . "\csv\diamond_response.csv";
+        set_time_limit(0);
+        //$public_path = public_path() . "\csv\diamond_response.csv";
+        $public_path = __DIR__ . '/../../../../public/csv/diamond_response.csv';
         Excel::import(new ImportDiamondNew, $public_path);
         $action = "add";
         return response()->json(['status' => '200', 'action' => $action]);

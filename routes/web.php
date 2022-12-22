@@ -34,8 +34,6 @@ use App\Http\Controllers\WishlistController;
 
 //Frontend Route
 
-
-
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('infopage/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
 Route::get('infopage/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
@@ -194,7 +192,11 @@ Route::get('frontend/logout', function() {
 });
 
 
-//Admin  Rpute
+
+
+//Admin  Rpute //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 Route::get('admin',[\App\Http\Controllers\admin\AuthController::class,'index'])->name('admin.login');
 Route::post('adminpostlogin', [\App\Http\Controllers\admin\AuthController::class, 'postLogin'])->name('admin.postlogin');
 Route::get('logout', [\App\Http\Controllers\admin\AuthController::class, 'logout'])->name('admin.logout');
@@ -250,6 +252,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('products/{id}/delete',[\App\Http\Controllers\admin\ProductController::class,'deleteproduct'])->name('products.delete');
     Route::post('products/checksku',[\App\Http\Controllers\admin\ProductController::class,'sku_check'])->name('products.sku_check');
     Route::get('createSlugTitle/{title}',[\App\Http\Controllers\admin\ProductController::class,'createSlugTitle'])->name('createSlugTitle.slug');
+    Route::post('products/saveDraft',[\App\Http\Controllers\admin\ProductController::class,'saveDraft'])->name('products.saveDraft');
 
     Route::get('addAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addAttributebox'])->name('addAttributebox');
     Route::get('addVariantAttributebox/{id}',[\App\Http\Controllers\admin\ProductController::class,'addVariantAttributebox'])->name('addVariantAttributebox');
@@ -259,6 +262,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('customproducts',[\App\Http\Controllers\admin\ProductController::class,'customproducts'])->name('customproducts.list');
     Route::post('allcustomproductlist',[\App\Http\Controllers\admin\ProductController::class,'allcustomproductlist'])->name('allcustomproductlist');
+
+    Route::get('drafproducts',[\App\Http\Controllers\admin\ProductController::class,'drafproducts'])->name('drafproducts.list');
+    Route::post('alldrafproductlist',[\App\Http\Controllers\admin\ProductController::class,'alldrafproductlist'])->name('alldrafproductlist');
     
     Route::get('users',[\App\Http\Controllers\admin\UserController::class,'index'])->name('users.list');
     Route::post('addorupdateuser',[\App\Http\Controllers\admin\UserController::class,'addorupdateuser'])->name('users.addorupdate');
@@ -428,6 +434,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('allnewslatterslist',[\App\Http\Controllers\admin\NewsLatterController::class,'allnewslatterslist'])->name('allnewslatterslist');
     Route::get('newslatters/create',[\App\Http\Controllers\admin\NewsLatterController::class,'create'])->name('newslatter.add');
     Route::post('newslatters/save',[\App\Http\Controllers\admin\NewsLatterController::class,'save'])->name('newslatter.save');
+
+    Route::get('newslatters/welcome_mail',[\App\Http\Controllers\admin\NewsLatterController::class,'welcome_mail'])->name('newslatter.welcome_mail');
+    Route::post('newslatters/save_welcome_mail',[\App\Http\Controllers\admin\NewsLatterController::class,'save_welcome_mail'])->name('newslatter.save_welcome_mail');
 
     Route::get('compoanies',[\App\Http\Controllers\admin\CompanyController::class,'index'])->name('company.list');
     Route::post('updateCompanyPercentage',[\App\Http\Controllers\admin\CompanyController::class,'updateCompanyPercentage'])->name('company.updateCompanyPercentage');
