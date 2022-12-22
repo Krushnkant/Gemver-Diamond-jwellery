@@ -125,10 +125,10 @@ class InquiryController extends Controller
                         $customer_info .= '<span><i class="fa fa-envelope" aria-hidden="true"></i> ' .$inquiry->email .'</span>';
                     }
                     if (isset($inquiry->mobile_no)){
-                        $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$inquiry->mobile_no .'</span>';
+                        $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> '. $inquiry->country_code_mobile.$inquiry->mobile_no .'</span>';
                     }
                     if (isset($inquiry->whatsapp_number)){
-                        $customer_info .= '<span><i class="fa fa-whatsapp" aria-hidden="true"></i> ' .$inquiry->whatsapp_number .'</span>';
+                        $customer_info .= '<span><i class="fa fa-whatsapp" aria-hidden="true"></i> ' .$inquiry->country_code_whatsapp.$inquiry->whatsapp_number .'</span>';
                     }
 
 
@@ -181,7 +181,7 @@ class InquiryController extends Controller
                     
                     $action .= '<a href="mailto:'.$inquiry->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
                     if (isset($inquiry->whatsapp_number)){
-                     $action .= '<a href="https://api.whatsapp.com/send?phone=91'.$inquiry->whatsapp_number.'&&text=Hello" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
+                     $action .= '<a href="https://api.whatsapp.com/send?phone='.$inquiry->country_code_whatsapp.$inquiry->whatsapp_number.'&&text=Hello" target="_blank" class="btn btn-success text-white btn-sm" ><i class="fa fa-whatsapp" aria-hidden="true"></i></a>';
                     }
                     $spe_info ='';
 

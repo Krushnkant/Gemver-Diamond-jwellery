@@ -277,13 +277,13 @@
                                                     <div class="from_text me-1">
                                                         <div class="min_max_part">Min</div>
                                                         <div class="d-flex align-items-center">
-                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                            <input type="text" name="meas_length_min" id="meas_length_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
                                                         </div>
                                                     </div>
                                                     <div class="from_text ms-1">
                                                         <div class="min_max_part">Max</div>
                                                         <div class="d-flex align-items-center">
-                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                            <input type="text" name="meas_length_max" id="meas_length_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasLength }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -294,13 +294,13 @@
                                                 <span class="from_text me-1">
                                                     <div class="min_max_part">Min</div>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        <input type="text" name="meas_width_min" id="meas_width_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
                                                     </div>
                                                 </span>
                                                 <span class="from_text ms-1">
                                                     <div class="min_max_part">Max</div>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        <input type="text" name="meas_width_max" id="meas_width_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasWidth }}">
                                                     </div>
                                                 </span>
                                             </div>
@@ -311,14 +311,14 @@
                                                 <span class="from_text me-1">
                                                     <div class="min_max_part">Min</div>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        <input type="text" name="meas_depth_min" id="meas_depth_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
                                                     </div>
                                                 </span>
                                                 
                                                 <span class="from_text ms-1">
                                                     <div class="min_max_part">Max</div>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        <input type="text" name="meas_depth_max" id="meas_depth_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasDepth }}">
                                                     </div>
                                                 </span>
                                                 </div>
@@ -1001,6 +1001,18 @@
                     <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
+                        
+                        <option value="carat">Sort by carat: low to high</option>
+                        <option value="carat-desc">Sort by carat: high to low</option>
+
+                        <option value="color">Sort by color: low to high</option>
+                        <option value="color-desc">Sort by color: high to low</option>
+
+                        <option value="clarity">Sort by clarity: low to high</option>
+                        <option value="clarity-desc">Sort by clarity: high to low</option>
+
+                        <option value="cut">Sort by cut: low to high</option>
+                        <option value="cut-desc">Sort by cut: high to low</option>
                     </select>
                 </span>
             </div>
@@ -1169,11 +1181,23 @@
 
                 var minimum_table_input = $('#minimum_table_input').val();
                 var maximum_table_input = $('#maximum_table_input').val();
+
+                var meas_length_min = $('#meas_length_min').val();
+                var meas_length_max = $('#meas_length_max').val();
+
+                var meas_width_min = $('#meas_width_min').val();
+                var meas_width_max = $('#meas_width_max').val();
+
+                var meas_depth_min = $('#meas_depth_min').val();
+                var meas_depth_max = $('#meas_depth_max').val();
+            
+
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
-                    data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,report:report,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,_token: '{{ csrf_token() }}'},
+                    data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat,maximum_carat:maximum_carat,report:report,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,
+                        meas_length_min:meas_length_min,meas_length_max:meas_length_max,meas_width_min:meas_width_min,meas_width_max:meas_width_max,meas_depth_min:meas_depth_min,meas_depth_max:meas_depth_max,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },

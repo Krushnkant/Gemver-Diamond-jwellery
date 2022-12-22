@@ -659,18 +659,38 @@
                                                 <input type="text" name="email" id="email" placeholder="enter your email" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
+                                            
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block wire_bangle_input">
-                                                <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <select class="d-block wire_bangle_input" name="country_code_mobile"> 
+                                                            <option>+91 </option>
+                                                            <option>+1 </option>
+                                                            <option>+94 </option>
+                                                        </select>
+                                                    </div>
+                                                    <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block form-control">
+                                                    <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                </div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="d-block wire_bangle_input">
-                                                <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                <div class="input-group ">
+                                                    <div class="input-group-prepend">
+                                                        <select class="d-block wire_bangle_input" name="country_code_whatsapp"> 
+                                                            <option>+91 </option>
+                                                            <option>+1 </option>
+                                                            <option>+94 </option>
+                                                        </select>
+                                                    </div>
+                                                    <input type="text" name="whatsapp_number" id="whatsapp_number" placeholder="whatsapp number" class="form-control">
+                                                    <div id="whatsapp_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                                </div>
                                             </div>
                                             <div class="mb-6 col-md-12 ps-0">
                                                 <textarea name="inquiry" id="inquiry" class="d-block wire_bangle_input" placeholder="Message"></textarea>
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
+                                            
                                             </div>  
                                             <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
