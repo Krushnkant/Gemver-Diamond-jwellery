@@ -827,7 +827,8 @@
             var ENDPOINT = "{{ url('/') }}";
             var page = 1;
             $(window).scroll(function () {
-                if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                //if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                if($(window).scrollTop() + $(window).height() > $(document).height() - 400){    
                     page++;
                     var scroll = 1;
                     filter_data(page,scroll);

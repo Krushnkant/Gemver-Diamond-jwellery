@@ -64,7 +64,7 @@ class MenuPageController extends Controller
         $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
-        $menupages->select_product = implode(',',$request->select_product_id);
+        $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -271,7 +271,7 @@ class MenuPageController extends Controller
         // $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
-        $menupages->select_product = implode(',',$request->select_product_id);
+        $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
