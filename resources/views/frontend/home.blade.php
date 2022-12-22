@@ -638,7 +638,7 @@
                                     <div class="modal-content p-3 p-md-4">
                                         <div class="row">
                                             <div class="col-8 col-sm-6 ps-0 text-start">
-                                                <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div>
+                                                <!-- <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div> -->
                                             </div>
                                             <div class="col-4 col-sm-6 text-end pe-0">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
