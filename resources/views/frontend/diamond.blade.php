@@ -331,7 +331,7 @@
                 </div>
                 <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
-                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
+                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2 color-fancy-color-part">
                     <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item">
                             <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
@@ -346,7 +346,7 @@
 
                         <div class="tab-content clearfix">
                         
-                        <div class="tab-pane active" id="1aa">
+                        <div class="tab-pane active tab-view-part" id="1aa">
                             <div class="form-group d-inline-block mb-2">
                                 <input type="checkbox"  value="D" name="color[]" class="color common_selector" id="colorsD">
                                 <label for="colorsD">D</label>
@@ -484,7 +484,7 @@
                 <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                             <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 tab-view-part clarity_tab">
                                 <div class="form-group d-inline-block mb-2">
                                     <input type="checkbox" value="FL" name="clarity[]" class="clarity common_selector" id="clarityFL">
                                     <label for="clarityFL">FL</label>

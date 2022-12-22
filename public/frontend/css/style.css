@@ -2470,6 +2470,22 @@ opacity: 1;
         content: none !important;
     }
     
+    .round_cut_lab_range_color .form-group:last-child label {
+        margin-right: 0;
+    }
+    
+    .tab-view-part.active {
+        display: flex !important;
+    }
+    
+    .clarity_tab {
+        display: flex !important;
+    }
+    
+    .tab-view-part .form-group {
+        flex-grow: 1;
+    }
+    
     .round_cut_lab_range_color .form-group label {
         background-color: transparent;
         border: 1px solid var(--primary);
@@ -2486,6 +2502,7 @@ opacity: 1;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-grow: 1;
     }
     
     .round_cut_lab_range_color .form-group input:checked+label {
@@ -6440,4 +6457,8 @@ width: 100%;
     
     .shop_by_style_slider_part img {
         border-radius: 10px 10px 0 0;
+    }
+    
+    .round_cut_lab_range_color .form-group label {
+        min-width: auto;
     }
