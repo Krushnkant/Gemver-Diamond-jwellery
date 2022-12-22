@@ -35,28 +35,42 @@ class BlogController extends Controller
             'category_id.required' =>'Please Select Category',
             'description.required' =>'Please provide a Description',
         ];
+        if(isset($request->btn_type) && $request->btn_type!="save_draf"){
+            
 
-        if(isset($request->action) && $request->action=="update"){
-            $validator = Validator::make($request->all(), [
-                'title' =>'required',
-                'catImg' =>'required',
-                'category_id' =>'required',
-                'description' =>'required',
-            ], $messages);
+            if(isset($request->action) && $request->action=="update"){
+                $validator = Validator::make($request->all(), [
+                    'title' =>'required',
+                    'catImg' =>'required',
+                    'category_id' =>'required',
+                    'description' =>'required',
+                ], $messages);
+            }
+            else{
+                $validator = Validator::make($request->all(), [
+                    'title' =>'required',
+                    'catImg' =>'required',
+                    'category_id' =>'required',
+                    'description' =>'required',
+                ], $messages);
+            }
+            
+        }else{
+            if(isset($request->action) && $request->action=="update"){
+                $validator = Validator::make($request->all(), [
+                    'category_id' =>'required',
+                ], $messages);
+            }
+            else{
+                $validator = Validator::make($request->all(), [
+                    'category_id' =>'required',
+                ], $messages);
+            }
+
         }
-        else{
-            $validator = Validator::make($request->all(), [
-                'title' =>'required',
-                'catImg' =>'required',
-                'category_id' =>'required',
-                'description' =>'required',
-            ], $messages);
-        }
-         
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
-
         if (isset($request->action) && $request->action=="update"){
             $action = "update";
             $blog = Blog::find($request->blog_id);
@@ -81,18 +95,27 @@ class BlogController extends Controller
             $blog->category_id = $request->category_id;
             $blog->meta_title = $request->meta_title;
             $blog->meta_description = $request->meta_description;
+            if(isset($request->btn_type) && $request->btn_type=="save_draf"){
+                $blog->estatus = 5;
+            }else{
+                $blog->estatus = 1;
+            }
         }
         else{
             $action = "add";
             $blog = new Blog();
             $blog->title = $request->title;
             $blog->slug = $request->slug;
-            $blog->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $blog->blog_thumb = $request->catImg;
             $blog->description = $request->description;
             $blog->category_id = $request->category_id;
             $blog->meta_title = $request->meta_title;
             $blog->meta_description = $request->meta_description;
+            if(isset($request->btn_type) && $request->btn_type=="save_draf"){
+                $blog->estatus = 5;
+            }else{
+                $blog->estatus = 1;
+            }
         }
         $blog->save();
         return response()->json(['status' => '200', 'action' => $action]);
@@ -163,8 +186,14 @@ class BlogController extends Controller
                         $estatus = '<label class="switch"><input type="checkbox" id="BlogStatuscheck_'. $blog->id .'" value="2"><span class="slider round"></span></label>';
                     }
 
+                    if($blog->estatus==5){
+                        $estatus = 'Draf';
+                    }
+
                     if(isset($blog->blog_thumb) && $blog->blog_thumb!=null){
                         $thumb_path = url($blog->blog_thumb);
+                    }else{
+                        $thumb_path = url('images/placeholder_image.png'); 
                     }
 
                     $action='';
@@ -174,6 +203,7 @@ class BlogController extends Controller
                     if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
                         $action .= '<button id="deleteBlogBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBlogModal" onclick="" data-id="' .$blog->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     }
+                    
                     $nestedData['blog_thumb'] = '<img src="'. $thumb_path .'" width="50px" height="50px" alt="Thumbnail">';
                     $nestedData['title'] = $blog->title;
                     $nestedData['estatus'] = $estatus;

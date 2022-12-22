@@ -688,7 +688,7 @@ class DiamondController extends Controller
             $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
 
-        if($data["minimum_carat"] && $data["maximum_carat"]){
+        if(isset($data["minimum_carat"]) && $data["maximum_carat"]){
             $query = $query->where('Weight','>=',$data["minimum_carat"]);
             $query = $query->where('Weight','<=',$data["maximum_carat"]);
         }
@@ -702,7 +702,7 @@ class DiamondController extends Controller
             $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
-        if($data["minimum_depth"] && $data["maximum_depth"]){
+        if(isset($data["minimum_depth"]) && $data["maximum_depth"]){
             $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
             $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
         }
@@ -730,7 +730,7 @@ class DiamondController extends Controller
         //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         // }
 
-        if($data["minimum_table"] && $data["maximum_table"]){ 
+        if(isset($data["minimum_table"]) && $data["maximum_table"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
             $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
         }

@@ -94,7 +94,10 @@
     </div>
 
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newBlogBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary mt-4" id="save_closeBlogBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    <button type="button" class="btn btn-primary mt-4" id="save_closeBlogBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
+    @if($blog->estatus == 5)
+    <button type="button" id="saveDraftBtn" name="saveDraftBtn" class="btn btn-outline-primary mt-4" data-action="update">Save As Draft <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    @endif
     </div>
 </form>
 

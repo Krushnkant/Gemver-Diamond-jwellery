@@ -161,6 +161,10 @@ $('body').on('click', '#save_newBlogBtn', function () {
     save_blog($(this),'save_new');
 });
 
+$('body').on('click', '#saveDraftBtn', function () {
+    save_blog($(this),'save_draf');
+});
+
 function save_blog(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
@@ -171,6 +175,7 @@ function save_blog(btn,btn_type){
     
     var formData = new FormData($("#BlogCreateForm")[0]);
     formData.append('action',action);
+    formData.append('btn_type',btn_type);
 
     $.ajax({
         type: 'POST',
@@ -224,6 +229,17 @@ function save_blog(btn,btn_type){
                     $(btn).prop('disabled',false);
                     $(btn).find('.loadericonfa').hide();
                     location.href="{{ route('admin.blogs.add')}}";
+                    if(res.action == 'add'){
+                        toastr.success("Blog Added",'Success',{timeOut: 5000});
+                    }
+                    if(res.action == 'update'){
+                        toastr.success("Blog Updated",'Success',{timeOut: 5000});
+                    }
+                }
+                if(btn_type == 'save_draf'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    location.href="{{ route('admin.blogs.list')}}";
                     if(res.action == 'add'){
                         toastr.success("Blog Added",'Success',{timeOut: 5000});
                     }
