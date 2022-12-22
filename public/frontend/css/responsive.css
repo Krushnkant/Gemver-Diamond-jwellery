@@ -886,6 +886,10 @@
         display: flex !important;
         grid-template-columns: auto;
     }
+    .tab-view-part.active,
+    .clarity_tab {
+        display: block !important;
+    }
 }
 
 @media (max-width:1199px) {
