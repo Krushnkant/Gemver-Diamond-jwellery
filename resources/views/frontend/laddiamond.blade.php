@@ -102,8 +102,8 @@
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider row">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">carat</span>
-                    <span class="round_cut_lab_diamonds_price col-md-10">
+                    <span class="round_cut_lab_diamonds_heading col-md-12 mb-3">carat</span>
+                    <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="align-items-center mb-2 position-relative">
                             <!-- <div id="slider-range-carat" class="mb-3"></div> -->
                             <div class="d-flex align-items-center carat-input-part">
@@ -113,7 +113,7 @@
                                         <span class="ms-2 filter_ct">ct</span>
                                     </div>
                                 </div>
-                                <div class="me-4"> to</div>
+                                <div class="me-4 text-center"> to</div>
                                 <div class="to_text d-flex align-items-center" style="position: initial !important;">
                                     <input type="text" name="" id="maximum_carat_input" placeholder="To" class="wire_bangle_input common_input comman_input_part w-100" value="7">
                                     <span class="ms-2 filter_ct">ct</span>
@@ -125,69 +125,8 @@
                         <input type="hidden" id="hidden_maximum_carat" /> -->
                     </span>
                 </div>
-                <div class="row px-0 mt-3">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
-                        <div class="round_cut_lab_diamonds_price col-md-10">
-                            <div class="align-items-center mb-2 position-relative">
-                                <!-- <div id="slider-range-carat" class="mb-0"></div> -->
-                                <div class="d-md-flex flex-wrap flex-md-nowrap">
-                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
-                                            <div class="filter_text_part">L</div>
-                                            <div class="d-flex flex-wrap flex-md-nowrap">
-                                                <div class="from_text me-1">
-                                                    <div class="min_max_part">Min</div>
-                                                    <div class="d-flex align-items-center">
-                                                        <input type="text" name="meas_length_min" id="meas_length_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                    </div>
-                                                </div>
-                                                <div class="from_text ms-1">
-                                                    <div class="min_max_part">Max</div>
-                                                    <div class="d-flex align-items-center">
-                                                        <input type="text" name="meas_length_max" id="meas_length_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasLength }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
-                                        <div class="filter_text_part">W</div>
-                                        <div class="d-flex flex-wrap flex-md-nowrap">
-                                            <span class="from_text me-1">
-                                                <div class="min_max_part">Min</div>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="text" name="meas_width_min" id="meas_width_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                </div>
-                                            </span>
-                                            <span class="from_text ms-1">
-                                                <div class="min_max_part">Max</div>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="text" name="meas_width_max" id="meas_width_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasWidth }}">
-                                                </div>
-                                            </span>
-                                        </div>
-                                        </div>
-                                        <div class="position-relative">
-                                            <div class="filter_text_part me-md-4">D</div>
-                                            <div class="d-flex flex-wrap flex-md-nowrap">
-                                            <span class="from_text me-1">
-                                                <div class="min_max_part">Min</div>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="text" name="meas_depth_min" id="meas_depth_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                </div>
-                                            </span>
-                                            
-                                            <span class="from_text ms-1">
-                                                <div class="min_max_part">Max</div>
-                                                <div class="d-flex align-items-center">
-                                                    <input type="text" name="meas_depth_max" id="meas_depth_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasDepth }}">
-                                                </div>
-                                            </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+               
+                </div>
 
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
@@ -526,7 +465,69 @@
                         <input type="hidden" id="hidden_maximum_price" />
                     </span>
                 </div>
-                <div class="round_cut_lab_range_slider row"> 
+                <div class="row px-0 mt-3 align-items-center">
+                    <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
+                        <div class="round_cut_lab_diamonds_price col-md-10">
+                            <div class="align-items-center mb-2 position-relative">
+                                <!-- <div id="slider-range-carat" class="mb-0"></div> -->
+                                <div class="d-md-flex flex-wrap flex-md-nowrap">
+                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                            <div class="filter_text_part">L</div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                                <div class="from_text me-1">
+                                                    <div class="min_max_part">Min</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name="meas_length_min" id="meas_length_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                    </div>
+                                                </div>
+                                                <div class="from_text ms-1">
+                                                    <div class="min_max_part">Max</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name="meas_length_max" id="meas_length_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasLength }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                        <div class="filter_text_part">W</div>
+                                        <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <span class="from_text me-1">
+                                                <div class="min_max_part">Min</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_width_min" id="meas_width_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                </div>
+                                            </span>
+                                            <span class="from_text ms-1">
+                                                <div class="min_max_part">Max</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_width_max" id="meas_width_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasWidth }}">
+                                                </div>
+                                            </span>
+                                        </div>
+                                        </div>
+                                        <div class="position-relative">
+                                            <div class="filter_text_part me-md-4">D</div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <span class="from_text me-1">
+                                                <div class="min_max_part">Min</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_depth_min" id="meas_depth_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                </div>
+                                            </span>
+                                            
+                                            <span class="from_text ms-1">
+                                                <div class="min_max_part">Max</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_depth_max" id="meas_depth_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasDepth }}">
+                                                </div>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="round_cut_lab_range_slider row collapse" id="collapseExample"> 
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Fluor</span>
                     <span class="col-md-12">
                         
@@ -554,6 +555,7 @@
                     </span>
                 </div>
             </div>
+            
             <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row mb-1"> 
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-12 mb-2">Growth Type</span>
@@ -605,7 +607,7 @@
                                             <input type="text" name="" id="minimum_depth_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part w-100" value="40">
                                         </div>
                                     </div>
-                                    <div class="me-4"> to</div>
+                                    <div class="me-4 text-center"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
                                         <input type="text" name="" id="maximum_depth_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part w-100" value="{{ $MaxDepth  }}" >
                                     </div>
@@ -627,7 +629,7 @@
                                             <input type="text" name="" id="minimum_table_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part w-100" value="40">
                                         </div>
                                     </div>
-                                    <div class="me-4"> to</div>
+                                    <div class="me-4 text-center"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
                                         <input type="text" name="" id="maximum_table_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part w-100" value="{{ $MaxTable  }}">
                                     </div>
@@ -649,7 +651,7 @@
                                             <input type="text" name="" id="minimum_ratio_input" placeholder="From" class="d-block wire_bangle_input common_input comman_input_part w-100" value="0">
                                         </div>
                                     </div>
-                                    <div class="me-4"> to</div>
+                                    <div class="me-4 text-center"> to</div>
                                     <div class="to_text d-flex align-items-center" style="position: initial !important;">
                                         <input type="text" name="" id="maximum_ratio_input" placeholder="To" class="d-block wire_bangle_input common_input comman_input_part w-100" value="3">
                                     </div>
