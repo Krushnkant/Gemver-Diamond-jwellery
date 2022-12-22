@@ -56,6 +56,9 @@ class DiamondController extends Controller
         $MaxRatio = Diamond::max('Ratio');
         $MaxTable = Diamond::max('Table_Diameter_Per');
         $MaxTable = ceil($MaxTable / 10) * 10;
+        $MaxMeasLength = ceil(Diamond::max('meas_length') / 10) * 10;
+        $MaxMeasWidth = ceil(Diamond::max('meas_width') / 10) * 10;
+        $MaxMeasDepth = ceil(Diamond::max('meas_depth') / 10) * 10;
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
@@ -64,7 +67,7 @@ class DiamondController extends Controller
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice','StepPopup'));
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     } 
 
     public function getDiamonds(Request $request)
@@ -88,7 +91,7 @@ class DiamondController extends Controller
             $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
 
-        if($data["minimum_carat"] && $data["maximum_carat"]){
+        if(isset($data["minimum_carat"]) && $data["maximum_carat"]){
             $query = $query->where('Weight','>=',$data["minimum_carat"]);
             $query = $query->where('Weight','<=',$data["maximum_carat"]);
         }
@@ -102,18 +105,45 @@ class DiamondController extends Controller
             $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
-        if($data["minimum_depth"] && $data["maximum_depth"]){
+        if(isset($data["minimum_depth"]) && $data["maximum_depth"]){
             $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth"]);
             $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth"]);
         }
 
-        if($data["minimum_depth_input"] && $data["maximum_depth_input"]){
+        if(isset($data["minimum_depth_input"]) && $data["maximum_depth_input"]){
             $query = $query->where('Total_Depth_Per','>=',$data["minimum_depth_input"]);
             $query = $query->where('Total_Depth_Per','<=',$data["maximum_depth_input"]);
         }elseif (!empty($data["minimum_depth_input"])) {
             $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
         }elseif (!empty($data["maximum_depth_input"])) {
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
+        }
+
+        if(isset($data["meas_length_min"]) && $data["meas_length_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_length_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_length_max"]);
+        }elseif (!empty($data["meas_length_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
+        }elseif (!empty($data["meas_length_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
+        }
+
+        if(isset($data["meas_width_min"]) && $data["meas_width_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_width_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_width_max"]);
+        }elseif (!empty($data["meas_width_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
+        }elseif (!empty($data["meas_width_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
+        }
+
+        if(isset($data["meas_depth_min"]) && $data["meas_depth_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_depth_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_depth_max"]);
+        }elseif (!empty($data["meas_depth_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
+        }elseif (!empty($data["meas_depth_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
         }
 
         // if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -130,7 +160,7 @@ class DiamondController extends Controller
         //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         // }
 
-        if($data["minimum_table"] && $data["maximum_table"]){ 
+        if(isset($data["maximum_table"]) && $data["maximum_table"]){ 
             $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table"]);
             $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table"]);
         }
@@ -189,12 +219,26 @@ class DiamondController extends Controller
             $query = $query->whereIn('growth_type',$growth_type);
         }
 
-        if($data["sorting"] == "price")
-        {
+        if($data["sorting"] == "price"){
             $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
-        }
-        elseif($data["sorting"]=="price-desc"){
+        }elseif($data["sorting"]=="price-desc"){
             $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
+        }elseif($data["sorting"]=="carat"){
+            $results = $query->orderBy('Weight','desc')->paginate(20); 
+        }elseif($data["sorting"]=="carat-desc"){
+            $results = $query->orderBy('Weight','desc')->paginate(20); 
+        }elseif($data["sorting"]=="color"){
+            $results = $query->orderBy('Color','desc')->paginate(20); 
+        }elseif($data["sorting"]=="color-desc"){
+            $results = $query->orderBy('Color','desc')->paginate(20); 
+        }elseif($data["sorting"]=="clarity"){
+            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+        }elseif($data["sorting"]=="clarity-desc"){
+            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+        }elseif($data["sorting"]=="cut"){
+            $results = $query->orderBy('Cut','desc')->paginate(20); 
+        }elseif($data["sorting"]=="cut-desc"){
+            $results = $query->orderBy('Cut','desc')->paginate(20); 
         }else{
             $results  = $query->paginate(20);
         }
@@ -208,29 +252,30 @@ class DiamondController extends Controller
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
-                    if($Diamond->Shape == strtoupper('round')){
-                        $Diamond_image = url('frontend/image/1.png');    
-                    }elseif($Diamond->Shape == strtoupper('oval')){
-                        $Diamond_image = url('frontend/image/2.png');
-                    }elseif($Diamond->Shape == strtoupper('emerald')){
-                        $Diamond_image = url('frontend/image/3.png');
-                    }elseif($Diamond->Shape == strtoupper('princess')){
-                        $Diamond_image = url('frontend/image/6.png');
-                    }elseif($Diamond->Shape == strtoupper('cushion')){
-                        $Diamond_image = url('frontend/image/7.png');
-                    }elseif($Diamond->Shape == strtoupper('marquise')){
-                        $Diamond_image = url('frontend/image/8.png');
-                    }elseif($Diamond->Shape == strtoupper('pear')){
-                        $Diamond_image = url('frontend/image/9.png');
-                    }elseif($Diamond->Shape == strtoupper('HEART')){
-                        $Diamond_image = url('frontend/image/10.png');
-                    }elseif($Diamond->Shape == strtoupper('asscher')){
-                        $Diamond_image = url('frontend/image/asscher.png');
-                    }elseif($Diamond->Shape == strtoupper('radiant')){
-                        $Diamond_image = url('frontend/image/radiant.png');
-                    }else{
-                        $Diamond_image = url('frontend/image/edit_box_2.png');
-                    }
+                    // if($Diamond->Shape == strtoupper('round')){
+                    //     $Diamond_image = url('frontend/image/1.png');    
+                    // }elseif($Diamond->Shape == strtoupper('oval')){
+                    //     $Diamond_image = url('frontend/image/2.png');
+                    // }elseif($Diamond->Shape == strtoupper('emerald')){
+                    //     $Diamond_image = url('frontend/image/3.png');
+                    // }elseif($Diamond->Shape == strtoupper('princess')){
+                    //     $Diamond_image = url('frontend/image/6.png');
+                    // }elseif($Diamond->Shape == strtoupper('cushion')){
+                    //     $Diamond_image = url('frontend/image/7.png');
+                    // }elseif($Diamond->Shape == strtoupper('marquise')){
+                    //     $Diamond_image = url('frontend/image/8.png');
+                    // }elseif($Diamond->Shape == strtoupper('pear')){
+                    //     $Diamond_image = url('frontend/image/9.png');
+                    // }elseif($Diamond->Shape == strtoupper('HEART')){
+                    //     $Diamond_image = url('frontend/image/10.png');
+                    // }elseif($Diamond->Shape == strtoupper('asscher')){
+                    //     $Diamond_image = url('frontend/image/asscher.png');
+                    // }elseif($Diamond->Shape == strtoupper('radiant')){
+                    //     $Diamond_image = url('frontend/image/radiant.png');
+                    // }else{
+                    //     $Diamond_image = url('frontend/image/edit_box_2.png');
+                    // }
+                    $Diamond_image = url('images/placeholder_image.png');
                 }
                 $artilces.='
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">
@@ -658,6 +703,9 @@ class DiamondController extends Controller
         $MaxRatio = Diamond::max('Ratio');
         $MaxTable = Diamond::max('Table_Diameter_Per');
         $MaxTable = ceil($MaxTable / 10) * 10;
+        $MaxMeasLength = ceil(Diamond::max('meas_length') / 10) * 10;
+        $MaxMeasWidth = ceil(Diamond::max('meas_width') / 10) * 10;
+        $MaxMeasDepth = ceil(Diamond::max('meas_depth') / 10) * 10;
         $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
         $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
         $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
@@ -665,7 +713,7 @@ class DiamondController extends Controller
         $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm'));
+        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     }
 
     public function getLadDiamonds(Request $request)
@@ -714,6 +762,33 @@ class DiamondController extends Controller
             $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
         }elseif (!empty($data["maximum_depth_input"])) {
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
+        }
+
+        if(isset($data["meas_length_min"]) && $data["meas_length_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_length_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_length_max"]);
+        }elseif (!empty($data["meas_length_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
+        }elseif (!empty($data["meas_length_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
+        }
+
+        if(isset($data["meas_width_min"]) && $data["meas_width_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_width_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_width_max"]);
+        }elseif (!empty($data["meas_width_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
+        }elseif (!empty($data["meas_width_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
+        }
+
+        if(isset($data["meas_depth_min"]) && $data["meas_depth_max"]){
+            $query = $query->where('meas_length','>=',$data["meas_depth_min"]);
+            $query = $query->where('meas_length','<=',$data["meas_depth_max"]);
+        }elseif (!empty($data["meas_depth_min"])) {
+            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
+        }elseif (!empty($data["meas_depth_max"])) {
+            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
         }
 
         // if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -788,12 +863,26 @@ class DiamondController extends Controller
             $query = $query->whereIn('growth_type',$growth_type);
         }
         
-        if($data["sorting"] == "price")
-        {
+        if($data["sorting"] == "price"){
             $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
-        }
-        elseif($data["sorting"]=="price-desc"){
+        }elseif($data["sorting"]=="price-desc"){
             $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
+        }elseif($data["sorting"]=="carat"){
+            $results = $query->orderBy('Weight','desc')->paginate(20); 
+        }elseif($data["sorting"]=="carat-desc"){
+            $results = $query->orderBy('Weight','desc')->paginate(20); 
+        }elseif($data["sorting"]=="color"){
+            $results = $query->orderBy('Color','desc')->paginate(20); 
+        }elseif($data["sorting"]=="color-desc"){
+            $results = $query->orderBy('Color','desc')->paginate(20); 
+        }elseif($data["sorting"]=="clarity"){
+            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+        }elseif($data["sorting"]=="clarity-desc"){
+            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+        }elseif($data["sorting"]=="cut"){
+            $results = $query->orderBy('Cut','desc')->paginate(20); 
+        }elseif($data["sorting"]=="cut-desc"){
+            $results = $query->orderBy('Cut','desc')->paginate(20); 
         }else{
             $results  = $query->paginate(20);
         }
@@ -805,29 +894,30 @@ class DiamondController extends Controller
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
-                    if($Diamond->Shape == strtoupper('round')){
-                        $Diamond_image = url('frontend/image/1.png');    
-                    }elseif($Diamond->Shape == strtoupper('oval')){
-                        $Diamond_image = url('frontend/image/2.png');
-                    }elseif($Diamond->Shape == strtoupper('emerald')){
-                        $Diamond_image = url('frontend/image/3.png');
-                    }elseif($Diamond->Shape == strtoupper('princess')){
-                        $Diamond_image = url('frontend/image/6.png');
-                    }elseif($Diamond->Shape == strtoupper('cushion')){
-                        $Diamond_image = url('frontend/image/7.png');
-                    }elseif($Diamond->Shape == strtoupper('marquise')){
-                        $Diamond_image = url('frontend/image/8.png');
-                    }elseif($Diamond->Shape == strtoupper('pear')){
-                        $Diamond_image = url('frontend/image/9.png');
-                    }elseif($Diamond->Shape == strtoupper('HEART')){
-                        $Diamond_image = url('frontend/image/10.png');
-                    }elseif($Diamond->Shape == strtoupper('asscher')){
-                        $Diamond_image = url('frontend/image/asscher.png');
-                    }elseif($Diamond->Shape == strtoupper('radiant')){
-                        $Diamond_image = url('frontend/image/radiant.png');
-                    }else{
-                        $Diamond_image = url('frontend/image/edit_box_2.png');
-                    }
+                    // if($Diamond->Shape == strtoupper('round')){
+                    //     $Diamond_image = url('frontend/image/1.png');    
+                    // }elseif($Diamond->Shape == strtoupper('oval')){
+                    //     $Diamond_image = url('frontend/image/2.png');
+                    // }elseif($Diamond->Shape == strtoupper('emerald')){
+                    //     $Diamond_image = url('frontend/image/3.png');
+                    // }elseif($Diamond->Shape == strtoupper('princess')){
+                    //     $Diamond_image = url('frontend/image/6.png');
+                    // }elseif($Diamond->Shape == strtoupper('cushion')){
+                    //     $Diamond_image = url('frontend/image/7.png');
+                    // }elseif($Diamond->Shape == strtoupper('marquise')){
+                    //     $Diamond_image = url('frontend/image/8.png');
+                    // }elseif($Diamond->Shape == strtoupper('pear')){
+                    //     $Diamond_image = url('frontend/image/9.png');
+                    // }elseif($Diamond->Shape == strtoupper('HEART')){
+                    //     $Diamond_image = url('frontend/image/10.png');
+                    // }elseif($Diamond->Shape == strtoupper('asscher')){
+                    //     $Diamond_image = url('frontend/image/asscher.png');
+                    // }elseif($Diamond->Shape == strtoupper('radiant')){
+                    //     $Diamond_image = url('frontend/image/radiant.png');
+                    // }else{
+                    //     $Diamond_image = url('frontend/image/edit_box_2.png');
+                    // }
+                    $Diamond_image = url('images/placeholder_image.png');
                 }
                 $artilces.='
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xxl-3 mb-4">

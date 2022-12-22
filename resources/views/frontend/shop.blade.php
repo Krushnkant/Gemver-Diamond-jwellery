@@ -257,25 +257,25 @@
             
             });
 
-            $('.category').on('click', function() {
-                var array = "";
-                var num = 1; 
-                $(".category:checked").each(function() {
-                    //array.push($(this).attr('data-title'));
-                    if(num == 1){
-                      array = array  +$(this).attr('data-title');
-                    }else{
-                      array = array + " | " +$(this).attr('data-title') ;
-                    }
-                    num++;
-                });
-                if(array == ""){
-                    $('.main_header_title').text('shop');
-                }else{
-                    $('.main_header_title').text(array);
-                }
+            // $('.category').on('click', function() {
+            //     var array = "";
+            //     var num = 1; 
+            //     $(".category:checked").each(function() {
+            //         //array.push($(this).attr('data-title'));
+            //         if(num == 1){
+            //           array = array  +$(this).attr('data-title');
+            //         }else{
+            //           array = array + " | " +$(this).attr('data-title') ;
+            //         }
+            //         num++;
+            //     });
+            //     if(array == ""){
+            //         $('.main_header_title').text('shop');
+            //     }else{
+            //         $('.main_header_title').text(array);
+            //     }
                 
-            });
+            // });
 
         });
 

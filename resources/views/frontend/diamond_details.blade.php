@@ -239,7 +239,7 @@
                         </div>
                         @endif
                         <div class="product_slider_item video-player-btn">
-                            <h3><img src="{{ url('frontend/image/360.png') }}" alt=""></h3>
+                            <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
                     </div>
                       <!-- <div class="view_360_btn text-center mt-3">

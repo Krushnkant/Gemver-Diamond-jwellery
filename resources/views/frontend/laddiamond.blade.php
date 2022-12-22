@@ -126,67 +126,67 @@
                     </span>
                 </div>
                 <div class="row px-0 mt-3">
-                            <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
-                            <div class="round_cut_lab_diamonds_price col-md-10">
-                                <div class="align-items-center mb-2 position-relative">
-                                    <!-- <div id="slider-range-carat" class="mb-0"></div> -->
-                                    <div class="d-md-flex flex-wrap flex-md-nowrap">
-                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
-                                                <div class="filter_text_part">L</div>
-                                                <div class="d-flex flex-wrap flex-md-nowrap">
-                                                    <div class="from_text me-1">
-                                                        <div class="min_max_part">Min</div>
-                                                        <div class="d-flex align-items-center">
-                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                        </div>
-                                                    </div>
-                                                    <div class="from_text ms-1">
-                                                        <div class="min_max_part">Max</div>
-                                                        <div class="d-flex align-items-center">
-                                                            <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                        </div>
+                    <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
+                        <div class="round_cut_lab_diamonds_price col-md-10">
+                            <div class="align-items-center mb-2 position-relative">
+                                <!-- <div id="slider-range-carat" class="mb-0"></div> -->
+                                <div class="d-md-flex flex-wrap flex-md-nowrap">
+                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                            <div class="filter_text_part">L</div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                                <div class="from_text me-1">
+                                                    <div class="min_max_part">Min</div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="text" name="meas_length_min" id="meas_length_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
-                                            <div class="filter_text_part">W</div>
-                                            <div class="d-flex flex-wrap flex-md-nowrap">
-                                                <span class="from_text me-1">
-                                                    <div class="min_max_part">Min</div>
-                                                    <div class="d-flex align-items-center">
-                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                    </div>
-                                                </span>
-                                                <span class="from_text ms-1">
+                                                <div class="from_text ms-1">
                                                     <div class="min_max_part">Max</div>
                                                     <div class="d-flex align-items-center">
-                                                        <input type="text" name="" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                        <input type="text" name="meas_length_max" id="meas_length_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasLength }}">
                                                     </div>
-                                                </span>
-                                            </div>
-                                            </div>
-                                            <div class="position-relative">
-                                                <div class="filter_text_part me-md-4">D</div>
-                                                <div class="d-flex flex-wrap flex-md-nowrap">
-                                                <span class="from_text me-1">
-                                                    <div class="min_max_part">Min</div>
-                                                    <div class="d-flex align-items-center">
-                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                    </div>
-                                                </span>
-                                                
-                                                <span class="from_text ms-1">
-                                                    <div class="min_max_part">Max</div>
-                                                    <div class="d-flex align-items-center">
-                                                        <input type="text" name=""  placeholder="From" class="d-block wire_bangle_input common_input" value="0">
-                                                    </div>
-                                                </span>
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
+                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                        <div class="filter_text_part">W</div>
+                                        <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <span class="from_text me-1">
+                                                <div class="min_max_part">Min</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_width_min" id="meas_width_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                </div>
+                                            </span>
+                                            <span class="from_text ms-1">
+                                                <div class="min_max_part">Max</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_width_max" id="meas_width_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasWidth }}">
+                                                </div>
+                                            </span>
+                                        </div>
+                                        </div>
+                                        <div class="position-relative">
+                                            <div class="filter_text_part me-md-4">D</div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <span class="from_text me-1">
+                                                <div class="min_max_part">Min</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_depth_min" id="meas_depth_min" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                                                </div>
+                                            </span>
+                                            
+                                            <span class="from_text ms-1">
+                                                <div class="min_max_part">Max</div>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="text" name="meas_depth_max" id="meas_depth_max" placeholder="From" class="d-block wire_bangle_input common_input" value="{{ $MaxMeasDepth }}">
+                                                </div>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
+                    </div>
             </div>
 
             <div class="col-lg-6 round_cut_lab_filter">
@@ -703,6 +703,18 @@
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
+
+                        <option value="carat">Sort by carat: low to high</option>
+                        <option value="carat-desc">Sort by carat: high to low</option>
+
+                        <option value="color">Sort by color: low to high</option>
+                        <option value="color-desc">Sort by color: high to low</option>
+
+                        <option value="clarity">Sort by clarity: low to high</option>
+                        <option value="clarity-desc">Sort by clarity: high to low</option>
+
+                        <option value="cut">Sort by cut: low to high</option>
+                        <option value="cut-desc">Sort by cut: high to low</option>
                     </select>
                 </span>
             </div>
