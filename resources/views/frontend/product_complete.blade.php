@@ -427,7 +427,7 @@
                             </div>
                             
                             
-                            <div class=" mt-3">
+                            <div class=" mt-3 text-center">
                                 <button class="select_contact_btn diamond-btn get_opinion_btn" type="button">
                                     <i class="fa-solid fa-user me-2"></i>
                                      Get a gemologist opinion

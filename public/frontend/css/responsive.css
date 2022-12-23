@@ -890,6 +890,18 @@
     .clarity_tab {
         display: block !important;
     }
+    .from_text input,
+    .to_text input {
+        height: 28px;
+    }
+    .round_cut_lab_checkbox input[type="checkbox"] {
+        width: 45px;
+        height: 45px;
+    }
+    .round_cut_lab_checkbox input+.shape_img {
+        min-width: 45px;
+        min-height: 45px;
+    }
 }
 
 @media (max-width:1199px) {
@@ -1766,6 +1778,21 @@
     }
 }
 
+@media (min-width:768px) and (max-width:991px) {
+    .from_text input,
+    .to_text input {
+        height: 30px;
+    }
+    .round_cut_lab_checkbox input+.shape_img {
+        min-width: 47px;
+        min-height: 47px;
+    }
+    .round_cut_lab_checkbox input[type="checkbox"] {
+        width: 47px;
+        height: 47px;
+    }
+}
+
 @media (min-width:768px) and (max-width:1199px) {
     .cart-icon-part .dropdown-toggle {
         margin-right: 10px;
@@ -2194,9 +2221,26 @@
     .from_text input,
     .to_text input {
         width: 49px;
+        height: 30px;
+    }
+    .round_cut_lab_checkbox input[type="checkbox"] {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        min-height: 47px;
     }
     .comman_input_part {
         width: 80px !important;
+    }
+    .tab-view-part.active,
+    .clarity_tab {
+        display: block !important;
+    }
+    .round_cut_lab_checkbox input+.shape_img {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        min-height: 47px;
     }
 }
 

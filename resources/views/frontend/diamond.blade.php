@@ -159,7 +159,7 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-lg-6 round_cut_lab_filter">
+            <div class="col-md-6 round_cut_lab_filter">
                     <div class="round_cut_lab_checkbox row">
                         <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape </div>
                         <div class="col-md-12">
@@ -240,7 +240,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 round_cut_lab_filter">
+                <div class="col-md-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider row">
                        <div class="col-md-12 row px-0">
                         <div class="round_cut_lab_diamonds_heading col-md-12 mb-3">carat</div>
@@ -269,7 +269,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-6 round_cut_lab_filter">
+                <div class="col-md-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2 color-fancy-color-part">
                     <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-sm-start filter-tab" id="myTab" role="tablist">
@@ -421,7 +421,7 @@
                     </span>
                 </div>
             </div>
-                <div class="col-lg-6 round_cut_lab_filter">
+                <div class="col-md-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                             <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
                             <div class="col-md-12 tab-view-part clarity_tab">
@@ -470,7 +470,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="col-lg-6  round_cut_lab_filter" >
+                <div class="col-md-6  round_cut_lab_filter" >
                     <!-- Cut - Polish - Symm. -->
                     <div class="round_cut_lab_range_slider row mb-3">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Sym.</span>
@@ -591,7 +591,7 @@
                 </div>
                 
                 <!-- Price -->
-                <div class="col-lg-6 round_cut_lab_filter">
+                <div class="col-md-6 round_cut_lab_filter">
                     <div class="round_cut_lab_range_slider row">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
                         <span class="round_cut_lab_diamonds_price col-md-12">
@@ -609,11 +609,11 @@
                         </span>
                     </div>
                     <div class="row px-0 mt-3 align-items-center">
-                            <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
-                            <div class="round_cut_lab_diamonds_price col-md-10">
+                            <div class="round_cut_lab_diamonds_heading col-md-12 mb-3">Meas.</div>
+                            <div class="round_cut_lab_diamonds_price col-md-12">
                                 <div class="align-items-center mb-2 position-relative">
-                                        <div class="d-md-flex flex-md-nowrap">
-                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                        <div class="d-lg-flex flex-md-nowrap">
+                                            <div class="position-relative me-sm-4 mb-3 d-block d-md-inline-block">
                                                 <div class="filter_text_part">L</div>
                                                 <div class="d-flex flex-wrap flex-sm-nowrap">
                                                     <div class="from_text me-1">
@@ -630,7 +630,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-md-inline-block">
+                                            <div class="position-relative me-sm-4 mb-3 d-block d-md-inline-block">
                                             <div class="filter_text_part">W</div>
                                             <div class="d-flex flex-wrap flex-md-nowrap">
                                                 <span class="from_text me-1">
@@ -712,8 +712,8 @@
             
                 
            
-                <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row mb-3"> 
+                <div class="col-md-6 collapse round_cut_lab_filter" id="collapseExample">
+                    <div class="round_cut_lab_range_slider row mb-3"> 
                         <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">Fluor</span>
                         <span class="col-md-10">
                             
@@ -740,7 +740,7 @@
                         
                         </span>
                     </div>
-                <div class="round_cut_lab_range_slider row mb-3"> 
+                    <div class="round_cut_lab_range_slider row mb-3"> 
                         <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 mb-2">Growth Type</span>
                         <span class="col-md-10">
                             <div class="form-group d-inline-block me-3 mb-2">
@@ -757,7 +757,7 @@
                             </div>
                         </span>
                     </div>
-                <div class="round_cut_lab_range_slider row">
+                    <div class="round_cut_lab_range_slider row">
                         <div class="round_cut_lab_diamonds_heading col-md-2 mb-2">Report</div>
                         <div class="col-md-10">
                             <!-- <div class="form-group d-inline-block me-3 mb-2">
@@ -775,9 +775,9 @@
                             
                         </div>
                     </div> 
-            </div>
+                </div>
             <!-- Depth -->
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
+            <div class="col-md-6 collapse round_cut_lab_filter" id="collapseExample">
                 <div class="round_cut_lab_range_slider row mb-2">
                     <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">Depth %</span>
                     <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
@@ -845,16 +845,6 @@
                     </span>
                 </div>
             </div>
-           
-
-            
-          
-            
-
-            <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-               
-            </div>
-
             
             <div class="row align-items-center">
                 <div class="col-md-12 text-center text-sm-end px-0">

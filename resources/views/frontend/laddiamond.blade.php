@@ -354,7 +354,7 @@
                     </span>
                 </div>
                 <!-- ---- cut---------- -->
-                <div class="round_cut_lab_range_slider row mb-3 mb-md-0">
+                <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</span>
                     <span class="col-md-10">
                         <div class="form-group d-inline-block me-3 mb-0">
@@ -384,7 +384,7 @@
                     </span>
                 </div>
                 <!-- ----- polish ------------- -->
-                <div class="round_cut_lab_range_slider row mb-3 mb-md-0">
+                <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
                     <span class="col-md-10">
                         
@@ -415,7 +415,7 @@
                     </span>
                 </div>
                 <!-- ------------ sym. ------------ -->
-                <div class="round_cut_lab_range_slider row mb-3 mb-md-0">
+                <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Sym.</span>
                     <span class="col-md-10">
                        
