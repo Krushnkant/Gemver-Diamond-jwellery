@@ -566,60 +566,61 @@
 
                     ?>
                    
-                    
+                   
                     <div class="round_cut_lab_diamonds_box hover_on_mask">
-                        <div class="round_cut_lab_diamonds_img">
-                            <img src="{{ $Diamond_image }}" alt="">
-                                <div class="round_cut_lab_diamonds_layer">
-                                    <ul>
-                                        <li>
-                                            <span class="round_product_part_1">CARAT  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> CLARITY :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1">SHAPE :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
-                                        </li>
-                                        
-                                        <li>
-                                            <span class="round_product_part_1">COLOR  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Color }} </span>
-                                        </li>
-                                        @if($Diamond->Cut != "")
-                                        <li>
-                                            <span class="round_product_part_1"> CUT  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
-                                        </li>
-                                        @endif
-                                        <li>
-                                            <span class="round_product_part_1"> POLISH  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> SYMMETRY  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
-                                        </li>
-                                        
-                                        <li>
-                                            <span class="round_product_part_1"> MEASUREMENT  :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1"> CERTIFIED :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
-                                        </li>
-                                        <li>
-                                            <span class="round_product_part_1">LOT :</span>
-                                            <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                        </div>
-
+                        <a href="{{ $url }}">
+                            <div class="round_cut_lab_diamonds_img">
+                                <img src="{{ $Diamond_image }}" alt="">
+                                    <div class="round_cut_lab_diamonds_layer">
+                                        <ul>
+                                            <li>
+                                                <span class="round_product_part_1">CARAT  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> CLARITY :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1">SHAPE :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
+                                            </li>
+                                            
+                                            <li>
+                                                <span class="round_product_part_1">COLOR  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Color }} </span>
+                                            </li>
+                                            @if($Diamond->Cut != "")
+                                            <li>
+                                                <span class="round_product_part_1"> CUT  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
+                                            </li>
+                                            @endif
+                                            <li>
+                                                <span class="round_product_part_1"> POLISH  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> SYMMETRY  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
+                                            </li>
+                                            
+                                            <li>
+                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1"> CERTIFIED :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
+                                            </li>
+                                            <li>
+                                                <span class="round_product_part_1">LOT :</span>
+                                                <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </div>
+                        </a>
                         <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                             <div class="round_cut_lab_diamonds_info_heading mb-2">
                                 <a href="{{ $url }}">{{ $Diamond->Shape }}</a>
@@ -633,7 +634,7 @@
                                 @endif
                                 </span>
                             </div>
-                            <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->Shape .' '. round($Diamond->Weight,2) }} ct</a></div>
+                            <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title  }}</a></div>
                             <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                 <span>{{ $Diamond->Clarity }} clarity |</span>
                                 <span>{{ $Diamond->Color }} color |</span>
@@ -644,6 +645,7 @@
                             </div>
                         </div>
                     </div>
+                   
                     @endforeach 
                 </div>
             </div>
