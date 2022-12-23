@@ -713,8 +713,8 @@
                 
            
                 <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
-                <div class="round_cut_lab_range_slider row mb-1"> 
-                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 mb-2">Fluor</span>
+                <div class="round_cut_lab_range_slider row mb-3"> 
+                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">Fluor</span>
                         <span class="col-md-10">
                             
                             <div class="form-group d-inline-block me-3 mb-2">
@@ -740,7 +740,7 @@
                         
                         </span>
                     </div>
-                <div class="round_cut_lab_range_slider row mb-1"> 
+                <div class="round_cut_lab_range_slider row mb-3"> 
                         <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 mb-2">Growth Type</span>
                         <span class="col-md-10">
                             <div class="form-group d-inline-block me-3 mb-2">
