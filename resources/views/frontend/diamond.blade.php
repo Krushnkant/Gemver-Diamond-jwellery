@@ -613,7 +613,7 @@
                             <div class="round_cut_lab_diamonds_price col-md-12 col-lg-10 col-xl-10">
                                 <div class="align-items-center mb-2 position-relative">
                                         <div class="d-lg-flex flex-lg-nowrap">
-                                            <div class="position-relative me-sm-4 mb-3 d-block d-md-inline-block">
+                                            <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
                                                 <div class="filter_text_part">L</div>
                                                 <div class="d-flex flex-wrap flex-sm-nowrap">
                                                     <div class="from_text me-1">
@@ -630,7 +630,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="position-relative me-sm-4 mb-3 d-block d-md-inline-block">
+                                            <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
                                             <div class="filter_text_part">W</div>
                                             <div class="d-flex flex-wrap flex-md-nowrap">
                                                 <span class="from_text me-1">
