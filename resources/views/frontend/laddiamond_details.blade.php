@@ -573,7 +573,7 @@
                                 <div class="round_cut_lab_diamonds_layer">
                                     <ul>
                                         <li>
-                                            <span class="round_product_part_1">CARATE  :</span>
+                                            <span class="round_product_part_1">CARAT  :</span>
                                             <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
                                         </li>
                                         <li>
