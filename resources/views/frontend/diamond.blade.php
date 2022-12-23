@@ -612,7 +612,7 @@
                             <div class="round_cut_lab_diamonds_heading col-md-12 col-lg-2 mb-3">Meas.</div>
                             <div class="round_cut_lab_diamonds_price col-md-12 col-lg-10">
                                 <div class="align-items-center mb-2 position-relative">
-                                        <div class="d-lg-flex flex-md-nowrap">
+                                        <div class="d-lg-flex flex-lg-nowrap">
                                             <div class="position-relative me-sm-4 mb-3 d-block d-md-inline-block">
                                                 <div class="filter_text_part">L</div>
                                                 <div class="d-flex flex-wrap flex-sm-nowrap">
