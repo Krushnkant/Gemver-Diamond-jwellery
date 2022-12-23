@@ -1015,6 +1015,8 @@ class DiamondController extends Controller
       
     }
 
+    
+
     public function getLadDiamondDetails($id){
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
