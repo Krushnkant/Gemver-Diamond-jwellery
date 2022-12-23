@@ -22,17 +22,14 @@ class ProductController extends Controller
         $Category = Category::where(['id' => $CatId])->first();
         
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
-        if($id != 0){
+        if($id != ""){
             if($Category->parent_category_id == 0){
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->id])->get();
-                dd($Categories.'222');
             }else{
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->parent_category_id])->get();
-                dd($Categories.'111'); 
             }
         }else{
             $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
-            dd($Categories.'333');
         }
       
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
