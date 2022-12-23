@@ -273,7 +273,7 @@
                             </button>
                             <div class="d-sm-flex gemever-button">
                             @foreach($Category as $cat)
-                                <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 mt-1 save_addToCart me-2 gemver-button-part">add to {{ $cat->category_name }}</button>
+                                <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 save_addToCart me-2 gemver-button-part">add to {{ $cat->category_name }}</button>
                             @endforeach
                             </div>
 
@@ -502,7 +502,7 @@
                     </div>
                     <div class="row mt-2 mt-md-0 justify-content-center">
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
-                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
+                        <div class="col-md-4 col-xl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
                             <div class="order-box">
                             <span class="order-img d-block mb-2">
                                 <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
