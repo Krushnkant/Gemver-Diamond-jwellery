@@ -579,7 +579,7 @@
                     </div>
                     <div class="row mt-2 mt-md-0 justify-content-center">
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
-                        <div class="col-md-4 col-xxl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
+                        <div class="col-md-4 col-xl-2 order-box-part mb-3 px-0 px-md-3 order-include-col">
                             <div class="order-box">
                             <span class="order-img d-block mb-2">
                                 <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
