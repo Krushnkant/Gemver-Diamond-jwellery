@@ -317,13 +317,13 @@ class DiamondController extends Controller
                                             <li>
                                                 <span class="round_product_part_1"> SYMMETRY  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                            </li>';
-                                                if($Diamond->Measurement != ""){
-                                            $artilces.='<li class="">
-                                                    <span class="round_product_part_1"> MEASUREMENT   :</span>
-                                                    <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                            </li>';
-                                            $artilces.='<li class="">
+                                            </li>
+                                            
+                                            <li>
+                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                                <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
+                                            </li>
+                                            <li>
                                                 <span class="round_product_part_1"> CERTIFIED :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                             </li>
