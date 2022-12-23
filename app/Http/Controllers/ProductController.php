@@ -25,14 +25,16 @@ class ProductController extends Controller
         if($id != 0){
             if($Category->parent_category_id == 0){
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->id])->get();
+                dd($Categories.'222');
             }else{
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->parent_category_id])->get();
-                dd($Categories); 
+                dd($Categories.'111'); 
             }
         }else{
             $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
+            dd($Categories.'333');
         }
-        
+      
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
