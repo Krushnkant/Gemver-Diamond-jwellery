@@ -1014,16 +1014,6 @@ class DiamondController extends Controller
         return $data;
     }
 
-    public function getLadDiamondDetails1($id){
-        $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
-        $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
-        $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
-        $settings = Settings::first();
-        return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes','DiamondRelated','settings'));
-    }
-
-    
     public function getLadDiamondDetails($id){
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
