@@ -169,7 +169,7 @@ class AuthController extends Controller
 
             $data2 = [
                 //'message1' => 'https://gemver.matoresell.com/public/resetpassword/'.$string
-                'message1' => url('resetpassword/').$string
+                'message1' => url('resetpassword/'.$string)
             ]; 
             $templateName = 'email.mailDataforgetpassword';
             $subject = 'Forget Password';
