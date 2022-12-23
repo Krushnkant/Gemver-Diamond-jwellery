@@ -1012,11 +1012,7 @@ class DiamondController extends Controller
         $TotalDiamond = Diamond::get();
         $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']];   
         return $data;
-      
     }
-
-    
-
     public function getLadDiamondDetails($id){
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
