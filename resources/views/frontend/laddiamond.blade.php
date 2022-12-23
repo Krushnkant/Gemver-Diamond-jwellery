@@ -466,8 +466,8 @@
                     </span>
                 </div>
                 <div class="row px-0 mt-3 align-items-center">
-                    <div class="round_cut_lab_diamonds_heading col-md-2">Meas.</div>
-                        <div class="round_cut_lab_diamonds_price col-md-10">
+                    <div class="round_cut_lab_diamonds_heading col-md-2 col-lg-2 col-xl-2">Meas.</div>
+                        <div class="round_cut_lab_diamonds_price col-md-10 col-lg-10 col-xl-10">
                             <div class="align-items-center mb-2 position-relative">
                                 <!-- <div id="slider-range-carat" class="mb-0"></div> -->
                                 <div class="d-md-flex flex-wrap flex-md-nowrap">

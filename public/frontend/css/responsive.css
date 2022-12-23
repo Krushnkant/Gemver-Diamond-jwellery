@@ -2569,6 +2569,10 @@
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
     }
+    .from_text input,
+    .to_text input {
+        width: 74px;
+    }
     /* ----------------------- blog page------------------------------------ */
     .blg_box_description .blog_box_date,
     .blg_box_description .blog_box_message {
