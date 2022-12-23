@@ -20,12 +20,14 @@ class ProductController extends Controller
     {
         $CatId = getSlugId('Category',$id);
         $Category = Category::where(['id' => $CatId])->first();
+        
         $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
         if($id != 0){
             if($Category->parent_category_id == 0){
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->id])->get();
             }else{
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->parent_category_id])->get();
+                dd($Categories); 
             }
         }else{
             $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
