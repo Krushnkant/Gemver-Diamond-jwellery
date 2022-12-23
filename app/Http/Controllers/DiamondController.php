@@ -288,7 +288,7 @@ class DiamondController extends Controller
                                         <ul>
                                             
                                             <li>
-                                                <span class="round_product_part_1">CARATE  :</span>
+                                                <span class="round_product_part_1">CARAT  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Weight .' </span>
                                             </li>
                                             <li>
@@ -317,13 +317,13 @@ class DiamondController extends Controller
                                             <li>
                                                 <span class="round_product_part_1"> SYMMETRY  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                            </li>
-                                            
-                                            <li>
-                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
-                                                <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                            </li>
-                                            <li>
+                                            </li>';
+                                                if($Diamond->Measurement != ""){
+                                            $artilces.='<li class="">
+                                                    <span class="round_product_part_1"> MEASUREMENT   :</span>
+                                                    <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
+                                            </li>';
+                                            $artilces.='<li class="">
                                                 <span class="round_product_part_1"> CERTIFIED :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                             </li>
@@ -928,7 +928,7 @@ class DiamondController extends Controller
                                     <div class="round_cut_lab_diamonds_layer">
                                         <ul>
                                             <li class="">
-                                                <span class="round_product_part_1">CARATE  :</span>
+                                                <span class="round_product_part_1">CARAT  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Weight .' </span>
                                             </li>
                                             <li class="">
@@ -957,13 +957,13 @@ class DiamondController extends Controller
                                             <li class="">
                                                 <span class="round_product_part_1"> SYMMETRY  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                            </li>
-                                            
-                                            <li class="">
+                                            </li>';
+                                            if($Diamond->Measurement != ""){
+                                                $artilces.='<li class="">
                                                 <span class="round_product_part_1"> MEASUREMENT   :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                            </li>
-                                            <li class="">
+                                            </li>';
+                                            $artilces.='<li class="">
                                                 <span class="round_product_part_1"> CERTIFIED  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                             </li>
