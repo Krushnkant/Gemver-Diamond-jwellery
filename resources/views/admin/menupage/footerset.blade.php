@@ -70,6 +70,16 @@
                                             <option value="infopage/about-us">About Us</option>
                                             <option value="infopage/testimonials">Testimonials</option>
                                             <option value="infopage/blogs"  >Blogs</option>
+                                            <option value="infopage/customer-values">Customer Values</option>
+                                            <option value="term-condition"  >Term-Condition</option>
+                                            <option value="privacy-policy"  >Privacy-Policy</option>
+                                            <option value="free-shipping"  >Free-Shipping</option>
+                                            <option value="return-days"  >Return-Days</option>
+                                            <option value="lifetime-upgrade"  >Lifetime-Upgrade</option>
+                                            <option value="free-resizing"  >Free-Resizing</option>
+                                            <option value="lifetime-warranty"  >lifetime-warranty</option>
+                                            <option value="free-engraving"  >Free-Engraving</option>
+                                            <option value="payment-options"  >Payment-Options</option>
                                         </select>
                                     </div>
                                 </div>
@@ -107,6 +117,16 @@
                                             <option value="infopage/about-us" {{ ($footer->value == "infopage/about-us") ? "selected" : "" }}>About Us</option>
                                             <option value="infopage/testimonials" {{ ($footer->value == "infopage/testimonials") ? "selected" : "" }}>Testimonials</option>
                                             <option value="infopage/blogs" {{ ($footer->value == "infopage/blogs") ? "selected" : "" }}>Blogs</option>
+                                            <option value="infopage/customer-values" {{ ($footer->value == "infopage/customer-values") ? "selected" : "" }}>Customer Values</option>
+                                            <option value="term-condition"  {{ ($footer->value == "term-condition") ? "selected" : "" }}>Term-Condition</option>
+                                            <option value="privacy-policy"  {{ ($footer->value == "privacy-policy") ? "selected" : "" }}>Privacy-Policy</option>
+                                            <option value="free-shipping"  {{ ($footer->value == "free-shipping") ? "selected" : "" }}>Free-Shipping</option>
+                                            <option value="return-days"  {{ ($footer->value == "return-days") ? "selected" : "" }}>Return-Days</option>
+                                            <option value="lifetime-upgrade"  {{ ($footer->value == "lifetime-upgrade") ? "selected" : "" }}>Lifetime-Upgrade</option>
+                                            <option value="free-resizing"  {{ ($footer->value == "free-resizing") ? "selected" : "" }}>Free-Resizing</option>
+                                            <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
+                                            <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
+                                            <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
                                         </select>
                                         @endif
                                     </div>
@@ -201,6 +221,16 @@
                                             <option value="infopage/about-us">About Us</option>
                                             <option value="infopage/testimonials">Testimonials</option>
                                             <option value="infopage/blogs"  >Blogs</option>
+                                            <option value="infopage/customer-values">Customer Values</option>
+                                            <option value="term-condition"  >Term-Condition</option>
+                                            <option value="privacy-policy"  >Privacy-Policy</option>
+                                            <option value="free-shipping"  >Free-Shipping</option>
+                                            <option value="return-days"  >Return-Days</option>
+                                            <option value="lifetime-upgrade"  >Lifetime-Upgrade</option>
+                                            <option value="free-resizing"  >Free-Resizing</option>
+                                            <option value="lifetime-warranty"  >lifetime-warranty</option>
+                                            <option value="free-engraving"  >Free-Engraving</option>
+                                            <option value="payment-options"  >Payment-Options</option>
                                         </select>
                                     </div>
                                 </div>
@@ -239,6 +269,17 @@
                                             <option value="infopage/about-us" {{ ($footer->value == "infopage/about-us") ? "selected" : "" }}>About Us</option>
                                             <option value="infopage/testimonials" {{ ($footer->value == "infopage/testimonials") ? "selected" : "" }}>Testimonials</option>
                                             <option value="infopage/blogs" {{ ($footer->value == "infopage/blogs") ? "selected" : "" }}>Blogs</option>
+                                            <option value="infopage/customer-values" {{ ($footer->value == "infopage/customer-values") ? "selected" : "" }}>Customer Values</option>
+                                            <option value="term-condition"  {{ ($footer->value == "term-condition") ? "selected" : "" }}>Term-Condition</option>
+                                            <option value="privacy-policy"  {{ ($footer->value == "privacy-policy") ? "selected" : "" }}>Privacy-Policy</option>
+                                            <option value="free-shipping"  {{ ($footer->value == "free-shipping") ? "selected" : "" }}>Free-Shipping</option>
+                                            <option value="return-days"  {{ ($footer->value == "return-days") ? "selected" : "" }}>Return-Days</option>
+                                            <option value="lifetime-upgrade"  {{ ($footer->value == "lifetime-upgrade") ? "selected" : "" }}>Lifetime-Upgrade</option>
+                                            <option value="free-resizing"  {{ ($footer->value == "free-resizing") ? "selected" : "" }}>Free-Resizing</option>
+                                            <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
+                                            <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
+                                            <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
+                                            
                                         </select>
                                         @endif
                                     </div>
@@ -380,16 +421,16 @@
                                             <option value="infopage/about-us" {{ ($footer->value == "infopage/about-us") ? "selected" : "" }}>About Us</option>
                                             <option value="infopage/testimonials" {{ ($footer->value == "infopage/testimonials") ? "selected" : "" }}>Testimonials</option>
                                             <option value="infopage/blogs" {{ ($footer->value == "infopage/blogs") ? "selected" : "" }}>Blogs</option>
-                                            <option value="infopage/customer-values">Customer Values</option>
-                                            <option value="term-condition"  >Term-Condition</option>
-                                            <option value="privacy-policy"  >Privacy-Policy</option>
-                                            <option value="free-shipping"  >Free-Shipping</option>
-                                            <option value="return-days"  >Return-Days</option>
-                                            <option value="lifetime-upgrade"  >Lifetime-Upgrade</option>
-                                            <option value="free-resizing"  >Free-Resizing</option>
-                                            <option value="lifetime-warranty"  >lifetime-warranty</option>
-                                            <option value="free-engraving"  >Free-Engraving</option>
-                                            <option value="payment-options"  >Payment-Options</option>
+                                            <option value="infopage/customer-values" {{ ($footer->value == "infopage/customer-values") ? "selected" : "" }}>Customer Values</option>
+                                            <option value="term-condition"  {{ ($footer->value == "term-condition") ? "selected" : "" }}>Term-Condition</option>
+                                            <option value="privacy-policy"  {{ ($footer->value == "privacy-policy") ? "selected" : "" }}>Privacy-Policy</option>
+                                            <option value="free-shipping"  {{ ($footer->value == "free-shipping") ? "selected" : "" }}>Free-Shipping</option>
+                                            <option value="return-days"  {{ ($footer->value == "return-days") ? "selected" : "" }}>Return-Days</option>
+                                            <option value="lifetime-upgrade"  {{ ($footer->value == "lifetime-upgrade") ? "selected" : "" }}>Lifetime-Upgrade</option>
+                                            <option value="free-resizing"  {{ ($footer->value == "free-resizing") ? "selected" : "" }}>Free-Resizing</option>
+                                            <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
+                                            <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
+                                            <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
                                         </select>
                                         @endif
                                     </div>
@@ -761,6 +802,45 @@
     });
 
 
+    $('body').on('change','.selectpage',function(){
+        //$('input[type=radio][name=selectpage]').change(function() {
+
+            var cat = $(this).parent().parent().parent().find('.category_id');
+            cat.find('option').remove();
+            if(this.value == "page"){
+                var myOptions = {
+                    'infopage/contact-us' : 'Contact Us',
+                    'infopage/about-us' : 'About Us',
+                    'infopage/testimonials' : 'Testimonials',
+                    'infopage/blogs' : 'Blogs',
+                    'infopage/customer-values' : 'Customer Values',
+                    'term-condition' : 'Term-Condition',
+                    'privacy-policy' : 'Privacy-Policy',
+                    'free-shipping' : 'Free-Shipping',
+                    'return-days' : 'Return-Days',
+                    'lifetime-upgrade' : 'Lifetime-Upgrade',
+                    'free-resizing' : 'Free-Resizing',
+                    'lifetime-warranty' : 'Lifetime-Warranty',
+                    'free-engraving' : 'Free-Engraving',
+                    'payment-options' : 'Payment-Options'
+                };
+                $.each(myOptions, function(val, text) {
+                   cat.append( new Option(text,val)).trigger("change");
+                });
+            }else{
+                $.getJSON("{{ url('admin/footerpagecategory')}}", 
+                { option: $(this).val() }, 
+                function(data) {
+                    
+                   
+                    $.each(data, function(index, element) {
+                        cat.append("<option value='shop/"+element.slug+"'>" + element.category_name + "</option>");
+                    });
+                });
+            }      
+        });
+
+
     $('body').on('change','.whyselectpage',function(){
         //$('input[type=radio][name=selectpage]').change(function() {
 
@@ -771,7 +851,17 @@
                     'infopage/contact-us' : 'Contact Us',
                     'infopage/about-us' : 'About Us',
                     'infopage/testimonials' : 'Testimonials',
-                    'infopage/blogs' : 'Blogs'
+                    'infopage/blogs' : 'Blogs',
+                    'infopage/customer-values' : 'Customer Values',
+                    'term-condition' : 'Term-Condition',
+                    'privacy-policy' : 'Privacy-Policy',
+                    'free-shipping' : 'Free-Shipping',
+                    'return-days' : 'Return-Days',
+                    'lifetime-upgrade' : 'Lifetime-Upgrade',
+                    'free-resizing' : 'Free-Resizing',
+                    'lifetime-warranty' : 'Lifetime-Warranty',
+                    'free-engraving' : 'Free-Engraving',
+                    'payment-options' : 'Payment-Options'
                 };
                 $.each(myOptions, function(val, text) {
                    cat.append( new Option(text,val)).trigger("change");
