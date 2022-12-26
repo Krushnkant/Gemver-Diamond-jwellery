@@ -80,6 +80,11 @@
                                             <option value="lifetime-warranty"  >lifetime-warranty</option>
                                             <option value="free-engraving"  >Free-Engraving</option>
                                             <option value="payment-options"  >Payment-Options</option>
+                                            <option value="labgrowndiamonds"  >Lab Grown Diamonds</option>
+                                            <option value="engagement"  >Engagement Rings</option>
+                                            <option value="weddingbands"  >Wedding Rings</option>
+                                            <option value="finejewellery"  >Fine Jewellery</option>
+                                            <option value="custommadejewellery"  >Custom Made Jewellery</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,6 +132,11 @@
                                             <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
                                             <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
                                             <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
+                                            <option value="labgrowndiamonds"  {{ ($footer->value == "labgrowndiamonds") ? "selected" : "" }}>Lab Grown Diamonds</option>
+                                            <option value="engagement"  {{ ($footer->value == "engagement") ? "selected" : "" }}>Engagement Rings</option>
+                                            <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
+                                            <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
+                                            <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
                                         </select>
                                         @endif
                                     </div>
@@ -231,6 +241,11 @@
                                             <option value="lifetime-warranty"  >lifetime-warranty</option>
                                             <option value="free-engraving"  >Free-Engraving</option>
                                             <option value="payment-options"  >Payment-Options</option>
+                                            <option value="labgrowndiamonds"  >Lab Grown Diamonds</option>
+                                            <option value="engagement"  >Engagement Rings</option>
+                                            <option value="weddingbands"  >Wedding Rings</option>
+                                            <option value="finejewellery"  >Fine Jewellery</option>
+                                            <option value="custommadejewellery"  >Custom Made Jewellery</option>
                                         </select>
                                     </div>
                                 </div>
@@ -279,6 +294,11 @@
                                             <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
                                             <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
                                             <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
+                                            <option value="labgrowndiamonds"  {{ ($footer->value == "labgrowndiamonds") ? "selected" : "" }}>Lab Grown Diamonds</option>
+                                            <option value="engagement"  {{ ($footer->value == "engagement") ? "selected" : "" }}>Engagement Rings</option>
+                                            <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
+                                            <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
+                                            <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
                                             
                                         </select>
                                         @endif
@@ -383,6 +403,11 @@
                                             <option value="lifetime-warranty"  >lifetime-warranty</option>
                                             <option value="free-engraving"  >Free-Engraving</option>
                                             <option value="payment-options"  >Payment-Options</option>
+                                            <option value="labgrowndiamonds"  >Lab Grown Diamonds</option>
+                                            <option value="engagement"  >Engagement Rings</option>
+                                            <option value="weddingbands"  >Wedding Rings</option>
+                                            <option value="finejewellery"  >Fine Jewellery</option>
+                                            <option value="custommadejewellery"  >Custom Made Jewellery</option>
                                         </select>
                                     </div>
                                 </div>
@@ -431,6 +456,11 @@
                                             <option value="lifetime-warranty"  {{ ($footer->value == "lifetime-warranty") ? "selected" : "" }}>lifetime-warranty</option>
                                             <option value="free-engraving"  {{ ($footer->value == "free-engraving") ? "selected" : "" }}>Free-Engraving</option>
                                             <option value="payment-options"  {{ ($footer->value == "payment-options") ? "selected" : "" }}>Payment-Options</option>
+                                            <option value="labgrowndiamonds"  {{ ($footer->value == "labgrowndiamonds") ? "selected" : "" }}>Lab Grown Diamonds</option>
+                                            <option value="engagement"  {{ ($footer->value == "engagement") ? "selected" : "" }}>Engagement Rings</option>
+                                            <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
+                                            <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
+                                            <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
                                         </select>
                                         @endif
                                     </div>
@@ -647,6 +677,11 @@
         '<option value="lifetime-warranty"  >lifetime-warranty</option>'+
         '<option value="free-engraving"  >Free-Engraving</option>'+
         '<option value="payment-options"  >Payment-Options</option>'+
+        '<option value="labgrowndiamonds"  >Lab Grown Diamonds</option>'+
+        '<option value="engagement"  >Engagement Rings</option>'+
+        '<option value="weddingbands"  >Wedding Rings</option>'+
+        '<option value="finejewellery"  >Fine Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
     
         '</select>'+
         '</div>'+
@@ -706,6 +741,11 @@
         '<option value="lifetime-warranty"  >lifetime-warranty</option>'+
         '<option value="free-engraving"  >Free-Engraving</option>'+
         '<option value="payment-options"  >Payment-Options</option>'+
+        '<option value="labgrowndiamonds"  >Lab Grown Diamonds</option>'+
+        '<option value="engagement"  >Engagement Rings</option>'+
+        '<option value="weddingbands"  >Wedding Rings</option>'+
+        '<option value="finejewellery"  >Fine Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
     
         '</select>'+
         '</div>'+
@@ -764,6 +804,11 @@
         '<option value="lifetime-warranty"  >lifetime-warranty</option>'+
         '<option value="free-engraving"  >Free-Engraving</option>'+
         '<option value="payment-options"  >Payment-Options</option>'+
+        '<option value="labgrowndiamonds"  >Lab Grown Diamonds</option>'+
+        '<option value="engagement"  >Engagement Rings</option>'+
+        '<option value="weddingbands"  >Wedding Rings</option>'+
+        '<option value="finejewellery"  >Fine Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
    
        '</select>'+
        '</div>'+
@@ -805,6 +850,8 @@
     $('body').on('change','.selectpage',function(){
         //$('input[type=radio][name=selectpage]').change(function() {
 
+        
+
             var cat = $(this).parent().parent().parent().find('.category_id');
             cat.find('option').remove();
             if(this.value == "page"){
@@ -822,7 +869,12 @@
                     'free-resizing' : 'Free-Resizing',
                     'lifetime-warranty' : 'Lifetime-Warranty',
                     'free-engraving' : 'Free-Engraving',
-                    'payment-options' : 'Payment-Options'
+                    'payment-options' : 'Payment-Options',
+                    'labgrowndiamonds' : 'Lab Grown Diamonds',
+                    'engagement' : 'Engagement Rings',
+                    'weddingbands' : 'Wedding Rings',
+                    'finejewellery' : 'Fine Jewellery',
+                    'custommadejewellery' : 'Custom Made Jewellery'
                 };
                 $.each(myOptions, function(val, text) {
                    cat.append( new Option(text,val)).trigger("change");
@@ -861,7 +913,12 @@
                     'free-resizing' : 'Free-Resizing',
                     'lifetime-warranty' : 'Lifetime-Warranty',
                     'free-engraving' : 'Free-Engraving',
-                    'payment-options' : 'Payment-Options'
+                    'payment-options' : 'Payment-Options',
+                    'labgrowndiamonds' : 'Lab Grown Diamonds',
+                    'engagement' : 'Engagement Rings',
+                    'weddingbands' : 'Wedding Rings',
+                    'finejewellery' : 'Fine Jewellery',
+                    'custommadejewellery' : 'Custom Made Jewellery'
                 };
                 $.each(myOptions, function(val, text) {
                    cat.append( new Option(text,val)).trigger("change");
@@ -899,7 +956,12 @@
                     'free-resizing' : 'Free-Resizing',
                     'lifetime-warranty' : 'Lifetime-Warranty',
                     'free-engraving' : 'Free-Engraving',
-                    'payment-options' : 'Payment-Options'
+                    'payment-options' : 'Payment-Options',
+                    'labgrowndiamonds' : 'Lab Grown Diamonds',
+                    'engagement' : 'Engagement Rings',
+                    'weddingbands' : 'Wedding Rings',
+                    'finejewellery' : 'Fine Jewellery',
+                    'custommadejewellery' : 'Custom Made Jewellery'
                 };
                 $.each(myOptions, function(val, text) {
                    cat.append( new Option(text,val)).trigger("change");
