@@ -889,7 +889,17 @@
                     'infopage/contact-us' : 'Contact Us',
                     'infopage/about-us' : 'About Us',
                     'infopage/testimonials' : 'Testimonials',
-                    'infopage/blogs' : 'Blogs'
+                    'infopage/blogs' : 'Blogs',
+                    'infopage/customer-values' : 'Customer Values',
+                    'term-condition' : 'Term-Condition',
+                    'privacy-policy' : 'Privacy-Policy',
+                    'free-shipping' : 'Free-Shipping',
+                    'return-days' : 'Return-Days',
+                    'lifetime-upgrade' : 'Lifetime-Upgrade',
+                    'free-resizing' : 'Free-Resizing',
+                    'lifetime-warranty' : 'Lifetime-Warranty',
+                    'free-engraving' : 'Free-Engraving',
+                    'payment-options' : 'Payment-Options'
                 };
                 $.each(myOptions, function(val, text) {
                    cat.append( new Option(text,val)).trigger("change");
@@ -898,7 +908,7 @@
                 $.getJSON("{{ url('admin/footerpagecategory')}}", 
                 { option: $(this).val() }, 
                 function(data) {
-                    console.log(data)
+                    
                    
                     $.each(data, function(index, element) {
                         cat.append("<option value='"+element.slug+"'>" + element.category_name + "</option>");
@@ -906,6 +916,37 @@
                 });
             }      
         });
+
+
+        $('body').on('change','.contactcategory_id',function(){
+        //$('input[type=radio][name=selectpage]').change(function() {
+           
+            var cat = $(this).find("option:selected").text();
+            $(this).parent().parent().parent().find('.input-flat').val(cat);
+               
+        });
+
+        $('body').on('change','.whycategory_id',function(){
+        //$('input[type=radio][name=selectpage]').change(function() {
+           
+            var cat = $(this).find("option:selected").text();
+            $(this).parent().parent().parent().find('.input-flat').val(cat);
+               
+        });
+
+        $('body').on('change','.category_id',function(){
+        //$('input[type=radio][name=selectpage]').change(function() {
+           
+            var cat = $(this).find("option:selected").text();
+            var valu = $(this).parent().parent().parent().find('.input-flat').val();
+            if(valu == ""){
+               $(this).parent().parent().parent().find('.input-flat').val(cat);
+            }
+               
+        });
+
+
+        
     
 </script>
 <!-- settings JS end -->
