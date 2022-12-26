@@ -633,10 +633,19 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 0 
         ]);
 
-    
-        
+        ProjectPage::create([ 
+            'id' => 64, 
+            'parent_menu' => 0, 
+            'label' => 'Footer Set', 
+            'is_display_in_menu' => 0,
+            'route_url' => 'admin.footerpage',  
+            'inner_routes' => 'admin.footerpage,admin.menupage.updatefooterpage', 
+            'icon_class' => 'fa fa-picture-o', 
+            'sr_no' => 16 
+        ]);
 
-    
+
+        
         $users = User::where('role',"!=",1)->get();
         $project_page_ids1 = ProjectPage::where('parent_menu',0)->where('is_display_in_menu',0)->pluck('id')->toArray();
         $project_page_ids2 = ProjectPage::where('parent_menu',"!=",0)->where('is_display_in_menu',1)->pluck('id')->toArray();

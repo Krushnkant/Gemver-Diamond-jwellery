@@ -598,6 +598,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('rejectstatus/{id}',[\App\Http\Controllers\admin\ReviewController::class,'rejectstatus'])->name('review.rejectstatus');
     Route::get('acceptstatus/{id}',[\App\Http\Controllers\admin\ReviewController::class,'acceptstatus'])->name('review.acceptstatus');
 
+    Route::get('menupage/footerpage',[\App\Http\Controllers\admin\MenuPageController::class,'footerpage'])->name('footerpage');
+    Route::post('updatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'updatefooterpage'])->name('updatefooterpage');
+
+    Route::get('footerpagecategory',[\App\Http\Controllers\admin\MenuPageController::class,'category'])->name('footerpagecategory');
+    
+    Route::post('whyupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'whyupdatefooterpage'])->name('whyupdatefooterpage');
+    Route::post('contactupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'contactupdatefooterpage'])->name('contactupdatefooterpage');
+
     
 });
 
