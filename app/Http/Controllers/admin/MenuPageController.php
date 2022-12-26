@@ -7,6 +7,7 @@ use App\Models\MenuPage;
 use App\Models\Category;
 use App\Models\MenuPageShapeStyle;
 use App\Models\Product;
+use App\Models\FooterPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
@@ -1019,4 +1020,168 @@ class MenuPageController extends Controller
         $Menupage = Menupage::find($id);
         return response()->json($Menupage);
     }
+
+
+    public function footerpage()
+    {
+        $footerpage = FooterPage::where(['page_id' =>1])->get();
+        $footerpage2 = FooterPage::where(['page_id' =>2])->get();
+        $footerpage3 = FooterPage::where(['page_id' =>3])->get();
+        $categories = Category::select('category_name',"slug")->where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
+        return view('admin.menupage.footerset',compact('categories','footerpage','footerpage2','footerpage3'))->with('page',"Footer Page");
+    }
+
+    public function category(){
+        $Menupage = Category::select('category_name',"slug")->where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
+        return response()->json($Menupage);
+    }
+
+    public function updatefooterpage(Request $request){
+       
+            //dd($request->all());
+            $shapdataidold = FooterPage::where('page_id',1)->get()->pluck('id');
+            // dd($request->footer_id);
+            // dd($shapdataidold);
+        
+            if (isset($request->pageurl) && !empty($request->pageurl)){
+                foreach($request->pageurl as $key => $pageurl){
+                    if($pageurl != ""){
+                        $page = 'selectpage'.$key;
+                        $shapdata = new FooterPage();
+                        $shapdata->page_id = 1;
+                        $shapdata->title = $request->subtitle[$key];
+                        $shapdata->value = $pageurl;
+                        $shapdata->type = $request->$page;
+                        $shapdata->save();
+                    } 
+                    
+                }
+            }
+           
+            if (isset($request->pageurl_old) && !empty($request->pageurl_old)){
+                foreach($request->pageurl_old as $key => $pageurlold){
+                    if($pageurlold != ""){
+                        $page = 'selectpageold'.$key;
+                        $shapdataold = FooterPage::find($request->footer_id[$key]);
+                        $shapdataold->title = $request->subtitleold[$key];
+                        $shapdataold->value = $pageurlold;
+                        $shapdataold->type = $request->$page;
+                        $shapdataold->save();
+                    }
+                }
+            }
+
+
+            if($shapdataidold != ""){
+                foreach($shapdataidold as $shapdataids){
+                    if(!in_array($shapdataids,$request->footer_id)){
+                        FooterPage::where('id',$shapdataids)->delete();  
+                    }
+                }
+            }
+        
+
+        
+        return response()->json(['status' => '200']);
+    }
+
+
+    public function whyupdatefooterpage(Request $request){
+       
+        //dd($request->all());
+        $shapdataidold = FooterPage::where('page_id',2)->get()->pluck('id');
+        // dd($request->footer_id);
+        // dd($shapdataidold);
+    
+        if (isset($request->whypageurl) && !empty($request->whypageurl)){
+            foreach($request->whypageurl as $key => $whypageurl){
+                if($whypageurl != ""){
+                    $page = 'whyselectpage'.$key;
+                    $shapdata = new FooterPage();
+                    $shapdata->page_id = 2;
+                    $shapdata->title = $request->whysubtitle[$key];
+                    $shapdata->value = $whypageurl;
+                    $shapdata->type = $request->$page;
+                    $shapdata->save();
+                } 
+                
+            }
+        }
+       
+        if (isset($request->whypageurl_old) && !empty($request->whypageurl_old)){
+            foreach($request->whypageurl_old as $key => $whypageurlold){
+                if($whypageurlold != ""){
+                    $page = 'whyselectpageold'.$key;
+                    $shapdataold = FooterPage::find($request->whyfooter_id[$key]);
+                    $shapdataold->title = $request->whysubtitleold[$key];
+                    $shapdataold->value = $whypageurlold;
+                    $shapdataold->type = $request->$page;
+                    $shapdataold->save();
+                }
+            }
+        }
+
+
+        if($shapdataidold != ""){
+            foreach($shapdataidold as $shapdataids){
+                if(!in_array($shapdataids,$request->whyfooter_id)){
+                    FooterPage::where('id',$shapdataids)->delete();  
+                }
+            }
+        }
+    
+
+    
+    return response()->json(['status' => '200']);
+    }
+
+    public function contactupdatefooterpage(Request $request){
+       
+        //dd($request->all());
+        $shapdataidold = FooterPage::where('page_id',3)->get()->pluck('id');
+        // dd($request->footer_id);
+        // dd($shapdataidold);
+    
+        if (isset($request->contactpageurl) && !empty($request->contactpageurl)){
+            foreach($request->contactpageurl as $key => $contactpageurl){
+                if($contactpageurl != ""){
+                    $page = 'contactselectpage'.$key;
+                    $shapdata = new FooterPage();
+                    $shapdata->page_id = 3;
+                    $shapdata->title = $request->contactsubtitle[$key];
+                    $shapdata->value = $contactpageurl;
+                    $shapdata->type = $request->$page;
+                    $shapdata->save();
+                } 
+                
+            }
+        }
+       
+        if (isset($request->contactpageurl_old) && !empty($request->contactpageurl_old)){
+            foreach($request->contactpageurl_old as $key => $contactpageurlold){
+                if($contactpageurlold != ""){
+                    $page = 'contactselectpageold'.$key;
+                    $shapdataold = FooterPage::find($request->contactfooter_id[$key]);
+                    $shapdataold->title = $request->contactsubtitleold[$key];
+                    $shapdataold->value = $contactpageurlold;
+                    $shapdataold->type = $request->$page;
+                    $shapdataold->save();
+                }
+            }
+        }
+
+
+        if($shapdataidold != ""){
+            foreach($shapdataidold as $shapdataids){
+                if(!in_array($shapdataids,$request->contactfooter_id)){
+                    FooterPage::where('id',$shapdataids)->delete();  
+                }
+            }
+        }
+    
+
+    
+    return response()->json(['status' => '200']);
+    }
+
 }

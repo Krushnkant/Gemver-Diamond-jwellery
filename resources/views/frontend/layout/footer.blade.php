@@ -82,11 +82,13 @@
                         </svg>
                        </div>
                     </div>
+                    <?php $footer1 = \App\Models\FooterPage::where('page_id', 1)->get(); ?>
                     <ul class="footer-ul-part d-md-block">
+                        @foreach($footer1 as $fo1)
                         <li>
-                            <a href="{{ Route('frontend.customervalues')}}">customer values</a>
+                            <a href="{{ url($fo1->value)}}">{{ ($fo1->title != "")?$fo1->title:$fo1->value }}</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ Route('frontend.testimonials') }}">testimonials</a>
                         </li>
                         <li>
@@ -101,7 +103,8 @@
                             <a href="{{ Route('frontend.privacypolicy') }}" class="">
                                 Privacy Policy 
                             </a>
-                        </li>
+                        </li> --}}
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-4 footer-col mb-md-0">
@@ -113,8 +116,9 @@
                         </svg>
                        </div>
                     </div>
+                    <?php $footer2 = \App\Models\FooterPage::where('page_id', 2)->get(); ?>
                     <ul class="footer-ul-part d-md-block">
-                        <li>
+                        {{-- <li>
                             <a href="{{ Route('frontend.freeshipping') }}">Free Shipping </a>
                         </li>
                         <li>
@@ -134,7 +138,13 @@
                         </li>
                         <li>
                             <a href="{{ Route('frontend.paymentoptions') }}">Payment Options</a>
+                        </li> --}}
+                        @foreach($footer2 as $fo2)
+                        <li>
+                            <a href="{{ url($fo2->value)}}">{{ ($fo2->title != "")?$fo2->title:$fo2->value }}</a>
                         </li>
+                        
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-4 footer-col mb-md-0">
@@ -146,8 +156,9 @@
                         </svg>
                        </div>
                     </div>
+                    <?php $footer3 = \App\Models\FooterPage::where('page_id', 3)->get(); ?>
                     <ul class="footer-ul-part d-md-block">
-                        <li>
+                        {{-- <li>
                             <a href="{{ Route('frontend.contactus') }}">Contact Us</a>
                         </li>
                         <li>
@@ -158,7 +169,13 @@
                         </li>
                         <li>
                             <a href="mailto:{{ $settings->company_email }}">Email us</a>
+                        </li> --}}
+                        @foreach($footer3 as $fo3)
+                        <li>
+                            <a href="{{ url($fo3->value)}}">{{ ($fo3->title != "")?$fo3->title:$fo3->value }}</a>
                         </li>
+                        
+                        @endforeach
                     </ul>
                 </div>
             </div>
