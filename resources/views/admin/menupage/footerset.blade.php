@@ -43,7 +43,7 @@
                                
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        <label class="col-form-label" for="section_category_title"> Category/Page 
                                         </label>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="col-lg-2 ">
                                     <div class="form-group ">
                                         <input type="radio" class="selectpage" name="selectpage0" value="page" checked> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="selectpage" name="selectpage0" value="category"> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="selectpage" name="selectpage0" value="category"> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -98,7 +98,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-group ">
                                         <input type="radio" class="selectpage" name="selectpageold{{ $key }}" value="page" {{ ($footer->type == "page") ? "checked" : "" }}> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="selectpage" name="selectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="selectpage" name="selectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -154,12 +154,12 @@
                             @endif
                             
                         </div>
-                        <div class="col-lg-2 mt-2">
+                        <div class="col-lg-12 mt-3 text-center">
                             <div class="form-group">
-                            <button type="button" class="btn btn-outline-primary " id="Add" data-action="add">Add New </button>
-                            <button type="button" class="btn btn-primary " id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            <button type="button" class="btn btn-gray " id="Add" data-action="add">Add New </button>
                            </div>
                         </div>
+                        <button type="button" class="btn btn-primary " id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa mt-2" style="display:none;"></i></button>
                     </div>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                                
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        <label class="col-form-label" for="section_category_title"> Category/Page 
                                         </label>
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                                 <div class="col-lg-2 ">
                                     <div class="form-group ">
                                         <input type="radio" class="whyselectpage" name="whyselectpage0" value="page" checked> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="whyselectpage" name="whyselectpage0" value="category"> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="whyselectpage" name="whyselectpage0" value="category"> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -259,7 +259,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-group ">
                                         <input type="radio" class="whyselectpage" name="whyselectpageold{{ $key }}" value="page" {{ ($footer->type == "page") ? "checked" : "" }}> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="whyselectpage" name="whyselectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="whyselectpage" name="whyselectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -317,12 +317,12 @@
                             @endif
                             
                         </div>
-                        <div class="col-lg-2 mt-2">
+                        <div class="col-lg-12 mt-3 text-center">
                             <div class="form-group">
-                            <button type="button" class="btn btn-outline-primary " id="whyAdd" data-action="add">Add New </button>
-                            <button type="button" class="btn btn-primary " id="whysaveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            <button type="button" class="btn btn-gray " id="whyAdd" data-action="add">Add New </button>
                            </div>
                         </div>
+                        <button type="button" class="btn btn-primary " id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa mt-2" style="display:none;"></i></button>
                     </div>
                 </div>
             </div>
@@ -364,7 +364,7 @@
                                
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="section_category_title"> Category 
+                                        <label class="col-form-label" for="section_category_title"> Category/Page 
                                         </label>
                                     </div>
                                 </div>
@@ -377,7 +377,7 @@
                                 <div class="col-lg-2 ">
                                     <div class="form-group ">
                                         <input type="radio" class="contactselectpage" name="contactselectpage0" value="page" checked> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="contactselectpage" name="contactselectpage0" value="category"> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="contactselectpage" name="contactselectpage0" value="category"> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -421,7 +421,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-group ">
                                         <input type="radio" class="contactselectpage" name="contactselectpageold{{ $key }}" value="page" {{ ($footer->type == "page") ? "checked" : "" }}> <label class="radio-inline mr-3"> Page </label>
-                                        <input type="radio" class="contactselectpage" name="contactselectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Category </label>
+                                        <input type="radio" class="contactselectpage" name="contactselectpageold{{ $key }}" value="category" {{ ($footer->type == "category") ? "checked" : "" }}> <label class="radio-inline mr-3"> Product Category </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 ">
@@ -470,20 +470,17 @@
                                     <button type="button" class="minus_btn btn mb-1  btn-outline-danger" ><i class='fa fa-remove'></i> </button>
                                 </div>
                                 @endif
-                            </div>
-
-                            
-                                 
+                            </div>  
                             @endforeach
                             @endif
                             
                         </div>
-                        <div class="col-lg-2 mt-2">
+                        <div class="col-lg-12 mt-3 text-center">
                             <div class="form-group">
-                            <button type="button" class="btn btn-outline-primary " id="contactAdd" data-action="add">Add New </button>
-                            <button type="button" class="btn btn-primary " id="contactsaveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                            <button type="button" class="btn btn-gray " id="contactAdd" data-action="add">Add New </button>
                            </div>
                         </div>
+                        <button type="button" class="btn btn-primary " id="contactsaveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa mt-2" style="display:none;"></i></button>
                     </div>
                 </div>
             </div>
@@ -650,7 +647,7 @@
       html += '<div class="row col-lg-12"><div class="col-lg-2 ">'+
         '<div class="form-group ">'+
         '<input type="radio" class="selectpage" name="selectpage'+term_no+'" value="page" checked> <label class="radio-inline mr-3"> Page </label>'+
-        '<input type="radio" class="selectpage" name="selectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Category </label>'+
+        '<input type="radio" class="selectpage" name="selectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Product Category </label>'+
         '</div>'+
         '</div>'+
         '<div class="col-lg-4 ">'+
@@ -714,7 +711,7 @@
       html += '<div class="row col-lg-12"><div class="col-lg-2 ">'+
         '<div class="form-group ">'+
         '<input type="radio" class="whyselectpage" name="whyselectpage'+term_no+'" value="page" checked> <label class="radio-inline mr-3"> Page </label>'+
-        '<input type="radio" class="whyselectpage" name="whyselectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Category </label>'+
+        '<input type="radio" class="whyselectpage" name="whyselectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Product Category </label>'+
         '</div>'+
         '</div>'+
         '<div class="col-lg-4 ">'+
@@ -777,7 +774,7 @@
      html += '<div class="row col-lg-12"><div class="col-lg-2 ">'+
        '<div class="form-group ">'+
        '<input type="radio" class="contactselectpage" name="contactselectpage'+term_no+'" value="page" checked> <label class="radio-inline mr-3"> Page </label>'+
-       '<input type="radio" class="contactselectpage" name="contactselectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Category </label>'+
+       '<input type="radio" class="contactselectpage" name="contactselectpage'+term_no+'" value="category"> <label class="radio-inline mr-3"> Product Category </label>'+
        '</div>'+
        '</div>'+
        '<div class="col-lg-4 ">'+
