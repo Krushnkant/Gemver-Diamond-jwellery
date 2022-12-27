@@ -955,7 +955,7 @@
         line-height: normal;
     }
     .explore-category-btn {
-        min-width: 200px;
+        min-width: auto;
         min-height: 47px;
         line-height: 47px;
         font-size: 12px;

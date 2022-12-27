@@ -76,8 +76,24 @@
         <p class="dainty-ring-gifts-paragraph mt-3 mb-4 mb-xl-4">  
             {{ $MenuPage->section3_description }}
         </p>
-        <div class="row">
-
+        <div class="owl-carousel owl-theme gifts-slider">
+            <div class="item">
+                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
             <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
             </div>
@@ -87,7 +103,7 @@
             <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
-        </div>
+        </div> -->
         
     </div>
 

@@ -71,7 +71,7 @@
     </div> 
 </div>
 
-
+@if(count($products) > 0)
     <div class="shop_dimond_by_shape1 choose_your_setting_section">
         <div class="container">
             <div class="">
@@ -209,8 +209,8 @@
         </div>
     </div>
 
-
-<div class="container mb-5 pb-5">
+@endif
+<div class="container mb-5 pb-5 mt-5">
     <div class="row two_part_box_section">
         <div class="col-md-6 mb-3 mb-md-0">
             <div class="choose_your_setting_box text-center">
