@@ -984,7 +984,9 @@
         //$('input[type=radio][name=selectpage]').change(function() {
            
             var cat = $(this).find("option:selected").text();
-            $(this).parent().parent().parent().find('.input-flat').val(cat);
+            if(valu == ""){
+               $(this).parent().parent().parent().find('.input-flat').val(cat);
+            }
                
         });
 
@@ -992,7 +994,9 @@
         //$('input[type=radio][name=selectpage]').change(function() {
            
             var cat = $(this).find("option:selected").text();
-            $(this).parent().parent().parent().find('.input-flat').val(cat);
+            if(valu == ""){
+               $(this).parent().parent().parent().find('.input-flat').val(cat);
+            }
                
         });
 

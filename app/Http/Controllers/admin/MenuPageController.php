@@ -1046,7 +1046,7 @@ class MenuPageController extends Controller
             if (isset($request->pageurl) && !empty($request->pageurl)){
                 foreach($request->pageurl as $key => $pageurl){
                     if($pageurl != ""){
-                        $page = 'selectpage'.$key;
+                        $page = 'selectpage'.$key + 1;
                         $shapdata = new FooterPage();
                         $shapdata->page_id = 1;
                         $shapdata->title = $request->subtitle[$key];
@@ -1096,7 +1096,7 @@ class MenuPageController extends Controller
         if (isset($request->whypageurl) && !empty($request->whypageurl)){
             foreach($request->whypageurl as $key => $whypageurl){
                 if($whypageurl != ""){
-                    $page = 'whyselectpage'.$key;
+                    $page = 'whyselectpage'.$key + 1;
                     $shapdata = new FooterPage();
                     $shapdata->page_id = 2;
                     $shapdata->title = $request->whysubtitle[$key];
@@ -1145,7 +1145,7 @@ class MenuPageController extends Controller
         if (isset($request->contactpageurl) && !empty($request->contactpageurl)){
             foreach($request->contactpageurl as $key => $contactpageurl){
                 if($contactpageurl != ""){
-                    $page = 'contactselectpage'.$key;
+                    $page = 'contactselectpage'.$key + 1;
                     $shapdata = new FooterPage();
                     $shapdata->page_id = 3;
                     $shapdata->title = $request->contactsubtitle[$key];
