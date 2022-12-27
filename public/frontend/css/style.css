@@ -2863,7 +2863,7 @@ opacity: 1;
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link.active {
-        background-color: var(--primary)
+        background-color: var(--primary);
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link span {
@@ -6297,10 +6297,11 @@ width: 100%;
     }
     
     .view_all_rings_btn {
-        min-width: 275px;
+        min-width: auto;
         min-height: 60px;
         line-height: 60px;
         cursor: pointer;
+        padding: 0px 20px;
     }
     
     .wedding_bands_section {
@@ -6462,4 +6463,14 @@ width: 100%;
     
     .round_cut_lab_range_color .form-group label {
         min-width: auto;
+    }
+    
+    .gifts-slider .owl-nav {
+        position: absolute;
+        right: 0;
+        margin-top: 0 !important;
+    }
+    
+    .gifts-slider .owl-nav .owl-prev {
+        background: none !important;
     }

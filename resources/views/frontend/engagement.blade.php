@@ -27,7 +27,7 @@
     <div class="choose_your_setting_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
             Choose Your Setting  Style
-        </div>
+        </div> 
         <div class="owl-carousel owl-theme engagement-section">
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-
+@if(count($products) > 0)
 <div class="shop_dimond_by_shape1 choose_your_setting_section pt-0">
         <div class="container">
             <div class="">
@@ -199,7 +199,7 @@
             </div>
         </div>
     </div>
-
+@endif
 <div class="container engegement_ring_box_part">
     <div class="row two_part_box_section">
         <div class="col-md-6 mb-3 mb-md-0">
