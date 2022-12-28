@@ -210,7 +210,7 @@
     </div>
 
 @endif
-<div class="container mb-5 pb-5 mt-5">
+<div class="container mt-5">
     <div class="row two_part_box_section">
         <div class="col-md-6 mb-3 mb-md-0">
             <div class="choose_your_setting_box text-center">

@@ -200,7 +200,7 @@
         </div>
     </div>
 @endif
-<div class="container engegement_ring_box_part">
+<div class="container engegement_ring_box_part pt-0">
     <div class="row two_part_box_section">
         <div class="col-md-6 mb-3 mb-md-0">
             <div class="choose_your_setting_box text-center">
@@ -280,7 +280,7 @@
    </div>
 </div>
 
-<div class="container pb-5">
+<div class="container">
     <div class="row two_part_box_section">
         <div class="col-md-6 mb-4 mb-md-0">
             <div class="choose_your_setting_box text-center">
