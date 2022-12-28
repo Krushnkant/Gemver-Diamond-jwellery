@@ -38,8 +38,8 @@
 
                             @foreach($Categories as $Category)
                             <li class="nav-item category blog_tab_input item">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label nav-link active common_selector nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
+                                <input class="form-check-input common_selector" type="radio" name="category_id" id="category_id{{ $Category->id }}" value="{{ $Category->id }}">
+                                <label for="category_id{{ $Category->id }}" class=" form-check-label nav-link active  nav-link " id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
                                     <span class="ms-1">
                                         {{ $Category->category_name }}
                                     </span>
@@ -207,8 +207,10 @@
             {
                 var cattab = $(".category .active");
                 var cattabval = cattab.attr("data-value");
+                
+                var radioValue = $("input[name='category_id']:checked").val();
               
-                return cattabval;
+                return radioValue;
             }
         
             $('.common_selector').click(function(){
