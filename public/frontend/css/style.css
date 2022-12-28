@@ -6478,3 +6478,11 @@ width: 100%;
     .gifts-slider .owl-nav .owl-prev {
         background: none !important;
     }
+    
+    .blog_tab_input input {
+        display: none;
+    }
+    
+    .blog_tab_input {
+        cursor: pointer;
+    }
