@@ -32,7 +32,7 @@
                 {{ $blog->title }}
                 </div>
                 <div class="blog-detail-img-date d-flex align-items-center">
-                    <!-- <span class="blog-detail-img"><img src="{{ asset('frontend/image/icon-1.png') }}" alt=""></span> -->
+                    <!-- <span class="blog-detail-img"><img src="{{ asset('frontend/image/icon-1.png') }}" alt=""></span>                   -->
                     <span class="blog-deatil-date">{{ date('d M, Y', strtotime($blog->created_at)) }}</span>
                 </div>
                 <div class="blog-detail-paragraph mt-2">
