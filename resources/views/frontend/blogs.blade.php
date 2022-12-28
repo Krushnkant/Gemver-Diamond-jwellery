@@ -26,7 +26,7 @@
                             filter btn
                             <i class="fa-solid fa-angle-down"></i>
                         </div>
-                        <ul class="nav nav-tabs blog_filter_btn_ul" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs blog_filter_btn_ul " id="myTab" role="tablist">
                             <li class="nav-item category" >
                                 <button class="nav-link active common_selector"  data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
                                     <span class="ms-1">
