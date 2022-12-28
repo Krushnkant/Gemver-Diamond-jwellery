@@ -322,7 +322,7 @@
                             <button type="button" class="btn btn-gray " id="whyAdd" data-action="add">Add New </button>
                            </div>
                         </div>
-                        <button type="button" class="btn btn-primary " id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa mt-2" style="display:none;"></i></button>
+                        <button type="button" class="btn btn-primary " id="whysaveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa mt-2" style="display:none;"></i></button>
                     </div>
                 </div>
             </div>
@@ -976,37 +976,32 @@
             }      
         });
 
-
-        $('body').on('change','.contactcategory_id',function(){
-        //$('input[type=radio][name=selectpage]').change(function() {
-           
-            var cat = $(this).find("option:selected").text();
-            if(valu == ""){
-               $(this).parent().parent().parent().find('.input-flat').val(cat);
-            }
-               
-        });
-
-        $('body').on('change','.whycategory_id',function(){
-        //$('input[type=radio][name=selectpage]').change(function() {
-           
-            var cat = $(this).find("option:selected").text();
-            if(valu == ""){
-               $(this).parent().parent().parent().find('.input-flat').val(cat);
-            }
-               
-        });
-
         $('body').on('change','.category_id',function(){
-        //$('input[type=radio][name=selectpage]').change(function() {
-           
             var cat = $(this).find("option:selected").text();
             var valu = $(this).parent().parent().parent().find('.input-flat').val();
             if(valu == ""){
                $(this).parent().parent().parent().find('.input-flat').val(cat);
-            }
-               
+            }   
         });
+
+
+        $('body').on('change','.contactcategory_id',function(){
+            var cat = $(this).find("option:selected").text();
+            var valu = $(this).parent().parent().parent().find('.input-flat').val();
+            if(valu == ""){
+               $(this).parent().parent().parent().find('.input-flat').val(cat);
+            }   
+        });
+
+        $('body').on('change','.whycategory_id',function(){
+            var cat = $(this).find("option:selected").text();
+            var valu = $(this).parent().parent().parent().find('.input-flat').val();
+            if(valu == ""){
+               $(this).parent().parent().parent().find('.input-flat').val(cat);
+            }  
+        });
+
+        
 
 
         
