@@ -2085,6 +2085,10 @@ background-size: cover;
         width: 100%;
     }
     
+    .contact-google-map iframe {
+        width: 100%;
+    }
+    
     .contact_us_sub_heading {
         font-weight: 600;
         font-size: 18px;

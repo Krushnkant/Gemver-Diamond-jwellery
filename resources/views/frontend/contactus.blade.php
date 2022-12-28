@@ -21,7 +21,7 @@
         </div>
         <div class="container my-3 my-lg-5">
             <div class="row  mb-4 mb-lg-5 pb-lg-4">
-                <div class="col-md-6 pe-md-0">
+                <div class="col-md-6 pe-md-0 px-0">
                     <div class="inquiry_now_modal contact_us_box p-3 p-xl-5">
                         <div class="contact_us_heading mb-3">get in touch</div>
                         <p class="contact_us_paragraph mb-md-5">Follow a four-step process to create a one-of-a-kind jewelry piece according to your preference and style.</p>
@@ -58,40 +58,40 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6 ps-md-0 contact-us-map mt-4 overflow-hidden">
-                    <div class="contact_us_bg p-3 p-xl-5">
-                        <div class="contact_us_part mb-2 mb-md-4">
-                            <div class="contact_us_sub_heading mb-2">
-                                address
-                            </div>
-                            <div class="contact_us_sub_paragraph">
-                                {{ $settings->company_address }}
-                            </div>
-                        </div>
-                        <div class="contact_us_part mb-2 mb-md-4">
-                            <div class="contact_us_sub_heading mb-2">
-                                phone no.
-                            </div>
-                            <div class="contact_us_sub_paragraph">
-                               {{ $settings->company_mobile_no }}
-                            </div>
-                        </div>
-                        <div class="contact_us_part mb-2 mb-md-4">
-                            <div class="contact_us_sub_heading mb-2">
-                                email
-                            </div>
-                            <div class="contact_us_sub_paragraph">
-                            {{ $settings->company_email }}
-                            </div>
-                        </div>
-                          <div class="contact-google-map">
-                            <div class="">
-                                <div class="contact-google-map">
-                                    <!-- <iframe src="{{ $settings->company_address_map }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-                                    {!! $settings->company_address_map !!}
+                <div class="col-md-6 contact-us-map overflow-hidden px-0 px-md-3">
+                    <div class="contact_us_bg p-3 p-xl-5 px-3">
+                            <div class="contact_us_part mb-2 mb-md-4">
+                                <div class="contact_us_sub_heading mb-2">
+                                    address
+                                </div>
+                                <div class="contact_us_sub_paragraph">
+                                    {{ $settings->company_address }}
                                 </div>
                             </div>
-                        </div>
+                            <div class="contact_us_part mb-2 mb-md-4">
+                                <div class="contact_us_sub_heading mb-2">
+                                    phone no.
+                                </div>
+                                <div class="contact_us_sub_paragraph">
+                                {{ $settings->company_mobile_no }}
+                                </div>
+                            </div>
+                            <div class="contact_us_part mb-2 mb-md-4">
+                                <div class="contact_us_sub_heading mb-2">
+                                    email
+                                </div>
+                                <div class="contact_us_sub_paragraph">
+                                {{ $settings->company_email }}
+                                </div>
+                            </div>
+                            <div class="contact-google-map">
+                                <div class="">
+                                    <div class="contact-google-map">
+                                        <!-- <iframe src="{{ $settings->company_address_map }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                                        {!! $settings->company_address_map !!}
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

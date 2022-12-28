@@ -48,7 +48,7 @@
             <div class="col-md-7 mb-4">
                 <div class="text-center">
                     <div class="">
-                        <div class="choose_your_setting_heading text-center text-center mb-3 mb-xl-3">
+                        <div class="choose_your_setting_heading text-center text-center mb-2 mb-xl-3">
                             {{ $MenuPage->section1_title }}
                         </div>
                         <p class="custom_engagement_paragrph custom_made_paragraph">  
