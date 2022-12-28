@@ -2862,16 +2862,18 @@ opacity: 1;
         font-family: 'Roboto', sans-serif;
         padding: 9px 18px;
         font-size: 14px;
-        text-align: left;
+        text-align: center;
         margin: 0 6px;
+        cursor: pointer;
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link.active {
-        background-color: var(--primary);
+        background-color: transparent;
+        border: 1px var(--primary) solid;
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link span {
-        color: #fff;
+        color: var(--primary) !important;
     }
     
     .blog_tabs .nav-tabs {
