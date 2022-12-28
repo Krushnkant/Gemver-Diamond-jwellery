@@ -66,18 +66,18 @@
                         Popular Post
                     </div>
                     @foreach($blogs as $lblog)
-                    <div class="row mt-3 d-flex align-items-center">
-                        <div class="col-3 col-lg-4 px-0">
-                            <div class="blog-detail-sidebar-img position-relative">
-                                <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
+                        <div class="row mt-3 d-flex align-items-center item">
+                            <div class="col-3 col-lg-4 px-0">
+                                <div class="blog-detail-sidebar-img position-relative">
+                                    <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-9 col-lg-8 px-0 px-3 pe-3">
+                                <div class="blog-detail-paragraph">
+                                    <a href=" {{ url('/blog/'.$lblog->slug) }} ">{{ $lblog->title }}</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-9 col-lg-8 px-0 px-3 pe-3">
-                            <div class="blog-detail-paragraph">
-                                <a href=" {{ url('/blog/'.$lblog->slug) }} ">{{ $lblog->title }}</a>
-                            </div>
-                        </div>
-                    </div>
                     @endforeach
                     @if(isset($BlogBanners) && $BlogBanners != "")
                     <?php 
@@ -106,6 +106,7 @@
                         <div class="blog-detail-post-heading mt-4">
                             Most Viewed
                         </div>
+                        <div class="owl-carousel owl-theme most-viewed-slider">
                         @foreach($mostviewproducts as $key => $mostviewproduct)
                         <?php 
                           if(isset($mostviewproduct->product_variant[0]->images)){
@@ -113,21 +114,24 @@
                           $producturl = url('product-details/'.$mostviewproduct->product_variant[0]->slug); 
                          
                         ?>
-                        <div class="mt-3 d-flex align-items-center">
-                            <div class="px-0">
-                                <div class="blog-sidebar-top-selling position-relative">
-                                    <img src="{{ asset($productimages['0']) }}" alt="">
+                       
+                            <div class="mt-3 mb-3 d-flex align-items-center item">
+                                <div class="px-0">
+                                    <div class="blog-sidebar-top-selling position-relative">
+                                        <img src="{{ asset($productimages['0']) }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-9 col-lg-8 px-0 ms-3">
+                                    <div class="blog-detail-paragraph">
+                                        <a href="{{ $producturl }}" class="top_selling_heading mb-2 d-inline-block">{{ $mostviewproduct->product_title }}</a>
+                                        <div class="top_selling_price">$ {{ $mostviewproduct->product_variant[0]->sale_price }}</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-9 col-lg-8 px-0 ms-3">
-                                <div class="blog-detail-paragraph">
-                                    <a href="{{ $producturl }}" class="top_selling_heading mb-2 d-inline-block">{{ $mostviewproduct->product_title }}</a>
-                                    <div class="top_selling_price">$ {{ $mostviewproduct->product_variant[0]->sale_price }}</div>
-                                </div>
-                            </div>
-                        </div>
                         <?php } ?>
                         @endforeach
+                        </div>
+
                     @endif
 
                     
