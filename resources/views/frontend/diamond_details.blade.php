@@ -805,6 +805,7 @@ function save_cart(btn,btn_type){
     var diamond_id = $('#diamond_id').val();
     var ip_address = '{{ \Request::ip(); }}';
     var category_id = '{{ $Category->id }}';
+    var slug = '{{ $Category->slug }}';
     
     $.ajax({
         type: 'POST',
@@ -819,9 +820,9 @@ function save_cart(btn,btn_type){
             if(res.status == 200){
                 var check_variant = '{{ $check_variant }}';
                 if(check_variant == 0){
-                    $url = "{{ url('product-setting') }}" +'/' + category_id
+                    $url = "{{ url('product-setting') }}" +'/' + slug
                 }else{
-                    $url = "{{ url('product_complete') }}" +'/' + category_id
+                    $url = "{{ url('product_complete') }}" +'/' + slug
                 }
                 
                 window.location = $url;

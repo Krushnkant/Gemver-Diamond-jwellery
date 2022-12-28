@@ -1011,6 +1011,7 @@ function save_cart(btn,btn_type){
     var variant_id = $('#variant_id').val();
     var ip_address = '{{ \Request::ip(); }}';
     var category_id = '{{ $Category->id }}';
+    var slug = '{{ $Category->slug }}';
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.cart.save') }}",
@@ -1032,9 +1033,9 @@ function save_cart(btn,btn_type){
                 
                 var check_diamond = '{{ $check_diamond }}';
                 if(check_diamond == 0){
-                    $url = "{{ url('diamond-setting') }}" +'/' + category_id
+                    $url = "{{ url('diamond-setting') }}" +'/' + slug
                 }else{
-                    $url = "{{ url('product_complete') }}" +'/' + category_id
+                    $url = "{{ url('product_complete') }}" +'/' + slug
                 }
                 window.location = $url;
             }
