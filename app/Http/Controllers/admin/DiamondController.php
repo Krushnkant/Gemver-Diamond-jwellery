@@ -10,6 +10,7 @@ use App\Models\PriceRange;
 use Illuminate\Http\Request;
 use App\Imports\ImportDiamond;
 use App\Imports\ImportDiamondNew;
+use App\Imports\ImportDiamondNewLatest;
 use Excel;
 use Illuminate\Support\Facades\Validator;
 
@@ -199,6 +200,15 @@ class DiamondController extends Controller
         //$public_path = public_path() . "\csv\diamond_response.csv";
         $public_path = __DIR__ . '/../../../../public/csv/diamond_response.csv';
         Excel::import(new ImportDiamondNew, $public_path);
+        $action = "add";
+        return response()->json(['status' => '200', 'action' => $action]);
+    }
+
+    public function importnewdiamond(Request $request){
+        set_time_limit(0);
+        //$public_path = public_path() . "\csv\diamond_response.csv";
+        $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
+        Excel::import(new ImportDiamondNewLatest, $public_path);
         $action = "add";
         return response()->json(['status' => '200', 'action' => $action]);
     }

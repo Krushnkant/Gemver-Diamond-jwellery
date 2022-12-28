@@ -512,7 +512,7 @@ class ProductController extends Controller
                         $destinationPath = public_path('images/ProductImg');
                         $image->move($destinationPath, $image_name);  
                     }
-
+                   
                     return response()->json(['data' => 'images/ProductImg/'.$image_name]);
                 }
 
