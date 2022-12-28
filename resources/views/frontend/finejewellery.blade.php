@@ -74,7 +74,7 @@
     <div class="container mb-4 pt-4 mb-5 pb-xxl-5">
         <div class="choose_your_setting_heading text-center mb-3 mb-xl-3">{{ $MenuPage->section3_title }}</div>
         <p class="dainty-ring-gifts-paragraph mt-3 mb-4 mb-xl-4">  
-            {{ $MenuPage->section3_description }}
+            {{ $MenuPage->section3_description }}   
         </p>
         <div class="owl-carousel owl-theme gifts-slider">
             <div class="item">

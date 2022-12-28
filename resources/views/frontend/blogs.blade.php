@@ -22,12 +22,12 @@
             <div class="row d-flex align-items-start">
                 <div class="col-lg-8 col-xl-9 px-0 mb-3">
                     <div class="blog_tabs">
-                        <div class="blog_filter_btn d-md-none">
+                        <!-- <div class="blog_filter_btn d-md-none">
                             filter btn
                             <i class="fa-solid fa-angle-down"></i>
-                        </div>
-                        <ul class="nav nav-tabs blog_filter_btn_ul" id="myTab" role="tablist">
-                            <li class="nav-item category blog_tab_input">
+                        </div> -->
+                        <ul class="nav nav-tabs blog_filter_btn_ul owl-carousel owl-theme blog-tabs" id="myTab" role="tablist">
+                            <li class="nav-item category blog_tab_input item">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label nav-link active common_selector" for="flexRadioDefault1" data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
                                     <span class="ms-1">
@@ -37,7 +37,7 @@
                             </li>
 
                             @foreach($Categories as $Category)
-                            <li class="nav-item category blog_tab_input">
+                            <li class="nav-item category blog_tab_input item">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label nav-link active common_selector nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
                                     <span class="ms-1">
