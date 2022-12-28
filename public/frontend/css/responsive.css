@@ -26,13 +26,13 @@
     .footer-logo {
         max-width: 90px;
     }
-    .shop_by_style_slider_home .owl-nav {
+    /* .shop_by_style_slider_home .owl-nav {
         top: calc(50% - 40px);
         transform: translateY(-50%);
         left: 0;
-    }
+    } */
     .shop_by_style_slider_home .owl-nav .owl-prev {
-        left: 0 !important;
+        left: -39px !important;
         position: absolute !important;
     }
     .shop_by_style_slider_home .owl-nav .owl-next {
@@ -347,6 +347,9 @@
     }
     .round_cut_lab_range_color .form-group label {
         height: 26px;
+    }
+    .design_engagemnt_image {
+        display: none;
     }
 }
 
@@ -901,6 +904,12 @@
     .round_cut_lab_checkbox input+.shape_img {
         min-width: 45px;
         min-height: 45px;
+    }
+    .contact-google-map {
+        position: initial;
+    }
+    .contact_us_bg {
+        padding: 0 !important;
     }
 }
 
@@ -2004,6 +2013,7 @@
     /* --------------------------------------------------------------- */
     .choose_your_setting_heading {
         font-size: 25px;
+        line-height: normal;
     }
     .engagement_start_diamond,
     .engagement_start_setting {
