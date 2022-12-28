@@ -27,19 +27,26 @@
                             <i class="fa-solid fa-angle-down"></i>
                         </div>
                         <ul class="nav nav-tabs blog_filter_btn_ul" id="myTab" role="tablist">
-                            <li class="nav-item category" >
-                                <button class="nav-link active common_selector"  data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
+                            <li class="nav-item category blog_tab_input">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label nav-link active common_selector" for="flexRadioDefault1" data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
                                     <span class="ms-1">
                                         All Blogs
                                     </span>
-                                </button>
+                                </label>
                             </li>
 
                             @foreach($Categories as $Category)
-                            <li class="nav-item category">
-                                <button class="nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
+                            <li class="nav-item category blog_tab_input">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label nav-link active common_selector nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
+                                    <span class="ms-1">
+                                        {{ $Category->category_name }}
+                                    </span>
+                                </label>
+                                <!-- <button class="nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
                                     <span class="ms-1">{{ $Category->category_name }}</span>
-                                </button>
+                                </button> -->
                             </li>
                             @endforeach
                             
