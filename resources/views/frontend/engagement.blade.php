@@ -205,7 +205,7 @@
         <div class="col-md-6 mb-3 mb-md-0">
             <div class="choose_your_setting_box text-center">
                 <div class="">
-                    <div class="custom_made_heading text-center mb-0 mb-xl-3">
+                    <div class="custom_made_heading text-center mb-2 mb-xl-3">
                         {{ $MenuPage->section1_title }}
                     </div>
                     <p class="custom_engagement_paragrph">
@@ -285,7 +285,7 @@
         <div class="col-md-6 mb-4 mb-md-0">
             <div class="choose_your_setting_box text-center">
                 <div class="">
-                    <div class="custom_made_heading text-center mb-0 mb-xl-3">
+                    <div class="custom_made_heading text-center mb-2 mb-xl-3">
                         {{ $MenuPage->section4_title }}
                     </div>
                     <p class="custom_engagement_paragrph">

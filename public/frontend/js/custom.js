@@ -452,6 +452,24 @@ $(document).ready(function() {
         nav: false,
         dots: false,
         autoWidth: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+    $('.blog-tabs').owlCarousel({
+        loop: false,
+        margin: 10,
+        nav: false,
+        dots: false,
+        autoWidth: true,
         autoplay: true,
         autoplayTimeout: 5000,
         responsive: {
