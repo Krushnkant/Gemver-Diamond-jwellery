@@ -10,12 +10,15 @@
             <a href="#">
             @elseif($banner->application_dropdown_id == 2)
             <?php 
-                $banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                $banner_url = URL('product-details/'.$product_variant->slug);
             ?>
             <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
             @elseif($banner->application_dropdown_id == 3)
             <?php 
-                $banner_url = URL('shop/'.$banner->value);
+                $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                $banner_url = URL('shop/'.$category->slug);
             ?>
             <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
             @elseif($banner->application_dropdown_id == 4)
@@ -50,14 +53,18 @@
                                     </button>
                                     @elseif($banner->application_dropdown_id == 2)
                                     <?php 
-                                        $banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                        
+                                        $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                                        //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                        $banner_url = URL('product-details/'.$product_variant->slug);
                                     ?>
                                     <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
                                         {{ $banner->button_name }}
                                     </button>
                                     @elseif($banner->application_dropdown_id == 3)
                                     <?php 
-                                        $banner_url = URL('shop/'.$banner->value);
+                                        $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                                        $banner_url = URL('shop/'.$category->slug);
                                     ?>
                                     <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
                                         {{ $banner->button_name }}

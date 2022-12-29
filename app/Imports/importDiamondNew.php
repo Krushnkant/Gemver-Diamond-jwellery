@@ -52,9 +52,9 @@ class ImportDiamondNew implements WithHeadingRow,ToCollection
 
                 $sale_amt = round((int)$collection['total_sales_price'] + $company_per_amt);
                 
-                $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
+                $Diamond = Diamond::where('diamond_id',$collection['id'])->first();
                 if($Diamond){
-                    Diamond::where('Stone_No', $Stone_No)
+                    Diamond::where('diamond_id', $collection['id'])
                             ->update([
                                 'Amt' => $collection['total_sales_price'],
                                 'Sale_Amt' => $sale_amt,
