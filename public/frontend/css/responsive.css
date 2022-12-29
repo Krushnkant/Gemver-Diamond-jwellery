@@ -349,9 +349,6 @@
     .round_cut_lab_range_color .form-group label {
         height: 26px;
     }
-    .design_engagemnt_image {
-        display: none;
-    }
 }
 
 @media (max-width:575px) {
@@ -771,6 +768,9 @@
         width: 25px;
         height: 25px;
         margin-right: -5px;
+    }
+    .finejewellery-slider {
+        margin-bottom: 10px;
     }
     /* --------------------- blog detail page--------------------------------- */
     .blog-detail-heading {
@@ -1474,10 +1474,10 @@
         font-size: 16px;
     }
     .contact_us_sub_heading {
-        font-size: 19px;
+        font-size: 18px;
     }
     .contact_us_sub_paragraph {
-        font-size: 16px;
+        font-size: 15px;
     }
     /* --------------------- round cut lab diamonds -------------------------------------- */
     .round_cut_lab_diamonds_page .round_cut_lab_diamonds_paragraph {

@@ -26,10 +26,10 @@
                             filter btn
                             <i class="fa-solid fa-angle-down"></i>
                         </div> -->
-                        <ul class="nav nav-tabs blog_filter_btn_ul owl-carousel owl-theme blog-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs owl-carousel owl-theme blog-tabs" id="myTab" role="tablist">
                             <li class="nav-item category blog_tab_input item">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label nav-link active common_selector" for="flexRadioDefault1" data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <label class="form-check-label nav-link active common_selector blog-tabs-active-part" for="flexRadioDefault1" data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
                                     <span class="ms-1">
                                         All Blogs
                                     </span>
@@ -38,8 +38,8 @@
 
                             @foreach($Categories as $Category)
                             <li class="nav-item category blog_tab_input item">
-                                <input class="form-check-input common_selector" type="radio" name="category_id" id="category_id{{ $Category->id }}" value="{{ $Category->id }}">
-                                <label for="category_id{{ $Category->id }}" class=" form-check-label nav-link active  nav-link " id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
+                                <input class="form-check-input common_selector blog-input" type="radio" name="category_id" id="category_id{{ $Category->id }}" value="{{ $Category->id }}">
+                                <label for="category_id{{ $Category->id }}" class=" form-check-label nav-link active nav-link blog-label" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
                                     <span class="ms-1">
                                         {{ $Category->category_name }}
                                     </span>
@@ -72,7 +72,7 @@
                                     <img src="{{ asset($lblog->blog_thumb)  }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-9 col-lg-8 px-0 px-3 pe-3">
+                            <div class="col-9 col-lg-8 px-0 px-3 pe-3 ps-0">
                                 <div class="blog-detail-paragraph">
                                     <a href=" {{ url('/blog/'.$lblog->slug) }} ">{{ $lblog->title }}</a>
                                 </div>
@@ -115,7 +115,7 @@
                          
                         ?>
                        
-                            <div class="mt-3 mb-3 d-flex align-items-center item">
+                            <div class="mt-3 d-flex align-items-center item">
                                 <div class="px-0">
                                     <div class="blog-sidebar-top-selling position-relative">
                                         <img src="{{ asset($productimages['0']) }}" alt="">

@@ -204,6 +204,7 @@ $(document).ready(function() {
             }
         }
     });
+
     $('.category-slider').owlCarousel({
         loop: false,
         margin: 10,
@@ -450,45 +451,46 @@ $(document).ready(function() {
     $('.blog-tabs').owlCarousel({
         loop: false,
         margin: 10,
-        nav: false,
-        dots: false,
-        autoWidth: true,
-        responsive: {
-            0: {
-                items: 2,
-                autoWidth: false
-            },
-            576: {
-                items: 3,
-            },
-            992: {
-                items: 4,
-            },
-            1000: {
-                items: 5
-            }
-        }
-    })
-    $('.blog-tabs').owlCarousel({
-        loop: false,
-        margin: 10,
-        nav: false,
+        nav: true,
         dots: false,
         autoWidth: true,
         autoplay: true,
         autoplayTimeout: 5000,
         responsive: {
             0: {
-                items: 1
+                items: 3
             },
             600: {
-                items: 1
+                items: 3
             },
             1000: {
-                items: 1
+                items: 7
             }
         }
     });
+    $('.finejewellery-slider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        responsive: {
+            0: {
+                items: 1,
+
+            },
+            400: {
+                items: 2,
+            },
+            768: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
     $('.gifts-slider').owlCarousel({
         loop: true,
         margin: 10,
@@ -581,7 +583,7 @@ $(document).ready(function() {
         loop: true,
         margin: 10,
         dots: false,
-        nav: false,
+        nav: true,
         responsive: {
             0: {
                 items: 1
@@ -621,6 +623,12 @@ $(document).ready(function() {
     $(".gifts-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#2c3e50"/></svg>');
     $(".about-us-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#2c3e50"/></svg>');
     $(".about-us-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#2c3e50"/></svg>');
+    $(".finejewellery-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#2c3e50"/></svg>');
+    $(".finejewellery-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#2c3e50"/></svg>');
+    $(".most-viewed-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#2c3e50"/></svg>');
+    $(".most-viewed-slider > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#2c3e50"/></svg>');
+    $(".blog-tabs > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#2c3e50"/></svg>');
+    $(".blog-tabs > .owl-nav > .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" width="9" class="" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#2c3e50"/></svg>');
 });
 $(window).scroll(function() {
     var sticky = $('.header-part'),

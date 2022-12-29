@@ -494,7 +494,7 @@ background-size: cover;
         min-width: 268px;
         min-height: 63px;
         border: 1px solid #0B1727;
-        font-weight: 700;
+        font-weight: 500;
         font-size: 16px;
         line-height: 20px;
         letter-spacing: 0.05em;
@@ -502,6 +502,15 @@ background-size: cover;
         color: #0B1727;
         background: none;
         display: inline-block;
+    }
+    
+    .blog-sidebar-top-selling {
+        padding: 10px 0;
+    }
+    
+    .most-viewed-slider .owl-next,
+    .most-viewed-slider .owl-prev {
+        background: transparent !important;
     }
     
     .inquiry_btn_gemver_diamonds {
@@ -516,6 +525,10 @@ background-size: cover;
     
     .explore-category-btn:hover a {
         color: #fff;
+    }
+    
+    .blog-tabs .owl-stage {
+        margin: auto;
     }
     
     .category-heading {
@@ -2861,15 +2874,34 @@ opacity: 1;
         border-radius: 0;
         font-family: 'Roboto', sans-serif;
         padding: 9px 18px;
-        font-size: 14px;
+        font-size: 13px;
         text-align: center;
         margin: 0 6px;
         cursor: pointer;
+        margin-bottom: 0 !important;
+    }
+    
+    .blog_tabs .nav-tabs .nav-item .nav-link:hover {
+        border: 1px var(--primary) solid;
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link.active {
         background-color: transparent;
-        border: 1px var(--primary) solid;
+        border: 1px solid rgba(11, 23, 39, 0.1);
+    }
+    
+    .blog_tabs .blog-input:checked+.blog-label {
+        border: 1px solid var(--secondary) !important;
+    }
+    
+    .blog_tabs .owl-nav {
+        text-align: right !important;
+        margin-top: 0 !important;
+    }
+    
+    .blog_tabs .owl-nav .owl-prev:hover,
+    .blog_tabs .owl-nav .owl-next:hover {
+        background: transparent !important;
     }
     
     .blog_tabs .nav-tabs .nav-item .nav-link span {
@@ -2905,7 +2937,6 @@ opacity: 1;
     
     .blg_box_description .blog_box_date,
     .blg_box_description .blog_box_message {
-        font-weight: 700;
         font-size: 20px;
     }
     
@@ -2917,7 +2948,6 @@ opacity: 1;
     .blg_box_description .blog_box_heading a {
         font-size: 17px;
         color: var(--primary);
-        font-weight: 700;
         min-height: 55px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -2928,7 +2958,6 @@ opacity: 1;
     .blg_box_description .blog_box_paragraph {
         font-size: 15px;
         color: gray;
-        font-weight: 500;
         min-height: 48px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -3304,7 +3333,6 @@ border: 0;
     }
     
     .blog-detail-paragraph a {
-        font-weight: 500;
         color: #000;
         font-size: 15px;
     }
@@ -4180,14 +4208,12 @@ width: 100%;
     }
     
     .top_selling_heading {
-        font-weight: 500;
         font-size: 15px;
         line-height: 18px;
         color: #212529;
     }
     
     .top_selling_price {
-        font-weight: 600;
         font-size: 15px;
         line-height: 18px;
         color: #212529;
@@ -4213,6 +4239,10 @@ width: 100%;
     
     .header-icon-part:hover {
         color: var(--secondary);
+    }
+    
+    .blog-tabs .blog_tab_input .form-check-input:checked+.form-check-label {
+        border: 1px var(--primary) solid;
     }
     /* ---------------------------------------------------------------- */
     
@@ -6487,4 +6517,24 @@ width: 100%;
     
     .blog_tab_input {
         cursor: pointer;
+    }
+    
+    .finejewellery-slider .owl-nav {
+        margin-top: 0 !important;
+        text-align: right !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .finejewellery-slider {
+        margin-bottom: 50px;
+    }
+    
+    .most-viewed-slider .owl-nav {
+        margin-top: 0 !important;
+        text-align: right !important;
+    }
+    
+    .about-us-slider .owl-next,
+    .about-us-slider .owl-prev {
+        background: transparent !important;
     }
