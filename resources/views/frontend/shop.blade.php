@@ -17,10 +17,11 @@
                 </div>
             </div>
         </div>
+        
         <div class="container shop_page round_cut_lab_diamonds_page">
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="row mb-4">
+            <div class="row my-3">
+                <div class="col-md-12 px-0">
+                    <div class="row">
                         <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">category</div>
                         <div class="wire_bangle_carat col-lg-12 owl-carousel owl-theme category-slider">
                             @foreach($Categories as $category)
@@ -37,7 +38,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div>
+            <div class="row filter-data pt-3 d-md-flex">
+                <div class="text-end close-icon d-lg-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider mt-md-0 row">
                         <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                         <div class="round_cut_lab_diamonds_price col-lg-12">
@@ -55,9 +61,8 @@
                         </div>
                     </div>
                 </div>
-                
                 @foreach($Attributes as $attribute)
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
@@ -73,23 +78,26 @@
                     </div>
                 </div>
                 @endforeach    
-                    
-                    
-            </div>
-            <div class="row text-end mb-3">
-                <div class="col-md-12">
-                    <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                <div class="text-end mb-3">
+                    <div class="col-md-12">
+                        <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="container">
             <div class="wire_bangle_line"></div>
-            <div class="row align-items-center w-100">
-                <div class="col-sm-6 col-md-6">
-                    <div class="my-5 my-xxl-5 wire_bangle_showing_text text-center text-sm-start" id="datacount"></div>
+            <div class="row align-items-center mt-4">
+                <div class="col-2 col-md-6">
+                    <div class="col-3 col-md-auto px-0 d-lg-none">
+                        <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
+                            <i class="fa-solid fa-filter"></i>
+                            <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-center justify-content-sm-end">
+                <div class="col-10 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end">
                     <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option">
                         <select class="form-control" name="sorting" id="sorting" class="">
                             <option value="">default sorting</option>
@@ -103,7 +111,7 @@
     
             <div class="row mt-0 mb-5 filter_data">  
             </div>
-            <div class="auto-load text-center mt-4 mb-4">
+            <div class="auto-load text-center mt-4 mb-5">
                 <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
                     <path fill="#000"
