@@ -63,7 +63,7 @@
 
 
 
-    <div class="container my-5">
+    <div class="container  mt-3 mb-0 my-md-5">
         <div class="about_us_box">
             <div class=" owl-carousel owl-theme about-us-slider">
                 @if($Infopage->title1 != "")
