@@ -242,6 +242,15 @@ $(document).ready(function() {
     });
     $(".footer-ul-part").css({ "display": "none" });
 
+    $(".mobile-view-filter-btn").click(function() {
+        $(".filter-data").toggleClass("filter-data-active");
+        $("body").toggleClass("mobile-sub-menu-active");
+    });
+    $(".close-icon").click(function() {
+        $(".filter-data").removeClass("filter-data-active");
+        $("body").removeClass("mobile-sub-menu-active");
+    });
+
     if ($(window).width() < 767) {
         $(".footer-heading").click(function() {
             $(this).toggleClass("foote-heading-acive");

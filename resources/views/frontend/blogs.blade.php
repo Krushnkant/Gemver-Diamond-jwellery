@@ -28,7 +28,7 @@
                         </div> -->
                         <ul class="nav nav-tabs owl-carousel owl-theme blog-tabs" id="myTab" role="tablist">
                             <li class="nav-item category blog_tab_input item">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" checked>
                                 <label class="form-check-label nav-link active common_selector blog-tabs-active-part" for="flexRadioDefault1" data-bs-toggle="tab" data-value=""  type="button" role="tab" aria-controls="home" aria-selected="true">
                                     <span class="ms-1">
                                         All Blogs
@@ -38,7 +38,7 @@
 
                             @foreach($Categories as $Category)
                             <li class="nav-item category blog_tab_input item">
-                                <input class="form-check-input common_selector blog-input" type="radio" name="category_id" id="category_id{{ $Category->id }}" value="{{ $Category->id }}">
+                                <input class="form-check-input common_selector blog-input" type="checkbox" name="category_id" id="category_id{{ $Category->id }}" value="{{ $Category->id }}">
                                 <label for="category_id{{ $Category->id }}" class=" form-check-label nav-link active nav-link blog-label" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
                                     <span class="ms-1">
                                         {{ $Category->category_name }}
