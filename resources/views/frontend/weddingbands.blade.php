@@ -210,9 +210,9 @@
     </div>
 
 @endif
-<div class="container my-5">
+<div class="container mt-3 my-md-5">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-3 mb-md-0">
+        <div class="col-md-6 mb-3 mb-md-0 px-0">
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -224,7 +224,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 design_engagemnt_image">
+        <div class="col-md-6 design_engagemnt_image px-0">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>

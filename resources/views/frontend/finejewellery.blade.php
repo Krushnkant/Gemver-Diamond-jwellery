@@ -20,7 +20,7 @@
     </div> -->
 </div>
 
-    <div class="pt-5 py-xl-5 mt-xl-5"> 
+    <div class="pt-5 pt-xl-5 mt-xl-5"> 
         <div class="container">
             <div class="row">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
@@ -30,32 +30,36 @@
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
                 </p>
                 @if($MenuPage->menupageshapestyle)
+                <div class="owl-carousel owl-theme finejewellery-slider">
+
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                <div class="col-6 col-md-3 col-lg-3 finejewellery-img mb-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
-                    <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
-                    <div class="finejewellery-box mt-3">
-                        <div class="finejewellery-heading text-center mb-3">
-                            {{ $menupageshapestyle->title }}
+                    <div class="item finejewellery-img mb-xl-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
+                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                        <div class="finejewellery-box mt-3">
+                            <div class="finejewellery-heading text-center">
+                                {{ $menupageshapestyle->title }}
+                            </div>
+                            <p class="finejewellery-paragraph my-0">
+                                {{ $menupageshapestyle->subdiscription }}
+                            </p> 
                         </div>
-                         <p class="finejewellery-paragraph">
-                            {{ $menupageshapestyle->subdiscription }}
-                        </p> 
-                    </div>
-                </div> 
+                    </div> 
                 @endforeach
+                </div>
+
                 @endif 
                   
             </div>
         </div>
     </div>
 
-    <div class="my-xxl-5">
+    <div class="mt-xxl-5">
         <div class="container mb-xl-5">
             <div class="row two_part_box_section">
-                <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
+                <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img px-0">
                     <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
-                <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
+                <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 px-0">
                     <div class="choose_your_setting_box text-center">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">

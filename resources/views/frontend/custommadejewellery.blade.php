@@ -27,7 +27,7 @@
    
     @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
     @if($num == 1)
-        <div class="my-3 mb-xl-4 mt-5 pt-4"> 
+        <div class="my-3 mb-xl-4 pt-4"> 
             <div class="container mb-xl-5 text-center">
                 <div class="row two_part_box_section">
                     <div class="col-md-6 ps-md-0 order-1 order-md-2 mb-3 mb-md-0">

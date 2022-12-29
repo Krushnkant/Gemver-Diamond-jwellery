@@ -221,8 +221,8 @@
 </div>
 
 
-<div class="create_your_own_section mb-5 my-md-5">
-   <div class="container">
+<div class="create_your_own_section mb-3 my-md-5">
+   <div class="container ">
     <div class="row">
             <div class="col-md-12">
                 <div class="choose_your_setting_heading text-center mb-5">
@@ -280,9 +280,9 @@
    </div>
 </div>
 
-<div class="container">
-    <div class="row two_part_box_section mb-5">
-        <div class="col-md-6 mb-4 mb-md-0">
+<div class="container mb-0 mb-md-5">
+    <div class="row two_part_box_section">
+        <div class="col-md-6 mb-md-0 px-0">
             <div class="choose_your_setting_box text-center">
                 <div class="">
                     <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -294,7 +294,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 design_engagemnt_image">
+        <div class="col-md-6 design_engagemnt_image px-0 px-md-3 mt-3 mt-md-0">
             <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
         </div>  
     </div>
