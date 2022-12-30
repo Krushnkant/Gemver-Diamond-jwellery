@@ -656,7 +656,7 @@
                 <div class="col-md-12 text-center text-sm-end px-0">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
-                            <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <input type="checkbox" value="" name=""  id="checkbox_1">
                                 <label for="checkbox_1">advanced filters</label>
                             </div>
