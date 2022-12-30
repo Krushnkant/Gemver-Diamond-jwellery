@@ -126,7 +126,7 @@
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
                     <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-start justify-content-sm-start filter-tab" id="myTab" role="tablist">
-                        <li class="active nav-item">
+                        <li class="active nav-item ps-0">
                             <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
@@ -327,7 +327,7 @@
                  <!-- Cut - Polish - Symm. -->
                 <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Sym.</span>
-                    <span class="col-md-12">
+                    <span class="col-md-12 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="radio" value="3X" class="finish "  name="finish" id="finish3X">
                             <label for="finish3X">3X</label>
@@ -349,7 +349,7 @@
                 <!-- ---- cut---------- -->
                 <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</span>
-                    <span class="col-md-10">
+                    <span class="col-md-10 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
                             <label for="cutID">Ideal</label>
@@ -379,7 +379,7 @@
                 <!-- ----- polish ------------- -->
                 <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
-                    <span class="col-md-10">
+                    <span class="col-md-10 filter-checkbox">
                         
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
@@ -410,7 +410,7 @@
                 <!-- ------------ sym. ------------ -->
                 <div class="round_cut_lab_range_slider row mb-3">
                     <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Sym.</span>
-                    <span class="col-md-10">
+                    <span class="col-md-10 filter-checkbox">
                        
                         <div class="form-group d-inline-block me-3">
                             <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
@@ -522,9 +522,8 @@
             </div>
             <div class="col-lg-6 collapse round_cut_lab_filter " id="collapseExample">
                 <div class="round_cut_lab_range_slider row mb-3"> 
-                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">Fluor</span>
-                        <span class="col-md-10">
-                            
+                        <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 filter-checkbox">Fluor</span>
+                        <span class="col-md-10 filter-checkbox">
                             <div class="form-group d-inline-block me-3 mb-2">
                                 <input type="checkbox" name="fluor[]" value="None" class="report common_selector" id="None">
                                 <label for="None">NONE</label>
@@ -549,8 +548,8 @@
                         </span>
                 </div>
                 <div class="round_cut_lab_range_slider row mb-3"> 
-                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">Growth Type</span>
-                    <span class="col-md-10">
+                    <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 filter-checkbox">Growth Type</span>
+                    <span class="col-md-10 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-2">
                             <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
                             <label for="CVD">CVD</label>
@@ -567,7 +566,7 @@
                 </div>
                 <div class="round_cut_lab_range_slider row"> 
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2">report</span>
-                    <span class="col-md-10">
+                    <span class="col-md-10 filter-checkbox">
                         
                         <!-- <div class="form-group d-inline-block me-3 mb-2">
                             <input type="checkbox" name="report[]" value="GCAL" class="report common_selector" id="reportGCAL">
@@ -671,19 +670,13 @@
         </div>
         <div class="wire_bangle_line"></div>
 
-        <div class="row my-4 mb-0">
-            <div class="col-md-6 text-center text-sm-start">
-                <div class="row no-gutters mb-3 align-items-center">
-                    <div class="col-3 col-md-auto px-0 d-lg-none">
-                        <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
-                            <i class="fa-solid fa-filter"></i>
-                            <span class="ms-2 d-none d-sm-inline-block">filter</span>
-                        </button>
-                    </div>  
-                    <div class="col-9 col-md-auto px-0">
-                        <ul  class="nav wire_bangle_tabs_part justify-content-end justify-content-sm-end justify-content-md-start" id="myTab" role="tablist">
+        <div class="row my-4 mb-2">
+            <div class="col-lg-6 text-center text-sm-start">
+                <div class="row no-gutters mb-3 align-items-center justify-content-start">
+                    <div class="col-12 col-md-auto px-0">
+                        <ul  class="nav wire_bangle_tabs_part justify-content-center" id="myTab" role="tablist">
                             <li class="active nav-item">
-                                <a  class="nav-link " href="#1a" data-toggle="tab">Result </a>
+                                <a  class="nav-link ps-0" href="#1a" data-toggle="tab">Result </a>
                             </li>
                             <li>
                                 <a class="nav-link " href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
@@ -692,7 +685,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 text-center text-sm-end">
+            <div class="col-3 d-lg-none">
+                <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
+                    <i class="fa-solid fa-filter"></i>
+                    <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                </button>
+            </div>  
+            <div class="col-9 col-lg-6 text-end text-sm-end">
                 <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>

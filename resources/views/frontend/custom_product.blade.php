@@ -214,31 +214,32 @@
             </ul>
             @endif 
         </div>
-        <div class="row mt-5">
-            <div class="col-md-6">
-               <div class="row round_cut_lab_range_slider">
-                    <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
-                    <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
-                        <div class="align-items-center mb-2 position-relative">
-                            <div id="slider-range" class="mb-0"></div>
-                            <div class="d-flex mt-3">
-                                <span class="from_text"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input" value="0"></span>
-                                <span class="to_text"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input" value="{{ $Maxprice  }}"></span>
+        <div class="row filter-data d-md-flex mt-md-4">
+                <div class="text-end close-icon d-lg-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="col-lg-6">
+                <div class="row round_cut_lab_range_slider">
+                        <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
+                        <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
+                            <div class="align-items-center mb-2 position-relative">
+                                <div id="slider-range" class="mb-0"></div>
+                                <div class="d-flex mt-3">
+                                    <span class="from_text"><input type="text" name="" id="minimum_price" placeholder="From" class="d-block wire_bangle_input amount_input" value="0"></span>
+                                    <span class="to_text"><input type="text" name="" id="maximum_price" placeholder="To" class="d-block wire_bangle_input amount_input" value="{{ $Maxprice  }}"></span>
+                                </div>
                             </div>
+                            <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>
+                            <input type="hidden" id="hidden_minimum_price" />
+                            <input type="hidden" id="hidden_maximum_price" />
                         </div>
-                        <p class="mb-0 range-slider-p"><span id="amount-start"></span><span id="amount-end"></span></p>
-                        <!-- <p> Price : <span id="amount"></span></p> -->
-                        <input type="hidden" id="hidden_minimum_price" />
-                        <input type="hidden" id="hidden_maximum_price" />
-                    </div>
-               </div>
-            </div>
-            
+                </div>
+                </div>
                 @foreach($Attributes as $attribute)
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider row">
                             <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
-                            <div class="col-md-12">    
+                            <div class="col-md-12 filter-checkbox">    
                                 @foreach($attribute->attributeterm as $term)
                                 <div class="form-group me-3 d-inline-block">
                                     <input type="checkbox" class="common_selector attribute"  name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
@@ -257,11 +258,14 @@
                 </div>
         </div>
         <div class="wire_bangle_line"></div>
-        <div class="row align-items-center d-flex justify-content-center">
-            <div class="col-sm-5 col-md-6">
-                <div id="datacount" class="my-3 my-xxl-5 wire_bangle_showing_text text-center text-sm-start"></div>
-            </div>
-            <div class="col-sm-3 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-center justify-content-sm-end">
+        <div class="row align-items-center d-flex justify-content-end mt-3">
+            <div class="col-3 col-md-6 d-lg-none ps-0">
+                        <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
+                            <i class="fa-solid fa-filter"></i>
+                            <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                        </button>
+                    </div>
+            <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
                 <span class="wire_bangle_select text-center text-md-end select_box_option">
                     <select class="form-control" name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
@@ -286,7 +290,7 @@
                 </div> -->
         </div>
         <!-- <div class="wire_bangle_line mb-md-5"></div> -->
-        <div class="row mb-5">
+        <div class="row mb-5 px-0">
             <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
                 <div class="row" id="data-wrapper">
                     <!-- Results -->
