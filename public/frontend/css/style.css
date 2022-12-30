@@ -2323,6 +2323,10 @@ transform: translateY(-50%); */
         height: 19px;
     }
     
+    .round_cut_lab_range_slider.form-group-active .form-group input:checked+label:before {
+        background: var(--secondary);
+    }
+    
     .round_cut_lab_range_slider .form-group input:checked+label:after {
         content: '';
         display: block;
