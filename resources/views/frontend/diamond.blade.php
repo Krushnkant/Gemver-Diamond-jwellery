@@ -1007,6 +1007,7 @@
 
             var shape = get_filter('shape');
             var color = get_filter('color');
+            var fcolor = get_filter('fancycolor');
             var clarity = get_filter('clarity');
             var cut = get_filter('cut');
             var report = get_filter('report');
@@ -1089,6 +1090,7 @@
                     meas_width_max: meas_width_max,
                     meas_depth_min: meas_depth_min,
                     meas_depth_max: meas_depth_max,
+                    fcolor: fcolor,
                     _token: '{{ csrf_token() }}'
                 },
                 beforeSend: function() {
