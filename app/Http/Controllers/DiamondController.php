@@ -184,6 +184,12 @@ class DiamondController extends Controller
             $query = $query->whereIn('FancyColor',$FancyColor);
         }
 
+        if($data["scolor"] == "color"){
+            $query = $query->where('Color',"!=",$data["scolor"]);
+        }else{
+            $query = $query->where('FancyColor',"!=",$data["scolor"]);
+        }
+
         if(isset($data["shape"])){
             $shapes = $data["shape"];
             $query = $query->whereIn('Shape',$shapes);
@@ -305,30 +311,37 @@ class DiamondController extends Controller
                                                 <span class="round_product_part_2">'. $Diamond->Shape .' </span>
                                             </li>
                                         
-                                            <li>
+                                            <li class="">
                                                 <span class="round_product_part_1">COLOR  :</span>
-                                                <span class="round_product_part_2">'. $Diamond->Color .' </span>
+                                                <span class="round_product_part_2">';
+                                                 if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){
+                                                    $artilces.= $Diamond->Color;
+                                                 }else{
+                                                        $artilces.= $Diamond->FancyColor; 
+                                                 } 
+                                            $artilces.=' </span>
                                             </li>';
                                             if($Diamond->Cut != ""){
-                                            $artilces.='<li>
+                                            $artilces.='<li class="">
                                                 <span class="round_product_part_1"> CUT  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Cut .' </span>
                                             </li>';
                                             }
-                                            $artilces.='<li>
+                                            $artilces.='<li class="">
                                                 <span class="round_product_part_1"> POLISH  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Polish .' </span>
                                             </li>
-                                            <li>
+                                            <li class="">
                                                 <span class="round_product_part_1"> SYMMETRY  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                            </li>
-                                            
-                                            <li>
-                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                            </li>';
+                                            if($Diamond->Measurement != ""){
+                                                $artilces.='<li class="">
+                                                <span class="round_product_part_1"> MEASUREMENT   :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                            </li>
-                                            <li>
+                                            </li>';
+                                            }
+                                            $artilces.='<li>
                                                 <span class="round_product_part_1"> CERTIFIED :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                             </li>
@@ -358,7 +371,13 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
-                                    <span>'. $Diamond->Color .' color |</span>
+                                    <span>'; 
+                                    if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){
+                                        $artilces.= $Diamond->Color;
+                                     }else{
+                                            $artilces.= $Diamond->FancyColor; 
+                                     } 
+                                    $artilces .= ' color |</span>
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
@@ -842,6 +861,12 @@ class DiamondController extends Controller
             $query = $query->whereIn('Color',$colors);
         }
 
+        if($data["scolor"] == "color"){
+            $query = $query->where('Color',"!=",$data["scolor"]);
+        }else{
+            $query = $query->where('FancyColor',"!=",$data["scolor"]);
+        }
+
         if(isset($data["fcolor"])){
             $FancyColor = $data["fcolor"];
             $query = $query->whereIn('FancyColor',$FancyColor);
@@ -955,7 +980,13 @@ class DiamondController extends Controller
                                         
                                             <li class="">
                                                 <span class="round_product_part_1">COLOR  :</span>
-                                                <span class="round_product_part_2">'. $Diamond->Color .' </span>
+                                                <span class="round_product_part_2">';
+                                                 if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){
+                                                    $artilces.= $Diamond->Color;
+                                                 }else{
+                                                        $artilces.= $Diamond->FancyColor; 
+                                                 } 
+                                            $artilces.=' </span>
                                             </li>';
                                             if($Diamond->Cut != ""){
                                             $artilces.='<li class="">
@@ -970,13 +1001,14 @@ class DiamondController extends Controller
                                             <li class="">
                                                 <span class="round_product_part_1"> SYMMETRY  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Symm .' </span>
-                                            </li>
-                                            
-                                            <li class="">
+                                            </li>';
+                                            if($Diamond->Measurement != ""){
+                                                $artilces.='<li class="">
                                                 <span class="round_product_part_1"> MEASUREMENT   :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Measurement .' </span>
-                                            </li>
-                                            <li class="">
+                                            </li>';
+                                            }
+                                            $artilces.='<li class="">
                                                 <span class="round_product_part_1"> CERTIFIED  :</span>
                                                 <span class="round_product_part_2">'. $Diamond->Lab .' </span>
                                             </li>
@@ -1006,7 +1038,13 @@ class DiamondController extends Controller
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
-                                    <span>'. $Diamond->Color .' color |</span>
+                                    <span>'; 
+                                    if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){
+                                        $artilces.= $Diamond->Color;
+                                     }else{
+                                            $artilces.= $Diamond->FancyColor; 
+                                     } 
+                                    $artilces .= ' color |</span>
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">

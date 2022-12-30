@@ -232,7 +232,7 @@
                                        {{ $Diamond->Weight }} ct {{ $Diamond->Shape }} Lab Diamond
                                     </div>
                                     <div class="wire_bangle_edit_box_sub_heading pb-2">
-                                      {{ $Diamond->Color }} Color | {{ $Diamond->Clarity }} Clarity | {{ $Diamond->Cut }} Cut
+                                      {{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} Color | {{ $Diamond->Clarity }} Clarity | {{ $Diamond->Cut }} Cut
                                     </div>
                                     <div>
                                         <span class="wire_bangle_edit_box_price">${{ $Diamond->Sale_Amt }}</span>
@@ -610,7 +610,7 @@
                             <div class="col-xl-6 px-0">
                                 <div class="mt-4 wire_bangle_share row">
                                     <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">color </span>
-                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Color }}</span>
+                                    <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
                                 </div>
                             </div>
                            

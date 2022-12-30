@@ -277,7 +277,7 @@
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> color</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Color }}</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 ps-0">
@@ -665,7 +665,7 @@
                                             
                                             <li>
                                                 <span class="round_product_part_1">COLOR  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Color }} </span>
+                                                <span class="round_product_part_2">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
                                             </li>
                                             @if($Diamond->Cut != "")
                                             <li>
@@ -682,10 +682,12 @@
                                                 <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
                                             </li>
                                             
+                                            @if($Diamond->Measurement != "")
                                             <li>
                                                 <span class="round_product_part_1"> MEASUREMENT  :</span>
                                                 <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
                                             </li>
+                                            @endif
                                             <li>
                                                 <span class="round_product_part_1"> CERTIFIED :</span>
                                                 <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
@@ -714,7 +716,7 @@
                             <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title  }}</a></div>
                             <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                 <span>{{ $Diamond->Clarity }} clarity |</span>
-                                <span>{{ $Diamond->Color }} color |</span>
+                                <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
                                 <span>{{ $Diamond->Lab }} certified</span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">

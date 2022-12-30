@@ -267,13 +267,14 @@
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2 color-fancy-color-part">
                     <ul class="nav wire_bangle_tabs_part filter-part-shape justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item">
-                            <a class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
+                            <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
-                            <a class="nav-link py-0" href="#2aa" data-toggle="tab">Fancy Color</a>
+                            <a class="nav-link py-0 slider-color common_selector" data="fancy-color" value="fancy-color" href="#2aa" data-toggle="tab">Fancy Color</a>
                         </li>
                     </ul>
                 </span>
+                <input type="hidden" id="slider-color" value="color">
                 <span class="col-md-12">
                     <div id="exTab1" class="container px-0">
 
@@ -900,6 +901,16 @@
     $(document).ready(function() {
         compare_data();
 
+        $(".slider-color").click(function(){
+            var svalue = $(this).attr('value');
+            if(svalue == "color"){
+                $(".fancycolor").prop('checked', false);
+            }else{
+                $(".color").prop('checked', false);
+            }
+            $('#slider-color').val(svalue);
+        });
+
         function compare_data() {
             var ENDPOINT = "{{ url('/compare/'.$CatId) }}";
             $.ajax({
@@ -968,6 +979,7 @@
         });
         filter_data(page);
         $("#sorting").change(function() {
+            page = 1;
             filter_data(page);
         });
 
@@ -989,6 +1001,7 @@
             var shape = get_filter('shape');
             var color = get_filter('color');
             var fcolor = get_filter('fancycolor');
+            var scolor = $('#slider-color').val();
             var clarity = get_filter('clarity');
             var cut = get_filter('cut');
             var report = get_filter('report');
@@ -1072,6 +1085,7 @@
                     meas_depth_min: meas_depth_min,
                     meas_depth_max: meas_depth_max,
                     fcolor: fcolor,
+                    scolor: scolor,
                     _token: '{{ csrf_token() }}'
                 },
                 beforeSend: function() {
@@ -1110,10 +1124,12 @@
         }
 
         $('.common_selector').click(function() {
+            page = 1;
             filter_data(page);
         });
 
         $(".common_input").keyup(function() {
+            page = 1;
             filter_data(page);
         });
 
@@ -1136,7 +1152,7 @@
 
         $(function() {
             var maxPrice = '{{ $Maxprice  }}';
-
+            page = 1;
             $("#slider-range").slider({
                 range: true,
                 min: 0,
@@ -1179,7 +1195,7 @@
 
         $(function() {
             var maxPrice = 7;
-
+            page = 1;
             $("#slider-range-carat").slider({
                 range: true,
                 min: 0,
@@ -1224,7 +1240,7 @@
 
         $(function() {
             var maxDepth = '{{ $MaxDepth  }}';
-
+            page = 1;
             $("#slider-range-depth").slider({
                 range: true,
                 min: 40,
@@ -1270,7 +1286,7 @@
 
         $(function() {
             var maxRatio = 3;
-
+            page = 1;
             $("#slider-range-ratio").slider({
                 range: true,
                 min: 0,
@@ -1318,7 +1334,7 @@
 
         $(function() {
             var maxTable = '{{ $MaxTable  }}';
-
+            page = 1;
             $("#slider-range-table").slider({
                 range: true,
                 min: 40,
@@ -1416,24 +1432,27 @@
         });
 
         $(document).on("click", ".common_selector", function() {
-            {
-                $("#finish3X").prop("checked", false);
-                $("#finishVG-").prop("checked", false);
-                $("#finishVG+").prop("checked", false);
-                $("#finishVG-").prop("checked", false);
-
-            }
+        {
+            $("#finish3X").prop("checked", false);
+            $("#finishVG-").prop("checked", false);
+            $("#finishVG+").prop("checked", false);
+            $("#finishVG-").prop("checked", false);
+        }
         });
 
         $(".color").click(function(){
-            $(".fancycolor ").prop('checked', false)
-            //$(e.target).prop('checked', true);
+            $(".fancycolor").prop('checked', false);
+             page = 1;
+            filter_data(page);
         });
 
         $(".fancycolor").click(function(){
-            $(".color ").prop('checked', false)
-            //$(e.target).prop('checked', true);
+            $(".color").prop('checked', false);
+             page = 1;
+            filter_data(page);
         });
+
+        
 
     });
 </script>
