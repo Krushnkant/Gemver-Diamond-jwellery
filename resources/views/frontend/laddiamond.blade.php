@@ -127,13 +127,14 @@
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
                     <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-start justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item ps-0">
-                            <a  class="nav-link ps-0 py-0" href="#1aa" data-toggle="tab">Color </a>
+                            <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
-                            <a class="nav-link py-0" href="#2aa" data-toggle="tab">Fancy Color</a>
+                            <a class="nav-link py-0 slider-color common_selector" data="fancy-color" value="fancy-color" href="#2aa" data-toggle="tab">Fancy Color</a>
                         </li>
                     </ul>
                 </span>
+                <input type="hidden" id="slider-color" value="color">
                     <span class="col-md-12">
                         <div id="exTab1" class="container px-0">	
 
@@ -769,6 +770,15 @@
     <script type="text/javascript">
     $(document).ready(function() { 
         compare_data();
+        $(".slider-color").click(function(){
+            var svalue = $(this).attr('value');
+            if(svalue == "color"){
+                $(".fancycolor").prop('checked', false);
+            }else{
+                $(".color").prop('checked', false);
+            }
+            $('#slider-color').val(svalue);
+        });
         function compare_data()
         {
             var ENDPOINT = "{{ url('/compareladdiamond/') }}";
@@ -819,8 +829,9 @@
             var ENDPOINT = "{{ url('/') }}";
             var page = 1;
             $(window).scroll(function () {
+               
                 //if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                if($(window).scrollTop() + $(window).height() > $(document).height() - 400){    
+                if($(window).scrollTop() + $(window).height() > $(document).height() - 400){  
                     page++;
                     var scroll = 1;
                     filter_data(page,scroll);
@@ -828,6 +839,7 @@
             });
             filter_data(page);
             $("#sorting").change(function() {
+                page = 1;
                 filter_data(page);
             });
 
@@ -836,6 +848,7 @@
             });
 
             $(".common_input").keyup(function(){
+                page = 1;
                 filter_data(page);
             });
 
@@ -854,6 +867,7 @@
                 var shape = get_filter('shape');
                 var color = get_filter('color');
                 var fcolor = get_filter('fancycolor');
+                var scolor = $('#slider-color').val();
                 var clarity = get_filter('clarity');
                 var cut = get_filter('cut');
                 var report = get_filter('report');
@@ -891,7 +905,7 @@
                     url: ENDPOINT + "/alllab-diamond?page=" + page,
                     method:"POST",
                     data:{action:action,maximum_price_input:maximum_price_input,minimum_price_input:minimum_price_input,maximum_table_input:maximum_table_input,minimum_table_input:minimum_table_input,maximum_ratio_input:maximum_ratio_input,minimum_ratio_input:minimum_ratio_input,maximum_depth_input:maximum_depth_input,minimum_carat_input:minimum_carat_input,maximum_carat_input:maximum_carat_input,minimum_depth_input:minimum_depth_input,minimum_price:minimum_price,maximum_price:maximum_price,shape:shape,sorting:sorting,color:color,clarity:clarity,cut:cut,minimum_carat:minimum_carat
-                        ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,fluor:fluor,growth_type:growth_type,fcolor:fcolor,_token: '{{ csrf_token() }}'},
+                        ,maximum_carat:maximum_carat,minimum_depth:minimum_depth,maximum_depth:maximum_depth,minimum_ratio:minimum_ratio,maximum_ratio:maximum_ratio,minimum_table:minimum_table,maximum_table:maximum_table,report:report,polish:polish,symm:symm,fluor:fluor,growth_type:growth_type,fcolor:fcolor,scolor: scolor,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
@@ -929,7 +943,7 @@
             }
         
             $('.common_selector').click(function(){
-                var page = 1;
+                 page = 1;
                 filter_data(page);
             });
         
@@ -952,7 +966,7 @@
         
             $(function() {
              var maxPrice = '{{ $Maxprice  }}';
-             var page = 1;
+              page = 1;
             $( "#slider-range" ).slider({
               range: true,
               min: 0,
@@ -993,7 +1007,7 @@
 
           $(function() {
              var maxPrice = 7;
-             var page = 1;
+              page = 1;
             $( "#slider-range-carat" ).slider({
               range: true,
               min: 0,
@@ -1036,7 +1050,7 @@
 
           $(function() {
              var maxDepth = '{{ $MaxDepth  }}';
-             var page = 1;
+              page = 1;
              
             $( "#slider-range-depth" ).slider({
               range: true,
@@ -1081,7 +1095,7 @@
 
           $(function() {
              var maxRatio = 3;
-             var page = 1;
+              page = 1;
              
             $( "#slider-range-ratio" ).slider({
               range: true,
@@ -1128,7 +1142,7 @@
 
           $(function() {
              var maxTable = '{{ $MaxTable  }}';
-             var page = 1;
+             page = 1;
             $( "#slider-range-table" ).slider({
               range: true,
               min: 0,
@@ -1234,18 +1248,16 @@
         });
 
         $(".color").click(function(){
-            $(".fancycolor ").prop('checked', false)
-            //$(e.target).prop('checked', true);
+            $(".fancycolor").prop('checked', false);
+             page = 1;
+            filter_data(page);
         });
 
         $(".fancycolor").click(function(){
-            $(".color ").prop('checked', false)
-            //$(e.target).prop('checked', true);
+            $(".color").prop('checked', false);
+             page = 1;
+            filter_data(page);
         });
-
-
-
-           
 
         });
    </script>
