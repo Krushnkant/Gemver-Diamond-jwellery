@@ -1224,15 +1224,27 @@
             }
         });
 
-            $(document).on("click", ".common_selector", function(){
-            {
-                $("#finish3X").prop("checked", false);
-                $("#finishVG-").prop("checked", false);
-                $("#finishVG+").prop("checked", false);
-                $("#finishVG-").prop("checked", false);
-                
-            }
+        $(document).on("click", ".common_selector", function(){
+        {
+            $("#finish3X").prop("checked", false);
+            $("#finishVG-").prop("checked", false);
+            $("#finishVG+").prop("checked", false);
+            $("#finishVG-").prop("checked", false);
+            
+        }
         });
+
+        $(".color").click(function(){
+            $(".fancycolor ").prop('checked', false)
+            //$(e.target).prop('checked', true);
+        });
+
+        $(".fancycolor").click(function(){
+            $(".color ").prop('checked', false)
+            //$(e.target).prop('checked', true);
+        });
+
+
 
            
 
