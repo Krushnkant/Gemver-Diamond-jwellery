@@ -180,7 +180,7 @@ class DiamondController extends Controller
         }
 
         if(isset($data["fcolor"])){
-            $FancyColor = $data["color"];
+            $FancyColor = $data["fcolor"];
             $query = $query->whereIn('FancyColor',$FancyColor);
         }
 
@@ -843,7 +843,7 @@ class DiamondController extends Controller
         }
 
         if(isset($data["fcolor"])){
-            $FancyColor = $data["color"];
+            $FancyColor = $data["fcolor"];
             $query = $query->whereIn('FancyColor',$FancyColor);
         }
 
