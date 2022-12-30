@@ -1444,6 +1444,16 @@
             }
         });
 
+        $(".color").click(function(){
+            $(".fancycolor ").prop('checked', false)
+            //$(e.target).prop('checked', true);
+        });
+
+        $(".fancycolor").click(function(){
+            $(".color ").prop('checked', false)
+            //$(e.target).prop('checked', true);
+        });
+
     });
 </script>
 
