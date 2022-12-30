@@ -88,17 +88,15 @@
 
         <div class="container">
             <div class="wire_bangle_line"></div>
-            <div class="row align-items-center mt-4">
-                <div class="col-2 col-md-6">
-                    <div class="col-3 col-md-auto px-0 d-lg-none">
-                        <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
-                            <i class="fa-solid fa-filter"></i>
-                            <span class="ms-2 d-none d-sm-inline-block">filter</span>
-                        </button>
-                    </div>
+            <div class="row align-items-center mt-4 justify-content-end">
+                <div class="col-3 col-md-6 px-0 d-lg-none">
+                    <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
+                        <i class="fa-solid fa-filter"></i>
+                        <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                    </button>
                 </div>
-                <div class="col-10 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end">
-                    <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option">
+                <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
+                    <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option ">
                         <select class="form-control" name="sorting" id="sorting" class="">
                             <option value="">default sorting</option>
                             <option value="date">Sort by newness</option>

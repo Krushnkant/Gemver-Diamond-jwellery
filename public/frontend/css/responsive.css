@@ -365,7 +365,7 @@
         position: initial;
         transform: none;
         width: 100%;
-        padding: 30px 15px;
+        padding: 12px 15px;
         background-color: var(--light-bg);
     }
     .background-sub-slider {
@@ -405,6 +405,10 @@
     }
     .background-sub-slider {
         height: auto;
+    }
+    .filter-checkbox {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
 }
 
@@ -460,7 +464,7 @@
         text-align: left;
         padding: 50px 0;
         box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
-        z-index: 1111;
+        z-index: 9999;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -484,6 +488,9 @@
         padding: 16px 22px;
         display: inline-block;
         color: #0B1727;
+    }
+    .product_img {
+        width: 100%;
     }
     .header,
     .header ul li {
@@ -900,7 +907,7 @@
         height: 28px;
     }
     .round_cut_lab_checkbox input[type="checkbox"] {
-        width: 45px;
+        width: 42px;
         height: 45px;
     }
     .round_cut_lab_checkbox input+.shape_img {
@@ -934,11 +941,11 @@
     .filter-data {
         position: fixed;
         top: 0%;
-        right: -100%;
+        left: -100%;
         background-color: #fff;
         width: 80%;
         text-align: left;
-        padding: 50px 0;
+        padding: 0;
         box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
         z-index: 1111;
         opacity: 0;
@@ -949,6 +956,7 @@
         width: 80%;
         transition: all 1s ease;
         height: 100%;
+        display: block;
     }
     .close-icon {
         font-size: 28px;
@@ -957,12 +965,17 @@
     }
     .filter-data-active {
         top: 0;
-        right: 0;
+        left: 0;
+        right: auto;
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
         overflow-y: scroll;
         transition: all 1s ease;
+        display: block !important;
+    }
+    .select_box_option select {
+        font-size: 13px;
     }
 }
 
@@ -1500,7 +1513,7 @@
     .filter-btn {
         font-size: 15px;
         width: 93px;
-        height: 40px;
+        height: 34px;
     }
     .wire_bangle_dropdown {
         font-size: 14px;
@@ -1553,7 +1566,7 @@
     }
     .round_cut_lab_range_slider .form-group label {
         font-size: 13px;
-        min-width: 58px;
+        min-width: 55px;
     }
     .round_cut_lab_range_slider .form-group label:before {
         width: 20px;
@@ -1839,6 +1852,13 @@
     .cart-icon-part .dropdown-toggle {
         margin-right: 5px;
     }
+    .filter-checkbox {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
+    .background-sub-slider {
+        height: 84px;
+    }
 }
 
 @media (min-width:768px) and (max-width:991px) {
@@ -1853,6 +1873,10 @@
     .round_cut_lab_checkbox input[type="checkbox"] {
         width: 47px;
         height: 47px;
+    }
+    .filter-checkbox {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
 }
 

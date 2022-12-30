@@ -413,7 +413,6 @@ background-size: cover;
     
     .btn-hover-effect-black:hover {
         color: #fff !important;
-        border: 1px solid #fff !important;
     }
     
     .btn-hover-effect-black::before,
@@ -1209,10 +1208,10 @@ background-size: cover;
     }
     
     .about_us_link a {
-        font-weight: 700;
-        font-size: 16px;
+        /* font-weight: 700; */
+        font-size: 14px;
         line-height: 20px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         color: #FFFFFF;
         text-align: center;
     }
@@ -1687,6 +1686,12 @@ background-size: cover;
     .wire_bangle_color_theme a {
         /* color: #0B1727; */
         color: #868686;
+    }
+    
+    .wire_bangle_color_theme a {
+        color: var(--primary);
+        text-decoration: none;
+        display: inline-block;
     }
     
     .select_setting_btn {
@@ -4880,7 +4885,6 @@ width: 100%;
         position: absolute;
         top: 14px;
         right: 14px;
-        z-index: 1;
     }
     
     .your_order_box {
@@ -5797,7 +5801,7 @@ width: 100%;
     
     .header-part {
         position: fixed;
-        z-index: 9;
+        z-index: 999;
         background-color: #fff;
         width: 100%;
         top: 35px;
@@ -6108,12 +6112,12 @@ width: 100%;
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 14px;
         letter-spacing: 0.05em;
         color: var(--primary);
         min-width: 100px;
-        height: 40px;
-        line-height: 37px;
+        height: 36px;
+        line-height: 30px;
         border: 0;
     }
     
@@ -6394,4 +6398,8 @@ width: 100%;
     .about-us-slider .owl-next,
     .about-us-slider .owl-prev {
         background: transparent !important;
+    }
+    
+    .wire_bangle_select_box_sort {
+        font-size: 14px !important;
     }
