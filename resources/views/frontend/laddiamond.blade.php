@@ -670,7 +670,6 @@
             </div>
         </div>
         <div class="wire_bangle_line"></div>
-
         <div class="row my-4 mb-2">
             <div class="col-lg-6 text-center text-sm-start">
                 <div class="row no-gutters mb-3 align-items-center justify-content-start">
