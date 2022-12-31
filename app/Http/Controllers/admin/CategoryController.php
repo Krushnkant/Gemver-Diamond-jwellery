@@ -9,6 +9,7 @@ use App\Models\StepPopup;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Image;
 
 class CategoryController extends Controller
 {
@@ -309,8 +310,21 @@ class CategoryController extends Controller
             if ($request->hasFile('files')) {
                 $image = $request->file('files')[0];
                 $image_name = 'categoryThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                
+                
+               
                 $destinationPath = public_path('images/categoryThumb');
+                    // $image->move($destinationPath, $image_name);
+
+                $img = Image::make($image->getRealPath());
+                $img->resize(800, 800, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath.'/'.$image_name);
+        
+                $destinationPath = public_path('/images');
                 $image->move($destinationPath, $image_name);
+                
+                
                 return response()->json(['data' => 'images/categoryThumb/'.$image_name]);
             }
         }

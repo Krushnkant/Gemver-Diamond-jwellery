@@ -130,11 +130,11 @@
                             <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
-                            <a class="nav-link py-0 slider-color common_selector" data="fancy-color" value="fancy-color" href="#2aa" data-toggle="tab">Fancy Color</a>
+                            <a class="nav-link py-0 slider-color common_selector slider-color-fancy" value="fancy-color" href="#2aa" data-toggle="tab">Fancy Color</a>
                         </li>
                     </ul>
                 </span>
-                <input type="hidden" id="slider-color" value="color">
+                <input type="hidden" id="slider-color" value="{{ ($fancycolor == "")?"color":"fancy-color" }}">
                     <span class="col-md-12">
                         <div id="exTab1" class="container px-0">	
 
@@ -183,86 +183,86 @@
                         </div>
                         <div class="tab-pane" id="2aa">
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Yellow" name="fancycolor[]" class="fancycolor common_selector" id="colorsYellow">
+                                <input type="checkbox"  value="Yellow" name="fancycolor[]" class="fancycolor common_selector" id="colorsYellow" {{ ( $fancycolor ==  'Yellow'  ) ? 'checked' : '' }}>
                                 <label for="colorsYellow">
                                     <img src="{{ url('frontend/image/yellow.png') }}" alt="asscher" class="fancy_color_img">
                                     Yellow
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Orange" name="fancycolor[]" class="fancycolor common_selector" id="colorsOrange">
+                                <input type="checkbox"  value="Orange" name="fancycolor[]" class="fancycolor common_selector" id="colorsOrange" {{ ( $fancycolor ==  'Orange'  ) ? 'checked' : '' }}>
                                 <label for="colorsOrange">
-                                    <img src="{{ url('frontend/image/orange.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/orange.png') }}" alt="Orange" class="fancy_color_img">
                                     Orange
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Pink" name="fancycolor[]" class="fancycolor common_selector" id="colorsPink">
+                                <input type="checkbox"  value="Pink" name="fancycolor[]" class="fancycolor common_selector" id="colorsPink" {{ ( $fancycolor ==  'Pink'  ) ? 'checked' : '' }}>
                                 <label for="colorsPink">
-                                    <img src="{{ url('frontend/image/pink.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/pink.png') }}" alt="Pink" class="fancy_color_img">
                                     Pink
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Blue" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlue">
+                                <input type="checkbox"  value="Blue" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlue" {{ ( $fancycolor ==  'Blue'  ) ? 'checked' : '' }}>
                                 <label for="colorsBlue">
-                                <img src="{{ url('frontend/image/blue.png') }}" alt="asscher" class="fancy_color_img">
+                                <img src="{{ url('frontend/image/blue.png') }}" alt="Blue" class="fancy_color_img">
                                     Blue
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Green" name="fancycolor[]" class="fancycolor common_selector" id="colorsGreen">
+                                <input type="checkbox"  value="Green" name="fancycolor[]" class="fancycolor common_selector" id="colorsGreen" {{ ( $fancycolor ==  'Green'  ) ? 'checked' : '' }}>
                                 <label for="colorsGreen">
-                                <img src="{{ url('frontend/image/green.png') }}" alt="asscher" class="fancy_color_img">
+                                <img src="{{ url('frontend/image/green.png') }}" alt="Green" class="fancy_color_img">
                                     Green
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Brown" name="fancycolor[]" class="fancycolor common_selector" id="colorsBrown">
+                                <input type="checkbox"  value="Brown" name="fancycolor[]" class="fancycolor common_selector" id="colorsBrown" {{ ( $fancycolor ==  'Brown'  ) ? 'checked' : '' }}>
                                 <label for="colorsBrown">
-                                    <img src="{{ url('frontend/image/brown.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/brown.png') }}" alt="Brown" class="fancy_color_img">
                                     Brown
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Red" name="fancycolor[]" class="fancycolor common_selector" id="colorsRed">
+                                <input type="checkbox"  value="Red" name="fancycolor[]" class="fancycolor common_selector" id="colorsRed" {{ ( $fancycolor ==  'Red'  ) ? 'checked' : '' }}>
                                 <label for="colorsRed">
-                                    <img src="{{ url('frontend/image/red.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/red.png') }}" alt="Red" class="fancy_color_img">
                                     Red
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="White" name="fancycolor[]" class="fancycolor common_selector" id="colorsWhite">
+                                <input type="checkbox"  value="White" name="fancycolor[]" class="fancycolor common_selector" id="colorsWhite" {{ ( $fancycolor ==  'White'  ) ? 'checked' : '' }}>
                                 <label for="colorsWhite">
                                     <img src="{{ url('frontend/image/white.png') }}" alt="asscher" class="fancy_color_img">
                                     White
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Violet" name="fancycolor[]" class="fancycolor common_selector" id="colorsViolet">
+                                <input type="checkbox"  value="Violet" name="fancycolor[]" class="fancycolor common_selector" id="colorsViolet" {{ ( $fancycolor ==  'Violet'  ) ? 'checked' : '' }}>
                                 <label for="colorsViolet">
-                                    <img src="{{ url('frontend/image/violet.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/violet.png') }}" alt="Violet" class="fancy_color_img">
                                     Violet
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="Purple" name="fancycolor[]" class="fancycolor common_selector" id="colorsPurple">
+                                <input type="checkbox"  value="Purple" name="fancycolor[]" class="fancycolor common_selector" id="colorsPurple" {{ ( $fancycolor ==  'Purple'  ) ? 'checked' : '' }}>
                                 <label for="colorsPurple">
-                                    <img src="{{ url('frontend/image/purple.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/purple.png') }}" alt="Purple" class="fancy_color_img">
                                     Purple
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsOlive">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsOlive" {{ ( $fancycolor ==  'Olive'  ) ? 'checked' : '' }}>
                                 <label for="colorsOlive">
-                                    <img src="{{ url('frontend/image/olive.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/olive.png') }}" alt="Olive" class="fancy_color_img">
                                     Olive
                                 </label>
                             </div>
                             <div class="form-group d-inline-block mb-2 position-relative">
-                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlack">
+                                <input type="checkbox"  value="L" name="fancycolor[]" class="fancycolor common_selector" id="colorsBlack" {{ ( $fancycolor ==  'Black'  ) ? 'checked' : '' }}>
                                 <label for="colorsBlack">
-                                    <img src="{{ url('frontend/image/black.png') }}" alt="asscher" class="fancy_color_img">
+                                    <img src="{{ url('frontend/image/black.png') }}" alt="Black" class="fancy_color_img">
                                     Black
                                 </label>
                             </div>
@@ -769,6 +769,10 @@
     <script type="text/javascript">
     $(document).ready(function() { 
         compare_data();
+        if("{{$fancycolor}}" != ""){
+            $(".slider-color-fancy").trigger("click");
+        }
+    
         $(".slider-color").click(function(){
             var svalue = $(this).attr('value');
             if(svalue == "color"){
