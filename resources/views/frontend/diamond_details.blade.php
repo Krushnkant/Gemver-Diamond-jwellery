@@ -231,7 +231,7 @@
                         <div class="product_slider_main_item video-player-btn-item video-player-diamond-btn">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
-                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'NONE')
+                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'None')
                         <div class="product_slider_main_item video-player-btn-item">
                             <iframe src="{{ $Diamond->Certificate_url }}"></iframe>
                         </div>
@@ -246,7 +246,7 @@
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
-                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'NONE')
+                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'None')
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
@@ -288,14 +288,14 @@
                                             @endif
                                         </div>
                                     </div>
-                                    @if($Diamond->Total_Depth_Per != "")
+                                    {{-- @if($Diamond->Total_Depth_Per != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Depth</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Total_Depth_Per }}</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    @endif --}}
                                     @if($Diamond->Lab_Report_No != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -304,56 +304,56 @@
                                         </div>
                                     </div>
                                     @endif
-                                    @if($Diamond->Table_Diameter_Per != "")
+                                    {{-- @if($Diamond->Table_Diameter_Per != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Table</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Table_Diameter_Per }}</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">shape</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->Girdle_Per != "")
+                                    {{-- @if($Diamond->Girdle_Per != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Girdle</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Girdle_Per }}</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat </span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Weight }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->CrownAngle != "")
+                                    {{-- @if($Diamond->CrownAngle != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Crown</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->CrownAngle .', '.$Diamond->CrownHeight }}</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">color</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->PavillionAngle != "")
+                                    {{-- @if($Diamond->PavillionAngle != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Pavillion</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->PavillionAngle .', '.$Diamond->PavillionHeight }}</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    @endif --}}
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
@@ -433,6 +433,7 @@
                                         </div>
                                     </div>
                                     @endif
+                                    
                                 </div>
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
