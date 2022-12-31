@@ -60,6 +60,10 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                                 'Amt' => $collection['total_price'],
                                 'Sale_Amt' => $sale_amt,
                                 'shape' => strtoupper($collection['shape']),
+                                'Measurement' => $collection['measurement_width'].' * '.$collection['measurement_length'].' * '.$collection['measurement_height'],
+                                'Culet_Size_ID' => $collection['culet'],
+                                'Ratio' => $collection['Ratio'],
+                                'growth_type' => $collection['growth_type'],
                             ]);
                 }else{ 
                     $data = ([
@@ -77,7 +81,7 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                         'Sale_Amt' => $sale_amt,
                         'shape' => strtoupper($collection['shape']),
                         'Color' => $collection['color'],
-                        'Measurement' => $collection['ratio'],
+                        'Measurement' => $collection['measurement_width'].' * '.$collection['measurement_length'].' * '.$collection['measurement_height'],
                         'meas_length' => ($collection['measurement_length'])?$collection['measurement_length']:0,
                         'meas_width' => ($collection['measurement_width'])?$collection['measurement_width']:0,
                         'meas_depth' => ($collection['measurement_height'])?$collection['measurement_height']:0,
@@ -110,7 +114,9 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                         
                         // 'Milkey' => $collection['milky'],
                         
-                        // 'Culet_Size_ID' => $collection['culet_size'],
+                         'Culet_Size_ID' => $collection['culet'],
+                         'Ratio' => $collection['Ratio'],
+                         'growth_type' => $collection['growth_type'],
                         // 'Culet_Condition_ID' => $collection['culet_condition'],
                         
                         

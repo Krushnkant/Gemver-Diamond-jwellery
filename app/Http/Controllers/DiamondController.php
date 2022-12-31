@@ -431,7 +431,11 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $Diamond = Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
+        if($Diamond->FancyColor != ""){
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->orderBy('FancyColor','DESC')->limit(10)->get();
+        }else{
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->limit(10)->get();
+        }
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
         return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','OrderIncludes','DiamondRelated','settings','StepPopup'));

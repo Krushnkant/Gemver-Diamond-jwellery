@@ -383,7 +383,7 @@
         $(this).find('.removeloadericonfa').show();
         e.preventDefault();
         var remove_pricerange_id = $(this).attr('data-id');
-           alert(remove_pricerange_id);
+          
         //var tab_type = get_users_page_tabType();
 
         $.ajax({
