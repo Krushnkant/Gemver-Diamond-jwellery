@@ -62,7 +62,7 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                                 'shape' => strtoupper($collection['shape']),
                                 'Measurement' => $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height'],
                                 'Culet_Size_ID' => $collection['culet'],
-                                'Ratio' => $collection['Ratio'],
+                                'Ratio' => $collection['ratio'],
                                 'growth_type' => $collection['growth_type'],
                             ]);
                 }else{ 
