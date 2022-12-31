@@ -509,23 +509,22 @@ function count_order_items($OrderId){
 
 function compressImage($source, $destination, $quality) { 
     // Get image info 
-   
-    $imgInfo = getimagesize($source); 
+    $imgInfo = getimagesize($source[0]); 
 
     $mime = $imgInfo['mime']; 
     // Create a new image from file 
     switch($mime){ 
         case 'image/jpeg': 
-            $image = @imagecreatefromjpeg($source); 
+            $image = imagecreatefromjpeg($source); 
             break; 
         case 'image/png': 
-            $image = @imagecreatefrompng($source); 
+            $image = imagecreatefrompng($source); 
             break; 
         case 'image/gif': 
-            $image = @imagecreatefromgif($source); 
+            $image = imagecreatefromgif($source); 
             break; 
         default: 
-            $image = @imagecreatefromjpeg($source); 
+            $image = imagecreatefromjpeg($source); 
     } 
      
     // Save image 
@@ -549,6 +548,8 @@ function getSlugId($model,$slug){
     return $item->id;
     
 }
+
+
 
 
 
