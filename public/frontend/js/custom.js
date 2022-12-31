@@ -258,6 +258,9 @@ $(document).ready(function() {
         });
     }
 
+    $(".advanced-filter").click(function() {
+        $(".form-group").toggleClass("form-group-active");
+    });
 
 
     $(".blog_filter_btn").click(function() {

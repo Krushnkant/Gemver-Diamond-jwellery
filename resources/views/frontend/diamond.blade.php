@@ -789,7 +789,7 @@
                             <input type="checkbox" value="" name="" id="checkbox_1">
                             <label for="checkbox_1">advanced filters</label>
                         </div> -->
-                        <div class="form-group mb-3 d-inline-block collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="form-group mb-3 d-inline-block collapsed advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <input type="checkbox" value="" name=""  id="checkbox_1">
                                 <label for="checkbox_1">advanced filters</label>
                             </div>

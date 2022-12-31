@@ -657,7 +657,7 @@
                 <div class="col-md-12 text-center text-sm-end px-0">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
-                            <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <input type="checkbox" value="" name=""  id="checkbox_1">
                                 <label for="checkbox_1">advanced filters</label>
                             </div>
@@ -670,7 +670,6 @@
             </div>
         </div>
         <div class="wire_bangle_line"></div>
-
         <div class="row my-4 mb-2">
             <div class="col-lg-6 text-center text-sm-start">
                 <div class="row no-gutters mb-3 align-items-center justify-content-start">
