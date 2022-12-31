@@ -183,14 +183,14 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.importview,admin.diamonds.save'
         ]);
 
-        ProjectPage::create([ 
-            'id' => 18, 
-            'parent_menu' => 15, 
-            'label' => 'Diamond Merchants', 
-            'route_url' => 'admin.company.list', 
-            'is_display_in_menu' => 1, 
-            'inner_routes' => 'admin.company.list'
-        ]);
+        // ProjectPage::create([ 
+        //     'id' => 18, 
+        //     'parent_menu' => 15, 
+        //     'label' => 'Diamond Merchants', 
+        //     'route_url' => 'admin.company.list', 
+        //     'is_display_in_menu' => 1, 
+        //     'inner_routes' => 'admin.company.list'
+        // ]);
 
 
 

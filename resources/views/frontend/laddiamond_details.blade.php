@@ -183,7 +183,7 @@
                                     @if($Diamond->Measurement != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> measurement</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
                                         </div>
                                     </div>
