@@ -271,7 +271,7 @@
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </button>
-                            <div class="d-sm-flex gemever-button">
+                            <div class="d-lg-flex gemever-button">
                             @foreach($Category as $cat)
                                 <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 save_addToCart me-2 gemver-button-part">add to {{ $cat->category_name }}</button>
                             @endforeach

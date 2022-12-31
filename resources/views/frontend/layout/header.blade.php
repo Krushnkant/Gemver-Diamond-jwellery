@@ -19,15 +19,12 @@
                             <div class="marquee">
                                 <div>
                                     @foreach($offers as $offer)
-                                    <span class="me-3 header-icon" style="padding-right:300px;">{{ $offer->title }}</span>
+                                    <span class="me-3 header-icon" style="">{{ $offer->title }}</span>
                                     @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>

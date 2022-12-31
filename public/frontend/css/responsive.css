@@ -977,6 +977,9 @@
     .select_box_option select {
         font-size: 13px;
     }
+    .home-page-header marquee span {
+        padding-right: 0 !important;
+    }
 }
 
 @media (max-width:1199px) {
