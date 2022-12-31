@@ -231,27 +231,27 @@ class DiamondController extends Controller
         }
 
         if($data["sorting"] == "price"){
-            $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
+            $results = $query->orderBy('Sale_Amt','asc')->paginate(16); 
         }elseif($data["sorting"]=="price-desc"){
-            $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
+            $results = $query->orderBy('Sale_Amt','desc')->paginate(16); 
         }elseif($data["sorting"]=="carat"){
-            $results = $query->orderBy('Weight','desc')->paginate(20); 
+            $results = $query->orderBy('Weight','desc')->paginate(16); 
         }elseif($data["sorting"]=="carat-desc"){
-            $results = $query->orderBy('Weight','desc')->paginate(20); 
+            $results = $query->orderBy('Weight','desc')->paginate(16); 
         }elseif($data["sorting"]=="color"){
-            $results = $query->orderBy('Color','desc')->paginate(20); 
+            $results = $query->orderBy('Color','desc')->paginate(16); 
         }elseif($data["sorting"]=="color-desc"){
-            $results = $query->orderBy('Color','desc')->paginate(20); 
+            $results = $query->orderBy('Color','desc')->paginate(16); 
         }elseif($data["sorting"]=="clarity"){
-            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+            $results = $query->orderBy('Clarity','desc')->paginate(16); 
         }elseif($data["sorting"]=="clarity-desc"){
-            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+            $results = $query->orderBy('Clarity','desc')->paginate(16); 
         }elseif($data["sorting"]=="cut"){
-            $results = $query->orderBy('Cut','desc')->paginate(20); 
+            $results = $query->orderBy('Cut','desc')->paginate(16); 
         }elseif($data["sorting"]=="cut-desc"){
-            $results = $query->orderBy('Cut','desc')->paginate(20); 
+            $results = $query->orderBy('Cut','desc')->paginate(16); 
         }else{
-            $results  = $query->paginate(20);
+            $results  = $query->paginate(16);
         }
         
         $artilces = '';
@@ -720,7 +720,7 @@ class DiamondController extends Controller
         return redirect('/diamond-setting/'.$catid);
     }
 
-    public function laddiamond($shap = "")
+    public function laddiamond($shap = "",$fancycolor = "")
     {
         $Maxprice = Diamond::max('Sale_Amt');
         $Maxprice = ceil($Maxprice / 100) * 100;
@@ -740,7 +740,7 @@ class DiamondController extends Controller
         $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.laddiamond',compact('shap','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
+        return view('frontend.laddiamond',compact('shap','fancycolor','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     }
 
     public function getLadDiamonds(Request $request)
@@ -902,27 +902,27 @@ class DiamondController extends Controller
         }
         
         if($data["sorting"] == "price"){
-            $results = $query->orderBy('Sale_Amt','asc')->paginate(20); 
+            $results = $query->orderBy('Sale_Amt','asc')->paginate(16); 
         }elseif($data["sorting"]=="price-desc"){
-            $results = $query->orderBy('Sale_Amt','desc')->paginate(20); 
+            $results = $query->orderBy('Sale_Amt','desc')->paginate(16); 
         }elseif($data["sorting"]=="carat"){
-            $results = $query->orderBy('Weight','desc')->paginate(20); 
+            $results = $query->orderBy('Weight','desc')->paginate(16); 
         }elseif($data["sorting"]=="carat-desc"){
-            $results = $query->orderBy('Weight','desc')->paginate(20); 
+            $results = $query->orderBy('Weight','desc')->paginate(16); 
         }elseif($data["sorting"]=="color"){
-            $results = $query->orderBy('Color','desc')->paginate(20); 
+            $results = $query->orderBy('Color','desc')->paginate(16); 
         }elseif($data["sorting"]=="color-desc"){
-            $results = $query->orderBy('Color','desc')->paginate(20); 
+            $results = $query->orderBy('Color','desc')->paginate(16); 
         }elseif($data["sorting"]=="clarity"){
-            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+            $results = $query->orderBy('Clarity','desc')->paginate(16); 
         }elseif($data["sorting"]=="clarity-desc"){
-            $results = $query->orderBy('Clarity','desc')->paginate(20); 
+            $results = $query->orderBy('Clarity','desc')->paginate(16); 
         }elseif($data["sorting"]=="cut"){
-            $results = $query->orderBy('Cut','desc')->paginate(20); 
+            $results = $query->orderBy('Cut','desc')->paginate(16); 
         }elseif($data["sorting"]=="cut-desc"){
-            $results = $query->orderBy('Cut','desc')->paginate(20); 
+            $results = $query->orderBy('Cut','desc')->paginate(16); 
         }else{
-            $results  = $query->paginate(20);
+            $results  = $query->paginate(16);
         }
         
         $artilces = '';
