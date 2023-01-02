@@ -431,10 +431,11 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $Diamond = Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        $Weight = (int)$Diamond->Weight;
         if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->orderBy('FancyColor','DESC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
@@ -1073,7 +1074,13 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
+        $Weight = (int)$Diamond->Weight;
+        if($Diamond->FancyColor != ""){
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+        }else{
+          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+        }
+        //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
         $settings = Settings::first();
         return view('frontend.laddiamond_details',compact('Diamond','Category','OrderIncludes','DiamondRelated','settings'));
     }
