@@ -611,6 +611,51 @@ $(document).ready(function() {
             }
         }
     });
+
+    $(function() {
+        // Owl Carousel
+        var owl = $(".animation-slider-text");
+        owl.owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            smartSpeed: 1000,
+            animateOut: "slideOutDown",
+            animateIn: "slideInDown",
+        });
+    });
+
+    // $('.animation-slider-text').owlCarousel({
+    //     loop: true,
+    //     autoplay: true,
+    //     autoplayTimeout: 2000,
+    //     animateOut: "slideInUp",
+    //     animateIn: "slideInDown",
+    //     items: 1,
+    //     center: true,
+    //     smartSpeed: 450
+    //     loop: true,
+    //     margin: 10,
+    //     dots: false,
+    //     animateOut: 'slideOutUp',
+    //     nav: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         576: {
+    //             items: 1
+    //         },
+    //         992: {
+    //             items: 1
+    //         },
+    //         1000: {
+    //             items: 1
+    //         }
+    //     }
+    // });
     $(".shop-dimond-by-shape-slider > .owl-nav >  .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" class="" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#0b1727"/></svg>');
     $(".shop-dimond-by-shape-slider > .owl-nav > .owl-next").html('<svg xmlns="http://www.w3.org/2000/svg" class="" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M8.36767 6.49984L2.10726 0.239422L0.633301 1.7113L5.42497 6.49984L0.633301 11.2873L2.10622 12.7603L8.36767 6.49984Z" fill="#0b1727"/></svg>');
     $(".shop-by-category > .owl-nav >  .owl-prev").html('<svg xmlns="http://www.w3.org/2000/svg" class="" width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M0.632325 6.50016L6.89274 12.7606L8.3667 11.2887L3.57503 6.50016L8.3667 1.71266L6.89378 0.239746L0.632325 6.50016Z" fill="#0b1727"/></svg>');
