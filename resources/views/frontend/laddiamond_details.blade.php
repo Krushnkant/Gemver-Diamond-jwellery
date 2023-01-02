@@ -60,17 +60,6 @@
                         </div>
                         @endif
                     </div>
-                      <!-- <div class="view_360_btn text-center mt-3">
-                        <button class="select_setting_btn btn-hover-effect btn-hover-effect-black" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view in 360 degree</button>
-                        <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-                                    <div class="modal-content inquiry_now_modal_iframe">
-                                        <div class="ms-auto me-0 mb-3"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                                        <iframe width="100%" height="100%" src="{{ $Diamond->Video_url }}"></iframe>
-                                    </div>
-                                </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
