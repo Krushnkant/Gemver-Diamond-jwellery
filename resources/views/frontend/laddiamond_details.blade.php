@@ -39,11 +39,6 @@
                         <div class="product_slider_main_item video-player-btn-item">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
-                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'None')
-                        <div class="product_slider_main_item video-player-btn-item">
-                            <iframe src="{{ $Diamond->Certificate_url }}"></iframe>
-                        </div>
-                        @endif
                     </div>
                     <div class="slider slider-nav">
                         @if($Diamond->Stone_Img_url != '')
@@ -54,18 +49,24 @@
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
-                        @if($Diamond->Certificate_url != '' && $Diamond->Certificate_url != 'None')
-                        <div class="product_slider_item video-player-btn">
-                            <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
-                        </div>
-                        @endif
                     </div>
+                      <!-- <div class="view_360_btn text-center mt-3">
+                        <button class="select_setting_btn btn-hover-effect btn-hover-effect-black" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view in 360 degree</button>
+                        <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+                                    <div class="modal-content inquiry_now_modal_iframe">
+                                        <div class="ms-auto me-0 mb-3"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                        <iframe width="100%" height="100%" src="{{ $Diamond->Video_url }}"></iframe>
+                                    </div>
+                                </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content mb-4 mb-md-0">
                     <div class="diamond-data">
-                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->long_title }}</div>
+                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
                         <div class="d-flex mb-2 pb-xxl-2">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
                                 <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
@@ -77,110 +78,38 @@
                                 <div class="row">
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
-                                            @if($Diamond->Certificate_url != "")
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
-                                            @else
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    {{-- @if($Diamond->Total_Depth_Per != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Depth</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Total_Depth_Per }}</span>
-                                        </div>
-                                    </div>
-                                    @endif --}}
-                                    @if($Diamond->Lab_Report_No != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Lab Report</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab_Report_No }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    {{-- @if($Diamond->Table_Diameter_Per != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Table</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Table_Diameter_Per }}</span>
-                                        </div>
-                                    </div>
-                                    @endif --}}
-                                    <div class="col-xl-6 px-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">shape</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
-                                        </div>
-                                    </div>
-                                    {{-- @if($Diamond->Girdle_Per != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Girdle</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Girdle_Per }}</span>
-                                        </div>
-                                    </div>
-                                    @endif --}}
-                                    <div class="col-xl-6 px-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat </span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Weight }}</span>
                                         </div>
                                     </div>
-                                    {{-- @if($Diamond->CrownAngle != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Crown</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->CrownAngle .', '.$Diamond->CrownHeight }}</span>
-                                        </div>
-                                    </div>
-                                    @endif --}}
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">color</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
                                         </div>
                                     </div>
-                                    {{-- @if($Diamond->PavillionAngle != "")
-                                    <div class="col-xl-6 ps-0">
+                                    <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Pavillion</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->PavillionAngle .', '.$Diamond->PavillionHeight }}</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">shape</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
                                         </div>
                                     </div>
-                                    @endif --}}
+                                    @if($Diamond->Cut != "")
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">cut grade</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Cut }}</span>
+                                        </div>
+                                    </div>
+                                    @endif
                                     <div class="col-xl-6 px-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
                                         </div>
                                     </div>
-                                    @if($Diamond->Culet_Size_ID != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Culet</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Culet_Size_ID }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @if($Diamond->Cut != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Cut</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Cut }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @if($Diamond->Measurement != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
+
+                                    
                                     @if($Diamond->POLISH != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -189,15 +118,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
-                                    @if($Diamond->Ratio != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Ratio</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Ratio }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
+
                                     @if($Diamond->Symm != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -206,22 +127,16 @@
                                         </div>
                                     </div>
                                     @endif
-                                    @if($Diamond->growth_type != "")
+
+                                    @if($Diamond->Measurement != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Growth Type</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->growth_type }}</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> measurement</span>
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
                                         </div>
                                     </div>
                                     @endif
-                                    @if($Diamond->FlrIntens != "")
-                                    <div class="col-xl-6 ps-0">
-                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Fluor</span>
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->FlrIntens }}</span>
-                                        </div>
-                                    </div>
-                                    @endif
+
                                     @if($Diamond->Stone_No != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -230,7 +145,17 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
+                                   
+                                    <div class="col-xl-6 px-0">
+                                        <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
+                                            @if($Diamond->Certificate_url != "")
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
+                                            @else
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
