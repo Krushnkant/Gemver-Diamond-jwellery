@@ -980,6 +980,12 @@
     .home-page-header marquee span {
         padding-right: 0 !important;
     }
+    .lab-grow-diamonds-section .see-all-btn {
+        min-width: 160px;
+        min-height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width:1199px) {
