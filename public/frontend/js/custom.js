@@ -620,8 +620,8 @@ $(document).ready(function() {
             loop: true,
             nav: true,
             autoplay: true,
-            autoplayTimeout: 2000,
-            smartSpeed: 1000,
+            autoplayTimeout: 5000,
+            smartSpeed: 3000,
             animateOut: "slideOutDown",
             animateIn: "slideInDown",
         });
