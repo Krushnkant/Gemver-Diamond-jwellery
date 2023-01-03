@@ -148,7 +148,7 @@
 
     <div class="smiling_gemver_banner shop_dimond_by_shape mt-0">
       <div class="container">
-      <div class="choose_your_setting_heading text-center mb-4 mb-md-5">Smiling  Gemver Difference</div>
+      <div class="choose_your_setting_heading text-center mb-4 mb-md-5">Gemver Difference</div>
         <!-- <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">Smiling  Gemver Difference</h2> -->
             <div class="row">
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
