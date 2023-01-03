@@ -6448,8 +6448,8 @@ width: 100%;
         color: var(--primary);
     }
     
-    .btn-hover-effect::before,
-    .btn-hover-effect::after {
+    .lab-grow-diamonds-section .btn-hover-effect::before,
+    .lab-grow-diamonds-section .btn-hover-effect::after {
         background-color: #fff !important;
     }
     
