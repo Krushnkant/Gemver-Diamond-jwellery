@@ -125,6 +125,26 @@
     @endif
 
 
+    <div class="">
+        <div class="container shop-colorful-bg">
+            <div class="row text-center pt-0 pb-4 py-md-4 py-lg-5 py-xl-5 align-items-center">
+                <div class="col-md-4 col-lg-3 offset-lg-1 text-center text-md-end">
+                   <div class="shop-colorful-img">
+                        <img src="{{ asset('frontend/image/diamond.gif') }}" alt="">
+                   </div>
+                </div>
+                <div class="col-md-8 text-start">
+                    <h2 class="heading-h2 mb-0 text-center text-md-start">80,000 Diamonds available in the Store</h2>
+                    <div class="sub_title text-center text-md-start">
+                       Glide with the shine of beautiful Jewels
+                       Glide with the shine of beautiful Jewels
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="shop_dimond_by_shape1">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center">
@@ -134,7 +154,7 @@
                 </div>
             </div>
             <div>
-                <div class="owl-carousel owl-theme products_item">
+                <div class="owl-carousel owl-theme products_item mb-5">
                     
                 <?php 
                     $shape_no = 1;
@@ -344,7 +364,6 @@
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
                         <div class="engagement_diamond_img">
-                        
                             <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
                         </div>
                     </div>
