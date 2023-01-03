@@ -562,7 +562,7 @@ background-size: cover;
     }
     
     .shop_dimond_by_shape {
-        padding: 60px 72px;
+        padding: 60px 72px 100px 60px;
         position: relative;
         /* background: url(../image/black-bg.png) no-repeat; */
         /* background: #fff; */
@@ -6451,6 +6451,31 @@ width: 100%;
     .lab-grow-diamonds-section .btn-hover-effect::before,
     .lab-grow-diamonds-section .btn-hover-effect::after {
         background-color: #fff !important;
+    }
+    
+    .shop-colorful-img {
+        overflow: hidden;
+    }
+    
+    .shop-colorful-bg {
+        background-color: #04020d;
+        border-radius: 15px;
+        margin-bottom: 100px;
+        overflow: hidden;
+    }
+    
+    .shop-colorful-bg .heading-h2 {
+        color: #fff !important;
+        text-transform: none;
+    }
+    
+    .shop-colorful-bg .sub_title {
+        color: #fff;
+    }
+    
+    .shop-colorful-img img {
+        max-width: 293px;
+        margin: -30px 0 0 0;
     }
     
     @keyframes drop-in {

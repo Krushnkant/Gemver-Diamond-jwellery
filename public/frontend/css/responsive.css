@@ -986,6 +986,18 @@
         line-height: 40px;
         font-size: 14px;
     }
+    .shop-colorful-img img {
+        margin: 0 0 15px 0;
+    }
+    .shop-colorful-bg {
+        margin-bottom: 50px;
+    }
+    .shop-colorful-bg .heading-h2 {
+        font-size: 18px;
+    }
+    .shop-colorful-bg .sub_title {
+        font-size: 15px;
+    }
 }
 
 @media (max-width:1199px) {
@@ -2338,6 +2350,12 @@
         height: 47px;
         min-width: 47px;
         min-height: 47px;
+    }
+    .shop-colorful-img img {
+        margin-bottom: 0;
+    }
+    .shop-colorful-bg .heading-h2 {
+        font-size: 25px;
     }
 }
 
