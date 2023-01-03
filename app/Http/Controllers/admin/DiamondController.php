@@ -14,6 +14,7 @@ use App\Imports\ImportDiamondNewLatest;
 use Excel;
 use Illuminate\Support\Facades\Validator;
 
+
 class DiamondController extends Controller
 {
     private $page = "Diamond";
