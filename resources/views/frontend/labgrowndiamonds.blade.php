@@ -2,56 +2,8 @@
 
 @section('content')
 
-<div class="engagement_bg_slider">
-    <div class="d-block d-md-none mobile-view-img">  
-        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
-        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
-   </div>
-   <div class="d-none d-md-block desktop-view-img">
-        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-   </div>
-    <!-- <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt=""> -->
-    <!-- <div class="container engagement_text_part">
-        <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
-            <p class="engagement_paragraph mb-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="engagement_button">
-                <button   class="engagement_start_diamond labDiamondBtn">{{ $MenuPage->main_first_button_name }}</button>
-            </div>
-        </div>
-    </div> -->
-</div>
 
-
-<div class="">
-        <div class="container my-5">
-            <div class="row two_part_box_section">
-                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img order-2 order-md-1">
-                    <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
-                </div> 
-                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
-                    <div class="choose_your_setting_box text-center">
-                        <div class="">
-                            <div class="custom_made_heading text-center mb-2 mb-xl-3">
-                                {{ $MenuPage->section1_title }}
-                            </div>
-                            <p class="custom_engagement_paragrph">
-                                {{ $MenuPage->section1_description }}
-                            </p>
-                            <div class="engagement_button mt-3 mt-sm-0 mt-md-3 mt-xl-4 text-start text-sm-center">
-                                <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto" id="settingDiamondBtn" data-id="{{ $MenuPage->category_id }}">Start with Diamond</button>
-                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto" id="settingProductBtn" data-id="{{ $MenuPage->category_id }}">Start with Setting</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="shop_dimond_by_shape explore_diamonds_section mt-3 ">
+<div class="shop_dimond_by_shape explore_diamonds_section lab-grow-diamonds-section mt-3 ">
         <div class="container">
             <div class="mb-4 text-center ">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3 explore_diamonds_heading">Explore Diamonds By Shape</div>
@@ -124,8 +76,49 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center">
+                <a  class="explore-category-btn btn-hover-effect diamond-btn buy_lab_diamonds_btn mt-5 see-all-btn">See all</a>
+            </div>
         </div>
     </div>
+<!-- <div class="engagement_bg_slider">
+    <div class="d-block d-md-none mobile-view-img">  
+        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
+        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
+   </div>
+   <div class="d-none d-md-block desktop-view-img">
+        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
+   </div>
+</div> -->
+
+
+<div class="">
+        <div class="container my-5">
+            <div class="row two_part_box_section">
+                <div class="col-md-6 mb-3 mb-md-0 design_engagemnt_image lab-diamond-img order-2 order-md-1">
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
+                </div> 
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <div class="choose_your_setting_box text-center">
+                        <div class="">
+                            <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                                {{ $MenuPage->section1_title }}
+                            </div>
+                            <p class="custom_engagement_paragrph">
+                                {{ $MenuPage->section1_description }}
+                            </p>
+                            <div class="engagement_button mt-3 mt-sm-0 mt-md-3 mt-xl-4 text-start text-sm-center">
+                                <button class="engagement_start_diamond d-block d-sm-inline-block mx-auto" id="settingDiamondBtn" data-id="{{ $MenuPage->category_id }}">Start with Diamond</button>
+                                <button class="engagement_start_setting ms-lg-3 mt-3 d-block d-sm-inline-block mx-auto" id="settingProductBtn" data-id="{{ $MenuPage->category_id }}">Start with Setting</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 
 {{-- <div class="fancy_color_diamonds shop_dimond_by_shape px-0">
     <div class="container">
@@ -246,7 +239,10 @@
             var url = "{{ url('lab-diamond') }}";
             window.open(url,"_blank");
         });
-
+        $('body').on('click', '.see-all-btn', function () {
+            var url = "{{ url('lab-diamond') }}";
+            window.open(url,"_blank");
+        });
         $('body').on('click', '#shopProductBtn', function () {
             var category_id = $(this).attr('data-id');
             var url = "{{ url('shop/') }}" + "/" + category_id;

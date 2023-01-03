@@ -562,7 +562,7 @@ background-size: cover;
     }
     
     .shop_dimond_by_shape {
-        padding: 60px 72px;
+        padding: 60px 72px 100px 60px;
         position: relative;
         /* background: url(../image/black-bg.png) no-repeat; */
         /* background: #fff; */
@@ -6411,6 +6411,71 @@ width: 100%;
     
     .animation-slider-text .item {
         animation: drop-in 1200ms ease 500ms backwards;
+    }
+    
+    .see-all-btn .explore-category-btn {
+        color: #fff;
+        border: 1px #fff solid;
+    }
+    
+    .lab-grow-diamonds-section {
+        position: relative;
+        background: transparent;
+    }
+    
+    .lab-grow-diamonds-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary);
+        z-index: -9;
+    }
+    
+    .lab-grow-diamonds-section .see-all-btn {
+        border: 1px #fff solid;
+        color: #fff;
+        line-height: 52px;
+        min-width: 200px;
+        min-height: 29px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    
+    .lab-grow-diamonds-section .see-all-btn:hover {
+        color: var(--primary);
+    }
+    
+    .lab-grow-diamonds-section .btn-hover-effect::before,
+    .lab-grow-diamonds-section .btn-hover-effect::after {
+        background-color: #fff !important;
+    }
+    
+    .shop-colorful-img {
+        overflow: hidden;
+    }
+    
+    .shop-colorful-bg {
+        background-color: #04020d;
+        border-radius: 15px;
+        margin-bottom: 80px;
+        overflow: hidden;
+    }
+    
+    .shop-colorful-bg .heading-h2 {
+        color: #fff !important;
+        text-transform: none;
+    }
+    
+    .shop-colorful-bg .sub_title {
+        color: #fff;
+    }
+    
+    .shop-colorful-img img {
+        max-width: 293px;
+        margin: -30px 0 0 0;
     }
     
     @keyframes drop-in {

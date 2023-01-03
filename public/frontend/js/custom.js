@@ -619,6 +619,7 @@ $(document).ready(function() {
             items: 1,
             loop: true,
             nav: true,
+            mouseDrag: false,
             autoplay: true,
             autoplayTimeout: 5000,
             smartSpeed: 3000,
@@ -626,6 +627,12 @@ $(document).ready(function() {
             animateIn: "slideInDown",
         });
     });
+
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 
     // $('.animation-slider-text').owlCarousel({
     //     loop: true,

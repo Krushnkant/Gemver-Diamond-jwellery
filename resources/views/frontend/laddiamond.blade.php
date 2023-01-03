@@ -31,6 +31,12 @@
                 <div class="round_cut_lab_checkbox row mb-2">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">shape </span>
                     <div class="col-md-12">
+                            <div>
+                            <input id="checkbox1" type="checkbox"><label for="checkbox1"></label>
+                            <div class="text_box" id="text_box_test1">
+                                <p>This is a test</p>
+                            </div>
+                            </div>
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                                     <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ ( strtolower($shap) ==  'round'  ) ? 'checked' : '' }}  id="flexRadioDefaultround">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" class="shape_img">
