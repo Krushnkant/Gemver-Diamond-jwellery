@@ -4213,7 +4213,7 @@ width: 100%;
     }
     
     .shop_by_category_padding {
-        padding-bottom: 30px;
+        padding-bottom: 60px;
     }
     
     .wire_bangle_description .wire_bangle_sub_heading {
@@ -6455,6 +6455,10 @@ width: 100%;
     
     .shop-colorful-img {
         overflow: hidden;
+    }
+    
+    .shop_dimond_by_shape1 {
+        margin-bottom: 80px;
     }
     
     .shop-colorful-bg {
