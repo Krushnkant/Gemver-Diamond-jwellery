@@ -134,7 +134,7 @@
                    </div>
                 </div>
                 <div class="col-md-8 text-start">
-                    <h2 class="heading-h2 mb-0 text-center text-md-start">80,000 Diamonds available in the Store</h2>
+                    <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available in the Store</h2>
                     <div class="sub_title text-center text-md-start">
                        Glide with the shine of beautiful Jewels
                        Glide with the shine of beautiful Jewels

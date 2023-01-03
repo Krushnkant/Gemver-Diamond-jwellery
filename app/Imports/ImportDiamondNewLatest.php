@@ -20,7 +20,7 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
     */
     public function collection(Collection $collections)
     {
-        set_time_limit(0);
+              set_time_limit(0);
         $vender_array = array(); 
         foreach($collections as $collection)
         {
@@ -55,16 +55,22 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                 
                 $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
                 if($Diamond){
-                    Diamond::where('Stone_No', $Stone_No)
-                            ->update([
-                                'Amt' => $collection['total_price'],
-                                'Sale_Amt' => $sale_amt,
-                                'shape' => strtoupper($collection['shape']),
-                                'Measurement' => $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height'],
-                                'Culet_Size_ID' => $collection['culet'],
-                                'Ratio' => $collection['ratio'],
-                                'growth_type' => $collection['growth_type'],
-                            ]);
+                  //  Diamond::where('Stone_No', $Stone_No)
+                          //  ->update([
+                              //  'Amt' => $collection['total_price'],
+                              //  'Sale_Amt' => $sale_amt,
+                               // 'shape' => strtoupper($collection['shape']),
+                                //'Measurement' => $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height'],
+                                //'Culet_Size_ID' => $collection['culet'],
+                                //'Ratio' => $collection['ratio'],
+                                //'growth_type' => $collection['growth_type'],
+                           // ]);
+                   // $idiamond = Diamond::where('Stone_No', $Stone_No)->first();  
+                    $Diamond->Amt = $collection['total_price'];      
+                    $Diamond->Sale_Amt = $sale_amt;      
+                    $Diamond->shape = strtoupper($collection['shape']);      
+                    $Diamond->Measurement = $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height']; 
+                    $Diamond->save();    
                 }else{ 
                     $data = ([
                         'Company_id' => 1,  
@@ -115,7 +121,7 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                         // 'Milkey' => $collection['milky'],
                         
                          'Culet_Size_ID' => $collection['culet'],
-                         'Ratio' => $collection['Ratio'],
+                         'Ratio' => $collection['ratio'],
                          'growth_type' => $collection['growth_type'],
                         // 'Culet_Condition_ID' => $collection['culet_condition'],
                         
