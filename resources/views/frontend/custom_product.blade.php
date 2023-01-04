@@ -236,7 +236,7 @@
                 </div>
                 </div>
                 @foreach($Attributes as $attribute)
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider row">
                             <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
                             <div class="col-md-12 filter-checkbox">    
@@ -248,7 +248,7 @@
                                 @endforeach 
                             </div>
                     </div>
-                </div>      
+                </div>       -->
                 @endforeach
             
                 <div class="row text-end mb-3">

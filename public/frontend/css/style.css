@@ -564,9 +564,15 @@ background-size: cover;
     .shop_dimond_by_shape {
         padding: 60px 72px 100px 60px;
         position: relative;
-        /* background: url(../image/black-bg.png) no-repeat; */
-        /* background: #fff; */
         background-size: cover;
+    }
+    
+    .lab-grow-diamonds-section.shop_dimond_by_shape {
+        padding: 60px 72px 60px 60px;
+    }
+    
+    .lab-grown-diamond-padding {
+        padding-bottom: 60px !important;
     }
     
     .diamond_margin {
@@ -2103,6 +2109,11 @@ background-size: cover;
         color: var(--primary);
     }
     
+    .contact_us_sub_heading:hover,
+    .contact_us_sub_paragraph:hover {
+        color: var(--primary);
+    }
+    
     .contact_us_sub_paragraph {
         font-style: normal;
         font-size: 17px;
@@ -3516,14 +3527,14 @@ border: 0;
         bottom: 0;
         right: 0;
         z-index: 9999;
-        background-color: #fff;
+        background-color: #f7f7f7;
         width: 100%;
         height: 100%;
     }
     
     .loader-btn img {
         width: 100px;
-        height: 100px;
+        height: auto;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -5521,7 +5532,7 @@ width: 100%;
     
     .engagement_start_diamond,
     .engagement_start_setting {
-        background: var(--primary);
+        background: var(--primary) !important;
         border-radius: 7px;
         font-weight: 500;
         font-size: 15px;
@@ -5886,6 +5897,11 @@ width: 100%;
         font-size: 16px;
         line-height: 21px;
         color: #808080;
+        text-transform: lowercase;
+    }
+    
+    .gemver_diffrence_paragraph::first-letter {
+        text-transform: capitalize;
     }
     
     .gemver_diffrence_heading {
@@ -6480,6 +6496,19 @@ width: 100%;
     .shop-colorful-img img {
         max-width: 293px;
         margin: -30px 0 0 0;
+    }
+    
+    .create_yout_own_engagemtnt_ring_btn {
+        padding: 0 20px;
+        line-height: 48px;
+    }
+    
+    .create_yout_own_engagemtnt_ring_btn:hover {
+        color: #fff !important;
+    }
+    
+    .buy_now_btn {
+        min-width: 150px;
     }
     
     @keyframes drop-in {

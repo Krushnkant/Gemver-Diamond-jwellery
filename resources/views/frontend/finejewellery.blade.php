@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
-                    Choose Your Setting Style
+                    Choose Your jewellery 
                 </div>
                 <p class="choose_your_setting_paragraph wedding_bands_paragraph text-center mb-3 mb-md-4 mb-xl-5">
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
@@ -36,7 +36,7 @@
                     <div class="item finejewellery-img mb-xl-4 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
                         <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         <div class="finejewellery-box mt-3">
-                            <div class="finejewellery-heading text-center">
+                            <div class="finejewellery-heading text-center mb-2">
                                 {{ $menupageshapestyle->title }}
                             </div>
                             <p class="finejewellery-paragraph my-0">
@@ -68,6 +68,9 @@
                             <p class="custom_engagement_paragrph">
                                 {{ $MenuPage->section1_description }}
                             </p>
+                            <div class="engagement_button">
+                                <a href="{{ url('shop') }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn buy_now_btn d-inline-block">Explore Product</a>
+                            </div>
                         </div>
                     </div>
                 </div>

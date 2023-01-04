@@ -73,17 +73,17 @@
                                     <div class="contact_us_sub_heading mb-2">
                                         phone no.
                                     </div>
-                                    <div class="contact_us_sub_paragraph">
+                                    <a href="tel:+91{{ $settings->company_mobile_no }}" class="contact_us_sub_paragraph">
                                     {{ $settings->company_mobile_no }}
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="contact_us_part mb-2 mb-md-4">
                                     <div class="contact_us_sub_heading mb-2">
                                         email
                                     </div>
-                                    <div class="contact_us_sub_paragraph">
+                                    <a href="mailto:{{ $settings->company_email }}" class="contact_us_sub_paragraph">
                                     {{ $settings->company_email }}
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="contact-google-map">

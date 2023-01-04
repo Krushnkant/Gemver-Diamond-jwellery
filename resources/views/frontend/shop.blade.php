@@ -67,12 +67,25 @@
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
                             <div class="col-lg-12">
-                                @foreach($attribute->attributeterm as $term)
+                                <!-- @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3 d-inline-block me-3">
                                         <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
                                         <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
                                     </div>
-                                @endforeach 
+                                @endforeach  -->
+                                <div class="d-flex align-items-center carat-input-part">
+                                    <div class="from_text me-4">
+                                        <div class="d-flex align-items-center">
+                                        <input type="text" name="" id="minimum_carat_input" placeholder="From" class="wire_bangle_input common_input comman_input_part w-100" value="0">
+                                            <span class="ms-2 filter_ct">ct</span>
+                                        </div>
+                                    </div>
+                                    <div class="me-4 text-center"> to</div>
+                                    <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                        <input type="text" name="" id="maximum_carat_input" placeholder="To" class="wire_bangle_input common_input comman_input_part w-100" value="7">
+                                        <span class="ms-2 filter_ct">ct</span>
+                                    </div>
+                                </div>
                             </div>
                         </ul>
                     </div>

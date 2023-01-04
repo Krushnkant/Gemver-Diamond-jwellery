@@ -104,7 +104,7 @@
                    
                     @if(isset($mostviewproducts) && $mostviewproducts != "")
                         <div class="blog-detail-post-heading mt-4">
-                            Most Viewed
+                            Most Viewed Product
                         </div>
                         <div class="owl-carousel owl-theme most-viewed-slider">
                         @foreach($mostviewproducts as $key => $mostviewproduct)

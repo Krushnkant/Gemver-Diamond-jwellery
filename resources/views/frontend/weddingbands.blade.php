@@ -221,6 +221,9 @@
                     <p class="custom_engagement_paragrph">
                         {{ $MenuPage->section4_description }}
                     </p>
+                    <div class="engagement_button">
+                        <a href="{{ url('shop') }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn buy_now_btn d-inline-block">Explore Product</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
                 <div class="row mt-0 mb-0">
                     <div class="col-md-6 col-lg-6 col-xl-3 text-center">
                         <div class="home-page-header">
-                            <a class="header-icon-part" href="tel:{{ $settings->company_mobile_no }}"><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
+                            <a class="header-icon-part" href="tel:+91{{ $settings->company_mobile_no }}"><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
                             <a class="header-icon-part" href="mailto:{{ $settings->company_email }}"><span class="me-3 header-icon"><i class="fa-solid fa-envelope me-2"></i> Email </span></a>
                             <a class="header-icon-part" href="https://api.whatsapp.com/send?phone=+91{{ $settings->company_mobile_no }}&text=Hello" target="_blank"><span class="header-icon"><i class="fa-brands fa-whatsapp"></i> Chat </span></a>
 
@@ -706,7 +706,7 @@
                                                 <span></span>
                                                 <span></span>
                                             </div>
-                                            <div class="mega-menu-four-part ">
+                                            <div class="mega-menu-four-part">
                                                 <ul>
                                                     <li>
                                                         <span class="menus_title">About Us </span>
@@ -718,7 +718,7 @@
                                                         <a href="{{ Route('frontend.marketneed')}}"><span class="ms-2 ms-lg-0">Market Need</span></a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ Route('frontend.ethicaledge')}}"><span class="ms-2 ms-lg-0">Why Gemver?</span></a>
+                                                        <a href="{{ url('gemver-difference') }}"><span class="ms-2 ms-lg-0">Why Gemver?</span></a>
                                                     </li>
                                                 </ul>
 

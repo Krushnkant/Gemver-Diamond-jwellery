@@ -459,7 +459,7 @@
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
                             Call us at <br>
-                           <a href="tel:{{ $settings->company_mobile_no }}"> {{ $settings->company_mobile_no }}</a>
+                           <a href="tel:+91{{ $settings->company_mobile_no }}"> {{ $settings->company_mobile_no }}</a>
                         </div>
                     </div>
                 </div>
