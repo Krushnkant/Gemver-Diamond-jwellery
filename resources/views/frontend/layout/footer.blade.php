@@ -162,7 +162,7 @@
                             <a href="{{ Route('frontend.contactus') }}">Contact Us</a>
                         </li>
                         <li>
-                            <a href="tel:{{ $settings->company_mobile_no }}">Call us</a>
+                            <a href="tel:+91{{ $settings->company_mobile_no }}">Call us</a>
                         </li>
                         <li>
                             <a href="#">Chat with us</a>
@@ -181,7 +181,7 @@
             </div>
             <input type="hidden" value="{{asset('frontend/')}}" id="asset" name="asset">
             <div class="footer-copyright-text text-center mt-md-4 pt-md-3 ">
-                ©2022 {{ $settings->company_name }}.All Rights Reserved 
+                ©2022 All Rights Reserved 
             </div>
         </div>
     </footer>

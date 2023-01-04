@@ -211,6 +211,10 @@
                     <p class="custom_engagement_paragrph">
                         {{ $MenuPage->section1_description }}
                     </p>
+                    <div class="engagement_button">
+                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn d-inline-block">Create your own engagement ring</a>
+                        <!-- <button class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn">Create your own engagement ring</button> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,9 +237,9 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                         </div>
-                        <div class="text-center create_your_own_heading mb-3">
+                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section31_title }}
-                        </div>
+                        </a>
                         <p class="create_your_own_paragraph">
                             {{ $MenuPage->section31_description }}
                         </p>
@@ -250,9 +254,9 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                         </div>
-                        <div class="text-center create_your_own_heading mb-3">
+                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section32_title }}
-                        </div>
+                        </a>
                         <p class="create_your_own_paragraph">
                             {{ $MenuPage->section32_description }}
                         </p>
@@ -267,12 +271,13 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
                         </div>
-                        <div class="text-center create_your_own_heading mb-3">
+                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section33_title }}
-                        </div>
+                        </a>
                         <p class="create_your_own_paragraph">
                             {{ $MenuPage->section33_description }}
                         </p>
+
                     </div>
                 </div>
             </div>  
@@ -291,6 +296,9 @@
                     <p class="custom_engagement_paragrph">
                         {{ $MenuPage->section4_description }}
                     </p>
+                    <div class="engagement_button">
+                        <a href="{{ url('shop') }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn buy_now_btn d-inline-block">Explore Product</a>
+                    </div>
                 </div>
             </div>
         </div>
