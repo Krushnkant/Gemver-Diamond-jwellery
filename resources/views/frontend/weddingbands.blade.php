@@ -202,13 +202,11 @@
                         </div>
                     </div>
                     <?php $shape_no++;  ?>
-                    @endforeach 
-                    
+                    @endforeach           
                 </div>
             </div>
         </div>
     </div>
-
 @endif
 <div class="container mt-3 my-md-5">
     <div class="row two_part_box_section">

@@ -670,7 +670,7 @@
             </div>
         </div>
         <div class="wire_bangle_line"></div>
-        <div class="row my-4 mb-2">
+        <div class="row my-4 mb-2 align-items-center">
             <div class="col-lg-6 text-center text-sm-start">
                 <div class="row no-gutters mb-3 align-items-center justify-content-start">
                     <div class="col-12 col-md-auto px-0">
@@ -688,7 +688,7 @@
             <div class="col-3 d-lg-none">
                 <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                     <i class="fa-solid fa-filter"></i>
-                    <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                    <span class="ms-2 d-sm-inline-block">filter</span>
                 </button>
             </div>  
             <div class="col-9 col-lg-6 text-end text-sm-end">

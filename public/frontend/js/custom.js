@@ -619,6 +619,7 @@ $(document).ready(function() {
             items: 1,
             loop: true,
             nav: true,
+            dots: false,
             mouseDrag: false,
             autoplay: true,
             autoplayTimeout: 5000,

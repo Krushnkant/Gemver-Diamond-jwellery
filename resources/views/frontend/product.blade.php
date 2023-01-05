@@ -591,7 +591,7 @@
         <div></div>
         <div class=" mt-md-5 mt-4 px-3 mb-md-5 mb-4">
 
-            <div class="review_description_heading order-includes-heading">
+            <div class="review_description_heading order-includes-heading mb-2">
                 Reviews
             </div>
             {{-- <div class="review_description_heading mb-3">
