@@ -105,7 +105,7 @@
                 <div class="col-3 col-md-6 px-0 d-lg-none">
                     <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                         <i class="fa-solid fa-filter"></i>
-                        <span class="ms-2 d-none d-sm-inline-block">filter</span>
+                        <span class="ms-2 d-sm-inline-block">filter</span>
                     </button>
                 </div>
                 <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">

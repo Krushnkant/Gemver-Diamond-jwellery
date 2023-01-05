@@ -5667,6 +5667,10 @@ width: 100%;
         color: var(--primary);
     }
     
+    .create_your_own_heading:hover {
+        color: #000 !important;
+    }
+    
     .create_your_own_section {
         position: relative;
     }
