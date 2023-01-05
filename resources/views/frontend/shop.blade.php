@@ -65,7 +65,7 @@
                 <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
-                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
+                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->attribute_name }}</li>
                             <div class="col-lg-12">
                                 <!-- @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3 d-inline-block me-3">

@@ -31,23 +31,23 @@
                         <form  method="post" id="ContactCreateForm" name="ContactCreateForm">
                             @csrf
                             <div class="mb-3">
-                                <input type="text" name="name" id="name" placeholder="your name" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="name" id="name" placeholder="Your Name" class="d-block wire_bangle_input w-100">
                                 <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="number" name="mobile_no" id="mobile_no" placeholder="your mobile number" class="d-block wire_bangle_input w-100">
+                                <input type="number" name="mobile_no" id="mobile_no" placeholder="Your Mobile Number" class="d-block wire_bangle_input w-100">
                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="email" name="email" id="email" placeholder="your email address" class="d-block wire_bangle_input w-100">
+                                <input type="email" name="email" id="email" placeholder="Your Email Address" class="d-block wire_bangle_input w-100">
                                 <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="subject" id="subject" placeholder="your subject" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="subject" id="subject" placeholder="Your Subject" class="d-block wire_bangle_input w-100">
                                 <div id="subject-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <textarea type="text" rows="8" name="message" id="message" placeholder="your message" class="d-block wire_bangle_input w-100"></textarea>
+                                <textarea type="text" rows="8" name="message" id="message" placeholder="Your Message" class="d-block wire_bangle_input w-100"></textarea>
                                 <div id="message-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <button type="submit" id="save_newContactBtn" class="send_inquiry_btn btn-hover-effect btn-hover-effect-black d-flex align-items-center justify-content-center">send 
