@@ -162,7 +162,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6 text-end mb-3 mb-md-0">
-								<a href="{{ url('product-setting/'.$Step->category_id) }}" class="maximise_your_budget_box">
+								<a href="{{ url('product-setting/ring') }}" class="maximise_your_budget_box">
 									<div>
 										<img src="{{ url('images/steps/'.$Step->step4_section11_image1) }}" alt="" class="maximise_your_budget_img">
 									</div>
@@ -172,7 +172,7 @@
                                 </a>
 							</div>
 							<div class="col-md-6 text-end">
-							    <a href="{{ url('diamond-setting/'.$Step->category_id) }}" class="maximise_your_budget_box">
+							    <a href="{{ url('diamond-setting/ring') }}" class="maximise_your_budget_box">
 									<img src="{{ url('images/steps/'.$Step->step4_section11_image2) }}" alt="" class="maximise_your_budget_img">
 									<div class="category-heading category-heading-part ps-2 ps-md-4">
                                     {{ $Step->step4_section11_title2 }}

@@ -123,9 +123,10 @@
                                 $regular_price = $item->regular_price;
                                 $auto_discount_percent = $item->auto_discount_percent;
                                 $item_image = explode(',',$item->images);
+                                $url =  URL('product-details/'.$item->slug); 
                             }else{
                                 $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
+                                $item_name = $item->short_title;
                                 $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
                                 /*$item_name .= '<span>'. $item->Clarity .' clarity |</span>
                                         <span>'. $item->Color .' color |</span>
@@ -135,6 +136,7 @@
                                 $item_image = explode(',',$item->Stone_Img_url);
                                 $regular_price = 0;
                                 $auto_discount_percent = 0;
+                                $url =  url('laddiamond-details/'.$item->id);
                             }
                             ?>
                             <tr class="cartpage product-data">
@@ -147,7 +149,7 @@
                                     </div>
 
                                     <div class="ms-3">
-                                        <a href="#" class="cart_product_name mb-2">{!! $item_name !!}</a>
+                                        <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                         @if($data['item_type'] != 1)
                                             @foreach ($item->product_variant_variants as $vitem)
                                                 <span class="cart_product_specification d-block">

@@ -161,14 +161,14 @@
                                     $specifications = $data['specification'];
                                     }
 
-                                    $url =  URL('/product-details/'.$item['slug']); 
+                                    $url =  URL('product-details/'.$item['slug']); 
                                 }else{
                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
                                     $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
                                     $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
                                     $sale_price = $item->Sale_Amt;
                                     $item_image = explode(',',$item->Stone_Img_url); 
-                                    $url =  "";
+                                    $url =  url('laddiamond-details/'.$item->id);
                                 }
                                 
                                 ?>
@@ -311,7 +311,7 @@
                             </div>
                             <div class="checkout_box_part_paragraph mt-3">
                                 Estimated date of shipment<br>
-                                {{ date('dS M , Y', strtotime ('+2 day')) }}
+                                {{ date('dS M , Y', strtotime ('+10 day')) }}
                             </div>
                         </div>
                     </div>

@@ -49,8 +49,8 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$id])->first();
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
         $Maxprice = Diamond::max('Sale_Amt');
-        $Maxprice = ceil($Maxprice / 100) * 100;
-        $MaxCarat = Diamond::max('Weight');
+        $Maxprice = ceil($Maxprice / 10000) * 10000;
+        $MaxCarat = ceil(Diamond::max('Weight') / 10) * 10;
         $MaxDepth = Diamond::max('Total_Depth_Per');
         $MaxDepth = ceil($MaxDepth / 10) * 10;
         $MaxRatio = Diamond::max('Ratio');
@@ -73,7 +73,6 @@ class DiamondController extends Controller
     public function getDiamonds(Request $request)
     {
         $data = $request->all();
-        \DB::enableQueryLog();
         $query = Diamond::where('estatus',1);
 
         
@@ -728,8 +727,8 @@ class DiamondController extends Controller
     public function laddiamond($shap = "",$fancycolor = "")
     {
         $Maxprice = Diamond::max('Sale_Amt');
-        $Maxprice = ceil($Maxprice / 100) * 100;
-        $MaxCarat = Diamond::max('Weight');
+        $Maxprice = ceil($Maxprice / 10000) * 10000;
+        $MaxCarat = ceil(Diamond::max('Weight') / 10) * 10;
         $MaxDepth = Diamond::max('Total_Depth_Per');
         $MaxDepth = ceil($MaxDepth / 10) * 10;
         $MaxRatio = Diamond::max('Ratio');
