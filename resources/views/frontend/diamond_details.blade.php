@@ -395,6 +395,7 @@
                                         </div>
                                     </div>
                                     @endif
+                                    
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
@@ -461,14 +462,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                            <b>{{ date('dS M , Y', strtotime ('+4 day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
+                                           <b>{{ date('dS M , Y', strtotime ('+10 day')) }} </b>
                                         </p>
                                     </div>
                                 </div>

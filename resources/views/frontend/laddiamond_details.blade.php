@@ -373,7 +373,7 @@
                             </button>
                             <div class="d-lg-flex gemever-button">
                             @foreach($Category as $cat)
-                                <button  data-id="{{ $cat->id }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 save_addToCart me-2 gemver-button-part">add to {{ $cat->category_name }}</button>
+                                <button  data-id="{{ $cat->id }}" data-slug="{{ $cat->slug }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 save_addToCart me-2 gemver-button-part">add to {{ $cat->category_name }}</button>
                             @endforeach
                             </div>
 
@@ -384,14 +384,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+2 day')) }} </b>
+                                            <b>{{ date('dS M , Y', strtotime ('+4 day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+15 day')) }} </b>
+                                           <b>{{ date('dS M , Y', strtotime ('+10 day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
@@ -814,14 +814,15 @@
 $( document ).ready(function() {    
 $('body').on('click', '.save_addToCart', function () {
     var category_id = $(this).attr("data-id");
-    save_cart($(this),category_id);
+    var category_slug = $(this).attr("data-slug");
+    save_cart($(this),category_id,category_slug);
 });
 
 $('body').on('click', '.select_contact_btn', function () {
     jQuery("#opinionModal").modal('show');
 });
 
-function save_cart(btn,category_id){
+function save_cart(btn,category_id,category_slug){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
    
@@ -839,7 +840,7 @@ function save_cart(btn,category_id){
                 $(btn).find('.loadericonfa').hide();    
             }
             if(res.status == 200){
-                $url = "{{ url('product-setting') }}" +'/' + category_id
+                $url = "{{ url('product-setting') }}" +'/' + category_slug
                 window.location = $url;
             }
         },

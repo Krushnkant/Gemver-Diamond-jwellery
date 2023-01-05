@@ -5,6 +5,7 @@ use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
 use App\Models\ItemCart;
+use App\Models\Category;
 use App\Models\Coupon;
 use App\Models\Diamond;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class CartController extends Controller
         // return response()->json(['status' => '200']);  
 
         // dd($request->all());
+        $cart = Cart::where(['ip_address'=>$request->ip_address,'category_id'=>$request->category_id])->first();
         $cartcheck = Cart::where(['ip_address'=>$request->ip_address,'category_id'=>$request->category_id])->first();
        
         if ($cartcheck){

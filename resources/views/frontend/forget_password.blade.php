@@ -61,7 +61,7 @@
                 }
                 if(res.status == 200){
                     $('#forgetSubmit').prop('disabled',false);
-                    toastr.success("You have Successfully loggedin",'Success',{timeOut: 5000});
+                    toastr.success("Send mail Successfully",'Success',{timeOut: 5000});
                     location.href ="{{ url('/messagebox') }}";
                     //return redirect()->back();
                 }

@@ -107,13 +107,13 @@
                             <div class="d-flex align-items-center carat-input-part">
                                 <div class="from_text me-4">
                                     <div class="d-flex align-items-center">
-                                    <input type="text" name="" id="minimum_carat_input" placeholder="From" class="wire_bangle_input common_input comman_input_part w-100" value="0">
+                                    <input type="text" name="" id="minimum_carat_input" placeholder="From" class="wire_bangle_input common_input comman_input_part w-100" value="1">
                                         <span class="ms-2 filter_ct">ct</span>
                                     </div>
                                 </div>
                                 <div class="me-4 text-center"> to</div>
                                 <div class="to_text d-flex align-items-center" style="position: initial !important;">
-                                    <input type="text" name="" id="maximum_carat_input" placeholder="To" class="wire_bangle_input common_input comman_input_part w-100" value="7">
+                                    <input type="text" name="" id="maximum_carat_input" placeholder="To" class="wire_bangle_input common_input comman_input_part w-100" value="{{ $MaxCarat }}">
                                     <span class="ms-2 filter_ct">ct</span>
                                 </div>
                             </div>
@@ -334,19 +334,19 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Sym.</span>
                     <span class="col-md-12 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="radio" value="3X" class="finish "  name="finish" id="finish3X">
+                            <input type="checkbox" value="3X" class="finish "  name="finish" id="finish3X">
                             <label for="finish3X">3X</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="radio" value="EX-" class="finish " name="finish" id="finishEX-">
+                            <input type="checkbox" value="EX-" class="finish " name="finish" id="finishEX-">
                             <label for="finishEX-">EX-</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="radio" value="VG+" class="finish " name="finish" id="finishVG+">
+                            <input type="checkbox" value="VG+" class="finish " name="finish" id="finishVG+">
                             <label for="finishVG+">VG+</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="radio" value="VG-" class="finish " name="finish" id="finishVG-">
+                            <input type="checkbox" value="VG-" class="finish " name="finish" id="finishVG-">
                             <label for="finishVG-">VG-</label>
                         </div>
                     </span>
@@ -356,27 +356,27 @@
                     <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">cut</span>
                     <span class="col-md-11 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="ID" class="cut common_selector" name="cut[]" id="cutID">
+                            <input type="checkbox" value="Ideal" class="cut common_selector" name="cut[]" id="cutID">
                             <label for="cutID">Ideal</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="EX" class="cut common_selector" name="cut[]" id="cutEX">
+                            <input type="checkbox" value="Excellent" class="cut common_selector" name="cut[]" id="cutEX">
                             <label for="cutEX">Excellent</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="VG" class="cut common_selector" name="cut[]" id="cutVG">
+                            <input type="checkbox" value="Very Good" class="cut common_selector" name="cut[]" id="cutVG">
                             <label for="cutVG">Very Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="G" class="cut common_selector" name="cut[]" id="cutG">
+                            <input type="checkbox" value="Good" class="cut common_selector" name="cut[]" id="cutG">
                             <label for="cutG">Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="F" class="cut common_selector" name="cut[]" id="cutF">
+                            <input type="checkbox" value="Fair" class="cut common_selector" name="cut[]" id="cutF">
                             <label for="cutF">Fair</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="P" class="cut common_selector" name="cut[]" id="cutP">
+                            <input type="checkbox" value="Poor" class="cut common_selector" name="cut[]" id="cutP">
                             <label for="cutP">Poor</label>
                         </div>
                     </span>
@@ -387,27 +387,27 @@
                     <span class="col-md-11 filter-checkbox">
                         
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="ID" class="polish common_selector" name="polish[]" id="polishID">
+                            <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]" id="polishID">
                             <label for="polishID">Ideal</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="EX" class="polish common_selector" name="polish[]" id="polishEX">
+                            <input type="checkbox" value="Excellent" class="polish common_selector" name="polish[]" id="polishEX">
                             <label for="polishEX">Excellent</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="VG" class="polish common_selector" name="polish[]" id="polishVG">
+                            <input type="checkbox" value="Very Good" class="polish common_selector" name="polish[]" id="polishVG">
                             <label for="polishVG">Very Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="G" class="polish common_selector" name="polish[]" id="polishG">
+                            <input type="checkbox" value="Good" class="polish common_selector" name="polish[]" id="polishG">
                             <label for="polishG">Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="F" class="polish common_selector" name="polish[]" id="polishF">
+                            <input type="checkbox" value="Fair" class="polish common_selector" name="polish[]" id="polishF">
                             <label for="polishF">Fair</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-0">
-                            <input type="checkbox" value="P" class="polish common_selector" name="polish[]" id="polishP">
+                            <input type="checkbox" value="Poor" class="polish common_selector" name="polish[]" id="polishP">
                             <label for="polishP">Poor</label>
                         </div>
                     </span>
@@ -418,27 +418,27 @@
                     <span class="col-md-11 filter-checkbox">
                        
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="ID" class="symm common_selector" name="symm[]" id="symmID">
+                            <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">
                             <label for="symmID">Ideal</label>
                         </div>
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="EX" class="symm common_selector" name="symm[]" id="symmEX">
+                            <input type="checkbox" value="Excellent" class="symm common_selector" name="symm[]" id="symmEX">
                             <label for="symmEX">Excellent</label>
                         </div>
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="VG" class="symm common_selector" name="symm[]" id="symmVG">
+                            <input type="checkbox" value="Very Good" class="symm common_selector" name="symm[]" id="symmVG">
                             <label for="symmVG">Very Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="G" class="symm common_selector" name="symm[]" id="symmG">
+                            <input type="checkbox" value="Good" class="symm common_selector" name="symm[]" id="symmG">
                             <label for="symmG">Good</label>
                         </div>
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="F" class="symm common_selector" name="symm[]" id="symmF">
+                            <input type="checkbox" value="Fair" class="symm common_selector" name="symm[]" id="symmF">
                             <label for="symmF">Fair</label>
                         </div>
                         <div class="form-group d-inline-block me-3">
-                            <input type="checkbox" value="P" class="symm common_selector" name="symm[]" id="symmP">
+                            <input type="checkbox" value="Poor" class="symm common_selector" name="symm[]" id="symmP">
                             <label for="symmP">Poor</label>
                         </div>
                     </span>
@@ -556,15 +556,15 @@
                     <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 filter-checkbox">Growth Type</span>
                     <span class="col-md-10 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="CVD" class="report common_selector" id="CVD">
+                            <input type="checkbox" name="growth_type[]" value="CVD" class="growth_type common_selector" id="CVD">
                             <label for="CVD">CVD</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="HPHT" class="report common_selector" id="HPHT">
+                            <input type="checkbox" name="growth_type[]" value="HPHT" class="growth_type common_selector" id="HPHT">
                             <label for="HPHT">HPHT</label>
                         </div>
                         <div class="form-group d-inline-block me-3 mb-2">
-                            <input type="checkbox" name="growth_type[]" value="OTHER" class="report common_selector" id="OTHER">
+                            <input type="checkbox" name="growth_type[]" value="OTHER" class="growth_type common_selector" id="OTHER">
                             <label for="OTHER">OTHER</label>
                         </div>
                     </span>
@@ -668,7 +668,7 @@
                         </div>
                     </span>
                     <span class="d-inline-block">
-                        <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                        <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </span>
                 </div>
             </div>
@@ -772,6 +772,13 @@
    
     <script type="text/javascript">
     $(document).ready(function() { 
+        $('body').on('click', '#reSetLab', function() {
+            var onlyUrl = "{{ url('lab-diamond') }}";
+            window.location.href = onlyUrl;
+        });
+        $('input.finish').on('change', function() {
+            $('input.finish').not(this).prop('checked', false);  
+        });
         compare_data();
         if("{{$fancycolor}}" != ""){
             $(".slider-color-fancy").trigger("click");

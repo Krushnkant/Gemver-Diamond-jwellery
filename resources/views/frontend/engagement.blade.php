@@ -237,7 +237,7 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                         </div>
-                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
+                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section31_title }}
                         </a>
                         <p class="create_your_own_paragraph">
@@ -254,7 +254,7 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                         </div>
-                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
+                        <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section32_title }}
                         </a>
                         <p class="create_your_own_paragraph">

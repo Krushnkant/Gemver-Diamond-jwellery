@@ -52,6 +52,12 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                 }
 
                 $sale_amt = round((int)$collection['total_price'] + $company_per_amt);
+
+                if($collection['measurement_length'] != "" && $collection['measurement_width'] != "" && $collection['measurement_height'] != ""){     
+                    $DiamondMeasurement = $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height']; 
+                }else{
+                    $DiamondMeasurement = "-";    
+                }
                 
                 $Diamond = Diamond::where('Stone_No',$Stone_No)->first();
                 if($Diamond){
@@ -68,8 +74,8 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                    // $idiamond = Diamond::where('Stone_No', $Stone_No)->first();  
                     $Diamond->Amt = $collection['total_price'];      
                     $Diamond->Sale_Amt = $sale_amt;      
-                    $Diamond->shape = strtoupper($collection['shape']);      
-                    $Diamond->Measurement = $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height']; 
+                    $Diamond->shape = strtoupper($collection['shape']); 
+                    $Diamond->Measurement = $DiamondMeasurement; 
                     $Diamond->save();    
                 }else{ 
                     $data = ([
@@ -87,7 +93,7 @@ class ImportDiamondNewLatest implements WithHeadingRow,ToCollection
                         'Sale_Amt' => $sale_amt,
                         'shape' => strtoupper($collection['shape']),
                         'Color' => $collection['color'],
-                        'Measurement' => $collection['measurement_length'].' * '.$collection['measurement_width'].' * '.$collection['measurement_height'],
+                        'Measurement' =>  $DiamondMeasurement,
                         'meas_length' => ($collection['measurement_length'])?$collection['measurement_length']:0,
                         'meas_width' => ($collection['measurement_width'])?$collection['measurement_width']:0,
                         'meas_depth' => ($collection['measurement_height'])?$collection['measurement_height']:0,

@@ -434,7 +434,7 @@ class InfopageController extends Controller
         if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
             $canWrite = true;
         }
-        return view('admin.infopage.returns_days',compact('Infopages','canWrite'))->with('page',$this->page);
+        return view('admin.infopage.Returns_days',compact('Infopages','canWrite'))->with('page',$this->page);
     }
 
     public function editReturnDays(){

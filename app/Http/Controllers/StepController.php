@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\Step;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class StepController extends Controller
 {
     public function stepone($slug){
         $Step = Step::where(['estatus' => 1,'slug' => $slug])->first();
-        return view('frontend.stepone',compact('Step'));
+        $Category = Category::where(['id' => $Step->category_id])->first();
+        return view('frontend.stepone',compact('Step','Category'));
     }
 
     public function steptwo($slug){
@@ -23,6 +25,7 @@ class StepController extends Controller
 
     public function stepfour($slug){
         $Step = Step::where(['estatus' => 1,'slug' => $slug])->first();
-        return view('frontend.stepfour',compact('Step'));
+        $Category = Category::where(['id' => $Step->category_id])->first();
+        return view('frontend.stepfour',compact('Step','Category'));
     }
 }
