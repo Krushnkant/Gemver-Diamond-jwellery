@@ -259,6 +259,13 @@
         </div>
         <div class="wire_bangle_line"></div>
         <div class="row align-items-center d-flex justify-content-end mt-3">
+            <div class="col-lg-6 text-center text-sm-start">
+                <div class="row no-gutters mb-3 align-items-center justify-content-start">
+                    <div class="col-12 col-md-auto px-0">
+                        Result {{ count($Products) }}
+                    </div>
+                </div>
+            </div>
             <div class="col-3 col-md-6 d-lg-none ps-0">
                         <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                             <i class="fa-solid fa-filter"></i>

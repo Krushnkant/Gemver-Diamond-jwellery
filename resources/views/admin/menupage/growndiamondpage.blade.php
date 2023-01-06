@@ -67,6 +67,16 @@
                                  </div>
                                 
                             </div>
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <select  name="main_banner_category_id" id="categories" class="form-control">
+                                    <option value="">Select Main Banner Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['slug'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
                             </div>
                     </div>
@@ -317,6 +327,7 @@
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
            $('[name=cat_id]').val(data.category_id).change();
+           $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;

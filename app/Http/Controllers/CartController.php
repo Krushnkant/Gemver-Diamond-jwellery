@@ -204,12 +204,12 @@ class CartController extends Controller
         if(session()->has('customer')){
             $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
             if(count($cart_data) > 0){
-            echo json_encode(array('totalcart' => count($cart_data))); die;
-            return;
+             return json_encode(array('totalcart' => count($cart_data)));
+      
         }else{
             $totalcart = "0";
-            echo json_encode(array('totalcart' => $totalcart)); die;
-            return;  
+            return json_encode(array('totalcart' => $totalcart));
+         
         }
         }else{
             if(Cookie::get('shopping_cart'))
@@ -218,14 +218,14 @@ class CartController extends Controller
                 $cart_data = json_decode($cookie_data, true);
                 $totalcart = count($cart_data);
 
-                echo json_encode(array('totalcart' => $totalcart)); die;
-                return;
+                return json_encode(array('totalcart' => $totalcart)); 
+                
             }
             else
             {
                 $totalcart = "0";
-                echo json_encode(array('totalcart' => $totalcart)); die;
-                return;
+                return json_encode(array('totalcart' => $totalcart));
+                
             }
         }    
     }

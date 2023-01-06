@@ -21,7 +21,7 @@ class ProductController extends Controller
         $CatId = getSlugId('Category',$id);
         $Category = Category::where(['id' => $CatId])->first();
         
-        $Products= Product::with('primary_categories','product_variant')->where(['estatus' => 1])->get();
+        $Products= Product::where(['estatus' => 1,'is_custom' => 0])->get();
         if($id != ""){
             if($Category->parent_category_id == 0){
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->id])->get();
@@ -67,7 +67,7 @@ class ProductController extends Controller
            
             //$attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             //\DB::enableQueryLog(); 
-            $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2]);
+            $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2]);
             
             if(isset($request->keyword) && $request->keyword != ""){
                 // This will only execute if you received any keyword

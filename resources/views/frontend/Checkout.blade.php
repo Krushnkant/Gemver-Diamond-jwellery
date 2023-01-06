@@ -116,24 +116,36 @@
                              </div>
                          </div>
                          <div class="row mb-3 mb-md-4">
-                             <div class="col-md-6 mb-3 mb-md-0">
-                                 <label for="" class="form-label form_heading">City <span class="text-danger">*</span></label>
-                                 <input type="text" class="form-control" id="city" name="city" placeholder="Enter Your City">
-                                 <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-                             <div class="col-md-6">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <label for="" class="form-label form_heading">Country <span class="text-danger">*</span></label>
+                                <select class="form-control" id="country-dropdown" name="country">
+                                   <option value="">Select Country</option>
+                                   @foreach ($countries as $country) 
+                                       <option data-value="{{$country->id}}" value="{{$country->name}}">
+                                       {{$country->name}}
+                                       </option>
+                                   @endforeach
+                               </select>
+                                <div id="country-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                             
+                             <div class="col-md-4">
                                  <label for="" class="form-label form_heading">State <span class="text-danger">*</span></label>
-                                 <input type="text" class="form-control" id="state" name="state" placeholder="Enter Your State">
+                                 <select class="form-control" id="state-dropdown" name="state">
+                                </select>
                                  <div id="state-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
+                             <div class="col-md-4">
+                                <label for="" class="form-label form_heading">City <span class="text-danger">*</span></label>
+                                <select class="form-control" id="city-dropdown" name="city">
+                               </select>
+                                <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                            
                          </div>
                          <div class="row mb-3 mb-md-4">
-                             <div class="col-md-6 mb-3 mb-md-0">
-                                 <label for="" class="form-label form_heading">Country <span class="text-danger">*</span></label>
-                                 <input type="text" class="form-control" id="country" name="country" placeholder="Enter Your Country">
-                                 <div id="country-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                             </div>
-                             <div class="col-md-6">
+                            
+                             <div class="col-md-12">
                                  <label for="" class="form-label form_heading">Pin Code <span class="text-danger">*</span></label>
                                  <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your Pincode">
                                  <div id="pincode-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -894,7 +906,50 @@
             $('#add_address').show();
           }
         });
-// });    
+// });  
+
+$('#country-dropdown').on('change', function() {
+//var country_id = this.value;
+var country_id = $(this).find(':selected').data('value');
+
+$("#state-dropdown").html('');
+$.ajax({
+url:"{{url('get-states-by-country')}}",
+type: "POST",
+data: {
+country_id: country_id,
+_token: '{{csrf_token()}}' 
+},
+dataType : 'json',
+success: function(result){
+$('#state-dropdown').html('<option value="">Select State</option>'); 
+$.each(result.states,function(key,value){
+$("#state-dropdown").append('<option data-value="'+value.id+'" value="'+value.name+'">'+value.name+'</option>');
+});
+$('#city-dropdown').html('<option value="">Select State First</option>'); 
+}
+});
+});    
+$('#state-dropdown').on('change', function() {
+//var state_id = this.value;
+var state_id = $(this).find(':selected').data('value');
+$("#city-dropdown").html('');
+$.ajax({
+url:"{{url('get-cities-by-state')}}",
+type: "POST",
+data: {
+state_id: state_id,
+_token: '{{csrf_token()}}' 
+},
+dataType : 'json',
+success: function(result){
+$('#city-dropdown').html('<option value="">Select City</option>'); 
+$.each(result.cities,function(key,value){
+$("#city-dropdown").append('<option data-value="'+value.name+'" value="'+value.id+'">'+value.name+'</option>');
+});
+}
+});
+});
         
         
 </script>

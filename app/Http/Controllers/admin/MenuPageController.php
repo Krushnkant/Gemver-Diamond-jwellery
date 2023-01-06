@@ -50,6 +50,7 @@ class MenuPageController extends Controller
             $menupages = New MenuPage;
         }
         $menupages->category_id = $request->cat_id;
+        $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->main_first_button_name = $request->main_first_button_name;
@@ -260,6 +261,7 @@ class MenuPageController extends Controller
             $menupages = New MenuPage;
         }
         $menupages->main_title = $request->main_title;
+        $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
@@ -466,6 +468,7 @@ class MenuPageController extends Controller
             $menupages = New MenuPage;
         }
         $menupages->category_id = $request->cat_id;
+        $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->main_first_button_name = $request->main_first_button_name;
@@ -627,6 +630,7 @@ class MenuPageController extends Controller
         if(!$menupages){
             $menupages = New MenuPage;
         }
+        $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->section1_title = $request->section1_title;
@@ -804,7 +808,8 @@ class MenuPageController extends Controller
     {
         $menupages = Menupage::with('menupageshapestyle')->where('id',5)->first();
         $categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
-        return view('admin.menupage.customjewellerypage',compact('menupages','categories'))->with('page',$this->page);
+        $category = Category::where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
+        return view('admin.menupage.customjewellerypage',compact('menupages','categories','category'))->with('page',$this->page);
     }
 
     public function updateCustomJewelleryPage(Request $request){
@@ -832,6 +837,7 @@ class MenuPageController extends Controller
         if(!$menupages){
             $menupages = New MenuPage;
         }
+        $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->section1_title = $request->section1_title;

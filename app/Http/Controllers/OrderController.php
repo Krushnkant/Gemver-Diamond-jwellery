@@ -5,6 +5,7 @@ use App\Models\Address;
 use App\Models\ItemCart;
 use App\Models\Order;
 use App\Models\Settings;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 
@@ -24,8 +25,9 @@ class OrderController extends Controller
         $address = Address::where('user_id',session('customer.id'))->get();
         $carts = ItemCart::where('user_id',session('customer.id'))->get();
         $settings = Settings::find(1);
+        $countries = Country::get(["name","id"]);
 
-        return  view('frontend.Checkout',compact('address','carts','settings'));
+        return  view('frontend.Checkout',compact('address','carts','settings','countries'));
     }
 
     

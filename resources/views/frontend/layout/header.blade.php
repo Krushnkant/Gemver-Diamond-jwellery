@@ -712,6 +712,9 @@
                                                         <span class="menus_title">About Us </span>
                                                     </li>
                                                     <li>
+                                                        <a href="{{ Route('frontend.aboutus')}}"> <span class="ms-2 ms-lg-0">About Us</span></a>
+                                                    </li>
+                                                    <li>
                                                         <a href="{{ Route('frontend.customervalues')}}"><span class="ms-2 ms-lg-0">Customer Values</span></a>
                                                     </li>
                                                     <li>
@@ -719,6 +722,9 @@
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('gemver-difference') }}"><span class="ms-2 ms-lg-0">Why Gemver?</span></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ Route('frontend.testimonials')}}"> <span class="ms-2 ms-lg-0">Testimonials</span></a>
                                                     </li>
                                                 </ul>
 
@@ -758,12 +764,8 @@
                                                     <li>
                                                         <span class="menus_title">Pages </span>
                                                     </li>
-                                                    <li>
-                                                        <a href="{{ Route('frontend.aboutus')}}"> <span class="ms-2 ms-lg-0">About Us</span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ Route('frontend.testimonials')}}"> <span class="ms-2 ms-lg-0">Testimonials</span></a>
-                                                    </li>
+                                                    
+                                                   
                                                     <li>
                                                         <a href="{{ Route('frontend.blogs')}}"><span class="ms-2 ms-lg-0">Blogs</span></a>
                                                     </li>

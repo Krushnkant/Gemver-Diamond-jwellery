@@ -60,6 +60,7 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                   </div>
                             </div>
+                            
 
                             <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
                                 <div class="form-group">
@@ -87,6 +88,17 @@
                                     <input type="file" class="form-control-file" id="banner_mobile_image" name="banner_mobile_image" placeholder="">
                                     <div id="banner_mobile_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_mobile_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <select  name="main_banner_category_id" id="categories" class="form-control">
+                                    <option value="">Select Main Banner Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['slug'] }}">{{ $category['category_name'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             
@@ -421,6 +433,12 @@
             placeholder: "Select Custom Category",
             allowClear: false
         });
+
+        $('#categories').select2({
+            width: '100%',
+            placeholder: "Select Main Banner Category",
+            allowClear: false
+        });
         
         $.get("{{ url('admin/menupage') }}" +'/1/edit', function (data) {
             $('#main_title').val(data.main_title);
@@ -445,6 +463,7 @@
 
            //$('#cat_id option[value="'+data.category_id+'"]');
            $('[name=cat_id]').val(data.category_id).change();
+           $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;

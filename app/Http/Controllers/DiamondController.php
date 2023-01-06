@@ -442,8 +442,10 @@ class DiamondController extends Controller
     }
 
     public function customproducts($slug,$shopbyid = 0){
+        
         $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
         $id = $Category->id;
+        $Products= Product::where(['estatus' => 1,'is_custom' => 1])->whereRaw('FIND_IN_SET('.$id.', primary_category_id)')->get();
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_diamond = 0;
@@ -471,7 +473,7 @@ class DiamondController extends Controller
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
-        return view('frontend.custom_product',compact('Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice','StepPopup'));
+        return view('frontend.custom_product',compact('Products','Category','Attributes','Maxprice','CatId','check_diamond','ShopBy','DiamondPrice','StepPopup'));
     }
 
 
@@ -481,7 +483,7 @@ class DiamondController extends Controller
         if(isset($data["action"]))
         {
             $category = Category::find($data['catid']);
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -515,6 +517,21 @@ class DiamondController extends Controller
                 $query = $query->where('product_variant_variants.attribute_term_id',$data["attribute"]);
                 $query = $query->where('product_variant_variants.estatus',1);
             }
+
+            // if(isset($data["attribute"])){
+            //     $attribute=$data["attribute"];
+            //    $query = $query->where(function($q) use($attribute){
+            //     foreach($attribute as $key=>$c){
+            //         if ($key == 0) {
+            //             $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+            //         } else {
+            //             $q = $q->orWhere(function ($query1) use ($c){
+            //                 $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+            //             });
+            //         }
+            //     }
+            //    });
+            // }
 
             if(isset($data["specification"])){
                 $specification=$data["specification"];
