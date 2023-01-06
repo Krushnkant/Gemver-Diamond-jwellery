@@ -62,6 +62,7 @@
                     </div>
                 </div>
                 @foreach($Attributes as $attribute)
+                @if($attribute->attribute_name == "Karat")
                 <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -90,7 +91,25 @@
                         </ul>
                     </div>
                 </div>
-                @endforeach    
+                @else
+                <div class="col-md-6">
+                    <div class="round_cut_lab_range_slider">
+                        <ul class="right_side_ul round_cut_lab_range_slider row">
+                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
+                            <div class="col-lg-12">
+                                @foreach($attribute->attributeterm as $term)
+                                    <div class="form-group mb-3 d-inline-block me-3">
+                                        <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                    </div>
+                                @endforeach 
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+
+                @endif
+                @endforeach
                 <div class="text-end mb-3">
                     <div class="col-md-12">
                         <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
@@ -102,6 +121,13 @@
         <div class="container">
             <div class="wire_bangle_line"></div>
             <div class="row align-items-center mt-4 justify-content-end">
+                <div class="col-lg-6 text-center text-sm-start">
+                    <div class="row no-gutters mb-3 align-items-center justify-content-start">
+                        <div class="col-12 col-md-auto px-0">
+                            Result {{ count($Products) }}
+                        </div>
+                    </div>
+                </div>
                 <div class="col-3 col-md-6 px-0 d-lg-none">
                     <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                         <i class="fa-solid fa-filter"></i>

@@ -19,8 +19,9 @@ use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\StepController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CountryStateCityController;
 
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,14 @@ use App\Http\Controllers\WishlistController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear-cache', function() {
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    return "Cache is cleared";
+});
 
 //Frontend Route
 
@@ -147,6 +156,10 @@ Route::post('AddReview',[\App\Http\Controllers\ReviewController::class,'AddRevie
 
 Route::post('loadmore',[\App\Http\Controllers\ReviewController::class,'review'])->name('frontend.review');
 Route::post('/loadmore/load_data',[\App\Http\Controllers\ReviewController::class,'load_data'])->name('frontend.load_data');
+
+Route::get('country-state-city', [CountryStateCityController::class, 'index']);
+Route::post('get-states-by-country', [CountryStateCityController::class, 'getState']);
+Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity']);
 
 
 

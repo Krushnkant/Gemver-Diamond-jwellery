@@ -3,13 +3,15 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <div class="d-block d-md-none mobile-view-img">  
-        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
-        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
-   </div>
-   <div class="d-none d-md-block desktop-view-img">
-        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-   </div>
+    <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}"> 
+        <div class="d-block d-md-none mobile-view-img">  
+            <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
+            <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
+        </div>
+        <div class="d-none d-md-block desktop-view-img">
+                <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
+        </div>
+   </a>
     <!-- <div class="container engagement_text_part">
         <div class="engagement_text_part">
             <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
