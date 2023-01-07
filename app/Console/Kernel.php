@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('diamond:cron')->dailyAt('07:00');
+        $schedule->command('diamond:cron')->hourly();
+        // $schedule->command('diamond:cron')->dailyAt('07:00');
     }
 
     /**
