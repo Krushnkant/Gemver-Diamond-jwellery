@@ -382,9 +382,11 @@
                                         <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
                                     </a>
                                 </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
-                                    {{ $step->step1_shotline }}
-                                </p>
+                                <div>
+                                    <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
+                                        {{ $step->step1_shotline }}
+                                    </p>
+                                </div>
                             </div>
                             <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
