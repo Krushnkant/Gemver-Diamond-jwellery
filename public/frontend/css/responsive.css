@@ -378,12 +378,6 @@
     .smiling_box_icon {
         margin: auto;
     }
-    .smiling_box_heading {
-        text-align: center;
-    }
-    .smiling_box_paragraph {
-        text-align: center;
-    }
     .smiling_gemver_banner {
         margin-bottom: 0;
     }
@@ -419,6 +413,9 @@
     }
     .header_row {
         position: initial;
+    }
+    .smiling_box_icon {
+        min-width: 50px;
     }
     .step-progressbar-part {
         border-radius: 15px;
@@ -1010,6 +1007,9 @@
         transform: none;
         top: 16px;
         right: 0px;
+    }
+    .round_cut_lab_diamonds_info_price {
+        font-size: 15px !important;
     }
 }
 

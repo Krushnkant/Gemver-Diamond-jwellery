@@ -373,7 +373,7 @@
                             {{ $step->main_shotline }}
                         </p>
                         <div class="row">
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
@@ -386,7 +386,7 @@
                                     {{ $step->step1_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                         <div class="engagement_diamond_box mb-3">
                                             <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
@@ -397,7 +397,7 @@
                                     {{ $step->step2_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
@@ -408,7 +408,7 @@
                                 {{ $step->step3_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
@@ -477,49 +477,57 @@
       <div class="container">
         <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
             <div class="row">
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                         <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
                    </div>
-                    <div class="smiling_box_heading mb-2 mb-mb-3">
-                        {{ $SmilingDifference[0]->title }}   
-                    </div>
-                    <div class="smiling_box_paragraph">
-                        {{ $SmilingDifference[0]->shotline }}
+                    <div class="ms-3 ms-md-0">
+                        <div class="smiling_box_heading mb-2 mb-mb-3">
+                                {{ $SmilingDifference[0]->title }}   
+                            </div>
+                            <div class="smiling_box_paragraph">
+                                {{ $SmilingDifference[0]->shotline }}
+                            </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                         <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
                    </div>
+                   <div class="ms-3 ms-md-0">
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                    {{ $SmilingDifference[1]->title }}
-                    </div>
-                    <div class="smiling_box_paragraph">
-                    {{ $SmilingDifference[1]->shotline }}
-                    </div>
+                        {{ $SmilingDifference[1]->title }}
+                        </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[1]->shotline }}
+                        </div>
+                   </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                         <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
                    </div>
-                    <div class="smiling_box_heading mb-2 mb-mb-3">
-                    {{ $SmilingDifference[2]->title }}
-                    </div>
-                    <div class="smiling_box_paragraph">
-                    {{ $SmilingDifference[2]->shotline }}
+                    <div class="ms-3 ms-md-0">
+                        <div class="smiling_box_heading mb-2 mb-mb-3">
+                        {{ $SmilingDifference[2]->title }}
+                        </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[2]->shotline }}
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
-                   <div class="smiling_box_icon mb-2 mb-mb-3">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                         <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
                    </div>
+                   <div class="ms-3 ms-md-0">
                     <div class="smiling_box_heading mb-2 mb-mb-3">
-                    {{ $SmilingDifference[3]->title }} 
-                    </div>
-                    <div class="smiling_box_paragraph">
-                    {{ $SmilingDifference[3]->shotline }}
-                    </div>
+                        {{ $SmilingDifference[3]->title }} 
+                        </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[3]->shotline }}
+                        </div>
+                   </div>
                 </div>
                 
             </div>
