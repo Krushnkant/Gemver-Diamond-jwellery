@@ -819,3 +819,19 @@ $('body').on('click', '#reSet', function() {
     window.location.href = onlyUrl;
     //location.reload();
 });
+
+$('.table-grid-view>.table-view-part').on('click', function(e) {
+    if ($(this).hasClass('list')) {
+        $('.row-grid-list').removeClass('grid').addClass('list');
+    } else if ($(this).hasClass('grid')) {
+        $('.row-grid-list').removeClass('list').addClass('grid');
+    }
+});
+$(".table-grid-view>.table-view-part.grid").click(function() {
+    $(this).toggleClass("grid-active");
+    $(".table-view-part.list").removeClass("list-active");
+});
+$(".table-grid-view>.table-view-part.list").click(function() {
+    $(this).toggleClass("list-active");
+    $(".table-view-part.grid").removeClass("grid-active");
+});

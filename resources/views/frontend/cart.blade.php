@@ -109,7 +109,6 @@
                             <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
                                 Only add inquiry
                             </div>
-                           
                             <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
                             <thead>
                                 <tr class="table-active">

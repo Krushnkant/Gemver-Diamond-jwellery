@@ -998,6 +998,13 @@
     .shop-colorful-bg .sub_title {
         font-size: 15px;
     }
+    /* -------------------------------------------------------------- */
+    .row-grid-list.list .round_cut_lab_diamonds_box .round_cut_lab_diamonds_list_img {
+        width: 30%;
+    }
+    .row-grid-list.list .round_cut_lab_diamonds_layer_part {
+        display: block;
+    }
 }
 
 @media (max-width:1199px) {

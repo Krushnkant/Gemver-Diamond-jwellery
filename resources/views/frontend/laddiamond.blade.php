@@ -673,6 +673,7 @@
                 </div>
             </div>
         </div>
+
         <div class="wire_bangle_line"></div>
         <div class="row my-4 mb-2 align-items-center">
             <div class="col-lg-6 text-center text-sm-start">
@@ -680,10 +681,10 @@
                     <div class="col-12 col-md-auto px-0">
                         <ul  class="nav wire_bangle_tabs_part justify-content-center" id="myTab" role="tablist">
                             <li class="active nav-item">
-                                <a  class="nav-link ps-0" href="#1a" data-toggle="tab">Result </a>
+                                <a  class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result </a>
                             </li>
                             <li>
-                                <a class="nav-link " href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
+                                <a class="nav-link compare-li-part list" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
                             </li>
                         </ul>
                     </div>
@@ -695,8 +696,13 @@
                     <span class="ms-2 d-sm-inline-block">filter</span>
                 </button>
             </div>  
-            <div class="col-9 col-lg-6 text-end text-sm-end">
-                <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
+            <div class="col-9 col-lg-6 text-end text-sm-end justify-content-end d-md-flex align-items-center">
+                <div class="table-grid-view d-flex justify-content-end mb-3">
+                    <div class="me-3">Change view</div>
+                    <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
+                    <div class="table-view-part active grid grid-active"><i class="fa fa-th-large"></i></div>
+                </div>
+                <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block ms-4">
                     <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
                         <option value="price">Sort by price: low to high</option>
                         <option value="price-desc">Sort by price: high to low</option>
@@ -723,10 +729,8 @@
             <div class="tab-content clearfix">
 			    <div class="tab-pane active" id="1a">
                     <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
-                        <div class="row" id="data-wrapper">
-                            <!-- Results -->
+                        <div class="row row-grid-list grid" id="data-wrapper">
                         </div>
-                        <!-- Data Loader -->
                         <div class="auto-load text-center mt-4">
                             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
