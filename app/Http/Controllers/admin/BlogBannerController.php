@@ -186,7 +186,7 @@ class BlogBannerController extends Controller
         }
     }
 
-    public function changebannerstatus($id){
+    public function changeblogbannerstatus($id){
         $banner = BlogBanner::find($id);
         if ($banner->estatus==1){
             $banner->estatus = 2;
