@@ -13,10 +13,15 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
+    protected $commands = [
+        Commands\DiamondCron::class,
+    ];
+
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('diamond:cron')->hourly();
-        // $schedule->command('diamond:cron')->dailyAt('07:00');
+        $schedule->command('diamond:cron')->everyMinute();
+         //$schedule->command('diamond:cron')->dailyAt('07:00');
     }
 
     /**
