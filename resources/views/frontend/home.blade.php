@@ -373,7 +373,7 @@
                             {{ $step->main_shotline }}
                         </p>
                         <div class="row">
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
@@ -386,7 +386,7 @@
                                     {{ $step->step1_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                         <div class="engagement_diamond_box mb-3">
                                             <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
@@ -397,7 +397,7 @@
                                     {{ $step->step2_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
@@ -408,7 +408,7 @@
                                 {{ $step->step3_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex align-items-center d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>

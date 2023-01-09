@@ -1008,6 +1008,9 @@
         top: 16px;
         right: 0px;
     }
+    .round_cut_lab_diamonds_info_price {
+        font-size: 15px !important;
+    }
 }
 
 @media (max-width:1199px) {
