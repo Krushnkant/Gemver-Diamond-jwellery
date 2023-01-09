@@ -836,7 +836,7 @@
                     <span class="ms-2  d-sm-inline-block">filter</span>
                 </button>
             </div>  
-            <div class="col-9 col-lg-6 text-end text-sm-end">
+            <div class="col-9 col-lg-6 text-end text-sm-end d-md-flex align-items-center justify-content-end">
                     <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                         <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
                             <option value="price">Sort by price: low to high</option>
