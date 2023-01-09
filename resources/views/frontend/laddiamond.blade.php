@@ -353,8 +353,7 @@
                 </div>
                 <!-- ---- cut---------- -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">cut</span>
-                    <span class="col-md-11 filter-checkbox">
+                    <span class="col-md-10 col-lg-11 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="Ideal" class="cut common_selector" name="cut[]" id="cutID">
                             <label for="cutID">Ideal</label>
@@ -383,8 +382,8 @@
                 </div>
                 <!-- ----- polish ------------- -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Polish</span>
-                    <span class="col-md-11 filter-checkbox">
+                    <span class="round_cut_lab_diamonds_heading col-md-2 col-lg-1 mb-2">Polish</span>
+                    <span class="col-md-10 col-lg-11 filter-checkbox">
                         
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]" id="polishID">
@@ -414,8 +413,8 @@
                 </div>
                 <!-- ------------ sym. ------------ -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Sym.</span>
-                    <span class="col-md-11 filter-checkbox">
+                    <span class="round_cut_lab_diamonds_heading col-md-10 col-lg-11 mb-2">Sym.</span>
+                    <span class="col-md-10 col-lg-11 filter-checkbox">
                        
                         <div class="form-group d-inline-block me-3">
                             <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">

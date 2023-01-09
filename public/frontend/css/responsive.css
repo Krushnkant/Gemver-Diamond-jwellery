@@ -1005,6 +1005,12 @@
     .row-grid-list.list .round_cut_lab_diamonds_layer_part {
         display: block;
     }
+    /* ---------------------------------------------------------- */
+    .row-grid-list.list .add-to-wishlist-btn-diamond {
+        transform: none;
+        top: 16px;
+        right: 0px;
+    }
 }
 
 @media (max-width:1199px) {
@@ -2364,6 +2370,9 @@
     .shop-colorful-bg .heading-h2 {
         font-size: 25px;
     }
+    .row-grid-list.list .add-to-wishlist-btn-diamond {
+        right: -10px
+    }
 }
 
 @media (min-width:992px) {
@@ -2408,6 +2417,9 @@
     } */
     .background-sub-slider {
         margin-top: 0;
+    }
+    .round_cut_lab_diamonds_info_price {
+        font-size: 15px;
     }
 }
 
@@ -2559,7 +2571,7 @@
         /* font-size: 18px; */
     }
     .round_cut_lab_diamonds_info_price {
-        font-size: 20px;
+        font-size: 17px;
     }
     /* ----------------------- blog page------------------------------------ */
     .blg_box_description .blog_box_date,
