@@ -1116,6 +1116,16 @@
     }
     .engagement_diamond_sub_heading {
         font-size: 13px;
+        position: initial;
+        text-align: center;
+        line-height: normal;
+        max-width: 89px;
+    }
+    .engagement_diamond_box {
+        width: 89px;
+        height: 76px;
+        padding-left: 0;
+        text-align: center;
     }
     .engagement_ring_paragraph {
         font-size: 14px;
@@ -2372,6 +2382,15 @@
     }
     .row-grid-list.list .add-to-wishlist-btn-diamond {
         right: -10px
+    }
+    .engagement_diamond_box {
+        width: 127px;
+        height: 103px;
+    }
+    .engagement_diamond_sub_heading {
+        position: absolute;
+        max-width: initial;
+        text-align: left;
     }
 }
 
