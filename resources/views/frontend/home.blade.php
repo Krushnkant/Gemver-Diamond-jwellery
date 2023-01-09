@@ -373,7 +373,7 @@
                             {{ $step->main_shotline }}
                         </p>
                         <div class="row">
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
@@ -383,41 +383,41 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
+                                    <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                         {{ $step->step1_shotline }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                         <div class="engagement_diamond_box mb-3">
                                             <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
                                         </div> 
                                         <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                                 </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                     {{ $step->step2_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
                                     </div> 
                                     <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                                 </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                 {{ $step->step3_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start">
+                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
                                     </div>
                                     <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                                 </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0">
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                     {{ $step->step4_shotline }}
                                 </p>
                             </div>

@@ -1011,6 +1011,9 @@
     .round_cut_lab_diamonds_info_price {
         font-size: 15px !important;
     }
+    .engagement_diamond_box img {
+        height: 31px;
+    }
 }
 
 @media (max-width:1199px) {
