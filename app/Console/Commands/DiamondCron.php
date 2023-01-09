@@ -39,12 +39,13 @@ class DiamondCron extends Command
      */
     public function handle()
     {
-        \Log::info("Cron is working fine!");
+        
         set_time_limit(0);
         //$public_path = public_path() . "\csv\diamond_response.csv";
         $public_path = __DIR__ . '/../../../public/csv/vdb_LG_diamonds.csv';
         Excel::import(new ImportDiamondNewLatest, $public_path);
         $action = "add";
-        return response()->json(['status' => '200', 'action' => $action]);
+        \Log::info("Cron is working fine!");
+        //return response()->json(['status' => '200', 'action' => $action]);
     }
 }
