@@ -1871,6 +1871,7 @@ background-size: cover;
     
     .wire_bangle_tabs_part li a {
         color: var(--primary);
+        cursor: pointer;
     }
     
     .table_part_product .delete_icon_svg path {
@@ -4907,8 +4908,8 @@ width: 100%;
     
     .add-to-wishlist-btn-diamond {
         position: absolute;
-        top: 14px;
-        right: 14px;
+        top: 19px;
+        right: 15px;
     }
     
     .your_order_box {
@@ -6544,4 +6545,73 @@ width: 100%;
             opacity: 1;
             transform: translate(0px);
         }
+    }
+    /* -------------------------------------------------------- */
+    
+    .table-view-part {
+        cursor: pointer;
+        padding: 2px 7px;
+        border: 1px #000 solid;
+        opacity: 0.4;
+    }
+    
+    .row-grid-list.list .round_cut_lab_diamonds_box_col {
+        flex: auto;
+        width: 100%;
+        margin-bottom: 0 !important;
+        padding: 0;
+    }
+    
+    .row-grid-list.list .round_cut_lab_diamonds_box {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid #eaeaea;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .row-grid-list.list .round_cut_lab_diamonds_box .round_cut_lab_diamonds_list_img {
+        width: 8.11%;
+        text-align: center;
+    }
+    
+    .row-grid-list.list .round_cut_lab_diamonds_layer_part {
+        width: 88%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .row-grid-list.list .round_cut_lab_diamonds_box.hover_on_mask:hover .round_cut_lab_diamonds_layer {
+        opacity: 0;
+    }
+    
+    .round_cut_lab_diamonds_info_main_heading {
+        min-width: 20%;
+    }
+    
+    .round_cut_lab_diamonds_info_heading {
+        min-width: 18%;
+    }
+    
+    .round_cut_lab_diamonds_info_clarity {
+        min-width: 30%;
+    }
+    
+    .round_cut_lab_diamonds_info_price {
+        min-width: 32%;
+    }
+    
+    .table-view-part.grid-active,
+    .table-view-part.list-active {
+        border: 1px var(--primary) solid;
+        opacity: 1;
+    }
+    
+    .row-grid-list.list .add-to-wishlist-btn-diamond {
+        position: absolute;
+        top: 43%;
+        right: 5px;
+        transform: translateX(-50%);
     }
