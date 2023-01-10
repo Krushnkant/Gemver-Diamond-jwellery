@@ -828,10 +828,10 @@ $('.table-grid-view>.table-view-part').on('click', function(e) {
     }
 });
 $(".table-grid-view>.table-view-part.grid").click(function() {
-    $(this).toggleClass("grid-active");
+    $(this).addClass("grid-active");
     $(".table-view-part.list").removeClass("list-active");
 });
 $(".table-grid-view>.table-view-part.list").click(function() {
-    $(this).toggleClass("list-active");
+    $(this).addClass("list-active");
     $(".table-view-part.grid").removeClass("grid-active");
 });

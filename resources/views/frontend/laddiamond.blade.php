@@ -676,10 +676,10 @@
 
         <div class="wire_bangle_line"></div>
         <div class="row my-4 mb-2 align-items-center">
-            <div class="col-lg-6 text-center text-sm-start">
+            <div class="col-lg-6 text-center text-sm-start px-0 px-md-3">
                 <div class="row no-gutters mb-3 align-items-center justify-content-start">
-                    <div class="col-12 col-md-auto px-0">
-                        <ul  class="nav wire_bangle_tabs_part justify-content-center" id="myTab" role="tablist">
+                    <div class="col-8 col-md-6 ps-0">
+                        <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
                             <li class="active nav-item">
                                 <a  class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result </a>
                             </li>
@@ -688,38 +688,46 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="col-4 col-md-6 d-lg-none ps-0 text-end pe-0">
+                        <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center me-0 ms-auto">
+                            <i class="fa-solid fa-filter"></i>
+                            <span class="ms-2 d-sm-inline-block">filter</span>
+                        </button>
+                    </div>  
                 </div>
             </div>
-            <div class="col-3 d-lg-none">
-                <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
-                    <i class="fa-solid fa-filter"></i>
-                    <span class="ms-2 d-sm-inline-block">filter</span>
-                </button>
-            </div>  
-            <div class="col-9 col-lg-6 text-end text-sm-end justify-content-end d-md-flex align-items-center">
-                <div class="table-grid-view d-flex justify-content-end mb-3 mb-md-0">
-                    <div class="me-3">Change view</div>
-                    <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
-                    <div class="table-view-part active grid grid-active"><i class="fa fa-th-large"></i></div>
+            <div class="col-lg-6 justify-content-md-end px-0 px-md-3 align-items-center">
+                <div class="row justify-content-end align-items-center">
+                    <div class="col-3 col-md-6 col-lg-auto px-0">
+                        <div class="table-grid-view d-flex justify-content-start mb-md-0">
+                            <div class="me-3 d-none d-md-block">Change view</div>
+                            <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
+                            <div class="table-view-part active grid grid-active"><i class="fa fa-th-large"></i></div>
+                        </div>
+                    </div>
+                
+               
+                <div class="col-9 col-md-6 col-lg-auto text-end text-sm-end justify-content-end d-md-flex align-items-center pe-0">
+                    <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block ms-4">
+                        <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
+                            <option value="price">Sort by price: low to high</option>
+                            <option value="price-desc">Sort by price: high to low</option>
+
+                            <option value="carat">Sort by carat: low to high</option>
+                            <option value="carat-desc">Sort by carat: high to low</option>
+
+                            <option value="color">Sort by color: low to high</option>
+                            <option value="color-desc">Sort by color: high to low</option>
+
+                            <option value="clarity">Sort by clarity: low to high</option>
+                            <option value="clarity-desc">Sort by clarity: high to low</option>
+
+                            <option value="cut">Sort by cut: low to high</option>
+                            <option value="cut-desc">Sort by cut: high to low</option>
+                        </select>
+                    </span>
                 </div>
-                <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block ms-4">
-                    <select class="form-control w-auto ms-auto"  name="sorting" id="sorting">
-                        <option value="price">Sort by price: low to high</option>
-                        <option value="price-desc">Sort by price: high to low</option>
-
-                        <option value="carat">Sort by carat: low to high</option>
-                        <option value="carat-desc">Sort by carat: high to low</option>
-
-                        <option value="color">Sort by color: low to high</option>
-                        <option value="color-desc">Sort by color: high to low</option>
-
-                        <option value="clarity">Sort by clarity: low to high</option>
-                        <option value="clarity-desc">Sort by clarity: high to low</option>
-
-                        <option value="cut">Sort by cut: low to high</option>
-                        <option value="cut-desc">Sort by cut: high to low</option>
-                    </select>
-                </span>
+                </div>
             </div>
         </div>
 
