@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="free_resizing_contant">Free Resizing Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="free_resizing_contant" name="free_resizing_contant"></textarea>
+                                <textarea  id="free_resizing_contant" name="free_resizing_contant"></textarea>
                                 <div id="free_resizing_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('free_resizing_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/free_resizing/free_resizing/edit') }}", function (data) {
-           $('#free_resizing_contant').summernote('code', data.free_resizing);
+            CKEDITOR.instances['free_resizing_contant'].setData(data.free_resizing);
+           //$('#free_resizing_contant').summernote('code', data.free_resizing);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveFreeResizingBtn', function () {
         $('#saveFreeResizingBtn').prop('disabled',true);
         $('#saveFreeResizingBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#FreeResizingForm")[0]);
         $.ajax({
             type: 'POST',

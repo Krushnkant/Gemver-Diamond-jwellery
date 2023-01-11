@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="free_engraving_contant">Free Engraving Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="free_engraving_contant" name="free_engraving_contant"></textarea>
+                                <textarea  id="free_engraving_contant" name="free_engraving_contant"></textarea>
                                 <div id="free_engraving_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,15 +51,24 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('free_engraving_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
+
         $.get("{{ url('admin/free_engraving/free_engraving/edit') }}", function (data) {
-           $('#free_engraving_contant').summernote('code', data.free_engraving);
-        
+            CKEDITOR.instances['free_engraving_contant'].setData(data.free_engraving);
+           //$('#free_engraving_contant').summernote('code', data.free_engraving);
         })
     });
 
     $('body').on('click', '#saveFreeEngravingBtn', function () {
         $('#saveFreeEngravingBtn').prop('disabled',true);
         $('#saveFreeEngravingBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#FreeEngravingForm")[0]);
         $.ajax({
             type: 'POST',

@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="privacy_policy_contant">Privacy Policy Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="privacy_policy_contant" name="privacy_policy_contant"></textarea>
+                                <textarea  id="privacy_policy_contant" name="privacy_policy_contant"></textarea>
                                 <div id="privacy_policy_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('privacy_policy_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/privacy_policy/privacy_policy/edit') }}", function (data) {
-           $('#privacy_policy_contant').summernote('code', data.privacy_policy);
+            CKEDITOR.instances['privacy_policy_contant'].setData(data.privacy_policy);
+           //$('#privacy_policy_contant').summernote('code', data.privacy_policy);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#savePrivacyPolicyBtn', function () {
         $('#savePrivacyPolicyBtn').prop('disabled',true);
         $('#savePrivacyPolicyBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#PrivacyPolicyForm")[0]);
         $.ajax({
             type: 'POST',

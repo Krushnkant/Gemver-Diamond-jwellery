@@ -40,7 +40,7 @@
                                <div class="form-group">
                                 <label class="col-form-label" for="first_section_contant">First Section Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="first_section_contant" name="first_section_contant"></textarea>
+                                <textarea  id="first_section_contant" name="first_section_contant"></textarea>
                                 <div id="first_section_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                </div>
                             </div>
@@ -69,7 +69,7 @@
                              <div class="form-group">
                                 <label class="col-form-label" for="second_section_contant">Second Section Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="second_section_contant" name="second_section_contant"></textarea>
+                                <textarea  id="second_section_contant" name="second_section_contant"></textarea>
                                 <div id="second_section_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                              </div>
@@ -158,11 +158,26 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+
+
+        CKEDITOR.replace('second_section_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+
+        CKEDITOR.replace('first_section_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+
+        CKEDITOR.config.height = '200';
+
+
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
             $('#first_section_title').val(data.first_section_title);
             $('#second_section_title').val(data.second_section_title);
-           $('#first_section_contant').summernote('code', data.first_section_contant);
-           $('#second_section_contant').summernote('code', data.second_section_contant);
+            CKEDITOR.instances['first_section_contant'].setData(data.first_section_contant);
+            CKEDITOR.instances['second_section_contant'].setData(data.second_section_contant);
            $('#title1').val(data.title1);
            $('#value1').val(data.value1);
            $('#title2').val(data.title2);
@@ -194,7 +209,11 @@
     $('body').on('click', '#saveAboutusBtn', function () {
         $('#saveAboutusBtn').prop('disabled',true);
         $('#saveAboutusBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#AboutusForm")[0]);
+       
 
         $.ajax({
             type: 'POST',

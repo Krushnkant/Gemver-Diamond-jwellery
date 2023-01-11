@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="payment_options_contant">Payment Options Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="payment_options_contant" name="payment_options_contant"></textarea>
+                                <textarea id="payment_options_contant" name="payment_options_contant"></textarea>
                                 <div id="payment_options_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('payment_options_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/payment_options/payment_options/edit') }}", function (data) {
-           $('#payment_options_contant').summernote('code', data.payment_options);
+            CKEDITOR.instances['payment_options_contant'].setData(data.payment_options);
+           //$('#payment_options_contant').summernote('code', data.payment_options);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#savePaymentOptionsBtn', function () {
         $('#savePaymentOptionsBtn').prop('disabled',true);
         $('#savePaymentOptionsBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#PaymentOptionsForm")[0]);
         $.ajax({
             type: 'POST',

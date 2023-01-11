@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="terms_condition_contant">Terms & Condition Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="terms_condition_contant" name="terms_condition_contant"></textarea>
+                                <textarea id="terms_condition_contant" name="terms_condition_contant"></textarea>
                                 <div id="terms_condition_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('terms_condition_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/terms_condition/terms_condition/edit') }}", function (data) {
-           $('#terms_condition_contant').summernote('code', data.terms_condition);
+            CKEDITOR.instances['terms_condition_contant'].setData(data.terms_condition);
+           //$('#terms_condition_contant').summernote('code', data.terms_condition);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveTermsConditionBtn', function () {
         $('#saveTermsConditionBtn').prop('disabled',true);
         $('#saveTermsConditionBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#TermsConditionForm")[0]);
 
         $.ajax({

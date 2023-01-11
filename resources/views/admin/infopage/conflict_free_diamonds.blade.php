@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="conflict_free_diamonds_contant">Conflict Free Diamonds Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="conflict_free_diamonds_contant" name="conflict_free_diamonds_contant"></textarea>
+                                <textarea id="conflict_free_diamonds_contant" name="conflict_free_diamonds_contant"></textarea>
                                 <div id="conflict_free_diamonds_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,14 +51,25 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+
+        CKEDITOR.replace('conflict_free_diamonds_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
+
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
-           $('#conflict_free_diamonds_contant').summernote('code', data.conflict_free_diamonds);
+            CKEDITOR.instances['conflict_free_diamonds_contant'].setData(data.customer_value);
+           //$('#conflict_free_diamonds_contant').summernote('code', data.conflict_free_diamonds);
         })
     });
 
     $('body').on('click', '#saveConflictFreeDiamondsBtn', function () {
         $('#saveConflictFreeDiamondsBtn').prop('disabled',true);
         $('#saveConflictFreeDiamondsBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#ConflictFreeDiamondsForm")[0]);
         $.ajax({
             type: 'POST',
