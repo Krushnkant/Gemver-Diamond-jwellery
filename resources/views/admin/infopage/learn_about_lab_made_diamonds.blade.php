@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="learn_about_lab_made_diamonds_contant">Learn About Lab Made Diamonds Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="learn_about_lab_made_diamonds_contant" name="learn_about_lab_made_diamonds_contant"></textarea>
+                                <textarea  id="learn_about_lab_made_diamonds_contant" name="learn_about_lab_made_diamonds_contant"></textarea>
                                 <div id="learn_about_lab_made_diamonds_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -49,14 +49,23 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('learn_about_lab_made_diamonds_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
-           $('#learn_about_lab_made_diamonds_contant').summernote('code', data.learn_about_lab_made_diamonds);
+            CKEDITOR.instances['learn_about_lab_made_diamonds_contant'].setData(data.learn_about_lab_made_diamonds);
+           //$('#learn_about_lab_made_diamonds_contant').summernote('code', data.learn_about_lab_made_diamonds);
         })
     });
 
     $('body').on('click', '#saveLearnAboutLabMadeDiamondsBtn', function () {
         $('#saveLearnAboutLabMadeDiamondsBtn').prop('disabled',true);
         $('#saveLearnAboutLabMadeDiamondsBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#LearnAboutLabMadeDiamondsForm")[0]);
         $.ajax({
             type: 'POST',

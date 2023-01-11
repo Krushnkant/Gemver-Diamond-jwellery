@@ -548,8 +548,3 @@ function getSlugId($model,$slug){
     return $item->id;
     
 }
-
-
-
-
-

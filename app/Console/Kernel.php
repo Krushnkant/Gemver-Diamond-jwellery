@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('diamond:cron')->everyMinute();
+        $schedule->command('diamond:cron-reset')->everyMinute();
          //$schedule->command('diamond:cron')->dailyAt('07:00');
     }
 

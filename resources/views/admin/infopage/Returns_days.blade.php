@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="returns_days_contant">Returns Days Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="returns_days_contant" name="returns_days_contant"></textarea>
+                                <textarea  id="returns_days_contant" name="returns_days_contant"></textarea>
                                 <div id="returns_days_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('returns_days_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
-           $('#returns_days_contant').summernote('code', data.return_days);
+            CKEDITOR.instances['returns_days_contant'].setData(data.return_days);
+           //$('#returns_days_contant').summernote('code', data.return_days);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveReturnsDaysBtn', function () {
         $('#saveReturnsDaysBtn').prop('disabled',true);
         $('#saveReturnsDaysBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#ReturnsDaysForm")[0]);
         $.ajax({
             type: 'POST',

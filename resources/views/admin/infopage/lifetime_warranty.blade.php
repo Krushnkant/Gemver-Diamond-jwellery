@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="lifetime_warranty_contant">Lifetime Warranty Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="lifetime_warranty_contant" name="lifetime_warranty_contant"></textarea>
+                                <textarea  id="lifetime_warranty_contant" name="lifetime_warranty_contant"></textarea>
                                 <div id="lifetime_warranty_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('lifetime_warranty_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/lifetime_warranty/lifetime_warranty/edit') }}", function (data) {
-           $('#lifetime_warranty_contant').summernote('code', data.lifetime_warranty);
+            CKEDITOR.instances['lifetime_warranty_contant'].setData(data.lifetime_warranty);
+           //$('#lifetime_warranty_contant').summernote('code', data.lifetime_warranty);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveLifetimeWarrantyBtn', function () {
         $('#saveLifetimeWarrantyBtn').prop('disabled',true);
         $('#saveLifetimeWarrantyBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#LifetimeWarrantyForm")[0]);
         $.ajax({
             type: 'POST',

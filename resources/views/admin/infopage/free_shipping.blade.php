@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="free_shipping_contant">Free Shipping Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="free_shipping_contant" name="free_shipping_contant"></textarea>
+                                <textarea id="free_shipping_contant" name="free_shipping_contant"></textarea>
                                 <div id="free_shipping_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('free_shipping_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/free_shipping/free_shipping/edit') }}", function (data) {
-           $('#free_shipping_contant').summernote('code', data.free_shipping);
+            CKEDITOR.instances['free_shipping_contant'].setData(data.free_shipping);
+           //$('#free_shipping_contant').summernote('code', data.free_shipping);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveFreeShippingBtn', function () {
         $('#saveFreeShippingBtn').prop('disabled',true);
         $('#saveFreeShippingBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#FreeShippingForm")[0]);
         $.ajax({
             type: 'POST',

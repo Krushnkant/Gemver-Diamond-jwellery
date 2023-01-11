@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="why_friendly_contant">Why Friendly Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="why_friendly_contant" name="why_friendly_contant"></textarea>
+                                <textarea  id="why_friendly_contant" name="why_friendly_contant"></textarea>
                                 <div id="why_friendly_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -49,14 +49,23 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('why_friendly_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
-           $('#why_friendly_contant').summernote('code', data.why_friendly);
+            CKEDITOR.instances['why_friendly_contant'].setData(data.why_friendly);
+           //$('#why_friendly_contant').summernote('code', data.why_friendly);
         })
     });
 
     $('body').on('click', '#saveWhyFriendlyBtn', function () {
         $('#saveWhyFriendlyBtn').prop('disabled',true);
         $('#saveWhyFriendlyBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#WhyFriendlyForm")[0]);
         $.ajax({
             type: 'POST',

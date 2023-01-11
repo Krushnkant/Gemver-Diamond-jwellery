@@ -206,7 +206,7 @@ class StepController extends Controller
 
 
     public function savestepone(Request $request){
-        
+        dd($request->all());
         $messages = [
             'step1_title.required' =>'Please provide a title',
             'step1_shotline.required' =>'Please provide a shot line',

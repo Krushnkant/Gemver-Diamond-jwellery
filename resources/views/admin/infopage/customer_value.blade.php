@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="customer_value_contant">Customer Value Contant <span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="customer_value_contant" name="customer_value_contant"></textarea>
+                                <textarea id="customer_value_contant" name="customer_value_contant"></textarea>
                                 <div id="customer_value_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,14 +51,25 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+
+        CKEDITOR.replace('customer_value_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
+
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
-           $('#customer_value_contant').summernote('code', data.customer_value);
+            CKEDITOR.instances['customer_value_contant'].setData(data.customer_value);
+          // $('#customer_value_contant').summernote('code', data.customer_value);
         })
     });
 
     $('body').on('click', '#saveCustomerValueBtn', function () {
         $('#saveCustomerValueBtn').prop('disabled',true);
         $('#saveCustomerValueBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#CustomerValueForm")[0]);
         $.ajax({
             type: 'POST',

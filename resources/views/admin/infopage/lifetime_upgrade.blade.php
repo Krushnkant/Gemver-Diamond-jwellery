@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="lifetime_upgrade_contant">Lifetime Upgrade Contant<span class="text-danger">*</span>
                                 </label>
-                                <textarea class="summernote" id="lifetime_upgrade_contant" name="lifetime_upgrade_contant"></textarea>
+                                <textarea id="lifetime_upgrade_contant" name="lifetime_upgrade_contant"></textarea>
                                 <div id="lifetime_upgrade_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
@@ -51,8 +51,14 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
+        CKEDITOR.replace('lifetime_upgrade_contant',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.config.height = '300';
         $.get("{{ url('admin/lifetime_upgrade/lifetime_upgrade/edit') }}", function (data) {
-           $('#lifetime_upgrade_contant').summernote('code', data.lifetime_upgrade);
+            CKEDITOR.instances['lifetime_upgrade_contant'].setData(data.lifetime_upgrade);
+          // $('#lifetime_upgrade_contant').summernote('code', data.lifetime_upgrade);
         
         })
     });
@@ -60,6 +66,9 @@
     $('body').on('click', '#saveLifetimeUpgradeBtn', function () {
         $('#saveLifetimeUpgradeBtn').prop('disabled',true);
         $('#saveLifetimeUpgradeBtn').find('.loadericonfa').show();
+        for ( instance in CKEDITOR.instances ) {
+            CKEDITOR.instances[instance].updateElement();
+        }
         var formData = new FormData($("#LifetimeUpgradeForm")[0]);
         $.ajax({
             type: 'POST',
