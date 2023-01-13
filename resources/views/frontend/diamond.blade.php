@@ -877,24 +877,26 @@
                 </div>
 
                 <div class="tab-pane" id="2a">
+                   <div class="table-responsive">
                     <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr class="table-active">
-                                <th>Image</th>
-                                <th>Shape</th>
-                                <th>Carat</th>
-                                <th>Cut</th>
-                                <th>Color</th>
-                                <th>Clarity</th>
-                                <th>Certificate</th>
-                                <th>Price</th>
-                                <th>Compare</th>
-                            </tr>
-                        </thead>
-                        <tbody class="comparelist">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>Image</th>
+                                    <th>Shape</th>
+                                    <th>Carat</th>
+                                    <th>Cut</th>
+                                    <th>Color</th>
+                                    <th>Clarity</th>
+                                    <th>Certificate</th>
+                                    <th>Price</th>
+                                    <th>Compare</th>
+                                </tr>
+                            </thead>
+                            <tbody class="comparelist">
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                   </div>
                 </div>
             </div>
         </div>

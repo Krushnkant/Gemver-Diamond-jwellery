@@ -1037,11 +1037,6 @@
     .carat-input-part .filter_ct {
         font-size: 13px;
     }
-    .navbar_header>div {
-        height: 34px;
-        display: flex;
-        align-items: center;
-    }
 }
 
 @media (max-width:1199px) {
@@ -2011,7 +2006,7 @@
         min-width: 200px;
     }
     .header-part {
-        top: 35px;
+        top: 35px !important;
     }
     /* ---------- step progress bar----------------------- */
     .step-progressbar .tab-steps--list li:before {
