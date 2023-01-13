@@ -1065,7 +1065,7 @@ class DiamondController extends Controller
                                     
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>
-                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                                <div class="round_cut_lab_diamonds_info_clarity">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'; 
                                     if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){

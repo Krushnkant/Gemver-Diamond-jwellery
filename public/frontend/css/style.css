@@ -5833,7 +5833,6 @@ width: 100%;
         z-index: 999;
         background-color: #fff;
         width: 100%;
-        top: 35px;
         transition: all 0.3s ease-in-out;
     }
     
@@ -5842,7 +5841,7 @@ width: 100%;
     }
     
     .header-part.fixed {
-        top: 0;
+        top: 0 !important;
     }
     
     div#toast-container .toast-success {
@@ -6437,10 +6436,9 @@ width: 100%;
     .wire_bangle_select_box_sort {
         font-size: 14px !important;
     }
-    
-    .animation-slider-text {
+    /* .animation-slider-text {
         height: 34px;
-    }
+    } */
     
     .animation-slider-text .item {
         animation: drop-in 1200ms ease 500ms backwards;

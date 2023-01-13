@@ -1,7 +1,7 @@
     <div class="home-page-slider-header @if(Request::route()->getName() != 'frontend.home') sub_header @endif">
         <div class="home-page-bg">
             <div class="container">
-                <div class="row mt-0 mb-0">
+                <div class="row mt-0 mb-0 align-items-center">
                     <div class="col-md-6 col-lg-6 col-xl-3 text-center">
                         <div class="home-page-header">
                             <a class="header-icon-part" href="tel:+91{{ $settings->company_mobile_no }}"><span class="me-3 header-icon"><i class="fa-solid fa-phone me-2"></i> Call Us </span></a>
