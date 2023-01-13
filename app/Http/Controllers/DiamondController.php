@@ -364,14 +364,7 @@ class DiamondController extends Controller
                                     <a href="'.$url.'">'.$Diamond->Shape.'</a>
                                     <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
                                     <input type="hidden" class="item_type" value="1">    
-                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
-                                
-                                    if(is_wishlist($Diamond->id,1)){    
-                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
-                                    }else{ 
-                                        $artilces .= '<i class="far fa-heart"></i> ';
-                                    }
-                                    $artilces .= '</span>
+                                   
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>
                                 <div class="round_cut_lab_diamonds_info_clarity">
@@ -386,11 +379,22 @@ class DiamondController extends Controller
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                    $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block" title="Compare" data-id="'.$Diamond->id.'">
+                                    $'. $Diamond->Sale_Amt .'
+                                    <div>
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                
+                                    if(is_wishlist($Diamond->id,1)){    
+                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
+                                    }else{ 
+                                        $artilces .= '<i class="far fa-heart"></i> ';
+                                    }
+                                    $artilces .= '</span>
+                                     <span  class="comparesave d-inline-block" title="Compare" data-id="'.$Diamond->id.'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                             <path d="M20.875 3.6875H13.0625V2.125C13.0625 1.7106 12.8979 1.31317 12.6049 1.02015C12.3118 0.72712 11.9144 0.5625 11.5 0.5625H2.125C1.7106 0.5625 1.31317 0.72712 1.02015 1.02015C0.72712 1.31317 0.5625 1.7106 0.5625 2.125V17.75C0.5625 18.1644 0.72712 18.5618 1.02015 18.8549C1.31317 19.1479 1.7106 19.3125 2.125 19.3125H9.9375V20.875C9.9375 21.2894 10.1021 21.6868 10.3951 21.9799C10.6882 22.2729 11.0856 22.4375 11.5 22.4375H20.875C21.2894 22.4375 21.6868 22.2729 21.9799 21.9799C22.2729 21.6868 22.4375 21.2894 22.4375 20.875V5.25C22.4375 4.8356 22.2729 4.43817 21.9799 4.14515C21.6868 3.85212 21.2894 3.6875 20.875 3.6875V3.6875ZM2.125 10.7188H6.94531L4.92969 12.7422L6.03125 13.8438L9.9375 9.9375L6.03125 6.03125L4.92969 7.13281L6.94531 9.15625H2.125V2.125H11.5V17.75H2.125V10.7188ZM11.5 20.875V19.3125C11.9144 19.3125 12.3118 19.1479 12.6049 18.8549C12.8979 18.5618 13.0625 18.1644 13.0625 17.75V5.25H20.875V12.2812H16.0547L18.0703 10.2578L16.9688 9.15625L13.0625 13.0625L16.9688 16.9688L18.0703 15.8672L16.0547 13.8438H20.875V20.875H11.5Z" fill="#0B1727"/>
                                         </svg>
                                     </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1054,21 +1058,14 @@ class DiamondController extends Controller
                             </a>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                                <div class="round_cut_lab_diamonds_info_heading">
+                                <div class="round_cut_lab_diamonds_info_heading mb-1">
                                     '.$Diamond->Shape.'
                                     <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
                                     <input type="hidden" class="item_type" value="1">    
-                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
-                                
-                                    if(is_wishlist($Diamond->id,1)){    
-                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
-                                    }else{ 
-                                        $artilces .= '<i class="far fa-heart"></i> ';
-                                    }
-                                    $artilces .= '</span>
+                                    
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>
-                                <div class="round_cut_lab_diamonds_info_clarity">
+                                <div class="round_cut_lab_diamonds_info_clarity mb-2">
                                     <span>'. $Diamond->Clarity .' clarity |</span>
                                     <span>'; 
                                     if($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE"){
@@ -1080,11 +1077,22 @@ class DiamondController extends Controller
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                    $'. $Diamond->Sale_Amt .' <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">
+                                    $'. $Diamond->Sale_Amt .' 
+                                    <div>
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                
+                                    if(is_wishlist($Diamond->id,1)){    
+                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
+                                    }else{ 
+                                        $artilces .= '<i class="far fa-heart"></i> ';
+                                    }
+                                    $artilces .= '</span>
+                                    <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                         <path d="M20.875 3.6875H13.0625V2.125C13.0625 1.7106 12.8979 1.31317 12.6049 1.02015C12.3118 0.72712 11.9144 0.5625 11.5 0.5625H2.125C1.7106 0.5625 1.31317 0.72712 1.02015 1.02015C0.72712 1.31317 0.5625 1.7106 0.5625 2.125V17.75C0.5625 18.1644 0.72712 18.5618 1.02015 18.8549C1.31317 19.1479 1.7106 19.3125 2.125 19.3125H9.9375V20.875C9.9375 21.2894 10.1021 21.6868 10.3951 21.9799C10.6882 22.2729 11.0856 22.4375 11.5 22.4375H20.875C21.2894 22.4375 21.6868 22.2729 21.9799 21.9799C22.2729 21.6868 22.4375 21.2894 22.4375 20.875V5.25C22.4375 4.8356 22.2729 4.43817 21.9799 4.14515C21.6868 3.85212 21.2894 3.6875 20.875 3.6875V3.6875ZM2.125 10.7188H6.94531L4.92969 12.7422L6.03125 13.8438L9.9375 9.9375L6.03125 6.03125L4.92969 7.13281L6.94531 9.15625H2.125V2.125H11.5V17.75H2.125V10.7188ZM11.5 20.875V19.3125C11.9144 19.3125 12.3118 19.1479 12.6049 18.8549C12.8979 18.5618 13.0625 18.1644 13.0625 17.75V5.25H20.875V12.2812H16.0547L18.0703 10.2578L16.9688 9.15625L13.0625 13.0625L16.9688 16.9688L18.0703 15.8672L16.0547 13.8438H20.875V20.875H11.5Z" fill="#0B1727"/>
                                         </svg>
                                     </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

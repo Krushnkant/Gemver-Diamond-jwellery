@@ -1026,6 +1026,7 @@
         transform: none;
         top: 16px;
         right: 0px;
+        position: initial;
     }
     .round_cut_lab_diamonds_info_price {
         font-size: 15px !important;
@@ -1035,6 +1036,11 @@
     }
     .carat-input-part .filter_ct {
         font-size: 13px;
+    }
+    .navbar_header>div {
+        height: 34px;
+        display: flex;
+        align-items: center;
     }
 }
 
