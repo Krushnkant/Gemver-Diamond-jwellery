@@ -3,28 +3,26 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Imports\ImportDiamondNewLatest;
-use Excel;
 use App\Models\PriceRange;
 use App\Models\Company;
 use App\Models\Diamond;
 use App\Models\Vendor;
 
-class DiamondCron extends Command
+class Diamond3Cron extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'diamond:cron';
+    protected $signature = 'diamond3:cron';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Diamond Round Heart Cushion Uploaded';
+    protected $description = 'diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other';
 
     /**
      * Create a new command instance.
@@ -44,13 +42,11 @@ class DiamondCron extends Command
     public function handle()
     {
         
-        set_time_limit(0);
-        \Log::info("Diamond Round Heart Cushion Uploaded!");
-        $oldids = Diamond::whereIn('Shape',['Round','Heart','Cushion'])->get()->pluck('diamond_id')->toarray();
+        \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
         // $public_path = __DIR__ . '/../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
-        // 
+        // \Log::info("Cron is working fine!");
 
    
 
@@ -78,14 +74,15 @@ class DiamondCron extends Command
         // } else {
         //     dd(json_decode($response));
         // }
+
+        set_time_limit(0);
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
         $vender_array = array(); 
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true',
+        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&with_images=true&shapes[]=Briolette&shapes[]=Eurocut&shapes[]=Flanders&shapes[]=Half Moon&shapes[]=Kite&shapes[]=Old Miner&shapes[]=Bullet&shapes[]=Hexagonal&shapes[]=Lozenge&shapes[]=Tapered Bullet&shapes[]=Octagonal&shapes[]=Triangle&shapes[]=Rose Cut&shapes[]=Ideal Oval&shapes[]=Ideal Square&shapes[]=Square Emerald&shapes[]=Sig81&shapes[]=Cushion Modified Brilliant&shapes[]=Ideal Cushion&shapes[]=Pentagonal&shapes[]=Star&shapes[]=Trapezoid&shapes[]=Trilliant&shapes[]=Baguette&shapes[]=Shield&shapes[]=Tapered Baguette&shapes[]=Ideal Heart&shapes[]=Other',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -109,8 +106,6 @@ class DiamondCron extends Command
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
-                    unset($oldids[array_search($collection->id, $oldids)]);
-                    
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -206,9 +201,8 @@ class DiamondCron extends Command
                                 'Culet_Size_ID' => $collection->culet_size,
                                 'Ratio' => $collection->meas_ratio,
                                 'growth_type' => $collection->growth_type,
-                                'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
                                 // 'Culet_Condition_ID' => $collection->culet_condition,
-                                
+                                'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
                                 
                                 
                                 
@@ -217,7 +211,6 @@ class DiamondCron extends Command
                                 // 'KeyToSymbols' => $keytosymbols,
                                 // 'Black_Inclusion' => $collection->black_inclusion,
                                 // 'Open_Inclusion' => $collection->open_inclusion,
-                                
                                 
                             ]);
                             Diamond::insert($data);
@@ -270,7 +263,7 @@ class DiamondCron extends Command
            $totalpage = (int) floor(($total_diamond / 100));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes[]=Briolette&shapes[]=Eurocut&shapes[]=Flanders&shapes[]=Half Moon&shapes[]=Kite&shapes[]=Old Miner&shapes[]=Bullet&shapes[]=Hexagonal&shapes[]=Lozenge&shapes[]=Tapered Bullet&shapes[]=Octagonal&shapes[]=Triangle&shapes[]=Rose Cut&shapes[]=Ideal Oval&shapes[]=Ideal Square&shapes[]=Square Emerald&shapes[]=Sig81&shapes[]=Cushion Modified Brilliant&shapes[]=Ideal Cushion&shapes[]=Pentagonal&shapes[]=Star&shapes[]=Trapezoid&shapes[]=Trilliant&shapes[]=Baguette&shapes[]=Shield&shapes[]=Tapered Baguette&shapes[]=Ideal Heart&shapes[]=Other&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -294,7 +287,6 @@ class DiamondCron extends Command
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
-                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -407,49 +399,9 @@ class DiamondCron extends Command
                                     
                                 } 
                                 
-                                // $Vendor = Vendor::where('vendor_id',$collection->vendor_id)->first();
-                                // if($Vendor == ""){
-                                //     $vendordata = ([
-                                //         'vendor_id' => $collection->vendor_id,
-                                //         'vendor_phone' => $collection->vendor_phone,
-                                //         'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                //         'vendor_email' => $collection->vendor_email,
-                                //         'contact_person' => $collection->contact_person,
-                                //         'vendor_street_address' => $collection->vendor_street_address,
-                                //         'vendor_city' => $collection->vendor_city,
-                                //         'vendor_state' => $collection->vendor_state,
-                                //         'vendor_country' => $collection->vendor_country,
-                                //         'vendor_zip_code' => $collection->vendor_zip_code,
-                                //         'vendor_iphone' => $collection->vendor_iphone  
-                                // ]);
-                                // Vendor::insert($vendordata);
-                                // }else{
-                                //     if(!in_array($collection->vendor_id,$vender_array)){
-                                //             Vendor::where('vendor_id',$collection->vendor_id)
-                                //                 ->update([
-                                //                     'vendor_phone' => $collection->vendor_phone,
-                                //                     'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                //                     'vendor_email' => $collection->vendor_email,
-                                //                     'contact_person' => $collection->contact_person,
-                                //                     'vendor_street_address' => $collection->vendor_street_address,
-                                //                     'vendor_city' => $collection->vendor_city,
-                                //                     'vendor_state' => $collection->vendor_state,
-                                //                     'vendor_country' => $collection->vendor_country,
-                                //                     'vendor_zip_code' => $collection->vendor_zip_code,
-                                //                     'vendor_iphone' => $collection->vendor_iphone 
-                                //                 ]);
-                                            
-                                //             array_push($vender_array,$collection->vendor_id);
-                                                
-                                //     }     
-                                // }
                             }  
-                        }
-                        
-                        Diamond::whereIn('diamond_id',$oldids)->delete();
-                    }
-                    
-                    
+                        } 
+                    }    
                 }
            }
         }

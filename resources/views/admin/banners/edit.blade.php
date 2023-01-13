@@ -64,7 +64,7 @@
             ?>
             <div class="jFiler-items jFiler-row oldImgDisplayBox">
                 <ul class="jFiler-items-list jFiler-items-grid">
-                    <li id="ImgBox" class="jFiler-item" data-jfiler-index="1" style="">
+                    <li id="ImgBoxBanner" class="jFiler-item" data-jfiler-index="1" style="">
                         <div class="jFiler-item-container">
                             <div class="jFiler-item-inner">
                                 <div class="jFiler-item-thumb">
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="jFiler-item-assets jFiler-row">
                                     <ul class="list-inline pull-right">
-                                        <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBox', 'bannerImg','<?php echo $banner->mobile_banner_thumb;?>');"></a></li>
+                                        <li><a class="icon-jfi-trash jFiler-item-trash-action" onclick="removeuploadedimg('ImgBoxBanner', 'bannerImg','<?php echo $banner->mobile_banner_thumb;?>');"></a></li>
                                     </ul>
                                 </div>
                             </div>

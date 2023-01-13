@@ -266,6 +266,7 @@ class BannerController extends Controller
     }
 
     public function uploadfile(Request $request){
+        dd($request->all());
         if(isset($request->action) && $request->action == 'uploadCatIcon'){
             if ($request->hasFile('files')) {
                 $image = $request->file('files')[0];
