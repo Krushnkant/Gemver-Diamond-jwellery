@@ -6625,7 +6625,8 @@ width: 100%;
     }
     
     .meas_length .from_text,
-    .meas_width .from_text .meas_depth .from_text {
+    .meas_width .from_text,
+    .meas_depth .from_text {
         min-width: 50%;
     }
     /* ----------------------------------- */
