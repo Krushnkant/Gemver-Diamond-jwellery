@@ -618,7 +618,7 @@ $(document).ready(function() {
         owl.owlCarousel({
             items: 1,
             loop: true,
-            nav: true,
+            nav: false,
             dots: false,
             mouseDrag: false,
             autoplay: true,

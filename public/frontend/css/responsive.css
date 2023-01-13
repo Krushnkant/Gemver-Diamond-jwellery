@@ -435,6 +435,12 @@
         box-sizing: border-box !important;
         height: auto;
     }
+    .animation-slider-text {
+        height: auto;
+    }
+    .animation-slider-text .header-icon {
+        font-size: 12px;
+    }
     .diamond_margin {
         margin-top: 40px;
     }
@@ -540,6 +546,12 @@
         min-height: 100vh;
         overflow: scroll;
         display: block;
+    }
+    .filter-meas-box:first-child .filter_text_part {
+        margin-left: 0;
+    }
+    .filter_text_part {
+        text-align: center;
     }
     .engagement-section .owl-nav {
         position: initial;
@@ -848,10 +860,10 @@
         padding: 0 !important;
     }
     .header-part {
-        top: 59px;
+        top: calc(59px + 10px);
     }
     .home-page-bg {
-        margin-bottom: 62px;
+        margin-bottom: 60px;
     }
     .category-slider .owl-prev {
         left: 0;
@@ -894,7 +906,7 @@
     } */
     .filter_text_part {
         margin-left: 0;
-        text-align: left;
+        text-align: center;
         margin-bottom: 10px;
     }
     .carat-input-part {
@@ -908,6 +920,7 @@
     .from_text input,
     .to_text input {
         height: 28px;
+        min-width: 100%;
     }
     .round_cut_lab_checkbox input[type="checkbox"] {
         width: 42px;
@@ -1019,6 +1032,9 @@
     }
     .engagement_diamond_box img {
         height: 31px;
+    }
+    .carat-input-part .filter_ct {
+        font-size: 13px;
     }
 }
 

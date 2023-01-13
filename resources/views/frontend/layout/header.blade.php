@@ -19,7 +19,9 @@
                             <div class="">
                                 <div class="owl-carousel owl-theme animation-slider-text"> 
                                     @foreach($offers as $offer)
-                                    <div class="me-3 header-icon item">{{ $offer->title }}</div>
+                                    <div class=" header-icon item">
+                                        {{ $offer->title }}
+                                    </div>
                                     @endforeach
                                 </div>
                             </div>

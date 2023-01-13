@@ -23,7 +23,7 @@
 
     <div class="container round_cut_lab_diamonds_page">
         <!-- <div class="mt-4 mt-md-5"></div>     -->
-        <div class="row filter-data pt-3 d-md-flex">
+        <div class="row filter-data pt-3 d-md-flex pb-4">
             <div class="text-end close-icon d-lg-none">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -466,10 +466,10 @@
                         <div class="round_cut_lab_diamonds_price col-md-12 col-lg-12 col-xl-12  ">
                             <div class="align-items-center mb-2 position-relative">
                                 <!-- <div id="slider-range-carat" class="mb-0"></div> -->
-                                <div class="d-md-flex flex-wrap flex-lg-nowrap justify-content-between">
+                                <div class="d-md-flex flex-wrap flex-lg-nowrap justify-content-between meas_part">
                                         <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-lg-inline-block filter-meas-box">
                                             <div class="filter_text_part ">L</div>
-                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <div class="d-flex flex-md-nowrap meas_length">
                                                 <div class="from_text me-1">
                                                     <div class="min_max_part">Min</div>
                                                     <div class="d-flex align-items-center">
@@ -486,7 +486,7 @@
                                         </div>
                                         <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-lg-inline-block filter-meas-box">
                                         <div class="filter_text_part">W</div>
-                                        <div class="d-flex flex-wrap flex-md-nowrap">
+                                        <div class="d-flex flex-md-nowrap meas_width">
                                             <span class="from_text me-1">
                                                 <div class="min_max_part">Min</div>
                                                 <div class="d-flex align-items-center">
@@ -503,7 +503,7 @@
                                         </div>
                                         <div class="position-relative filter-meas-box">
                                             <div class="filter_text_part me-md-4">D</div>
-                                            <div class="d-flex flex-wrap flex-md-nowrap">
+                                            <div class="d-flex flex-md-nowrap meas_depth">
                                             <span class="from_text me-1">
                                                 <div class="min_max_part">Min</div>
                                                 <div class="d-flex align-items-center">

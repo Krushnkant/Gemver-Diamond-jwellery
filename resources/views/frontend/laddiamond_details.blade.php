@@ -728,15 +728,15 @@
                                 <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
                                 <input type="hidden" class="item_type" value="1">    
                                 <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
-                                @if(is_wishlist($Diamond->id,1))    
-                                    <i class="fas fa-heart text-danger"></i> 
-                                @else
-                                    <i class="far fa-heart "></i>
-                                @endif
+                                    @if(is_wishlist($Diamond->id,1))    
+                                        <i class="fas fa-heart text-danger"></i> 
+                                    @else
+                                        <i class="far fa-heart "></i>
+                                    @endif
                                 </span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title  }}</a></div>
-                            <div class="round_cut_lab_diamonds_info_clarity mb-2">
+                            <div class="round_cut_lab_diamonds_info_clarity">
                                 <span>{{ $Diamond->Clarity }} clarity |</span>
                                 <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
                                 <span>{{ $Diamond->Lab }} certified</span>
