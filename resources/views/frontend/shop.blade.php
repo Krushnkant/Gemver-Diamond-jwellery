@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row filter-data pt-3 d-md-flex">
+            <div class="row filter-data pt-3 d-md-flex mb-4">
                 <div class="text-end close-icon d-lg-none">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
