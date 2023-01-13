@@ -158,7 +158,7 @@
         @endif
     </div>
 
-    <div class="row filter-data pt-3 d-md-flex mb-4">
+    <div class="row filter-data pt-3 d-md-flex mb-4 pb-4">
         <div class="text-end close-icon d-lg-none">
             <i class="fa-solid fa-xmark"></i>
         </div>
@@ -609,7 +609,7 @@
                         <div class="d-lg-flex flex-lg-nowrap">
                             <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">L</div>
-                                <div class="d-flex flex-wrap flex-sm-nowrap">
+                                <div class="d-flex meas_length">
                                     <div class="from_text me-1">
                                         <div class="min_max_part">Min</div>
                                         <div class="d-flex align-items-center">
@@ -626,7 +626,7 @@
                             </div>
                             <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">W</div>
-                                <div class="d-flex flex-wrap flex-md-nowrap">
+                                <div class="d-flex meas_width">
                                     <span class="from_text me-1">
                                         <div class="min_max_part">Min</div>
                                         <div class="d-flex align-items-center">
@@ -643,7 +643,7 @@
                             </div>
                             <div class="position-relative">
                                 <div class="filter_text_part me-md-4">D</div>
-                                <div class="d-flex flex-wrap flex-md-nowrap">
+                                <div class="d-flex meas_depth">
                                     <span class="from_text me-1">
                                         <div class="min_max_part">Min</div>
                                         <div class="d-flex align-items-center">
