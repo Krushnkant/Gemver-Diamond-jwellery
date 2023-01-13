@@ -676,7 +676,7 @@
 
         <div class="wire_bangle_line"></div>
         <div class="row my-4 mb-2 align-items-center">
-            <div class="col-lg-6 text-center text-sm-start px-0 px-md-3">
+            <div class="col-lg-6 text-center text-sm-start px-0 ps-0 px-md-3">
                 <div class="row no-gutters mb-3 align-items-center justify-content-start">
                     <div class="col-8 col-md-6 ps-0">
                         <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
