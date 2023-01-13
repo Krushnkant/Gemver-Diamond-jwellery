@@ -311,17 +311,15 @@ class CategoryController extends Controller
                 $image = $request->file('files')[0];
                 $image_name = 'categoryThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 
-                
-               
                 $destinationPath = public_path('images/categoryThumb');
                     // $image->move($destinationPath, $image_name);
 
-                $img = Image::make($image->getRealPath());
-                $img->resize(800, 800, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save($destinationPath.'/'.$image_name);
+                // $img = Image::make($image->getRealPath());
+                // $img->resize(800, 800, function ($constraint) {
+                //     $constraint->aspectRatio();
+                // })->save($destinationPath.'/'.$image_name);
         
-                $destinationPath = public_path('/images');
+                // $destinationPath = public_path('/images');
                 $image->move($destinationPath, $image_name);
                 
                 
