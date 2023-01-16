@@ -232,7 +232,7 @@
                     </span>
                     <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="other">
                         <input class="form-check-input shape common_selector" value="other" type="checkbox" name="shape[]" id="flexRadioDefaultpear">
-                        <div class="shape_img">Other</div>
+                        <div class="shape_img other_box">Other</div>
                     </span>
                 </div>
             </div>
@@ -803,6 +803,9 @@
                 </span>
             </div>
         </div>
+        <!-- <div>
+            <button class="apply-btn">apply</button>
+        </div> -->
     </div>
  
 

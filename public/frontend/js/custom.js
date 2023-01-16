@@ -750,7 +750,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.action == 'add') {
-                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart text-danger"></i>');
+                    thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="fas fa-heart heart-icon-part"></i>');
                     // wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.wire_bangle_shop_radio').find('.add-to-wishlist-btn').html('<i class="far fa-heart" ></i>');
@@ -782,7 +782,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response.action == 'add') {
-                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart text-danger"></i>');
+                    thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="fas fa-heart heart-icon-part"></i>');
                     //wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');

@@ -810,7 +810,7 @@
                                 <input type="hidden" class="item_type" value="1">    
                                 <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                                 @if(is_wishlist($Diamond->id,1))    
-                                    <i class="fas fa-heart text-danger"></i> 
+                                    <i class="fas fa-heart heart-icon-part"></i> 
                                 @else
                                     <i class="far fa-heart"></i>
                                 @endif

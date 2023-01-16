@@ -710,7 +710,7 @@
                             <input type="hidden" class="item_type" value="0">    
                             <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                                 <?php if(is_wishlist($Related->variant_id,0)){ ?>
-                                    <i class="fas fa-heart text-danger"></i>
+                                    <i class="fas fa-heart heart-icon-part"></i>
                                 <?php }else{ ?>
                                     <i class="far fa-heart"></i> 
                                 <?php }
