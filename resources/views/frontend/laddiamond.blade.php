@@ -681,7 +681,7 @@
                     <div class="col-8 col-md-6 ps-0">
                         <ul  class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
                             <li class="active nav-item">
-                                <a  class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result </a>
+                                <a  class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result (<span class="total-diamond"> </span>)</a>
                             </li>
                             <li>
                                 <a class="nav-link compare-li-part list" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
@@ -943,8 +943,9 @@
                                 $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }
-                            $('.auto-load').hide();   
                             $("#data-wrapper").append(response['artilces']);
+                            $(".total-diamond").html(response['showdata']);
+                            $('.auto-load').hide();
                         }else{
                             if (response['artilces'] == "") {
                                 $('#data-wrapper').html("No Result Found");
@@ -952,7 +953,8 @@
                                 return;
                             }
                             $("#data-wrapper").html(response['artilces']);  
-                            $('.auto-load').hide(); 
+                            $(".total-diamond").html(response['showdata']);
+                            $('.auto-load').hide();
                         }  
                         
                     }
