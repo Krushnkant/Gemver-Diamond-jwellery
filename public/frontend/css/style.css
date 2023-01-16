@@ -6652,6 +6652,14 @@ width: 100%;
         width: 50%;
     }
     
+    .products_item .owl-nav {
+        margin-top: 0 !important;
+    }
+    
+    .customer-stories .owl-nav {
+        margin-top: 0 !important;
+    }
+    
     @keyframes marquee {
         0% {
             left: 0;
