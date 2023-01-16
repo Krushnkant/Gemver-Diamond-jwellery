@@ -129,19 +129,26 @@
     @endif
 
 
-    <div class="">
+    <div class="mx-3">
         <div class="container shop-colorful-bg">
-            <div class="row text-center pt-0 pb-4 py-md-4 py-lg-5 py-xl-5 align-items-center">
-                <div class="col-md-4 col-lg-3 offset-lg-1 text-center text-md-end">
-                   <div class="shop-colorful-img">
-                        <img src="{{ asset('frontend/image/diamond.gif') }}" alt="">
-                   </div>
-                </div>
-                <div class="col-md-8 text-start">
-                    <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available in the Store</h2>
-                    <div class="sub_title text-center text-md-start">
-                       Glide with the shine of beautiful Jewels
-                       Glide with the shine of beautiful Jewels
+            <div class="">
+                <div class="row text-center py-2 pb-3 align-items-center">
+                    <div class="col-4 col-md-5 col-lg-3 offset-lg-1 text-center text-md-end">
+                    <div class="shop-colorful-img">
+                            <img src="{{ asset('frontend/image/diamond.gif') }}" alt="">
+                    </div>
+                    </div>
+                    <div class="col-8 col-md-7 text-start">
+                        <h2 class="heading-h2 mb-0 text-start text-md-start">{{ number_format(count($diamonds)) }} Diamonds available in the Store</h2>
+                        <div class="sub_title text-start text-md-start d-none d-sm-block">
+                            <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
+                            {{ $dddd }}
+                        </div> 
+                    </div>
+                    <div class="col-12">
+                        <div class="sub_title text-center text-md-center d-sm-none">
+                           {{ $dddd }}
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -158,8 +165,7 @@
                 </div>
             </div>
             <div>
-                <div class="owl-carousel owl-theme products_item mb-5">
-                    
+                <div class="owl-carousel owl-theme products_item">
                 <?php 
                     $shape_no = 1;
                     $supported_video = array(
@@ -284,8 +290,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
@@ -434,7 +438,7 @@
 
     @if(count($BlogBanners) > 0)
     
-    <div class="shop_dimond_by_shape">
+    <div class="shop_dimond_by_shape py-0">
         <div class="container">
             <div class="row">
                 @foreach($BlogBanners as $BlogBanner)

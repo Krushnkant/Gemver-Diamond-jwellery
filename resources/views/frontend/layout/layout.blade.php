@@ -29,8 +29,6 @@ $settings = \App\Models\Settings::first();
     <!-- TrustBox script -->
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     <!-- End TrustBox script -->
-
-   
     
 </head>
 <body>
@@ -43,12 +41,9 @@ $settings = \App\Models\Settings::first();
 </div>
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 <div class="">
-
 @include('frontend.layout.header')
 @yield('content')
 @include('frontend.layout.footer')
-        
-
 <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
 <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>

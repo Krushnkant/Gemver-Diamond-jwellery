@@ -442,7 +442,8 @@
         font-size: 12px;
     }
     .diamond_margin {
-        margin-top: 40px;
+        margin-top: 20px;
+        margin-bottom: 0;
     }
     .progressbar_ul {
         border: 0;
@@ -716,6 +717,9 @@
     }
     .engagement-section .owl-prev {
         position: initial;
+    }
+    .products_item .owl-nav {
+        margin-top: 0;
     }
     .products_item .owl-nav,
     .products_item .owl-prev,
@@ -1004,9 +1008,11 @@
     }
     .shop-colorful-img img {
         margin: 0 0 15px 0;
+        width: 148px;
+        margin-left: -33px;
     }
     .shop-colorful-bg {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
     .shop-colorful-bg .heading-h2 {
         font-size: 18px;
@@ -1037,6 +1043,9 @@
     .carat-input-part .filter_ct {
         font-size: 13px;
     }
+    .shop_dimond_by_shape1 {
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width:1199px) {
@@ -1048,7 +1057,7 @@
         font-size: 12px !important;
     }
     .customer-stories img {
-        height: 160px;
+        height: 95px;
     }
     .paragraph {
         color: #0B1727;
@@ -1118,7 +1127,7 @@
     }
     .customer-stories-paragraph {
         font-size: 14px;
-        text-indent: 41px;
+        text-indent: 51px;
     }
     .customer-name {
         font-size: 18px;
@@ -1951,6 +1960,9 @@
         display: grid;
         grid-template-columns: 50% 50%;
     }
+    .animation-slider-text .header-icon {
+        font-size: 11px;
+    }
 }
 
 @media (min-width:768px) and (max-width:1199px) {
@@ -2300,7 +2312,7 @@
         min-height: 216px;
     }
     .header ul li .mega-menu .mega-menu-four-part {
-        min-width: 784px;
+        min-width: 1000px;
     }
     .own_ring_img img {
         max-height: 400px;
@@ -2753,6 +2765,8 @@
     }
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
+        gap: 0;
+        margin-left: 0 !important;
     }
     .from_text input,
     .to_text input {
