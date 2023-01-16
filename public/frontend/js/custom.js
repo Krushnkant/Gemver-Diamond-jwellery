@@ -834,8 +834,6 @@ $(".table-grid-view>.table-view-part.list").click(function() {
     $(this).addClass("list-active");
     $(".table-view-part.grid").removeClass("grid-active");
 });
-
-
 $(window).on('load', function() {
     $(".header-part").css('top', $(".home-page-slider-header").height() + "px");
 });
