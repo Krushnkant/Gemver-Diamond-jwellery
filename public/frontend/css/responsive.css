@@ -1120,7 +1120,7 @@
         padding: 30px 20px;
     }
     .customer-stories-quotes {
-        padding-left: 25px;
+        padding-left: 15px;
     }
     .engagement_diamond_heading {
         font-size: 22px;
@@ -1141,13 +1141,14 @@
     }
     .customer-stories-quotes::after {
         top: 13px;
+        left: -10px;
     }
     .customer-stories .owl-dots {
         position: initial;
     }
     .customer-stories .owl-nav {
         position: initial;
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
     .engagement_diamond_paragraph_part {
         font-size: 16px;

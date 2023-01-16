@@ -140,16 +140,20 @@
                     </div>
                     <div class="col-8 col-md-7 text-start">
                         <h2 class="heading-h2 mb-0 text-start text-md-start">{{ number_format(count($diamonds)) }} Diamonds available in the Store</h2>
-                        <div class="sub_title text-start text-md-start d-none d-sm-block">
+                        <div class="sub_title text-start text-md-start">
                             <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
                             {{ $dddd }}
-                        </div> 
+                        </div>
+                        <!-- <div class="sub_title text-start text-md-start d-none d-sm-block">
+                            <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
+                            {{ $dddd }}
+                        </div>  -->
                     </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="sub_title text-center text-md-center d-sm-none">
                            {{ $dddd }}
                         </div> 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
