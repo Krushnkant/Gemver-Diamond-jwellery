@@ -623,8 +623,8 @@ $(document).ready(function() {
             autoplay: true,
             autoplayTimeout: 5000,
             smartSpeed: 3000,
-            // animateOut: "slideOutDown",
-            // animateIn: "slideInDown",
+            animateOut: "slideOutDown",
+            animateIn: "slideInDown",
         });
     });
 
