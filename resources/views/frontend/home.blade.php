@@ -98,7 +98,7 @@
     
     @if(count($categories) > 0)
     <div class="container">
-        <div class="shop_by_category shop_by_category_padding">
+        <div class="shop_by_category shop_by_category_padding pb-0">
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div class="mb-3 mt-md-0">
@@ -573,9 +573,9 @@
                                     <div class="customer-stories-paragraph mt-3 mt-md-0">
                                     {!! $testimonial->description !!}
                                     </div>
-                                    <div class="text-end mt-0 pt-0 mt-4">
+                                    <div class="text-end mt-0 pt-0 mt-0 mt-md-4">
                                         <div class="customer-name">{{ $testimonial->name }}</div>
-                                        <div class="customer-country mt-2">{{ $testimonial->country }}</div>
+                                        <div class="customer-country mt-0 mt-md-2">{{ $testimonial->country }}</div>
                                     </div>
                                 </div>
                             </div>
