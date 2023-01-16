@@ -132,7 +132,7 @@
     <div class="mx-3">
         <div class="container shop-colorful-bg">
             <div class="">
-                <div class="row text-center py-2 pb-3 align-items-center">
+                <div class="row text-center py-2 pb-3 py-md-4 align-items-center">
                     <div class="col-4 col-md-5 col-lg-3 offset-lg-1 text-center text-md-end">
                     <div class="shop-colorful-img">
                             <img src="{{ asset('frontend/image/diamond.gif') }}" alt="">
