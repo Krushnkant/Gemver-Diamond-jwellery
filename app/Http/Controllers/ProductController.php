@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Diamond;
 use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\ProductVariant;
@@ -692,64 +693,113 @@ class ProductController extends Controller
         {
             $output = '';
             if(isset($data["keyword"]) && $data["keyword"]){
-            $query = Product::select('products.*','product_variants.slug','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
-            
-            // if($request->keyword){
-            //     // This will only execute if you received any keyword
-            //     $query = $query->where('name','like','%'.$keyword.'%');
-            // }
-            
-            $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');
-            $query = $query->where('products.desc','LIKE','%'.$request->keyword.'%');
-            
-
-            $result_total = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->get();
-            $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(15);;
-          
-            
-            if(count($result) > 0){
-            foreach($result as $row)
-            {
-                $supported_image = array(
-                    'jpg',
-                    'jpeg',
-                    'png'
-                );
-
-                $images = explode(",",$row->images);
-                $image = URL($images['0']);
+                $query = Product::select('products.*','product_variants.slug','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
                 
-                $ext = pathinfo($image, PATHINFO_EXTENSION);
-                $url =  URL('/product-details/'.$row->slug);
-                $output .= '
+                // if($request->keyword){
+                //     // This will only execute if you received any keyword
+                //     $query = $query->where('name','like','%'.$keyword.'%');
+                // }
+                
+                $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');
+                $query = $query->orwhere('products.desc','LIKE','%'.$request->keyword.'%');
+                
 
-                <li class="">
-                    <a href="'.$url.'" class="header-mega-menu-part">
-                    <div class="d-flex">
-                            <span>
-                                <img src="'.$image.'" alt="">
-                            </span>
-                            <span class="ms-3">
-                                <div class="product_name"> 
-                                    '.$row->product_title.'
-                                </div>
-                                <div class="product_price">
-                                    $ '.$row->sale_price.'
-                                </div>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-               
-            ';
-            }
+                $result_total = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->get();
+                $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(15);;
             
-            }else{
-                $output .= '';  
-            } 
+                
+                if(count($result) > 0){
+                    foreach($result as $row)
+                    {
+                        $supported_image = array(
+                            'jpg',
+                            'jpeg',
+                            'png'
+                        );
+
+                        $images = explode(",",$row->images);
+                        $image = URL($images['0']);
+                        
+                        $ext = pathinfo($image, PATHINFO_EXTENSION);
+                        $url =  URL('/product-details/'.$row->slug);
+                        $output .= '
+
+                        <li class="">
+                            <a href="'.$url.'" class="header-mega-menu-part">
+                            <div class="d-flex">
+                                    <span>
+                                        <img src="'.$image.'" alt="">
+                                    </span>
+                                    <span class="ms-3">
+                                        <div class="product_name"> 
+                                            '.$row->product_title.'
+                                        </div>
+                                        <div class="product_price">
+                                            $ '.$row->sale_price.'
+                                        </div>
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    
+                    ';
+                    }
+                
+                }else{
+                    $output .= '';  
+                } 
             }else{
                 $output .= '';
-            }   
+            } 
+            
+            
+            if(isset($data["keyword"]) && $data["keyword"]){
+                $query = Diamond::where('estatus',1);
+                $query = $query->orwhere('short_title','LIKE','%'.$request->keyword.'%');
+                $query = $query->orwhere('long_title','LIKE','%'.$request->keyword.'%');
+                $query = $query->orwhere('Stone_No','LIKE','%'.$request->keyword.'%');
+                $result = $query->orderBy('created_at','ASC')->paginate(15);;
+            
+                
+                if(count($result) > 0){
+                    foreach($result as $row)
+                    {
+                        if($row->Stone_Img_url != ""){
+                            $image = $row->Stone_Img_url;
+                        }else{
+                            $image = url('images/placeholder_image.png');  
+                        }
+
+                        $url =  URL('laddiamond-details/'.$row->id);
+                        $output .= '
+
+                        <li class="">
+                            <a href="'.$url.'" class="header-mega-menu-part">
+                            <div class="d-flex">
+                                    <span>
+                                        <img src="'.$image.'" alt="">
+                                    </span>
+                                    <span class="ms-3">
+                                        <div class="product_name"> 
+                                            '.$row->short_title.'
+                                        </div>
+                                        <div class="product_price">
+                                            $ '.$row->Sale_Amt.'
+                                        </div>
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    
+                    ';
+                    }
+                
+                }else{
+                    $output .= '';  
+                } 
+            }else{
+                $output .= '';
+            } 
             return $output;
         }
     }    
