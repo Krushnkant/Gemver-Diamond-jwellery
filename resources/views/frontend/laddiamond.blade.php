@@ -93,7 +93,7 @@
                             </span>
                             <span class="form-check position-relative ps-0 round_checkbox_part other_checkbox" title="Other">
                                     <input class="form-check-input shape common_selector" value="other" type="checkbox" name="shape[]"    id="flexRadioDefaultother">
-                                   <div class="shape_img">Other</div>
+                                   <div class="shape_img other_box">Other</div>
                             </span>
                     </div>
                 </div>

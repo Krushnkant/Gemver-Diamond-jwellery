@@ -387,7 +387,7 @@ class DiamondController extends Controller
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    
-                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
+                                        $artilces .= '<i class="fas fa-heart heart-icon-part"></i> ';
                                     }else{ 
                                         $artilces .= '<i class="far fa-heart"></i> ';
                                     }
@@ -629,7 +629,7 @@ class DiamondController extends Controller
                                 <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                
                                 if(is_wishlist($product->variant_id,0)){    
-                                    $artilces .= ' <i class="fas fa-heart text-danger"></i>';
+                                    $artilces .= ' <i class="fas fa-heart heart-icon-part"></i>';
                                  }else{ 
                                     $artilces .= ' <i class="far fa-heart"></i> ';
                                 }
@@ -1087,9 +1087,9 @@ class DiamondController extends Controller
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    
-                                        $artilces .= '<i class="fas fa-heart text-danger"></i> ';
+                                        $artilces .= '<i class="fas fa-heart heart-icon-part"></i> ';
                                     }else{ 
-                                        $artilces .= '<i class="far fa-heart"></i> ';
+                                        $artilces .= '<i class="far fa-heart"  ></i> ';
                                     }
                                     $artilces .= '</span>
                                     <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">

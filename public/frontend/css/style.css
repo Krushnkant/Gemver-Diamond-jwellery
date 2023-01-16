@@ -2475,11 +2475,14 @@ transform: translateY(-50%); */
     
     .round_cut_lab_diamonds_info_price svg {
         cursor: pointer;
-        fill: #8f8f8f;
     }
     
-    .round_cut_lab_diamonds_info_price svg path {
+    .add-to-wishlist-btn-diamond svg path {
         fill: gray;
+    }
+    
+    .add-to-wishlist-btn-diamond .heart-icon-part path {
+        fill: red;
     }
     
     .round_cut_lab_diamonds_img {
@@ -6652,12 +6655,23 @@ width: 100%;
         width: 50%;
     }
     
-    .products_item .owl-nav {
-        margin-top: 0 !important;
+    .heart-icon-part path {
+        fill: red;
     }
     
-    .customer-stories .owl-nav {
-        margin-top: 0 !important;
+    .round_cut_lab_checkbox .other_box {
+        font-size: 13px !important;
+        line-height: 36px !important;
+    }
+    
+    .apply-btn {
+        background-color: var(--primary);
+        color: #fff;
+        width: 100%;
+        text-transform: capitalize;
+        border: 0;
+        padding: 8px 0;
+        font-size: 13px;
     }
     
     @keyframes marquee {

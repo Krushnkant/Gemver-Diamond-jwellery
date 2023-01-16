@@ -626,7 +626,7 @@
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div>
-                        <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2>
+                        <!-- <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2> -->
                     </div>
                     <!-- <div class="category-line-img d-none d-md-block">
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
@@ -729,7 +729,7 @@
                                 <input type="hidden" class="item_type" value="1">    
                                 <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
                                     @if(is_wishlist($Diamond->id,1))    
-                                        <i class="fas fa-heart text-danger"></i> 
+                                        <i class="fas fa-heart heart-icon-part"></i> 
                                     @else
                                         <i class="far fa-heart "></i>
                                     @endif

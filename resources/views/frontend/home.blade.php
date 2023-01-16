@@ -235,7 +235,7 @@
                             <?php 
                             if(is_wishlist($product->variant_id,0)){
                             ?>
-                                <i class="fas fa-heart text-danger"></i>
+                                <i class="fas fa-heart heart-icon-part"></i>
                             <?php }else{ ?>
                                 <i class="far fa-heart"></i> 
                             <?php }
