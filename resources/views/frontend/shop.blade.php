@@ -124,7 +124,7 @@
                 <div class="col-lg-6 text-center text-sm-start">
                     <div class="row no-gutters mb-3 align-items-center justify-content-start">
                         <div class="col-12 col-md-auto px-0">
-                            Result {{ count($Products) }}
+                            Result (<span class="total-product"> </span>)
                         </div>
                     </div>
                 </div>
@@ -222,16 +222,18 @@
                                 $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }
-                            $('.auto-load').hide(); 
                             $('.filter_data').append(data['output']);
+                            $(".total-product").html(data['datacount']);
+                            $('.auto-load').hide();
        
                         }else{
                             if (data['output'] == "") {
                                 $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }else{
-                                $('.auto-load').hide();
                                 $('.filter_data').html(data['output']);
+                                $(".total-product").html(data['datacount']);
+                                $('.auto-load').hide();
                             }
                             
                         }

@@ -821,7 +821,7 @@
                     <div class="col-12 col-md-auto px-0">
                     <ul class="nav wire_bangle_tabs_part justify-content-center" id="myTab" role="tablist">
                             <li class="active nav-item">
-                                <a class="nav-link d-inline-block ps-0" href="#1a" data-toggle="tab">Result </a>
+                                <a class="nav-link d-inline-block ps-0" href="#1a" data-toggle="tab">Result (<span class="total-diamond">  </span>)</a>
                             </li>
                             <li>
                                 <a class="nav-link d-inline-block" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
@@ -1105,15 +1105,18 @@
                     $('.auto-load').show();
                 },
                 success: function(response) {
-                    $('#datacount').html('showing ' + response['showdata'] + ' of ' + response['totaldata'] + ' results');
+                 
+                    //$('#datacount').html('showing ' + response['showdata'] + ' of ' + response['totaldata'] + ' results');
 
                     if (scroll == 1) {
                         if (response['artilces'] == "") {
                             $('.auto-load').html("We don't have more data to display ");
                             return;
                         }
-                        $('.auto-load').hide();
+                        
                         $("#data-wrapper").append(response['artilces']);
+                        $(".total-diamond").html(response['showdata']);
+                        $('.auto-load').hide();
                     } else {
                         if (response['artilces'] == "") {
                             $('#data-wrapper').html("No Result Found");
@@ -1121,7 +1124,9 @@
                             return;
                         }
                         $("#data-wrapper").html(response['artilces']);
+                        $(".total-diamond").html(response['showdata']);
                         $('.auto-load').hide();
+                        
                     }
 
                 }

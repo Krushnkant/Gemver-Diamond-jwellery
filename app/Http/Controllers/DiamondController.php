@@ -67,6 +67,7 @@ class DiamondController extends Controller
         $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
+       // $diamond_count = Diamond::get()->count();
         return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     } 
 
@@ -236,6 +237,8 @@ class DiamondController extends Controller
             $query = $query->whereIn('growth_type',$growth_type);
         }
 
+        $result_recode = $query->get()->count(); 
+
         if($data["sorting"] == "price"){
             $results = $query->orderBy('Sale_Amt','asc')->paginate(16); 
         }elseif($data["sorting"]=="price-desc"){
@@ -402,10 +405,10 @@ class DiamondController extends Controller
             }
         }
 
-       $TotalDiamond = Diamond::get();
+       //$TotalDiamond = Diamond::get();
        
        // $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']]; 
-       $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => 0];  
+       $data = ['artilces' => $artilces,'totaldata' => 0 ,'showdata' => $result_recode];  
        return $data;
       
     }
@@ -936,6 +939,8 @@ class DiamondController extends Controller
             $growth_type = $data["growth_type"];
             $query = $query->whereIn('growth_type',$growth_type);
         }
+
+        $result_recode = $query->get()->count();
         
         if($data["sorting"] == "price"){
             $results = $query->orderBy('Sale_Amt','asc')->paginate(16); 
@@ -1101,7 +1106,7 @@ class DiamondController extends Controller
         }
 
         $TotalDiamond = Diamond::get();
-        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']];   
+        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => $result_recode];   
         return $data;
     }
 

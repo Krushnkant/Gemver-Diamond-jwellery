@@ -153,12 +153,7 @@ class ProductController extends Controller
             if(count($result) > 0){
             foreach($result as $row)
             {
-                $supported_image = array(
-                    'jpg',
-                    'jpeg',
-                    'png'
-                );
-
+                $supported_image = array('jpg','jpeg','png');
                 $images = explode(",",$row->images);
                 $image = URL($images['0']);
 
