@@ -23,7 +23,7 @@
 
     <div class="container round_cut_lab_diamonds_page">
         <!-- <div class="mt-4 mt-md-5"></div>     -->
-        <div class="row filter-data pt-3 d-md-flex pb-4">
+        <div class="row filter-data pt-3 d-md-flex pb-4 gemver-sidebar">
             <div class="text-end close-icon d-lg-none">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -667,10 +667,16 @@
                             </div>
                         </div>
                     </span>
-                    <span class="d-inline-block">
-                        <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
-                    </span>
+                  
                 </div>
+            </div>
+            <div class="reset-btn-position">
+                <span class="d-inline-block">
+                    <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4 apply-btn">Apply</button>
+                </span>
+                <span class="d-inline-block">
+                    <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                </span>
             </div>
         </div>
 
@@ -737,7 +743,7 @@
             <div class="tab-content clearfix">
 			    <div class="tab-pane active" id="1a">
                     <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
-                        <div class="row row-grid-list grid" id="data-wrapper">
+                        <div class="row row-grid-list list" id="data-wrapper">
                         </div>
                         <div class="auto-load text-center mt-4">
                             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
