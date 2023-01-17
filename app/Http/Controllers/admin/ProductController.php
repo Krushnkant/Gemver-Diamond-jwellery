@@ -2237,8 +2237,8 @@ class ProductController extends Controller
         
     }
 
-    protected $catArray = array();
-    function getSubCategories($ids){
+    public $catArray = array();
+    public function getSubCategories($ids){
         $category = \App\Models\Category::where('estatus',1)->whereIn('id',$ids)->get()->toArray();
         foreach ($category as $cat){
             if(!in_array($cat['id'], $this->catArray)){
@@ -2251,7 +2251,7 @@ class ProductController extends Controller
         return $this->catArray;
     }
 
-    function getSubCategories1($id){
+    public function getSubCategories1($id){
         $category = \App\Models\Category::where('estatus',1)->where('id',$id)->get()->toArray();
         foreach ($category as $cat){
             if(!in_array($cat['id'], $this->catArray)){
