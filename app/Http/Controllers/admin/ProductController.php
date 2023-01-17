@@ -533,7 +533,7 @@ class ProductController extends Controller
         if(isset($request['category_id'])){
            $category1 = $this->getSubCategories($request['category_id']);
         }
-        $category_ids = implode(",",$category1);
+        $category_ids = implode(",",$request['category_id']);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
         $product = new Product();
