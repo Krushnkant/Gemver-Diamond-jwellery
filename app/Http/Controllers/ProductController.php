@@ -754,8 +754,7 @@ class ProductController extends Controller
             
             
             if(isset($data["keyword"]) && $data["keyword"]){
-                $query = Diamond::where('estatus',1);
-                $query = $query->orwhere('short_title','LIKE','%'.$request->keyword.'%');
+                $query = Diamond::where('short_title','LIKE','%'.$request->keyword.'%');
                 $query = $query->orwhere('long_title','LIKE','%'.$request->keyword.'%');
                 $query = $query->orwhere('Stone_No','LIKE','%'.$request->keyword.'%');
                 $result = $query->orderBy('created_at','ASC')->paginate(15);;
