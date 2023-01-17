@@ -258,7 +258,7 @@
         font-size: 13px;
     }
     .choose_your_setting_box {
-        padding: 60px 15px;
+        padding: 20px 15px 15px 15px;
         line-height: normal;
     }
     .choose_your_setting_section,
@@ -329,7 +329,7 @@
     }
     .engagement_start_diamond,
     .engagement_start_setting {
-        min-width: 170px;
+        min-width: auto;
         height: 37px;
         padding: 11px 19px;
     }
@@ -1081,6 +1081,9 @@
 }
 
 @media (max-width:1199px) {
+    .shop_by_category_padding {
+        padding-bottom: 0 !important;
+    }
     .background-text-part {
         top: 50%;
         width: 100%;
@@ -1997,6 +2000,9 @@
     .animation-slider-text .header-icon {
         font-size: 11px;
     }
+    .two_part_box_section .design_engagemnt_image img {
+        height: 300px;
+    }
 }
 
 @media (min-width:768px) and (max-width:1199px) {
@@ -2239,8 +2245,9 @@
     }
     .engagement_start_diamond,
     .engagement_start_setting {
-        padding: 7px 16px;
+        padding: 0px 16px;
         font-size: 12px;
+        min-width: auto;
     }
     .custom_made_heading {
         font-size: 18px;
@@ -2518,6 +2525,9 @@
     .round_cut_lab_diamonds_info_price {
         font-size: 15px;
     }
+    .two_part_box_section .design_engagemnt_image img {
+        height: 300px;
+    }
 }
 
 @media (min-width:1200px) and (max-width:1400px) {
@@ -2709,7 +2719,7 @@
     }
     .engagement_start_diamond,
     .engagement_start_setting {
-        padding: 15px 27px;
+        padding: 0 27px;
     }
     .choose_your_setting_heading {
         font-size: 28px;

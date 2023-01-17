@@ -33,23 +33,27 @@
             <div class="container mb-xl-5 text-center">
                 <div class="row two_part_box_section">
                     <div class="col-md-6 ps-md-0 order-1 order-md-2 mb-3 mb-md-0">
-                        <div class="choose_your_setting_box text-center">
+                        <div class="choose_your_setting_box text-center custom-made-bg">
                             <div class="">
-                                <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                                <div class="custom_made_heading text-start mb-2 mb-xl-3">
                                     {{ $menupageshapestyle->title }}
                                 </div>
-                                <p class="custom_engagement_paragrph mb-4">
+                                <p class="custom_engagement_paragrph mb-4 text-start ms-0">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                <div class="engagement_button text-center d-md-flex flex-nowrap">
+                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto ms-md-0" id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 order-1 order-md-2 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
-                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                       <div class="banner_part_img_parent">
+                        <figure class="mb-0 custom-image-part">
+                            <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                        </figure>
+                       </div>
                     </div> 
                 </div>
             </div>
@@ -141,21 +145,24 @@
         <div class="my-3 my-xl-4"> 
             <div class="container mb-xl-5 text-center">
                 <div class="row two_part_box_section">
-                    <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
-                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
-                    </div> 
+                    <div class="banner_part_img_parent col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
+                        <figure class="mb-0 custom-image-part">
+                            <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                        </figure>
+                    </div>
+
                     <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
-                        <div class="choose_your_setting_box text-center">
+                        <div class="choose_your_setting_box text-start custom-made-bg">
                             <div class="">
-                                <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                                <div class="custom_made_heading text-start mb-2 mb-xl-3">
                                     {{ $menupageshapestyle->title }}
                                 </div>
-                                <p class="custom_engagement_paragrph mb-4">
+                                <p class="custom_engagement_paragrph mb-4 text-start ms-0">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                <div class="engagement_button text-center d-md-flex flex-nowrap">
+                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -169,24 +176,27 @@
                 <div class="row two_part_box_section">
                     
                     <div class="col-md-6 ps-md-0 mb-3 mb-md-0">
-                        <div class="choose_your_setting_box text-center">
+                        <div class="choose_your_setting_box text-center custom-made-bg">
                             <div class="">
-                                <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                                <div class="custom_made_heading text-start mb-2 mb-xl-3">
                                     {{ $menupageshapestyle->title }}
                                 </div>
-                                <p class="custom_engagement_paragrph mb-4">
+                                <p class="custom_engagement_paragrph mb-4 ms-0 text-start">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center">
-                                    <button class="engagement_start_diamond d-block mx-auto mb-3" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
+                                <div class="engagement_button text-center d-md-flex flex-nowrap">
+                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 design_engagemnt_image lab-diamond-img pe-md-0">
-                        <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
-                    </div> 
+                 
+                    <div class="banner_part_img_parent col-md-6 design_engagemnt_image lab-diamond-img pe-md-0">
+                        <figure class="mb-0 custom-image-part">
+                            <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>

@@ -98,7 +98,7 @@
     
     @if(count($categories) > 0)
     <div class="container">
-        <div class="shop_by_category shop_by_category_padding pb-0">
+        <div class="shop_by_category shop_by_category_padding">
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div class="mb-3 mt-md-0">
@@ -662,12 +662,12 @@
                         <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 px-0 ps-md-3 position-relative order-3">
+                <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
                     </div>
                 </div>
-                <div class="col-md-6 mt-md-4 px-0 px-md-3 position-relative order-4">
+                <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
                     <div class="gemver_diamods_bg">
 
                         <div class="diamonds_part">

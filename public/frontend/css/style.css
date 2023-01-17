@@ -4295,7 +4295,7 @@ width: 100%;
     .smiling_gemver_banner {
         margin-top: 20px;
         margin-bottom: 60px;
-        padding-bottom: 100px;
+        padding-bottom: 60px;
         position: relative;
     }
     
@@ -4374,6 +4374,10 @@ width: 100%;
     
     .catrgery_box span.catrgory_img:hover img {
         transform: scale(1.1);
+    }
+    
+    .banner_part_img_parent {
+        cursor: pointer;
     }
     
     .banner_part_img_parent>figure {
@@ -5551,8 +5555,9 @@ width: 100%;
         letter-spacing: 0.05em;
         color: #FFFFFF;
         min-width: 240px;
-        height: 48px;
+        height: 40px;
         border: 0;
+        line-height: 40px;
     }
     
     .cart-icon-part .dropdown-toggle {
@@ -5617,7 +5622,7 @@ width: 100%;
     .choose_your_setting_paragraph {
         font-weight: 400;
         font-size: 17px;
-        line-height: 21px;
+        line-height: normal;
         letter-spacing: 0.05em;
         color: #fff;
     }
@@ -5659,11 +5664,11 @@ width: 100%;
     .custom_engagement_paragrph {
         font-weight: 400;
         font-size: 16px;
-        line-height: 19px;
+        line-height: normal;
         text-align: center;
         letter-spacing: 0.05em;
         color: #808080;
-        max-width: 480px;
+        max-width: auto;
         margin: auto;
     }
     
@@ -5803,7 +5808,7 @@ width: 100%;
     .finejewellery-heading {
         font-weight: 500;
         font-size: 18px;
-        line-height: 21px;
+        line-height: normal;
         letter-spacing: 0.05em;
         color: var(--primary);
     }
@@ -6518,7 +6523,6 @@ width: 100%;
     
     .create_yout_own_engagemtnt_ring_btn {
         padding: 0 20px;
-        line-height: 48px;
     }
     
     .create_yout_own_engagemtnt_ring_btn:hover {
@@ -6687,4 +6691,32 @@ width: 100%;
         100% {
             left: -100%;
         }
+    }
+    
+    .custom-bg-remove {
+        background: transparent;
+    }
+    
+    .custom-image-part {
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);
+    }
+    
+    .custom-image-part img {
+        box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);
+        transform: scale(1);
+        border-radius: 6px;
+        transition: all 0.6s ease;
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .custom-image-part img:hover {
+        transform: scale(1.2);
+        transition: all 0.8s ease;
+    }
+    
+    .custom-made-bg {
+        background: transparent;
     }
