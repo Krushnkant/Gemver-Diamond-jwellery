@@ -212,13 +212,13 @@
 @endif
 <div class="container mt-3 my-md-5">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-3 mb-md-0 px-0">
-            <div class="choose_your_setting_box text-center">
+        <div class="col-md-6 mb-3 mb-md-0 order-2">
+            <div class="choose_your_setting_box text-start custom-bg-remove ps-0 ps-md-3">
                 <div class="">
-                    <div class="custom_made_heading text-center mb-2 mb-xl-3">
+                    <div class="custom_made_heading text-start mb-2 mb-xl-3">
                         {{ $MenuPage->section4_title }}
                     </div>
-                    <p class="custom_engagement_paragrph">
+                    <p class="custom_engagement_paragrph text-start ms-0">
                         {{ $MenuPage->section4_description }}
                     </p>
                     <div class="engagement_button">
@@ -227,8 +227,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 design_engagemnt_image px-0">
-            <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
+        <div class="col-md-6 design_engagemnt_image order-1">
+            <div class="custom-image-part">
+                <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
+            </div>
         </div>  
     </div>
 </div>
