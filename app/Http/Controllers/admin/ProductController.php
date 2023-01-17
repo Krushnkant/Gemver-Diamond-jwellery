@@ -523,17 +523,14 @@ class ProductController extends Controller
     public function save(Request $request){
         $catArray = array();
         $category1 = array();
-        // if(isset($request['category_id'])){
-        //     foreach($request['category_id'] as $category){
-        //         if($category){
-        //             $category1 = $this->getSubCategories($category);
-        //         }
-        //     }
-        // } 
         if(isset($request['category_id'])){
-           $category1 = $this->getSubCategories($request['category_id']);
-        }
-        $category_ids = implode(",",$request['category_id']);
+            foreach($request['category_id'] as $category){
+                if($category){
+                    $category1 = $this->getSubCategories($category);
+                }
+            }
+        } 
+        $category_ids = implode(",",$category1);
         $attr_term_ids = explode(",",$request['attr_term_ids']);
 
         $product = new Product();
@@ -2238,29 +2235,17 @@ class ProductController extends Controller
     }
 
     public $catArray = array();
-    public function getSubCategories($ids){
-        $category = \App\Models\Category::where('estatus',1)->whereIn('id',$ids)->get()->toArray();
-        foreach ($category as $cat){
-            if(!in_array($cat['id'], $this->catArray)){
-                array_push($this->catArray,$cat['id']); 
-            }
-            if($cat['parent_category_id'] != 0){
-                $this->getSubCategories1($cat['parent_category_id']);
-            }
-        }
-        return $this->catArray;
-    }
-
-    public function getSubCategories1($id){
+    function getSubCategories($id){
         $category = \App\Models\Category::where('estatus',1)->where('id',$id)->get()->toArray();
         foreach ($category as $cat){
             if(!in_array($cat['id'], $this->catArray)){
                 array_push($this->catArray,$cat['id']); 
             }
             if($cat['parent_category_id'] != 0){
-                $this->getSubCategories1($cat['parent_category_id']);
+                $this->getSubCategories($cat['parent_category_id']);
             }
         }
+        return $this->catArray;
     }
  
 }
