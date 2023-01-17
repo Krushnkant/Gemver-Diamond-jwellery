@@ -757,7 +757,7 @@ class ProductController extends Controller
                 $query = Diamond::where('short_title','LIKE','%'.$request->keyword.'%');
                 $query = $query->orwhere('long_title','LIKE','%'.$request->keyword.'%');
                 $query = $query->orwhere('Stone_No','LIKE','%'.$request->keyword.'%');
-                $result = $query->orderBy('created_at','ASC')->paginate(15);;
+                $result = $query->orderBy('created_at','ASC')->paginate(15);
             
                 
                 if(count($result) > 0){
