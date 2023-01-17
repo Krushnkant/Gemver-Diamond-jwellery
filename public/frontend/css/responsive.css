@@ -1266,7 +1266,7 @@
         padding: 11px 21px;
         font-size: 14px;
         min-height: 44px;
-        min-width: 123px;
+        min-width: auto;
     }
     .footer-social-media-icons li {
         width: 43px;
