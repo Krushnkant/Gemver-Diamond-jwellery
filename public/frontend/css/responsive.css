@@ -1046,6 +1046,38 @@
     .shop_dimond_by_shape1 {
         margin-bottom: 20px;
     }
+    .apply-btn {
+        background-color: var(--primary) !important;
+        color: #fff !important;
+        line-height: 12px;
+        min-width: 100px;
+        line-height: 36px;
+        padding: 0;
+    }
+    .reset-btn-position {
+        position: fixed;
+        bottom: 0;
+        min-width: 320px;
+        max-width: 400px;
+        left: -100%;
+        width: 80%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        z-index: 9999;
+        padding: 20px 20px !important;
+        transition: all 1s ease;
+    }
+    .filter-data-active .reset-btn-position {
+        left: 0;
+        width: 80%;
+    }
+    .gemver-sidebar {
+        padding-bottom: 80px !important;
+    }
+    .filter-sidebar {
+        padding-bottom: 75px !important;
+    }
 }
 
 @media (max-width:1199px) {

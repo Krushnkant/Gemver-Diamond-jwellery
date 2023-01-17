@@ -23,7 +23,7 @@
 
     <div class="container round_cut_lab_diamonds_page">
         <!-- <div class="mt-4 mt-md-5"></div>     -->
-        <div class="row filter-data pt-3 d-md-flex pb-4 gemver-sidebar">
+        <div class="row filter-data pt-3 d-md-flex pb-4 filter-sidebar">
             <div class="text-end close-icon d-lg-none">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -467,7 +467,7 @@
                             <div class="align-items-center mb-2 position-relative">
                                 <!-- <div id="slider-range-carat" class="mb-0"></div> -->
                                 <div class="d-md-flex flex-wrap flex-lg-nowrap justify-content-between meas_part">
-                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-lg-inline-block filter-meas-box">
+                                        <div class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
                                             <div class="filter_text_part ">L</div>
                                             <div class="d-flex flex-md-nowrap meas_length">
                                                 <div class="from_text me-1">
@@ -484,7 +484,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="position-relative me-sm-4 mb-3 mb-md-0 d-block d-lg-inline-block filter-meas-box">
+                                        <div class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
                                         <div class="filter_text_part">W</div>
                                         <div class="d-flex flex-md-nowrap meas_width">
                                             <span class="from_text me-1">
@@ -658,7 +658,7 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-md-12 text-center text-sm-end px-0">
+                <div class="col-md-12 text-center text-md-end px-0">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
                             <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -667,16 +667,15 @@
                             </div>
                         </div>
                     </span>
-                  
+                    <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                        <span class="d-inline-block d-lg-none  apply-btn me-3">
+                            <button type="button" class= "apply-btn">Apply</button>
+                        </span>
+                        <span class="d-inline-block reset-btn reset-btn-part">
+                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="reset-btn-position">
-                <span class="d-inline-block">
-                    <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4 apply-btn">Apply</button>
-                </span>
-                <span class="d-inline-block">
-                    <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
-                </span>
             </div>
         </div>
 
@@ -707,8 +706,8 @@
                     <div class="col-3 col-md-6 col-lg-auto px-0">
                         <div class="table-grid-view d-flex justify-content-start mb-md-0">
                             <div class="me-3 d-none d-md-block">Change view</div>
-                            <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
-                            <div class="table-view-part active grid grid-active"><i class="fa fa-th-large"></i></div>
+                            <div class="table-view-part list me-3 list-active"><i class="fa-solid fa-list"></i></div>
+                            <div class="table-view-part active grid"><i class="fa fa-th-large"></i></div>
                         </div>
                     </div>
                 
