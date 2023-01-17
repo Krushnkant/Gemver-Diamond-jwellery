@@ -6682,3 +6682,24 @@ width: 100%;
             left: -100%;
         }
     }
+    
+    .gemver-sidebar {
+        padding-bottom: 80px !important;
+    }
+    
+    .apply-btn {
+        background-color: var(--primary) !important;
+        color: #fff !important;
+        line-height: 12px;
+    }
+    
+    .reset-btn-position {
+        position: fixed;
+        bottom: 0;
+        width: 320px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        z-index: 9999;
+        padding-bottom: 10px;
+    }
