@@ -158,7 +158,7 @@
         @endif
     </div>
 
-    <div class="row filter-data pt-3 d-md-flex mb-4 pb-4">
+    <div class="row filter-data pt-3 d-md-flex mb-4 filter-sidebar">
         <div class="text-end close-icon d-lg-none">
             <i class="fa-solid fa-xmark"></i>
         </div>
@@ -798,9 +798,14 @@
                             </div>
                     </div>
                 </span>
-                <span class="d-inline-block">
-                    <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
-                </span>
+                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                        <span class="d-inline-block d-lg-none  apply-btn me-3">
+                            <button type="button" class= "apply-btn">Apply</button>
+                        </span>
+                        <span class="d-inline-block reset-btn reset-btn-part">
+                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                        </span>
+                    </div>
             </div>
         </div>
         <!-- <div>

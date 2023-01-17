@@ -6140,7 +6140,7 @@ width: 100%;
     }
     
     .reset-btn {
-        border: 1px var(--primary) solid !important;
+        border: 1px var(--primary) solid;
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
@@ -6672,6 +6672,12 @@ width: 100%;
         border: 0;
         padding: 8px 0;
         font-size: 13px;
+        width: 50%;
+    }
+    
+    .reset-btn-part {
+        border: 1px var(--primary) solid !important;
+        width: 50%;
     }
     
     @keyframes marquee {
@@ -6681,25 +6687,4 @@ width: 100%;
         100% {
             left: -100%;
         }
-    }
-    
-    .gemver-sidebar {
-        padding-bottom: 80px !important;
-    }
-    
-    .apply-btn {
-        background-color: var(--primary) !important;
-        color: #fff !important;
-        line-height: 12px;
-    }
-    
-    .reset-btn-position {
-        position: fixed;
-        bottom: 0;
-        width: 320px;
-        background-color: #fff;
-        display: flex;
-        justify-content: space-between;
-        z-index: 9999;
-        padding-bottom: 10px;
     }
