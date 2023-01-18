@@ -202,9 +202,9 @@
         </div>
     </div>
 @endif
-<div class="container engegement_ring_box_part pt-0">
+<div class="container engegement_ring_box_part pt-0 pb-0">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-3 mb-md-0 text-start">
+        <div class="col-md-6 mb-3 mb-md-0 pe-md-4 text-start">
             <div class="choose_your_setting_box text-start custom-bg-remove">
                 <div class="">
                     <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -229,7 +229,7 @@
 </div>
 
 
-<div class="create_your_own_section mb-3 my-md-5">
+<div class="create_your_own_section">
    <div class="container ">
     <div class="row">
             <div class="col-md-12">
@@ -289,9 +289,9 @@
    </div>
 </div>
 
-<div class="container mb-0 mb-md-5">
+<div class="container gift-box-margin">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-md-0 px-0 px-md-3 text-start order-2">
+        <div class="col-md-6 mb-md-0 px-0 px-md-3 ps-md-4 text-start order-2">
             <div class="choose_your_setting_box text-start custom-bg-remove">
                 <div class="">
                     <div class="custom_made_heading text-start mb-2 mb-xl-3">

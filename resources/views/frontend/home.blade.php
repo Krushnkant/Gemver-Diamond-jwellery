@@ -756,6 +756,61 @@
         </div>
     </div>
 
+    <div class="Instagram-post-section px-0">
+        <h2 class="heading-h2 text-center mb-4">Instagram</h2>
+        <div class="owl-carousel owl-theme Instagram-post-slider row mx-0">
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-1.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-2.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-3.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-4.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-5.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-6.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-7.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-8.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-9.jpg') }}">
+                </div>
+            </div>
+            <div class="custom-col item">
+                <div class="instafeed_inner">
+                    <img src="{{ asset('frontend/image/instagram-post-10.jpg') }}">
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
         
 $(document).ready(function(){

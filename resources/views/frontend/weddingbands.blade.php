@@ -44,7 +44,7 @@
     </div>
 </div>
 
-<div class="create_your_own_section custom_made_wedding_bands_section">
+<div class="create_your_own_section custom_made_wedding_bands_section my-0">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-7 mb-4">
@@ -210,9 +210,9 @@
         </div>
     </div>
 @endif
-<div class="container mt-3 my-md-5">
+<div class="container ready-to-ship-section">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-3 mb-md-0 order-2">
+        <div class="col-md-6 mb-0 mb-md-0 order-2">
             <div class="choose_your_setting_box text-start custom-bg-remove ps-0 ps-md-3">
                 <div class="">
                     <div class="custom_made_heading text-start mb-2 mb-xl-3">

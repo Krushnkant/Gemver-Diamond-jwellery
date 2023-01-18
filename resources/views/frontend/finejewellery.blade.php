@@ -22,7 +22,7 @@
     </div> -->
 </div>
 
-    <div class="pt-5 pt-xl-5 mt-xl-5"> 
+    <div class="choose-your-section"> 
         <div class="container">
             <div class="row">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
@@ -32,7 +32,7 @@
                     Whatever the occasion, we've got a beatiful piece of jewellery for you.
                 </p>
                 @if($MenuPage->menupageshapestyle)
-                <div class="owl-carousel owl-theme finejewellery-slider">
+                <div class="owl-carousel owl-theme finejewellery-slider mb-0">
 
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
                     <div class="item finejewellery-img mb-xl-4 choose_your_setting_col design_engagemnt_image banner_part_img_parent" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
@@ -58,13 +58,13 @@
     </div>
 
     <div class="mt-xxl-5">
-        <div class="container mb-xl-5">
+        <div class="container">
             <div class="row two_part_box_section">
                 <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img px-0">
                     <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
                 <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 px-0">
-                    <div class="choose_your_setting_box text-center">
+                    <div class="choose_your_setting_box text-center py-4">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
                                 {{ $MenuPage->section1_title }}
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="container mb-4 pt-4 mb-5 pb-xxl-5">
+    <div class="container gifts-box-padding">
         <div class="choose_your_setting_heading text-center mb-3 mb-xl-3">{{ $MenuPage->section3_title }}</div>
         <p class="dainty-ring-gifts-paragraph mt-3 mb-4 mb-xl-4">  
             {{ $MenuPage->section3_description }}   
