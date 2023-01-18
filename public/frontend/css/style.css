@@ -836,7 +836,7 @@ background-size: cover;
     }
     
     .customer_stories {
-        padding: 50px 0;
+        padding: 50px 0 !important;
     }
     
     .customer_stories .item {
@@ -4293,7 +4293,7 @@ width: 100%;
     }
     
     .smiling_gemver_banner {
-        margin-top: 20px;
+        margin-top: 60px;
         margin-bottom: 60px;
         padding-bottom: 60px;
         position: relative;
@@ -5690,6 +5690,11 @@ width: 100%;
     
     .create_your_own_section {
         position: relative;
+        margin: 70px 0;
+    }
+    
+    .gift-box-margin {
+        margin-bottom: 70px !important;
     }
     
     .create_your_own_section:after {
@@ -5700,7 +5705,7 @@ width: 100%;
         width: 100%;
         height: 100%;
         pointer-events: none;
-        background: var(--light-bg);
+        background: rgb(234 239 245 / 50%);
         z-index: -9;
     }
     
@@ -6238,10 +6243,6 @@ width: 100%;
         padding: 0px 20px;
     }
     
-    .wedding_bands_section {
-        padding-bottom: 100px;
-    }
-    
     .search-box-icon {
         position: absolute;
         top: 54%;
@@ -6719,4 +6720,141 @@ width: 100%;
     
     .custom-made-bg {
         background: transparent;
+    }
+    
+    .engagement-section .owl-stage {
+        display: flex;
+        justify-content: center;
+    }
+    /* ----------------------- home page instagram post ---------------------------------------------- */
+    
+    .Instagram-post-section .custom-col {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 0;
+        display: block;
+        position: relative;
+        color: #fff;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .Instagram-post-section {
+        padding-top: 40px;
+    }
+    
+    .Instagram-post-section .custom-col:before {
+        background-color: rgba(0, 0, 0, .15);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: .7s opacity;
+        -o-transition: .7s opacity;
+        transition: .7s opacity;
+        z-index: 1;
+    }
+    
+    .Instagram-post-section .custom-col:after {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '\f16d';
+        font-size: 40px;
+        opacity: 0;
+        -webkit-transform: translate(-50%, -50%) scale(10);
+        -o-transform: translate(-50%, -50%) scale(10);
+        transform: translate(-50%, -50%) scale(10);
+        -webkit-transition: .7s transform, .7s opacity;
+        -o-transition: .7s transform, .7s opacity;
+        transition: .7s transform, .7s opacity;
+        z-index: 1;
+        font-family: 'FontAwesome';
+        pointer-events: none;
+    }
+    
+    .Instagram-post-section .custom-col:hover:after {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%) scale(1);
+        -o-transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .Instagram-post-section .custom-col .instafeed_inner:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transition: .7s opacity;
+        -o-transition: .7s opacity;
+        transition: .7s opacity;
+        opacity: 0;
+        background: -webkit-radial-gradient(30% 107% circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -o-radial-gradient(30% 107% circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        pointer-events: none;
+    }
+    
+    .Instagram-post-section .custom-col:hover .instafeed_inner:before {
+        opacity: .6;
+    }
+    
+    .Instagram-post-section .owl-prev {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #fff !important;
+        border-radius: 5px !important;
+        width: 33px;
+        height: 33px;
+    }
+    
+    .Instagram-post-section .owl-next {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #fff !important;
+        border-radius: 5px !important;
+        width: 33px;
+        height: 33px;
+    }
+    
+    .Instagram-post-section .owl-stage-outer {
+        padding: 0;
+    }
+    
+    .Instagram-post-slider .owl-nav {
+        margin-top: 0 !important;
+    }
+    
+    .ready-to-ship-section {
+        padding: 70px 0;
+    }
+    
+    .gifts-box-padding {
+        padding: 70px 0;
+    }
+    
+    .choose-your-section {
+        padding-top: 70px;
+    }
+    
+    .custom-made-section {
+        padding: 70px 0;
+    }
+    
+    .custom-made-section-padding {
+        padding: 70px 0;
+    }
+    
+    .ring-part-section {
+        padding-bottom: 70px;
     }

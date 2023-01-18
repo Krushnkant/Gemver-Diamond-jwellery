@@ -29,10 +29,10 @@
    
     @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
     @if($num == 1)
-        <div class="my-3 mb-xl-4 pt-4"> 
-            <div class="container mb-xl-5 text-center">
+        <div class="custom-made-section"> 
+            <div class="container text-center">
                 <div class="row two_part_box_section">
-                    <div class="col-md-6 ps-md-0 order-1 order-md-2 mb-3 mb-md-0">
+                    <div class="col-md-6 ps-md-0 pe-md-4 order-1 order-md-2 mb-3 mb-md-0">
                         <div class="choose_your_setting_box text-center custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="shop_dimond_by_shape explore_diamonds_section mt-3 my-md-5">
+        <div class="shop_dimond_by_shape explore_diamonds_section custom-made-section custom-made-section">
             <div class="container">
                 <div class="mb-4 text-center ">
                     <div class="choose_your_setting_heading text-center mb-2 mb-md-3 explore_diamonds_heading">Explore Diamonds By Shape</div>
@@ -142,8 +142,8 @@
         
         ?>
         @if($arr[$num % 2] == 'Even')
-        <div class="my-3 my-xl-4"> 
-            <div class="container mb-xl-5 text-center">
+        <div class=""> 
+            <div class="container custom-made-section-padding text-center">
                 <div class="row two_part_box_section">
                     <div class="banner_part_img_parent col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
                         <figure class="mb-0 custom-image-part">
@@ -151,7 +151,7 @@
                         </figure>
                     </div>
 
-                    <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0">
+                    <div class="col-md-6 order-1 ps-md-4 order-md-2 mb-3 mb-md-0">
                         <div class="choose_your_setting_box text-start custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -172,10 +172,10 @@
         </div>
         @else
         <div class="my-3 my-xl-4"> 
-            <div class="container mb-xl-5 text-center">
-                <div class="row two_part_box_section">
+            <div class="container text-center">
+                <div class="row two_part_box_section ring-part-section">
                     
-                    <div class="col-md-6 ps-md-0 mb-3 mb-md-0">
+                    <div class="col-md-6 ps-md-0 pe-md-4 mb-3 mb-md-0">
                         <div class="choose_your_setting_box text-center custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">

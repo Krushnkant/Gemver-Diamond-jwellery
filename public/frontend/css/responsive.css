@@ -258,12 +258,13 @@
         font-size: 13px;
     }
     .choose_your_setting_box {
-        padding: 20px 15px 15px 15px;
+        padding: 20px 15px 20px 15px;
         line-height: normal;
     }
     .choose_your_setting_section,
     .create_your_own_section {
         padding: 30px 0;
+        margin: 0 0 !important;
     }
     .create_your_own_heading {
         font-size: 18px;
@@ -386,6 +387,7 @@
     }
     .smiling_gemver_banner {
         margin-bottom: 0;
+        margin-top: 30px;
     }
     /* --------------------------------------------------------------------------------------- */
     /* .detail_label {
@@ -1077,6 +1079,32 @@
     }
     .filter-sidebar {
         padding-bottom: 75px !important;
+    }
+    .Instagram-post-section .custom-col {
+        width: 100%;
+    }
+    .gift-box-margin,
+    .create_your_own_section {
+        margin-bottom: 30px !important;
+    }
+    .ready-to-ship-section {
+        padding: 30px 0;
+    }
+    .gifts-box-padding {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+    .choose-your-section {
+        padding-top: 30px;
+    }
+    .custom-made-section {
+        padding: 30px 0;
+    }
+    .custom-made-section-padding {
+        padding: 30px 0;
+    }
+    .ring-part-section {
+        padding-bottom: 30px;
     }
 }
 
@@ -1931,7 +1959,6 @@
     }
     .smiling_gemver_banner {
         margin-bottom: 0;
-        margin-top: 0;
     }
     .detail_label_col {
         font-size: 14px;
