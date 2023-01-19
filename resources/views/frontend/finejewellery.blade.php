@@ -88,19 +88,31 @@
             {{ $MenuPage->section3_description }}   
         </p>
         <div class="owl-carousel owl-theme gifts-slider">
-            <div class="item">
-                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
-                    <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
+            <div class="item gifts-item">
+                <div class="banner_part_img_parent">
+                    <figure class="mb-0 custom-image-part shadow-none">
+                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
+                            <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
+                        </div>
+                    </figure>
                 </div>
             </div>
-            <div class="item">
-                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
-                    <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
-                </div>
+            <div class="item gifts-item">
+                 <div class="banner_part_img_parent">
+                    <figure class="mb-0 custom-image-part shadow-none">
+                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
+                            <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
+                        </div>
+                    </figure>
+                 </div>
             </div>
-            <div class="item">
-                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
-                    <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
+            <div class="item gifts-item">
+                <div class="banner_part_img_parent">
+                    <figure class="mb-0 custom-image-part shadow-none">
+                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
+                            <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>

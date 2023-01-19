@@ -5639,7 +5639,6 @@ width: 100%;
     .choose_sub_heading {
         font-weight: 600;
         font-size: 16px;
-        line-height: 19px;
         letter-spacing: 0.05em;
         color: #808080;
     }
@@ -5655,16 +5654,16 @@ width: 100%;
     
     .custom_made_heading {
         font-weight: 600;
-        font-size: 20px;
+        font-size: 30px;
         line-height: 35px;
         letter-spacing: 0.05em;
         color: var(--primary);
+        font-family: 'Poppins', sans-serif;
     }
     
     .custom_engagement_paragrph {
         font-weight: 400;
         font-size: 16px;
-        line-height: normal;
         text-align: center;
         letter-spacing: 0.05em;
         color: #808080;
@@ -5722,7 +5721,6 @@ width: 100%;
     .create_your_own_paragraph {
         font-weight: 400;
         font-size: 15px;
-        line-height: 19px;
         text-align: center;
         letter-spacing: 0.05em;
         color: #808080;
@@ -5783,7 +5781,6 @@ width: 100%;
     .dainty-ring-gifts-paragraph {
         font-weight: 400;
         font-size: 16px;
-        line-height: 19px;
         text-align: center;
         letter-spacing: 0.05em;
         color: #808080;
@@ -5798,9 +5795,7 @@ width: 100%;
     }
     
     .finejewellery-paragraph {
-        font-weight: 400;
         font-size: 14px;
-        line-height: 16px;
         text-align: center;
         letter-spacing: 0.05em;
         color: #808080;
@@ -5813,7 +5808,6 @@ width: 100%;
     .finejewellery-heading {
         font-weight: 500;
         font-size: 18px;
-        line-height: normal;
         letter-spacing: 0.05em;
         color: var(--primary);
     }
@@ -6709,7 +6703,7 @@ width: 100%;
         transform: scale(1);
         border-radius: 6px;
         transition: all 0.6s ease;
-        width: 100%;
+        width: 100% !important;
         cursor: pointer;
     }
     
@@ -6839,6 +6833,11 @@ width: 100%;
         padding: 70px 0;
     }
     
+    .engagement-section {
+        display: flex;
+        justify-content: center;
+    }
+    
     .gifts-box-padding {
         padding: 70px 0;
     }
@@ -6858,3 +6857,18 @@ width: 100%;
     .ring-part-section {
         padding-bottom: 70px;
     }
+    
+    .gifts-item {
+        padding: 13px 0;
+    }
+    
+    .order-title {
+        font-size: 13px;
+    }
+    /* .engagement-section .owl-nav {
+        display: block !important;
+    }
+    
+    .engagement-section .owl-dots {
+        display: block !important;
+    } */
