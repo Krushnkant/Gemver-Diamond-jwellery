@@ -6715,11 +6715,10 @@ width: 100%;
     .custom-made-bg {
         background: transparent;
     }
-    
-    .engagement-section .owl-stage {
+    /* .engagement-section .owl-stage {
         display: flex;
         justify-content: center;
-    }
+    } */
     /* ----------------------- home page instagram post ---------------------------------------------- */
     
     .Instagram-post-section .custom-col {
