@@ -758,7 +758,9 @@
 
     <div class="Instagram-post-section px-0">
         <h2 class="heading-h2 text-center mb-4">Instagram</h2>
+        @if(isset($contents["data"]))
         <div class="owl-carousel owl-theme Instagram-post-slider row mx-0">
+           
             @foreach($contents["data"] as $post)
             <?php
                 $username = isset($post["username"]) ? $post["username"] : "";
@@ -788,7 +790,11 @@
             </div>
             </a>
             @endforeach
+            
         </div>
+        @else
+            <div class="text-center"> No Post Found</div>
+        @endif
     </div>
 <script>
         
