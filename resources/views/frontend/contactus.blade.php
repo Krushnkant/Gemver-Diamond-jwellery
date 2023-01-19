@@ -74,7 +74,7 @@
                                         phone no.
                                     </div>
                                     <a href="tel:+91{{ $settings->company_mobile_no }}" class="contact_us_sub_paragraph">
-                                    {{ $settings->company_mobile_no }}
+                                    +91 {{ $settings->company_mobile_no }}
                                     </a>
                                 </div>
                                 <div class="contact_us_part mb-2 mb-md-4">

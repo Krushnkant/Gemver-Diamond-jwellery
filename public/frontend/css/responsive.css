@@ -259,7 +259,6 @@
     }
     .choose_your_setting_box {
         padding: 20px 15px 20px 15px;
-        line-height: normal;
     }
     .choose_your_setting_section,
     .create_your_own_section {
@@ -1105,6 +1104,15 @@
     }
     .ring-part-section {
         padding-bottom: 30px;
+    }
+    .engagement-slider-sub-text {
+        position: initial;
+        transform: none;
+    }
+    .engagement-slider-sub-text .custom_engagement_paragrph {
+        margin-left: 0;
+        max-width: none;
+        text-align: left;
     }
 }
 
@@ -2504,6 +2512,13 @@
     .select_box_option select {
         font-size: 13px;
     }
+    .engagement-slider-sub-text {
+        left: 26%;
+    }
+    .engagement-slider-sub-text .custom_engagement_paragrph {
+        text-align: left;
+        max-width: 400px;
+    }
 }
 
 @media (min-width:992px) {
@@ -2680,6 +2695,12 @@
         height: 60px;
         font-size: 15px;
         line-height: normal;
+    }
+    .engagement-slider-sub-text {
+        left: 30%;
+    }
+    .engagement-slider-sub-text .custom_engagement_paragrph {
+        text-align: left;
     }
     /* --------------------- round cut lab diamonds -------------------------------------- */
     .round_cut_lab_range_slider .form-group label:before {
