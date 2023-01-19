@@ -42,25 +42,7 @@ $(document).ready(function() {
         }
     })
 
-    $('.engagement-section').owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 2,
-            },
-            600: {
-                items: 3,
-            },
-            768: {
-                items: 5,
-            },
-            1000: {
-                items: 6
-            }
-        }
-    })
+
 
 
     $('.product-detail-modal-popup').owlCarousel({
