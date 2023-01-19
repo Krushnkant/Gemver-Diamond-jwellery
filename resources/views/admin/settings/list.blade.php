@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-body">
                         {{--<h4 class="card-title">
@@ -113,12 +113,68 @@
                             </table>
                         </div>
 
+                        <div class="row">
+                            
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
+                                           
+                                            <p>Round Heart Cushion</p>
+                                            <button id="diamondcron1" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
+                                           
+                                            <p>Asscher Emerald Oval</p>
+                                            <button id="diamondcron2" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
+                                            
+                                            <p>Radiant Marquise Princess Pear</p>
+                                            <button id="diamondcron3"  class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
+                                    
+                                            <p>Other</p>
+                                            <button id="diamondcron4" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                           
+                        </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+ 
 
     <div class="modal fade" id="InvoiceModal">
         <div class="modal-dialog modal-dialog-centered mw-100 w-50" role="document">
@@ -488,6 +544,135 @@
             }
             reader.readAsDataURL(this.files[0]);
         }
+    });
+
+
+    $('body').on('click', '#diamondcron1', function () {
+        $('#diamondcron1').prop('disabled',true);
+        $('#diamondcron1').find('.loadericonfa').show();
+        
+        $.ajax({
+            type: 'get',
+            url: "{{ url('admin/importnewdiamond') }}",
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if(res.status == 200){
+                    $('#diamondcron1').prop('disabled',false);
+                    $('#diamondcron1').find('.loadericonfa').hide();
+                    toastr.success("Round Heart Cushion Updated",'Success');
+                }
+
+                if(res.status == 400){
+                   
+                    $('#diamondcron1').prop('disabled',false);
+                    $('#diamondcron1').find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error');
+                }
+            },
+            error: function (data) {
+               
+                $('#diamondcron1').prop('disabled',false);
+                $('#diamondcron1').find('.loadericonfa').hide();
+                toastr.error("Please try again",'Error');
+            }
+        });
+    });
+
+    $('body').on('click', '#diamondcron2', function () {
+        $('#diamondcron2').prop('disabled',true);
+        $('#diamondcron2').find('.loadericonfa').show();
+        
+        $.ajax({
+            type: 'get',
+            url: "{{ url('admin/importnewdiamond1') }}",
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if(res.status == 200){
+                    $('#diamondcron2').prop('disabled',false);
+                    $('#diamondcron2').find('.loadericonfa').hide();
+                    toastr.success("Asscher Emerald Oval Updated",'Success');
+                }
+
+                if(res.status == 400){
+                   
+                    $('#diamondcron2').prop('disabled',false);
+                    $('#diamondcron2').find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error');
+                }
+            },
+            error: function (data) {
+               
+                $('#diamondcron2').prop('disabled',false);
+                $('#diamondcron2').find('.loadericonfa').hide();
+                toastr.error("Please try again",'Error');
+            }
+        });
+    });
+
+    $('body').on('click', '#diamondcron3', function () {
+        $('#diamondcron3').prop('disabled',true);
+        $('#diamondcron3').find('.loadericonfa').show();
+        
+        $.ajax({
+            type: 'get',
+            url: "{{ url('admin/importnewdiamond2') }}",
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if(res.status == 200){
+                    $('#diamondcron3').prop('disabled',false);
+                    $('#diamondcron3').find('.loadericonfa').hide();
+                    toastr.success("Radiant Marquise Princess Pear Updated",'Success');
+                }
+
+                if(res.status == 400){
+                   
+                    $('#diamondcron3').prop('disabled',false);
+                    $('#diamondcron3').find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error');
+                }
+            },
+            error: function (data) {
+               
+                $('#diamondcron3').prop('disabled',false);
+                $('#diamondcron3').find('.loadericonfa').hide();
+                toastr.error("Please try again",'Error');
+            }
+        });
+    });
+
+    $('body').on('click', '#diamondcron4', function () {
+        $('#diamondcron4').prop('disabled',true);
+        $('#diamondcron4').find('.loadericonfa').show();
+        
+        $.ajax({
+            type: 'get',
+            url: "{{ url('admin/importnewdiamond3') }}",
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                if(res.status == 200){
+                    $('#diamondcron4').prop('disabled',false);
+                    $('#diamondcron4').find('.loadericonfa').hide();
+                    toastr.success("Other Updated",'Success');
+                }
+
+                if(res.status == 400){
+                   
+                    $('#diamondcron4').prop('disabled',false);
+                    $('#diamondcron4').find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error');
+                }
+            },
+            error: function (data) {
+               
+                $('#diamondcron4').prop('disabled',false);
+                $('#diamondcron4').find('.loadericonfa').hide();
+                toastr.error("Please try again",'Error');
+            }
+        });
     });
 </script>
 <!-- settings JS end -->
