@@ -461,6 +461,11 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('file-import',[\App\Http\Controllers\admin\DiamondController::class,'importView'])->name('importview');
     //Route::post('import',[\App\Http\Controllers\admin\DiamondController::class,'import'])->name('diamonds.save');
     //Route::get('importnew', [\App\Http\Controllers\admin\DiamondController::class, 'importnew'])->name('diamonds.savenew');
+
+    Route::get('importnewdiamond', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond'])->name('diamonds.importnewdiamond');
+    Route::get('importnewdiamond1', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond1'])->name('diamonds.importnewdiamond1');
+    Route::get('importnewdiamond2', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond2'])->name('diamonds.importnewdiamond2');
+    Route::get('importnewdiamond3', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond3'])->name('diamonds.importnewdiamond3');
     
     Route::get('changediamondstatus/{id}',[\App\Http\Controllers\admin\DiamondController::class,'changediamondstatus'])->name('diamonds.changediamondstatus');
 
@@ -630,7 +635,7 @@ Route::group(['middleware'=>['auth']],function (){
     
 });
 
-//Route::get('admin/importnewdiamond', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond'])->name('admin.diamonds.importnewdiamond');
+
 
 Route::post('ckeditor/upload', [\App\Http\Controllers\admin\BlogController::class,'upload'])->name('ckeditor.image-upload');
 

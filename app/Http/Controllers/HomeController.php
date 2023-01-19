@@ -18,46 +18,13 @@ class HomeController extends Controller
 {
     public function index(){
 
-        // $Products= Product::with('product_variant')->get();
-
-        // foreach($Products as $product){
-        //     foreach($product->product_variant as $var){
-                
-        //             $variant_term = \App\Models\ProductVariantVariant::Where('product_variant_id',$var->id)->get()->pluck('attribute_term_id');
-                                               
-        //                 $name = '';
-        //                 $slug_name = '';
-        //                 $required_variation_ids ="";
-        //                 foreach($variant_term as $key => $tt){
-        //                     $AttributeTerm = \App\Models\AttributeTerm::where('estatus',1)->where('id',$tt)->first();
-        //                     if(isset($AttributeTerm->attrterm_name)){
-        //                         if($name != "" ){
-        //                         $name = $name.' | '.$AttributeTerm->attrterm_name;
-        //                         $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);
-        //                         }else{
-        //                         $name = $AttributeTerm->attrterm_name;  
-        //                         $slug_name = str_replace(' ', '', $slug_name.'-'.$AttributeTerm->attrterm_name);  
-        //                         }
-        //                     }     
-        //                 } 
-                
-                 
-        //         ProductVariant::where('id', $var->id)
-        //         ->update([
-        //             'slug' => $this->createSlug($product->product_title.str_replace('.', 'p', $slug_name))
-        //             ]);
-        //     }
-        // }
-
-        // $Category= Category::get();
-
-        // foreach($Category as $Cat){
-        //     Category::where('id', $Cat->id)
-        //         ->update([
-        //             'slug' => $this->createSlug($Cat->category_name)
-        //             ]);
-        // }
-
+        $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
+        $token = "IGQVJWajctV1RMSlZATVEFnN3ZAiZAXJqMkJreVZACRy1uNll1c2d6b2NPNHQtRUNDMzh2dUctTnV0Uk9DaGpQOHRWemRDTFdPUTIteXVXcHJKWHJFWjJCYUpsNmNnMEN0TEpzVDN0bjVCMVRfdC03UDBEWgZDZD";
+        $limit = 100;
+         
+        $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
+        $json_feed = @file_get_contents($json_feed_url);
+        $contents = json_decode($json_feed, true, 512, JSON_BIGINT_AS_STRING);
     
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
@@ -69,7 +36,7 @@ class HomeController extends Controller
         $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
         $SmilingDifference = SmilingDifference::get();
         $diamonds = Diamond::get();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds'));
+        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
     // public function createSlug($title, $id = 0)
