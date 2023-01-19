@@ -2119,7 +2119,7 @@ background-size: cover;
         font-style: normal;
         font-size: 17px;
         line-height: 27px;
-        text-transform: lowercase;
+        text-transform: capitalize;
         color: var(--primary);
     }
     /* ---------------------------------------------------------------- */
@@ -6871,3 +6871,29 @@ width: 100%;
     .engagement-section .owl-dots {
         display: block !important;
     } */
+    
+    .engagement-slider-sub-text {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 25%;
+    }
+    
+    .engagement-heading {
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .engagement-slider-sub-text .custom_engagement_paragrph {
+        max-width: 600px;
+        color: var(--primary);
+        text-align: left;
+    }
+    
+    .engagement-slider-sub-text .engagement-paragraph {
+        max-width: 700px;
+    }

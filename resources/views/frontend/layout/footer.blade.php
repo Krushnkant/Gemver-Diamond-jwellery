@@ -181,7 +181,7 @@
             </div>
             <input type="hidden" value="{{asset('frontend/')}}" id="asset" name="asset">
             <div class="footer-copyright-text text-center mt-md-4 pt-md-3 ">
-                ©2022 Gemver All Rights Reserved 
+                ©2023 Gemver. All Rights Reserved
             </div>
         </div>
     </footer>
