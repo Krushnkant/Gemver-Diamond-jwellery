@@ -265,12 +265,12 @@
                     <div class="your_order_heading sub_heading mb-lg-3 mb-md-3 mb-lg-2 mb-xxl-4"> Your order</div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-title">
                                 Product
                             </div>   
                        </div>
                        <div class="col-6 text-end">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-price">
                                 Subtotal    
                             </div>   
                        </div>
@@ -328,7 +328,7 @@
                         <div class="col-12 px-0 mb-3">
                             <div class="row">
                                 <div class="col-6 px-0">
-                                    <div class="your_order_sub_heading">
+                                    <div class="your_order_sub_heading order-title">
                                         @if(isset($cart['item_type']) && $cart['item_type'] == 2)
                                         {{ $item_name  }} | {{  $diamond_name }} ✖ {{ $cart['item_quantity'] }}
                                         
@@ -342,7 +342,7 @@
                                     </div>   
                                 </div>
                                 <div class="col-6 text-end">
-                                    <div class="your_order_sub_heading">
+                                    <div class="your_order_sub_heading order-price">
                                         $ {{  $sale_price * $cart['item_quantity'] }}
                                     </div> 
                                 </div>
@@ -356,12 +356,12 @@
                     </div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-title">
                                 Subtotal
                             </div>   
                        </div>
                        <div class="col-6 text-end">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-price">
                                 $ {{ $total }} 
                                 <input class="form-check-input" type="hidden" name="sub_totalcost" id="sub_totalcost" value="{{  $total }}">
                             </div>   
@@ -369,12 +369,12 @@
                     </div>
                     <div class="row your_order_row">
                         <div class="col-6 px-0">
-                             <div class="your_order_sub_heading">
+                             <div class="your_order_sub_heading order-title">
                                 Coupan Discount
                              </div>   
                         </div>
                         <div class="col-6 text-end">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-price">
                             <?php 
                                 if(session()->has('coupon')){
                                     if(session('coupon.discount_type_id') == 1){
@@ -397,12 +397,12 @@
                      </div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-title">
                                 Total
                             </div>   
                        </div>
                        <div class="col-6 text-end">
-                            <div class="your_order_sub_heading">
+                            <div class="your_order_sub_heading order-price">
                                 $ {{ $total - $coupan_discount_amount }}
                                 <input class="form-check-input" type="hidden" name="payble_ordercost" id="payble_ordercost" value="{{ $total - $coupan_discount_amount }}"> 
                             </div>   

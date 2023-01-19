@@ -696,7 +696,7 @@
                     <div class="col-4 col-md-6 d-lg-none ps-0 text-end pe-0">
                         <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center me-0 ms-auto">
                             <i class="fa-solid fa-filter"></i>
-                            <span class="ms-2 d-sm-inline-block">filter</span>
+                            <span class="ms-2 d-sm-inline-block">search</span>
                         </button>
                     </div>  
                 </div>
@@ -706,8 +706,8 @@
                     <div class="col-3 col-md-6 col-lg-auto px-0">
                         <div class="table-grid-view d-flex justify-content-start mb-md-0">
                             <div class="me-3 d-none d-md-block">Change view</div>
-                            <div class="table-view-part list me-3 list-active"><i class="fa-solid fa-list"></i></div>
-                            <div class="table-view-part active grid"><i class="fa fa-th-large"></i></div>
+                            <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
+                            <div class="table-view-part grid active grid-active"><i class="fa fa-th-large"></i></div>
                         </div>
                     </div>
                 
@@ -742,7 +742,7 @@
             <div class="tab-content clearfix">
 			    <div class="tab-pane active" id="1a">
                     <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
-                        <div class="row row-grid-list list" id="data-wrapper">
+                        <div class="row row-grid-list grid" id="data-wrapper">
                         </div>
                         <div class="auto-load text-center mt-4">
                             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -751,7 +751,7 @@
                                     d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
                                     <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
                                         from="0 50 50" to="360 50 50" repeatCount="indefinite" />
-                                </path>
+                                </path> 
                             </svg>
                         </div>
                     </div>

@@ -30,7 +30,7 @@
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
             Choose Your Setting  Style
         </div> 
-        <div class="owl-carousel owl-theme engagement-section">
+        <div class="owl-carousel owl-theme engagement-section choose-your-setting">
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
                 <div class="item">
@@ -214,7 +214,7 @@
                         {{ $MenuPage->section1_description }}
                     </p>
                     <div class="engagement_button">
-                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn d-inline-block">Create your own engagement ring</a>
+                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn d-inline-block">Create your own Engagement Ring</a>
                         <!-- <button class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn">Create your own engagement ring</button> -->
                     </div>
                 </div>
@@ -241,9 +241,12 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                         </div>
-                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
+                        <!-- <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section31_title }}
-                        </a>
+                        </a> -->
+                        <div class="text-center create_your_own_heading mb-3 d-block">
+                            {{ $MenuPage->section31_title }}
+                        </div>
                         <p class="create_your_own_paragraph">
                             {{ $MenuPage->section31_description }}
                         </p>
@@ -258,9 +261,12 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                         </div>
-                        <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
+                        <!-- <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section32_title }}
-                        </a>
+                        </a> -->
+                        <div class="text-center create_your_own_heading mb-3 d-block">
+                            {{ $MenuPage->section32_title }}
+                        </div>
                         <p class="create_your_own_paragraph">
                             {{ $MenuPage->section32_description }}
                         </p>
@@ -275,9 +281,12 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
                         </div>
-                        <a href="#" class="text-center create_your_own_heading mb-3 d-block">
+                        <div class="text-center create_your_own_heading mb-3 d-block">
                             {{ $MenuPage->section33_title }}
-                        </a>
+                        </div>
+                        <!-- <a href="#" class="text-center create_your_own_heading mb-3 d-block">
+                            {{ $MenuPage->section33_title }}
+                        </a> -->
                         <p class="create_your_own_paragraph text-start">
                             {{ $MenuPage->section33_description }}
                         </p>
