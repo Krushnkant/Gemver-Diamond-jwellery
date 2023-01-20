@@ -30,8 +30,8 @@ class ContactUsController extends Controller
         $setting = Settings::first();
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'mobile_no' => 'required',
-            'email' => 'required',
+            'mobile_no' => 'required|regex:/^[6-9][0-9]{9}$/|digits:10',
+            'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required'
         ]);

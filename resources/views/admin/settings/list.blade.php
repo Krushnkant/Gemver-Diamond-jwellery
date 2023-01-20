@@ -90,11 +90,11 @@
                                     <!--    <td><span id="tiktok_url_val">{{ $Settings->tiktok_url }}</span></td>-->
                                     <!--</tr>-->
                                     <tr>
-                                        <th style="width: 50%">Twiter URL</th>
+                                        <th style="width: 50%">Pinterest URL</th>
                                         <td><span id="twiter_url_val">{{ $Settings->twiter_url }}</span></td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 50%">facebook URL</th>
+                                        <th style="width: 50%">Facebook URL</th>
                                         <td><span id="facebook_url_val">{{ $Settings->facebook_url }}</span></td>
                                     </tr>
                                     <tr>
@@ -121,7 +121,7 @@
                                         <div class="text-center">
                                             <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
                                            
-                                            <p>Round Heart Cushion</p>
+                                            <p>Round,Heart,Cushion</p>
                                             <button id="diamondcron1" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                         <div class="text-center">
                                             <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
                                            
-                                            <p>Asscher Emerald Oval</p>
+                                            <p>Asscher,Emerald,Oval</p>
                                             <button id="diamondcron2" class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                         <div class="text-center">
                                             <span class="display-5"><i class="icon-diamond gradient-4-text"></i></span>
                                             
-                                            <p>Radiant Marquise Princess Pear</p>
+                                            <p>Radiant,Marquise,Princess,Pear</p>
                                             <button id="diamondcron3"  class="btn gradient-4 btn-lg border-0 btn-rounded px-5">Cron Run <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                                         </div>
                                     </div>
@@ -257,7 +257,7 @@
                             <div id="instagram_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <label class="col-form-label" for="twiter_url">Twiter URL
+                            <label class="col-form-label" for="twiter_url">Pinterest URL
                             </label>
                             <input type="text" class="form-control input-flat" id="twiter_url" name="twiter_url" placeholder="">
                             <div id="twiter_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>

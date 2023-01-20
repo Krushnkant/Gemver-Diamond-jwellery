@@ -270,7 +270,7 @@
                                // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
                              if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                             ?>
-                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                            <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}</div>
                                 <div class="wire_bangle_color pb-md-2 wire_bangle_color_img_part">
                                 <?php 
                                 $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
@@ -280,7 +280,7 @@
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                     <span class="form-check d-inline-block">
-                                        <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
+                                        <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->display_attrname }}" id="" title="{{ $attribute_term->attribute_terms[0]->attrterm_name }}">
                                         <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img">
                                         <div class="wire_bangle_color_input_label"></div>
                                     </span>
@@ -291,7 +291,7 @@
                             }else{ 
                              $iv = 1;
                             ?>
-                                <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->attribute_name }}</div>
+                                <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}</div>
                                 <div class="wire_bangle_carat">
                                 <?php 
                                  $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
@@ -300,7 +300,7 @@
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
-                                        <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->attribute_name }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
+                                        <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->display_attrname }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         {{ $attribute_term->attribute_terms[0]->attrterm_name }}
                                     </label>
@@ -324,9 +324,9 @@
                              foreach($ProductVariantSpecification as $productvariants)
                              {
 
-                             $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute_name.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                             $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->display_attrname.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
                                        <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                         <option value="">-- '.$productvariants->attribute_name .'--</option>';   
+                                         <option value="">-- '.$productvariants->display_attrname .'--</option>';   
                             
                                  $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                                    // dd($product_attribute);
@@ -337,7 +337,7 @@
                                     //dd($product_attributes);
                                      $v = 1;
                                      foreach($product_attributes as $term){
-                                     $spe .='<option data-spe="'.$productvariants->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                                     $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
                                     
                                     }
                                  }   
@@ -362,7 +362,7 @@
                             ?>
                         
                             <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                                <span class="d-block col-6 col-sm-4 col-md-5 col-xl-8 ps-0 wire_bangle_heading_part_1 mb-3">{{ $product_attribute_specification->attribute_name }}</span>
+                                <span class="d-block col-6 col-sm-4 col-md-5 col-xl-8 ps-0 wire_bangle_heading_part_1 mb-3">{{ $product_attribute_specification->display_attrname }}</span>
                                 <span class="wire_bangle_color_theme d-block col-6 col-sm-8 col-md-7 col-xl-8 px-0">{{ $product_attribute_term_name }}</span>
                             </div>
                                
@@ -382,14 +382,14 @@
                             <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                 <div class="mt-md-3">
                                     <p>Estimated Date of Shipment <br>
-                                        <b>{{ date('dS M , Y', strtotime ('+10 day')) }} </b>
+                                        <b>{{ date('dS M , Y', strtotime ('+'.env('SHIPMENT_DAYS', 0).' day')) }} </b>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                 <div class="mt-md-3">
                                     <p>Estimated Date of Delivery <br>
-                                       <b>{{ date('dS M , Y', strtotime ('+12 day')) }} </b>
+                                       <b>{{ date('dS M , Y', strtotime ('+'.env('DELIVERY_DAYS', 0).' day')) }} </b>
                                     </p>
                                 </div>
                             </div>
@@ -533,7 +533,7 @@
 
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1"> {{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1"> {{ $product_attribute_specification->display_attrname }} </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>

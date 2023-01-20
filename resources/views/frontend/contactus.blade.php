@@ -35,7 +35,7 @@
                                 <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="number" name="mobile_no" id="mobile_no" placeholder="Your Mobile Number" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="mobile_no" id="mobile_no" placeholder="Your Mobile Number" class="d-block wire_bangle_input w-100">
                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">

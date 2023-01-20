@@ -310,7 +310,7 @@
                             </div>
                             <div class="checkout_box_part_paragraph mt-3">
                                 Estimated date of shipment<br>
-                                {{ date('dS M , Y', strtotime ('+10 day')) }}
+                                {{ date('dS M , Y', strtotime ('+'.env('SHIPMENT_DAYS', 0).' day')) }}
                             </div>
                         </div>
                     </div>

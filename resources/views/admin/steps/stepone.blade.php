@@ -78,7 +78,7 @@
                     <div class="form-group">
                         <label class="col-form-label" for="step1_section1_description"> Description <span class="text-danger">*</span>
                         </label>
-                        <textarea  class="summernote"  id="step1_section1_description" name="step1_section1_description" class="form-control">{{ isset($step)?($step->step1_section1_description):'' }}</textarea>
+                        <textarea   id="step1_section1_description" name="step1_section1_description" class="form-control">{{ isset($step)?($step->step1_section1_description):'' }}</textarea>
                         <div id="step1_section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>

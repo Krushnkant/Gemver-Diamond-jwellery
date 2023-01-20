@@ -255,7 +255,7 @@
                             {
                             $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block select_box_option">
                                 <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                    <option value="">-- '.$productvariants->attribute->attribute_name .'--</option>';   
+                                    <option value="">-- '.$productvariants->attribute->display_attrname .'--</option>';   
                             
                                 $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$Product->id)->groupBy('attribute_term_id')->get();
                                 $term_ids = explode(',',$cart->specification_term_id);  
@@ -312,7 +312,7 @@
                                                             $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                                             $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                                                             $variantstr .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
-                                                                                <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+                                                                                <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->display_attrname .' :</span>
                                                                                 <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                                             </div>';
                                                         }
@@ -326,7 +326,7 @@
                                                             $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                                                             
                                                             $str .='<div class="d-flex align-items-center mb-2 col-md-6 px-0">
-                                                                        <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+                                                                        <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->display_attrname .' :</span>
                                                                         <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                                                     </div>';    
                                                     
@@ -413,14 +413,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+10 day')) }} </b>
+                                            <b>{{ date('dS M , Y', strtotime ('+'.env('SHIPMENT_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+12 day')) }} </b>
+                                           <b>{{ date('dS M , Y', strtotime ('+'.env('DELIVERY_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
@@ -556,7 +556,7 @@
 
                             <div class="col-xl-6 px-0" >
                                 <div class="mt-4 wire_bangle_share row">
-                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->attribute_name }} </span>
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->display_attrname }} </span>
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $product_attribute_term_name }}</span>
                                 </div>
                             </div>

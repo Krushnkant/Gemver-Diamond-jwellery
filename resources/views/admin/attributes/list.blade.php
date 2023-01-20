@@ -89,9 +89,10 @@
                             <div id="attributename-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label" for="displayattributename" id="label_displayattributename">Display Attribute Name
+                            <label class="col-form-label" for="displayattributename" id="label_displayattributename">Display Attribute Name <span class="text-danger">*</span>
                             </label>
                             <input type="text" class="form-control input-flat" id="display_attrname" name="display_attrname" placeholder="">
+                            <div id="display_attrname-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                         <div class="form-group" id="is_filter_div">
                             <div class="form-check">
@@ -180,6 +181,12 @@
                         } else {
                             $('#attributename-error').hide();
                         }
+
+                        if (res.errors.display_attrname) {
+                            $('#display_attrname-error').show().text(res.errors.display_attrname);
+                        } else {
+                            $('#display_attrname-error').hide();
+                        }
                     }
 
                     if(res.status == 200){
@@ -203,6 +210,7 @@
                             $("#AttributeModal").find('form').trigger('reset');
                             $('#attribute_id').val("");
                             $('#attributename-error').html("");
+                            $('#display_attrname-error').html("");
                             $("#AttributeModal").find("#save_newAttrBtn").removeAttr('data-action');
                             $("#AttributeModal").find("#save_closeAttrBtn").removeAttr('data-action');
                             $("#AttributeModal").find("#save_newAttrBtn").removeAttr('data-id');
@@ -332,14 +340,14 @@
                 $("#is_description_div").hide();
                 $('#AttributeModal').find('.modal-title').html("Add Attribute");
                 $('#AttributeModal').find('#label_attributename').html("Attribute Name <span class='text-danger'>*</span>");
-                $('#AttributeModal').find('#label_displayattributename').html("Display Attribute Name");
+                $('#AttributeModal').find('#label_displayattributename').html("Display Attribute Name <span class='text-danger'>*</span>");
             }
             else{
                 $("#is_dropdown_div").show();
                 $("#is_description_div").show();
                 $('#AttributeModal').find('.modal-title').html("Add Attribute");
                 $('#AttributeModal').find('#label_attributename').html("Attribute Name <span class='text-danger'>*</span>");
-                $('#AttributeModal').find('#label_displayattributename').html("Display Attribute Name");
+                $('#AttributeModal').find('#label_displayattributename').html("Display Attribute Name <span class='text-danger'>*</span>");
             }
         });
 

@@ -144,7 +144,7 @@
                                     
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
-                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Symm.</span>
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Symmetry</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{  $Diamond->Symm }}</span>
                                         </div>
                                     </div>
@@ -384,14 +384,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+4 day')) }} </b>
+                                            <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_SHIPMENT_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+10 day')) }} </b>
+                                           <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_DELIVERY_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
@@ -626,7 +626,7 @@
             <div class="row">
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div>
-                        <!-- <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2> -->
+                         <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2> 
                     </div>
                     <!-- <div class="category-line-img d-none d-md-block">
                         <img src="{{ asset('frontend/image/category-line.png') }}" alt="">

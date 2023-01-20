@@ -471,7 +471,7 @@
         <div class="col-md-6  round_cut_lab_filter">
             <!-- Cut - Polish - Symm. -->
             <div class="round_cut_lab_range_slider row mb-4 pb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Sym.</span>
+                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Symmetry.</span>
                 <span class="col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="3X" class="finish" name="finish" id="finish3X">
@@ -557,7 +557,7 @@
             </div>
 
             <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Sym.</span>
+                <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Symmetry</span>
                 <span class="col-md-11 filter-checkbox">
                     <div class="form-group d-inline-block me-3">
                         <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">
@@ -1119,6 +1119,7 @@
                     if (scroll == 1) {
                         if (response['artilces'] == "") {
                             $('.auto-load').html("We don't have more data to display ");
+                            $(".total-diamond").html(response['showdata']);
                             return;
                         }
                         
@@ -1128,6 +1129,7 @@
                     } else {
                         if (response['artilces'] == "") {
                             $('#data-wrapper').html("No Result Found");
+                            $(".total-diamond").html(response['showdata']);
                             $('.auto-load').hide();
                             return;
                         }

@@ -371,13 +371,18 @@
                                                     if (count($sub->sub_category) > 0) {
                                                         $twocolum = "";
                                                         if (count($sub->sub_category) > 5) {
-                                                            $twocolum = 'mega-menu-two-colum';
+                                                            if($sub->title == "Shop by Shapes"){
+                                                               $twocolum = 'mega-menu-two-colum';
+                                                            }
                                                         }
-                                                ?>
+                                                    ?>
                                                         <div class="submenu-box mt-4">
                                                             <div class="d-block mb-2">
                                                                 <span class="menus_title menus_title_part">{{ $sub->title }}</span>
                                                             </div>
+                                                            
+                                                             
+                                                      
                                                             <ul class="{{ $twocolum }}">
 
                                                                 <?php
@@ -462,7 +467,9 @@
                                                     if (count($sub->sub_category) > 0) {
                                                         $twocolum = "";
                                                         if (count($sub->sub_category) > 5) {
-                                                            $twocolum = 'mega-menu-two-colum';
+                                                            if($sub->title == "Shop by Shapes"){
+                                                               $twocolum = 'mega-menu-two-colum';
+                                                            }
                                                         }
                                                 ?>
                                                         <div class="submenu-box">

@@ -26,10 +26,12 @@ class AttributeController extends Controller
 //        dd(Carbon::now()->format('Y-m-d h:i:s'));
         $messages = [
             'attributename.required' =>'Please provide a Attribute Name',
+            'display_attrname.required' =>'Please provide a Display Attrname Name',
         ];
 
         $validator = Validator::make($request->all(), [
             'attributename' => 'required',
+            'display_attrname' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
