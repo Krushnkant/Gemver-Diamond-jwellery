@@ -238,7 +238,7 @@
                 @foreach($Attributes as $attribute)
                 <!-- <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider row">
-                            <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->attribute_name }}</div>
+                            <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->display_attrname }}</div>
                             <div class="col-md-12 filter-checkbox">    
                                 @foreach($attribute->attributeterm as $term)
                                 <div class="form-group me-3 d-inline-block">

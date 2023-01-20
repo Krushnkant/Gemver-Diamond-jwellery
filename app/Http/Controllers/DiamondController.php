@@ -555,25 +555,25 @@ class DiamondController extends Controller
             if(isset($data["sorting"])){ 
                 if($data["sorting"]== "date")   
                 {
-                    $result = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(12);  
+                    $query = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(12);  
                 }
                 else if($data["sorting"] == "price")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(12); 
+                    $query = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(12); 
                 }
                 else if($data["sorting"]=="price-desc")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(12); 
+                    $query = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(12); 
                 }else{
-                    $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);  
+                    $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);  
                 }
            }else{ 
-            $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
+            $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(12);
            }
            //dd($result);
             $artilces = '';
             if ($request->ajax()) {
-                foreach ($result as $product){
+                foreach ($query as $product){
                     $images = explode(",",$product->images);
                     $image = URL($images['0']);
                     
@@ -678,7 +678,7 @@ class DiamondController extends Controller
             }
 
         $TotalDiamond = Product::where('products.is_custom',1)->where('products.estatus',1)->get();
-        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($result) * $_GET['page']];   
+        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($query) * $_GET['page']];   
         return $data;
 
         }

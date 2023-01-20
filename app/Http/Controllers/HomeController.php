@@ -12,9 +12,7 @@ use App\Models\ShopByStyle;
 use App\Models\BlogBanner;
 use App\Models\ProductVariant;
 use App\Models\SmilingDifference;
-use Dymantic\InstagramFeed\Profile;
-use InstagramScraper\Instagram;
-use Phpfastcache\Helper\Psr16Adapter;
+
 
 class HomeController extends Controller
 {
@@ -23,9 +21,8 @@ class HomeController extends Controller
     
         // query the user media
         $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
-        $token = "IGQVJWajctV1RMSlZATVEFnN3ZAiZAXJqMkJreVZACRy1uNll1c2d6b2NPNHQtRUNDMzh2dUctTnV0Uk9DaGpQOHRWemRDTFdPUTIteXVXcHJKWHJFWjJCYUpsNmNnMEN0TEpzVDN0bjVCMVRfdC03UDBEWgZDZD";
+        $token = env('INSTAGRAM_TOKEN', '');
         $limit = 10;
-         
         $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
         $json_feed = @file_get_contents($json_feed_url);
         $contents = json_decode($json_feed, true, 512, JSON_BIGINT_AS_STRING);

@@ -38,7 +38,7 @@
 <div class="container">
     <div class="choose_your_setting_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
-            Choose Your Setting  Style
+            Choose Your Style
         </div> 
         <div class="owl-carousel owl-theme engagement-section choose-your-setting">
                 @if($MenuPage->menupageshapestyle)

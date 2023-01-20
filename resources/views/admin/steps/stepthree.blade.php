@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section1_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section1_description" name="step3_section1_description" class="form-control">{{ isset($step)?($step->step3_section1_description):'' }}</textarea>
+                            <textarea  id="step3_section1_description" name="step3_section1_description" class="form-control">{{ isset($step)?($step->step3_section1_description):'' }}</textarea>
                             <div id="step3_section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section2_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section2_description" name="step3_section2_description" class="form-control">{{ isset($step)?($step->step3_section2_description):'' }}</textarea>
+                            <textarea    id="step3_section2_description" name="step3_section2_description" class="form-control">{{ isset($step)?($step->step3_section2_description):'' }}</textarea>
                             <div id="step3_section1_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section3_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section3_description" name="step3_section3_description" class="form-control">{{ isset($step)?($step->step3_section3_description):'' }}</textarea>
+                            <textarea  id="step3_section3_description" name="step3_section3_description" class="form-control">{{ isset($step)?($step->step3_section3_description):'' }}</textarea>
                             <div id="step3_section3_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section4_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section4_description" name="step3_section4_description" class="form-control">{{ isset($step)?($step->step3_section4_description):'' }}</textarea>
+                            <textarea    id="step3_section4_description" name="step3_section4_description" class="form-control">{{ isset($step)?($step->step3_section4_description):'' }}</textarea>
                             <div id="step3_section4_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section5_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section5_description" name="step3_section5_description" class="form-control">{{ isset($step)?($step->step3_section5_description):'' }}</textarea>
+                            <textarea    id="step3_section5_description" name="step3_section5_description" class="form-control">{{ isset($step)?($step->step3_section5_description):'' }}</textarea>
                             <div id="step3_section5_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section6_description">Section 6 Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section6_description" name="step3_section6_description" class="form-control">{{ isset($step)?($step->step3_section6_description):'' }}</textarea>
+                            <textarea    id="step3_section6_description" name="step3_section6_description" class="form-control">{{ isset($step)?($step->step3_section6_description):'' }}</textarea>
                             <div id="step3_section6_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section7_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section7_description" name="step3_section7_description" class="form-control">{{ isset($step)?($step->step3_section7_description):'' }}</textarea>
+                            <textarea    id="step3_section7_description" name="step3_section7_description" class="form-control">{{ isset($step)?($step->step3_section7_description):'' }}</textarea>
                             <div id="step3_section7_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -342,7 +342,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section8_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section8_description" name="step3_section8_description" class="form-control">{{ isset($step)?($step->step3_section8_description):'' }}</textarea>
+                            <textarea    id="step3_section8_description" name="step3_section8_description" class="form-control">{{ isset($step)?($step->step3_section8_description):'' }}</textarea>
                             <div id="step3_section8_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -368,7 +368,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section9_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section9_description" name="step3_section9_description" class="form-control">{{ isset($step)?($step->step3_section9_description):'' }}</textarea>
+                            <textarea    id="step3_section9_description" name="step3_section9_description" class="form-control">{{ isset($step)?($step->step3_section9_description):'' }}</textarea>
                             <div id="step3_section9_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -415,7 +415,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section10_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section10_description" name="step3_section10_description" class="form-control">{{ isset($step)?($step->step3_section10_description):'' }}</textarea>
+                            <textarea    id="step3_section10_description" name="step3_section10_description" class="form-control">{{ isset($step)?($step->step3_section10_description):'' }}</textarea>
                             <div id="step3_section10_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>
@@ -450,7 +450,7 @@
                         <div class="form-group">
                             <label class="col-form-label" for="step3_section11_description"> Description <span class="text-danger">*</span>
                             </label>
-                            <textarea  class="summernote"  id="step3_section11_description" name="step3_section11_description" class="form-control">{{ isset($step)?($step->step3_section11_description):'' }}</textarea>
+                            <textarea    id="step3_section11_description" name="step3_section11_description" class="form-control">{{ isset($step)?($step->step3_section11_description):'' }}</textarea>
                             <div id="step3_section11_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
                     </div>

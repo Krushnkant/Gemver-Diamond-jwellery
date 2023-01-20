@@ -185,8 +185,8 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category_id }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>

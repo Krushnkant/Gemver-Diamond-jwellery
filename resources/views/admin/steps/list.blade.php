@@ -102,6 +102,173 @@
 
 $(document).ready(function() {
     step_table(true);
+
+    
+    //step 1
+    CKEDITOR.replace('step1_section1_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    //step 2
+
+    CKEDITOR.replace('step2_section1_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section2_description1',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section2_description2',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section2_description3',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section3_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section4_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step2_section5_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    //step 3
+
+    CKEDITOR.replace('step3_section1_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section2_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section2_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section3_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section4_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+
+    CKEDITOR.replace('step3_section5_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section6_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section7_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section8_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section9_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section10_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step3_section11_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    //step 4
+
+    CKEDITOR.replace('step4_section1_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section2_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section2_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section3_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section4_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+
+    CKEDITOR.replace('step4_section5_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section6_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section7_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section8_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section9_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace('step4_section10_description',{
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.config.height = '200';
 });
 
 $('body').on('click', '#AddStepBtn', function () {
@@ -197,6 +364,9 @@ function save_stepone(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
+    for ( instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();
+    }
     var formData = new FormData($("#StepOneCreateForm")[0]);
     formData.append('action',action);
 
@@ -275,6 +445,9 @@ function save_steptwo(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
+    for(instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();
+    }
     var formData = new FormData($("#StepTwoCreateForm")[0]);
     formData.append('action',action);
 
@@ -353,6 +526,9 @@ function save_stepthree(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
+    for(instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();
+    }
     var formData = new FormData($("#StepThreeCreateForm")[0]);
     formData.append('action',action);
 
@@ -430,6 +606,9 @@ function save_stepfour(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
+    for(instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();
+    }
     var formData = new FormData($("#StepFourCreateForm")[0]);
     formData.append('action',action);
 

@@ -66,7 +66,7 @@
                 <div class="col-lg-6">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
-                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->attribute_name }}</li>
+                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->display_attrname }}</li>
                             <div class="col-lg-12">
                                 <!-- @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3 d-inline-block me-3">
@@ -95,7 +95,7 @@
                 <div class="col-md-6">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
-                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->attribute_name }}</li>
+                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
                             <div class="col-lg-12">
                                 @foreach($attribute->attributeterm as $term)
                                     <div class="form-group mb-3 d-inline-block me-3">
@@ -166,14 +166,11 @@
         $(document).ready(function(){
             var page = 1;
 
-            
-
-            
-          
             $(window).scroll(function () {
                 //if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
                   
-                if($(window).scrollTop() + $(window).height() >= $(document).height()) {   
+                //if($(window).scrollTop() + $(window).height() >= $(document).height()) {  
+                if ($(window).scrollTop() + $(window).height() > $(document).height() - 400) { 
                     page++;
                     var scroll = 1;
                     filter_data(page,scroll);
@@ -193,6 +190,7 @@
             });
 
             $("#sorting").change(function() {
+                page = 1;
                 filter_data(page);
             });
 
@@ -217,6 +215,7 @@
                         $('.auto-load').show();
                     },
                     success:function(data){
+                     
                         if(scroll == 1){
                             if (data['output'] == "") {
                                 $('.auto-load').html("We don't have more data to display ");
@@ -231,6 +230,7 @@
                                 $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }else{
+                                 console.log(data['output']);
                                 $('.filter_data').html(data['output']);
                                 $(".total-product").html(data['datacount']);
                                 $('.auto-load').hide();
@@ -253,10 +253,12 @@
             }
 
             $('.common_selector').click(function(){
+                page = 1;
                 filter_data(page);
             });
 
             $(".amount_input").keyup(function(){
+                page = 1;
                 filter_data(page);  
             });
 
@@ -288,13 +290,14 @@
                 max: maxPrice,
                 values: [ 0, maxPrice],
                 slide: function (_, { values: [min, max] }) {
+                    page = 1;
                     $( "#amount-start" ).html( "$" + min);
                     $( "#amount-end" ).html( " $" + max );
                     $( "#hidden_minimum_price" ).val(min);
                     $( "#minimum_price" ).val(min);
                     $( "#hidden_maximum_price" ).val(max);
                     $( "#maximum_price" ).val(max);
-                    filter_data();
+                    filter_data(page);
                 }
 
                 });

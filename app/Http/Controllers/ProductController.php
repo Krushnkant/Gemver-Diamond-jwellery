@@ -62,7 +62,6 @@ class ProductController extends Controller
 
     public function fetchproduct(Request $request){
         $data = $request->all();
-       
         if(isset($data["action"]))
         {
            
@@ -127,32 +126,32 @@ class ProductController extends Controller
                 $query = $query->where('product_variant_specifications.attribute_term_id',$specification);
                 $query = $query->where('product_variant_specifications.estatus',1);
             }
-            $result_total = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->get();
+            $result_total = $query->groupBy('products.id')->get();
            
              if(isset($data["sorting"])){ 
                 if($data["sorting"]== "date")   
                 {
-                    $result = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(8);  
+                    $query = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(8);  
                 }
                 else if($data["sorting"] == "price")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(8); 
+                    $query = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(8); 
                 }
                 else if($data["sorting"]=="price-desc")
                 {
-                    $result = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(8); 
+                    $query = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(8); 
                 }else{
-                    $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);  
+                    $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);  
                 }
            }else{
                
-            $result = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);
+            $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);
            }
           // dd(\DB::getQueryLog());
            //$result = $query->groupBy('products.id')->paginate(12);
             $output = '';
-            if(count($result) > 0){
-            foreach($result as $row)
+            if(count($query) > 0){
+            foreach($query as $row)
             {
                 $supported_image = array('jpg','jpeg','png');
                 $images = explode(",",$row->images);
@@ -246,7 +245,7 @@ class ProductController extends Controller
                                          $output .= '<span class="form-check d-inline-block">
                                             <a href="'.$attributeurl.'">
                                             
-                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->attrterm_name .'"  class="wire_bangle_color_img pe-auto">
+                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->display_attrname .'"  class="wire_bangle_color_img pe-auto">
                                             </a>
                                             <div class="wire_bangle_color_input_label"></div>
                                         </span>';
@@ -447,13 +446,13 @@ class ProductController extends Controller
                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val); 
                 $variantstr .='<div class="d-flex align-items-center mb-1 mb-md-2 col-md-6 px-0">
-                                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->attribute_name .' :</span>
+                                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_variant->display_attrname .' :</span>
                                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                                 </div>';
 
                 $specificationstr123 .='<div class="col-xl-6 px-0" >
                 <div class="mt-4 wire_bangle_share row">
-                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">'.$product_attribute_variant->attribute_name .' </span>
+                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">'.$product_attribute_variant->display_attrname .' </span>
                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">'. $product_attribute_term_name .'</span>
                 </div>
             </div>';                
@@ -471,18 +470,18 @@ class ProductController extends Controller
                 //$product_attributes_specification = \App\Models\ProductVariantSpecification::leftJoin("attribute_term", "attribute_term.id", "=", "product_variant_specifications.attribute_term_id")->where('product_variant_specifications.estatus',1)->where('is_dropdown',0)->where('product_variant_id',$vatid)->groupBy('attributes.id')->get();
                 $str .='<div class="col-md-6 px-0">
                         <div class="wire_bangle_share wire_bangle_share_part row mt-2"> 
-                            <span class="d-block col-6 col-sm-3 col-md-6 col-lg-3 ps-0">'.$product_attribute_specification->attribute_name .'</span>
+                            <span class="d-block col-6 col-sm-3 col-md-6 col-lg-3 ps-0">'.$product_attribute_specification->display_attrname .'</span>
                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-6 col-lg-9">'. strtolower($product_attribute_term_name) .'</span>
                         </div>
                     </div>'; 
                     
                 $specificationstr .='<div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
-                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">'.$product_attribute_specification->attribute_name .'</span>
+                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">'.$product_attribute_specification->display_attrname .'</span>
                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">'. strtolower($product_attribute_term_name) .'</span>
                         </div>';    
 
                 $variantstr .='<div class="d-flex align-items-center mb-4 col-md-6">
-                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->attribute_name .' :</span>
+                    <span class="wire_bangle_color_heading  d-inline-block">'.$product_attribute_specification->display_attrname .' :</span>
                     <span class="ms-2 d-inline-block wire_bangle_color_heading ">'. $product_attribute_term_name .'</span>
                 </div>';  
                 
@@ -492,9 +491,9 @@ class ProductController extends Controller
                 $spe = '';
                 foreach($ProductVariantSpecification as $productvariants)
                 {
-                $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->attribute_name.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->attribute->display_attrname.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
                             <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                            <option value="">-- Select '.$productvariants->attribute->attribute_name .' --</option>';   
+                            <option value="">-- Select '.$productvariants->attribute->display_attrname .' --</option>';   
                     
                     $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$vatid)->groupBy('attribute_term_id')->get();
                         
@@ -503,7 +502,7 @@ class ProductController extends Controller
                         $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                         $v = 1;
                         foreach($product_attributes as $term){
-                        $spe .='<option data-spe="'.$productvariants->attribute->attribute_name .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                        $spe .='<option data-spe="'.$productvariants->attribute->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
                         
                         }
                     }   
@@ -567,7 +566,7 @@ class ProductController extends Controller
                 $product_attribute_term_name = implode(' - ',$product_attributes_term_val);
                 
                 $spe_desc .='<div class="px-0 mt-4 pt-xl-2">
-                    <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->attribute_name .' '.$product_attribute_term_name .'</div>
+                    <div class="heading-h4 wire_diamond_heading pb-xxl-2">'.$product_attribute_specification->display_attrname .' '.$product_attribute_term_name .'</div>
                 </div>
                 <div class="row custom_product_detail">';
                 foreach($product_attributes_term_des as $attrterm_description){  
@@ -657,7 +656,7 @@ class ProductController extends Controller
                 if($productvariants->attribute_terms['0']->attrterm_thumb == ''){
            
          
-            $variantmulti .='<div class="wire_bangle_color_heading mb-2">' .$productvariants->attribute->attribute_name .'</div>
+            $variantmulti .='<div class="wire_bangle_color_heading mb-2">' .$productvariants->attribute->display_attrname .'</div>
             <div class="wire_bangle_carat">';
            
             $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->whereIn('product_variant_id',$product_attributes_variant_ids)->groupBy('attribute_term_id')->get();
@@ -666,9 +665,9 @@ class ProductController extends Controller
             foreach($product_attribute as $attribute_term){
             $check = (in_array( $attribute_term->attribute_terms[0]->id , $terms_id)) ? "checked" : ""; 
             $variantmulti .='<span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
-            <input class="form-check-input variant" '.$check.'  value="'. $attribute_term->attribute_terms[0]->id .'"  type="radio" name="AtributeVariant'. $productvariants->attribute->attribute_name .'" id="AtributeVariant'. $attribute_term->attribute_terms[0]->id .'">
+            <input class="form-check-input variant" '.$check.'  value="'. $attribute_term->attribute_terms[0]->id .'"  type="radio" name="AtributeVariant'. $productvariants->attribute->display_attrname .'" id="AtributeVariant'. $attribute_term->attribute_terms[0]->id .'">
             <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant'.$attribute_term->attribute_terms[0]->id .'">
-            '.$attribute_term->attribute_terms[0]->attrterm_name.'
+            '.$attribute_term->attribute_terms[0]->display_attrname.'
                 </label>
                 </span>';
              $iv++;    
