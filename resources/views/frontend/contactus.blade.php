@@ -81,7 +81,7 @@
                                     <div class="contact_us_sub_heading mb-2">
                                         email
                                     </div>
-                                    <a href="mailto:{{ $settings->company_email }}" class="contact_us_sub_paragraph">
+                                    <a href="mailto:{{ $settings->company_email }}" class="contact_us_sub_paragraph email-part-contact">
                                     {{ $settings->company_email }}
                                     </a>
                                 </div>
@@ -89,7 +89,6 @@
                             <div class="contact-google-map">
                                 <div class="">
                                     <div class="contact-google-map">
-                                        <!-- <iframe src="{{ $settings->company_address_map }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                                         {!! $settings->company_address_map !!}
                                     </div>
                                 </div>
