@@ -206,7 +206,7 @@
                                                                     <?php $atr++; ?>
                                                                 @endforeach
                                                             </span>
-                                                            <div class="d-flex mt-3">
+                                                            <div class="d-flex mt-3 align-items-center">
                                                             <span> <i class="fa fa-usd" aria-hidden="true"></i></span>
                                                             <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
                                                             <span class="wire_bangle_input" >
@@ -410,7 +410,7 @@
                     </div> 
             </div>
         </div>
-        @if(isset($cart_data) && count($cart_data))
+        <!-- @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-6 col-lg-7 col-xl-8">
                 <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button>
@@ -439,7 +439,7 @@
             </div>
            
         </div>
-        @endif
+        @endif -->
 
     </div>
     

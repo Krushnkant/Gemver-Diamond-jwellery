@@ -4868,6 +4868,7 @@ width: 100%;
     
     .delete_cart_data {
         cursor: pointer;
+        padding-left: 10px;
     }
     
     .my_cart_table tbody td {
