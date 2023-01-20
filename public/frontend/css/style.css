@@ -2119,7 +2119,6 @@ background-size: cover;
         font-style: normal;
         font-size: 17px;
         line-height: 27px;
-        text-transform: capitalize;
         color: var(--primary);
     }
     /* ---------------------------------------------------------------- */
