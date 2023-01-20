@@ -17,7 +17,7 @@
         <p class="custom_engagement_paragrph mb-3 mb-xl-4">
             Create your unique engagement ring from either the setting or a diamond. Start from our engagement ring setting and add a diamond or gemstone of your choice, or select from our extensive range of loose diamonds and complete it with a ring setting in your preferred choice of precious metal.
         </p>
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
             <button class="engagement_start_diamond me-2 me-lg-3 mb-3">Start with Diamonds</button>
             <button class="engagement_start_diamond ">Start with Setting</button>
         </div>
@@ -223,7 +223,7 @@
                     <p class="custom_engagement_paragrph text-start ms-0">
                         {{ $MenuPage->section1_description }}
                     </p>
-                    <div class="engagement_button">
+                    <div class="engagement_button create-your-own-btn">
                         <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn d-inline-block">Create your own Engagement Ring</a>
                         <!-- <button class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn">Create your own engagement ring</button> -->
                     </div>

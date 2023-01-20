@@ -5489,7 +5489,7 @@ width: 100%;
         text-align: center;
         width: 16px;
         height: 16px;
-        line-height: 16px;
+        line-height: 18px;
         border-radius: 50%;
         background: #0B1727;
         font-weight: 500;
@@ -5556,7 +5556,8 @@ width: 100%;
         min-width: 240px;
         height: 40px;
         border: 0;
-        line-height: 40px;
+        padding: 10px;
+        line-height: 19px;
     }
     
     .cart-icon-part .dropdown-toggle {
@@ -5658,6 +5659,7 @@ width: 100%;
         letter-spacing: 0.05em;
         color: var(--primary);
         font-family: 'Poppins', sans-serif;
+        text-align: center;
     }
     
     .custom_engagement_paragrph {
@@ -6069,7 +6071,7 @@ width: 100%;
     
     .total_amount_part,
     .total_amount_part_price {
-        font-size: 18px;
+        font-size: 14px;
     }
     
     .filter-tab li:last-child a {
@@ -6875,7 +6877,7 @@ width: 100%;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        left: 25%;
+        left: 30%;
     }
     
     .engagement-heading {
@@ -6889,10 +6891,18 @@ width: 100%;
     
     .engagement-slider-sub-text .custom_engagement_paragrph {
         max-width: 600px;
-        color: var(--primary);
-        text-align: left;
+        color: #000;
+        text-align: center;
     }
     
     .engagement-slider-sub-text .engagement-paragraph {
         max-width: 700px;
+    }
+    
+    .email-part-contact {
+        text-transform: lowercase;
+    }
+    
+    .create_yout_own_engagemtnt_ring_btn {
+        line-height: 40px;
     }
