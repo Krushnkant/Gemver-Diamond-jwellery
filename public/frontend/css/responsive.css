@@ -151,7 +151,6 @@
     }
     .my_cart_table thead th {
         padding: 14px 16px;
-        min-width: 150px;
     }
     .order_summary_box {
         padding: 0 15px;
@@ -177,7 +176,7 @@
         min-width: 200px;
     }
     .my_cart_table tbody td {
-        padding: 10px 0 10px 35px;
+        padding: 10px 0 10px 0;
     }
     .my_cart_heading {
         font-size: 21px;
@@ -224,7 +223,7 @@
         font-size: 18px;
     }
     .table_part_product tr th {
-        padding: 14px 40px;
+        padding: 14px 28px;
     }
     .wishlist_table tr td:first-child {
         min-width: 350px;
