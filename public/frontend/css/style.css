@@ -4644,7 +4644,7 @@ width: 100%;
     }
     
     .cart-product-name-info {
-        padding-left: 35px !important;
+        padding-left: 0 !important;
         display: flex;
         align-items: center;
         width: 100% !important;
@@ -5552,11 +5552,12 @@ width: 100%;
         font-weight: 500;
         font-size: 15px;
         letter-spacing: 0.05em;
-        color: #FFFFFF;
+        color: #FFFFFF !important;
         min-width: 240px;
         height: 40px;
         border: 0;
         padding: 10px 0;
+        text-align: center;
     }
     
     .cart-icon-part .dropdown-toggle {
