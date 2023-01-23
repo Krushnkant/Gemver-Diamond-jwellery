@@ -68,12 +68,7 @@
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->display_attrname }}</li>
                             <div class="col-lg-12">
-                                <!-- @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3 d-inline-block me-3">
-                                        <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                        <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
-                                @endforeach  -->
+                               
                                 <div class="d-flex align-items-center carat-input-part">
                                     <div class="from_text me-4">
                                         <div class="d-flex align-items-center">
@@ -89,6 +84,48 @@
                                 </div>
                             </div>
                         </ul>
+                    </div>
+                </div>
+                @elseif($attribute->id == 15)
+                {{-- <div class="col-lg-6">
+                    <div class="round_cut_lab_range_slider">
+                        <ul class="right_side_ul round_cut_lab_range_slider row">
+                            <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->display_attrname }}</li>
+                            <div class="col-lg-12">
+                               
+                                <div class="d-flex align-items-center carat-input-part">
+                                    <div class="from_text me-4">
+                                        <div class="d-flex align-items-center">
+                                        <input type="text" name="" id="minimum_carat_input" placeholder="From" class="wire_bangle_input common_input comman_input_part w-100" value="0">
+                                            <span class="ms-2 filter_ct">ct</span>
+                                        </div>
+                                    </div>
+                                    <div class="me-4 text-center"> to</div>
+                                    <div class="to_text d-flex align-items-center" style="position: initial !important;">
+                                        <input type="text" name="" id="maximum_carat_input" placeholder="To" class="wire_bangle_input common_input comman_input_part w-100" value="7">
+                                        <span class="ms-2 filter_ct">ct</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div> --}}
+                <div class="col-lg-6">
+                    <div class="round_cut_lab_range_slider mt-md-0 row">
+                        <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</div>
+                        <div class="round_cut_lab_diamonds_price col-lg-12">
+                            <div class="align-items-center mb-2 position-relative">
+                                <div id="slider-range-carat" class="mb-0"></div>
+                                <div class="d-flex mt-3">
+                                    <span class="from_text"><input type="numner" name="" id="minimum_carat" placeholder="From" class="d-block wire_bangle_input amount_input" value="0"></span>
+                                    <span class="to_text"><input type="numner" name="" id="maximum_carat" placeholder="To" class="d-block wire_bangle_input amount_input" value="20"></span>
+                                </div>
+                            </div>
+                            <!-- <p class="mb-0"> <span id="amount"></span></p> -->
+                            <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
+                            <input type="hidden" id="hidden_minimum_carat" />
+                            <input type="hidden" id="hidden_maximum_carat" />
+                        </div>
                     </div>
                 </div>
                 @else
@@ -304,6 +341,58 @@
                 //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
                 $( "#amount-start" ).html(" $" + $( "#slider-range" ).slider( "values", 0 ) );
                 $( "#amount-end" ).html( " $" + $( "#slider-range" ).slider( "values", 1 ) );
+            
+            });
+
+
+
+
+
+
+
+            ['minimum_carat', 'maximum_carat'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
+            let [minimum_carat, maximum_carat] = $("#slider-range-carat").slider('values');
+            if (e.target.id === 'minimum_carat') {
+                minimum_carat = parseInt(e.target.value, 10);
+            } else if (e.target.id === 'maximum_carat') {
+                maximum_carat = parseInt(e.target.value, 10);
+            }
+
+            $( "#slider-range-carat" ).slider({
+            values: [ minimum_price, maximum_carat],
+            });
+
+            $( "#carat-start" ).html( "$" + minimum_carat);
+            $( "#carat-end" ).html( " $" + maximum_carat);
+
+            }));
+
+
+            $(function() {
+                
+                var maxCarat = 20;
+                
+                $( "#slider-range-carat" ).slider({
+                range: true,
+                min: 0,
+                //step: 0.1,
+                max: maxCarat,
+                values: [0, maxCarat],
+                slide: function (_, { values: [min, max] }) {
+                    page = 1;
+                    $( "#carat-start" ).html( "$" + min);
+                    $( "#carat-end" ).html( " $" + max );
+                    $( "#hidden_minimum_carat" ).val(min);
+                    $( "#minimum_carat" ).val(min);
+                    $( "#hidden_maximum_carat" ).val(max);
+                    $( "#maximum_carat" ).val(max);
+                    filter_data(page);
+                }
+
+                });
+                //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+                $( "#carat-start" ).html(" $" + $( "#slider-range-carat" ).slider( "values", 0 ) );
+                $( "#carat-end" ).html( " $" + $( "#slider-range-carat" ).slider( "values", 1 ) );
             
             });
 
