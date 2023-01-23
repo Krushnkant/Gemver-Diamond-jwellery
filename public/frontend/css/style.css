@@ -6147,7 +6147,7 @@ width: 100%;
     }
     
     .reset-btn {
-        border: 1px var(--primary) solid !important;
+        border: 1px var(--primary) solid;
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
@@ -6912,4 +6912,8 @@ width: 100%;
     
     select#sorting option {
         font-size: 15px;
+    }
+    
+    .wire_bangle_tabs_part {
+        font-size: 14px;
     }

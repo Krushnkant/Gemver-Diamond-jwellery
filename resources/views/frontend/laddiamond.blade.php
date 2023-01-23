@@ -103,7 +103,7 @@
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-3 filter-carat">carat</span>
                     <span class="round_cut_lab_diamonds_price col-md-12">
                         <div class="align-items-center mb-2 position-relative">
-                            <!-- <div id="slider-range-carat" class="mb-3"></div> -->
+                            <div id="slider-range-carat" class="mb-3"></div>
                             <div class="d-flex align-items-center carat-input-part">
                                 <div class="from_text me-4">
                                     <div class="d-flex align-items-center">
@@ -118,9 +118,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
+                        <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
                         <input type="hidden" id="hidden_minimum_carat" />
-                        <input type="hidden" id="hidden_maximum_carat" /> -->
+                        <input type="hidden" id="hidden_maximum_carat" />
                     </span>
                 </div>
                
@@ -353,8 +353,8 @@
                 </div>
                 <!-- ---- cut---------- -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</span>
-                    <span class="col-md-10 filter-checkbox">
+                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">cut</span>
+                    <span class="col-md-11 filter-checkbox">
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="Ideal" class="cut common_selector" name="cut[]" id="cutID">
                             <label for="cutID">Ideal</label>
@@ -383,8 +383,8 @@
                 </div>
                 <!-- ----- polish ------------- -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
-                    <span class="col-md-10 filter-checkbox">
+                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Polish</span>
+                    <span class="col-md-11 filter-checkbox">
                         
                         <div class="form-group d-inline-block me-3 mb-0">
                             <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]" id="polishID">
@@ -414,8 +414,8 @@
                 </div>
                 <!-- ------------ sym. ------------ -->
                 <div class="round_cut_lab_range_slider row mb-2">
-                    <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Symmetry</span>
-                    <span class="col-md-10 filter-checkbox">
+                    <span class="round_cut_lab_diamonds_heading col-md-1 mb-2">Symmetry</span>
+                    <span class="col-md-11 filter-checkbox">
                         <div class="form-group d-inline-block me-3">
                             <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">
                             <label for="symmID">Ideal</label>
