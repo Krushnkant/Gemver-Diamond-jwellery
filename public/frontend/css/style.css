@@ -995,6 +995,11 @@ background-size: cover;
         background: var(--light-bg);
         min-height: auto;
         height: 100%;
+        min-height: 400px;
+    }
+    
+    .gemver_diamods_bg img {
+        min-height: 400px;
     }
     
     .diamonds_part {
@@ -1506,6 +1511,10 @@ background-size: cover;
         min-width: 197px;
         min-height: 56px;
         background: var(--secondary);
+        border: 0;
+    }
+    
+    .inquiry_now_btn button:hover {
         border: 0;
     }
     
@@ -6916,4 +6925,18 @@ width: 100%;
     
     .wire_bangle_tabs_part {
         font-size: 14px;
+    }
+    
+    .wire_bangle_page .product-heading {
+        font-size: 30px;
+    }
+    
+    .wire_bangle_page .product-price {
+        font-size: 21px;
+    }
+    
+    .off-price-text {
+        text-decoration: auto;
+        color: #868686;
+        font-size: 15px;
     }
