@@ -6147,7 +6147,7 @@ width: 100%;
     }
     
     .reset-btn {
-        border: 1px var(--primary) solid;
+        border: 1px var(--primary) solid !important;
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
