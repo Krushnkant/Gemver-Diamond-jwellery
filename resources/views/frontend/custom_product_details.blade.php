@@ -299,13 +299,15 @@
                                   })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
+                                @if(isset($attribute_term->attribute_terms[0]->id)){
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
                                         <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->display_attrname }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         {{ $attribute_term->attribute_terms[0]->attrterm_name }}
                                     </label>
                                     </span>
-                                    <?php $iv++ ?>    
+                                    <?php $iv++ ?>
+                                @endif        
                                 @endforeach    
                                 
                             </div>
