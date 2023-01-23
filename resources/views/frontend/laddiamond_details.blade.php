@@ -66,17 +66,19 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content mb-4 mb-md-0">
                     <div class="diamond-data">
-                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
-                        <div class="d-flex mb-2 pb-xxl-2">
-                            <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
-                                <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
+                        <div class="wire_bangle_heading mb-2 product-heading">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
+                        <div class="d-flex align-items-center">
+                            <span class="wire_bangle_price product-price">${{ $Diamond->Sale_Amt }}
+                                <div class="ms-2 wire_bangle_dublicate_price">$480</div>
                             </span>
-
+                            <span class="ms-2 off-price-text">
+                                20% OFF
+                            </span>
                         </div>
                     
                             <div class="wire_bangle_share mb-4">
                                 <div class="row">
-                                    <div class="col-xl-6 px-0">
+                                    <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
                                             @if($Diamond->Certificate_url != "")
@@ -109,7 +111,7 @@
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->Cut)?$Diamond->Cut:"-"  }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 px-0">
+                                    <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">shape</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
@@ -133,7 +135,7 @@
                                         </div>
                                     </div>
                                     @endif --}}
-                                    <div class="col-xl-6 px-0">
+                                    <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat </span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Weight }}</span>
@@ -157,7 +159,7 @@
                                         </div>
                                     </div>
                                     @endif --}}
-                                    <div class="col-xl-6 px-0">
+                                    <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">color</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
@@ -181,7 +183,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    <div class="col-xl-6 px-0">
+                                    <div class="col-xl-6 ps-0">
                                         <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>

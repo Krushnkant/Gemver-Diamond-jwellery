@@ -1060,7 +1060,6 @@ class DiamondController extends Controller
                             </a>
 
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                             
                                 <input type="hidden" class="diamond_id" value="'. $Diamond->id .'">    
                                 <input type="hidden" class="item_type" value="1"> 
                                 <div class="round_cut_lab_diamonds_info_main_heading"><a href="'.$url.'">'. $Diamond->short_title .'</a></div>

@@ -895,7 +895,7 @@
         display: none;
     }
     .wire_bangle_tabs_part li a {
-        font-size: 15px;
+        font-size: 13px;
         padding: 0 10px;
     }
     .loose-lab-diamonds-diamond li {
@@ -933,6 +933,7 @@
     .round_cut_lab_checkbox input+.shape_img {
         min-width: 45px;
         min-height: 45px;
+        line-height: 33px !important;
     }
     .contact-google-map {
         position: initial;

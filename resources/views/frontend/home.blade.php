@@ -654,6 +654,7 @@
                                  {{ $homesetting->section_why_gemver_title1 }}
                             </div>
                             <p class="diamonds_paragraph">{{ $homesetting->section_why_gemver_description1 }}</p>
+                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds" data-bs-toggle="modal" data-bs-target="#exampleModal">Customize</button>
                         </div>
                     </div>
                 </div>
