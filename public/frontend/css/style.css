@@ -6909,3 +6909,7 @@ width: 100%;
     .create_yout_own_engagemtnt_ring_btn {
         line-height: 40px;
     }
+    
+    select#sorting option {
+        font-size: 15px;
+    }
