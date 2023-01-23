@@ -2204,6 +2204,7 @@ transform: translateY(-50%); */
         padding: 0;
         position: relative;
         cursor: pointer;
+        line-height: 55px;
     }
     
     .round_cut_lab_checkbox input:checked+.shape_img {
@@ -2227,6 +2228,7 @@ transform: translateY(-50%); */
         min-height: 55px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 7px;
+        text-transform: capitalize !important;
     }
     
     .round_cut_lab_checkbox input+.shape_img {
@@ -6145,7 +6147,7 @@ width: 100%;
     }
     
     .reset-btn {
-        border: 1px var(--primary) solid;
+        border: 1px var(--primary) solid !important;
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
@@ -6661,7 +6663,8 @@ width: 100%;
     
     .round_cut_lab_checkbox .other_box {
         font-size: 13px !important;
-        line-height: 36px !important;
+        line-height: 46px !important;
+        text-align: center;
     }
     
     .apply-btn {
@@ -6676,7 +6679,7 @@ width: 100%;
     }
     
     .reset-btn-part {
-        border: 1px var(--primary) solid !important;
+        border: 1px var(--primary) solid;
         width: 50%;
     }
     
@@ -6905,4 +6908,8 @@ width: 100%;
     
     .create_yout_own_engagemtnt_ring_btn {
         line-height: 40px;
+    }
+    
+    select#sorting option {
+        font-size: 15px;
     }
