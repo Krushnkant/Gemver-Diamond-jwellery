@@ -59,16 +59,16 @@ class DiamondController extends Controller
         $MaxMeasLength = ceil(Diamond::max('meas_length') / 10) * 10;
         $MaxMeasWidth = ceil(Diamond::max('meas_width') / 10) * 10;
         $MaxMeasDepth = ceil(Diamond::max('meas_depth') / 10) * 10;
-        $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
-        $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
-        $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
-        $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
-        $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
-        $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
-        $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
+        //$diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->lists('Shape')->all();
+       // $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
+       // $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
+       // $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+       // $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
+       // $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
+       // $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
        // $diamond_count = Diamond::get()->count();
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','MaxDepth','MaxRatio','MaxTable','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     } 
 
     public function getDiamonds(Request $request)
@@ -767,21 +767,21 @@ class DiamondController extends Controller
         $MaxMeasLength = ceil(Diamond::max('meas_length') / 10) * 10;
         $MaxMeasWidth = ceil(Diamond::max('meas_width') / 10) * 10;
         $MaxMeasDepth = ceil(Diamond::max('meas_depth') / 10) * 10;
-        $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
-        $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
-        $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
-        $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
-        $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
-        $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
-        $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.laddiamond',compact('shap','fancycolor','Maxprice','MaxCarat','diamondshape','diamondcolor','diamondclarity','diamondcut','diamondreport','MaxDepth','MaxRatio','MaxTable','diamondpolish','diamondsymm','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
+        // $diamondshape = Diamond::whereNotNull('Shape')->Where('Shape','<>','')->groupBy('Shape')->pluck('Shape');
+        // $diamondcolor = Diamond::whereNotNull('Color')->Where('Color','<>','')->groupBy('Color')->pluck('Color');
+        // $diamondclarity = Diamond::whereNotNull('Clarity')->Where('Clarity','<>','')->groupBy('Clarity')->pluck('Clarity');
+        // $diamondcut = Diamond::whereNotNull('Cut')->Where('Cut','<>','')->groupBy('Cut')->pluck('Cut');
+        // $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
+        // $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
+        // $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
+        return view('frontend.laddiamond',compact('shap','fancycolor','Maxprice','MaxCarat','MaxDepth','MaxRatio','MaxTable','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
     }
 
     public function getLadDiamonds(Request $request)
     {
         $share_array = array("round","princess","cushion","asscher","emerald","oval","radiant","marquise","heart","pear");
         $data = $request->all();
-        \DB::enableQueryLog();
+       // \DB::enableQueryLog();
         $query = Diamond::where('estatus',1);
         if($data["minimum_price"] && $data["maximum_price"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price"]);
