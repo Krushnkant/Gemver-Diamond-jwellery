@@ -18,7 +18,7 @@
             Create your unique engagement ring from either the setting or a diamond. Start from our engagement ring setting and add a diamond or gemstone of your choice, or select from our extensive range of loose diamonds and complete it with a ring setting in your preferred choice of precious metal.
         </p>
         <div class="d-flex flex-wrap justify-content-center">
-            <a href="#" class="engagement_start_diamond me-2 me-lg-3">View product</a>
+            <a href="#" class="engagement_start_diamond me-2 me-lg-3">Shop Now</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>
    </div>

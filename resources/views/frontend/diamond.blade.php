@@ -243,7 +243,7 @@
                     <div class="round_cut_lab_diamonds_heading col-md-12 mb-3 filter-carat">carat</div>
                     <div class="round_cut_lab_diamonds_price col-md-12">
                         <div class="mb-2 position-relative">
-                            <!-- <div id="slider-range-carat" class="mb-0"></div> -->
+                            <div id="slider-range-carat" class="mb-3"></div>
                             <div class="d-flex align-items-center carat-input-part">
                                 <div class="from_text me-4">
                                     <div class="d-flex align-items-center">
@@ -258,9 +258,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
+                        <p class="mb-0 range-slider-p"><span id="carat-start"></span><span id="carat-end"></span></p>
                                 <input type="hidden" id="hidden_minimum_carat" />
-                                <input type="hidden" id="hidden_maximum_carat" /> -->
+                                <input type="hidden" id="hidden_maximum_carat" />
                     </div>
                 </div>
 
