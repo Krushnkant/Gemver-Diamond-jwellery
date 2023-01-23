@@ -446,7 +446,7 @@ class DiamondCron extends Command
                             }  
                         }
                         
-                        Diamond::whereIn('diamond_id',$oldids)->delete();
+                       // Diamond::whereIn('diamond_id',$oldids)->delete();
                     }
                     
                     
