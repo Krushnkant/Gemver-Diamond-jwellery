@@ -344,12 +344,6 @@
             
             });
 
-
-
-
-
-
-
             ['minimum_carat', 'maximum_carat'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
             let [minimum_carat, maximum_carat] = $("#slider-range-carat").slider('values');
             if (e.target.id === 'minimum_carat') {

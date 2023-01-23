@@ -724,7 +724,7 @@
                         </a>
                         <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                             <div class="round_cut_lab_diamonds_info_heading mb-2">
-                                <a href="{{ $url }}">{{ $Diamond->Shape }}</a>
+                                {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
                                 <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
                                 <input type="hidden" class="item_type" value="1">    
                                 <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
