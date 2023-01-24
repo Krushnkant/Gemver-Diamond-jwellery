@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}"> 
+   
     <div class="d-block d-md-none mobile-view-img">  
         <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
         <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
@@ -12,16 +12,16 @@
         <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
    </div>
    <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
-        <div class="custom_made_heading mb-3 mb-xl-4">Fine jewellery</div>
+        <div class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</div>
         <p class="custom_engagement_paragrph mb-3 mb-xl-4">
-            Create your unique engagement ring from either the setting or a diamond. Start from our engagement ring setting and add a diamond or gemstone of your choice, or select from our extensive range of loose diamonds and complete it with a ring setting in your preferred choice of precious metal.
+            {{ $MenuPage->main_shotline }}
         </p>
         <div class="d-flex flex-wrap justify-content-center">
-            <a href="#" class="engagement_start_diamond me-2 me-lg-3">Shop now</a>
+            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">Shop now</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>
    </div>
-    </a>
+    
     <!-- <div class="container engagement_text_part">
         <div class="engagement_text_part">
             <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>

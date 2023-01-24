@@ -379,8 +379,11 @@ class DiamondController extends Controller
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                    $'. $Diamond->Sale_Amt .'
-                                    <div>
+                                    $'. $Diamond->Sale_Amt .'';
+                                    if($Diamond->real_Amt != ""){
+                                        $artilces .= '<span class="" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
+                                    }
+                                    $artilces .= '<div>
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    
@@ -1075,8 +1078,11 @@ class DiamondController extends Controller
                                     <span>'. $Diamond->Lab .' certified</span>
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                    $'. $Diamond->Sale_Amt .' 
-                                    <div>
+                                $'. $Diamond->Sale_Amt .'';
+                                if($Diamond->real_Amt != ""){
+                                    $artilces .= '<span class="" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
+                                }
+                                $artilces .= '<div>
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                 
                                     if(is_wishlist($Diamond->id,1)){    

@@ -69,10 +69,10 @@
                         <div class="wire_bangle_heading mb-2 product-heading">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
                         <div class="d-flex align-items-center">
                             <span class="wire_bangle_price product-price">${{ $Diamond->Sale_Amt }}
-                                <div class="ms-2 wire_bangle_dublicate_price">$480</div>
+                                <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
                             </span>
                             <span class="ms-2 off-price-text">
-                                20% OFF
+                                {{ $Diamond->amt_discount }}% OFF
                             </span>
                         </div>
                     
@@ -744,7 +744,7 @@
                                 <span>{{ $Diamond->Lab }} certified</span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                ${{ $Diamond->Sale_Amt }} 
+                                ${{ $Diamond->Sale_Amt }} <span class="" style="text-decoration-line: line-through">$<span class="regular_price">{{ $Diamond->real_Amt }}</span></span> 
                             </div>
                         </div>
                     </div>

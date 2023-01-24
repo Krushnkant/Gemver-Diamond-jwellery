@@ -145,12 +145,31 @@ class DiamondCron extends Command
                         }else{
                             $DiamondMeasurement = "-";    
                         }
+
+                        $percentage = rand(10, 30);
+                        $percentage_amount = ($sale_amt * $percentage)/100;
+                        $real_amt = round($percentage_amount + $sale_amt);
+
+                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/a"){
+                            $short_title = $collection->shape . " " . $collection->Weight . "ct " .$collection->Color. " " .$collection->Clarity; 
+                        }else{
+                            $short_title = $collection->short_title;
+                        }
+
+                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/a"){
+                            $long_title =  $collection->Weight . " Carat " .$collection->Shape. " Diamond"; 
+                        }else{
+                            $long_title = $collection->long_title;
+                        }
+
                         
                         $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                         if($Diamond){
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
+                            $Diamond->real_Amt = $real_amt;      
+                            $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
                             $Diamond->save();    
@@ -168,6 +187,8 @@ class DiamondCron extends Command
                                 'Location' => $collection->city.','.$collection->state.','.$collection->country,
                                 'Amt' => $collection->total_sales_price,
                                 'Sale_Amt' => $sale_amt,
+                                'real_Amt' => $real_amt,
+                                'amt_discount' => $percentage,
                                 'shape' => strtoupper($collection->shape),
                                 'Color' => $collection->color,
                                 'Measurement' =>  $DiamondMeasurement,
@@ -329,12 +350,32 @@ class DiamondCron extends Command
                                 }else{
                                     $DiamondMeasurement = "-";    
                                 }
+
+                                $percentage = rand(10, 30);
+                                $percentage_amount = ($sale_amt * $percentage)/100;
+                                $real_amt = round($percentage_amount + $sale_amt);
+
+                                if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/a"){
+                                    $short_title = $collection->shape . " " . $collection->Weight . "ct " .$collection->Color. " " .$collection->Clarity; 
+                                }else{
+                                    $short_title = $collection->short_title;
+                                }
+
+                                if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/a"){
+                                    $long_title =  $collection->Weight . " Carat " .$collection->Shape. " Diamond"; 
+                                }else{
+                                    $long_title = $collection->long_title;
+                                }
+
+                                
                                 
                                 $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                                 if($Diamond){
                                 
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
+                                    $Diamond->real_Amt = $real_amt;      
+                                    $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
                                     $Diamond->save();    
@@ -343,8 +384,8 @@ class DiamondCron extends Command
                                         'Company_id' => 1,  
                                         'Stone_No' => $Stone_No,
                                         'diamond_id' => $collection->id,
-                                        'short_title' => $collection->short_title,
-                                        'long_title' => $collection->long_title,
+                                        'short_title' => $short_title,
+                                'long_title' => $long_title,
                                         'vendor_id' => $collection->vendor_id,
                                         'StockStatus' => $collection->available,
                                         'Weight' => $collection->size,
@@ -352,6 +393,8 @@ class DiamondCron extends Command
                                         'Location' => $collection->city.','.$collection->state.','.$collection->country,
                                         'Amt' => $collection->total_sales_price,
                                         'Sale_Amt' => $sale_amt,
+                                        'real_Amt' => $real_amt,
+                                        'amt_discount' => $percentage,
                                         'shape' => strtoupper($collection->shape),
                                         'Color' => $collection->color,
                                         'Measurement' =>  $DiamondMeasurement,
