@@ -17,8 +17,9 @@ use App\Models\SmilingDifference;
 class HomeController extends Controller
 {
     public function index(){
+        
 
-    
+        
         // query the user media
         $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
         $token = env('INSTAGRAM_TOKEN', '');

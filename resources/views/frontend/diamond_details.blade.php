@@ -261,9 +261,12 @@
                 <div class="wire_bangle_content">
                     <div class="">
                         <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->short_title }}</div>
-                        <div class="d-flex mb-2 pb-xxl-2">
+                        <div class="d-flex mb-2 pb-xxl-2 align-items-center">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
-                                <!-- <sub class="ms-2 wire_bangle_dublicate_price">$480</sub> -->
+                                <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
+                            </span>
+                            <span class="ms-2 off-price-text">
+                                {{ $Diamond->amt_discount }}% OFF
                             </span>
 
                         </div>
@@ -823,7 +826,7 @@
                                 <span>{{ $Diamond->Lab }} certified</span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                ${{ $Diamond->Sale_Amt }} 
+                                ${{ $Diamond->Sale_Amt }} <span class="" style="text-decoration-line: line-through">$<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
                             </div>
                         </div>
                     </div>

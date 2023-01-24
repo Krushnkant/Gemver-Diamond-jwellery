@@ -523,6 +523,7 @@
                 </div>
             </div>
         </div>
+        @if($Product->desc != "")
         <div class="row mt-xl-5 pt-xxl-0 mb-xxl-4 mt-3" id="description">
             <div class="col-md-12">
                 <div class="description_heading">
@@ -533,6 +534,7 @@
                 <p class="description_paragraph">{{ $Product->desc }}</p>
             </div>
         </div>
+        @endif
         <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
             <div class="accordion-item">
                 <div class="accordion-header" id="headingOne">
