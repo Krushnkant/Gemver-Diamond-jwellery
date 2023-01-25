@@ -776,10 +776,11 @@
                 <div class="instafeed_inner">
                     <?php
                     if($media_type=="VIDEO"){
-                        echo "<video controls style='width:100%; display: block !important;height:300px;'>
-                            <source src='{$media_url}' type='video/mp4'>
-                            Your browser does not support the video tag.
-                        </video>";
+                        // echo "<video controls style='width:100%; display: block !important;height:300px;'>
+                        //     <source src='{$media_url}' type='video/mp4'>
+                        //     Your browser does not support the video tag.
+                        // </video>";
+                        echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
                     }
  
                     else{
