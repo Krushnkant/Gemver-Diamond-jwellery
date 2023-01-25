@@ -24,7 +24,7 @@ class HomeController extends Controller
         $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
         $token = env('INSTAGRAM_TOKEN', '');
         $limit = 10;
-        $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
+        $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}&media_type=VIDEO";
         $json_feed = @file_get_contents($json_feed_url);
         $contents = json_decode($json_feed, true, 512, JSON_BIGINT_AS_STRING);
  
