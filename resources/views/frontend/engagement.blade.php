@@ -342,7 +342,7 @@
         </div> 
         @foreach($faqs as $faq)
         <button class="accordion-faq">{{ $faq->question }}</button>
-            <div class="panel">
+            <div class="panel-faq">
                 <p>{{ $faq->answer }}</p>
             </div>
         @endforeach
