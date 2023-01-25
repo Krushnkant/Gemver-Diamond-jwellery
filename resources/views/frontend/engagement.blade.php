@@ -2,29 +2,7 @@
 
 @section('content')
 <style>
-.accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-      }
-      
-      .active, .accordion:hover {
-        background-color: #ccc; 
-      }
-      
-      .panel {
-        padding: 0 18px;
-        display: none;
-        background-color: white;
-        overflow: hidden;
-      }
+
 
 </style>
 <div class="engagement_bg_slider">
@@ -363,7 +341,7 @@
             FAQs
         </div> 
         @foreach($faqs as $faq)
-        <button class="accordion">{{ $faq->question }}</button>
+        <button class="accordion-faq">{{ $faq->question }}</button>
             <div class="panel">
                 <p>{{ $faq->answer }}</p>
             </div>
