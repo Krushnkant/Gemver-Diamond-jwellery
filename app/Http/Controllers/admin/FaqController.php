@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 use App\Models\Faq;
 use App\Models\ProjectPage;
+use App\Models\MenuPage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,13 +12,15 @@ class FaqController extends Controller
 {
     public function index(){
         $action = "list";
+        
         return view('admin.faqs.list',compact('action'));
     }
 
     public function create(){
         $action = "create";
         $custom_fields = Faq::get();
-        return view('admin.faqs.list',compact('action','custom_fields'));
+        $menu_pages = MenuPage::get();
+        return view('admin.faqs.list',compact('action','custom_fields','menu_pages'));
         // return redirect('/faqs');
     }
 
@@ -25,11 +28,13 @@ class FaqController extends Controller
         $messages = [
             'question.required' =>'Please provide a Question',
             'answer.required' =>'Please provide a Answer',
+            'menu_page_id.required' =>'Please select Menu Page',
         ];
 
         $validator = Validator::make($request->all(), [
             'question' => 'required',
             'answer' => 'required',
+            'menu_page_id' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -46,12 +51,14 @@ class FaqController extends Controller
 
             $Faq->question = $request->question;
             $Faq->answer = $request->answer;
+            $Faq->menu_page_ids = implode(',',$request->menu_page_id);
         }
         else{
             $action = "add";
             $Faq = new Faq();
             $Faq->question = $request->question;
             $Faq->answer = $request->answer;
+            $Faq->menu_page_ids = implode(',',$request->menu_page_id);
             $Faq->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
         }
 
@@ -139,7 +146,8 @@ class FaqController extends Controller
         $custom_fields = Faq::get();
 
         $Faq = Faq::where('id',$id)->first()->toArray();
-        return view('admin.faqs.list',compact('action','Faq','custom_fields'));
+        $menu_pages = MenuPage::get();
+        return view('admin.faqs.list',compact('action','Faq','custom_fields','menu_pages'));
     }
 
     public function deleteFaq($id){

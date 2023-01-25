@@ -245,6 +245,18 @@
     </div>
 </div>
 
+@if(count($faqs) > 0)
+        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
+            FAQs
+        </div> 
+        @foreach($faqs as $faq)
+        <button class="accordion">{{ $faq->question }}</button>
+            <div class="panel">
+                <p>{{ $faq->answer }}</p>
+            </div>
+        @endforeach
+    @endif
+
 <script type="text/javascript">
     $(document).ready(function() {    
         $('body').on('click', '#shopProductBtn', function () {
