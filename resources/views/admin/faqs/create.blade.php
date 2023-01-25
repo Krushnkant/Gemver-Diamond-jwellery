@@ -4,6 +4,16 @@
 
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
         <div class="form-group">
+            <label class="col-form-label" for="menu_page_id">Menu Page <span class="text-danger">*</span>
+            </label>
+            <select class="form-control" id="menu_page_id" name="menu_page_id[]" multiple>
+                @foreach($menu_pages as $menu_page)
+                <option value="{{ $menu_page->id }}" >{{ $menu_page->main_title }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <label class="col-form-label" for="Question">question <span class="text-danger">*</span>
             </label>
             <input type="text" class="form-control input-flat" id="question" name="question">

@@ -644,6 +644,15 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 16 
         ]);
 
+        ProjectPage::create([
+            'id' => 65,
+            'parent_menu' => 22,
+            'label' => 'Faqs',
+            'route_url' => 'admin.faqs.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.changefaqstatus,admin.faqs.edit,admin.faqs.delete'
+        ]);
+
 
         
         $users = User::where('role',"!=",1)->get();

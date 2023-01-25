@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+
     <div class="row page-titles mx-0">
         <div class="col p-md-0">
             <ol class="breadcrumb">
@@ -92,6 +93,16 @@
 @section('js')
 <!-- Social Platform JS start -->
 <script type="text/javascript">
+
+$("#menu_page_id").select2({
+        width: '100%',
+        multiple: true,
+        placeholder: "Select...",
+        allowClear: true,
+        autoclose: false,
+        closeOnSelect: false,
+});
+
 $('body').on('click', '#AddFaqBtn', function () {
     location.href = "{{ route('admin.faq.add') }}";
 });
@@ -137,6 +148,12 @@ function save_faq(btn,btn_type){
                         $('#answer-error').show().text(res.errors.answer);
                     } else {
                         $('#answer-error').hide();
+                    }
+
+                    if (res.errors.menu_page_id) {
+                        $('#menu_page_id-error').show().text(res.errors.menu_page_id);
+                    } else {
+                        $('#menu_page_id-error').hide();
                     }
                 }
                 else if (res.status == 200) {
