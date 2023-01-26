@@ -1109,7 +1109,7 @@ background-size: cover;
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 0.05em;
-        text-transform: capitalize;
+        text-transform: lowercase;
         color: var(--primary);
     }
     
@@ -6940,28 +6940,50 @@ width: 100%;
         color: #868686;
         font-size: 15px;
     }
-
-
-    .accordion-faq {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
+    
+    .certifiled-IgI-text a {
+        text-decoration: underline;
+    }
+    
+    .image_view_column img {
         width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-      }
-      
-      .active, .accordion-faq:hover {
-        background-color: #ccc; 
-      }
-      
-      .panel-faq {
-        padding: 0 18px;
-        display: none;
-        background-color: white;
-        overflow: hidden;
-      }
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    .image_view_column_part img:nth-child(1) {
+        width: 100%;
+        height: calc(400px - 5px);
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    
+    .image_view_column_part img:nth-child(2) {
+        width: 100%;
+        height: calc(400px - 5px);
+        margin-top: 15px;
+        border-radius: 15px;
+    }
+    
+    .our_engagement_label {
+        top: 95% !important;
+    }
+    
+    .first_image_part img {
+        height: 800px;
+    }
+    
+    .lab_grown_diamonds_text {
+        font-size: 14px;
+        color: #000;
+        position: absolute;
+        top: 90%;
+        transform: translateY(-50%);
+        left: 17px;
+        text-transform: capitalize;
+        font-weight: 600;
+        padding: 6px 10px;
+    }
+    
+    >>>>>>>Stashed changes

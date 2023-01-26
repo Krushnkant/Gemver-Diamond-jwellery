@@ -57,19 +57,33 @@
                 @endforeach
                 @endif
         </div>
-        <!-- <div class="row ">
-            @if($MenuPage->menupageshapestyle)
-            @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-            <div class="col-6 col-sm-4 col-md-4 col-lg-2 text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category_id }}">
-                <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
-                <div class="choose_sub_heading mt-3 ">
-                    {{ $menupageshapestyle->title }}
-                </div>
+    </div>
+</div>
+<div class="container">
+    <div class="choose_your_setting_section">
+        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
+            Our Engagement Picks
+        </div> 
+       <div class="row">
+            <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0">
+                <figure class="position-relative">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
+                </figure>
             </div>
-            @endforeach
-            @endif
-            
-        </div> -->
+            <div class="col-md-4 image_view_column_part banner_part_img_parent">
+                <figure class="position-relative"> 
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                </figure>
+                
+                <figure class="mb-0 position-relative">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                </figure>
+                
+            </div>
+       </div>
     </div>
 </div>
 
