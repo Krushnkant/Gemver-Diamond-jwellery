@@ -42,7 +42,7 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
                                     <button class="engagement_start_setting d-block mx-auto ms-md-0" id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
@@ -58,6 +58,36 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="choose_your_setting_section">
+                <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
+                    Our Engagement Picks
+                </div> 
+            <div class="row">
+                    <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0">
+                        <figure class="position-relative">
+                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                            <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
+                        </figure>
+                    </div>
+                    <div class="col-md-4 image_view_column_part banner_part_img_parent">
+                        <figure class="position-relative"> 
+                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                            <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                        </figure>
+                        
+                        <figure class="mb-0 position-relative">
+                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                            <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                        </figure>
+                        
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        
         <div class="shop_dimond_by_shape explore_diamonds_section custom-made-section custom-made-section">
             <div class="container">
                 <div class="mb-4 text-center ">
@@ -161,7 +191,7 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
                                     <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
@@ -171,6 +201,7 @@
             </div>
         </div>
         @else
+
         <div class="my-3 my-xl-4"> 
             <div class="container text-center">
                 <div class="row two_part_box_section ring-part-section">
@@ -185,7 +216,7 @@
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block mb-3 me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
                                     <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>

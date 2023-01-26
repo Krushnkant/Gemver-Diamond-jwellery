@@ -54,6 +54,37 @@
     </div>
 </div>
 
+
+<div class="container">
+    <div class="choose_your_setting_section">
+        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
+            Our Engagement Picks
+        </div> 
+       <div class="row">
+            <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0">
+                <figure class="position-relative">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
+                </figure>
+            </div>
+            <div class="col-md-4 image_view_column_part banner_part_img_parent">
+                <figure class="position-relative"> 
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                </figure>
+                
+                <figure class="mb-0 position-relative">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                    <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                </figure>
+                
+            </div>
+       </div>
+    </div>
+</div>
+
+
+
 <div class="create_your_own_section custom_made_wedding_bands_section my-0">
     <div class="container">
         <div class="row align-items-center">
