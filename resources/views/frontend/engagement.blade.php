@@ -355,8 +355,8 @@
             FAQs
         </div> 
         @foreach($faqs as $faq)
-        <button class="accordion-faq">{{ $faq->question }}</button>
-            <div class="panel-faq">
+        <button class="accordion">{{ $faq->question }}</button>
+            <div class="panel">
                 <p>{{ $faq->answer }}</p>
             </div>
         @endforeach
