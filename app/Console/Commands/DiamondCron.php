@@ -171,7 +171,7 @@ class DiamondCron extends Command
                             $Diamond->real_Amt = $real_amt;
                                     $Diamond->short_title = $short_title;      
                                     $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($collection->short_title,$Diamond->id);      
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
@@ -183,7 +183,7 @@ class DiamondCron extends Command
                                 'diamond_id' => $collection->id,
                                 'short_title' => $short_title,
                                 'long_title' => $long_title,
-                                'slug' => $this->createSlug($collection->short_title),
+                                'slug' => $this->createSlug($short_title),
                                 'vendor_id' => $collection->vendor_id,
                                 'StockStatus' => $collection->available,
                                 'Weight' => $collection->size,
@@ -381,7 +381,7 @@ class DiamondCron extends Command
                                     $Diamond->real_Amt = $real_amt;
                                     $Diamond->short_title = $short_title;      
                                     $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($collection->short_title,$Diamond->id);        
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);        
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
@@ -393,7 +393,7 @@ class DiamondCron extends Command
                                         'diamond_id' => $collection->id,
                                         'short_title' => $short_title,
                                         'long_title' => $long_title,
-                                        'slug' => $this->createSlug($collection->short_title),
+                                        'slug' => $this->createSlug($short_title),
                                         'vendor_id' => $collection->vendor_id,
                                         'StockStatus' => $collection->available,
                                         'Weight' => $collection->size,
