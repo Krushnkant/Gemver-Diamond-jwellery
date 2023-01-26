@@ -260,7 +260,7 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->short_title }}</div>
+                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->long_title }}</div>
                         <div class="d-flex mb-2 pb-xxl-2 align-items-center">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
                                 <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
@@ -465,14 +465,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_SHIPMENT_DAYS', 0).' day')) }} </b>
+                                            <b>{{ date('dS M, Y', strtotime ('+'.env('DIAMOND_SHIPMENT_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_DELIVERY_DAYS', 0).' day')) }} </b>
+                                           <b>{{ date('dS M, Y', strtotime ('+'.env('DIAMOND_DELIVERY_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
