@@ -125,7 +125,7 @@ class DiamondController extends Controller
             {
                 foreach ($diamonds as $diamond)
                 {
-
+                    $page_id = ProjectPage::where('route_url','admin.diamonds.list')->pluck('id')->first();
                     if( $diamond->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
                         $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageDiamondStatus('. $diamond->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
@@ -148,7 +148,7 @@ class DiamondController extends Controller
                     }
 
 
-                    $page_id = ProjectPage::where('route_url','admin.diamonds.list')->pluck('id')->first();
+                    
                     $newDate = date("d-m-Y", strtotime($diamond->created_at));
                     $nestedData['diamond_thumb'] = '<img src="'. $pic .'" width="50px" height="50px" alt="'.$diamond->Stone_No.'">';
                     $nestedData['Stone_No'] =$diamond->Stone_No;
@@ -285,7 +285,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -297,17 +297,15 @@ class DiamondController extends Controller
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id); 
+                            $Diamond->real_Amt = $real_amt; 
                             $Diamond->short_title = $short_title; 
                             $Diamond->long_title = $long_title; 
                             $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -495,7 +493,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -508,13 +506,11 @@ class DiamondController extends Controller
                                     $Diamond->real_Amt = $real_amt;
                                     $Diamond->short_title = $short_title;      
                                     $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);  
-                                    $Diamond->short_title = $short_title; 
-                                    $Diamond->long_title = $long_title; 
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);     
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);       
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -714,7 +710,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -724,17 +720,15 @@ class DiamondController extends Controller
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id); 
+                            $Diamond->real_Amt = $real_amt; 
                             $Diamond->short_title = $short_title; 
                             $Diamond->long_title = $long_title; 
                             $Diamond->slug = $this->createSlug($short_title,$Diamond->id);     
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -922,7 +916,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -939,6 +933,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -1033,7 +1028,7 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Heart&shapes[]=Radiant&with_images=true',
+        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1103,7 +1098,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1120,7 +1115,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -1238,7 +1234,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / 100));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Heart&shapes[]=Radiant&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -1308,7 +1304,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1325,6 +1321,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -1487,7 +1484,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1504,7 +1501,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -1692,7 +1690,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1709,6 +1707,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([

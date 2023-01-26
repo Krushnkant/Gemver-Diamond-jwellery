@@ -157,7 +157,7 @@ class DiamondCron extends Command
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -175,7 +175,8 @@ class DiamondCron extends Command
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -366,7 +367,7 @@ class DiamondCron extends Command
                                 }
 
                                 if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                                    $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                                    $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                                 }else{
                                     $long_title = $collection->long_title;
                                 }
@@ -385,6 +386,7 @@ class DiamondCron extends Command
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -496,8 +498,16 @@ class DiamondCron extends Command
                                 // }
                             }  
                         }
-                        
-                       // Diamond::whereIn('diamond_id',$oldids)->delete();
+
+                        foreach($oldids as $oldid){
+                          $deletediamond = Diamond::where('diamond_id',$oldid);
+                          $deletediamond->StockStatus = 0;
+                          $deletediamond->save();
+                        }
+
+                      
+    
+                        //Diamond::whereIn('diamond_id',$oldids)->delete();
                     }
                     
                     
