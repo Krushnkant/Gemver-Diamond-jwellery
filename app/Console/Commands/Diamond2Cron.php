@@ -146,14 +146,14 @@ class Diamond2Cron extends Command
                         $percentage_amount = ($sale_amt * $percentage)/100;
                         $real_amt = round($percentage_amount + $sale_amt);
 
-                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/a"){
-                            $short_title = $collection->shape . " " . $collection->Weight . "ct " .$collection->Color. " " .$collection->Clarity; 
+                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
+                            $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $short_title = $collection->short_title;
                         }
 
-                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/a"){
-                            $long_title =  $collection->Weight . " Carat " .$collection->Shape. " Diamond"; 
+                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
+                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -163,7 +163,10 @@ class Diamond2Cron extends Command
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                                    $Diamond->real_Amt = $real_amt;      
+                                    $Diamond->real_Amt = $real_amt;
+                                    $Diamond->short_title = $short_title;      
+                                    $Diamond->long_title = $long_title;  
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                     $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
@@ -175,6 +178,7 @@ class Diamond2Cron extends Command
                                 'diamond_id' => $collection->id,
                                 'short_title' => $collection->short_title,
                                 'long_title' => $collection->long_title,
+                                'slug' => $this->createSlug($short_title),
                                 'vendor_id' => $collection->vendor_id,
                                 'StockStatus' => $collection->available,
                                 'Weight' => $collection->size,
@@ -347,14 +351,14 @@ class Diamond2Cron extends Command
                                 $percentage_amount = ($sale_amt * $percentage)/100;
                                 $real_amt = round($percentage_amount + $sale_amt);
 
-                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/a"){
-                            $short_title = $collection->shape . " " . $collection->Weight . "ct " .$collection->Color. " " .$collection->Clarity; 
+                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
+                            $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $short_title = $collection->short_title;
                         }
 
-                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/a"){
-                            $long_title =  $collection->Weight . " Carat " .$collection->Shape. " Diamond"; 
+                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
+                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -364,7 +368,10 @@ class Diamond2Cron extends Command
                                 
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
-                                    $Diamond->real_Amt = $real_amt;      
+                                    $Diamond->real_Amt = $real_amt;
+                                    $Diamond->short_title = $short_title;      
+                                    $Diamond->long_title = $long_title;  
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
@@ -375,7 +382,8 @@ class Diamond2Cron extends Command
                                         'Stone_No' => $Stone_No,
                                         'diamond_id' => $collection->id,
                                         'short_title' => $short_title,
-                                'long_title' => $long_title,
+                                        'long_title' => $long_title,
+                                        'slug' => $this->createSlug($short_title),
                                         'vendor_id' => $collection->vendor_id,
                                         'StockStatus' => $collection->available,
                                         'Weight' => $collection->size,
@@ -447,5 +455,32 @@ class Diamond2Cron extends Command
            }
         }
        
+    }
+
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return Diamond::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
     }
 }

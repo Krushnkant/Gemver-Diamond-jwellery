@@ -5,7 +5,7 @@
             <div class="">
                 <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
-                    <div class="sub_heading mb-lg-3">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
+                    <div class="sub_heading mb-lg-3">{{ $Diamond->long_title }}</div>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
@@ -17,7 +17,7 @@
                             <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
                             <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
                         </svg>
-                        <a href="#">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</a>
+                        <a href="#">{{ $Diamond->long_title }}</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content mb-4 mb-md-0">
                     <div class="diamond-data">
-                        <div class="wire_bangle_heading mb-2 product-heading">{{ $Diamond->Weight }} Carat {{ $Diamond->Shape }}  Diamond</div>
+                        <div class="wire_bangle_heading mb-2 product-heading">{{ $Diamond->long_title }}</div>
                         <div class="d-flex align-items-center">
                             <span class="wire_bangle_price product-price">${{ $Diamond->Sale_Amt }}
                                 <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
@@ -386,14 +386,14 @@
                                 <div class="col-6 col-xxl-4 ps-0 text-start text-xl-center product-delivery-start">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Shipment <br>
-                                            <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_SHIPMENT_DAYS', 0).' day')) }} </b>
+                                            <b>{{ date('dS M, Y', strtotime ('+'.env('DIAMOND_SHIPMENT_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                     <div class="mt-md-3">
                                         <p>Estimated Date of Delivery <br>
-                                           <b>{{ date('dS M , Y', strtotime ('+'.env('DIAMOND_DELIVERY_DAYS', 0).' day')) }} </b>
+                                           <b>{{ date('dS M, Y', strtotime ('+'.env('DIAMOND_DELIVERY_DAYS', 0).' day')) }} </b>
                                         </p>
                                     </div>
                                 </div>
