@@ -267,7 +267,7 @@ class DiamondController extends Controller
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
                 $Category = Category::where(['estatus' => 1,'id'=>$data['catid']])->first();
-                $url =  URL('/diamond-details/'.$Category->slug.'/'.$Diamond->id);
+                $url =  URL('diamond-details/'.$Category->slug.'/'.$Diamond->slug);
                 
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
@@ -414,6 +414,7 @@ class DiamondController extends Controller
     }
 
     public function getDiamondDetails($slug,$id){
+        
         $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
         $catid = $Category->id;
         $CatId = $catid;
@@ -441,13 +442,13 @@ class DiamondController extends Controller
         }
 
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
-        $Diamond = Diamond::where(['estatus' => 1,'id' => $id])->first();
+        $Diamond = Diamond::where('estatus',1)->where('slug',$id)->orWhere('id', $id)->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $Weight = (int)$Diamond->Weight;
         if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
@@ -969,7 +970,7 @@ class DiamondController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
-                $url =  URL('laddiamond-details/'.$Diamond->id);
+                $url =  URL('laddiamond-details/'.$Diamond->slug);
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{
@@ -1111,13 +1112,13 @@ class DiamondController extends Controller
 
     public function getLadDiamondDetails($id){
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
-        $Diamond= Diamond::where(['estatus' => 1,'id' => $id])->first();
+        $Diamond = Diamond::where('estatus',1)->where('slug',$id)->orWhere('id', $id)->first();
         $OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $Weight = (int)$Diamond->Weight;
         if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
-          $DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }
         //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
         $settings = Settings::first();

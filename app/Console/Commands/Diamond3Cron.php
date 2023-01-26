@@ -152,7 +152,7 @@ class Diamond3Cron extends Command
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -357,7 +357,7 @@ class Diamond3Cron extends Command
                                 }
 
                                 if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                                    $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                                    $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                                 }else{
                                     $long_title = $collection->long_title;
                                 }

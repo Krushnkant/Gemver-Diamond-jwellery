@@ -125,7 +125,7 @@ class DiamondController extends Controller
             {
                 foreach ($diamonds as $diamond)
                 {
-
+                    $page_id = ProjectPage::where('route_url','admin.diamonds.list')->pluck('id')->first();
                     if( $diamond->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
                         $estatus = '<label class="switch"><input type="checkbox" id="DiamondStatuscheck_'. $diamond->id .'" onchange="chageDiamondStatus('. $diamond->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
@@ -148,7 +148,7 @@ class DiamondController extends Controller
                     }
 
 
-                    $page_id = ProjectPage::where('route_url','admin.diamonds.list')->pluck('id')->first();
+                    
                     $newDate = date("d-m-Y", strtotime($diamond->created_at));
                     $nestedData['diamond_thumb'] = '<img src="'. $pic .'" width="50px" height="50px" alt="'.$diamond->Stone_No.'">';
                     $nestedData['Stone_No'] =$diamond->Stone_No;
@@ -285,7 +285,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -297,10 +297,7 @@ class DiamondController extends Controller
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id); 
+                            $Diamond->real_Amt = $real_amt; 
                             $Diamond->short_title = $short_title; 
                             $Diamond->long_title = $long_title; 
                             $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
@@ -495,7 +492,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -508,10 +505,7 @@ class DiamondController extends Controller
                                     $Diamond->real_Amt = $real_amt;
                                     $Diamond->short_title = $short_title;      
                                     $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);  
-                                    $Diamond->short_title = $short_title; 
-                                    $Diamond->long_title = $long_title; 
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);     
+                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);       
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
@@ -714,7 +708,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -724,10 +718,7 @@ class DiamondController extends Controller
                         
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id); 
+                            $Diamond->real_Amt = $real_amt; 
                             $Diamond->short_title = $short_title; 
                             $Diamond->long_title = $long_title; 
                             $Diamond->slug = $this->createSlug($short_title,$Diamond->id);     
@@ -922,7 +913,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1103,7 +1094,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1308,7 +1299,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1487,7 +1478,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
@@ -1692,7 +1683,7 @@ class DiamondController extends Controller
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->size . " Carat " .$collection->shape. " Diamond"; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
                         }else{
                             $long_title = $collection->long_title;
                         }
