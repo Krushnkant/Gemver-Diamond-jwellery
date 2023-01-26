@@ -304,7 +304,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -509,6 +510,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -725,7 +727,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -930,6 +933,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -1024,7 +1028,7 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Heart&shapes[]=Radiant&with_images=true',
+        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1111,7 +1115,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -1229,7 +1234,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / 100));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Heart&shapes[]=Radiant&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -1316,6 +1321,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -1495,7 +1501,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;       
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -1700,6 +1707,7 @@ class DiamondController extends Controller
                                     $Diamond->amt_discount = $percentage;       
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([

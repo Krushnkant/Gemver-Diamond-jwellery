@@ -44,37 +44,7 @@ class Diamond1Cron extends Command
         
        
         \Log::info("Diamond Asscher Emerald Oval Uploaded!");
-        // $public_path = __DIR__ . '/../../../public/csv/vdb_LG_diamonds.csv';
-        // Excel::import(new ImportDiamondNewLatest, $public_path);
-        // $action = "add";
-        // \Log::info("Cron is working fine!");
-
-   
-
-        // $curl = curl_init();
-
-        // curl_setopt_array($curl, array(
-        // CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=2',
-        // CURLOPT_RETURNTRANSFER => true,
-        // CURLOPT_ENCODING => '',
-        // CURLOPT_MAXREDIRS => 10,
-        // CURLOPT_TIMEOUT => 0,
-        // CURLOPT_FOLLOWLOCATION => true,
-        // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        // CURLOPT_CUSTOMREQUEST => 'GET',
-        // CURLOPT_HTTPHEADER => array(
-        //     'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-        // ),
-        // ));
-
-        // $response = curl_exec($curl);
-        // $err = curl_error($curl);
-        // curl_close($curl);
-        // if ($err) {
-        //    return "cURL Error #:" . $err;
-        // } else {
-        //     dd(json_decode($response));
-        // }
+        $oldids = Diamond::whereIn('Shape',['Asscher','Emerald','Oval'])->get()->pluck('diamond_id')->toarray();
 
         set_time_limit(0);
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
@@ -108,6 +78,7 @@ class Diamond1Cron extends Command
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
+                    unset($oldids[array_search($collection->id, $oldids)]);
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -171,7 +142,8 @@ class Diamond1Cron extends Command
                                     $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                            $Diamond->save();    
+                                    $Diamond->StockStatus = $collection->available;
+                                    $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -313,6 +285,7 @@ class Diamond1Cron extends Command
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
+                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -352,17 +325,17 @@ class Diamond1Cron extends Command
                                 $percentage_amount = ($sale_amt * $percentage)/100;
                                 $real_amt = round($percentage_amount + $sale_amt);
 
-                        if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
-                            $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
-                        }else{
-                            $short_title = $collection->short_title;
-                        }
+                                if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
+                                    $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                                }else{
+                                    $short_title = $collection->short_title;
+                                }
 
-                        if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
-                        }else{
-                            $long_title = $collection->long_title;
-                        }
+                                if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
+                                    $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                                }else{
+                                    $long_title = $collection->long_title;
+                                }
                                 
                                 $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                                 if($Diamond){
@@ -376,6 +349,7 @@ class Diamond1Cron extends Command
                                     $Diamond->amt_discount = $percentage;      
                                     $Diamond->shape = strtoupper($collection->shape); 
                                     $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
                                     $data = ([
@@ -452,6 +426,12 @@ class Diamond1Cron extends Command
                                
                             }  
                         } 
+
+                        foreach($oldids as $oldid){
+                            $deletediamond = Diamond::where('diamond_id',$oldid);
+                            $deletediamond->StockStatus = 0;
+                            $deletediamond->save();
+                        }
                     }    
                 }
            }
