@@ -377,11 +377,11 @@ class DiamondController extends Controller
                                      } 
                                     $artilces .= ' color |</span>
                                     <span>'. $Diamond->Lab .' certified</span>
-                                </div>
-                                <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
+                                </div>  
+                                <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
                                     $'. $Diamond->Sale_Amt .'';
                                     if($Diamond->real_Amt != ""){
-                                        $artilces .= '<span class="" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
+                                        $artilces .= '<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
                                     }
                                     $artilces .= '<div>
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
@@ -1089,7 +1089,7 @@ class DiamondController extends Controller
                                     if(is_wishlist($Diamond->id,1)){    
                                         $artilces .= '<i class="fas fa-heart heart-icon-part"></i> ';
                                     }else{ 
-                                        $artilces .= '<i class="far fa-heart"  ></i> ';
+                                        $artilces .= '<i class="far fa-heart"></i> ';
                                     }
                                     $artilces .= '</span>
                                     <span  class="comparesave d-inline-block"  title="Compare"   data-id="'.$Diamond->id.'">

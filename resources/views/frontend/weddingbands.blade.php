@@ -60,13 +60,13 @@
             Our Engagement Picks
         </div> 
        <div class="row">
-            <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-3">
-                <figure class="position-relative mb-0">
+            <div class="col-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-3">
+                <figure class="position-relative mb-0 me-2">
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
                     <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
                 </figure>
             </div>
-            <div class="col-md-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-3">
+            <div class="col-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-3">
                 <figure class="position-relative mb-0"> 
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
                     <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
@@ -74,9 +74,8 @@
                 
                 <figure class="mb-0 position-relative">
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
-                    <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
+                    <div class="lab_grown_diamonds_text three-lab-grown">Lab grown diamonds</div>
                 </figure>
-                
             </div>
        </div>
     </div>
