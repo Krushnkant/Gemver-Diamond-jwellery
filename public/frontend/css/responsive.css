@@ -1121,12 +1121,29 @@
     .first_image_part {
         margin-bottom: 12px;
     }
-    .first_image_part img {
-        height: 400px;
+    /* .first_image_part img {
+        height: 200px;
     }
     .image_view_column_part figure:nth-child(1) img,
     .image_view_column_part figure:nth-child(2) img {
-        height: calc(200px - 7.5px);
+        height: calc(100px - 7.5px);
+    } */
+    .our_engagement_label {
+        top: 91% !important;
+    }
+    .lab_grown_diamonds_text {
+        left: 8px;
+    }
+    .lab_grown_diamonds_text {
+        left: 2px;
+    }
+    .lab_grown_diamonds_text {
+        left: 2px;
+        font-size: 9px;
+        top: 81%;
+    }
+    .three-lab-grown {
+        top: 86%;
     }
 }
 
@@ -1899,6 +1916,19 @@
     .description_paragraph {
         font-size: 15px;
     }
+    .choose_your_setting_faq .accordion {
+        font-size: 12px;
+    }
+    .choose_your_setting_faq .accordion:after,
+    .choose_your_setting_faq .accordion.active:after {
+        width: 13px;
+        height: 13px;
+        background-size: 100%;
+    }
+    .choose_your_setting_faq p {
+        font-size: 12px;
+        padding: 6px 0;
+    }
 }
 
 @media (max-width:1600px) {
@@ -2334,19 +2364,12 @@
         max-width: 100px;
     }
     .image_view_column_part figure:nth-child(1) img {
-        height: calc(200px - 8px);
+        /* height: calc(200px - 8px); */
         margin-bottom: 8px;
     }
     .image_view_column_part figure:nth-child(2) img {
-        height: calc(200px - 8px);
+        /* height: calc(200px - 8px); */
         margin-top: 8px;
-    }
-    .lab_grown_diamonds_text {
-        top: 87%;
-        left: 5px;
-    }
-    .our_engagement_label {
-        top: 94% !important;
     }
 }
 
@@ -2549,11 +2572,11 @@
         max-width: 400px;
     }
     .first_image_part img {
-        height: 400px;
+        height: 200px;
     }
     .image_view_column_part figure:nth-child(2) img,
     .image_view_column_part figure:nth-child(1) img {
-        height: calc(200px - 7.5px);
+        height: calc(100px - 7.5px);
     }
     .image_view_column_part figure:nth-child(2) img {
         margin-top: 7.5px;

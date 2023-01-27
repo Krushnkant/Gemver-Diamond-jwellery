@@ -6593,6 +6593,7 @@ width: 100%;
         width: 88%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
     
     .row-grid-list.list .round_cut_lab_diamonds_box.hover_on_mask:hover .round_cut_lab_diamonds_layer {
@@ -6954,7 +6955,7 @@ width: 100%;
     
     .image_view_column_part figure:nth-child(1) img {
         width: 100%;
-        height: calc(400px - 8px);
+        /* height: calc(400px - 8px); */
         object-fit: cover;
         border-radius: 4px;
         margin-bottom: 8px;
@@ -6962,7 +6963,7 @@ width: 100%;
     
     .image_view_column_part figure:nth-child(2) img {
         width: 100%;
-        height: calc(400px - 8px);
+        /* height: calc(400px - 8px); */
         margin-top: 8px;
         border-radius: 4px;
         object-fit: cover;
@@ -6971,10 +6972,10 @@ width: 100%;
     .our_engagement_label {
         top: 95% !important;
     }
-    
+    /*     
     .first_image_part img {
         height: 800px;
-    }
+    } */
     
     .lab_grown_diamonds_text {
         font-size: 14px;

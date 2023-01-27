@@ -743,8 +743,9 @@
                                 <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
                                 <span>{{ $Diamond->Lab }} certified</span>
                             </div>
-                            <div class="round_cut_lab_diamonds_info_price d-flex justify-content-between">
-                                ${{ $Diamond->Sale_Amt }} <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price" style="text-decoration-line: line-through">
+                            <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
+                                ${{ $Diamond->Sale_Amt }} 
+                                <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price" style="text-decoration-line: line-through">
                                 $
                                 <div class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">
                                 <span class="regular_price">{{ $Diamond->real_Amt }}</span>
