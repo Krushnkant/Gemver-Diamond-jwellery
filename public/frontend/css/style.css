@@ -6949,21 +6949,23 @@ width: 100%;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 5px;
+        border-radius: 4px;
     }
     
-    .image_view_column_part img:nth-child(1) {
+    .image_view_column_part figure:nth-child(1) img {
         width: 100%;
-        height: calc(400px - 5px);
+        height: calc(400px - 8px);
         object-fit: cover;
-        border-radius: 5px;
+        border-radius: 4px;
+        margin-bottom: 8px;
     }
     
-    .image_view_column_part img:nth-child(2) {
+    .image_view_column_part figure:nth-child(2) img {
         width: 100%;
-        height: calc(400px - 5px);
-        margin-top: 15px;
-        border-radius: 5px;
+        height: calc(400px - 8px);
+        margin-top: 8px;
+        border-radius: 4px;
+        object-fit: cover;
     }
     
     .our_engagement_label {
@@ -6984,4 +6986,50 @@ width: 100%;
         text-transform: capitalize;
         font-weight: 600;
         padding: 6px 10px;
+    }
+    
+    .choose_your_setting_faq .accordion {
+        background-color: transparent;
+        border: 0;
+        text-transform: capitalize;
+        padding: 0;
+        background-color: transparent;
+        color: var(--primary);
+        padding: 14px 0;
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+        font-weight: 600;
+        position: relative;
+        border-bottom: 1px #eee solid;
+        border-radius: 0;
+    }
+    
+    .choose_your_setting_faq p {
+        padding: 8px 0;
+        margin-bottom: 0;
+        font-size: 15px;
+        color: #818181;
+    }
+    
+    .choose_your_setting_faq .accordion:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        background: url(../image/plus_part.svg) no-repeat;
+    }
+    
+    .choose_your_setting_faq .accordion.active:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+        transform: translateY(-50%);
+        background: url(../image/minus_part.svg) no-repeat;
     }
