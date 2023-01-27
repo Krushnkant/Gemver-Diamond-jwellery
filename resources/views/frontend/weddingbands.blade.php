@@ -54,21 +54,20 @@
     </div>
 </div>
 
-
 <div class="container">
-    <div class="choose_your_setting_section">
+    <div class="choose_your_setting_section pt-0">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
             Our Engagement Picks
         </div> 
        <div class="row">
-            <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0">
-                <figure class="position-relative">
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+            <div class="col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-3">
+                <figure class="position-relative mb-0">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
                     <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
                 </figure>
             </div>
-            <div class="col-md-4 image_view_column_part banner_part_img_parent">
-                <figure class="position-relative"> 
+            <div class="col-md-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-3">
+                <figure class="position-relative mb-0"> 
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
                     <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
                 </figure>
@@ -276,17 +275,25 @@
     </div>
 </div>
 
-@if(count($faqs) > 0)
-        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
-            FAQs
-        </div> 
-        @foreach($faqs as $faq)
-        <button class="accordion">{{ $faq->question }}</button>
-            <div class="panel">
-                <p>{{ $faq->answer }}</p>
+    <div class="container choose_your_setting_faq">
+        <div class="row">
+            <div class="col-md-12 mb-5 pb-5">
+                @if(count($faqs) > 0)
+                    <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-4">
+                        FAQs
+                    </div> 
+                    @foreach($faqs as $faq)
+                        <button class="accordion active mb-2">
+                            {{ $faq->question }}
+                        </button>
+                            <div class="panel" style="display: none;">
+                                <p>{{ $faq->answer }}</p>
+                            </div>
+                        @endforeach
+                @endif
             </div>
-        @endforeach
-    @endif
+        </div>
+    </div>
 
 <script type="text/javascript">
     $(document).ready(function() {    

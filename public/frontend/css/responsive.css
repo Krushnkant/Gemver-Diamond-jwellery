@@ -941,6 +941,10 @@
     .contact_us_bg {
         padding: 0 !important;
     }
+    .choose_your_setting_section,
+    .create_your_own_section {
+        padding: 30px 0;
+    }
     /* ----------------------------------------------------------------- */
     .filter-btn {
         font-weight: 400;
@@ -1113,6 +1117,16 @@
         margin-left: 0;
         max-width: none;
         text-align: left;
+    }
+    .first_image_part {
+        margin-bottom: 12px;
+    }
+    .first_image_part img {
+        height: 400px;
+    }
+    .image_view_column_part figure:nth-child(1) img,
+    .image_view_column_part figure:nth-child(2) img {
+        height: calc(200px - 7.5px);
     }
 }
 
@@ -2319,6 +2333,21 @@
     .footer-logo {
         max-width: 100px;
     }
+    .image_view_column_part figure:nth-child(1) img {
+        height: calc(200px - 8px);
+        margin-bottom: 8px;
+    }
+    .image_view_column_part figure:nth-child(2) img {
+        height: calc(200px - 8px);
+        margin-top: 8px;
+    }
+    .lab_grown_diamonds_text {
+        top: 87%;
+        left: 5px;
+    }
+    .our_engagement_label {
+        top: 94% !important;
+    }
 }
 
 @media (min-width:992px) and (max-width:1199px) {
@@ -2518,6 +2547,22 @@
     .engagement-slider-sub-text .custom_engagement_paragrph {
         text-align: left;
         max-width: 400px;
+    }
+    .first_image_part img {
+        height: 400px;
+    }
+    .image_view_column_part figure:nth-child(2) img,
+    .image_view_column_part figure:nth-child(1) img {
+        height: calc(200px - 7.5px);
+    }
+    .image_view_column_part figure:nth-child(2) img {
+        margin-top: 7.5px;
+    }
+    .image_view_column_part figure:nth-child(1) img {
+        margin-bottom: 7.5px;
+    }
+    .lab_grown_diamonds_text {
+        left: 7px;
     }
 }
 
