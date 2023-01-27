@@ -144,7 +144,6 @@ class FaqController extends Controller
     function editFaq($id){
         $action = "edit";
         $custom_fields = Faq::get();
-
         $Faq = Faq::where('id',$id)->first()->toArray();
         $menu_pages = MenuPage::get();
         return view('admin.faqs.list',compact('action','Faq','custom_fields','menu_pages'));

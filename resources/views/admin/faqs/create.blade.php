@@ -2,7 +2,7 @@
     <div id="cover-spin" class="cover-spin"></div>
     {{ csrf_field() }}
 
-    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center mt-2">
         <div class="form-group">
             <label class="col-form-label" for="menu_page_id">Menu Page <span class="text-danger">*</span>
             </label>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-form-label" for="Question">question <span class="text-danger">*</span>
+            <label class="col-form-label" for="Question">Question <span class="text-danger">*</span>
             </label>
             <input type="text" class="form-control input-flat" id="question" name="question">
             <label id="question-error" class="error invalid-feedback animated fadeInDown" for="question" style="color: red"></label>
