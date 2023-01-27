@@ -94,6 +94,18 @@
 <!-- Social Platform JS start -->
 <script type="text/javascript">
 
+$(document).ready(function() {
+    faqs_table(true);
+    CKEDITOR.replace('question',{
+    filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+    filebrowserUploadMethod: 'form'
+});
+
+CKEDITOR.config.height = '300';
+
+CKEDITOR.instances['question'].setData("{{ isset( $Faq['answer'])?$Faq['answer']:'' }}");
+});
+
 $("#menu_page_id").select2({
         width: '100%',
         multiple: true,
@@ -116,16 +128,20 @@ $('body').on('click', '#save_closeFaqBtn', function () {
 });
 
 function save_faq(btn,btn_type){
-   
+    
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     $('#name-error').hide().text("");
     $('#custom_fields-error').hide().text("");
 
     var action  = $(btn).attr('data-action');
-
+    var question = CKEDITOR.instances['question'].getData();
+    for ( instance in CKEDITOR.instances ) {
+        CKEDITOR.instances[instance].updateElement();   
+    }
     var formData = new FormData($("#FaqForm")[0]);
     formData.append('action',action);
+    formData.append('question',question);
 
     $.ajax({
             type: 'POST',
@@ -190,9 +206,7 @@ function save_faq(btn,btn_type){
     });
 }
 
-$(document).ready(function() {
-    faqs_table(true);
-});
+
 
 function faqs_table(is_clearState=false){
     if(is_clearState){
