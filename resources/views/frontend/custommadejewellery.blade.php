@@ -249,7 +249,7 @@
 
     <div class="container choose_your_setting_faq">
         <div class="row">
-            <div class="col-md-12 mb-5 pb-5">
+            <div class="col-md-8 mb-md-5 pb-md-5 offset-md-2 pb-4">
                 @if(count($faqs) > 0)
                     <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-4">
                         FAQs

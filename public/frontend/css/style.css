@@ -7113,6 +7113,7 @@ width: 100%;
         left: 57%;
         width: 30px;
         height: 30px;
+        pointer-events: none;
     }
     
     .order-part {
@@ -7125,9 +7126,22 @@ width: 100%;
         transform: translateY(-50%);
     }
     
+    .round_cut_lab_checkbox input:checked {
+        background-image: none !important;
+    }
+    
+    .round_cut_lab_checkbox input[type="checkbox"]:checked+img {
+        filter: brightness(0) invert(1);
+    }
+    
+    .round_cut_lab_checkbox input[type="checkbox"]:checked {
+        background-color: var(--primary);
+    }
+    
     .your-order-include-img img {
         height: 350px;
         object-fit: cover;
+        border-radius: 5px;
     }
     
     @media (max-width: 640px) {
