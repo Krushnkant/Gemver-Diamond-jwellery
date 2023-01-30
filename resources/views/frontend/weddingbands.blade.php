@@ -55,28 +55,40 @@
 </div>
 
 <div class="container">
-    <div class="choose_your_setting_section pt-0">
-        <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
-            Our Engagement Picks
-        </div> 
-       <div class="row">
-            <div class="col-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-3">
-                <figure class="position-relative mb-0 me-2">
+        <div class="choose_your_setting_section pt-0">
+            <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
+                Our Engagement Picks
+            </div> 
+        <div class="row">
+            <div class="col-12">
+            <ul class="main-img">
+    <li class="feature main-img-li">
+    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+    </li>
+    <li class="two main-img-li">
+    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+    </li>
+    <li class="main-img-li">
+    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+    </li>
+    </ul>
+        </div>
+            <!-- <div class="col-12 col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-2">
+                <figure class="position-relative mb-0 me-md-2">
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
                     <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
                 </figure>
             </div>
-            <div class="col-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-3">
-                <figure class="position-relative mb-0"> 
+            <div class="col-12 col-md-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-1 d-flex flex-column justify-content-between">
+                <figure class="position-relative mb-0 image_view_column_part_1"> 
                     <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
                     <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
                 </figure>
-                
-                <figure class="mb-0 position-relative">
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
+                <figure class="mb-0 position-relative image_view_column_part_2">
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img mt-0">
                     <div class="lab_grown_diamonds_text three-lab-grown">Lab grown diamonds</div>
                 </figure>
-            </div>
+            </div> -->
        </div>
     </div>
 </div>

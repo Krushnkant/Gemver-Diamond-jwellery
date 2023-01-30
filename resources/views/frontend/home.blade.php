@@ -129,18 +129,18 @@
     @endif
 
 
-    <div class="mx-3">
-        <div class="container shop-colorful-bg">
-            <div class="">
-                <div class="row text-center py-2 pb-3 py-md-4 align-items-center">
-                    <div class="col-4 col-md-5 col-lg-3 offset-lg-1 text-center text-md-end">
+    <div class="">
+        <div class="shop-colorful-bg">
+            <div class="container">
+                <div class="row text-center py-2 pb-3 py-lg-5 align-items-center">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="shop-colorful-img">
-                            <img src="{{ asset('frontend/image/diamond.gif') }}" alt="">
+                        <img src="{{ asset('frontend/image/diamond-part.png') }}" alt="">
                     </div>
                     </div>
-                    <div class="col-8 col-md-7 text-start">
-                        <h2 class="heading-h2 mb-0 text-start text-md-start">{{ number_format(count($diamonds)) }} Diamonds available in the Store</h2>
-                        <div class="sub_title text-start text-md-start">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start">
+                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
+                        <div class="sub_title text-center text-md-start">
                             <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
                             {{ $dddd }}
                         </div>
@@ -654,7 +654,7 @@
                                  {{ $homesetting->section_why_gemver_title1 }}
                             </div>
                             <p class="diamonds_paragraph">{{ $homesetting->section_why_gemver_description1 }}</p>
-                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds" data-bs-toggle="modal" data-bs-target="#exampleModal">Customize</button>
+                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds">Customize</button>
                         </div>
                     </div>
                 </div>

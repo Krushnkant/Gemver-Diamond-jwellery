@@ -826,11 +826,14 @@
                                 <span>{{ $Diamond->Lab }} certified</span>
                             </div>
                             <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
-                                ${{ $Diamond->Sale_Amt }} <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price" style="text-decoration-line: line-through">$<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
+                              <div>
+                                ${{ $Diamond->Sale_Amt }} 
+                                <span class="ms-2 wire_bangle_dublicate_price product_detail_sregular_price" style="text-decoration-line: line-through">
+                              </div>
+                                $<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
                             </div>
                         </div>
                     </div>
-                   
                     @endforeach 
                 </div>
             </div>

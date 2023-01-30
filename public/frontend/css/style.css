@@ -1109,7 +1109,7 @@ background-size: cover;
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 0.05em;
-        text-transform: lowercase;
+        text-transform: capitalize;
         color: var(--primary);
     }
     
@@ -1373,7 +1373,7 @@ background-size: cover;
     
     .wire_bangle_page .wire_bangle_heading {
         font-weight: 500;
-        font-size: 30px;
+        font-size: 22px;
         line-height: 36px;
         text-transform: capitalize;
         color: #0B1727;
@@ -2214,6 +2214,12 @@ transform: translateY(-50%); */
         position: relative;
         cursor: pointer;
         line-height: 55px;
+        margin-right: 10px;
+    }
+    
+    .form-check-input:checked {
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, .25) !important;
     }
     
     .round_cut_lab_checkbox input:checked+.shape_img {
@@ -2224,6 +2230,10 @@ transform: translateY(-50%); */
     .round_cut_lab_checkbox .round_checkbox_part {
         display: inline-block;
         cursor: pointer;
+    }
+    
+    .round_checkbox_part {
+        margin-right: 8px;
     }
     
     .round_cut_lab_checkbox input:checked+.shape_img path {
@@ -4036,7 +4046,7 @@ width: 100%;
     }
     
     .order-includes-heading {
-        font-size: 30px;
+        font-size: 23px;
         font-weight: 500;
         line-height: 30px;
         color: var(--secondary);
@@ -4044,17 +4054,14 @@ width: 100%;
     }
     
     .order-box-part .order-box {
-        background: #fff;
+        background: transparent;
         /* box-shadow: 3px 4px 12px rgb(0 0 0 / 25%); */
-        box-shadow: 3px 3px 10px 0px rgb(191 207 223);
         border-radius: 10px;
-        padding: 13px 0;
         height: 100%;
         text-align: center;
         position: relative;
     }
-    
-    .order-box-part .order-box:after {
+    /* .order-box-part .order-box:after {
         content: "";
         position: absolute;
         background: var(--secondary);
@@ -4063,10 +4070,10 @@ width: 100%;
         left: 0;
         width: 7px;
         height: 100%;
-    }
+    } */
     
     .order-box-part .order-img img {
-        width: 38px;
+        width: 24px;
         height: 44px;
         object-fit: contain;
     }
@@ -4084,11 +4091,12 @@ width: 100%;
     }
     
     .order-box-part .order-text {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 22px;
-        color: #000000;
-        margin-left: 7px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #2C3E50;
     }
     
     .top_selling_heading {
@@ -5420,6 +5428,12 @@ width: 100%;
         cursor: pointer;
     }
     
+    .comparesave {
+        position: absolute;
+        right: 15px;
+        bottom: 8px;
+    }
+    
     .comparelist td img {
         width: auto;
         height: 50px;
@@ -6508,24 +6522,36 @@ width: 100%;
     }
     
     .shop-colorful-bg {
-        background-color: #04020d;
-        border-radius: 15px;
+        /* background-color: #04020d; */
+        border-radius: 0;
         margin-bottom: 80px;
         overflow: hidden;
+        background: linear-gradient(90deg, #708E74 26.68%, #BDD4C2 86.86%);
     }
     
     .shop-colorful-bg .heading-h2 {
         color: #fff !important;
         text-transform: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 60px;
+        color: #0B1727 !important;
     }
     
     .shop-colorful-bg .sub_title {
-        color: #fff;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #0B1727;
     }
     
     .shop-colorful-img img {
         max-width: 293px;
-        margin: -30px 0 0 0;
+        height: 293px;
+        object-fit: cover;
     }
     
     .create_yout_own_engagemtnt_ring_btn {
@@ -6929,7 +6955,7 @@ width: 100%;
     }
     
     .wire_bangle_page .product-heading {
-        font-size: 30px;
+        font-size: 22px;
     }
     
     .wire_bangle_page .product-price {
@@ -6948,22 +6974,22 @@ width: 100%;
     
     .image_view_column img {
         width: 100%;
-        height: 100%;
+        height: 400px;
         object-fit: cover;
         border-radius: 4px;
     }
     
     .image_view_column_part figure:nth-child(1) img {
-        width: 100%;
-        /* height: calc(400px - 8px); */
+        width: 100% !important;
+        height: calc(207px - 8px);
         object-fit: cover;
         border-radius: 4px;
         margin-bottom: 8px;
     }
     
     .image_view_column_part figure:nth-child(2) img {
-        width: 100%;
-        /* height: calc(400px - 8px); */
+        width: 100% !important;
+        height: calc(207px - 8px);
         margin-top: 8px;
         border-radius: 4px;
         object-fit: cover;
@@ -6978,12 +7004,12 @@ width: 100%;
     } */
     
     .lab_grown_diamonds_text {
-        font-size: 14px;
+        font-size: 14px !important;
         color: #000;
         position: absolute;
-        top: 90%;
+        top: 87%;
         transform: translateY(-50%);
-        left: 17px;
+        left: 9px;
         text-transform: capitalize;
         font-weight: 600;
         padding: 6px 10px;
@@ -7033,4 +7059,82 @@ width: 100%;
         height: 20px;
         transform: translateY(-50%);
         background: url(../image/minus_part.svg) no-repeat;
+    }
+    
+    .engagement-section .owl-item img {
+        height: 300px;
+    }
+    
+    .main-img-li {
+        display: inline-block;
+        width: 32.6%;
+    }
+    
+    .main-img-li img {
+        width: 100%;
+        border-radius: 4px;
+    }
+    
+    .feature {
+        float: left;
+        width: 66.6%;
+        margin-right: 0.8%;
+        border-radius: 4px;
+    }
+    
+    .two {
+        margin-bottom: 0.7%;
+    }
+    
+    .main-img {
+        font-size: 0;
+        list-style: none;
+        width: 100%;
+    }
+    
+    .round_checkbox_part {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .round_checkbox_part {
+        position: relative !important;
+    }
+    
+    .round_cut_lab_checkbox input[type="checkbox"] {
+        opacity: 1;
+        box-shadow: none;
+    }
+    
+    .round_checkbox_part img {
+        position: absolute;
+        top: 56%;
+        transform: translate(-50%, -50%);
+        left: 57%;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .order-part {
+        position: relative;
+    }
+    
+    .your_include_boxes_img_part {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .your-order-include-img img {
+        height: 350px;
+        object-fit: cover;
+    }
+    
+    @media (max-width: 640px) {
+        .main-img-li {
+            width: 100%;
+        }
+        .feature {
+            width: 100%;
+        }
     }
