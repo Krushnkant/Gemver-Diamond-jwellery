@@ -170,9 +170,8 @@
         $.get("{{ url('admin/submenusmanage') }}" +'/' + manage_id +'/edit', function (data) {
             //console.log(data);
             $('#manage_id').val(data.id);
-            $('#title').val(data.title);
             $('#category_id').find('option[value="' + data.category_id + '"]').attr('selected', 'selected').trigger('change');
-            
+            $('#title').val(data.title);
             if(data.icon==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#icon_image_show').attr('src', default_image);
