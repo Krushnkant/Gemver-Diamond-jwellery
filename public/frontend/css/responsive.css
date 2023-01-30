@@ -417,11 +417,21 @@
         opacity: 1;
         pointer-events: auto;
     }
+    .shop-colorful-img img {
+        margin: 0 0 15px 0 !important;
+        width: 100% !important;
+        height: 173px;
+        margin-left: 0;
+    }
     .header_row {
         position: initial;
     }
     .smiling_box_icon {
         min-width: 50px;
+    }
+    .main-img-li img {
+        border-radius: 5px;
+        margin-bottom: 1px;
     }
     .step-progressbar-part {
         border-radius: 15px;
@@ -820,6 +830,7 @@
     }
     .order-box-part .order-text {
         font-size: 15px;
+        text-align: left !important;
     }
     .order-box-part .order-img {
         min-width: 50px;
@@ -1021,6 +1032,7 @@
     }
     .shop-colorful-bg .heading-h2 {
         font-size: 18px;
+        line-height: normal;
     }
     .shop-colorful-bg .sub_title {
         font-size: 15px;
@@ -1119,17 +1131,17 @@
         text-align: left;
     }
     .first_image_part {
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
     .first_image_part img {
-        height: 200px;
+        height: 300px;
     }
     .image_view_column_part figure:nth-child(1) img,
     .image_view_column_part figure:nth-child(2) img {
-        height: calc(100px - 7.5px);
+        height: calc(300px - 8px);
     }
     .our_engagement_label {
-        top: 91% !important;
+        top: 93% !important;
     }
     .lab_grown_diamonds_text {
         left: 8px;
@@ -1140,17 +1152,24 @@
     .lab_grown_diamonds_text {
         left: 2px;
         font-size: 9px;
-        top: 78%;
+        top: 90%;
     }
     .three-lab-grown {
-        top: 80% !important;
+        top: 83% !important;
     }
     .three-lab-grown {
-        top: 76% !important;
+        top: 92% !important;
     }
     .image_view_column_part_1,
     .image_view_column_part_2 {
-        width: 50%;
+        width: 100%;
+    }
+    .your-order-include-img img {
+        height: 200px;
+    }
+    .your_include_boxes_img_part {
+        position: initial;
+        transform: none;
     }
 }
 
@@ -2091,17 +2110,28 @@
     }
     .image_view_column_part_1,
     .image_view_column_part_2 {
-        width: 50%;
+        width: 100%;
+        height: 51%;
     }
     .image_view_column_part figure:nth-child(1) img,
     .image_view_column_part figure:nth-child(2) img {
-        height: 95%;
+        height: calc(160px - 16px);
     }
     .lab_grown_diamonds_text {
-        top: 87%;
+        top: 82%;
     }
     .three-lab-grown {
-        top: 87% !important;
+        top: 80% !important;
+    }
+    .your_include_boxes_img_part {
+        position: absolute;
+        transform: translateY(-50%);
+    }
+    .order-box-part .order-text {
+        font-size: 12px;
+    }
+    .your-order-include-img img {
+        height: 300px !important;
     }
 }
 
@@ -2416,6 +2446,9 @@
     .header ul li a {
         font-size: 13px;
     }
+    .shop-colorful-bg .heading-h2 {
+        line-height: normal;
+    }
     .header ul li {
         padding: 10px 10px;
     }
@@ -2496,7 +2529,8 @@
         max-width: 40px;
     }
     .order-box-part .order-text {
-        font-size: 15px;
+        font-size: 14px;
+        text-align: left !important;
     }
     .order-includes-heading {
         font-size: 26px;
@@ -2595,11 +2629,11 @@
         max-width: 400px;
     }
     .first_image_part img {
-        height: 200px;
+        height: 300px;
     }
     .image_view_column_part figure:nth-child(2) img,
     .image_view_column_part figure:nth-child(1) img {
-        height: calc(50% - 7.5px);
+        height: calc(150px - 7.5px);
     }
     .image_view_column_part figure:nth-child(2) img {
         margin-top: 7.5px;
@@ -2609,6 +2643,13 @@
     }
     .lab_grown_diamonds_text {
         left: 7px;
+    }
+    .our_engagement_label {
+        top: 94% !important;
+    }
+    .our_engagement_label {
+        bottom: -25px;
+        top: auto !important;
     }
 }
 
@@ -2663,15 +2704,24 @@
     }
     .image_view_column_part figure:nth-child(2) img,
     .image_view_column_part figure:nth-child(1) img {
-        height: 100%;
+        height: calc(145px - 0px);
     }
     .our_engagement_label {
-        top: 89% !important;
+        top: 94% !important;
     }
     .lab_grown_diamonds_text {
-        top: 90% !important;
         left: 1px;
         font-size: 13px;
+    }
+    .lab_grown_diamonds_text {
+        top: 84%;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1600px) {
+    .image_view_column_part figure:nth-child(2) img,
+    .image_view_column_part figure:nth-child(1) img {
+        height: calc(200px - 5px);
     }
 }
 
@@ -2897,6 +2947,9 @@
     .from_text input,
     .to_text input {
         width: 63px;
+    }
+    .lab_grown_diamonds_text {
+        top: 88% !important;
     }
 }
 
