@@ -710,7 +710,7 @@
                                             </div>
                                             
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <div class="input-group ">
+                                                <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input" name="country_code_mobile"> 
                                                             <option>+91 </option>

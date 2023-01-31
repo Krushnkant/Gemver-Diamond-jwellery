@@ -640,7 +640,7 @@ class DiamondController extends Controller
                                 </div>
                                 <div class="wire_bangle_sub_heading" ><a style="" href="'.$url.'">'.$product->product_title .'</a></div>
                                 <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $'.$sale_price .'</span>';
                                 if($product->regular_price != ""){
@@ -1086,8 +1086,8 @@ class DiamondController extends Controller
                                     if($Diamond->real_Amt != ""){
                                         $artilces .= '<span class="ms-2 product_detail_regular_price" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
                                     }
-                                    $artilces .= '<div>
-                                        <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  " data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                                    $artilces .= '<div class="">
+                                        <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn  d-flex" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                     
                                         if(is_wishlist($Diamond->id,1)){    
                                             $artilces .= '<i class="fas fa-heart heart-icon-part"></i> ';
