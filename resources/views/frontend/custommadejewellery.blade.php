@@ -266,7 +266,7 @@
                         FAQs
                     </div> 
                     @foreach($faqs as $faq)
-                        <button class="accordion active mb-2">
+                        <button class="accordion mb-2">
                             {{ $faq->question }}
                         </button>
                             <div class="panel" style="display: none;">
