@@ -54,25 +54,26 @@
     </div>
 </div>
 
+@if(isset($MenuPage->section51_title) && $MenuPage->section51_title != "")
 <div class="container">
         <div class="choose_your_setting_section pt-0">
             <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
-                Our Engagement Picks
+                {{ $MenuPage->section5_title }}
             </div> 
         <div class="row">
             <div class="col-12">
             <ul class="main-img">
                 <li class="feature main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <div class="lab_grown_diamond_heading">{{ $MenuPage->section51_title }}</div>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section51_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
                 </li>
                 <li class="two main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <div class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</div>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
                 </li>
                 <li class="main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <div class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</div>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
                 </li>
             </ul>
         </div>
@@ -95,6 +96,7 @@
        </div>
     </div>
 </div>
+@endif
 
 
 

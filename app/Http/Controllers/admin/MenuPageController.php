@@ -66,6 +66,16 @@ class MenuPageController extends Controller
         $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section5_title = $request->section3_title;
+        $menupages->section51_title = $request->section51_title;
+        $menupages->section51_description = $request->section51_description;
+        $menupages->section51_category = $request->section51_category;
+        $menupages->section52_title = $request->section52_title;
+        $menupages->section52_description = $request->section52_description;
+        $menupages->section52_category = $request->section52_category;
+        $menupages->section53_title = $request->section53_title;
+        $menupages->section53_description = $request->section53_description;
+        $menupages->section53_category = $request->section53_category;
         $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
 
         $old_banner_image = $menupages->banner_image;
@@ -174,6 +184,51 @@ class MenuPageController extends Controller
             $menupages->section4_image = $image_name;
         }
 
+        $old_section51_image = $menupages->section51_image;
+        if ($request->hasFile('section51_image')) {
+            $image = $request->file('section51_image');
+            $image_name = 'section51_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section51_image)) {
+                $old_section51_image = public_path('images/aboutus/' . $old_section51_image);
+                if (file_exists($old_section51_image)) {
+                    unlink($old_section51_image);
+                }
+            }
+            $menupages->section51_image = $image_name;
+        }
+
+        $old_section52_image = $menupages->section52_image;
+        if ($request->hasFile('section52_image')) {
+            $image = $request->file('section52_image');
+            $image_name = 'section52_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section52_image)) {
+                $old_section52_image = public_path('images/aboutus/' . $old_section52_image);
+                if (file_exists($old_section52_image)) {
+                    unlink($old_section52_image);
+                }
+            }
+            $menupages->section52_image = $image_name;
+        }
+
+        $old_section53_image = $menupages->section53_image;
+        if ($request->hasFile('section53_image')) {
+            $image = $request->file('section53_image');
+            $image_name = 'section53_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section53_image)) {
+                $old_section53_image = public_path('images/aboutus/' . $old_section53_image);
+                if (file_exists($old_section53_image)) {
+                    unlink($old_section53_image);
+                }
+            }
+            $menupages->section53_image = $image_name;
+        }
+
         $menupages->save();
 
         $neworderids = ($request->orderdataid != "")?$request->orderdataid:0;
@@ -274,6 +329,16 @@ class MenuPageController extends Controller
         // $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section5_title = $request->section3_title;
+        $menupages->section51_title = $request->section51_title;
+        $menupages->section51_description = $request->section51_description;
+        $menupages->section51_category = $request->section51_category;
+        $menupages->section52_title = $request->section52_title;
+        $menupages->section52_description = $request->section52_description;
+        $menupages->section52_category = $request->section52_category;
+        $menupages->section53_title = $request->section53_title;
+        $menupages->section53_description = $request->section53_description;
+        $menupages->section53_category = $request->section53_category;
         $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
 
         $old_banner_image = $menupages->banner_image;
@@ -380,6 +445,51 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->section4_image = $image_name;
+        }
+
+        $old_section51_image = $menupages->section51_image;
+        if ($request->hasFile('section51_image')) {
+            $image = $request->file('section51_image');
+            $image_name = 'section51_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section51_image)) {
+                $old_section51_image = public_path('images/aboutus/' . $old_section51_image);
+                if (file_exists($old_section51_image)) {
+                    unlink($old_section51_image);
+                }
+            }
+            $menupages->section51_image = $image_name;
+        }
+
+        $old_section52_image = $menupages->section52_image;
+        if ($request->hasFile('section52_image')) {
+            $image = $request->file('section52_image');
+            $image_name = 'section52_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section52_image)) {
+                $old_section52_image = public_path('images/aboutus/' . $old_section52_image);
+                if (file_exists($old_section52_image)) {
+                    unlink($old_section52_image);
+                }
+            }
+            $menupages->section52_image = $image_name;
+        }
+
+        $old_section53_image = $menupages->section53_image;
+        if ($request->hasFile('section53_image')) {
+            $image = $request->file('section53_image');
+            $image_name = 'section53_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section53_image)) {
+                $old_section53_image = public_path('images/aboutus/' . $old_section53_image);
+                if (file_exists($old_section53_image)) {
+                    unlink($old_section53_image);
+                }
+            }
+            $menupages->section53_image = $image_name;
         }
 
         $menupages->save();
@@ -547,6 +657,51 @@ class MenuPageController extends Controller
             $menupages->section4_image = $image_name;
         }
 
+        $old_section51_image = $menupages->section51_image;
+        if ($request->hasFile('section51_image')) {
+            $image = $request->file('section51_image');
+            $image_name = 'section51_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section51_image)) {
+                $old_section51_image = public_path('images/aboutus/' . $old_section51_image);
+                if (file_exists($old_section51_image)) {
+                    unlink($old_section51_image);
+                }
+            }
+            $menupages->section51_image = $image_name;
+        }
+
+        $old_section52_image = $menupages->section52_image;
+        if ($request->hasFile('section52_image')) {
+            $image = $request->file('section52_image');
+            $image_name = 'section52_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section52_image)) {
+                $old_section52_image = public_path('images/aboutus/' . $old_section52_image);
+                if (file_exists($old_section52_image)) {
+                    unlink($old_section52_image);
+                }
+            }
+            $menupages->section52_image = $image_name;
+        }
+
+        $old_section53_image = $menupages->section53_image;
+        if ($request->hasFile('section53_image')) {
+            $image = $request->file('section53_image');
+            $image_name = 'section53_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section53_image)) {
+                $old_section53_image = public_path('images/aboutus/' . $old_section53_image);
+                if (file_exists($old_section53_image)) {
+                    unlink($old_section53_image);
+                }
+            }
+            $menupages->section53_image = $image_name;
+        }
+
         $menupages->save();
 
         $neworderids = $request->orderdataid;
@@ -642,6 +797,16 @@ class MenuPageController extends Controller
         $menupages->section33_category_id = $request->section33_category_id;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section5_title = $request->section3_title;
+        $menupages->section51_title = $request->section51_title;
+        $menupages->section51_description = $request->section51_description;
+        $menupages->section51_category = $request->section51_category;
+        $menupages->section52_title = $request->section52_title;
+        $menupages->section52_description = $request->section52_description;
+        $menupages->section52_category = $request->section52_category;
+        $menupages->section53_title = $request->section53_title;
+        $menupages->section53_description = $request->section53_description;
+        $menupages->section53_category = $request->section53_category;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -749,6 +914,51 @@ class MenuPageController extends Controller
             $menupages->section4_image = $image_name;
         }
 
+        $old_section51_image = $menupages->section51_image;
+        if ($request->hasFile('section51_image')) {
+            $image = $request->file('section51_image');
+            $image_name = 'section51_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section51_image)) {
+                $old_section51_image = public_path('images/aboutus/' . $old_section51_image);
+                if (file_exists($old_section51_image)) {
+                    unlink($old_section51_image);
+                }
+            }
+            $menupages->section51_image = $image_name;
+        }
+
+        $old_section52_image = $menupages->section52_image;
+        if ($request->hasFile('section52_image')) {
+            $image = $request->file('section52_image');
+            $image_name = 'section52_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section52_image)) {
+                $old_section52_image = public_path('images/aboutus/' . $old_section52_image);
+                if (file_exists($old_section52_image)) {
+                    unlink($old_section52_image);
+                }
+            }
+            $menupages->section52_image = $image_name;
+        }
+
+        $old_section53_image = $menupages->section53_image;
+        if ($request->hasFile('section53_image')) {
+            $image = $request->file('section53_image');
+            $image_name = 'section53_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section53_image)) {
+                $old_section53_image = public_path('images/aboutus/' . $old_section53_image);
+                if (file_exists($old_section53_image)) {
+                    unlink($old_section53_image);
+                }
+            }
+            $menupages->section53_image = $image_name;
+        }
+
         $menupages->save();
 
         $neworderids = $request->orderdataid;
@@ -809,7 +1019,8 @@ class MenuPageController extends Controller
         $menupages = Menupage::with('menupageshapestyle')->where('id',5)->first();
         $categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
         $category = Category::where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
-        return view('admin.menupage.customjewellerypage',compact('menupages','categories','category'))->with('page',$this->page);
+        $allcategory = Category::where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
+        return view('admin.menupage.customjewellerypage',compact('menupages','categories','category','allcategory'))->with('page',$this->page);
     }
 
     public function updateCustomJewelleryPage(Request $request){
@@ -845,6 +1056,16 @@ class MenuPageController extends Controller
         $menupages->section3_title = $request->section3_title;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section5_title = $request->section3_title;
+        $menupages->section51_title = $request->section51_title;
+        $menupages->section51_description = $request->section51_description;
+        $menupages->section51_category = $request->section51_category;
+        $menupages->section52_title = $request->section52_title;
+        $menupages->section52_description = $request->section52_description;
+        $menupages->section52_category = $request->section52_category;
+        $menupages->section53_title = $request->section53_title;
+        $menupages->section53_description = $request->section53_description;
+        $menupages->section53_category = $request->section53_category;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -965,6 +1186,51 @@ class MenuPageController extends Controller
                 }
             }
             $menupages->section4_image = $image_name;
+        }
+
+        $old_section51_image = $menupages->section51_image;
+        if ($request->hasFile('section51_image')) {
+            $image = $request->file('section51_image');
+            $image_name = 'section51_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section51_image)) {
+                $old_section51_image = public_path('images/aboutus/' . $old_section51_image);
+                if (file_exists($old_section51_image)) {
+                    unlink($old_section51_image);
+                }
+            }
+            $menupages->section51_image = $image_name;
+        }
+
+        $old_section52_image = $menupages->section52_image;
+        if ($request->hasFile('section52_image')) {
+            $image = $request->file('section52_image');
+            $image_name = 'section52_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section52_image)) {
+                $old_section52_image = public_path('images/aboutus/' . $old_section52_image);
+                if (file_exists($old_section52_image)) {
+                    unlink($old_section52_image);
+                }
+            }
+            $menupages->section52_image = $image_name;
+        }
+
+        $old_section53_image = $menupages->section53_image;
+        if ($request->hasFile('section53_image')) {
+            $image = $request->file('section53_image');
+            $image_name = 'section53_image_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/aboutus');
+            $image->move($destinationPath, $image_name);
+            if(isset($old_section53_image)) {
+                $old_section53_image = public_path('images/aboutus/' . $old_section53_image);
+                if (file_exists($old_section53_image)) {
+                    unlink($old_section53_image);
+                }
+            }
+            $menupages->section53_image = $image_name;
         }
 
         $menupages->save();

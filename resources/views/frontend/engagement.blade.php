@@ -44,7 +44,7 @@
             Choose Your Style
         </div> 
         <div class="owl-carousel owl-theme engagement-section choose-your-setting">
-                @if($MenuPage->menupageshapestyle)
+            @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
                 <div class="item">
                     <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
@@ -55,29 +55,51 @@
                     </div>
                 </div>
                 @endforeach
-                @endif
+            @endif
         </div>
     </div>
 </div>
+@if(isset($MenuPage->section51_title) && $MenuPage->section51_title != "")
+
 <div class="container">
         <div class="choose_your_setting_section pt-0">
             <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
-                Our Engagement Picks
+                {{ $MenuPage->section5_title }}
             </div> 
         <div class="row">
             <div class="col-12">
-            <ul class="main-img">
+            {{-- <ul class="main-img">
                 <li class="feature main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <a href="{{ url('shop/'.$MenuPage->section51_category) }}" class="lab_grown_diamond_heading">{{ $MenuPage->section51_title }}</a>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section51_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
                 </li>
                 <li class="two main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <a href="{{ url('shop/'.$MenuPage->section51_category) }}" class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</a>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
                 </li>
                 <li class="main-img-li">
-                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
-                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                    <a href="{{ url('shop/'.$MenuPage->section51_category) }}" class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</a>
+                    <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
+                </li>
+            </ul> --}}
+            <ul class="main-img">
+                <li class="feature main-img-li">
+                    <a class="fancy_color_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                        <div  class="lab_grown_diamond_heading">{{ $MenuPage->section51_title }}</div>
+                        <img src="{{ url('images/aboutus/'.$MenuPage->section51_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                    </a>
+                </li>
+                <li class="two main-img-li">
+                    <a class="fancy_color_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                        <div class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</div>
+                        <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                    </a>
+                </li>
+                <li class="main-img-li">
+                    <a class="fancy_color_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                        <div  class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</div>
+                        <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                    </a>
                 </li>
             </ul>
         </div>
@@ -100,7 +122,7 @@
        </div>
     </div>
 </div>
-
+@endif
 @if(count($products) > 0)
 <div class="shop_dimond_by_shape1 choose_your_setting_section pt-0">
         <div class="container">
@@ -209,7 +231,7 @@
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/product-details/'.$attribute_term->slug); 
+                                        $attributeurl =  URL('product-details/'.$attribute_term->slug); 
                                      ?>
                                     <span class="form-check d-inline-block">
                                         <a href="{{ $attributeurl }}">
@@ -238,7 +260,7 @@
                 </div>
             </div>
             <div class="text-center mt-3 mt-xl-5">
-                <a  href="{{ url('/shop/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All {{ $MenuPage->category->category_name }}</a>
+                <a  href="{{ url('shop/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All {{ $MenuPage->category->category_name }}</a>
             </div>
         </div>
     </div>
