@@ -69,16 +69,22 @@
                     <div class="col-12">
                     <ul class="main-img">
                         <li class="feature main-img-li">
-                            <a href="#" class="lab_grown_diamond_heading">{{ $MenuPage->section51_title }}</a>
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section51_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
+                            <a class="fancy_color_img first_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                                <div  class="lab_grown_diamond_heading">{{ $MenuPage->section51_title }}</div>
+                                <img src="{{ url('images/aboutus/'.$MenuPage->section51_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                            </a>
                         </li>
                         <li class="two main-img-li">
-                            <a href="#" class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</a>
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
+                            <a class="fancy_color_img second_img"  href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                                <div class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</div>
+                                <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                            </a>
                         </li>
                         <li class="main-img-li">
-                            <a href="#" class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</a>
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class="fancy_color_img me-0">
+                            <a class="fancy_color_img third_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                                <div  class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</div>
+                                <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                            </a>
                         </li>
                     </ul>
                 </div>
