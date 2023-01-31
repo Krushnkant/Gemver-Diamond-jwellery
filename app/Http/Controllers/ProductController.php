@@ -221,7 +221,7 @@ class ProductController extends Controller
                             </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
                             <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <div>
+                                <div class="d-flex align-items-center">
                                 <span class="wire_bangle_price wire_bangle_price_part">
                                 $'.$sale_price .'</span>';
                                 if($row->regular_price != ""){
