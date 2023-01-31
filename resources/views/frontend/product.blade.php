@@ -642,7 +642,7 @@
        
     </div>
      {{-- component related product  --}}
-    <x-related-product categoryidss="{{ $primary_category_ids }}"></x-related-product>
+    <x-related-product :categoryidss="$primary_category_idss"></x-related-product>
     
 
     <div>
