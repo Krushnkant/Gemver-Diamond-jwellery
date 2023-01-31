@@ -36,7 +36,7 @@ class RelatedProduct extends Component
 
         $ProductRelated= Product::with('product_variant')->where(['is_custom' => 0,'estatus' => 1])->WhereHas('product_variant',function ($mainQuery) {
             $mainQuery->where('term_item_id',2)->where('estatus',1);
-        })->WhereIn('primary_category_id',$primary_category_idss)->where('id','<>',$this->productid)->groupBy('id')->limit(8)->get();
+        })->WhereIn('primary_category_id',$primary_category_idss)->where('id','<>',$this->productid)->groupBy('id')->limit(6)->get();
        
         return view('components.related-product',compact('ProductRelated'));
     }

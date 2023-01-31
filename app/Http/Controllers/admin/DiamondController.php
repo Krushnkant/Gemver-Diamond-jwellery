@@ -157,7 +157,7 @@ class DiamondController extends Controller
                     $nestedData['Clarity'] =$diamond->Clarity;
                     $nestedData['Color'] =$diamond->Color;
                     $nestedData['Location'] =$diamond->Location;
-                    $nestedData['Amt'] =$diamond->Amt;
+                    $nestedData['Amt'] = '$'.$diamond->Sale_Amt;
                     $nestedData['estatus'] = $estatus;
 
                     $nestedData['created_at'] = $newDate;
