@@ -1172,7 +1172,10 @@
         transform: none;
     }
     .Instagram-post-section .custom-col {
-        height: 200px;
+        height: 163px;
+        object-fit: cover;
+    }
+    .Instagram-post-section .custom-col img {
         object-fit: cover;
     }
     .lab_grown_diamond_heading {
@@ -2675,6 +2678,9 @@
         left: 13px;
         z-index: 9;
     }
+    .Instagram-post-section .custom-col {
+        height: 200px;
+    }
 }
 
 @media (min-width:992px) {
@@ -2978,6 +2984,9 @@
     .lab_grown_diamond_heading {
         font-size: 13px;
         z-index: 99;
+    }
+    .Instagram-post-section .custom-col img {
+        height: 250px !important;
     }
 }
 
