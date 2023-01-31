@@ -431,7 +431,7 @@
     }
     .main-img-li img {
         border-radius: 5px;
-        margin-bottom: 1px;
+        margin-bottom: 0;
     }
     .step-progressbar-part {
         border-radius: 15px;
@@ -1170,6 +1170,19 @@
     .your_include_boxes_img_part {
         position: initial;
         transform: none;
+    }
+    .Instagram-post-section .custom-col {
+        height: 200px;
+        object-fit: cover;
+    }
+    .lab_grown_diamond_heading {
+        font-size: 11px;
+        bottom: 15px;
+        left: 14px;
+        z-index: 0;
+    }
+    .main-img-li img {
+        margin-bottom: 10px;
     }
 }
 
@@ -2133,6 +2146,12 @@
     .your-order-include-img img {
         height: 300px !important;
     }
+    .main-img-li img {
+        margin-bottom: 0px;
+    }
+    .lab_grown_diamond_heading {
+        bottom: 6px;
+    }
 }
 
 @media (min-width:768px) and (max-width:1199px) {
@@ -2651,6 +2670,11 @@
         bottom: -25px;
         top: auto !important;
     }
+    .lab_grown_diamond_heading {
+        font-size: 12px;
+        left: 13px;
+        z-index: 9;
+    }
 }
 
 @media (min-width:992px) {
@@ -2950,6 +2974,19 @@
     }
     .lab_grown_diamonds_text {
         top: 88% !important;
+    }
+    .lab_grown_diamond_heading {
+        font-size: 13px;
+        z-index: 99;
+    }
+}
+
+@media (min-width:641px) and (max-width:767px) {
+    .main-img-li img {
+        margin-bottom: 0;
+    }
+    .lab_grown_diamond_heading {
+        bottom: 6px;
     }
 }
 

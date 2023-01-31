@@ -133,7 +133,7 @@
                 <div class="col-lg-6 round_cut_lab_filter">
                     <div class="round_cut_lab_checkbox row mb-2">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">{{ $attribute->display_attrname }}</span>
-                        <div class="col-md-12">
+                        <div class="col-md-12 shape-part-img">
                             @foreach($attribute->attributeterm as $term)
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="{{ $term->attrterm_name }}">
                                     <input class="form-check-input shape common_selector" value="{{ $term->attrterm_name }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">

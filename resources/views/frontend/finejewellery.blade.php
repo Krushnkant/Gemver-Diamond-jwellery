@@ -76,16 +76,19 @@
         <div class="row">
             <div class="col-12">
             <ul class="main-img">
-    <li class="feature main-img-li">
-    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
-    </li>
-    <li class="two main-img-li">
-    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
-    </li>
-    <li class="main-img-li">
-    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
-    </li>
-    </ul>
+                <li class="feature main-img-li">
+                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                </li>
+                <li class="two main-img-li">
+                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                </li>
+                <li class="main-img-li">
+                    <div class="lab_grown_diamond_heading">Lab grown diamonds</div>
+                    <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
+                </li>
+            </ul>
         </div>
             <!-- <div class="col-12 col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-2">
                 <figure class="position-relative mb-0 me-md-2">

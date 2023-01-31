@@ -634,6 +634,7 @@
             </div>  --}}
         </div>
          
+
            {{-- component order include  --}}
         <x-include-order></x-include-order>
 
