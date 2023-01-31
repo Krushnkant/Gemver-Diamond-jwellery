@@ -6553,6 +6553,7 @@ width: 100%;
         line-height: 24px;
         text-align: center;
         color: #0B1727;
+        margin-top: 15px;
     }
     
     .shop-colorful-img img {
@@ -7149,7 +7150,7 @@ width: 100%;
     .your-order-include-img img {
         height: 350px;
         object-fit: cover;
-        border-radius: 5px;
+        border-radius: 0;
     }
     
     .main-img-li {
@@ -7165,8 +7166,8 @@ width: 100%;
         z-index: 999;
         font-size: 15px;
         bottom: 10px;
-        text-transform: uppercase;
-        font-weight: 600;
+        text-transform: capitalize;
+        font-weight: 500;
     }
     
     .shape-part-img {
