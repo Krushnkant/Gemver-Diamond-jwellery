@@ -6197,9 +6197,9 @@ width: 100%;
         display: block;
     }
     
-    .two_part_box_section .design_engagemnt_image img {
+    /*.two_part_box_section .design_engagemnt_image img {
         height: 400px;
-    }
+    }*/
     
     .footer-angle svg {
         width: 16px;
@@ -6744,11 +6744,11 @@ width: 100%;
     .custom-image-part {
         overflow: hidden;
         border-radius: 6px;
-        box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);
+        /* box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);*/
     }
     
     .custom-image-part img {
-        box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);
+        /* box-shadow: 3px 5px 7px 1px rgb(0 0 0 / 20%);*/
         transform: scale(1);
         border-radius: 6px;
         transition: all 0.6s ease;
