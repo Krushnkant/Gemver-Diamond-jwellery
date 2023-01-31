@@ -6191,9 +6191,10 @@ width: 100%;
     }
     
     .fancy_color_img {
-        width: 10px;
-        height: auto;
+        width: 100%;
+        height: 50%;
         margin-right: 5px;
+        display: block;
     }
     
     .two_part_box_section .design_engagemnt_image img {
@@ -7085,14 +7086,14 @@ width: 100%;
     
     .feature {
         float: left;
-        width: 66.6%;
-        margin-right: 0.8%;
+        width: calc(66.66% - 15px);
+        margin-right: 15px;
         border-radius: 4px;
         position: relative;
     }
     
     .two {
-        margin-bottom: 0.7%;
+        margin-bottom: 15px;
     }
     
     .main-img {
@@ -7163,11 +7164,14 @@ width: 100%;
         top: auto;
         left: 20px;
         right: 0;
-        z-index: 999;
+        z-index: 99;
         font-size: 15px;
         bottom: 10px;
         text-transform: capitalize;
         font-weight: 500;
+    }
+    .lab_grown_diamond_heading:hover{
+        color: #000 !important;
     }
     
     .shape-part-img {

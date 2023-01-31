@@ -203,6 +203,141 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Section 2
+                        </h4>
+                      
+                        <div class="row col-lg-12">
+                            <div class="col-lg-12 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section5_title">Main Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section5_title" name="section5_title" >
+                                    <div id="section5_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section51_image"> Image <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" class="form-control-file" id="section51_image" name="section51_image">
+                                    <div id="section51_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section51_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section51_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section51_title" name="section51_title" >
+                                    <div id="section51_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+                            
+                                <div class="form-group" style="display: none;">
+                                    <label class="col-form-label" for="section51_description"> Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="section51_description" name="section51_description"></textarea>
+                                    <div id="section51_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+
+                             
+                                <div class="form-group">
+                                    <label class="col-form-label"> Category <span class="text-danger">*</span>
+                                    </label>
+                                    <select  name="section51_category" class="form-control category_select">
+                                    <option value="">Select Category</option>
+                                        @foreach($allcategory as $category)
+                                            <option value="{{ $category->slug }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
+                             
+                                
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section52_image"> Image <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" class="form-control-file" id="section52_image" name="section52_image">
+                                    <div id="section52_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section52_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section52_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section52_title" name="section52_title" >
+                                    <div id="section52_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+                            
+                                <div class="form-group" style="display: none;">
+                                    <label class="col-form-label" for="section52_description"> Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="section52_description" name="section52_description"></textarea>
+                                    <div id="section52_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label"> Category <span class="text-danger">*</span>
+                                    </label>
+                                    <select  name="section52_category" class="form-control category_select">
+                                    <option value="">Select Category</option>
+                                    @foreach($allcategory as $category)
+                                    <option value="{{ $category->slug }}">{{ $category->category_name }}</option>
+                                @endforeach
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section53_image"> Image <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" class="form-control-file" id="section53_image" name="section53_image">
+                                    <div id="section53_image-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    <img src="{{ url('images/placeholder_image.png') }}" class="" id="section53_image_show" height="100px" width="100px"  style="margin-top: 5px">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section53_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section53_title" name="section53_title" >
+                                    <div id="section53_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+                            
+                                <div class="form-group" style="display: none;">
+                                    <label class="col-form-label" for="section53_description"> Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="section53_description" name="section53_description"></textarea>
+                                    <div id="section53_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label"> Category <span class="text-danger">*</span>
+                                    </label>
+                                    <select  name="section53_category" class="form-control category_select">
+                                    <option value="">Select Category</option>
+                                    @foreach($allcategory as $category)
+                                        <option value="{{ $category->slug }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4 mb-4">
                         <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                     </div>
@@ -230,6 +365,12 @@
             placeholder: "Select Category",
             allowClear: false
         });
+
+        $('.category_select').select2({
+            width: '100%',
+            placeholder: "Select Category",
+            allowClear: false
+        });
         
         $.get("{{ url('admin/menupage') }}" +'/5/edit', function (data) {
             $('#main_title').val(data.main_title);
@@ -248,7 +389,19 @@
            $('#section33_description').val(data.section33_description);
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
+
+           $('#section5_title').val(data.section5_title);
+           $('#section51_title').val(data.section51_title);
+           $('#section51_description').val(data.section51_description);
+           $('#section52_title').val(data.section52_title);
+           $('#section52_description').val(data.section52_description);
+           $('#section53_title').val(data.section53_title);
+           $('#section53_description').val(data.section53_description);
            $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
+
+           $('[name=section51_category]').val(data.section51_category).change();
+           $('[name=section52_category]').val(data.section52_category).change();
+           $('[name=section53_category]').val(data.section53_category).change();
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;
@@ -293,6 +446,21 @@
             if(data.section4_image!=null){
                 var section4_image = "{{ url('images/aboutus') }}" +"/" + data.section4_image;
                 $('#section4_image_show').attr('src', section4_image);
+            }
+
+            if(data.section51_image!=null){
+                var section51_image = "{{ url('images/aboutus') }}" +"/" + data.section51_image;
+                $('#section51_image_show').attr('src', section51_image);
+            }
+
+            if(data.section52_image!=null){
+                var section52_image = "{{ url('images/aboutus') }}" +"/" + data.section52_image;
+                $('#section52_image_show').attr('src', section52_image);
+            }
+
+            if(data.section53_image!=null){
+                var section53_image = "{{ url('images/aboutus') }}" +"/" + data.section53_image;
+                $('#section53_image_show').attr('src', section53_image);
             }
 
         })
@@ -616,6 +784,69 @@
             let reader = new FileReader();
             reader.onload = (e) => {
                 $('#section33_image_show').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $('#section51_image').change(function(){
+        
+        $('#section51_image-error').hide();
+        var file = this.files[0];
+      
+        var fileType = file["type"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            $('#section51_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            var default_image = "{{ url('public/images/placeholder_image.png') }}";
+            $('#section51_image_show').attr('src', default_image);
+        }
+        else {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#section51_image_show').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $('#section52_image').change(function(){
+        
+        $('#section52_image-error').hide();
+        var file = this.files[0];
+      
+        var fileType = file["type"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            $('#section52_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            var default_image = "{{ url('public/images/placeholder_image.png') }}";
+            $('#section52_image_show').attr('src', default_image);
+        }
+        else {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#section52_image_show').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $('#section53_image').change(function(){
+        
+        $('#section53_image-error').hide();
+        var file = this.files[0];
+      
+        var fileType = file["type"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            $('#section53_image-error').show().text("Please provide a Valid Extension Section Image(e.g: .jpg .png)");
+            var default_image = "{{ url('public/images/placeholder_image.png') }}";
+            $('#section53_image_show').attr('src', default_image);
+        }
+        else {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#section53_image_show').attr('src', e.target.result);
             }
             reader.readAsDataURL(this.files[0]);
         }
