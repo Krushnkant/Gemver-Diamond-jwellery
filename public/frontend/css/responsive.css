@@ -586,6 +586,9 @@
     .header.sticky #nav-icon1 span {
         background: var(--primary);
     } */
+    .two {
+        margin-bottom: 0;
+    }
     .sub_header.header {
         padding: 0 0;
     }
@@ -1186,6 +1189,9 @@
     }
     .main-img-li img {
         margin-bottom: 10px;
+    }
+    .first_img img {
+        height: 300px;
     }
 }
 
@@ -2150,10 +2156,10 @@
         height: 300px !important;
     }
     .main-img-li img {
-        margin-bottom: 0px;
+        margin-bottom: 15px;
     }
     .lab_grown_diamond_heading {
-        bottom: 6px;
+        bottom: 23px;
     }
 }
 
@@ -2445,6 +2451,16 @@
         width: 100%;
         /* height: calc(200px - 8px); */
         margin-top: 8px;
+    }
+}
+
+@media (min-width:769px) and (max-width:1199px) {
+    .first_img img {
+        height: 300px;
+    }
+    .third_img img,
+    .second_img img {
+        height: calc(150px - 7.5px);
     }
 }
 
@@ -2990,14 +3006,15 @@
     }
 }
 
-@media (min-width:641px) and (max-width:767px) {
+
+/* @media (min-width:641px) and (max-width:767px) {
     .main-img-li img {
-        margin-bottom: 0;
+        margin-bottom: 10px;
     }
     .lab_grown_diamond_heading {
         bottom: 6px;
     }
-}
+} */
 
 @media (min-width:1200px) and (max-width:1500px) {
     .category-slider .owl-prev,
@@ -3090,5 +3107,14 @@
     }
     .background-sub-slider {
         background-position: 29%center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-img-li {
+        width: 100%;
+    }
+    .feature {
+        width: 100%;
     }
 }
