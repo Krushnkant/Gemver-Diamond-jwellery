@@ -244,7 +244,7 @@
                         </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $product->product_title }}</a></div>
                             <div class="d-flex justify-content-between  align-items-center">
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         ${{ $sale_price }}
                                     </span>
