@@ -384,7 +384,7 @@ class DiamondController extends Controller
                                         if($Diamond->real_Amt != ""){
                                             $artilces .= '<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price" style="text-decoration-line: line-through">$<span class="regular_price">'. $Diamond->real_Amt .'</span></span>';
                                         }
-                                        $artilces .= '<div>
+                                        $artilces .= '<div class="d-flex">
                                         <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
                                     
                                         if(is_wishlist($Diamond->id,1)){    
