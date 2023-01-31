@@ -635,7 +635,16 @@
         </div>
          
         @if(isset($OrderIncludes->orderincludesdata))
+        <div class="order-includes-heading mb-3 px-3 mt-4 mt-md-4 text-center text-xl-start d-block d-xl-none">
+             {{ $OrderIncludes->title }}
+        </div>
+
         <div class="row mt-md-0 mt-xl-4 align-items-center">
+                <!-- <div class="col-md-6 col-lg-4 pe-4">
+                    <div class="order-include-img">
+                        <img src="{{ url('frontend/image/order-includes.png') }}" alt="">
+                    </div>
+                </div> -->
                 <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
                    <div class="your-order-include-img">
                         <img src="{{ asset('frontend/image/your-order-include.png') }}">
