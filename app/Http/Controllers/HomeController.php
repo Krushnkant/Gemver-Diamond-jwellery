@@ -59,14 +59,23 @@ class HomeController extends Controller
         //     }
         // }
 
-        // $Category= Category::get();
-
-        // foreach($Category as $Cat){
-        //     Category::where('id', $Cat->id)
-        //         ->update([
-        //             'slug' => $this->createSlug($Cat->category_name)
-        //             ]);
-        // }
+        $Diamonds= Diamond::whereNull('slug')->get();
+        foreach($Diamonds as $Diamond){
+            if($Diamond->short_title == "N/A"){
+                $short_title = $Diamond->Shape . " " . $Diamond->Weight . "ct " .$Diamond->Color. " " .$Diamond->Clarity;
+            Diamond::where('id', $Diamond->id)
+                ->update([
+                    'slug' => $this->createSlug($Diamond->short_title,$Diamond->id),
+                    'short_title' => $short_title,
+                    'long_title' => $short_title,
+                    ]);
+            }else{
+                Diamond::where('id', $Diamond->id)
+                ->update([
+                    'slug' => $this->createSlug($Diamond->short_title,$Diamond->id)
+                    ]);
+            }        
+        }
 
     
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
@@ -82,31 +91,31 @@ class HomeController extends Controller
         return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
-    // public function createSlug($title, $id = 0)
-    // {
-    //     $slug = str_slug($title);
-    //     $allSlugs = $this->getRelatedSlugs($slug, $id);
-    //     if (! $allSlugs->contains('slug', $slug)){
-    //         return $slug;
-    //     }
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
 
-    //     $i = 1;
-    //     $is_contain = true;
-    //     do {
-    //         $newSlug = $slug . '-' . $i;
-    //         if (!$allSlugs->contains('slug', $newSlug)) {
-    //             $is_contain = false;
-    //             return $newSlug;
-    //         }
-    //         $i++;
-    //     } while ($is_contain);
-    // }
-    // protected function getRelatedSlugs($slug, $id = 0)
-    // {
-    //     return Category::select('slug')->where('slug', 'like', $slug.'%')
-    //     ->where('id', '<>', $id)
-    //     ->get();
-    // }
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
+    }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return Diamond::select('slug')->where('slug', 'like', $slug.'%')
+        ->where('id', '<>', $id)
+        ->get();
+    }
     
     
 }

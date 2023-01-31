@@ -12,6 +12,7 @@ $settings = \App\Models\Settings::first();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="canonical" href="{{ url()->full() }}" />
     <meta name="title" content="{{ isset($meta_title) ? $meta_title:"" }}"/>
     <meta name="description" content="{{ isset($meta_description) ? $meta_description :"" }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
@@ -29,6 +30,16 @@ $settings = \App\Models\Settings::first();
     <!-- TrustBox script -->
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     <!-- End TrustBox script -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-962R43V393');
+    </script>
     
 </head>
 <body>
