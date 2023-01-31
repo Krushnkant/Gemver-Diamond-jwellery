@@ -11,31 +11,31 @@
                     </div> -->
                 </div>
                 <div class="owl-carousel owl-theme product-detail mb-5 px-0">
-                    @foreach($ProductRelated as $Related)
+                    @foreach($ProductRelated as $key => $Related)
                     <?php
-                   // dd($ProductRelated);
-                     $images = explode(",",$Related->images);
+                       
+                     $images = explode(",",$Related->product_variant[$key]->images);
                      $image = URL($images['0']);
-                     $sale_price = $Related->sale_price;
-                     $url =  URL('/product-details/'.$Related->slug); 
+                     $sale_price = $Related->product_variant[$key]->sale_price;
+                     $url =  URL('product-details/'.$Related->product_variant[$key]->slug); 
 
                     $alt_text = "";
-                    if($Related->alt_text != ""){
-                        $alt_texts = explode(",",$Related->alt_text);
+                    if($Related->product_variant[$key]->alt_text != ""){
+                        $alt_texts = explode(",",$Related->product_variant[$key]->alt_text);
                         $alt_text = $alt_texts['0'];
                     }
                     
                     ?>
-                    <div class="hover_effect_part wire_bangle_shop_radio">
+                    <div class="hover_effect_part wire_bangle_shop_radio" >
                     <div class="wire_bangle_img_radio_button">
                         <div class="wire_bangle_img mb-3 position-relative">
                             <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}"></a>
                         </div>
                         <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $Related->primary_category->category_name }}
-                            <input type="hidden" class="variant_id" value="{{ $Related->variant_id }}">    
+                            <input type="hidden" class="variant_id" value="{{ $Related->product_variant[$key]->id }}">    
                             <input type="hidden" class="item_type" value="0">    
                             <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
-                                <?php if(is_wishlist($Related->variant_id,0)){ ?>
+                                <?php if(is_wishlist($Related->product_variant[$key]->id,0)){ ?>
                                     <i class="fas fa-heart heart-icon-part"></i>
                                 <?php }else{ ?>
                                     <i class="far fa-heart"></i> 
@@ -49,7 +49,7 @@
                                     <span class="wire_bangle_price wire_bangle_price_part">
                                         $ {{ $sale_price }}
                                     </span>
-                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $Related->regular_price }}</span></span>
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $Related->product_variant[$key]->regular_price }}</span></span>
                                 </div>
                                 <?php 
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
@@ -61,7 +61,7 @@
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
+                                        $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
                                      ?>
                                     <span class="form-check d-inline-block">
                                         <a href="{{ $attributeurl }}">
