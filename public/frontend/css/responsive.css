@@ -1171,6 +1171,10 @@
         position: initial;
         transform: none;
     }
+    .Instagram-post-section .custom-col {
+        height: 200px;
+        object-fit: cover;
+    }
 }
 
 @media (max-width:1199px) {

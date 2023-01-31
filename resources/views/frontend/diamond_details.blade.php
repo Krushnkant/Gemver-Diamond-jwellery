@@ -838,7 +838,9 @@
                                 ${{ $Diamond->Sale_Amt }} 
                                 <span class="ms-2 wire_bangle_dublicate_price product_detail_sregular_price" style="text-decoration-line: line-through">
                               </div>
+                              <div class="product_detail_regular_price"> 
                                 $<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
+                            </div>
                             </div>
                         </div>
                     </div>
