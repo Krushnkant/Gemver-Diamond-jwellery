@@ -1,6 +1,6 @@
 @if(isset($OrderIncludes->orderincludesdata))
         <div class="row mt-md-0 mt-xl-4 align-items-center">
-                <div class="col-md-12 col-lg-12 col-lg-12 px-3 px-md-0 px-xxl-3 order-part">
+                <div class="col-md-12 col-lg-12 col-lg-12 order-part px-0">
                    <div class="your-order-include-img">
                         <img src="{{ asset('frontend/image/your-order-include.png') }}">
                    </div>

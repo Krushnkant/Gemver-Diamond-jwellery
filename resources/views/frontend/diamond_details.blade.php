@@ -671,7 +671,7 @@
         
          {{-- component order include  --}}
         <x-include-order></x-include-order>
-         
+        
         </div>
 
         @if(count($DiamondRelated) > 0)
