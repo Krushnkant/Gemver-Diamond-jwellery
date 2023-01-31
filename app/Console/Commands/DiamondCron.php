@@ -45,7 +45,7 @@ class DiamondCron extends Command
     {
         
         set_time_limit(0);
-        \Log::info("Diamond Round Heart Cushion Uploaded!");
+       // \Log::info("Diamond Round Heart Cushion Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Round','Heart','Cushion'])->get()->pluck('diamond_id')->toarray();
         // $public_path = __DIR__ . '/../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);

@@ -43,7 +43,7 @@ class Diamond1Cron extends Command
     {
         
        
-        \Log::info("Diamond Asscher Emerald Oval Uploaded!");
+        //\Log::info("Diamond Asscher Emerald Oval Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Asscher','Emerald','Oval'])->get()->pluck('diamond_id')->toarray();
 
         set_time_limit(0);

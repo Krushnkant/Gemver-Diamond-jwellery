@@ -42,7 +42,7 @@ class Diamond3Cron extends Command
     public function handle()
     {
         
-        \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
+       // \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
         $oldids = Diamond::whereIn('Shape',["Briolette","Eurocut","Flanders","Half Moon","Kite","Old Miner","Bullet","Hexagonal","Lozenge","Tapered Bullet","Octagonal","Triangle","Rose Cut","Ideal Oval","Ideal Square","Square Emerald","Sig81","Cushion Modified Brilliant","Ideal Cushion","Pentagonal","Star","Trapezoid","Trilliant","Baguette","Shield","Tapered Baguette","Square","Ideal Heart","Other"])->get()->pluck('diamond_id')->toarray();
 
         set_time_limit(0);

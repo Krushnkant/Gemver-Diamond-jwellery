@@ -42,7 +42,7 @@ class Diamond2Cron extends Command
     public function handle()
     {
         
-        \Log::info("Diamond Heart Radiant Marquise Princess Pear Uploaded!");
+        //\Log::info("Diamond Heart Radiant Marquise Princess Pear Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Radiant','Marquise','Princess','Pear'])->get()->pluck('diamond_id')->toarray();
 
         set_time_limit(0);
