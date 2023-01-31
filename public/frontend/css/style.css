@@ -4937,6 +4937,7 @@ width: 100%;
         position: absolute;
         top: 19px;
         right: 15px;
+        line-height: 15px !important;
     }
     
     .your_order_box {
@@ -7081,6 +7082,7 @@ width: 100%;
         width: 66.6%;
         margin-right: 0.8%;
         border-radius: 4px;
+        position: relative;
     }
     
     .two {
@@ -7143,6 +7145,28 @@ width: 100%;
         height: 350px;
         object-fit: cover;
         border-radius: 5px;
+    }
+    
+    .main-img-li {
+        position: relative;
+    }
+    
+    .lab_grown_diamond_heading {
+        color: #000;
+        position: absolute;
+        top: auto;
+        left: 20px;
+        right: 0;
+        z-index: 999;
+        font-size: 15px;
+        bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    
+    .shape-part-img {
+        display: flex;
+        justify-content: space-between;
     }
     
     @media (max-width: 640px) {
