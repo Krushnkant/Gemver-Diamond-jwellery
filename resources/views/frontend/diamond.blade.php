@@ -165,7 +165,7 @@
         <div class="col-md-6 round_cut_lab_filter">
             <div class="round_cut_lab_checkbox row">
                 <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape </div>
-                <div class="col-md-12">
+                <div class="col-md-12 d-flex justify-content-between">
                     <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                         <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'round'  ) ? 'checked' : '' }} id="flexRadioDefaultround">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" class="shape_img">
