@@ -34,11 +34,11 @@ $settings = \App\Models\Settings::first();
 <body>
 
 
- {{-- <div class="header-loader">
+ <div class="header-loader">
     <div class="loader-btn" role="status"> 
     <img src="{{ asset('frontend/image/page-loader.gif') }}" alt="">
     </div>
-</div> --}}
+</div>
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 <div class="">
 @include('frontend.layout.header')
