@@ -159,63 +159,63 @@ $('body').on('click', '#save_newDiamondBtn', function () {
     save_diamond($(this),'save_new');
 });
 
-function save_diamond(btn,btn_type){
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
-    var action  = $(btn).attr('data-action');
-    var formData = new FormData($("#DiamondCreateForm")[0]);
-    formData.append('action',action);
-    $.ajax({
-        type: 'POST',
-        url: "{{ route('admin.diamonds.save') }}",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (res) {
-            if(res.status == 'failed'){
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-                if (res.errors.file) {
-                    $('#file-error').show().text(res.errors.file);
-                } else {
-                    $('#file-error').hide();
-                }
+// function save_diamond(btn,btn_type){
+//     $(btn).prop('disabled',true);
+//     $(btn).find('.loadericonfa').show();
+//     var action  = $(btn).attr('data-action');
+//     var formData = new FormData($("#DiamondCreateForm")[0]);
+//     formData.append('action',action);
+//     $.ajax({
+//         type: 'POST',
+//        
+//         data: formData,
+//         processData: false,
+//         contentType: false,
+//         success: function (res) {
+//             if(res.status == 'failed'){
+//                 $(btn).prop('disabled',false);
+//                 $(btn).find('.loadericonfa').hide();
+//                 if (res.errors.file) {
+//                     $('#file-error').show().text(res.errors.file);
+//                 } else {
+//                     $('#file-error').hide();
+//                 }
 
-            }
+//             }
 
-            if(res.status == 200){
-                if(btn_type == 'save_close'){
-                    $(btn).prop('disabled',false);
-                    $(btn).find('.loadericonfa').hide();
-                    location.href="{{ route('admin.diamond.list')}}";
-                    if(res.action == 'add'){
-                        toastr.success("Diamond Added",'Success',{timeOut: 5000});
-                    }
-                    if(res.action == 'update'){
-                        toastr.success("Diamond Updated",'Success',{timeOut: 5000});
-                    }
-                }
-                if(btn_type == 'save_new'){
-                    $(btn).prop('disabled',false);
-                    $(btn).find('.loadericonfa').hide();
-                    location.href="{{ route('admin.importview')}}";
-                    if(res.action == 'add'){
-                        toastr.success("Diamond Added",'Success',{timeOut: 5000});
-                    }
-                    if(res.action == 'update'){
-                        toastr.success("Diamond Updated",'Success',{timeOut: 5000});
-                    }
-                }
-            }
+//             if(res.status == 200){
+//                 if(btn_type == 'save_close'){
+//                     $(btn).prop('disabled',false);
+//                     $(btn).find('.loadericonfa').hide();
+//                     location.href="{{ route('admin.diamond.list')}}";
+//                     if(res.action == 'add'){
+//                         toastr.success("Diamond Added",'Success',{timeOut: 5000});
+//                     }
+//                     if(res.action == 'update'){
+//                         toastr.success("Diamond Updated",'Success',{timeOut: 5000});
+//                     }
+//                 }
+//                 if(btn_type == 'save_new'){
+//                     $(btn).prop('disabled',false);
+//                     $(btn).find('.loadericonfa').hide();
+//                     location.href="{{ route('admin.importview')}}";
+//                     if(res.action == 'add'){
+//                         toastr.success("Diamond Added",'Success',{timeOut: 5000});
+//                     }
+//                     if(res.action == 'update'){
+//                         toastr.success("Diamond Updated",'Success',{timeOut: 5000});
+//                     }
+//                 }
+//             }
 
-        },
-        error: function (data) {
-            $(btn).prop('disabled',false);
-            $(btn).find('.loadericonfa').hide();
-            toastr.error("Please try again",'Error',{timeOut: 5000});
-        }
-    });
-}
+//         },
+//         error: function (data) {
+//             $(btn).prop('disabled',false);
+//             $(btn).find('.loadericonfa').hide();
+//             toastr.error("Please try again",'Error',{timeOut: 5000});
+//         }
+//     });
+// }
 
 
 function chageDiamondStatus(diamond_id) {
