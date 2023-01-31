@@ -2,7 +2,7 @@
     <div id="cover-spin" class="cover-spin"></div>
     {{ csrf_field() }}
     <input type="hidden" name="faq_id" value="{{ isset($Faq)?($Faq['id']):'' }}">
-    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center mt-2">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center mt-2">
         <div class="form-group">
             <label class="col-form-label" for="menu_page_id">Menu Page <span class="text-danger">*</span>
             </label>
