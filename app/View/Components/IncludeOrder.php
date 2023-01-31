@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\OrderIncludes;
 
 class IncludeOrder extends Component
 {
@@ -23,6 +24,7 @@ class IncludeOrder extends Component
      */
     public function render()
     {
-        return view('components.include-order');
+        $OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        return view('components.include-order',compact('OrderIncludes'));
     }
 }

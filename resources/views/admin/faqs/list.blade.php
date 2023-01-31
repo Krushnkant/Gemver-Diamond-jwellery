@@ -96,14 +96,14 @@
 
 $(document).ready(function() {
     faqs_table(true);
-    CKEDITOR.replace('question',{
+    CKEDITOR.replace('answer',{
     filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
     filebrowserUploadMethod: 'form'
 });
 
 CKEDITOR.config.height = '300';
 
-CKEDITOR.instances['question'].setData("{{ isset( $Faq['answer'])?$Faq['answer']:'' }}");
+//CKEDITOR.instances['answer'].setData("{{ isset( $Faq['answer'])?$Faq['answer']:'' }}");
 });
 
 $("#menu_page_id").select2({
@@ -135,13 +135,13 @@ function save_faq(btn,btn_type){
     $('#custom_fields-error').hide().text("");
 
     var action  = $(btn).attr('data-action');
-    var question = CKEDITOR.instances['question'].getData();
+    var answer = CKEDITOR.instances['answer'].getData();
     for ( instance in CKEDITOR.instances ) {
         CKEDITOR.instances[instance].updateElement();   
     }
     var formData = new FormData($("#FaqForm")[0]);
     formData.append('action',action);
-    formData.append('question',question);
+    formData.append('answer',answer);
 
     $.ajax({
             type: 'POST',
@@ -154,7 +154,7 @@ function save_faq(btn,btn_type){
                     $(btn).prop('disabled',false);
                     $(btn).find('.loadericonfa').hide();
 
-                    if (res.errors.question) {
+                    if (res.errors.answer) {
                         $('#question-error').show().text(res.errors.question);
                     } else {
                         $('#question-error').hide();
