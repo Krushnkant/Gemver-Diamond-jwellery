@@ -646,11 +646,13 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([
             'id' => 65,
-            'parent_menu' => 22,
+            'parent_menu' => 0,
             'label' => 'Faqs',
             'route_url' => 'admin.faqs.list',
-            'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.changefaqstatus,admin.faqs.edit,admin.faqs.delete'
+            'is_display_in_menu' => 0,
+            'icon_class' => 'fa fa-question-circle',
+            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.changefaqstatus,admin.faqs.edit,admin.faqs.delete',
+            'sr_no' => 12
         ]);
 
 
