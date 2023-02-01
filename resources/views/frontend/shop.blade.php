@@ -136,7 +136,7 @@
                         <div class="col-md-12 shape-part-img">
                             @foreach($attribute->attributeterm as $term)
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="{{ $term->attrterm_name }}">
-                                    <input class="form-check-input shape common_selector" value="{{ $term->attrterm_name }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">
+                                    <input class="form-check-input attribute common_selector" value="{{ $term->id }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">
                                     <img src="{{ url('images/attrTermThumb/'.$term->attrterm_thumb) }}" alert="{{ $term->attrterm_name }}"  width="45" height="45">
                             </span> 
                            

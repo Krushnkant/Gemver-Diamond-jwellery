@@ -103,7 +103,7 @@ $(document).ready(function() {
 
 CKEDITOR.config.height = '300';
 
-//CKEDITOR.instances['answer'].setData("{{ isset( $Faq['answer'])?$Faq['answer']:'' }}");
+
 });
 
 $("#menu_page_id").select2({
@@ -120,11 +120,11 @@ $('body').on('click', '#AddFaqBtn', function () {
 });
 
 $('body').on('click', '#save_newFaqBtn', function () {
-    save_faq($(this),'save_close');
+    save_faq($(this),'save_new');
 });
 
 $('body').on('click', '#save_closeFaqBtn', function () {
-    save_faq($(this),'save_new');
+    save_faq($(this),'save_close');
 });
 
 function save_faq(btn,btn_type){
