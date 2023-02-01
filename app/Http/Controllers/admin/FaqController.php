@@ -72,8 +72,8 @@ class FaqController extends Controller
             $columns = array(
                 0 => 'id',
                 1 => 'question',
-                2 => 'answer',
-                3 => 'action',
+                //2 => 'answer',
+                2 => 'action',
             );
             $totalData = Faq::count();
             $totalFiltered = $totalData;
@@ -123,7 +123,7 @@ class FaqController extends Controller
                     $action .= '<button id="deleteFaqBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteFaqModal" data-id="' .$Faq->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     
                     $nestedData['question'] = $Faq->question;
-                    $nestedData['answer'] = $Faq->answer;
+                    //$nestedData['answer'] = $Faq->answer;
                   
                     $nestedData['action'] = $action;
                     $data[] = $nestedData;
