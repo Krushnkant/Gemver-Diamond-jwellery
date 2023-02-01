@@ -6,7 +6,7 @@
             <div class="">
                 <!-- <img src="{{ url('images/steps/'.$Step->step2_header_image) }}" alt=""> -->
                 <div class="about_us_background">
-                    <h1 class="sub_heading mb-lg-3">Step 2</div>
+                    <h1 class="sub_heading mb-lg-3">Step 2</h1>
                     <div class="about_us_link">
                         <a href="#">{{ $Step->step2_title }}</a>
                         <p class="mt-2 ste_1_paragraph">
