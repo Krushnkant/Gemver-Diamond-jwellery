@@ -5,7 +5,7 @@
             <div class="">
                 <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
                 <div class="about_us_background">
-                    <h1 class="sub_heading mb-lg-3 main_header_title">{{ $Category->category_name }}</div>
+                    <h1 class="sub_heading mb-lg-3 main_header_title">{{ $Category->category_name }}</h1>
                     <div class="about_us_link">
                         <a href="{{ URL('/') }}">home</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
