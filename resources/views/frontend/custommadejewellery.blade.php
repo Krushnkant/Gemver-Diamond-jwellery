@@ -264,7 +264,7 @@
                             {{ $faq->question }}
                         </button>
                             <div class="panel" style="display: none;">
-                                <p>{{ $faq->answer }}</p>
+                                <p>{!! $faq->answer !!}</p>
                             </div>
                         @endforeach
                 @endif
