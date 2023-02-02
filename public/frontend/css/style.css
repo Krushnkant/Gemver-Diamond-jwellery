@@ -673,9 +673,10 @@ background-size: cover;
     }
     
     .customer-stories .owl-nav {
-        position: absolute;
+        /*position: absolute;
         left: calc(0% - 11.666667%);
-        bottom: 0;
+        bottom: 0;*/
+        text-align: right !important;
     }
     
     .shop_by_category {
@@ -744,7 +745,7 @@ background-size: cover;
     .customer_stories_paragraph {
         font-weight: normal;
         font-size: 18px;
-        line-height: 30px;
+        /*line-height: 30px;*/
         color: gray;
         font-family: 'Roboto', sans-serif;
     }
@@ -840,8 +841,8 @@ background-size: cover;
     }
     
     .customer_stories .item {
-        border: 1px solid var(--secondary);
-        border-radius: 70px 0px;
+        border: 1px solid #d1cfcf;
+        border-radius: 0px 50px;
         padding: 40px;
     }
     
@@ -878,18 +879,18 @@ background-size: cover;
     .customer-stories-paragraph {
         font-weight: normal;
         font-size: 16px;
-        line-height: 30px;
-        color: #0B1727;
+        /*line-height: 30px;
+        color: #0B1727;*/
         font-family: 'Roboto', sans-serif;
     }
     
     .customer-name {
         font-weight: 500;
         font-size: 20px;
-        line-height: 32px;
+        /*line-height: 32px;*/
         letter-spacing: 0.05em;
         text-transform: capitalize;
-        color: #0B1727;
+        /*color: #0B1727;*/
     }
     
     .customer-country {
@@ -898,7 +899,7 @@ background-size: cover;
         line-height: 20px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
-        color: var(--secondary);
+        color: gray;
     }
     
     .customer-stories-quotes {
@@ -4120,10 +4121,13 @@ width: 100%;
     }
     
     .customer-stories img {
-        height: 230px;
-        /* object-fit: cover; */
+        /*height: 230px;
+        /* object-fit: cover;
         width: auto !important;
-        margin: auto;
+        margin: auto;*/
+        width: 110px;
+        border-radius: 50%;
+        /*border: 5px solid #b4c7d9;*/
     }
     
     .header-icon-part {
@@ -4348,8 +4352,8 @@ width: 100%;
     
     .smiling_box_paragraph {
         font-weight: 400;
-        font-size: 13px;
-        line-height: 15px;
+        font-size: 14px;
+        /*line-height: 15px;*/
         letter-spacing: 0.05em;
         color: #808080;
     }
@@ -5882,6 +5886,7 @@ width: 100%;
     
     .header-part.fixed {
         top: 0 !important;
+        box-shadow: 0px 1px 5px 0px rgb(191 207 223);
     }
     
     div#toast-container .toast-success {

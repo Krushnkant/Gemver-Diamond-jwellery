@@ -1263,7 +1263,7 @@
     }
     .customer_stories_paragraph {
         font-size: 14px;
-        line-height: 25px;
+        /*line-height: 25px;*/
     }
     .customer_stories .item {
         border-radius: 45px 0;
@@ -1292,6 +1292,9 @@
     .customer-stories-quotes::after {
         top: 13px;
         left: -10px;
+    }
+    .customer-stories-quotes::after {
+        background-size: 18px;
     }
     .customer-stories .owl-dots {
         position: initial;

@@ -111,7 +111,7 @@ $(document).ready(function() {
             }
         }
     });
-    $('.customer-stories').owlCarousel({
+    $('#customer-stories').owlCarousel({
         loop: true,
         margin: 10,
         nav: true,
@@ -124,7 +124,7 @@ $(document).ready(function() {
                 items: 1
             },
             1000: {
-                items: 1
+                items: 2
             }
         }
     });

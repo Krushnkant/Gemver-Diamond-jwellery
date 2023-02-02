@@ -381,11 +381,11 @@
                     </div>
                     <div class="col-lg-7 col-xl-8 mt-4 mt-lg-0">
                         <h2 class="mb-md-4 heading-h2">{{ strtolower($step->main_title) }}</h2>
-                        <p class="engagement_diamond_paragraph_part mb-md-4">
+                        <p class="engagement_diamond_paragraph_part mb-4">
                             {{ $step->main_shotline }}
                         </p>
                         <div class="row">
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
@@ -400,7 +400,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                         <div class="engagement_diamond_box mb-3">
                                             <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
@@ -411,7 +411,7 @@
                                     {{ $step->step2_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
@@ -422,7 +422,7 @@
                                 {{ $step->step3_shotline }}
                                 </p>
                             </div>
-                            <div class="col-md-6 mb-3 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
                                 <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
                                         <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
@@ -496,7 +496,7 @@
                         <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
                    </div>
                     <div class="ms-3 ms-md-0">
-                        <div class="smiling_box_heading mb-2 mb-mb-3">
+                        <div class="smiling_box_heading mb-3">
                                 {{ $SmilingDifference[0]->title }}   
                             </div>
                             <div class="smiling_box_paragraph">
@@ -509,7 +509,7 @@
                         <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
                    </div>
                    <div class="ms-3 ms-md-0">
-                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                    <div class="smiling_box_heading mb-3">
                         {{ $SmilingDifference[1]->title }}
                         </div>
                         <div class="smiling_box_paragraph">
@@ -522,7 +522,7 @@
                         <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
                    </div>
                     <div class="ms-3 ms-md-0">
-                        <div class="smiling_box_heading mb-2 mb-mb-3">
+                        <div class="smiling_box_heading mb-3">
                         {{ $SmilingDifference[2]->title }}
                         </div>
                         <div class="smiling_box_paragraph">
@@ -535,7 +535,7 @@
                         <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
                    </div>
                    <div class="ms-3 ms-md-0">
-                    <div class="smiling_box_heading mb-2 mb-mb-3">
+                    <div class="smiling_box_heading mb-3">
                         {{ $SmilingDifference[3]->title }} 
                         </div>
                         <div class="smiling_box_paragraph">
@@ -545,7 +545,7 @@
                 </div>
                 
             </div>
-            <div class="text-center">
+            <div class="mt-3 text-center">
                 <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
       </div>
@@ -565,10 +565,25 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="owl-carousel owl-theme customer-stories">
+                    <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
                     @foreach($testimonials as $testimonial)
 
                         <div class="item">
+                            <div class="customer-stories-quotes">
+                                <div class="customer-stories-paragraph text-center">
+                                    {!! $testimonial->description !!}
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <div class="testimonial-author-img">
+                                        <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                    </div>
+                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
+                                    <div class="customer-country">{{ $testimonial->country }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="item">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
@@ -583,7 +598,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                     @endforeach    
                     </div>
