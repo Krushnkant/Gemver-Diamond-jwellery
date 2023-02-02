@@ -233,10 +233,10 @@ function faqs_table(is_clearState=false){
             // "dataSrc": ""
         },
         'columnDefs': [
-            { "width": "50px", "targets": 0 },
-            { "width": "120px", "targets": 1 },
+            { "width": "10px", "targets": 0 },
+            { "width": "200px", "targets": 1 },
             // { "width": "100px", "targets": 2 },
-            { "width": "100px", "targets": 2 },
+            { "width": "20px", "targets": 2 },
         ],
         "columns": [
             {data: 'id', question: 'id', class: "text-center", orderable: false,

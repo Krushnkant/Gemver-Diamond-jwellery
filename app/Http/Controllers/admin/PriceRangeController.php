@@ -112,7 +112,7 @@ class PriceRangeController extends Controller
 
             $limit = $request->input('length');
             $start = $request->input('start');
-//            dd($columns[$request->input('order.0.column')]);
+            //dd($columns[$request->input('order.0.column')]);
             $order = $columns[$request->input('order.0.column')];
             $dir = $request->input('order.0.dir');
 
