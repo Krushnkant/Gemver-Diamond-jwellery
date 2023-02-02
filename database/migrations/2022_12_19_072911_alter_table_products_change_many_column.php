@@ -15,11 +15,11 @@ class AlterTableProductsChangeManyColumn extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->id()->index()->change();
-            $table->text('product_u_id')->nullable()->index()->change();
-            $table->text('attr_ids')->nullable()->index()->change();
-            $table->integer('user_id')->index()->change();
-            $table->integer('primary_category_id')->index()->change();
-            $table->text('attr_term_ids')->nullable()->index()->change();
+           // $table->text('product_u_id')->nullable()->index()->change();
+            // $table->text('attr_ids')->nullable()->index()->change();
+            // $table->integer('user_id')->index()->change();
+            // $table->integer('primary_category_id')->index()->change();
+            // $table->text('attr_term_ids')->nullable()->index()->change();
 
         });
     }
