@@ -14,7 +14,7 @@ class AlterTableProductsChangeManyColumn extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->id()->index()->change();
+           // $table->id()->index()->change();
            // $table->text('product_u_id')->nullable()->index()->change();
             // $table->text('attr_ids')->nullable()->index()->change();
             // $table->integer('user_id')->index()->change();
