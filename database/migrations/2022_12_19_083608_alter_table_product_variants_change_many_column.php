@@ -14,10 +14,10 @@ class AlterTableProductVariantsChangeManyColumn extends Migration
     public function up()
     {
         Schema::table('product_variants', function (Blueprint $table) {
-            $table->id()->index()->change();
-            $table->integer('product_id')->index()->change();
-            $table->string('SKU')->index()->change();
-            $table->text('slug')->nullable()->index()->change();
+            // $table->id()->index()->change();
+            // $table->integer('product_id')->index()->change();
+            // $table->string('SKU')->index()->change();
+            // $table->text('slug')->nullable()->index()->change();
         });
     }
 
