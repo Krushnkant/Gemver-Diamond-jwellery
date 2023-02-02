@@ -17,7 +17,7 @@
             {{ $MenuPage->main_shotline }}
         </p>
         <div class="d-flex flex-wrap justify-content-center">
-            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">Shop now</a>
+            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>
    </div>
@@ -122,8 +122,8 @@
                 </div>
               
                 <div class="text-center mt-5">
-                    <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">
-                        create your own {{ $MenuPage->category->category_name }}
+                    <a href="{{ $MenuPage->section1_button_url }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">
+                        {{ $MenuPage->section1_button_title }}
                     </a>
                 </div>
             </div>
@@ -284,7 +284,7 @@
                         {{ $MenuPage->section4_description }}
                     </p>
                     <div class="engagement_button">
-                        <a href="{{ url('shop') }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn buy_now_btn d-inline-block">Explore Product</a>
+                        <a href="{{ $MenuPage->section4_button_url }}" class="engagement_start_diamond mt-3 mt-xl-5 labDiamondBtn create_yout_own_engagemtnt_ring_btn buy_now_btn d-inline-block">{{ $MenuPage->section4_button_title }}</a>
                     </div>
                 </div>
             </div>

@@ -57,6 +57,8 @@ class MenuPageController extends Controller
         $menupages->main_second_button_name = $request->main_second_button_name;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
+        $menupages->section1_button_title = $request->section1_button_title;
+        $menupages->section1_button_url = $request->section1_button_url;
         $menupages->section3_title = $request->section3_title;
         $menupages->section31_title = $request->section31_title;
         $menupages->section31_description = $request->section31_description;
@@ -66,6 +68,8 @@ class MenuPageController extends Controller
         $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section4_button_title = $request->section4_button_title;
+        $menupages->section4_button_url = $request->section4_button_url;
         $menupages->section5_title = $request->section3_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
@@ -318,8 +322,11 @@ class MenuPageController extends Controller
         $menupages->main_title = $request->main_title;
         $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_shotline = $request->main_shotline;
+        $menupages->main_first_button_name = $request->main_first_button_name;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
+        $menupages->section1_button_title = $request->section1_button_title;
+        $menupages->section1_button_url = $request->section1_button_url;
         $menupages->section3_title = $request->section3_title;
         // $menupages->section31_title = $request->section31_title;
         // $menupages->section31_description = $request->section31_description;
@@ -329,6 +336,8 @@ class MenuPageController extends Controller
         // $menupages->section33_description = $request->section33_description;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
+        $menupages->section4_button_title = $request->section4_button_title;
+        $menupages->section4_button_url = $request->section4_button_url;
         $menupages->section5_title = $request->section3_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
@@ -788,8 +797,11 @@ class MenuPageController extends Controller
         $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
+        $menupages->main_first_button_name = $request->main_first_button_name;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
+        $menupages->section1_button_title = $request->section1_button_title;
+        $menupages->section1_button_url = $request->section1_button_url;
         $menupages->section3_title = $request->section3_title;
         $menupages->section3_description = $request->section3_description;
         $menupages->section31_category_id = $request->section31_category_id;
@@ -1051,6 +1063,7 @@ class MenuPageController extends Controller
         $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
+        //$menupages->main_first_button_name = $request->main_first_button_name;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
         $menupages->section3_title = $request->section3_title;
