@@ -57,8 +57,8 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
-
-        if (isset($request->action) && $request->action=="update"){
+         
+        if(isset($request->action) && $request->action=="update"){
             $action = "update";
             $category = Category::find($request->category_id);
 
@@ -139,8 +139,15 @@ class CategoryController extends Controller
         }
 
         $category->save();
+
+        $mainparentid = $this->getMainCategory($category->id);
+         
          
         if (isset($request->action) && $request->action!="update"){
+            $category =Category::find($category->id);
+            $category->mainparentid = $mainparentid;
+            $category->save();
+
             for($i = 1; $i < 4; $i++){
                 $StepPopup = new StepPopup();
                 $StepPopup->category_id = $category->id;
@@ -207,6 +214,11 @@ class CategoryController extends Controller
             {
                 foreach ($categories as $category)
                 {
+                    $catid = $this->getMainCategory($category->id);
+                    $category1 = Category::find($category->id);
+                    $category1->mainparentid = $catid;
+                    $category1->save();
+                    
                     $page_id = ProjectPage::where('route_url','admin.categories.list')->pluck('id')->first();
 
                     if( $category->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
@@ -365,6 +377,17 @@ class CategoryController extends Controller
         return Category::select('slug')->where('slug', 'like', $slug.'%')
         ->where('id', '<>', $id)
         ->get();
+    }
+
+    public $catid = 0;
+    function getMainCategory($id){
+        $category = \App\Models\Category::where('estatus',1)->where('id',$id)->first()->toArray();
+        if($category['parent_category_id'] != 0){
+            $this->getMainCategory($category['parent_category_id']);
+        }else{
+            $this->catid = $category['id']; 
+        }
+        return  $this->catid;
     }
 
 

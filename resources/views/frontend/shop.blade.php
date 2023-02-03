@@ -61,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+                
                 @foreach($Attributes as $attribute)
                 @if($attribute->attribute_name == "Karat")
                 <div class="col-lg-6">
@@ -150,12 +151,15 @@
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
                             <div class="col-lg-12">
+                                <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
                                 @foreach($attribute->attributeterm as $term)
-                                    <div class="form-group mb-3 d-inline-block me-3">
+                                    {{-- <div class="form-group mb-3 d-inline-block me-3">
                                         <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
                                         <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                    </div>
+                                    </div> --}}
+                                    <option>{{ $term->attrterm_name }}</option>
                                 @endforeach 
+                                </select>
                             </div>
                         </ul>
                     </div>
@@ -217,6 +221,16 @@
         <script>
         
         $(document).ready(function(){
+            
+            $('.selectattribute').select2({
+                width: '100%',
+                multiple: true,
+                placeholder: "Select...",
+                allowClear: true,
+                autoclose: false,
+                closeOnSelect: false,
+            });
+           
             var page = 1;
 
             $(window).scroll(function () {
