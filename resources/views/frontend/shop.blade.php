@@ -167,7 +167,7 @@
                                 </ul>
                             </div>
                         </div>
-                        @else
+                        @endif
                       
                     @else    
                     <div class="col-md-6">
