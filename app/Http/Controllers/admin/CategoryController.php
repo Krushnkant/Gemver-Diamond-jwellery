@@ -214,11 +214,6 @@ class CategoryController extends Controller
             {
                 foreach ($categories as $category)
                 {
-                    $catid = $this->getMainCategory($category->id);
-                    $category1 = Category::find($category->id);
-                    $category1->mainparentid = $catid;
-                    $category1->save();
-                    
                     $page_id = ProjectPage::where('route_url','admin.categories.list')->pluck('id')->first();
 
                     if( $category->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
