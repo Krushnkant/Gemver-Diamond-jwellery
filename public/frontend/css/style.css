@@ -853,6 +853,9 @@ background-size: cover;
     .testimonial-author-img {
         float: left;
     }
+    .testimonial-section{
+        background-image: url(../image/testimonials-background.png);
+    }
     .customer-stories-img,
     .shop-dimond-by-shape-img {
         position: relative;

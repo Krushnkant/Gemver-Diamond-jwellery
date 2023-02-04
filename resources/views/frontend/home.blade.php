@@ -3,98 +3,97 @@
 @section('content')
 
         @if(count($banners) > 0)
-         <div class="owl-carousel owl-theme home-page-slider">
-            @foreach($banners as $banner)
-            @if($banner->button_name == "")
-            @if($banner->application_dropdown_id == 1)
-            <a href="#">
-            @elseif($banner->application_dropdown_id == 2)
-            <?php 
-                $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
-                $banner_url = URL('product-details/'.$product_variant->slug);
-            ?>
-            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-            @elseif($banner->application_dropdown_id == 3)
-            <?php 
-                $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                $banner_url = URL('shop/'.$category->slug);
-            ?>
-            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-            @elseif($banner->application_dropdown_id == 4)
-            <?php 
-                $banner_url = $banner->value;
-            ?>
-            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-            @endif
-            
-            @endif  
-            <div class="item">
-                    <div class="background-slider ">
-                        <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
-                        <div class="background-smoke-slider position-relative">
-                            <div class="d-block d-md-none mobile-view-img">
-                                <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
-                            </div>
-                            <div class="d-none d-md-block desktop-view-img">
-                                <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
-                            </div>
-                            <div class="">
-                                <div class="background-text-part px-3 px-lg-4 container">
-                                    <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
-                                    <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
-                                    <div class="paragraph mt-0 mt-md-5 ">
-                                    {!! $banner->description !!}
+            <div class="owl-carousel owl-theme home-page-slider">
+                @foreach($banners as $banner)
+                    @if($banner->button_name == "")
+                        @if($banner->application_dropdown_id == 1)
+                            <a href="#">
+                                @elseif($banner->application_dropdown_id == 2)
+                                <?php 
+                                $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                                //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                $banner_url = URL('product-details/'.$product_variant->slug);
+                                ?>
+                            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+                        @elseif($banner->application_dropdown_id == 3)
+                            <?php 
+                            $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                            $banner_url = URL('shop/'.$category->slug);
+                            ?>
+                            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+                        @elseif($banner->application_dropdown_id == 4)
+                            <?php 
+                                $banner_url = $banner->value;
+                            ?>
+                        <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+                        @endif
+                    @endif  
+                    <div class="item">
+                            <div class="background-slider ">
+                                <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
+                                <div class="background-smoke-slider position-relative">
+                                    <div class="d-block d-md-none mobile-view-img">
+                                        <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
                                     </div>
-                                    @if($banner->button_name != "")
-                                    @if($banner->application_dropdown_id == 1)
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
-                                        {{ $banner->button_name }}
-                                    </button>
-                                    @elseif($banner->application_dropdown_id == 2)
-                                    <?php 
-                                        
-                                        $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                                        //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
-                                        if(isset($product_variant->slug)){
-                                            $banner_url = URL('product-details/'.$product_variant->slug);
-                                        }else{
-                                            $banner_url = "";
-                                        }
-                                    ?>
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                        {{ $banner->button_name }}
-                                    </button>
-                                    @elseif($banner->application_dropdown_id == 3)
-                                    <?php 
-                                        $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                                        $banner_url = URL('shop/'.$category->slug);
-                                    ?>
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                        {{ $banner->button_name }}
-                                    </button>
-                                    @elseif($banner->application_dropdown_id == 4)
-                                    <?php 
-                                        $banner_url = $banner->value;
-                                    ?>
-                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                        {{ $banner->button_name }}
-                                    </button>
-                                    @endif
-                                    @endif
-                                   
+                                    <div class="d-none d-md-block desktop-view-img">
+                                        <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                                    </div>
+                                    <div class="">
+                                        <div class="background-text-part px-3 px-lg-4 container">
+                                            <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
+                                            <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
+                                            <div class="paragraph mt-0 mt-md-5 ">
+                                            {!! $banner->description !!}
+                                            </div>
+                                            @if($banner->button_name != "")
+                                            @if($banner->application_dropdown_id == 1)
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
+                                                {{ $banner->button_name }}
+                                            </button>
+                                            @elseif($banner->application_dropdown_id == 2)
+                                            <?php 
+                                                
+                                                $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                                                //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                                if(isset($product_variant->slug)){
+                                                    $banner_url = URL('product-details/'.$product_variant->slug);
+                                                }else{
+                                                    $banner_url = "";
+                                                }
+                                            ?>
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                                {{ $banner->button_name }}
+                                            </button>
+                                            @elseif($banner->application_dropdown_id == 3)
+                                            <?php 
+                                                $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                                                $banner_url = URL('shop/'.$category->slug);
+                                            ?>
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                                {{ $banner->button_name }}
+                                            </button>
+                                            @elseif($banner->application_dropdown_id == 4)
+                                            <?php 
+                                                $banner_url = $banner->value;
+                                            ?>
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                                {{ $banner->button_name }}
+                                            </button>
+                                            @endif
+                                            @endif
+                                           
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
+                    @if($banner->button_name == "")
+                    </a>
+                    @endif 
+                @endforeach
             </div>
-            @if($banner->button_name == "")
-            </a>
-            @endif 
-            @endforeach
-        </div>
         @endif
-    </div>
+    <!-- </div> -->
     
     @if(count($categories) > 0)
     <div class="container">
@@ -158,7 +157,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="shop_dimond_by_shape1">
         <div class="container">
@@ -441,51 +439,49 @@
     </div>
 
     @if(count($BlogBanners) > 0)
-    
-    <div class="shop_dimond_by_shape py-0">
-        <div class="container">
-            <div class="row">
-                @foreach($BlogBanners as $BlogBanner)
-                <?php 
-                    $blogcount = count($BlogBanners);
-                    $url = "";
-                    if($BlogBanner['dropdown_id'] == 1){
-                        $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                        $url = url('/shop/'.$category->slug); 
-                    }elseif($BlogBanner['dropdown_id'] == 2){
-                        $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
-                        $cat_id = explode(',',$Product->primary_category_id);
-                        $var_id = $Product->product_variant[0]->id;
-                        $slug = $Product->product_variant[0]->slug;
-                        $url = url('/product-details/'.$slug);
-                    }
-                    if($blogcount == 1){
-                    $blogcol = 12; 
-                    }else if($blogcount == 2){
-                    $blogcol = 6;
-                    }else if($blogcount == 3){
-                    $blogcol = 4;    
-                    }else if($blogcount == 4){
-                    $blogcol = 3;    
-                    }else if($blogcount == 5){
-                    $blogcol = 2;    
-                    }else if($blogcount == 6){
-                    $blogcol = 2;    
-                    }
-                ?>
-                <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
-                    <a href="{{ $url }}" class="banner_part_img_parent">
-                        <figure>
-                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
-                        </figure>
-                    </a>
+        <div class="shop_dimond_by_shape py-0">
+            <div class="container">
+                <div class="row">
+                    @foreach($BlogBanners as $BlogBanner)
+                    <?php 
+                        $blogcount = count($BlogBanners);
+                        $url = "";
+                        if($BlogBanner['dropdown_id'] == 1){
+                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
+                            $url = url('/shop/'.$category->slug); 
+                        }elseif($BlogBanner['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
+                            $cat_id = explode(',',$Product->primary_category_id);
+                            $var_id = $Product->product_variant[0]->id;
+                            $slug = $Product->product_variant[0]->slug;
+                            $url = url('/product-details/'.$slug);
+                        }
+                        if($blogcount == 1){
+                        $blogcol = 12; 
+                        }else if($blogcount == 2){
+                        $blogcol = 6;
+                        }else if($blogcount == 3){
+                        $blogcol = 4;    
+                        }else if($blogcount == 4){
+                        $blogcol = 3;    
+                        }else if($blogcount == 5){
+                        $blogcol = 2;    
+                        }else if($blogcount == 6){
+                        $blogcol = 2;    
+                        }
+                    ?>
+                    <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
+                        <a href="{{ $url }}" class="banner_part_img_parent">
+                            <figure>
+                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
+                            </figure>
+                        </a>
+                    </div>
+                    @endforeach 
                 </div>
-                @endforeach 
             </div>
         </div>
-    </div>
     @endif
-
 
     <div class="smiling_gemver_banner shop_dimond_by_shape">
       <div class="container">
@@ -548,113 +544,96 @@
             <div class="mt-3 text-center">
                 <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
-      </div>
-      
+      </div> 
     </div>
-    @if(count($testimonials) > 0)
-    
-    <div class="container">
-        <div class="customer_stories">
-            <div class="row">
-                <div class="col-lg-5 customer_stories_bg">
-                    <div class="">
-                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
-                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
-                        <div class="customer_stories_img">
+
+    @if(count($shopbystyle) > 0)
+        <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
+            <div class="container">
+                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                        <div class="mb-3 mt-md-0">
+                            <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
+                            <div class="sub_title">
+                                {{ $homesetting->section_shop_by_style_shotline }}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-7">
-                    <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
-                    @foreach($testimonials as $testimonial)
-
-                        <div class="item">
-                            <div class="customer-stories-quotes">
-                                <div class="customer-stories-paragraph">
-                                    {!! $testimonial->description !!}
-                                </div>
-                                <div class="mt-4">
-                                    <div class="testimonial-author-img">
-                                        <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                <div class="row">
+                    <div class="col-md-12 text-center   ">
+                        <div class="owl-carousel owl-theme shop-by-style-slider">
+                            @foreach($shopbystyle as $shopby)
+                            <div class="item">
+                                <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
+                                    <img src="{{ url($shopby->image) }}" alt="">
+                                    <div class="shop_by_style_heading text-center">
+                                        {{ $shopby->title }}
                                     </div>
-                                    <div class="author-info">
-                                        <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
-                                        <div class="customer-country">{{ $testimonial->country }}</div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
+                            @endforeach
                         </div>
-
-                        <!-- <div class="item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
-                                </div>
-                                <div class="col-md-8 customer-stories-quotes d-flex flex-column justify-content-between">
-                                    <div class="customer-stories-paragraph mt-3 mt-md-0">
-                                    {!! $testimonial->description !!}
-                                    </div>
-                                    <div class="text-end mt-0 pt-0 mt-0 mt-md-4">
-                                        <div class="customer-name">{{ $testimonial->name }}</div>
-                                        <div class="customer-country mt-0 mt-md-2">{{ $testimonial->country }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        
-                    @endforeach    
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
     @endif
-        <div class="customise_own_ring_section">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
-                    <div class="engagement_ring_diamond_part">
-                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
-                        <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                        <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
-                    </div>
-                </div>
-                <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
-                    <div class="own_ring_img">
-                        <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
-                    </div>
+
+    <div class="customise_own_ring_section">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
+                <div class="engagement_ring_diamond_part">
+                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
+                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
+                    <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
                 </div>
             </div>
-        </div>
-     @if(count($shopbystyle) > 0)
-    <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
-        <div class="container">
-            <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                    <div class="mb-3 mt-md-0">
-                        <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
-                        <div class="sub_title">
-                            {{ $homesetting->section_shop_by_style_shotline }}
-                        </div>
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-md-12 text-center   ">
-                    <div class="owl-carousel owl-theme shop-by-style-slider">
-                        @foreach($shopbystyle as $shopby)
-                        <div class="item">
-                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
-                                <img src="{{ url($shopby->image) }}" alt="">
-                                <div class="shop_by_style_heading text-center">
-                                    {{ $shopby->title }}
-                                </div>
-                            </a>
-                        </div>
-                        @endforeach
-                    </div>
+            <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
+                <div class="own_ring_img">
+                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
                 </div>
             </div>
         </div>
     </div>
+
+    @if(count($testimonials) > 0)
+        <div class="testimonial-section">
+            <div class="container">
+                <div class="customer_stories">
+                    <div class="row">
+                        <div class="col-lg-5 customer_stories_bg">
+                            <div class="">
+                                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
+                                <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
+                                <div class="customer_stories_img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
+                                @foreach($testimonials as $testimonial)
+                                    <div class="item">
+                                        <div class="customer-stories-quotes">
+                                            <div class="customer-stories-paragraph">
+                                                {!! $testimonial->description !!}
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="testimonial-author-img">
+                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                                </div>
+                                                <div class="author-info">
+                                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
+                                                    <div class="customer-country">{{ $testimonial->country }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endif
 
     <div class="container">
@@ -815,8 +794,7 @@
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
-<script>
-        
+<script>    
 $(document).ready(function(){
         
     $(document).on('click','.banner-url',function(){
