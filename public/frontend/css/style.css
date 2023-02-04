@@ -729,7 +729,7 @@ background-size: cover;
         position: relative;
     }
     
-    .customer_stories_img::after {
+    /*.customer_stories_img::after {
         content: "";
         position: absolute;
         top: 30%;
@@ -740,13 +740,11 @@ background-size: cover;
         background: url(../image/customer_stories.png) no-repeat;
         background-size: 47%;
         opacity: 0.2;
-    }
+    }*/
     
     .customer_stories_paragraph {
         font-weight: normal;
         font-size: 18px;
-        /*line-height: 30px;*/
-        color: gray;
         font-family: 'Roboto', sans-serif;
     }
     
@@ -979,7 +977,11 @@ background-size: cover;
     .customise_own_ring_section {
         padding: 0;
         border-radius: 15px;
-        margin: 60px 0 40px 0;
+        margin: 60px 0;
+    }
+
+    .ads-banner-section {
+        padding: 30px 0;
     }
     
     .gemver_diamonds_section {
@@ -4332,11 +4334,15 @@ width: 100%;
         width: auto;
         max-height: 60px;
     }
+
+    .ads-banner-section {
+        padding: 60px 0;
+    }
     
     .smiling_gemver_banner {
-        margin-top: 60px;
-        margin-bottom: 60px;
-        padding-bottom: 60px;
+        /*margin-top: 60px;
+        margin-bottom: 60px;*/
+        padding: 60px 0;
         position: relative;
     }
 

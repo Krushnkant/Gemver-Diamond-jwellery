@@ -437,50 +437,22 @@
         </div>
     </div>
 
-    @if(count($BlogBanners) > 0)
-        <div class="shop_dimond_by_shape py-0">
-            <div class="container">
-                <div class="row">
-                    @foreach($BlogBanners as $BlogBanner)
-                    <?php 
-                        $blogcount = count($BlogBanners);
-                        $url = "";
-                        if($BlogBanner['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                            $url = url('/shop/'.$category->slug); 
-                        }elseif($BlogBanner['dropdown_id'] == 2){
-                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
-                            $cat_id = explode(',',$Product->primary_category_id);
-                            $var_id = $Product->product_variant[0]->id;
-                            $slug = $Product->product_variant[0]->slug;
-                            $url = url('/product-details/'.$slug);
-                        }
-                        if($blogcount == 1){
-                        $blogcol = 12; 
-                        }else if($blogcount == 2){
-                        $blogcol = 6;
-                        }else if($blogcount == 3){
-                        $blogcol = 4;    
-                        }else if($blogcount == 4){
-                        $blogcol = 3;    
-                        }else if($blogcount == 5){
-                        $blogcol = 2;    
-                        }else if($blogcount == 6){
-                        $blogcol = 2;    
-                        }
-                    ?>
-                    <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
-                        <a href="{{ $url }}" class="banner_part_img_parent">
-                            <figure>
-                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    @endforeach 
+    <div class="customise_own_ring_section">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
+                <div class="engagement_ring_diamond_part">
+                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
+                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
+                    <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
+                </div>
+            </div>
+            <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
+                <div class="own_ring_img">
+                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
                 </div>
             </div>
         </div>
-    @endif
+    </div>
 
     <div class="smiling_gemver_banner shop_dimond_by_shape">
         <div class="container">
@@ -553,6 +525,51 @@
         </div> 
     </div>
 
+    @if(count($BlogBanners) > 0)
+        <div class="shop_dimond_by_shape ads-banner-section">
+            <div class="container">
+                <div class="row">
+                    @foreach($BlogBanners as $BlogBanner)
+                    <?php 
+                        $blogcount = count($BlogBanners);
+                        $url = "";
+                        if($BlogBanner['dropdown_id'] == 1){
+                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
+                            $url = url('/shop/'.$category->slug); 
+                        }elseif($BlogBanner['dropdown_id'] == 2){
+                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
+                            $cat_id = explode(',',$Product->primary_category_id);
+                            $var_id = $Product->product_variant[0]->id;
+                            $slug = $Product->product_variant[0]->slug;
+                            $url = url('/product-details/'.$slug);
+                        }
+                        if($blogcount == 1){
+                        $blogcol = 12; 
+                        }else if($blogcount == 2){
+                        $blogcol = 6;
+                        }else if($blogcount == 3){
+                        $blogcol = 4;    
+                        }else if($blogcount == 4){
+                        $blogcol = 3;    
+                        }else if($blogcount == 5){
+                        $blogcol = 2;    
+                        }else if($blogcount == 6){
+                        $blogcol = 2;    
+                        }
+                    ?>
+                    <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
+                        <a href="{{ $url }}" class="banner_part_img_parent">
+                            <figure>
+                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
+                            </figure>
+                        </a>
+                    </div>
+                    @endforeach 
+                </div>
+            </div>
+        </div>
+    @endif
+
     @if(count($testimonials) > 0)
         <div class="testimonial-section">
             <div class="container">
@@ -593,7 +610,7 @@
             </div>
         </div>
     @endif
-    
+
     @if(count($shopbystyle) > 0)
         <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
             <div class="container">
@@ -624,23 +641,6 @@
             </div>
         </div>
     @endif
-
-    <div class="customise_own_ring_section">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
-                <div class="engagement_ring_diamond_part">
-                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
-                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                    <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
-                </div>
-            </div>
-            <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
-                <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         <div class="gemver_diamonds_section px-0">
@@ -800,82 +800,82 @@
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
-<script>    
-    $(document).ready(function(){
-        $(document).on('click','.banner-url',function(){
-            var banner_url = $(this).attr("data-value");
-            window.location.href = banner_url;
-        });
-        $('body').on('click', '#save_newInquiryBtn', function () {
-            save_inquiry($(this),'save_new');
-        });
-        function save_inquiry(btn,btn_type){
-            $(btn).prop('disabled',true);
-            $(btn).find('.loadericonfa').show();
-            var action  = $(btn).attr('data-action');
-            var formData = new FormData($("#InquiryCreateForm")[0]);
-            
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('frontend.inquiry.save') }}",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (res) {
-                   
-                    if(res.status == 'failed'){
-                        $(btn).prop('disabled',false);
-                        $(btn).find('.loadericonfa').hide();
-
-                        if (res.errors.name) {
-                            $('#name-error').show().text(res.errors.name);
-                        } else {
-                            $('#name-error').hide();
-                        }
-                        if (res.errors.email) {
-                            $('#email-error').show().text(res.errors.email);
-                        } else {
-                            $('#email-error').hide();
-                        }
-
-                        if (res.errors.mobile_no) {
-                            $('#mobile_no-error').show().text(res.errors.mobile_no);
-                        } else {
-                            $('#mobile_no-error').hide();
-                        }
-                        if (res.errors.inquiry) {
-                            $('#inquiry-error').show().text(res.errors.inquiry);
-                        } else {
-                            $('#inquiry-error').hide();
-                        } 
-                    }
-                    if(res.status == 200){
-                        $('#inquiry-error').hide();
-                        $('#mobile_no-error').hide();
-                        $('#email-error').hide();
-                        $('#name-error').hide();
-                        document.getElementById("InquiryCreateForm").reset();
-                        $(btn).prop('disabled',false);
-                        $(btn).find('.loadericonfa').hide();
-                        //location.href="{{ route('frontend.contactus')}}";
-                        var success_message = 'Thank You For Bulk Order Inquiry';
-                        $('#success-alert').text(success_message);
-                        $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                          $("#success-alert").slideUp(1000);
-                          //location.reload();
-                          //window.location.href = "{{ url('/') }}";
-                        });
-                    }
-
-                },
-                error: function (data) {
-                    $(btn).prop('disabled',false);
-                    $(btn).find('.loadericonfa').hide();
-                    toastr.error("Please try again",'Error',{timeOut: 5000});
-                }
+    <script>    
+        $(document).ready(function(){
+            $(document).on('click','.banner-url',function(){
+                var banner_url = $(this).attr("data-value");
+                window.location.href = banner_url;
             });
-        }
-    });
-</script>
+            $('body').on('click', '#save_newInquiryBtn', function () {
+                save_inquiry($(this),'save_new');
+            });
+            function save_inquiry(btn,btn_type){
+                $(btn).prop('disabled',true);
+                $(btn).find('.loadericonfa').show();
+                var action  = $(btn).attr('data-action');
+                var formData = new FormData($("#InquiryCreateForm")[0]);
+                
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('frontend.inquiry.save') }}",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                       
+                        if(res.status == 'failed'){
+                            $(btn).prop('disabled',false);
+                            $(btn).find('.loadericonfa').hide();
+
+                            if (res.errors.name) {
+                                $('#name-error').show().text(res.errors.name);
+                            } else {
+                                $('#name-error').hide();
+                            }
+                            if (res.errors.email) {
+                                $('#email-error').show().text(res.errors.email);
+                            } else {
+                                $('#email-error').hide();
+                            }
+
+                            if (res.errors.mobile_no) {
+                                $('#mobile_no-error').show().text(res.errors.mobile_no);
+                            } else {
+                                $('#mobile_no-error').hide();
+                            }
+                            if (res.errors.inquiry) {
+                                $('#inquiry-error').show().text(res.errors.inquiry);
+                            } else {
+                                $('#inquiry-error').hide();
+                            } 
+                        }
+                        if(res.status == 200){
+                            $('#inquiry-error').hide();
+                            $('#mobile_no-error').hide();
+                            $('#email-error').hide();
+                            $('#name-error').hide();
+                            document.getElementById("InquiryCreateForm").reset();
+                            $(btn).prop('disabled',false);
+                            $(btn).find('.loadericonfa').hide();
+                            //location.href="{{ route('frontend.contactus')}}";
+                            var success_message = 'Thank You For Bulk Order Inquiry';
+                            $('#success-alert').text(success_message);
+                            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                              $("#success-alert").slideUp(1000);
+                              //location.reload();
+                              //window.location.href = "{{ url('/') }}";
+                            });
+                        }
+
+                    },
+                    error: function (data) {
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+                        toastr.error("Please try again",'Error',{timeOut: 5000});
+                    }
+                });
+            }
+        });
+    </script>
  @endsection
    
