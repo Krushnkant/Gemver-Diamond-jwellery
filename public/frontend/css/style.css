@@ -4343,6 +4343,10 @@ width: 100%;
         position: relative;
     }
 
+    .footer-paymentbox {
+        padding-right: 40px;
+    }
+
     .diff-item-box {
         display: flex;
         flex: 1 0 auto;

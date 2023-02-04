@@ -215,8 +215,8 @@
                             <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>    
                     </div>
-                    <div class="">
-                        <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
+                    <div class="footer-paymentbox">
+                        <div class="footer-heading mb-2 mb-md-2 d-flex justify-content-between">
                             Payments Accepted
                         </div>
                         <img src="{{ asset('frontend/image/payment-cards.png') }}" alt="Payments Accepted">
