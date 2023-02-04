@@ -199,7 +199,7 @@
                         Newsletter
                     </div>
                     <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about sample sales, special deals, and new releases.</p>
-                    <div class="">
+                    <div class="mb-4">
                         <form action="test" method="post" id="NewsLatterForm">
                             @csrf
                             <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
@@ -214,6 +214,12 @@
                             </div>
                             <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>    
+                    </div>
+                    <div class="">
+                        <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
+                            Payments Accepted
+                        </div>
+                        <img src="{{ asset('frontend/image/payment-cards.png') }}" alt="Payments Accepted">
                     </div>
                 </div>
             </div>
