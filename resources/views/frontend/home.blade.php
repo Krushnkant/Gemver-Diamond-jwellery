@@ -570,15 +570,17 @@
 
                         <div class="item">
                             <div class="customer-stories-quotes">
-                                <div class="customer-stories-paragraph text-center">
+                                <div class="customer-stories-paragraph">
                                     {!! $testimonial->description !!}
                                 </div>
-                                <div class="mt-4 text-center">
+                                <div class="mt-4">
                                     <div class="testimonial-author-img">
                                         <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
                                     </div>
-                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
-                                    <div class="customer-country">{{ $testimonial->country }}</div>
+                                    <div class="author-info">
+                                        <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
+                                        <div class="customer-country">{{ $testimonial->country }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

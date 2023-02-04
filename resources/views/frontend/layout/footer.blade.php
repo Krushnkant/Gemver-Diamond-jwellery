@@ -1,34 +1,51 @@
 <footer class="footer-part-section mt-0">
     <div class="container">
             <div class="row mb-md-5">
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <div class="footer-logo mb-3">
                         <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div>
-                        <div class="footer-part-heading mb-3">newsletter</div>
-                        <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about <br>sample sales, special deals, and new releases.</p>
-                        <div class="">
-                        <form action="test" method="post" id="NewsLatterForm">
-                            @csrf
-                            <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
+                        <div class="footer-part-heading mb-3">Trusted By</div>
+                        <div class="col-md-12 text-center">
+                            <div id="trustby-slider" class="owl-carousel owl-theme">
+                                <div class="item">
+                                    <a href="#" class="">
+                                        <img src="{{ URL('frontend/image/gia.png') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" class="">
+                                        <img src="{{ URL('frontend/image/SSL-Secure-Connection.png') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" class="">
+                                        <img src="{{ URL('frontend/image/trust-pilot.png') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" class="">
+                                        <img src="{{ URL('frontend/image/lets-encrypt.png') }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="#" class="">
+                                        <img src="{{ URL('frontend/image/McAfee-Logo.png') }}" alt="">
+                                    </a>
+                                </div>
                             </div>
-                            <div class="d-flex">
-                                <span class="email_input mb-0 d-inline-block"> 
-                                    <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
-                                </span>
-                                <span class="ms-2">
-                                    <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
-                                </span>
-                            </div>
-                            <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        </form>    
                         </div>
+                        <!-- <div class="">
+                            <div class="image-box">
+                                <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
+                            </div>  
+                        </div> -->
                     </div>
                 </div>
-                <div class="col-lg-3 text-lg-end text-start mt-3 mt-lg-0">
+                <div class="col-lg-2 text-lg-end text-start mt-3 mt-lg-0">
                     <div class="footer-part-heading mb-3">stay in touch !</div>
                     <ul class="footer-social-media-icons">
                         @if($settings->instagram_url != "")
@@ -73,7 +90,7 @@
             </div>
             <div class="line"></div>
             <div class="row mt-4 mt-md-5">
-                <div class="col-md-4 footer-col mb-md-0">
+                <div class="col-md-2 footer-col mb-md-0">
                     <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between"> 
                         about
                        <div class="footer-angle d-block d-md-none">
@@ -107,7 +124,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-md-4 footer-col mb-md-0">
+                <div class="col-md-3 footer-col mb-md-0">
                     <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                         Why Gemver?
                     <div class="footer-angle d-block d-md-none">
@@ -147,7 +164,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-md-4 footer-col mb-md-0">
+                <div class="col-md-3 footer-col mb-md-0">
                     <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                         contact
                         <div class="footer-angle d-block d-md-none">
@@ -176,6 +193,28 @@
                             <a href="#"><i class="fa fa-address-card"></i> {{ $settings->company_address }}</a>
                         </li>
                     </ul>
+                </div>
+                <div class="col-md-4 footer-col mb-md-0">
+                    <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
+                        Newsletter
+                    </div>
+                    <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about sample sales, special deals, and new releases.</p>
+                    <div class="">
+                        <form action="test" method="post" id="NewsLatterForm">
+                            @csrf
+                            <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
+                            </div>
+                            <div class="d-flex">
+                                <span class="email_input mb-0 d-inline-block"> 
+                                    <input type="text" required="required" name="newslatteremail" id="newslatteremail" placeholder="email address">
+                                </span>
+                                <span class="ms-2">
+                                    <button type="submit" id="save_newNewsLatterBtn" class="submit_btn">submit</button>
+                                </span>
+                            </div>
+                            <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                        </form>    
+                    </div>
                 </div>
             </div>
             <input type="hidden" value="{{asset('frontend/')}}" id="asset" name="asset">

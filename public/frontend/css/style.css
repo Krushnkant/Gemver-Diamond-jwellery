@@ -841,11 +841,18 @@ background-size: cover;
     }
     
     .customer_stories .item {
-        border: 1px solid #d1cfcf;
+        border: 5px solid #cbe5ff;
         border-radius: 0px 50px;
         padding: 40px;
+        background-color: #f3f7ff;
     }
-    
+    .author-info {
+        float: left;
+        margin-left: 20px;
+    }
+    .testimonial-author-img {
+        float: left;
+    }
     .customer-stories-img,
     .shop-dimond-by-shape-img {
         position: relative;
@@ -902,7 +909,7 @@ background-size: cover;
         color: gray;
     }
     
-    .customer-stories-quotes {
+    /*.customer-stories-quotes {
         padding-left: 90px;
         position: relative;
     }
@@ -921,7 +928,7 @@ background-size: cover;
     
     .customer-stories-quotes::after {
         background-size: 25px;
-    }
+    }*/
     
     .engagement_ring_section {
         padding: 60px 72px 60px 72px;
@@ -1071,11 +1078,11 @@ background-size: cover;
     
     .footer-social-media-icons li {
         display: inline-block;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         background: transparent;
         text-align: center;
-        line-height: 35px;
+        line-height: 30px;
     }
     
     .footer-social-media-icons li svg {
@@ -4120,14 +4127,22 @@ width: 100%;
         box-shadow: 3px 3px 10px 0px rgb(191 207 223);
     }
     
-    .customer-stories img {
+    .customer-stories .customer-stories-quotes .testimonial-author-img img {
         /*height: 230px;
         /* object-fit: cover;
-        width: auto !important;
-        margin: auto;*/
-        width: 110px;
+        width: auto !important;*/
+        margin: auto;
+        width: 80px;
         border-radius: 50%;
         /*border: 5px solid #b4c7d9;*/
+    }
+
+    #customer-stories .owl-stage {
+        display: flex;
+    }
+    #customer-stories .owl-item {
+        display: flex;
+        flex: 1 0 auto;
     }
     
     .header-icon-part {
