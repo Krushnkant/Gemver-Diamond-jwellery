@@ -194,7 +194,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4 footer-col mb-md-0">
+                <div class="col-md-4 footer-col mb-4 mb-md-4">
                     <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                         Newsletter
                     </div>

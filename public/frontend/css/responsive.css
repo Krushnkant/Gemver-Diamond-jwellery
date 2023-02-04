@@ -1206,9 +1206,9 @@
     .filter-btn {
         font-size: 12px !important;
     }
-    .customer-stories img {
+    /*.customer-stories img {
         height: 95px;
-    }
+    }*/
     .paragraph {
         color: #0B1727;
         font-size: 16px;
@@ -1269,16 +1269,16 @@
         border-radius: 45px 0;
         padding: 30px 20px;
     }
-    .customer-stories-quotes {
+    /*.customer-stories-quotes {
         padding-left: 15px;
-    }
+    }*/
     .engagement_diamond_heading {
         font-size: 22px;
     }
     .customer-stories-paragraph {
         font-size: 14px;
-        text-indent: 43px;
-        line-height: 22px;
+        /*text-indent: 43px;
+        line-height: 22px;*/
     }
     .customer-name {
         font-size: 18px;
