@@ -1332,9 +1332,9 @@ button.close {
 }
 
 .select2-container--default .select2-selection .select2-selection__rendered {
-    color: #495057;
+    /*color: #495057;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 3px;*/
 }
 
 .select2-container .select2-selection {
@@ -1342,13 +1342,19 @@ button.close {
 }
 
 .select2-container--default .select2-selection {
-    border: 1px solid #ced4da;
-    border-radius: 0;
+    border: 1px solid rgba(34,36,38,.15);
+    border-radius: 0.28571429rem;
+    padding: 2px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+    margin-right: 0;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
 .select2-container--default .select2-selection--multiple .select2-selection__clear {
-    margin-top: 2px;
+/*    margin-top: 2px;*/
+    padding: 2px 8px;
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
@@ -1360,7 +1366,8 @@ button.close {
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
     margin-right: 5px;
-    margin-left: 2px;
+    margin-left: 5px;
+    color: #585858;
 }
 
 .varUploadedImgBox {
