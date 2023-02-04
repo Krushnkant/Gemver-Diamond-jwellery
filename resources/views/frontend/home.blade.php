@@ -553,6 +553,47 @@
         </div> 
     </div>
 
+    @if(count($testimonials) > 0)
+        <div class="testimonial-section">
+            <div class="container">
+                <div class="customer_stories">
+                    <div class="row">
+                        <div class="col-lg-5 customer_stories_bg">
+                            <div class="">
+                                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
+                                <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
+                                <div class="customer_stories_img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
+                                @foreach($testimonials as $testimonial)
+                                    <div class="item">
+                                        <div class="customer-stories-quotes">
+                                            <div class="customer-stories-paragraph">
+                                                {!! $testimonial->description !!}
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="testimonial-author-img">
+                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                                </div>
+                                                <div class="author-info">
+                                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
+                                                    <div class="customer-country">{{ $testimonial->country }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    
     @if(count($shopbystyle) > 0)
         <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
             <div class="container">
@@ -600,47 +641,6 @@
             </div>
         </div>
     </div>
-
-    @if(count($testimonials) > 0)
-        <div class="testimonial-section">
-            <div class="container">
-                <div class="customer_stories">
-                    <div class="row">
-                        <div class="col-lg-5 customer_stories_bg">
-                            <div class="">
-                                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
-                                <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
-                                <div class="customer_stories_img">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
-                                @foreach($testimonials as $testimonial)
-                                    <div class="item">
-                                        <div class="customer-stories-quotes">
-                                            <div class="customer-stories-paragraph">
-                                                {!! $testimonial->description !!}
-                                            </div>
-                                            <div class="mt-4">
-                                                <div class="testimonial-author-img">
-                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
-                                                </div>
-                                                <div class="author-info">
-                                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
-                                                    <div class="customer-country">{{ $testimonial->country }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
 
     <div class="container">
         <div class="gemver_diamonds_section px-0">
