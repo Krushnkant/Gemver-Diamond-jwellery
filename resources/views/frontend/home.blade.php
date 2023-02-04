@@ -486,7 +486,7 @@
         <div class="container">
             <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
             <div class="row">
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block diff-item-box">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                             <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
@@ -501,7 +501,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block diff-item-box">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                             <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
@@ -516,7 +516,7 @@
                        </div>
                    </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block diff-item-box">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                             <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
@@ -531,7 +531,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block diff-item-box">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
                             <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
