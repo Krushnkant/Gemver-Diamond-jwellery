@@ -729,7 +729,7 @@ background-size: cover;
         position: relative;
     }
     
-    .customer_stories_img::after {
+    /*.customer_stories_img::after {
         content: "";
         position: absolute;
         top: 30%;
@@ -740,13 +740,11 @@ background-size: cover;
         background: url(../image/customer_stories.png) no-repeat;
         background-size: 47%;
         opacity: 0.2;
-    }
+    }*/
     
     .customer_stories_paragraph {
         font-weight: normal;
         font-size: 18px;
-        /*line-height: 30px;*/
-        color: gray;
         font-family: 'Roboto', sans-serif;
     }
     
@@ -837,15 +835,26 @@ background-size: cover;
     }
     
     .customer_stories {
-        padding: 50px 0 !important;
+        padding: 50px 0;
     }
     
     .customer_stories .item {
-        border: 1px solid #d1cfcf;
+        border: 5px solid #cbe5ff;
         border-radius: 0px 50px;
         padding: 40px;
+        background-color: #f3f7ff;
     }
-    
+    .author-info {
+        float: left;
+        margin-left: 20px;
+    }
+    .testimonial-author-img {
+        float: left;
+    }
+    .testimonial-section{
+        background-image: url(../image/testimonials-background.png);
+        padding: 40px 0;
+    }
     .customer-stories-img,
     .shop-dimond-by-shape-img {
         position: relative;
@@ -902,7 +911,7 @@ background-size: cover;
         color: gray;
     }
     
-    .customer-stories-quotes {
+    /*.customer-stories-quotes {
         padding-left: 90px;
         position: relative;
     }
@@ -921,7 +930,7 @@ background-size: cover;
     
     .customer-stories-quotes::after {
         background-size: 25px;
-    }
+    }*/
     
     .engagement_ring_section {
         padding: 60px 72px 60px 72px;
@@ -969,7 +978,11 @@ background-size: cover;
     .customise_own_ring_section {
         padding: 0;
         border-radius: 15px;
-        margin: 60px 0 40px 0;
+        margin: 60px 0;
+    }
+
+    .ads-banner-section {
+        padding: 30px 0;
     }
     
     .gemver_diamonds_section {
@@ -1071,11 +1084,11 @@ background-size: cover;
     
     .footer-social-media-icons li {
         display: inline-block;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         background: transparent;
         text-align: center;
-        line-height: 35px;
+        line-height: 30px;
     }
     
     .footer-social-media-icons li svg {
@@ -4120,14 +4133,22 @@ width: 100%;
         box-shadow: 3px 3px 10px 0px rgb(191 207 223);
     }
     
-    .customer-stories img {
+    .customer-stories .customer-stories-quotes .testimonial-author-img img {
         /*height: 230px;
         /* object-fit: cover;
-        width: auto !important;
-        margin: auto;*/
-        width: 110px;
+        width: auto !important;*/
+        margin: auto;
+        width: 80px;
         border-radius: 50%;
         /*border: 5px solid #b4c7d9;*/
+    }
+
+    #customer-stories .owl-stage {
+        display: flex;
+    }
+    #customer-stories .owl-item {
+        display: flex;
+        flex: 1 0 auto;
     }
     
     .header-icon-part {
@@ -4316,13 +4337,22 @@ width: 100%;
     }
     
     .smiling_gemver_banner {
-        margin-top: 60px;
-        margin-bottom: 60px;
-        padding-bottom: 60px;
+        /*margin-top: 60px;
+        margin-bottom: 60px;*/
+        padding: 60px 0;
         position: relative;
     }
+
+    .footer-paymentbox {
+        padding-right: 40px;
+    }
+
+    .diff-item-box {
+        display: flex;
+        flex: 1 0 auto;
+    }
     
-    .smiling_gemver_banner:after {
+    /*.smiling_gemver_banner:after {
         content: "";
         position: absolute;
         top: 0;
@@ -4331,7 +4361,7 @@ width: 100%;
         height: 100%;
         background: var(--light-bg);
         z-index: -9;
-    }
+    }*/
     
     .smiling_gemver_heading {
         color: var(--primary);
@@ -4340,14 +4370,17 @@ width: 100%;
     .smiling_box_icon {
         width: 50px;
         height: 50px;
+        margin: auto;
     }
     
     .smiling_box_heading {
         color: var(--primary);
         font-weight: 600;
         font-size: 17px;
-        line-height: 26px;
         letter-spacing: 0.05em;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px !important;
     }
     
     .smiling_box_paragraph {
@@ -4355,7 +4388,7 @@ width: 100%;
         font-size: 14px;
         /*line-height: 15px;*/
         letter-spacing: 0.05em;
-        color: #808080;
+        text-align: center;
     }
     
     .detail_label {
@@ -5790,6 +5823,15 @@ width: 100%;
     
     .smiling_gemver_banner_section {
         background: var(--light-bg);
+    }
+
+    .diff-box {
+        box-shadow: inset 0px 0px 20px 1px rgb(141 104 78);
+        padding: 30px 20px;
+        background-color: #ffd9a3;
+        border-radius: 5px;
+        /* background-color: #d7ebff; */
+        /* box-shadow: inset 0px 0px 20px 1px #2c3e50; */
     }
     
     .fancy_color_diamonds {

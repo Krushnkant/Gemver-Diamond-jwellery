@@ -124,7 +124,30 @@ $(document).ready(function() {
                 items: 1
             },
             1000: {
-                items: 2
+                items: 1
+            }
+        }
+    });
+    $('#trustby-slider').owlCarousel({
+        autoplay: true,
+        rewind: true,
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        margin: 50,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 2,
+                autoHeight: true,
+            },
+            768: {
+                items: 4
+            },
+            1000: {
+                items: 5
             }
         }
     });
