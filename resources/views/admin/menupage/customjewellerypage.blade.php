@@ -338,9 +338,23 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-body">
+                    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                        <div class="form-group ">
+                            <label class="col-form-label" for="meta_title">Meta Title 
+                            </label>
+                            <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="meta_description">Meta Description 
+                            </label>
+                            <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                        </div>
+                    </div>
                     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4 mb-4">
                         <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -402,6 +416,8 @@
            $('[name=section51_category]').val(data.section51_category).change();
            $('[name=section52_category]').val(data.section52_category).change();
            $('[name=section53_category]').val(data.section53_category).change();
+           $('#meta_title').val(data.meta_title);
+           $('#meta_description').val(data.meta_description);
 
            if(data.banner_image!=null){
                 var banner_image = "{{ url('images/aboutus') }}" +"/" + data.banner_image;

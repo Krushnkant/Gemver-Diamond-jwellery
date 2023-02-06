@@ -354,7 +354,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('free_engraving',[\App\Http\Controllers\admin\InfopageController::class,'free_engraving'])->name('free_engraving.list');
     Route::post('updateFreeEngraving',[\App\Http\Controllers\admin\InfopageController::class,'updateFreeEngraving'])->name('free_engraving.updateFreeEngraving');
-    Route::get('terms_condition/free_engraving/edit',[\App\Http\Controllers\admin\InfopageController::class,'editFreeEngraving'])->name('free_engraving.editFreeEngraving');
+    Route::get('free_engraving/free_engraving/edit',[\App\Http\Controllers\admin\InfopageController::class,'editFreeEngraving'])->name('free_engraving.editFreeEngraving');
 
     Route::get('free_resizing',[\App\Http\Controllers\admin\InfopageController::class,'free_resizing'])->name('free_resizing.list');
     Route::post('updateFreeResizing',[\App\Http\Controllers\admin\InfopageController::class,'updateFreeResizing'])->name('free_resizing.updateFreeResizing');

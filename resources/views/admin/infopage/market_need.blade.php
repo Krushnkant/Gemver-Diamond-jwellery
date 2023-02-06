@@ -30,6 +30,19 @@
                                 <div id="market_need_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
+                            <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            
+                        
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
                                <button type="button" class="btn btn-primary" id="saveMarketNeedBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
@@ -58,6 +71,8 @@
         CKEDITOR.config.height = '300';
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
             CKEDITOR.instances['market_need_contant'].setData(data.market_need);
+            $('#meta_title').val(data.market_need_meta_title);
+            $('#meta_description').val(data.market_need_meta_description);
            //$('#market_need_contant').summernote('code', data.market_need);
         })
     });

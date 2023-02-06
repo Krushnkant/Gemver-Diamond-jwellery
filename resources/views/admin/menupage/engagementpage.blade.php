@@ -571,6 +571,18 @@
                                 <div id="section1_button_url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                         </div>
+                        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                         <button type="button" class="btn btn-primary" id="saveMenuPage">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
@@ -645,6 +657,8 @@
            $('#section52_description').val(data.section52_description);
            $('#section53_title').val(data.section53_title);
            $('#section53_description').val(data.section53_description);
+           $('#meta_title').val(data.meta_title);
+           $('#meta_description').val(data.meta_description);
 
            //$('#cat_id option[value="'+data.category_id+'"]');
            $('[name=cat_id]').val(data.category_id).change();

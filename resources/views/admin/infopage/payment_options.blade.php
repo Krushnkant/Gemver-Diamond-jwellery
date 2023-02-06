@@ -30,6 +30,17 @@
                                 <div id="payment_options_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
+                            <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
                                <button type="button" class="btn btn-primary" id="savePaymentOptionsBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
@@ -58,6 +69,8 @@
         CKEDITOR.config.height = '300';
         $.get("{{ url('admin/payment_options/payment_options/edit') }}", function (data) {
             CKEDITOR.instances['payment_options_contant'].setData(data.payment_options);
+            $('#meta_title').val(data.payment_options_meta_title);
+            $('#meta_description').val(data.payment_options_meta_description);
            //$('#payment_options_contant').summernote('code', data.payment_options);
         
         })
