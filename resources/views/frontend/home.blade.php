@@ -455,6 +455,7 @@
         </div>
     </div>
 
+    @if(isset($SmilingDifference) && count($SmilingDifference) > 0)
     <div class="smiling_gemver_banner shop_dimond_by_shape">
         <div class="container">
             <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
@@ -525,6 +526,7 @@
             </div>
         </div> 
     </div>
+    @endif
 
     @if(count($BlogBanners) > 0)
         <div class="shop_dimond_by_shape ads-banner-section">
