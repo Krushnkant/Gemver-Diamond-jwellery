@@ -1380,6 +1380,7 @@ span.select2-selection__clear {
     margin-right: 5px;
     margin-left: 5px;
     color: #585858;
+    float: right;
 }
 
 .varUploadedImgBox {
