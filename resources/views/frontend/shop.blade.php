@@ -392,15 +392,15 @@
                 });
                 console.log(val);
 
-                $.each(cart, function(index, value){
-                    console.log($(value).val());
-                });
+                // $.each(cart, function(index, value){
+                //     console.log($(value).val());
+                // });
 
 
-                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
-                    return elem.id 
-                });
-                 console.log(selectedValues);
+                // var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                //     return elem.id 
+                // });
+                //  console.log(selectedValues);
                // $('.filter_data').html('<div id="loading" style="" ></div>');
                 var keyword = "{{ isset($_GET['s'])?$_GET['s']:"" }}";
                 var action = 'fetch_data';
