@@ -369,7 +369,7 @@
         </div>
     </div> --}}
 
-    <div class="engagement_ring_section px-0">
+    {{-- <div class="engagement_ring_section px-0">
         <div class="container engagement_diamond_section">
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
@@ -760,7 +760,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="Instagram-post-section px-0">
         <h2 class="heading-h2 text-center mb-4">Instagram</h2>
