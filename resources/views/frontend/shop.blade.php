@@ -385,12 +385,10 @@
             function filter_data(page,scroll=0)
             {
                
-                var selectedValues = "";
-                $.each($(".selectattribute"), function(){
-                    //alert();
-                        $(this).select2('val', selectedValues);
+                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                    return elem.id 
                 });
-                console.log(selectedValues);
+        
                // $('.filter_data').html('<div id="loading" style="" ></div>');
                 var keyword = "{{ isset($_GET['s'])?$_GET['s']:"" }}";
                 var action = 'fetch_data';
@@ -406,7 +404,7 @@
                 $.ajax({
                     url:"{{ url('/product-filter') }}?page=" + page,
                     method:"POST",
-                    data:{action:action,keyword:keyword,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,_token: '{{ csrf_token() }}'},
+                    data:{action:action,keyword:keyword,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,selectattribute:selectattribute,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },
@@ -423,10 +421,11 @@
        
                         }else{
                             if (data['output'] == "") {
+                                $('.filter_data').html(data['output']);
+                                $(".total-product").html(data['datacount']);
                                 $('.auto-load').html("We don't have more data to display ");
                                 return;
                             }else{
-                                // console.log(data['output']);
                                 $('.filter_data').html(data['output']);
                                 $(".total-product").html(data['datacount']);
                                 $('.auto-load').hide();

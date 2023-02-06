@@ -122,6 +122,21 @@ class ProductController extends Controller
                });
             }
 
+            if(isset($data["selectattribute"])){
+                $selectattribute=$data["selectattribute"];
+               $query = $query->where(function($q) use($selectattribute){
+                foreach($selectattribute as $key=>$c){
+                    if ($key == 0) {
+                        $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                    } else {
+                        $q = $q->orWhere(function ($query1) use ($c){
+                            $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                        });
+                    }
+                }
+               });
+            }
+
             if(isset($data["specification"])){
                 $specification=$data["specification"];
                 $query = $query->where('product_variant_specifications.attribute_term_id',$specification);
@@ -241,7 +256,7 @@ class ProductController extends Controller
                                     
                                     foreach($product_attribute as $attribute_term){
  
-                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
+                                        $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
                                     
                                          $output .= '<span class="form-check d-inline-block">
                                             <a href="'.$attributeurl.'">
