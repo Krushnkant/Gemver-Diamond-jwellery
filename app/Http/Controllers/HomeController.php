@@ -80,7 +80,8 @@ class HomeController extends Controller
     
         $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
-        $banners = Banner::where('estatus',1)->get();
+        // $banners = Banner::where('estatus',1)->get();
+        $banners = [];
         $step = Step::where('estatus',1)->first();
         $homesetting = HomeSetting::with('category')->first();
         $shopbystyle = ShopByStyle::with('category')->where('estatus',1)->get();
