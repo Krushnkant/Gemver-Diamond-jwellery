@@ -137,7 +137,7 @@
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start">
-                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
+                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format($diamonds) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
                             <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
                             {{ $dddd }}
