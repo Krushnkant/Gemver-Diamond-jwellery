@@ -7245,19 +7245,19 @@ width: 100%;
     span.select2-selection__clear {
         display: none;
     }
-    .select2-container--default .select2-selection--multiple {
+    .select2-container--default .selection .select2-selection--multiple {
         border-bottom: 1px solid #e9e8e8;
     }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    .select2-container--default .selection .select2-selection--multiple .select2-selection__choice {
         font-size: 14px;
         padding: 2px 8px;
     }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-        margin-right: 8px;
-        margin-left: 2px;
+    .select2-container--default .selection .select2-selection--multiple .select2-selection__choice__remove {
+        margin-left: 5px;
         color: #ffffff;
+        float: right;
     }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    .select2-container--default .selection .select2-selection--multiple .select2-selection__choice {
         background-color: var(--secondary);
         border: 1px solid var(--secondary);
         border-radius: 4px;
@@ -7267,11 +7267,11 @@ width: 100%;
         margin-top: 5px;
         padding: 0 5px;
     }
-    .select2-container--default.select2-container--focus .select2-selection--multiple {
+    .select2-container--default.select2-container--focus .selection .select2-selection--multiple {
         border-bottom: solid black 1px;
         outline: 0;
     }
-    .select2-container--default .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--multiple {
+    .select2-container--default .selection .select2-selection--multiple, .select2-container--default.select2-container--focus .selection .select2-selection--multiple {
         border-bottom: 1px solid rgba(0,0,0,.25);
         border-top: none;
         border-left: none;
@@ -7281,7 +7281,7 @@ width: 100%;
     li.select2-search.select2-search--inline {
         font-size: 14px;
     }
-    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    .select2-container--default .selection .select2-results__option--highlighted[aria-selected] {
         background-color: var(--secondary);
         color: white;
     }
