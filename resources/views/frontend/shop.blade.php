@@ -384,8 +384,9 @@
 
             function filter_data(page,scroll=0)
             {
-                alert($(".selectattribute").val());
-               
+                var select_button_text = $('.selectattribute')
+                .toArray().map(item => item.text).join();
+                alert(select_button_text);
                 var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
                     return elem.id 
                 });
