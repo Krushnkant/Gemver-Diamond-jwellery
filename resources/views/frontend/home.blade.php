@@ -803,7 +803,8 @@
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
-    <script>    
+    
+    <script type="text/javascript"> 
         $(document).ready(function(){
             $(document).on('click','.banner-url',function(){
                 var banner_url = $(this).attr("data-value");

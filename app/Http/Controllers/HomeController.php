@@ -21,12 +21,12 @@ class HomeController extends Controller
 
         
         // query the user media
-        // $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
-        // $token = env('INSTAGRAM_TOKEN', '');
-        // $limit = 10;
-        // $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
-        // $json_feed = @file_get_contents($json_feed_url);
-        $contents = [];
+        $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
+        $token = env('INSTAGRAM_TOKEN', '');
+        $limit = 10;
+        $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
+        $json_feed = @file_get_contents($json_feed_url);
+        $contents = json_decode($json_feed, true, 512, JSON_BIGINT_AS_STRING);
  
         // $Products= Product::with('product_variant')->get();
 
@@ -80,20 +80,17 @@ class HomeController extends Controller
     
         //$categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $categories = [];
-        //$testimonials = Testimonial::where('estatus',1)->take(10)->get();
-        $testimonials = [];
-        //$banners = Banner::where('estatus',1)->get();
+        $testimonials = Testimonial::where('estatus',1)->take(10)->get();
+       // $banners = Banner::where('estatus',1)->get();
         $banners = [];
         $step = Step::where('estatus',1)->first();
         $homesetting = HomeSetting::with('category')->first();
-        $shopbystyle = [];
-        //$shopbystyle = ShopByStyle::with('category')->where('estatus',1)->get();
-       // $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->groupBy('products.id')->orderBy('products.created_at', 'asc')->limit(12)->get();
-       $BlogBanners = [];
-       //$BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
+        $shopbystyle = ShopByStyle::with('category')->where('estatus',1)->get();
+        $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->groupBy('products.id')->orderBy('products.created_at', 'asc')->limit(12)->get();
+        $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
         $SmilingDifference = SmilingDifference::get();
         $diamonds = Diamond::get()->count();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','BlogBanners','SmilingDifference','diamonds','contents'));
+        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
     public function createSlug($title, $id = 0)
