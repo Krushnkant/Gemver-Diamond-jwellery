@@ -293,7 +293,7 @@
         </div>
     </div> --}}
 
-    <div class="shop_dimond_by_shape diamond_margin">
+    {{-- <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center ">
                 <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
@@ -367,7 +367,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="engagement_ring_section px-0">
         <div class="container engagement_diamond_section">
