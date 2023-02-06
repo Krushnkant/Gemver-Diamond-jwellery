@@ -391,13 +391,16 @@
                 // val[i] = $(this).val();
                 // });
                 // console.log(val);
-
-                $('.selectattribute').on("change", function(e) {
-                    selectedValues = $(".selectattribute").val(); 
-                  console.log($(".selectattribute").val())
+                var selectedValues = []; 
+                $(document).find('.selectattribute').each(function() {
+                   // selectedValues = $(".selectattribute").val(); 
+                   $(this).each(function(){
+                       selectedValues.push($(this).val());
+                    });
+                    console.log(selectedValues);
                 });
 
-                 var selectedValues = [];    
+                    
                 // $('.selectattribute').on('click', function(){
                 //  alert('dsfdfdsf');   
                 //     console.log($(this));
