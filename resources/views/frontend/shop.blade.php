@@ -384,9 +384,10 @@
 
             function filter_data(page,scroll=0)
             {
-                var select_button_text = $('.selectattribute')
-                .toArray().map(item => item.text).join();
-                alert(select_button_text);
+                var cart = $('.selectattribute'); //
+                $.each(cart, function(index, value){
+                    console.log($(value).val());
+                });
                 var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
                     return elem.id 
                 });
