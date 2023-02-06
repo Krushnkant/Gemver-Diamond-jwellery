@@ -30,6 +30,19 @@
                                 <div id="conflict_free_diamonds_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
 
+                            <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            
+                        
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
                                <button type="button" class="btn btn-primary mt-4" id="saveConflictFreeDiamondsBtn">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
@@ -60,6 +73,8 @@
 
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
             CKEDITOR.instances['conflict_free_diamonds_contant'].setData(data.customer_value);
+            $('#meta_title').val(data.conflict_free_diamonds_meta_title);
+           $('#meta_description').val(data.conflict_free_diamonds_meta_description);
            //$('#conflict_free_diamonds_contant').summernote('code', data.conflict_free_diamonds);
         })
     });

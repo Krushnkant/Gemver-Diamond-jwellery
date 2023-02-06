@@ -368,7 +368,20 @@
                                 <textarea class="form-control" id="section9_description" name="section9_description"></textarea>
                                 <div id="section9_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
+                             <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
                         </div>
+
+                        
                            
                         </div>
                     </div>
@@ -406,6 +419,8 @@
            $('#section8_description').val(data.section8_description);
            $('#section9_title').val(data.section9_title);
            $('#section9_description').val(data.section9_description);
+           $('#meta_title').val(data.meta_title);
+           $('#meta_description').val(data.meta_description);
             if(data.header_image!=null){
                 var header_image = "{{ url('images/aboutus') }}" +"/" + data.header_image;
                 $('#header_image_show').attr('src', header_image);
