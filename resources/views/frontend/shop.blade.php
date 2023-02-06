@@ -392,11 +392,12 @@
                 });
                 console.log(val);
 
-                var hotelName = [];    
+                var selectedValues = [];    
                 $('.selectattribute').on('click', function(e){
                     e.preventDefault();    
-                    hotelName.push( $(this).data('hotel-name') );
-                    console.log(hotelName.length); // < read the length of the amended array here
+                    console.log($(this));
+                    selectedValues.push( $(this).val() );
+                    console.log(selectedValues.length); // < read the length of the amended array here
                 });
 
                 // $.each(cart, function(index, value){
