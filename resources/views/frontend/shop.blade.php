@@ -391,14 +391,13 @@
                 // val[i] = $(this).val();
                 // });
                 // console.log(val);
-                var selectedValues = []; 
-                $(document).find('.selectattribute').each(function() {
-                   // selectedValues = $(".selectattribute").val(); 
-                   $(this).each(function(){
-                       selectedValues.push($(this).val());
-                    });
-                    console.log(selectedValues);
+
+                
+               var val = [];
+                $('.selectattribute').each(function(i){
+                val[i] = $(this).val();
                 });
+                console.log(val);
 
                     
                 // $('.selectattribute').on('click', function(){
