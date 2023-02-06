@@ -78,19 +78,17 @@ class HomeController extends Controller
         // }
 
     
-        //$categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
-        $categories = [];
+        $categories = Category::where('estatus',1)->where('is_custom',0)->where('parent_category_id',0)->get();
         $testimonials = Testimonial::where('estatus',1)->take(10)->get();
-       // $banners = Banner::where('estatus',1)->get();
-        $banners = [];
+        $banners = Banner::where('estatus',1)->get();
         $step = Step::where('estatus',1)->first();
         $homesetting = HomeSetting::with('category')->first();
-        $shopbystyle = [];
-       // $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->groupBy('products.id')->orderBy('products.created_at', 'asc')->limit(12)->get();
-        $BlogBanners = [];
-        $SmilingDifference = [];
-        $diamonds = Diamond::get()->count();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','BlogBanners','SmilingDifference','diamonds','contents'));
+        $shopbystyle = ShopByStyle::with('category')->where('estatus',1)->get();
+        $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->groupBy('products.id')->orderBy('products.created_at', 'asc')->limit(12)->get();
+        $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
+        $SmilingDifference = SmilingDifference::get();
+        $diamonds = Diamond::get();
+        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
     public function createSlug($title, $id = 0)

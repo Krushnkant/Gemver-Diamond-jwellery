@@ -1,151 +1,100 @@
-<?php
-$settings = \App\Models\Settings::first();
-?>
+@extends('frontend.layout.layout')
 
-<!doctype html>
-<html>
+@section('content')
 
-<head>
-    <!-- Required meta tags -->
-    <title>{{ $settings->company_name }}</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL('images/company/'.$settings->company_favicon) }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="canonical" href="{{ url()->full() }}" />
-    <meta name="title" content="{{ isset($meta_title) ? $meta_title:"" }}"/>
-    <meta name="description" content="{{ isset($meta_description) ? $meta_description :"" }}"/>
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
-    <link href="{{ asset('plugins/toastr/css/toastr.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.35/sweetalert2.css"  />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
-    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
-    <!-- TrustBox script -->
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-    <!-- End TrustBox script -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-962R43V393');
-    </script>
-    
-</head>
-<body>
-
-
- {{-- <div class="header-loader">
-    <div class="loader-btn" role="status"> 
-    <img src="{{ asset('frontend/image/page-loader.gif') }}" alt="">
-    </div>
-</div> --}}
-<input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
-<div class="">
-@include('frontend.layout.header')
-@if(count($banners) > 0)
-        <div class="owl-carousel owl-theme home-page-slider">
+        @if(count($banners) > 0)
+         <div class="owl-carousel owl-theme home-page-slider">
             @foreach($banners as $banner)
-                @if($banner->button_name == "")
-                    @if($banner->application_dropdown_id == 1)
-                        <a href="#">
-                            @elseif($banner->application_dropdown_id == 2)
-                            <?php 
-                            $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                            //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
-                            $banner_url = URL('product-details/'.$product_variant->slug);
-                            ?>
-                        <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @elseif($banner->application_dropdown_id == 3)
-                        <?php 
-                        $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                        $banner_url = URL('shop/'.$category->slug);
-                        ?>
-                        <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @elseif($banner->application_dropdown_id == 4)
-                        <?php 
-                            $banner_url = $banner->value;
-                        ?>
-                    <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @endif
-                @endif  
-                <div class="item">
-                        <div class="background-slider ">
-                            <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
-                            <div class="background-smoke-slider position-relative">
-                                <div class="d-block d-md-none mobile-view-img">
-                                    <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
-                                </div>
-                                <div class="d-none d-md-block desktop-view-img">
-                                    <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
-                                </div>
-                                <div class="">
-                                    <div class="background-text-part px-3 px-lg-4 container">
-                                        <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
-                                        <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
-                                        <div class="paragraph mt-0 mt-md-5 ">
-                                        {!! $banner->description !!}
-                                        </div>
-                                        @if($banner->button_name != "")
-                                        @if($banner->application_dropdown_id == 1)
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 2)
-                                        <?php 
-                                            
-                                            $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                                            //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
-                                            if(isset($product_variant->slug)){
-                                                $banner_url = URL('product-details/'.$product_variant->slug);
-                                            }else{
-                                                $banner_url = "";
-                                            }
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 3)
-                                        <?php 
-                                            $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                                            $banner_url = URL('shop/'.$category->slug);
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 4)
-                                        <?php 
-                                            $banner_url = $banner->value;
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @endif
-                                        @endif
-                                       
+            @if($banner->button_name == "")
+            @if($banner->application_dropdown_id == 1)
+            <a href="#">
+            @elseif($banner->application_dropdown_id == 2)
+            <?php 
+                $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                $banner_url = URL('product-details/'.$product_variant->slug);
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @elseif($banner->application_dropdown_id == 3)
+            <?php 
+                $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                $banner_url = URL('shop/'.$category->slug);
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @elseif($banner->application_dropdown_id == 4)
+            <?php 
+                $banner_url = $banner->value;
+            ?>
+            <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
+            @endif
+            
+            @endif  
+            <div class="item">
+                    <div class="background-slider ">
+                        <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
+                        <div class="background-smoke-slider position-relative">
+                            <div class="d-block d-md-none mobile-view-img">
+                                <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
+                            </div>
+                            <div class="d-none d-md-block desktop-view-img">
+                                <img src="{{ asset($banner->banner_thumb) }}" alt=" ">
+                            </div>
+                            <div class="">
+                                <div class="background-text-part px-3 px-lg-4 container">
+                                    <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
+                                    <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
+                                    <div class="paragraph mt-0 mt-md-5 ">
+                                    {!! $banner->description !!}
                                     </div>
+                                    @if($banner->button_name != "")
+                                    @if($banner->application_dropdown_id == 1)
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 2)
+                                    <?php 
+                                        
+                                        $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                                        //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
+                                        if(isset($product_variant->slug)){
+                                            $banner_url = URL('product-details/'.$product_variant->slug);
+                                        }else{
+                                            $banner_url = "";
+                                        }
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 3)
+                                    <?php 
+                                        $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                                        $banner_url = URL('shop/'.$category->slug);
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @elseif($banner->application_dropdown_id == 4)
+                                    <?php 
+                                        $banner_url = $banner->value;
+                                    ?>
+                                    <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                        {{ $banner->button_name }}
+                                    </button>
+                                    @endif
+                                    @endif
+                                   
                                 </div>
                             </div>
                         </div>
-                </div>
-                @if($banner->button_name == "")
-                </a>
-                @endif 
+                    </div>
+            </div>
+            @if($banner->button_name == "")
+            </a>
+            @endif 
             @endforeach
         </div>
-    @endif
-    <!-- </div> -->
+        @endif
+    </div>
     
     @if(count($categories) > 0)
     <div class="container">
@@ -179,6 +128,7 @@ $settings = \App\Models\Settings::first();
     </div>
     @endif
 
+
     <div class="">
         <div class="shop-colorful-bg">
             <div class="container">
@@ -189,7 +139,7 @@ $settings = \App\Models\Settings::first();
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start">
-                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format($diamonds) }} Diamonds available <br> in the Store</h2>
+                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
                             <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
                             {{ $dddd }}
@@ -210,7 +160,7 @@ $settings = \App\Models\Settings::first();
     </div>
 
 
-    {{-- <div class="shop_dimond_by_shape1">
+    <div class="shop_dimond_by_shape1">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center">
                 <h2 class="heading-h2">{{ $homesetting->section_product_title }}</h2>
@@ -343,9 +293,9 @@ $settings = \App\Models\Settings::first();
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <div class="shop_dimond_by_shape diamond_margin">
+    <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center ">
                 <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
@@ -419,9 +369,9 @@ $settings = \App\Models\Settings::first();
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
-    {{-- <div class="engagement_ring_section px-0">
+    <div class="engagement_ring_section px-0">
         <div class="container engagement_diamond_section">
             <div class="row">
                     <div class="col-lg-5 col-xl-4 pe-lg-4">
@@ -490,211 +440,219 @@ $settings = \App\Models\Settings::first();
         </div>
     </div>
 
-    <div class="customise_own_ring_section">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
-                <div class="engagement_ring_diamond_part">
-                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
-                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                    <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
+    @if(count($BlogBanners) > 0)
+    
+    <div class="shop_dimond_by_shape py-0">
+        <div class="container">
+            <div class="row">
+                @foreach($BlogBanners as $BlogBanner)
+                <?php 
+                    $blogcount = count($BlogBanners);
+                    $url = "";
+                    if($BlogBanner['dropdown_id'] == 1){
+                        $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
+                        $url = url('/shop/'.$category->slug); 
+                    }elseif($BlogBanner['dropdown_id'] == 2){
+                        $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
+                        $cat_id = explode(',',$Product->primary_category_id);
+                        $var_id = $Product->product_variant[0]->id;
+                        $slug = $Product->product_variant[0]->slug;
+                        $url = url('/product-details/'.$slug);
+                    }
+                    if($blogcount == 1){
+                    $blogcol = 12; 
+                    }else if($blogcount == 2){
+                    $blogcol = 6;
+                    }else if($blogcount == 3){
+                    $blogcol = 4;    
+                    }else if($blogcount == 4){
+                    $blogcol = 3;    
+                    }else if($blogcount == 5){
+                    $blogcol = 2;    
+                    }else if($blogcount == 6){
+                    $blogcol = 2;    
+                    }
+                ?>
+                <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
+                    <a href="{{ $url }}" class="banner_part_img_parent">
+                        <figure>
+                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
+                        </figure>
+                    </a>
                 </div>
-            </div>
-            <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
-                <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
-                </div>
+                @endforeach 
             </div>
         </div>
     </div>
+    @endif
 
-    @if(isset($SmilingDifference) && count($SmilingDifference) > 0)
+
     <div class="smiling_gemver_banner shop_dimond_by_shape">
-        <div class="container">
-            <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
+      <div class="container">
+        <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
             <div class="row">
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
-                    <div class="diff-box">
-                        <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
-                        </div>
-                        <div class="ms-3 ms-md-0">
-                            <div class="smiling_box_heading">
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
+                        <img src="{{ asset('frontend/image/smiling_1.png') }}" alt=""> 
+                   </div>
+                    <div class="ms-3 ms-md-0">
+                        <div class="smiling_box_heading mb-3">
                                 {{ $SmilingDifference[0]->title }}   
                             </div>
                             <div class="smiling_box_paragraph">
                                 {{ $SmilingDifference[0]->shotline }}
                             </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
+                        <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
+                   </div>
+                   <div class="ms-3 ms-md-0">
+                    <div class="smiling_box_heading mb-3">
+                        {{ $SmilingDifference[1]->title }}
+                        </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[1]->shotline }}
+                        </div>
+                   </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
+                        <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
+                   </div>
+                    <div class="ms-3 ms-md-0">
+                        <div class="smiling_box_heading mb-3">
+                        {{ $SmilingDifference[2]->title }}
+                        </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[2]->shotline }}
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
-                    <div class="diff-box">
-                        <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
+                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex d-md-block">
+                   <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
+                        <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
+                   </div>
+                   <div class="ms-3 ms-md-0">
+                    <div class="smiling_box_heading mb-3">
+                        {{ $SmilingDifference[3]->title }} 
                         </div>
-                        <div class="ms-3 ms-md-0">
-                            <div class="smiling_box_heading">
-                                {{ $SmilingDifference[1]->title }}
-                                </div>
-                                <div class="smiling_box_paragraph">
-                                {{ $SmilingDifference[1]->shotline }}
-                            </div>
-                       </div>
+                        <div class="smiling_box_paragraph">
+                        {{ $SmilingDifference[3]->shotline }}
+                        </div>
                    </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
-                    <div class="diff-box">
-                        <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_3.png') }}" alt=""> 
-                        </div>
-                        <div class="ms-3 ms-md-0">
-                            <div class="smiling_box_heading">
-                            {{ $SmilingDifference[2]->title }}
-                            </div>
-                            <div class="smiling_box_paragraph">
-                            {{ $SmilingDifference[2]->shotline }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
-                    <div class="diff-box">
-                        <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_4.png') }}" alt=""> 
-                        </div>
-                       <div class="ms-3 ms-md-0">
-                        <div class="smiling_box_heading">
-                            {{ $SmilingDifference[3]->title }} 
-                            </div>
-                            <div class="smiling_box_paragraph">
-                            {{ $SmilingDifference[3]->shotline }}
-                            </div>
-                       </div>
-                   </div>
-                </div>
+                
             </div>
             <div class="mt-3 text-center">
                 <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
-        </div> 
+      </div>
+      
     </div>
-    @endif
-
-    @if(count($BlogBanners) > 0)
-        <div class="shop_dimond_by_shape ads-banner-section">
-            <div class="container">
-                <div class="row">
-                    @foreach($BlogBanners as $BlogBanner)
-                    <?php 
-                        $blogcount = count($BlogBanners);
-                        $url = "";
-                        if($BlogBanner['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                            $url = url('/shop/'.$category->slug); 
-                        }elseif($BlogBanner['dropdown_id'] == 2){
-                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
-                            $cat_id = explode(',',$Product->primary_category_id);
-                            $var_id = $Product->product_variant[0]->id;
-                            $slug = $Product->product_variant[0]->slug;
-                            $url = url('/product-details/'.$slug);
-                        }
-                        if($blogcount == 1){
-                        $blogcol = 12; 
-                        }else if($blogcount == 2){
-                        $blogcol = 6;
-                        }else if($blogcount == 3){
-                        $blogcol = 4;    
-                        }else if($blogcount == 4){
-                        $blogcol = 3;    
-                        }else if($blogcount == 5){
-                        $blogcol = 2;    
-                        }else if($blogcount == 6){
-                        $blogcol = 2;    
-                        }
-                    ?>
-                    <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
-                        <a href="{{ $url }}" class="banner_part_img_parent">
-                            <figure>
-                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    @endforeach 
-                </div>
-            </div>
-        </div>
-    @endif
-
     @if(count($testimonials) > 0)
-        <div class="testimonial-section">
-            <div class="container">
-                <div class="customer_stories">
-                    <div class="row">
-                        <div class="col-lg-5 customer_stories_bg">
-                            <div class="">
-                                <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
-                                <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
-                                <div class="customer_stories_img">
+    
+    <div class="container">
+        <div class="customer_stories">
+            <div class="row">
+                <div class="col-lg-5 customer_stories_bg">
+                    <div class="">
+                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
+                        <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
+                        <div class="customer_stories_img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
+                    @foreach($testimonials as $testimonial)
+
+                        <div class="item">
+                            <div class="customer-stories-quotes">
+                                <div class="customer-stories-paragraph text-center">
+                                    {!! $testimonial->description !!}
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <div class="testimonial-author-img">
+                                        <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                    </div>
+                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
+                                    <div class="customer-country">{{ $testimonial->country }}</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-7">
-                            <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
-                                @foreach($testimonials as $testimonial)
-                                    <div class="item">
-                                        <div class="customer-stories-quotes">
-                                            <div class="customer-stories-paragraph">
-                                                {!! $testimonial->description !!}
-                                            </div>
-                                            <div class="mt-4">
-                                                <div class="testimonial-author-img">
-                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
-                                                </div>
-                                                <div class="author-info">
-                                                    <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
-                                                    <div class="customer-country">{{ $testimonial->country }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
 
-    @if(count($shopbystyle) > 0)
-        <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
-            <div class="container">
-                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                        <div class="mb-3 mt-md-0">
-                            <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
-                            <div class="sub_title">
-                                {{ $homesetting->section_shop_by_style_shotline }}
-                            </div>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-md-12 text-center   ">
-                        <div class="owl-carousel owl-theme shop-by-style-slider">
-                            @foreach($shopbystyle as $shopby)
-                            <div class="item">
-                                <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
-                                    <img src="{{ url($shopby->image) }}" alt="">
-                                    <div class="shop_by_style_heading text-center">
-                                        {{ $shopby->title }}
+                        <!-- <div class="item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                </div>
+                                <div class="col-md-8 customer-stories-quotes d-flex flex-column justify-content-between">
+                                    <div class="customer-stories-paragraph mt-3 mt-md-0">
+                                    {!! $testimonial->description !!}
                                     </div>
-                                </a>
+                                    <div class="text-end mt-0 pt-0 mt-0 mt-md-4">
+                                        <div class="customer-name">{{ $testimonial->name }}</div>
+                                        <div class="customer-country mt-0 mt-md-2">{{ $testimonial->country }}</div>
+                                    </div>
+                                </div>
                             </div>
-                            @endforeach
-                        </div>
+                        </div> -->
+                        
+                    @endforeach    
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    @endif
+        <div class="customise_own_ring_section">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
+                    <div class="engagement_ring_diamond_part">
+                        <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
+                        <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
+                        <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
+                    </div>
+                </div>
+                <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
+                    <div class="own_ring_img">
+                        <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+     @if(count($shopbystyle) > 0)
+    <div class="engagement_ring_section shop_by_style_slider shop_by_style_slider_home shop_by_style_slider_part">
+        <div class="container">
+            <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                    <div class="mb-3 mt-md-0">
+                        <h2 class="heading-h2">{{ $homesetting->section_shop_by_style_title }}</h2>
+                        <div class="sub_title">
+                            {{ $homesetting->section_shop_by_style_shotline }}
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12 text-center   ">
+                    <div class="owl-carousel owl-theme shop-by-style-slider">
+                        @foreach($shopbystyle as $shopby)
+                        <div class="item">
+                            <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
+                                <img src="{{ url($shopby->image) }}" alt="">
+                                <div class="shop_by_style_heading text-center">
+                                    {{ $shopby->title }}
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
 
     <div class="container">
@@ -812,7 +770,7 @@ $settings = \App\Models\Settings::first();
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div class="Instagram-post-section px-0">
         <h2 class="heading-h2 text-center mb-4">Instagram</h2>
@@ -855,162 +813,89 @@ $settings = \App\Models\Settings::first();
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
+<script>
+        
+$(document).ready(function(){
+        
+    $(document).on('click','.banner-url',function(){
+        var banner_url = $(this).attr("data-value");
+        window.location.href = banner_url;
+    });
+
+    $('body').on('click', '#save_newInquiryBtn', function () {
+    save_inquiry($(this),'save_new');
+});
+
+function save_inquiry(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#InquiryCreateForm")[0]);
     
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            $(document).on('click','.banner-url',function(){
-                var banner_url = $(this).attr("data-value");
-                window.location.href = banner_url;
-            });
-            $('body').on('click', '#save_newInquiryBtn', function () {
-                save_inquiry($(this),'save_new');
-            });
-            function save_inquiry(btn,btn_type){
-                $(btn).prop('disabled',true);
-                $(btn).find('.loadericonfa').show();
-                var action  = $(btn).attr('data-action');
-                var formData = new FormData($("#InquiryCreateForm")[0]);
-                
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ route('frontend.inquiry.save') }}",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (res) {
-                       
-                        if(res.status == 'failed'){
-                            $(btn).prop('disabled',false);
-                            $(btn).find('.loadericonfa').hide();
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.inquiry.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+           
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
 
-                            if (res.errors.name) {
-                                $('#name-error').show().text(res.errors.name);
-                            } else {
-                                $('#name-error').hide();
-                            }
-                            if (res.errors.email) {
-                                $('#email-error').show().text(res.errors.email);
-                            } else {
-                                $('#email-error').hide();
-                            }
+                if (res.errors.name) {
+                    $('#name-error').show().text(res.errors.name);
+                } else {
+                    $('#name-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#email-error').show().text(res.errors.email);
+                } else {
+                    $('#email-error').hide();
+                }
 
-                            if (res.errors.mobile_no) {
-                                $('#mobile_no-error').show().text(res.errors.mobile_no);
-                            } else {
-                                $('#mobile_no-error').hide();
-                            }
-                            if (res.errors.inquiry) {
-                                $('#inquiry-error').show().text(res.errors.inquiry);
-                            } else {
-                                $('#inquiry-error').hide();
-                            } 
-                        }
-                        if(res.status == 200){
-                            $('#inquiry-error').hide();
-                            $('#mobile_no-error').hide();
-                            $('#email-error').hide();
-                            $('#name-error').hide();
-                            document.getElementById("InquiryCreateForm").reset();
-                            $(btn).prop('disabled',false);
-                            $(btn).find('.loadericonfa').hide();
-                            //location.href="{{ route('frontend.contactus')}}";
-                            var success_message = 'Thank You For Bulk Order Inquiry';
-                            $('#success-alert').text(success_message);
-                            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                              $("#success-alert").slideUp(1000);
-                              //location.reload();
-                              //window.location.href = "{{ url('/') }}";
-                            });
-                        }
-
-                    },
-                    error: function (data) {
-                        $(btn).prop('disabled',false);
-                        $(btn).find('.loadericonfa').hide();
-                        toastr.error("Please try again",'Error',{timeOut: 5000});
-                    }
+                if (res.errors.mobile_no) {
+                    $('#mobile_no-error').show().text(res.errors.mobile_no);
+                } else {
+                    $('#mobile_no-error').hide();
+                }
+                if (res.errors.inquiry) {
+                    $('#inquiry-error').show().text(res.errors.inquiry);
+                } else {
+                    $('#inquiry-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#inquiry-error').hide();
+                $('#mobile_no-error').hide();
+                $('#email-error').hide();
+                $('#name-error').hide();
+                document.getElementById("InquiryCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Bulk Order Inquiry';
+                $('#success-alert').text(success_message);
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                  $("#success-alert").slideUp(1000);
+                  //location.reload();
+                  //window.location.href = "{{ url('/') }}";
                 });
             }
-        });
-    </script>
-@include('frontend.layout.footer')
-<script src="{{ asset('frontend/js/popper.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('frontend/js/custom1.js') }}"></script>
-<script src="{{ asset('frontend/js/slick.js') }}"></script>   
-<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 
-<script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.35/sweetalert2.min.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-<script>
-    $(document).ready(function() {   
-        $("#main_search").keyup(function() {
-            search_data($(this).val());
-        });
-
-        function search_data(keyword)
-        {
-        
-            var action = "search";
-            $.ajax({
-            // url:"{{ url('/product-filter') }}",
-            // url: ENDPOINT + "/search_products",
-                url:"{{ url('/search_products') }}",
-                method:"POST",
-                data:{action:action,keyword:keyword,_token: '{{ csrf_token() }}'},
-                beforeSend: function() {
-                    $('.serach-load').show();
-                },
-                success:function(response){
-                    if(response != ""){
-                        $('#mega-menu-scrollbar').show();
-                        $('.main_search_section').html(response);
-                        $('.serach-load').hide(); 
-                    }else{
-                        $('#mega-menu-scrollbar').hide();
-                        $('.main_search_section').html(response);
-                        $('.serach-load').hide();   
-                    }
-                    // if(scroll == 1){
-                    //     if (response['artilces'] == "") {
-                    //         $('.auto-load').html("We don't have more data to display ");
-                    //         return;
-                    //     }
-                    //     $('.auto-load').hide();   
-                    //     $("#data-wrapper").append(response['artilces']);
-                    // }else{
-                    //     if (response['artilces'] == "") {
-                    //         $('#data-wrapper').html("No Result Found");
-                    //         $('.auto-load').hide();
-                    //         return;
-                    //     }
-                    //     $("#data-wrapper").html(response['artilces']);  
-                    //     $('.auto-load').hide(); 
-                    // }  
-                    
-                }
-            });
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
         }
-
-        $('body').on('click', '#searchBtn', function () {
-            var main_search = $("#main_search").val();
-            location.href = "{{ url('shop') }}?s="+main_search;
-        });
-   });
-   </script>
-
-</body>
-</html>
-
-
-
-
-
-
+    });
+}
     
+});
 
+</script>
+
+ @endsection
    
