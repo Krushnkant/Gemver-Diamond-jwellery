@@ -385,9 +385,18 @@
             function filter_data(page,scroll=0)
             {
                 var cart = $('.selectattribute'); //
+
+                var val = [];
+                $('.selectattribute').each(function(i){
+                val[i] = $(this).val();
+                });
+                console.log(val);
+
                 $.each(cart, function(index, value){
                     console.log($(value).val());
                 });
+
+
                 var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
                     return elem.id 
                 });
