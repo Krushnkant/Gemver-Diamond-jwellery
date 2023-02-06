@@ -1377,9 +1377,8 @@ span.select2-selection__clear {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-    margin-right: 5px;
-    margin-left: 5px;
-    color: #585858;
+    margin-left: 10px;
+    color: #ffffff;
     float: right;
 }
 
