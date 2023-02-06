@@ -1368,6 +1368,7 @@ button.close {
     margin-right: 5px;
     margin-left: 5px;
     color: #585858;
+    float: right;
 }
 
 .varUploadedImgBox {
