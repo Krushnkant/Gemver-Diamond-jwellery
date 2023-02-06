@@ -159,7 +159,7 @@
         </div>
     </div>
 
-
+{{-- 
     <div class="shop_dimond_by_shape1">
         <div class="container">
             <div class="mb-4 mb-md-0 pb-md-5 text-center">
@@ -293,7 +293,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="shop_dimond_by_shape diamond_margin">
         <div class="container">
