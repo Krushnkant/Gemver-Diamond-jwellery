@@ -393,11 +393,11 @@
                 // console.log(val);
 
                 
-               var val = [];
+               var selectedValues = [];
                 $('.selectattribute').each(function(i){
-                val[i] = $(this).val();
+                    selectedValues[i] = $(this).val();
                 });
-                console.log(val);
+                console.log(selectedValues);
 
                     
                 // $('.selectattribute').on('click', function(){
