@@ -392,13 +392,18 @@
                 // });
                 // console.log(val);
 
-                var selectedValues = [];    
-                $('.selectattribute').on('click', function(e){
-                    e.preventDefault();    
-                    console.log($(this));
-                    selectedValues.push( $(this).val() );
-                    console.log(selectedValues); // < read the length of the amended array here
+                $('.selectattribute').on("change", function(e) {
+                    selectedValues = $(".selectattribute").val(); 
+                  console.log($(".selectattribute").val())
                 });
+
+                 var selectedValues = [];    
+                // $('.selectattribute').on('click', function(){
+                //  alert('dsfdfdsf');   
+                //     console.log($(this));
+                //     selectedValues.push( $(this).val() );
+                //     console.log(selectedValues); // < read the length of the amended array here
+                // });
 
                 // $.each(cart, function(index, value){
                 //     console.log($(value).val());
