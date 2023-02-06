@@ -384,20 +384,20 @@
 
             function filter_data(page,scroll=0)
             {
-                var cart = $('.selectattribute'); //
+                // var cart = $('.selectattribute'); //
 
-                var val = [];
-                $('.selectattribute').each(function(i){
-                val[i] = $(this).val();
-                });
-                console.log(val);
+                // var val = [];
+                // $('.selectattribute').each(function(i){
+                // val[i] = $(this).val();
+                // });
+                // console.log(val);
 
                 var selectedValues = [];    
                 $('.selectattribute').on('click', function(e){
                     e.preventDefault();    
                     console.log($(this));
                     selectedValues.push( $(this).val() );
-                    console.log(selectedValues.length); // < read the length of the amended array here
+                    console.log(selectedValues); // < read the length of the amended array here
                 });
 
                 // $.each(cart, function(index, value){
