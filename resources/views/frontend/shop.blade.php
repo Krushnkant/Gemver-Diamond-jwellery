@@ -393,11 +393,12 @@
                 // console.log(val);
 
                 
-               var selectedValues = [];
-                $('.selectattribute').each(function(i){
-                    selectedValues[i] = $(this).val();
-                });
-                console.log(selectedValues);
+               //var selectedValues = [];
+                // $('.selectattribute').each(function(i){
+                //     selectedValues[i] = $(this).val();
+                // });
+                // console.log(selectedValues);
+
 
                     
                 // $('.selectattribute').on('click', function(){
@@ -412,10 +413,10 @@
                 // });
 
 
-                // var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
-                //     return elem.id 
-                // });
-                //  console.log(selectedValues);
+                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                    return elem.id 
+                });
+                 console.log(selectedValues);
                // $('.filter_data').html('<div id="loading" style="" ></div>');
                 var keyword = "{{ isset($_GET['s'])?$_GET['s']:"" }}";
                 var action = 'fetch_data';
