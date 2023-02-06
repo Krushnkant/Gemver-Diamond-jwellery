@@ -81,6 +81,8 @@ class MenuPageController extends Controller
         $menupages->section53_description = $request->section53_description;
         $menupages->section53_category = $request->section53_category;
         $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
+        $menupages->meta_title = $request->meta_title;
+        $menupages->meta_description = $request->meta_description;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -349,6 +351,8 @@ class MenuPageController extends Controller
         $menupages->section53_description = $request->section53_description;
         $menupages->section53_category = $request->section53_category;
         $menupages->select_product = isset($request->select_product_id)?implode(',',$request->select_product_id):"";
+        $menupages->meta_title = $request->meta_title;
+        $menupages->meta_description = $request->meta_description;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -819,6 +823,8 @@ class MenuPageController extends Controller
         $menupages->section53_title = $request->section53_title;
         $menupages->section53_description = $request->section53_description;
         $menupages->section53_category = $request->section53_category;
+        $menupages->meta_title = $request->meta_title;
+        $menupages->meta_description = $request->meta_description;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;
@@ -1079,6 +1085,8 @@ class MenuPageController extends Controller
         $menupages->section53_title = $request->section53_title;
         $menupages->section53_description = $request->section53_description;
         $menupages->section53_category = $request->section53_category;
+        $menupages->meta_title = $request->meta_title;
+        $menupages->meta_description = $request->meta_description;
 
         $old_banner_image = $menupages->banner_image;
         $old_banner_image = $menupages->banner_image;

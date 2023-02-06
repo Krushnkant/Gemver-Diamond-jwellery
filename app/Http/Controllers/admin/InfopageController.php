@@ -77,6 +77,8 @@ class InfopageController extends Controller
         $Infopages->value3 = $request->value3;
         $Infopages->title4 = $request->title4;
         $Infopages->value4 = $request->value4;
+        $Infopages->about_meta_title = $request->meta_title;
+        $Infopages->about_meta_description = $request->meta_description;
 
         $old_first_section_image = $Infopages->first_section_image;
         if ($request->hasFile('first_section_image')) {
@@ -147,6 +149,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->privacy_policy = $request->privacy_policy_contant;
+        $Infopages->privacy_policy_meta_title = $request->meta_title;
+        $Infopages->privacy_policy_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -186,6 +190,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->terms_condition = $request->terms_condition_contant;
+        $Infopages->terms_condition_meta_title = $request->meta_title;
+        $Infopages->terms_condition_meta_description = $request->meta_description;
         
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -226,6 +232,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->free_engraving = $request->free_engraving_contant;
+        $Infopages->free_engraving_meta_title = $request->meta_title;
+        $Infopages->free_engraving_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -264,6 +272,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->free_resizing = $request->free_resizing_contant;
+        $Infopages->free_resizing_meta_title = $request->meta_title;
+        $Infopages->free_resizing_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -302,6 +312,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->free_shipping = $request->free_shipping_contant;
+        $Infopages->free_shipping_meta_title = $request->meta_title;
+        $Infopages->free_shipping_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -341,6 +353,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->lifetime_upgrade = $request->lifetime_upgrade_contant;
+        $Infopages->lifetime_upgrade_meta_title = $request->meta_title;
+        $Infopages->lifetime_upgrade_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -380,6 +394,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->lifetime_warranty = $request->lifetime_warranty_contant;
+        $Infopages->lifetime_warranty_meta_title = $request->meta_title;
+        $Infopages->lifetime_warranty_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -421,6 +437,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->payment_options = $request->payment_options_contant;
+        $Infopages->payment_options_meta_title = $request->meta_title;
+        $Infopages->payment_options_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -460,6 +478,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->return_days = $request->returns_days_contant;
+        $Infopages->return_days_meta_title = $request->meta_title;
+        $Infopages->return_days_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -493,6 +513,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->customer_value = $request->customer_value_contant;
+        $Infopages->customer_value_meta_title = $request->meta_title;
+        $Infopages->customer_value_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -526,6 +548,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->market_need = $request->market_need_contant;
+        $Infopages->market_need_meta_title = $request->meta_title;
+        $Infopages->market_need_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -560,6 +584,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->why_friendly = $request->why_friendly_contant;
+        $Infopages->why_friendly_meta_title = $request->meta_title;
+        $Infopages->why_friendly_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -626,6 +652,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->conflict_free_diamonds = $request->conflict_free_diamonds_contant;
+        $Infopages->conflict_free_diamonds_meta_title = $request->meta_title;
+        $Infopages->conflict_free_diamonds_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);
@@ -703,6 +731,8 @@ class InfopageController extends Controller
         $DiamondAnatomy->section8_description = $request->section8_description;
         $DiamondAnatomy->section9_title = $request->section9_title;
         $DiamondAnatomy->section9_description = $request->section9_description;
+        $DiamondAnatomy->meta_title = $request->meta_title;
+        $DiamondAnatomy->meta_description = $request->meta_description;
 
         $old_header_image = $DiamondAnatomy->header_image;
         if ($request->hasFile('header_image')) {
@@ -892,6 +922,8 @@ class InfopageController extends Controller
         $GemverDifference->section3_description = $request->section3_description;
         $GemverDifference->section4_title = $request->section4_title;
         $GemverDifference->section4_description = $request->section4_description;
+        $GemverDifference->meta_title = $request->meta_title;
+        $GemverDifference->meta_description = $request->meta_description;
 
         $old_section1_image = $GemverDifference->section1_image;
         if ($request->hasFile('section1_image')) {

@@ -135,7 +135,22 @@
                             </div>
                             
                             <div id="title1-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+
+                            <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
                             </div>
+                            
+                        
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+                            </div>
+
+                           
 
                             <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                                <!-- <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button> -->
@@ -203,6 +218,8 @@
            $('#value3').val(data.value3);
            $('#title4').val(data.title4);
            $('#value4').val(data.value4);
+           $('#meta_title').val(data.about_meta_title);
+           $('#meta_description').val(data.about_meta_description);
             if(data.first_section_image==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#first_section_image_show').attr('src', default_image);

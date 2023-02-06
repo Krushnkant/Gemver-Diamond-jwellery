@@ -169,10 +169,24 @@
                                 <textarea class="form-control" id="section4_description" name="section4_description"></textarea>
                                 <div id="section4_description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
+                             <div class="form-group ">
+                                <label class="col-form-label" for="meta_title">Meta Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="meta_title" name="meta_title">
+                            </div>
+                            
+                        
+                            <div class="form-group">
+                                <label class="col-form-label" for="meta_description">Meta Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
+                            </div>
+                             
                         </div>
 
                         
                     </div>
+                    
                     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 justify-content-center mt-4">
                         <button type="button" class="btn btn-primary" id="saveGenverDifference">Save <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
                     </div>
@@ -198,6 +212,8 @@
            $('#section3_description').val(data.section3_description);
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
+           $('#meta_title').val(data.meta_title);
+            $('#meta_description').val(data.meta_description);
 
            if(data.section1_image!=null){
                 var section1_image = "{{ url('images/aboutus') }}" +"/" + data.section1_image;
