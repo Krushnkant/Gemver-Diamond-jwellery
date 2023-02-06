@@ -90,7 +90,7 @@ class HomeController extends Controller
         $BlogBanners = [];
         $SmilingDifference = [];
         $diamonds = Diamond::get()->count();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
+        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
     public function createSlug($title, $id = 0)
