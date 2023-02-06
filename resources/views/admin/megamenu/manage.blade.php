@@ -42,9 +42,9 @@
                                     <th style="width: 50%">{{ $MenuCategory->title }}</th>
                                     <td>
                                         @if(isset($MenuCategory->icon) && $MenuCategory->icon != "")
-                                            <img src="{{ url('images/categoryicon/'.$MenuCategory->icon) }}" width="50px" height="50px" >
+                                            <img src="{{ url('images/categoryicon/'.$MenuCategory->icon) }}" width="25px" height="25px" >
                                         @else
-                                            <img src="{{ url('images/placeholder_image.png') }}" width="50px" height="50px" >
+                                            <img src="{{ url('images/placeholder_image.png') }}" width="25px" height="25px" >
                                         @endif
                                     </td>
                                     <td class="text-right">
