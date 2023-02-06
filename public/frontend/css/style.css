@@ -187,7 +187,7 @@ background-size: cover;
     
     .header ul li .mega-menu li a {
         color: #0B1727;
-        font-size: 16px;
+        font-size: 14px;
         transition: all 0.5s;
         align-items: center;
         letter-spacing: normal;
@@ -7248,10 +7248,6 @@ width: 100%;
     .select2-container--default .selection .select2-selection--multiple {
         border-bottom: 1px solid #e9e8e8;
     }
-    .select2-container--default .selection .select2-selection--multiple .select2-selection__choice {
-        font-size: 14px;
-        padding: 2px 8px;
-    }
     .select2-container--default .selection .select2-selection--multiple .select2-selection__choice__remove {
         margin-left: 5px;
         color: #ffffff;
@@ -7265,7 +7261,9 @@ width: 100%;
         float: left;
         margin-right: 5px;
         margin-top: 5px;
-        padding: 0 5px;
+        font-size: 14px;
+        padding: 2px 8px;
+        color: #ffffff;
     }
     .select2-container--default.select2-container--focus .selection .select2-selection--multiple {
         border-bottom: solid black 1px;
@@ -7287,4 +7285,7 @@ width: 100%;
     }
     .select2-results__option {
         font-size: 14px;
+    }
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: var(--secondary);
     }
