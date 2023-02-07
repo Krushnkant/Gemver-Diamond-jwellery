@@ -1,6 +1,1619 @@
-@media (max-width:360px) {
+@media (max-width:1600px) {
+    .about_us_product {
+        padding: 15px;
+    }
+    .about_us_product_row {
+        padding: 15px;
+    }
+    .about_us_product_row .about_us_product_padding:nth-child(odd) {
+        padding-left: 0;
+    }
+    .about_us_product_padding {
+        padding-right: 0;
+    }
+    .background-sub-slider {
+        margin-top: 0;
+    }
+    .about_us_background .sub_heading {
+        color: var(--primary);
+        font-size: 30px;
+    }
+    .about_us_link a {
+        color: var(--primary);
+        font-size: 14px;
+    }
+    .about_us_background .about_us_link svg path {
+        fill: var(--primary);
+    }
+}
+
+@media (max-width:1199px) {
+    .background-text-part {
+        top: 50%;
+        width: 100%;
+    }
+    .filter-btn {
+        font-size: 12px !important;
+    }
+    /*.customer-stories img {
+        height: 95px;
+    }*/
+    .paragraph {
+        color: #0B1727;
+        font-size: 16px;
+        line-height: normal;
+    }
+    .explore-ring-btn {
+        border: 1px solid #BB9761;
+        color: #0B1727;
+    }
+    .background-smoke-slider .shop-now-button {
+        color: #fff;
+    }
+    .heading-h1 {
+        font-size: 24px;
+        line-height: normal;
+        margin-bottom: 8px;
+    }
+    .explore-ring-btn {
+        min-width: 130px;
+        min-height: 42px;
+        font-size: 11px;
+        line-height: 42px;
+    }
+    .shop_by_category,
+    .shop_dimond_by_shape1,
+    .customer_stories,
+    .engagement_ring_section,
+    .gemver_diamonds_section {
+        padding: 40px 0;
+    }
+    .shop_dimond_by_shape {
+        padding: 40px 0 80px;
+    }
+    .footer-part-section {
+        margin-top: 15px;
+    }
+    .heading-h2 {
+        font-size: 22px;
+    }
+    .h3-heading {
+        font-size: 22px;
+        line-height: normal;
+    }
+    .explore-category-btn {
+        min-width: auto;
+        min-height: 47px;
+        line-height: 47px;
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    .category-heading {
+        font-size: 20px;
+    }
+    .customer_stories_paragraph {
+        font-size: 14px;
+    }
+    .customer_stories .item {
+        border-radius: 45px 0;
+        padding: 30px 20px;
+    }
+    /*.customer-stories-quotes {
+        padding-left: 15px;
+    }*/
+    .engagement_diamond_heading {
+        font-size: 22px;
+    }
+    .customer-stories-paragraph {
+        font-size: 14px;
+        /*text-indent: 43px;
+        line-height: 22px;*/
+    }
+    .customer-name {
+        font-size: 18px;
+    }
+    .customer-country {
+        font-size: 13px;
+    }
+    .engagement_diamond_paragraph {
+        width: 100%;
+    }
+    .customer-stories-quotes::after {
+        top: 13px;
+        left: -10px;
+    }
+    .customer-stories-quotes::after {
+        background-size: 18px;
+    }
+    .customer-stories .owl-dots {
+        position: initial;
+    }
+    .customer-stories .owl-nav {
+        position: initial;
+        margin-bottom: 0;
+    }
+    .engagement_diamond_paragraph_part {
+        font-size: 16px;
+        line-height: 23px;
+    }
+    .engagement_diamond_sub_heading {
+        font-size: 13px;
+        bottom: 25px;
+        left: 20px;
+        /*position: initial;
+        text-align: center;
+        max-width: 89px;*/
+    }
+    .engagement_diamond_box {
+        /*width: 70px;
+        height: 63px;*/
+        padding-left: 20px;
+/*        text-align: center;*/
+    }
+    .engagement_ring_paragraph {
+        font-size: 14px;
+    }
+    .engagement_ring_box {
+        width: 100%;
+        padding: 15px 15px 40px 15px;
+        margin-bottom: 20px;
+    }
+    .engagement_ring_heading {
+        font-size: 16px;
+    }
+    .explore-ring-btn {
+        color: #BB9761;
+    }
+    .shop-by-style-slider .owl-dots {
+        position: initial;
+    }
+    .diamonds_part {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        transform: none;
+        width: 90%;
+        padding: 20px;
+    }
+    .diamonds_heading {
+        font-size: 18px;
+    }
+    .catrgery_heading {
+        font-size: 16px;
+    }
+    .diamonds_paragraph {
+        font-size: 14px;
+    }
+    .footer-part-section {
+        padding: 15px 0;
+    }
+    .shop-by-style-slider .engagement_ring_img img {
+        height: 150px;
+    }
+    .btn-hover-effect::before,
+    .btn-hover-effect::after {
+        background: #BB9761;
+    }
+    .btn-hover-effect:hover {
+        color: #0B1727;
+        border: 1px solid #0B1727;
+    }
+    .mobile-btn-effect:hover {
+        color: #0B1727;
+        border: 1px solid #0B1727;
+        background: #fff;
+    }
+    .footer-part-heading {
+        font-size: 14px;
+    }
+    .footer-paragraph {
+        font-size: 14px;
+    }
+    .email_input input {
+        padding: 11px 12px;
+        font-size: 14px;
+    }
+    .submit_btn {
+        padding: 11px 21px;
+        font-size: 14px;
+        min-height: 44px;
+        min-width: auto;
+    }
+    .footer-social-media-icons li {
+        width: 43px;
+        height: 43px;
+    }
+    .footer-social-media-icons li svg {
+        width: 20px;
+    }
+    .footer-col .footer-heading {
+        font-size: 15px;
+    }
+    .footer-col ul li a {
+        font-size: 14px;
+    }
+    .footer-copyright-text,
+    .footer-copyright-text a {
+        font-size: 13px;
+    }
+    .footer-social-media-icons li:nth-child(3) svg {
+        width: 10px;
+    }
+    #nav-icon1 {
+        width: 60px;
+        height: 45px;
+        position: relative;
+        margin: 10px 0 10px auto;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        transform: scale(0.3);
+        transition: all 1s ease;
+        margin-right: -20px;
+    }
+    #nav-icon1.open {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 1s ease;
+        margin-right: 0;
+    }
+    .sub-pack .mobile-sub-menu-icon {
+        fill: #000;
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        right: 0;
+        transform: rotate(90deg);
+        transition: all 1s ease;
+    }
+    .sub-pack-active .mobile-sub-menu-icon {
+        opacity: 1;
+        z-index: 9999;
+        pointer-events: auto;
+        transition: all 1s ease;
+    }
+    body {
+        transition: all 1s ease;
+    }
+    body.mobile-sub-menu-active {
+        overflow: hidden !important;
+    }
+    body.mobile-sub-menu-active:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        transition: all 1s ease;
+    }
+    #nav-icon1 span {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background: var(--primary);
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    #nav-icon1 span:nth-child(1) {
+        top: 0px;
+    }
+    #nav-icon1 span:nth-child(2) {
+        top: 18px;
+    }
+    #nav-icon1 span:nth-child(3) {
+        top: 36px;
+    }
+    #nav-icon1.open span:nth-child(1) {
+        top: 18px;
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+    #nav-icon1.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+    #nav-icon1.open span:nth-child(3) {
+        top: 18px;
+        -webkit-transform: rotate(-135deg);
+        -moz-transform: rotate(-135deg);
+        -o-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+    .shop_dimond_by_shape .owl-item img {
+        width: 66% !important;
+        object-fit: contain;
+    }
+    .shop_by_style_heading {
+        font-size: 14px;
+    }
+    .about_box_bg {
+        padding: 50px;
+        min-height: 200px;
+    }
+    .shop_dimond_by_shape .owl-nav, .shop-by-category .owl-nav, .product-detail .owl-nav, .products_item .owl-nav {
+        right: 40px;
+    }
+    /*.shop-by-category .owl-nav {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }*/
+    .shop_dimond_by_shape .owl-nav {
+        padding-top: 0;
+        /*position: initial;*/
+    }
+    .shop-by-category .owl-prev {
+        left: -40px;
+    }
+    .shop-by-category .owl-next {
+        right: -40px;
+    }
+    .shop_dimond_by_shape .owl-dots {
+        text-align: center !important;
+        padding-top: 20px;
+    }
+    .header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {
+        font-size: 15px;
+    }
+    .wire_bangle_edit_box {
+        padding: 15px;
+    }
+    .wire_bangle_select_size .select-styled {
+        font-size: 15px;
+    }
+    .add_matching_band_btn {
+        font-size: 13px;
+        width: 234px;
+        height: 50px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_heading {
+        font-size: 16px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_sub_heading {
+        font-size: 14px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_price {
+        font-size: 18px;
+    }
+    .wire_bangle_edit_box .wire_bangle_edit_box_dublicate_price {
+        font-size: 13px;
+    }
+    .wire_bangle_edit_box .edit_box {
+        font-size: 14px;
+    }
+    .wire_diamond_heading {
+        font-size: 16px;
+    }
+    .wire_diamond_pargraph {
+        font-size: 16px;
+        line-height: normal;
+        font-family: 'Jost', sans-serif;
+    }
+    .email_input input::placeholder,
+    .email_input input {
+        font-size: 13px;
+    }
+    /* ---------- step progress bar----------------------- */
+    .step-progressbar-side-heading {
+        font-size: 16px;
+    }
+    .step-progressbar .tab-steps--list li:before {
+        width: 40px;
+        height: 40px;
+    }
+    .step-progressbar .step-img {
+        width: 40px;
+        height: 40px;
+    }
+    .step-progressbar .tab-steps--list li:after {
+        top: 20px;
+    }
+    .step-progressbar li .step-heading {
+        font-size: 14px;
+    }
+    .step-progressbar .step-heading-link {
+        font-size: 13px;
+    }
+    /* --------------------- wire bangle -------------------------------------- */
+    .wire_bangle_page .wire_bangle_heading {
+        font-size: 19px;
+        line-height: normal;
+    }
+    .wire_bangle_page .wire_bangle_price {
+        font-size: 20px;
+    }
+    .wire_bangle_page .wire_bangle_dublicate_price {
+        font-size: 15px;
+    }
+    .wire_bangle_page .wire_bangle_paragraph {
+        font-size: 16px;
+    }
+    .number-input button {
+        height: 43px;
+        width: 2rem;
+    }
+    .inquiry_now_btn button {
+        min-width: 138px;
+        min-height: 47px;
+        font-size: 12px;
+    }
+    .wire_bangle_color input {
+        width: 20px;
+        height: 20px;
+        border: 10px solid #EFD9A7;
+    }
+    .wire_bangle_padding_2 {
+        padding-left: 15px;
+    }
+    .wire_bangle_carat .wire_bangle_carat_label {
+        font-size: 14px;
+    }
+    .wire_bangle_share {
+        font-size: 14px;
+    }
+    .select_setting_btn {
+        min-width: 97px;
+        min-height: 39px;
+        font-size: 9px;
+    }
+    .select_contact_btn {
+        min-width: 164px;
+        min-height: 47px;
+        font-size: 12px;
+    }
+    .description_heading {
+        font-size: 20px;
+    }
+    .description_paragraph {
+        font-size: 16px;
+    }
+    .wire_bangle_padding {
+        padding-right: 15px;
+    }
+    .wire_bangle_page .product_slider_main_item {
+        height: 435px;
+    }
+    .wire_bangle_page .product_slider_main_item iframe {
+        height: 1068px !important;
+    }
+    .wire_bangle_page {
+        padding: 30px 0;
+    }
+    .wire_bangle_page .product_slider_item img {
+        width: 50px;
+        height: 50px;
+    }
+    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3 {
+        width: 50px;
+    }
+    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3::before {
+        width: 30px;
+        height: 30px;
+    }
+    .wire_bangle_page .product_slider_item {
+        padding: 0 10px;
+    }
+    .wire_bangle_page .slick-prev,
+    .wire_bangle_page .slick-next {
+        display: none !important;
+    }
+    .wire_bangle_accordion {
+        padding: 0 12px;
+    }
+    .wire_bangle_accordion .accordion-header button {
+        font-size: 16px;
+        padding: 15px;
+    }
+    .wire_bangle_accordion .accordion-body {
+        padding: 0 15px 15px 15px;
+    }
+    .number-input input[type=number] {
+        font-size: 15px;
+    }
+    .wire_bangle_accordion .wire_bangle_share {
+        font-size: 14px;
+    }
+    /* ---------------------modal--------------------------------- */
+    .inquiry_now_modal .modal-content {
+        min-width: 100%;
+    }
+    .inquiry_now_modal .product_heading {
+        font-size: 17px;
+    }
+    .inquiry_now_modal .wire_bangle_input {
+        min-height: 40px;
+        padding: 15px;
+        font-size: 15px;
+    }
+    .inquiry_now_modal .send_inquiry_btn {
+        font-size: 14px;
+        width: 100%;
+        height: 50px;
+        line-height: normal;
+    }
+    .wire_bangle_color_heading {
+        font-size: 14px;
+    }
+    /* --------------------- shop page --------------------------------- */
+    /*.wire_bangle_heading {
+        font-size: 16px;
+    }*/
+    /*.wire_bangle_sub_heading a {
+        font-size: 16px;
+    }*/
+    .wire_bangle_paragraph {
+        font-size: 16px;
+    }
+    .wire_bangle_price {
+        font-size: 20px;
+    }
+    .wire_bangle_color input:after {
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    .wire_bangle_showing_text {
+        font-size: 14px;
+    }
+    .filter-btn {
+        font-size: 15px;
+        width: 93px;
+        height: 34px;
+    }
+    .wire_bangle_dropdown {
+        font-size: 14px;
+    }
+    .wire_bangle_box {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .wire_bangle_box svg {
+        width: 20px;
+    }
+    .wire_bangle_inquiry_btn {
+        min-width: 164px;
+        height: 47px;
+        font-size: 12px;
+    }
+    /* --------------------- wire bangle -------------------------------------- */
+    .contact_us_heading {
+        font-size: 18px;
+    }
+    .contact_us_paragraph {
+        font-size: 16px;
+    }
+    .contact_us_sub_heading {
+        font-size: 18px;
+    }
+    .contact_us_sub_paragraph {
+        font-size: 15px;
+    }
+    /* --------------------- round cut lab diamonds -------------------------------------- */
+    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_paragraph {
+        font-size: 14px;
+    }
+    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
+        font-size: 15px;
+    }
+    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
+        width: 183px;
+        height: 47px;
+        font-size: 13px;
+        padding: 0;
+    }
+    .round_cut_lab_checkbox .shape_img {
+        max-width: 27px;
+    }
+    .round_cut_lab_checkbox input+.round_cut_lab_label {
+        font-size: 15px;
+        height: 30px;
+    }
+    .round_cut_lab_range_slider .form-group label {
+        font-size: 13px;
+        min-width: 55px;
+    }
+    .round_cut_lab_range_slider .form-group label:before {
+        width: 20px;
+        height: 20px;
+    }
+    .round_cut_lab_range_slider .form-group input+label:after {
+        top: 6px;
+        left: 8px;
+        width: 5px;
+        height: 11px;
+    }
+    .round_cut_lab_diamonds_page .clear_filter_btn {
+        font-size: 14px;
+    }
+    .round_cut_lab_diamonds_info_heading a {
+        font-size: 14px;
+    }
+    .round_cut_lab_diamonds_info_main_heading a {
+        font-size: 15px;
+    }
+    .round_cut_lab_diamonds_info_clarity {
+        font-size: 14px;
+    }
+    .round_cut_lab_diamonds_info_price {
+        font-size: 18px;
+    }
+    /* ---------------------------------------------------------------- */
+    .policy_page_section p {
+        font-size: 15px;
+    }
+    .policy_page_heading {
+        font-size: 16px;
+    }
+    /* --------------------- testimonial page -------------------------------------- */
+    .testimonial-box-des .testimonial-paragraph {
+        width: 100%;
+    }
+    .testimonial-img img {
+        width: 100px;
+        height: 100px;
+        border: 4px #fff solid;
+    }
+    .testimonial-box-des {
+        padding: 65px 15px 50px 15px;
+    }
+    .testimonial-box-des .testimonial-heading {
+        font-size: 17px;
+    }
+    .testimonial-box-des .testimonial-sub-heading {
+        font-size: 15px;
+    }
+    .testimonial-box-des .testimonial-paragraph {
+        font-size: 15px;
+    }
+    /* -------------------------------- step 1 design ------------------------------------------------ */
+    .ste_1_paragraph {
+        color: var(--primary);
+    }
+    .where_to_start_section {
+        padding-top: 40px;
+    }
+    .where_to_start_section_2 {
+        padding-bottom: 40px;
+    }
+    .where_to_start_section .jewellery-paragraph-box {
+        padding-right: 15px;
+    }
+    .maximise-your-budget-background {
+        padding: 50px 0;
+    }
+    .maximise_your_budget_heading,
+    .where_to_start_section .where_to_start_heading,
+    .lets_create_your_dream_heading {
+        font-size: 34px;
+    }
+    .create_your_dream_section {
+        padding: 50px 0;
+    }
+    .maximise_your_budget_box .category-heading {
+        font-size: 16px;
+    }
+    .where_to_start_section .jewellery-paragraph-box {
+        padding-right: 0;
+    }
+    /* -------------------------------- step 2 design ------------------------------------------------ */
+    .step_two_design .jewellery-paragraph-box {
+        text-align: center;
+    }
+    .step_two_design .cut_shape_heading {
+        font-size: 19px;
+    }
+    .step_two_design .jewellery-diamond-shape {
+        text-align: center;
+    }
+    .step_two_heading {
+        font-size: 17px;
+    }
+    .step_two_design .shop-dimond-by-shape-slider img {
+        max-width: 250px;
+        margin: auto;
+    }
+    .step_two_design .shape_heading {
+        font-size: 16px;
+    }
+    .step_two_design .where_to_start_section {
+        padding: 20px 0;
+    }
+    .step_two_design .cut_shape_heading {
+        font-size: 16px;
+    }
+    .step_two_design .choose_setting_heading {
+        font-size: 20px;
+    }
+    .order-includes-heading {
+        font-size: 24px;
+    }
+    /* --------------------------------- popup --------------------------------------- */
+    .product_modal .popup_part {
+        height: auto;
+    }
+    .cartpage .product_img img {
+        width: auto;
+        height: auto;
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .popup_product_heading {
+        font-size: 15px;
+    }
+    .smiling_box_heading {
+        font-size: 15px;
+    }
+    /* ----------------------------------------------------------- */
+    .table_part_view tr th {
+        font-size: 13px;
+    }
+    .table_part_view tr td {
+        min-width: 100px;
+    }
+    .order-deatil-heading {
+        font-size: 16px;
+    }
+    .order-detail-box {
+        padding: 15px;
+    }
+    .Item_table .amount_price {
+        font-size: 14px;
+    }
+    .Item_table .amount_total_price {
+        font-size: 14px;
+    }
+    .cart_product_part {
+        min-width: 150px;
+    }
+    .order-col-part {
+        width: 35%;
+    }
+    .order-col-part-2 {
+        width: 65%;
+    }
+    .description_paragraph {
+        font-size: 15px;
+    }
+    .choose_your_setting_faq .accordion {
+        font-size: 12px;
+    }
+    .choose_your_setting_faq .accordion:after,
+    .choose_your_setting_faq .accordion.active:after {
+        width: 13px;
+        height: 13px;
+        background-size: 100%;
+    }
+    .choose_your_setting_faq p {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+}
+
+@media (min-width:992px) {
+    .wire_bangle_main_box:nth-child(3n+1) {
+        padding: 0 9px 0 15px;
+    }
+    .wire_bangle_main_box:nth-child(3n+2) {
+        padding: 0 12px 0 12px;
+    }
+    .wire_bangle_main_box:nth-child(3n+2) {
+        padding: 0 15px 0 9px;
+    }
+    .sub-pack {
+        display: none;
+    }
+    .header ul .lab_grown_diamond_part .mega-menu {
+        transform: none;
+        left: 0;
+    }
+    .from_text input,
+    .to_text input {
+        max-width: none;
+    }
+    .comman_input_part {
+        width: 100% !important;
+    }
+}
+
+@media (max-width:991px) {
+    .sub-pack {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .shop-colorful-img img {
+        margin: 0 0 15px 0 !important;
+        width: 100% !important;
+        height: 173px;
+        margin-left: 0;
+    }
+    .header_row {
+        position: initial;
+    }
+    .smiling_box_icon {
+        min-width: 50px;
+    }
+    .main-img-li img {
+        border-radius: 5px;
+        margin-bottom: 0;
+    }
+    .step-progressbar-part {
+        border-radius: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+        clip-path: none !important;
+        margin: 0 !important;
+        border: 1px #ddd solid;
+        margin-bottom: 15px !important;
+        padding: 15px 0 !important;
+        box-sizing: border-box !important;
+        height: auto;
+    }
+    .animation-slider-text {
+        height: auto;
+    }
+    .animation-slider-text .header-icon {
+        font-size: 12px;
+    }
+    .diamond_margin {
+/*        margin-top: 20px;*/
+        margin-bottom: 0;
+    }
+    .progressbar_ul {
+        border: 0;
+        background: none;
+    }
+    .step-progressbar-part:nth-child(2),
+    .step-progressbar-part:last-child {
+        padding-left: 15px;
+    }
+    .step-progressbar-part .step-progressbar-heading {
+        font-size: 26px;
+    }
+    .step-progressbar-text {
+        font-size: 11px;
+    }
+    .step-progressbar-img {
+        max-width: 28px;
+    }
+    .customer_stories_img::after {
+        content: none;
+    }
+    .mobile-sub-menu {
+        position: fixed;
+        top: 0%;
+        right: -100%;
+        background-color: #fff;
+        width: 80%;
+        text-align: left;
+        padding: 50px 0;
+        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        min-width: 320px;
+        max-width: 400px;
+        width: 80%;
+        transition: all 1s ease;
+        height: 100vh;
+    }
+    ul.mobile-sub-menu.active {
+        top: 0;
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow-y: scroll;
+        transition: all 1s ease;
+    }
+    .header ul li a {
+        font-size: 14px;
+        padding: 16px 22px;
+        display: inline-block;
+        color: #0B1727;
+    }
+    .product_img {
+        width: 100%;
+    }
+    .header,
+    .header ul li {
+        padding: 0;
+    }
+    .mobile-sub-menu li {
+        display: block !important;
+        pointer-events: auto;
+        position: relative;
+    }
+    .mobile-sub-menu>li {
+        border-bottom: 1px solid #eaeaea;
+    }
+    .mobile-sub-menu li svg path {
+        fill: #808080 !important;
+    }
+    .mobile-sub-menu li svg {
+        width: 18px;
+        height: 18px;
+        float: right;
+        margin-right: 15px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(270deg);
+    }
+    .mega-menu-img {
+        width: 30px;
+        height: 30px;
+    }
+    .header ul li a svg {
+        width: 18px;
+        height: 18px;
+        float: right;
+        transform: rotate(270deg);
+    }
+    .header ul li>.mega-menu.mega-menu-sub-part {
+        left: auto;
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: scroll;
+        display: block;
+    }
+    .filter-meas-box:first-child .filter_text_part {
+        margin-left: 0;
+    }
+    .filter_text_part {
+        text-align: center;
+    }
+    .engagement-section .owl-nav {
+        position: initial;
+    }
+    /* .header ul li:nth-child(3) {
+        position: relative;
+    }
+    .header ul li:nth-child(3) .mega-menu {
+        left: auto;
+        right: 0;
+        transform: none;
+        min-height: 100vh;
+        overflow: scroll;
+    } */
+    /* .header.sticky ul li {
+        padding: 0;
+    }
+    .header.sticky {
+        padding: 10px 0;
+    }
+    .header.sticky #nav-icon1 span {
+        background: var(--primary);
+    } */
+    .two {
+        margin-bottom: 0;
+    }
+    .sub_header.header {
+        padding: 0 0;
+    }
+    .sub_header {
+        background: transparent;
+    }
+    .header li a svg path {
+        fill: #7d7a7a;
+    }
+    .header li a:hover svg path {
+        fill: #BB9761;
+    }
+    .header ul li>.mega-menu {
+        position: initial;
+        transform: none;
+    }
+    .header ul li .mega-menu li {
+        padding: 0;
+    }
+    .header ul li .mega-menu li a {
+        color: var(--primary);
+        font-size: 14px;
+    }
+    .header ul li .mega-menu li a:hover {
+        color: var(--secondary);
+    }
+    .header ul li>.mega-menu {
+        opacity: 1;
+        visibility: visible;
+    }
+    .header ul li>.mega-menu {
+        position: fixed;
+        top: 0% !important;
+        left: auto;
+        right: -100%;
+        background-color: #fff;
+        width: 80%;
+        text-align: left;
+        padding: 60px 0% 0 0;
+        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
+        z-index: 1111;
+        transition: all 0.5s ease;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        min-width: 320px;
+        max-width: 400px;
+        width: 80%;
+        transition: all 1s ease;
+        height: 100%;
+        border-radius: 0;
+    }
+    .header ul li .mega-menu .menu-part-img {
+        display: none !important;
+    }
+    .mega-menu-open ul li>.mega-menu {
+        right: -100% !important;
+    }
+    .header ul li>.mega-menu.slide_up_menu {
+        top: 0;
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow-y: scroll;
+        transition: all 1s ease;
+    }
+    .wire_bangle_accordion .accordion-button::after {
+        transform: scale(0.7);
+    }
+    .header ul li .mega-menu .mega-menu-four-part,
+    .header ul li .mega-menu .mega-menu-two-part,
+    .header ul li .mega-menu .mega-menu-three-part {
+        display: block;
+        min-width: auto;
+        padding: 0;
+        min-width: auto !important;
+    }
+    .header ul li .mega-menu .mega-menu-four-part div {
+        display: block;
+    }
+    .header ul li .mega-menu .mega-menu-four-part div ul {
+        width: 100%;
+    }
+    .header ul li .mega-menu .mega-menu-four-part>ul {
+        width: 100%;
+    }
+    .header ul li .mega-menu .mega-menu-three-part .mega-menu-diamond-part {
+        column-count: auto;
+    }
+    .header ul li>.mega-menu {
+        box-shadow: none;
+    }
+    .header ul li .mega-menu li a {
+        padding: 8px 30px;
+        border: 0;
+    }
+    .header ul li .mega-menu .menus_title_part {
+        padding: 1% 30px;
+    }
+    .header ul li .mega-menu li .menus_title,
+    .header ul li .mega-menu .menus_title {
+        font-size: 15px;
+        padding: 8px 30px;
+    }
+    /* .background-smoke-slider {
+        height: 250px;
+    } */
+    .header-icon {
+        font-size: 14px;
+    }
+    .home-page-slider .owl-next,
+    .home-page-slider .owl-prev {
+        top: 25%;
+        width: 30px;
+        height: 30px;
+    }
+    .home-page-slider .owl-next svg,
+    .home-page-slider .owl-prev svg {
+        width: 16px;
+        height: 16px;
+    }
+    .gemver_diamods_bg {
+        min-height: auto;
+        height: 100%;
+    }
+    .gemver_diamods_bg img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .diamonds_part {
+        position: initial !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: 20px;
+    }
+    .background-sub-slider {
+        margin-top: 0 !important;
+    }
+    .engagement-section .owl-prev {
+        position: initial;
+    }
+    .products_item .owl-nav {
+        margin-top: 0;
+    }
+    .owl-theme .owl-nav {
+        margin-top: 0;
+    }
+    .products_item .owl-prev {
+        margin-right: 15px;
+    }
+    .products_item .owl-next {
+        margin-left: 15px;
+    }
+    .cart-icon-part .search-box-icon {
+        width: 30px;
+        height: 30px;
+        position: initial;
+        transform: none;
+        margin-top: 9px;
+        margin-right: -3px;
+    }
+    .cart-icon-part .dropdown-toggle {
+        margin-right: 2px;
+    }
+    .mobile-menu-search-box-part {
+        position: absolute;
+        top: calc(100% + 0px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: all 0.5s ease;
+        visibility: hidden;
+    }
+    .mobile-menu-search-box-part input {
+        box-shadow: none !important;
+        outline: 0 !important;
+        border: 1px solid #ced4da !important;
+    }
+    .mobile-menu-search-box-part.active-part-cart {
+        opacity: 1;
+        visibility: visible;
+    }
+    .mobile-menu-search-box-part .search-box-icon {
+        position: absolute;
+    }
+    .search-box-mobile-icon {
+        position: absolute !important;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+    .mobile-search-close .close-icon {
+        display: none;
+        width: 15px;
+        height: 15px;
+    }
+    .mobile-search-close.mobile-search-close-active .close-icon {
+        display: inline-block;
+    }
+    .mobile-search-close .search-box-icon {
+        display: inline-block;
+    }
+    .mobile-search-close.mobile-search-close-active .search-box-icon {
+        display: none;
+        width: 25px;
+        height: 25px;
+        margin-right: -5px;
+    }
+    .finejewellery-slider {
+        margin-bottom: 10px;
+    }
+    /* --------------------- blog detail page--------------------------------- */
+    .blog-detail-heading {
+        font-size: 17px;
+    }
+    .blog-detail-img img {
+        width: 40px;
+        height: 40px;
+    }
+    .blog-detail-paragraph a {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .blog-detail-paragraph p {
+        font-size: 15px;
+    }
+    /* ----------------------------------------------------------------------------- */
+    .order-includes-heading {
+        font-size: 21px;
+        line-height: normal;
+    }
+    .order-box-part .order-text {
+        font-size: 15px;
+        text-align: left !important;
+    }
+    .order-box-part .order-img {
+        min-width: 50px;
+    }
+    .table_part_view tr td.action-button {
+        min-width: 200px;
+    }
+    .cart_product_name {
+        font-size: 13px;
+    }
+    .header_logo_cart {
+        position: initial;
+    }
+    /* --------------------------------- gemver difference ---------------------------------------------------------- */
+    .gemver_diffrence_img {
+        margin-right: 0;
+    }
+    .gemver_diffrence_box {
+        padding: 15px;
+        margin-top: 0;
+    }
+    .gemver_diffrence_img img {
+        height: 250px;
+    }
+    .gemver_diffrence_paragraph {
+        font-size: 15px;
+    }
+    .gemver_diffrence_heading {
+        font-size: 20px;
+    }
+    .product-delivery-start,
+    .product-delivery-end {
+        font-size: 15px;
+    }
+    .product-border:after,
+    .product-delivery-start:after,
+    .product-delivery-end:after {
+        content: none;
+    }
+    .customise_own_ring_section {
+        margin: 0;
+        padding: 0 !important;
+    }
+    .header-part {
+        top: calc(59px + 10px);
+    }
+    .home-page-bg {
+        margin-bottom: 60px;
+    }
+    .category-slider .owl-prev {
+        left: 0;
+        position: initial;
+        transform: none;
+    }
+    .category-slider .owl-next {
+        right: 0;
+        position: initial;
+        transform: none;
+    }
+    .finejewellery-img img {
+        min-height: auto;
+    }
+    .finejewellery-heading {
+        font-size: 15px;
+    }
+    .two_part_box_section .design_engagemnt_image img {
+        object-fit: cover;
+    }
+    .mobile-sub-menu {
+        height: 100%;
+    }
+    .mega-menu-four-part img {
+        display: none;
+    }
+    .wire_bangle_tabs_part li a {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .loose-lab-diamonds-diamond li {
+        padding: 2px 0 !important;
+    }
+    .mobile-menu-searchbox {
+        position: absolute;
+        top: 0;
+    }
+    /* .comman_input_part {
+        width: 80px !important;
+    } */
+    .filter_text_part {
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .carat-input-part {
+        display: flex !important;
+        grid-template-columns: auto;
+    }
+    .tab-view-part.active,
+    .clarity_tab {
+        display: block !important;
+    }
+    .from_text input,
+    .to_text input {
+        height: 28px;
+        min-width: 100%;
+    }
+    .round_cut_lab_checkbox input[type="checkbox"] {
+        width: 42px;
+        height: 45px;
+    }
+    .round_cut_lab_checkbox input+.shape_img {
+        min-width: 45px;
+        min-height: 45px;
+        line-height: 33px !important;
+    }
+    .contact-google-map {
+        position: initial;
+    }
+    .contact_us_bg {
+        padding: 0 !important;
+    }
+    .choose_your_setting_section,
+    .create_your_own_section {
+        padding: 30px 0;
+    }
+    /* ----------------------------------------------------------------- */
+    .filter-btn {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 19px;
+        text-transform: capitalize;
+        color: #0B1727;
+        width: 107px;
+        height: 40px;
+        border: 1px solid rgba(11, 23, 39, 0.1);
+        background: none;
+        background-color: var(--primary) !important;
+        color: #fff;
+        width: auto !important;
+        padding: 0 19px !important;
+        box-shadow: none !important;
+        border: 0 !important;
+    }
+    .filter-data {
+        position: fixed;
+        top: 0%;
+        left: -100%;
+        background-color: #fff;
+        width: 80%;
+        text-align: left;
+        padding: 0;
+        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
+        z-index: 1111;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        min-width: 320px;
+        max-width: 400px;
+        width: 80%;
+        transition: all 1s ease;
+        height: 100%;
+        display: block;
+    }
+    .close-icon {
+        font-size: 28px;
+        z-index: 999;
+        position: relative;
+    }
+    .filter-data-active {
+        top: 0;
+        left: 0;
+        right: auto;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow-y: scroll;
+        transition: all 1s ease;
+        display: block !important;
+    }
     .select_box_option select {
-        font-size: 10px !important;
+        font-size: 13px;
+    }
+    .home-page-header marquee span {
+        padding-right: 0 !important;
+    }
+    .lab-grow-diamonds-section .see-all-btn {
+        min-width: 160px;
+        min-height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+    .shop-colorful-img img {
+        margin: 0 0 15px 0;
+        width: 148px;
+        margin-left: -33px;
+    }
+    .shop-colorful-bg .heading-h2 {
+        font-size: 28px;
+    }
+    .shop-colorful-bg .sub_title {
+        font-size: 18px;
+    }
+    /* -------------------------------------------------------------- */
+    .row-grid-list.list .round_cut_lab_diamonds_box .round_cut_lab_diamonds_list_img {
+        width: 30%;
+    }
+    .row-grid-list.list .round_cut_lab_diamonds_layer_part {
+        display: block;
+    }
+    /* ---------------------------------------------------------- */
+    .row-grid-list.list .add-to-wishlist-btn-diamond {
+        transform: none;
+        top: 16px;
+        right: 0px;
+        position: initial;
+    }
+    .round_cut_lab_diamonds_info_price {
+        font-size: 15px !important;
+    }
+    .engagement_diamond_box img {
+        height: 31px;
+    }
+    .carat-input-part .filter_ct {
+        font-size: 13px;
+    }
+    .apply-btn {
+        background-color: var(--primary) !important;
+        color: #fff !important;
+        line-height: 12px;
+        min-width: 100px;
+        line-height: 36px;
+        padding: 0;
+    }
+    .reset-btn-position {
+        position: fixed;
+        bottom: 0;
+        min-width: 320px;
+        max-width: 400px;
+        left: -100%;
+        width: 80%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        z-index: 9999;
+        padding: 20px 20px !important;
+        transition: all 1s ease;
+    }
+    .filter-data-active .reset-btn-position {
+        left: 0;
+        width: 80%;
+    }
+    .gemver-sidebar {
+        padding-bottom: 80px !important;
+    }
+    .filter-sidebar {
+        padding-bottom: 75px !important;
+    }
+    .Instagram-post-section .custom-col {
+        width: 100%;
+    }
+    .gift-box-margin,
+    .create_your_own_section {
+        margin-bottom: 30px !important;
+    }
+    .ready-to-ship-section {
+        padding: 30px 0;
+    }
+    .gifts-box-padding {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+    .choose-your-section {
+        padding-top: 30px;
+    }
+    .custom-made-section {
+        padding: 30px 0;
+    }
+    .custom-made-section-padding {
+        padding: 30px 0;
+    }
+    .ring-part-section {
+        padding-bottom: 30px;
+    }
+    .engagement-slider-sub-text {
+        position: initial;
+        transform: none;
+    }
+    .engagement-slider-sub-text .custom_engagement_paragrph {
+        margin-left: 0;
+        max-width: none;
+        text-align: left;
+    }
+    .first_image_part {
+        margin-bottom: 8px;
+    }
+    .first_image_part img {
+        height: 300px;
+    }
+    .image_view_column_part figure:nth-child(1) img,
+    .image_view_column_part figure:nth-child(2) img {
+        height: calc(300px - 8px);
+    }
+    .our_engagement_label {
+        top: 93% !important;
+    }
+    .lab_grown_diamonds_text {
+        left: 8px;
+    }
+    .lab_grown_diamonds_text {
+        left: 2px;
+    }
+    .lab_grown_diamonds_text {
+        left: 2px;
+        font-size: 9px;
+        top: 90%;
+    }
+    .three-lab-grown {
+        top: 83% !important;
+    }
+    .three-lab-grown {
+        top: 92% !important;
+    }
+    .image_view_column_part_1,
+    .image_view_column_part_2 {
+        width: 100%;
+    }
+    .your-order-include-img img {
+        height: 200px;
+    }
+    .your_include_boxes_img_part {
+        position: initial;
+        transform: none;
+    }
+    .Instagram-post-section .custom-col {
+        height: 163px;
+        object-fit: cover;
+    }
+    .Instagram-post-section .custom-col img {
+        object-fit: cover;
+    }
+    .lab_grown_diamond_heading {
+        font-size: 11px;
+        bottom: 15px;
+        left: 14px;
+        z-index: 0;
+    }
+    .main-img-li img {
+        margin-bottom: 10px;
+    }
+    .first_img img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-img-li {
+        width: 100%;
+    }
+    .feature {
+        width: 100%;
     }
 }
 
@@ -332,8 +1945,12 @@
         height: 37px;
         padding: 11px 19px;
     }
-    .catrgery_box {
+    /*.catrgery_box {
         margin: 20px 10px;
+    }*/
+    .catrgery_heading {
+        padding: 10px 10px;
+        font-size: 14px;
     }
     .mega-menu-sub-part {
         display: none;
@@ -389,10 +2006,10 @@
     .smiling_box_icon {
         margin: auto;
     }
-    .smiling_gemver_banner {
+    /*.smiling_gemver_banner {
         margin-bottom: 0;
         margin-top: 30px;
-    }
+    }*/
     /* --------------------------------------------------------------------------------------- */
     /* .detail_label {
         height: auto;
@@ -418,1603 +2035,9 @@
     }
 }
 
-@media (max-width:991px) {
-    .sub-pack {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .shop-colorful-img img {
-        margin: 0 0 15px 0 !important;
-        width: 100% !important;
-        height: 173px;
-        margin-left: 0;
-    }
-    .header_row {
-        position: initial;
-    }
-    .smiling_box_icon {
-        min-width: 50px;
-    }
-    .main-img-li img {
-        border-radius: 5px;
-        margin-bottom: 0;
-    }
-    .step-progressbar-part {
-        border-radius: 15px;
-        margin-bottom: 15px;
-        width: 100%;
-        clip-path: none !important;
-        margin: 0 !important;
-        border: 1px #ddd solid;
-        margin-bottom: 15px !important;
-        padding: 15px 0 !important;
-        box-sizing: border-box !important;
-        height: auto;
-    }
-    .animation-slider-text {
-        height: auto;
-    }
-    .animation-slider-text .header-icon {
-        font-size: 12px;
-    }
-    .diamond_margin {
-        margin-top: 20px;
-        margin-bottom: 0;
-    }
-    .progressbar_ul {
-        border: 0;
-        background: none;
-    }
-    .step-progressbar-part:nth-child(2),
-    .step-progressbar-part:last-child {
-        padding-left: 15px;
-    }
-    .step-progressbar-part .step-progressbar-heading {
-        font-size: 26px;
-    }
-    .step-progressbar-text {
-        font-size: 11px;
-    }
-    .step-progressbar-img {
-        max-width: 28px;
-    }
-    .customer_stories_img::after {
-        content: none;
-    }
-    .mobile-sub-menu {
-        position: fixed;
-        top: 0%;
-        right: -100%;
-        background-color: #fff;
-        width: 80%;
-        text-align: left;
-        padding: 50px 0;
-        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
-        z-index: 9999;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        min-width: 320px;
-        max-width: 400px;
-        width: 80%;
-        transition: all 1s ease;
-        height: 100vh;
-    }
-    ul.mobile-sub-menu.active {
-        top: 0;
-        right: 0;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        overflow-y: scroll;
-        transition: all 1s ease;
-    }
-    .header ul li a {
-        font-size: 14px;
-        padding: 16px 22px;
-        display: inline-block;
-        color: #0B1727;
-    }
-    .product_img {
-        width: 100%;
-    }
-    .header,
-    .header ul li {
-        padding: 0;
-    }
-    .mobile-sub-menu li {
-        display: block !important;
-        pointer-events: auto;
-        position: relative;
-    }
-    .mobile-sub-menu>li {
-        border-bottom: 1px solid #eaeaea;
-    }
-    .mobile-sub-menu li svg path {
-        fill: #808080 !important;
-    }
-    .mobile-sub-menu li svg {
-        width: 18px;
-        height: 18px;
-        float: right;
-        margin-right: 15px;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%) rotate(270deg);
-    }
-    .mega-menu-img {
-        width: 30px;
-        height: 30px;
-    }
-    .header ul li a svg {
-        width: 18px;
-        height: 18px;
-        float: right;
-        transform: rotate(270deg);
-    }
-    .header ul li>.mega-menu.mega-menu-sub-part {
-        left: auto;
-        right: 0;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        height: 100vh;
-        min-height: 100vh;
-        overflow: scroll;
-        display: block;
-    }
-    .filter-meas-box:first-child .filter_text_part {
-        margin-left: 0;
-    }
-    .filter_text_part {
-        text-align: center;
-    }
-    .engagement-section .owl-nav {
-        position: initial;
-    }
-    /* .header ul li:nth-child(3) {
-        position: relative;
-    }
-    .header ul li:nth-child(3) .mega-menu {
-        left: auto;
-        right: 0;
-        transform: none;
-        min-height: 100vh;
-        overflow: scroll;
-    } */
-    /* .header.sticky ul li {
-        padding: 0;
-    }
-    .header.sticky {
-        padding: 10px 0;
-    }
-    .header.sticky #nav-icon1 span {
-        background: var(--primary);
-    } */
-    .two {
-        margin-bottom: 0;
-    }
-    .sub_header.header {
-        padding: 0 0;
-    }
-    .sub_header {
-        background: transparent;
-    }
-    .header li a svg path {
-        fill: #7d7a7a;
-    }
-    .header li a:hover svg path {
-        fill: #BB9761;
-    }
-    .header ul li>.mega-menu {
-        position: initial;
-        transform: none;
-    }
-    .header ul li .mega-menu li {
-        padding: 0;
-    }
-    .header ul li .mega-menu li a {
-        color: var(--primary);
-        font-size: 14px;
-    }
-    .header ul li .mega-menu li a:hover {
-        color: var(--secondary);
-    }
-    .header ul li>.mega-menu {
-        opacity: 1;
-        visibility: visible;
-    }
-    .header ul li>.mega-menu {
-        position: fixed;
-        top: 0% !important;
-        left: auto;
-        right: -100%;
-        background-color: #fff;
-        width: 80%;
-        text-align: left;
-        padding: 60px 0% 0 0;
-        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
-        z-index: 1111;
-        transition: all 0.5s ease;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        min-width: 320px;
-        max-width: 400px;
-        width: 80%;
-        transition: all 1s ease;
-        height: 100%;
-        border-radius: 0;
-    }
-    .header ul li .mega-menu .menu-part-img {
-        display: none !important;
-    }
-    .mega-menu-open ul li>.mega-menu {
-        right: -100% !important;
-    }
-    .header ul li>.mega-menu.slide_up_menu {
-        top: 0;
-        right: 0;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        overflow-y: scroll;
-        transition: all 1s ease;
-    }
-    .wire_bangle_accordion .accordion-button::after {
-        transform: scale(0.7);
-    }
-    .header ul li .mega-menu .mega-menu-four-part,
-    .header ul li .mega-menu .mega-menu-two-part,
-    .header ul li .mega-menu .mega-menu-three-part {
-        display: block;
-        min-width: auto;
-        padding: 0;
-        min-width: auto !important;
-    }
-    .header ul li .mega-menu .mega-menu-four-part div {
-        display: block;
-    }
-    .header ul li .mega-menu .mega-menu-four-part div ul {
-        width: 100%;
-    }
-    .header ul li .mega-menu .mega-menu-four-part>ul {
-        width: 100%;
-    }
-    .header ul li .mega-menu .mega-menu-three-part .mega-menu-diamond-part {
-        column-count: auto;
-    }
-    .header ul li>.mega-menu {
-        box-shadow: none;
-    }
-    .header ul li .mega-menu li a {
-        padding: 8px 30px;
-        border: 0;
-    }
-    .header ul li .mega-menu .menus_title_part {
-        padding: 1% 30px;
-    }
-    .header ul li .mega-menu li .menus_title,
-    .header ul li .mega-menu .menus_title {
-        font-size: 15px;
-        padding: 8px 30px;
-    }
-    /* .background-smoke-slider {
-        height: 250px;
-    } */
-    .header-icon {
-        font-size: 14px;
-    }
-    .home-page-slider .owl-next,
-    .home-page-slider .owl-prev {
-        top: 25%;
-        width: 30px;
-        height: 30px;
-    }
-    .home-page-slider .owl-next svg,
-    .home-page-slider .owl-prev svg {
-        width: 16px;
-        height: 16px;
-    }
-    .gemver_diamods_bg {
-        min-height: auto;
-        height: 100%;
-    }
-    .gemver_diamods_bg img {
-        height: 100%;
-        object-fit: cover;
-    }
-    .diamonds_part {
-        position: initial !important;
-        transform: none !important;
-        width: 100% !important;
-        padding: 20px;
-    }
-    .background-sub-slider {
-        margin-top: 0 !important;
-    }
-    .engagement-section .owl-prev {
-        position: initial;
-    }
-    .products_item .owl-nav {
-        margin-top: 0;
-    }
-    .products_item .owl-nav,
-    .products_item .owl-prev,
-    .products_item .owl-next {
-        position: initial;
-        transform: none;
-        width: auto;
-    }
-    .owl-theme .owl-nav {
-        margin-top: 0;
-    }
-    .products_item .owl-prev {
-        margin-right: 15px;
-    }
-    .products_item .owl-next {
-        margin-left: 15px;
-    }
-    .cart-icon-part .search-box-icon {
-        width: 30px;
-        height: 30px;
-        position: initial;
-        transform: none;
-        margin-top: 9px;
-        margin-right: -3px;
-    }
-    .cart-icon-part .dropdown-toggle {
-        margin-right: 2px;
-    }
-    .mobile-menu-search-box-part {
-        position: absolute;
-        top: calc(100% + 0px);
-        left: 0;
-        right: 0;
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: all 0.5s ease;
-        visibility: hidden;
-    }
-    .mobile-menu-search-box-part input {
-        box-shadow: none !important;
-        outline: 0 !important;
-        border: 1px solid #ced4da !important;
-    }
-    .mobile-menu-search-box-part.active-part-cart {
-        opacity: 1;
-        visibility: visible;
-    }
-    .mobile-menu-search-box-part .search-box-icon {
-        position: absolute;
-    }
-    .search-box-mobile-icon {
-        position: absolute !important;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-    }
-    .mobile-search-close .close-icon {
-        display: none;
-        width: 15px;
-        height: 15px;
-    }
-    .mobile-search-close.mobile-search-close-active .close-icon {
-        display: inline-block;
-    }
-    .mobile-search-close .search-box-icon {
-        display: inline-block;
-    }
-    .mobile-search-close.mobile-search-close-active .search-box-icon {
-        display: none;
-        width: 25px;
-        height: 25px;
-        margin-right: -5px;
-    }
-    .finejewellery-slider {
-        margin-bottom: 10px;
-    }
-    /* --------------------- blog detail page--------------------------------- */
-    .blog-detail-heading {
-        font-size: 17px;
-    }
-    .blog-detail-img img {
-        width: 40px;
-        height: 40px;
-    }
-    .blog-detail-paragraph a {
-        font-size: 15px;
-        margin-top: 10px;
-    }
-    .blog-detail-paragraph p {
-        font-size: 15px;
-    }
-    /* ----------------------------------------------------------------------------- */
-    .order-includes-heading {
-        font-size: 21px;
-        line-height: normal;
-    }
-    .order-box-part .order-text {
-        font-size: 15px;
-        text-align: left !important;
-    }
-    .order-box-part .order-img {
-        min-width: 50px;
-    }
-    .table_part_view tr td.action-button {
-        min-width: 200px;
-    }
-    .cart_product_name {
-        font-size: 13px;
-    }
-    .header_logo_cart {
-        position: initial;
-    }
-    /* --------------------------------- gemver difference ---------------------------------------------------------- */
-    .gemver_diffrence_img {
-        margin-right: 0;
-    }
-    .gemver_diffrence_box {
-        padding: 15px;
-        margin-top: 0;
-    }
-    .gemver_diffrence_img img {
-        height: 250px;
-    }
-    .gemver_diffrence_paragraph {
-        font-size: 15px;
-    }
-    .gemver_diffrence_heading {
-        font-size: 20px;
-    }
-    .product-delivery-start,
-    .product-delivery-end {
-        font-size: 15px;
-    }
-    .product-border:after,
-    .product-delivery-start:after,
-    .product-delivery-end:after {
-        content: none;
-    }
-    .customise_own_ring_section {
-        margin: 0;
-        padding: 0 !important;
-    }
-    .header-part {
-        top: calc(59px + 10px);
-    }
-    .home-page-bg {
-        margin-bottom: 60px;
-    }
-    .category-slider .owl-prev {
-        left: 0;
-        position: initial;
-        transform: none;
-    }
-    .category-slider .owl-next {
-        right: 0;
-        position: initial;
-        transform: none;
-    }
-    .finejewellery-img img {
-        min-height: auto;
-    }
-    .finejewellery-heading {
-        font-size: 15px;
-    }
-    .two_part_box_section .design_engagemnt_image img {
-        object-fit: cover;
-    }
-    .mobile-sub-menu {
-        height: 100%;
-    }
-    .mega-menu-four-part img {
-        display: none;
-    }
-    .wire_bangle_tabs_part li a {
-        font-size: 13px;
-        padding: 0 10px;
-    }
-    .loose-lab-diamonds-diamond li {
-        padding: 2px 0 !important;
-    }
-    .mobile-menu-searchbox {
-        position: absolute;
-        top: 0;
-    }
-    /* .comman_input_part {
-        width: 80px !important;
-    } */
-    .filter_text_part {
-        margin-left: 0;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .carat-input-part {
-        display: flex !important;
-        grid-template-columns: auto;
-    }
-    .tab-view-part.active,
-    .clarity_tab {
-        display: block !important;
-    }
-    .from_text input,
-    .to_text input {
-        height: 28px;
-        min-width: 100%;
-    }
-    .round_cut_lab_checkbox input[type="checkbox"] {
-        width: 42px;
-        height: 45px;
-    }
-    .round_cut_lab_checkbox input+.shape_img {
-        min-width: 45px;
-        min-height: 45px;
-        line-height: 33px !important;
-    }
-    .contact-google-map {
-        position: initial;
-    }
-    .contact_us_bg {
-        padding: 0 !important;
-    }
-    .choose_your_setting_section,
-    .create_your_own_section {
-        padding: 30px 0;
-    }
-    /* ----------------------------------------------------------------- */
-    .filter-btn {
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 19px;
-        text-transform: capitalize;
-        color: #0B1727;
-        width: 107px;
-        height: 40px;
-        border: 1px solid rgba(11, 23, 39, 0.1);
-        background: none;
-        background-color: var(--primary) !important;
-        color: #fff;
-        width: auto !important;
-        padding: 0 19px !important;
-        box-shadow: none !important;
-        border: 0 !important;
-    }
-    .filter-data {
-        position: fixed;
-        top: 0%;
-        left: -100%;
-        background-color: #fff;
-        width: 80%;
-        text-align: left;
-        padding: 0;
-        box-shadow: 1px 1px 7px 2px rgb(0 0 0 / 10%);
-        z-index: 1111;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        min-width: 320px;
-        max-width: 400px;
-        width: 80%;
-        transition: all 1s ease;
-        height: 100%;
-        display: block;
-    }
-    .close-icon {
-        font-size: 28px;
-        z-index: 999;
-        position: relative;
-    }
-    .filter-data-active {
-        top: 0;
-        left: 0;
-        right: auto;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        overflow-y: scroll;
-        transition: all 1s ease;
-        display: block !important;
-    }
+@media (max-width:360px) {
     .select_box_option select {
-        font-size: 13px;
-    }
-    .home-page-header marquee span {
-        padding-right: 0 !important;
-    }
-    .lab-grow-diamonds-section .see-all-btn {
-        min-width: 160px;
-        min-height: 40px;
-        line-height: 40px;
-        font-size: 14px;
-    }
-    .shop-colorful-img img {
-        margin: 0 0 15px 0;
-        width: 148px;
-        margin-left: -33px;
-    }
-    .shop-colorful-bg {
-        margin-bottom: 30px;
-    }
-    .shop-colorful-bg .heading-h2 {
-        font-size: 28px;
-    }
-    .shop-colorful-bg .sub_title {
-        font-size: 18px;
-    }
-    /* -------------------------------------------------------------- */
-    .row-grid-list.list .round_cut_lab_diamonds_box .round_cut_lab_diamonds_list_img {
-        width: 30%;
-    }
-    .row-grid-list.list .round_cut_lab_diamonds_layer_part {
-        display: block;
-    }
-    /* ---------------------------------------------------------- */
-    .row-grid-list.list .add-to-wishlist-btn-diamond {
-        transform: none;
-        top: 16px;
-        right: 0px;
-        position: initial;
-    }
-    .round_cut_lab_diamonds_info_price {
-        font-size: 15px !important;
-    }
-    .engagement_diamond_box img {
-        height: 31px;
-    }
-    .carat-input-part .filter_ct {
-        font-size: 13px;
-    }
-    .shop_dimond_by_shape1 {
-        margin-bottom: 20px;
-    }
-    .apply-btn {
-        background-color: var(--primary) !important;
-        color: #fff !important;
-        line-height: 12px;
-        min-width: 100px;
-        line-height: 36px;
-        padding: 0;
-    }
-    .reset-btn-position {
-        position: fixed;
-        bottom: 0;
-        min-width: 320px;
-        max-width: 400px;
-        left: -100%;
-        width: 80%;
-        background-color: #fff;
-        display: flex;
-        justify-content: space-between;
-        z-index: 9999;
-        padding: 20px 20px !important;
-        transition: all 1s ease;
-    }
-    .filter-data-active .reset-btn-position {
-        left: 0;
-        width: 80%;
-    }
-    .gemver-sidebar {
-        padding-bottom: 80px !important;
-    }
-    .filter-sidebar {
-        padding-bottom: 75px !important;
-    }
-    .Instagram-post-section .custom-col {
-        width: 100%;
-    }
-    .gift-box-margin,
-    .create_your_own_section {
-        margin-bottom: 30px !important;
-    }
-    .ready-to-ship-section {
-        padding: 30px 0;
-    }
-    .gifts-box-padding {
-        padding-top: 30px;
-        padding-bottom: 50px;
-    }
-    .choose-your-section {
-        padding-top: 30px;
-    }
-    .custom-made-section {
-        padding: 30px 0;
-    }
-    .custom-made-section-padding {
-        padding: 30px 0;
-    }
-    .ring-part-section {
-        padding-bottom: 30px;
-    }
-    .engagement-slider-sub-text {
-        position: initial;
-        transform: none;
-    }
-    .engagement-slider-sub-text .custom_engagement_paragrph {
-        margin-left: 0;
-        max-width: none;
-        text-align: left;
-    }
-    .first_image_part {
-        margin-bottom: 8px;
-    }
-    .first_image_part img {
-        height: 300px;
-    }
-    .image_view_column_part figure:nth-child(1) img,
-    .image_view_column_part figure:nth-child(2) img {
-        height: calc(300px - 8px);
-    }
-    .our_engagement_label {
-        top: 93% !important;
-    }
-    .lab_grown_diamonds_text {
-        left: 8px;
-    }
-    .lab_grown_diamonds_text {
-        left: 2px;
-    }
-    .lab_grown_diamonds_text {
-        left: 2px;
-        font-size: 9px;
-        top: 90%;
-    }
-    .three-lab-grown {
-        top: 83% !important;
-    }
-    .three-lab-grown {
-        top: 92% !important;
-    }
-    .image_view_column_part_1,
-    .image_view_column_part_2 {
-        width: 100%;
-    }
-    .your-order-include-img img {
-        height: 200px;
-    }
-    .your_include_boxes_img_part {
-        position: initial;
-        transform: none;
-    }
-    .Instagram-post-section .custom-col {
-        height: 163px;
-        object-fit: cover;
-    }
-    .Instagram-post-section .custom-col img {
-        object-fit: cover;
-    }
-    .lab_grown_diamond_heading {
-        font-size: 11px;
-        bottom: 15px;
-        left: 14px;
-        z-index: 0;
-    }
-    .main-img-li img {
-        margin-bottom: 10px;
-    }
-    .first_img img {
-        height: 300px;
-    }
-}
-
-@media (max-width:1199px) {
-    .shop_by_category_padding {
-        padding-bottom: 0 !important;
-    }
-    .background-text-part {
-        top: 50%;
-        width: 100%;
-    }
-    .filter-btn {
-        font-size: 12px !important;
-    }
-    /*.customer-stories img {
-        height: 95px;
-    }*/
-    .paragraph {
-        color: #0B1727;
-        font-size: 16px;
-        line-height: normal;
-    }
-    .explore-ring-btn {
-        border: 1px solid #BB9761;
-        color: #0B1727;
-    }
-    .background-smoke-slider .shop-now-button {
-        color: #fff;
-    }
-    .heading-h1 {
-        font-size: 24px;
-        line-height: normal;
-        margin-bottom: 8px;
-    }
-    .explore-ring-btn {
-        min-width: 130px;
-        min-height: 42px;
-        font-size: 11px;
-        line-height: 42px;
-    }
-    .shop_by_category,
-    .customer_stories,
-    .engagement_ring_section,
-    .customise_own_ring_section,
-    .gemver_diamonds_section {
-        padding: 20px 0;
-    }
-    .shop_dimond_by_shape {
-        padding: 40px 0;
-    }
-    .footer-part-section {
-        margin-top: 15px;
-    }
-    .heading-h2 {
-        font-size: 22px;
-        line-height: normal;
-    }
-    .h3-heading {
-        font-size: 22px;
-        line-height: normal;
-    }
-    .explore-category-btn {
-        min-width: auto;
-        min-height: 47px;
-        line-height: 47px;
-        font-size: 12px;
-        padding: 0 15px;
-    }
-    .category-heading {
-        font-size: 20px;
-    }
-    .customer_stories_paragraph {
-        font-size: 14px;
-        /*line-height: 25px;*/
-    }
-    .customer_stories .item {
-        border-radius: 45px 0;
-        padding: 30px 20px;
-    }
-    /*.customer-stories-quotes {
-        padding-left: 15px;
-    }*/
-    .engagement_diamond_heading {
-        font-size: 22px;
-    }
-    .customer-stories-paragraph {
-        font-size: 14px;
-        /*text-indent: 43px;
-        line-height: 22px;*/
-    }
-    .customer-name {
-        font-size: 18px;
-    }
-    .customer-country {
-        font-size: 13px;
-    }
-    .engagement_diamond_paragraph {
-        width: 100%;
-    }
-    .customer-stories-quotes::after {
-        top: 13px;
-        left: -10px;
-    }
-    .customer-stories-quotes::after {
-        background-size: 18px;
-    }
-    .customer-stories .owl-dots {
-        position: initial;
-    }
-    .customer-stories .owl-nav {
-        position: initial;
-        margin-bottom: 0;
-    }
-    .engagement_diamond_paragraph_part {
-        font-size: 16px;
-        line-height: 23px;
-    }
-    .engagement_diamond_sub_heading {
-        font-size: 13px;
-        position: initial;
-        text-align: center;
-        line-height: normal;
-        max-width: 89px;
-    }
-    .engagement_diamond_box {
-        width: 70px;
-        height: 63px;
-        padding-left: 0;
-        text-align: center;
-    }
-    .engagement_ring_paragraph {
-        font-size: 14px;
-    }
-    .engagement_ring_box {
-        width: 100%;
-        padding: 15px 15px 40px 15px;
-        margin-bottom: 20px;
-    }
-    .engagement_ring_heading {
-        font-size: 16px;
-    }
-    .explore-ring-btn {
-        color: #BB9761;
-    }
-    .shop-by-style-slider .owl-dots {
-        position: initial;
-    }
-    .diamonds_part {
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        transform: none;
-        width: 90%;
-        padding: 20px;
-    }
-    .diamonds_heading {
-        font-size: 18px;
-    }
-    .catrgery_heading {
-        font-size: 16px;
-    }
-    .diamonds_paragraph {
-        font-size: 14px;
-    }
-    .footer-part-section {
-        padding: 15px 0;
-    }
-    .shop-by-style-slider .engagement_ring_img img {
-        height: 150px;
-    }
-    .btn-hover-effect::before,
-    .btn-hover-effect::after {
-        background: #BB9761;
-    }
-    .btn-hover-effect:hover {
-        color: #0B1727;
-        border: 1px solid #0B1727;
-    }
-    .mobile-btn-effect:hover {
-        color: #0B1727;
-        border: 1px solid #0B1727;
-        background: #fff;
-    }
-    .footer-part-heading {
-        font-size: 14px;
-    }
-    .footer-paragraph {
-        font-size: 14px;
-    }
-    .email_input input {
-        padding: 11px 12px;
-        font-size: 14px;
-    }
-    .submit_btn {
-        padding: 11px 21px;
-        font-size: 14px;
-        min-height: 44px;
-        min-width: auto;
-    }
-    .footer-social-media-icons li {
-        width: 43px;
-        height: 43px;
-        line-height: 39px;
-    }
-    .footer-social-media-icons li svg {
-        width: 20px;
-    }
-    .footer-col .footer-heading {
-        font-size: 15px;
-    }
-    .footer-col ul li a {
-        font-size: 14px;
-    }
-    .footer-copyright-text,
-    .footer-copyright-text a {
-        font-size: 13px;
-    }
-    .footer-social-media-icons li:nth-child(3) svg {
-        width: 10px;
-    }
-    #nav-icon1 {
-        width: 60px;
-        height: 45px;
-        position: relative;
-        margin: 10px 0 10px auto;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .5s ease-in-out;
-        -moz-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
-        cursor: pointer;
-        transform: scale(0.3);
-        transition: all 1s ease;
-        margin-right: -20px;
-    }
-    #nav-icon1.open {
-        position: absolute;
-        top: 0;
-        right: 0;
-        transition: all 1s ease;
-        margin-right: 0;
-    }
-    .sub-pack .mobile-sub-menu-icon {
-        fill: #000;
-        width: 20px;
-        height: 20px;
-        opacity: 1;
-        position: absolute;
-        top: 25px;
-        left: 20px;
-        right: 0;
-        transform: rotate(90deg);
-        transition: all 1s ease;
-    }
-    .sub-pack-active .mobile-sub-menu-icon {
-        opacity: 1;
-        z-index: 9999;
-        pointer-events: auto;
-        transition: all 1s ease;
-    }
-    body {
-        transition: all 1s ease;
-    }
-    body.mobile-sub-menu-active {
-        overflow: hidden !important;
-    }
-    body.mobile-sub-menu-active:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.2);
-        z-index: 99;
-        width: 100%;
-        height: 100%;
-        transition: all 1s ease;
-    }
-    #nav-icon1 span {
-        display: block;
-        position: absolute;
-        height: 9px;
-        width: 100%;
-        background: var(--primary);
-        border-radius: 9px;
-        opacity: 1;
-        left: 0;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .25s ease-in-out;
-        -moz-transition: .25s ease-in-out;
-        -o-transition: .25s ease-in-out;
-        transition: .25s ease-in-out;
-    }
-    #nav-icon1 span:nth-child(1) {
-        top: 0px;
-    }
-    #nav-icon1 span:nth-child(2) {
-        top: 18px;
-    }
-    #nav-icon1 span:nth-child(3) {
-        top: 36px;
-    }
-    #nav-icon1.open span:nth-child(1) {
-        top: 18px;
-        -webkit-transform: rotate(135deg);
-        -moz-transform: rotate(135deg);
-        -o-transform: rotate(135deg);
-        transform: rotate(135deg);
-    }
-    #nav-icon1.open span:nth-child(2) {
-        opacity: 0;
-        left: -60px;
-    }
-    #nav-icon1.open span:nth-child(3) {
-        top: 18px;
-        -webkit-transform: rotate(-135deg);
-        -moz-transform: rotate(-135deg);
-        -o-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-    }
-    .shop_dimond_by_shape .owl-item img {
-        width: 66% !important;
-        object-fit: contain;
-    }
-    .shop_by_style_heading {
-        font-size: 14px;
-    }
-    .about_box_bg {
-        padding: 50px;
-        min-height: 200px;
-    }
-    .shop-by-category .owl-nav {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%)
-    }
-    .shop_dimond_by_shape .owl-nav {
-        padding-top: 0;
-        /*position: initial;*/
-    }
-    .shop-by-category .owl-prev {
-        left: -40px;
-    }
-    .shop-by-category .owl-next {
-        right: -40px;
-    }
-    .shop_dimond_by_shape .owl-dots {
-        text-align: center !important;
-        padding-top: 20px;
-    }
-    .header ul li .mega-menu .mega-menu-four-part .mobile-sub-menu-link {
-        font-size: 15px;
-    }
-    .wire_bangle_edit_box {
-        padding: 15px;
-    }
-    .wire_bangle_select_size .select-styled {
-        font-size: 15px;
-    }
-    .add_matching_band_btn {
-        font-size: 13px;
-        width: 234px;
-        height: 50px;
-    }
-    .wire_bangle_edit_box .wire_bangle_edit_box_heading {
-        font-size: 16px;
-    }
-    .wire_bangle_edit_box .wire_bangle_edit_box_sub_heading {
-        font-size: 14px;
-    }
-    .wire_bangle_edit_box .wire_bangle_edit_box_price {
-        font-size: 18px;
-    }
-    .wire_bangle_edit_box .wire_bangle_edit_box_dublicate_price {
-        font-size: 13px;
-    }
-    .wire_bangle_edit_box .edit_box {
-        font-size: 14px;
-    }
-    .wire_diamond_heading {
-        font-size: 16px;
-    }
-    .wire_diamond_pargraph {
-        font-size: 16px;
-        line-height: normal;
-        font-family: 'Jost', sans-serif;
-    }
-    .email_input input::placeholder,
-    .email_input input {
-        font-size: 13px;
-    }
-    /* ---------- step progress bar----------------------- */
-    .step-progressbar-side-heading {
-        font-size: 16px;
-    }
-    .step-progressbar .tab-steps--list li:before {
-        width: 40px;
-        height: 40px;
-    }
-    .step-progressbar .step-img {
-        width: 40px;
-        height: 40px;
-    }
-    .step-progressbar .tab-steps--list li:after {
-        top: 20px;
-    }
-    .step-progressbar li .step-heading {
-        font-size: 14px;
-    }
-    .step-progressbar .step-heading-link {
-        font-size: 13px;
-    }
-    /* --------------------- wire bangle -------------------------------------- */
-    .wire_bangle_page .wire_bangle_heading {
-        font-size: 19px;
-        line-height: normal;
-    }
-    .wire_bangle_page .wire_bangle_price {
-        font-size: 20px;
-        line-height: normal;
-    }
-    .wire_bangle_page .wire_bangle_dublicate_price {
-        font-size: 15px;
-    }
-    .wire_bangle_page .wire_bangle_paragraph {
-        font-size: 16px;
-    }
-    .number-input button {
-        height: 43px;
-        width: 2rem;
-    }
-    .inquiry_now_btn button {
-        min-width: 138px;
-        min-height: 47px;
-        font-size: 12px;
-    }
-    .wire_bangle_color input {
-        width: 20px;
-        height: 20px;
-        border: 10px solid #EFD9A7;
-    }
-    .wire_bangle_padding_2 {
-        padding-left: 15px;
-    }
-    .wire_bangle_carat .wire_bangle_carat_label {
-        font-size: 14px;
-    }
-    .wire_bangle_share {
-        font-size: 14px;
-    }
-    .select_setting_btn {
-        min-width: 97px;
-        min-height: 39px;
-        font-size: 9px;
-    }
-    .select_contact_btn {
-        min-width: 164px;
-        min-height: 47px;
-        font-size: 12px;
-    }
-    .description_heading {
-        font-size: 20px;
-    }
-    .description_paragraph {
-        font-size: 16px;
-    }
-    .wire_bangle_padding {
-        padding-right: 15px;
-    }
-    .wire_bangle_page .product_slider_main_item {
-        height: 435px;
-    }
-    .wire_bangle_page .product_slider_main_item iframe {
-        height: 1068px !important;
-    }
-    .wire_bangle_page {
-        padding: 30px 0;
-    }
-    .wire_bangle_page .product_slider_item img {
-        width: 50px;
-        height: 50px;
-    }
-    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3 {
-        width: 50px;
-    }
-    .wire_bangle_page .slider-nav .slick-slide.is-active .product_slider_item h3::before {
-        width: 30px;
-        height: 30px;
-    }
-    .wire_bangle_page .product_slider_item {
-        padding: 0 10px;
-    }
-    .wire_bangle_page .slick-prev,
-    .wire_bangle_page .slick-next {
-        display: none !important;
-    }
-    .wire_bangle_accordion {
-        padding: 0 12px;
-    }
-    .wire_bangle_accordion .accordion-header button {
-        font-size: 16px;
-        padding: 15px;
-    }
-    .wire_bangle_accordion .accordion-body {
-        padding: 0 15px 15px 15px;
-    }
-    .number-input input[type=number] {
-        font-size: 15px;
-    }
-    .wire_bangle_accordion .wire_bangle_share {
-        font-size: 14px;
-    }
-    /* ---------------------modal--------------------------------- */
-    .inquiry_now_modal .modal-content {
-        min-width: 100%;
-    }
-    .inquiry_now_modal .product_heading {
-        font-size: 17px;
-    }
-    .inquiry_now_modal .wire_bangle_input {
-        min-height: 40px;
-        padding: 15px;
-        font-size: 15px;
-    }
-    .inquiry_now_modal .send_inquiry_btn {
-        font-size: 14px;
-        width: 100%;
-        height: 50px;
-        line-height: normal;
-    }
-    .wire_bangle_color_heading {
-        font-size: 14px;
-    }
-    /* --------------------- shop page --------------------------------- */
-    .wire_bangle_heading {
-        font-size: 16px;
-    }
-    .wire_bangle_sub_heading a {
-        font-size: 16px;
-    }
-    .wire_bangle_paragraph {
-        font-size: 16px;
-    }
-    .wire_bangle_price {
-        font-size: 20px;
-    }
-    .wire_bangle_color input:after {
-        transform: translate(-50%, -50%) scale(0.3);
-    }
-    .wire_bangle_showing_text {
-        font-size: 14px;
-    }
-    .filter-btn {
-        font-size: 15px;
-        width: 93px;
-        height: 34px;
-    }
-    .wire_bangle_dropdown {
-        font-size: 14px;
-    }
-    .wire_bangle_box {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-    }
-    .wire_bangle_box svg {
-        width: 20px;
-    }
-    .wire_bangle_inquiry_btn {
-        min-width: 164px;
-        height: 47px;
-        font-size: 12px;
-    }
-    /* --------------------- wire bangle -------------------------------------- */
-    .contact_us_heading {
-        font-size: 18px;
-    }
-    .contact_us_paragraph {
-        font-size: 16px;
-    }
-    .contact_us_sub_heading {
-        font-size: 18px;
-    }
-    .contact_us_sub_paragraph {
-        font-size: 15px;
-    }
-    /* --------------------- round cut lab diamonds -------------------------------------- */
-    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_paragraph {
-        font-size: 14px;
-    }
-    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_heading {
-        font-size: 15px;
-    }
-    .round_cut_lab_diamonds_page .round_cut_lab_diamonds_filter_btn {
-        width: 183px;
-        height: 47px;
-        font-size: 13px;
-        padding: 0;
-    }
-    .round_cut_lab_checkbox .shape_img {
-        max-width: 27px;
-    }
-    .round_cut_lab_checkbox input+.round_cut_lab_label {
-        font-size: 15px;
-        height: 30px;
-    }
-    .round_cut_lab_range_slider .form-group label {
-        font-size: 13px;
-        min-width: 55px;
-    }
-    .round_cut_lab_range_slider .form-group label:before {
-        width: 20px;
-        height: 20px;
-    }
-    .round_cut_lab_range_slider .form-group input+label:after {
-        top: 6px;
-        left: 8px;
-        width: 5px;
-        height: 11px;
-    }
-    .round_cut_lab_diamonds_page .clear_filter_btn {
-        font-size: 14px;
-    }
-    .round_cut_lab_diamonds_info_heading a {
-        font-size: 14px;
-    }
-    .round_cut_lab_diamonds_info_main_heading a {
-        font-size: 15px;
-    }
-    .round_cut_lab_diamonds_info_clarity {
-        font-size: 14px;
-    }
-    .round_cut_lab_diamonds_info_price {
-        font-size: 18px;
-    }
-    /* ---------------------------------------------------------------- */
-    .policy_page_section p {
-        font-size: 15px;
-    }
-    .policy_page_heading {
-        font-size: 16px;
-    }
-    /* --------------------- testimonial page -------------------------------------- */
-    .testimonial-box-des .testimonial-paragraph {
-        width: 100%;
-    }
-    .testimonial-img img {
-        width: 100px;
-        height: 100px;
-        border: 4px #fff solid;
-    }
-    .testimonial-box-des {
-        padding: 65px 15px 50px 15px;
-    }
-    .testimonial-box-des .testimonial-heading {
-        font-size: 17px;
-    }
-    .testimonial-box-des .testimonial-sub-heading {
-        font-size: 15px;
-    }
-    .testimonial-box-des .testimonial-paragraph {
-        font-size: 15px;
-    }
-    /* -------------------------------- step 1 design ------------------------------------------------ */
-    .ste_1_paragraph {
-        color: var(--primary);
-    }
-    .where_to_start_section {
-        padding-top: 40px;
-    }
-    .where_to_start_section_2 {
-        padding-bottom: 40px;
-    }
-    .where_to_start_section .jewellery-paragraph-box {
-        padding-right: 15px;
-    }
-    .maximise-your-budget-background {
-        padding: 50px 0;
-    }
-    .maximise_your_budget_heading,
-    .where_to_start_section .where_to_start_heading,
-    .lets_create_your_dream_heading {
-        font-size: 34px;
-    }
-    .create_your_dream_section {
-        padding: 50px 0;
-    }
-    .maximise_your_budget_box .category-heading {
-        font-size: 16px;
-    }
-    .where_to_start_section .jewellery-paragraph-box {
-        padding-right: 0;
-    }
-    /* -------------------------------- step 2 design ------------------------------------------------ */
-    .step_two_design .jewellery-paragraph-box {
-        text-align: center;
-    }
-    .step_two_design .cut_shape_heading {
-        font-size: 19px;
-    }
-    .step_two_design .jewellery-diamond-shape {
-        text-align: center;
-    }
-    .step_two_heading {
-        font-size: 17px;
-    }
-    .step_two_design .shop-dimond-by-shape-slider img {
-        max-width: 250px;
-        margin: auto;
-    }
-    .step_two_design .shape_heading {
-        font-size: 16px;
-    }
-    .step_two_design .where_to_start_section {
-        padding: 20px 0;
-    }
-    .step_two_design .cut_shape_heading {
-        font-size: 16px;
-    }
-    .step_two_design .choose_setting_heading {
-        font-size: 20px;
-    }
-    .order-includes-heading {
-        font-size: 24px;
-    }
-    /* --------------------------------- popup --------------------------------------- */
-    .product_modal .popup_part {
-        height: auto;
-    }
-    .cartpage .product_img img {
-        width: auto;
-        height: auto;
-        max-width: 100px;
-        max-height: 100px;
-    }
-    .popup_product_heading {
-        font-size: 15px;
-    }
-    .smiling_box_heading {
-        font-size: 15px;
-    }
-    /* ----------------------------------------------------------- */
-    .table_part_view tr th {
-        font-size: 13px;
-    }
-    .table_part_view tr td {
-        min-width: 100px;
-    }
-    .order-deatil-heading {
-        font-size: 16px;
-    }
-    .order-detail-box {
-        padding: 15px;
-    }
-    .Item_table .amount_price {
-        font-size: 14px;
-    }
-    .Item_table .amount_total_price {
-        font-size: 14px;
-    }
-    .cart_product_part {
-        min-width: 150px;
-    }
-    .order-col-part {
-        width: 35%;
-    }
-    .order-col-part-2 {
-        width: 65%;
-    }
-    .description_paragraph {
-        font-size: 15px;
-    }
-    .choose_your_setting_faq .accordion {
-        font-size: 12px;
-    }
-    .choose_your_setting_faq .accordion:after,
-    .choose_your_setting_faq .accordion.active:after {
-        width: 13px;
-        height: 13px;
-        background-size: 100%;
-    }
-    .choose_your_setting_faq p {
-        font-size: 12px;
-        padding: 6px 0;
-    }
-}
-
-@media (max-width:1600px) {
-    .about_us_product {
-        padding: 15px;
-    }
-    .about_us_product_row {
-        padding: 15px;
-    }
-    .about_us_product_row .about_us_product_padding:nth-child(odd) {
-        padding-left: 0;
-    }
-    .about_us_product_padding {
-        padding-right: 0;
-    }
-    .background-sub-slider {
-        margin-top: 0;
-    }
-    .about_us_background .sub_heading {
-        color: var(--primary);
-        font-size: 30px;
-    }
-    .about_us_link a {
-        color: var(--primary);
-        font-size: 14px;
-    }
-    .about_us_background .about_us_link svg path {
-        fill: var(--primary);
+        font-size: 10px !important;
     }
 }
 
@@ -2067,15 +2090,15 @@
         padding-top: 0;
         top: 22px;
     }
-    .smiling_gemver_banner {
+    /*.smiling_gemver_banner {
         margin-bottom: 0;
-    }
+    }*/
     .detail_label_col {
         font-size: 14px;
     }
-    .catrgery_box .catrgory_img img {
+    /*.catrgery_box .catrgory_img img {
         height: 240px;
-    }
+    }*/
     /* -------------------------------------------------------------- */
     .cart-product-name-info {
         min-width: 300px;
@@ -2446,9 +2469,9 @@
     .header-logo img {
         max-height: 50px;
     }
-    .catrgery_box .catrgory_img img {
+    /*.catrgery_box .catrgory_img img {
         height: 220px;
-    }
+    }*/
     .footer-logo {
         max-width: 100px;
     }
@@ -2518,9 +2541,9 @@
     .category-heading {
         font-size: 17px;
     }
-    .catrgery_heading {
+    /*.catrgery_heading {
         font-size: 18px;
-    }
+    }*/
     .heading-h1 {
         font-size: 38px;
     }
@@ -2610,9 +2633,9 @@
     .product-delivery-end:after {
         content: none;
     }
-    .customise_own_ring_section {
+    /*.customise_own_ring_section {
         margin: 0;
-    }
+    }*/
     .checkout_box .checkout_box_col:nth-child(even) {
         border-right: 1px solid #0B1727;
     }
@@ -2709,32 +2732,6 @@
     }
 }
 
-@media (min-width:992px) {
-    .wire_bangle_main_box:nth-child(3n+1) {
-        padding: 0 9px 0 15px;
-    }
-    .wire_bangle_main_box:nth-child(3n+2) {
-        padding: 0 12px 0 12px;
-    }
-    .wire_bangle_main_box:nth-child(3n+2) {
-        padding: 0 15px 0 9px;
-    }
-    .sub-pack {
-        display: none;
-    }
-    .header ul .lab_grown_diamond_part .mega-menu {
-        transform: none;
-        left: 0;
-    }
-    .from_text input,
-    .to_text input {
-        max-width: none;
-    }
-    .comman_input_part {
-        width: 100% !important;
-    }
-}
-
 @media (min-width:992px) and (max-width:1600px) {
     .about_us_background {
         position: absolute;
@@ -2791,9 +2788,9 @@
     .header ul li a {
         font-size: 16px;
     }
-    .catrgery_box .catrgory_img img {
+    /*.catrgery_box .catrgory_img img {
         height: 200px;
-    }
+    }*/
     .heading-h1 {
         font-size: 46px;
         line-height: 46px;
@@ -2994,9 +2991,9 @@
         left: calc(48% + 0px);
         width: 60%;
     }
-    .customise_own_ring_section {
+    /*.customise_own_ring_section {
         margin: 0;
-    }
+    }*/
     .home-page-bg {
         margin-bottom: 106px;
     }
@@ -3120,11 +3117,3 @@
     }
 }
 
-@media (max-width: 768px) {
-    .main-img-li {
-        width: 100%;
-    }
-    .feature {
-        width: 100%;
-    }
-}

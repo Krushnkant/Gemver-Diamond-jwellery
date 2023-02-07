@@ -181,16 +181,16 @@ $(document).ready(function() {
         dots: false,
         responsive: {
             0: {
-                items: 1,
-            },
-            576: {
                 items: 2,
             },
-            768: {
+            576: {
                 items: 3,
             },
-            992: {
+            767: {
                 items: 4,
+            },
+            992: {
+                items: 5,
             },
             1200: {
                 items: 5
@@ -207,14 +207,17 @@ $(document).ready(function() {
             0: {
                 items: 1
             },
-            576: {
+            460: {
                 items: 2,
             },
-            800: {
+            767: {
                 items: 3,
             },
-            1200: {
+            990: {
                 items: 4
+            },
+            1366: {
+                items: 5
             }
         }
     });

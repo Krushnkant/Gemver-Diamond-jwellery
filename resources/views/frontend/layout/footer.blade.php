@@ -64,26 +64,10 @@
                     <li>
                         <a href="{{ url($fo1->value)}}">{{ ($fo1->title != "")?$fo1->title:$fo1->value }}</a>
                     </li>
-                    {{-- <li>
-                        <a href="{{ Route('frontend.testimonials') }}">testimonials</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.blogs') }}">our blogs</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.termcondition') }}" class="">
-                            Terms & Conditions 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.privacypolicy') }}" class="">
-                            Privacy Policy 
-                        </a>
-                    </li> --}}
                     @endforeach
                 </ul>
             </div>
-            <div class="col-md-3 footer-col mb-md-0">
+            <div class="col-md-2 footer-col mb-md-0">
                 <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                     Why Gemver?
                 <div class="footer-angle d-block d-md-none">
@@ -94,27 +78,6 @@
                 </div>
                 <?php $footer2 = \App\Models\FooterPage::where('page_id', 2)->get(); ?>
                 <ul class="footer-ul-part d-md-block">
-                    {{-- <li>
-                        <a href="{{ Route('frontend.freeshipping') }}">Free Shipping </a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.returndays') }}">Free 30 day Returns</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.lifetimeupgrade') }}">Lifetime Upgrade</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.freeresizing') }}">Free Resizing</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.lifetimewarranty') }}">Lifetime Warranty</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.freeengraving') }}">Free Engraving</a>
-                    </li>
-                    <li>
-                        <a href="{{ Route('frontend.paymentoptions') }}">Payment Options</a>
-                    </li> --}}
                     @foreach($footer2 as $fo2)
                     <li>
                         <a href="{{ url($fo2->value)}}">{{ ($fo2->title != "")?$fo2->title:$fo2->value }}</a>
@@ -134,14 +97,11 @@
                 </div>
                 <?php $footer3 = \App\Models\FooterPage::where('page_id', 3)->get(); ?>
                 <ul class="footer-ul-part d-md-block">
-                    
                     @foreach($footer3 as $fo3)
                     <li>
                         <a href="{{ url($fo3->value)}}">{{ ($fo3->title != "")?$fo3->title:$fo3->value }}</a>
                     </li>
-                    
                     @endforeach
-                    
                     <li>
                         <a href="tel:+91{{ $settings->company_mobile_no }}"><i class="fa fa-phone"></i> +91 {{ $settings->company_mobile_no }}</a>
                     </li>
@@ -152,8 +112,8 @@
                         <a href="#"><i class="fa fa-address-card"></i> {{ $settings->company_address }}</a>
                     </li>
                 </ul>
-                <div class="">
-                    <!-- <div class="footer-part-heading mb-3">stay in touch !</div> -->
+                <div class="mb-2 mb-md-4">
+                    <div class="footer-part-heading mb-2">Follow Us</div>
                     <ul class="footer-social-media-icons">
                         @if($settings->instagram_url != "")
                         <li>
@@ -194,12 +154,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 footer-col mb-4 mb-md-4">
+            <div class="col-md-5 footer-col mb-2 mb-md-4">
                 <div class="footer-heading mb-4 mb-md-4 d-flex justify-content-between">
                     Newsletter
                 </div>
                 <p class="footer-paragraph mb-3">Sign up to receive infrequent emails about sample sales, special deals, and new releases.</p>
-                <div class="mb-5">
+                <div class="mb-4 mb-md-5">
                     <form action="test" method="post" id="NewsLatterForm">
                         @csrf
                         <div class="alert alert-success" id="success-alert-newslatter" style="display: none;">
@@ -215,7 +175,7 @@
                         <div id="newslatteremail-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </form>    
                 </div>
-                <div class="footer-paymentbox">
+                <div class="footer-paymentbox mb-4">
                     <div class="footer-heading mb-2 mb-md-2 d-flex justify-content-between">
                         Payments Accepted
                     </div>

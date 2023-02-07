@@ -435,7 +435,6 @@ background-size: cover;
     .heading-h2 {
         font-weight: 500;
         font-size: 30px;
-        line-height: normal;
         color: var(--secondary) !important;
         position: relative;
         z-index: 1;
@@ -461,33 +460,28 @@ background-size: cover;
     .catrgery_box {
         background: #FFFFFF;
         padding: 0 0 0 0;
-        margin: 5px;
         display: grid;
+        margin: 5px;
         align-items: center;
         border-radius: 10px;
-        /* box-shadow: 3px 3px 10px rgb(117 117 117 / 20%); */
         box-shadow: 3px 3px 10px 0px rgb(191 207 223);
-        margin: 20px 4px;
     }
     
     .catrgery_heading {
-        font-family: 'Lato';
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
-        line-height: 24px;
         color: #111112;
-        min-width: 156px;
         text-align: center;
-        padding: 20px 10px;
+        padding: 15px 10px;
         font-family: 'Roboto', sans-serif;
     }
     
-    .catrgery_box .catrgory_img img {
+    /*.catrgery_box .catrgory_img img {
         height: 270px;
         min-width: 154px;
         object-fit: cover;
-    }
+    }*/
     
     .explore-category-btn {
         min-width: 268px;
@@ -562,7 +556,7 @@ background-size: cover;
     }
     
     .shop_dimond_by_shape {
-        padding: 60px 72px 100px 60px;
+        padding: 60px 0 90px;
         position: relative;
         background-size: cover;
     }
@@ -576,7 +570,7 @@ background-size: cover;
     }
     
     .diamond_margin {
-        margin-top: 40px;
+        /*margin-top: 40px;*/
         margin-bottom: 60px;
         background: var(--primary);
     }
@@ -772,7 +766,7 @@ background-size: cover;
         padding-top: 15px;
     }
     
-    .engagement_diamond_img {
+    /*.engagement_diamond_img {
         height: 100%;
         object-fit: cover;
     }
@@ -780,13 +774,11 @@ background-size: cover;
     .engagement_diamond_img img {
         height: 100%;
         object-fit: cover;
-        /* box-shadow: 5px 4px 7px rgb(0 0 0 / 8%); */
-    }
+    }*/
     
     .engagement_diamond_sub_heading {
         font-weight: 600;
         font-size: 16px;
-        line-height: 30px;
         letter-spacing: 0.05em;
         text-transform: capitalize;
         color: #0B1727;
@@ -978,7 +970,7 @@ background-size: cover;
     .customise_own_ring_section {
         padding: 0;
         border-radius: 15px;
-        margin: 60px 0;
+        /*margin: 60px 0;*/
     }
 
     .ads-banner-section {
@@ -1123,17 +1115,13 @@ background-size: cover;
         font-size: 14px;
         line-height: 20px;
         letter-spacing: 0.05em;
-        text-transform: lowercase;
+        /*text-transform: lowercase;*/
         color: var(--primary);
     }
     
     .footer-col ul li a:hover {
         color: var(--secondary);
         transition: all 0.5s ease;
-    }
-    
-    .footer-col ul li {
-        margin-bottom: 5px;
     }
     
     .footer-copyright-text,
@@ -1396,7 +1384,6 @@ background-size: cover;
     .wire_bangle_page .wire_bangle_price {
         font-weight: 500;
         font-size: 30px;
-        line-height: 43px;
         text-transform: capitalize;
         color: #000;
         display: flex;
@@ -1645,7 +1632,7 @@ background-size: cover;
     }
     
     .products_item .wire_bangle_shop_radio {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     
     .wire_bangle_shop_radio {
@@ -1654,14 +1641,14 @@ background-size: cover;
         margin: 20px 0;
     }
     
-    .wire_bangle_color_part {
+    /*.wire_bangle_color_part {
         opacity: 0;
         transition: all 0.5s ease;
     }
     
     .wire_bangle_shop_radio:hover .wire_bangle_color_part {
         opacity: 1;
-    }
+    }*/
     
     .wire_bangle_color .form-check-input:focus {
         border-color: none;
@@ -1985,7 +1972,6 @@ background-size: cover;
     .wire_bangle_price {
         font-weight: normal;
         font-size: 20px;
-        line-height: 38px;
         text-transform: capitalize;
         color: #0B1727;
     }
@@ -2051,17 +2037,17 @@ background-size: cover;
         height: 100%;
     }
     
-    .wire_bangle_img:before {
+    /*.wire_bangle_img:before {
         content: "";
         display: block;
         padding-bottom: 100%;
-    }
+    }*/
     
     .wire_bangle_img img,
     .wire_bangle_img video {
         transform: scale(1);
         transition: all 0.2s ease;
-        position: absolute;
+/*        position: absolute;*/
         top: 0;
         bottom: 0;
         left: 0;
@@ -4279,10 +4265,6 @@ width: 100%;
         pointer-events: none;
     }
     
-    .shop_by_category_padding {
-        padding-bottom: 60px;
-    }
-    
     .wire_bangle_description .wire_bangle_sub_heading {
         font-size: 16px;
         margin-bottom: 5px;
@@ -4340,12 +4322,12 @@ width: 100%;
     .smiling_gemver_banner {
         /*margin-top: 60px;
         margin-bottom: 60px;*/
-        padding: 60px 0;
+        padding: 60px 0 30px;
         position: relative;
     }
 
-    .footer-paymentbox {
-        padding-right: 40px;
+    .footer-paymentbox img {
+        width: 70%;
     }
 
     .diff-item-box {
@@ -6574,13 +6556,13 @@ width: 100%;
     }
     
     .shop_dimond_by_shape1 {
-        margin-bottom: 80px;
+        padding: 60px 0;
+        margin-bottom: 25px;
     }
     
     .shop-colorful-bg {
         /* background-color: #04020d; */
         border-radius: 0;
-        margin-bottom: 80px;
         overflow: hidden;
         background: linear-gradient(90deg, #708E74 26.68%, #BDD4C2 86.86%);
     }

@@ -151,7 +151,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 
     <div class="shop_dimond_by_shape1">
         <div class="container">
-            <div class="mb-4 mb-md-0 pb-md-5 text-center">
+            <div class="mb-3 mt-md-0 text-center">
                 <h2 class="heading-h2">{{ $homesetting->section_product_title }}</h2>
                 <div class="sub_title">
                    {{ $homesetting->section_product_shotline }}
@@ -167,7 +167,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         '3gp'
                     );
                     $index = 0;
-                ?>
+                    ?>
                     @foreach($products as $product) 
                      
                     <?php
@@ -203,7 +203,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     ?>
                     <div class="hover_effect_part wire_bangle_shop_radio product-data">
                     <div class="wire_bangle_img_radio_button">
-                        <div class="wire_bangle_img mb-3 position-relative">
+                        <div class="wire_bangle_img position-relative">
                             <a class="wire_bangle_hover_a" href="{{ $url }}">
                                 <?php 
                                    $ext = pathinfo($image, PATHINFO_EXTENSION); 
@@ -217,20 +217,54 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                 <?php } ?>
                             </a>
                         </div>
-                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $product->primary_category->category_name }}
-                        <input type="hidden" class="variant_id" value="{{ $product->variant_id }}">    
-                        <input type="hidden" class="item_type" value="0">    
-                        <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                        <div class="wire_bangle_description p-2">
                             <?php 
-                            if(is_wishlist($product->variant_id,0)){
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                                foreach($ProductVariantVariant as $productvariants){
+                                    if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                        ?>
+                                        <span class="wire_bangle_color wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
+                                            <div class="wire_bangle_color_part mb-2">
+                                            <?php
+                                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
+                                                $ia = 1;
+                                                foreach($product_attribute as $attribute_term){
+                                                    $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
+                                                    ?>
+                                                    <span class="form-check d-inline-block">
+                                                        <a href="{{ $attributeurl }}">
+                                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
+                                                        </a>
+                                                        <div class="wire_bangle_color_input_label"></div>
+                                                    </span>
+                                                    <?php        
+                                                    $ia++;    
+                                                }
+                                            ?>
+                                            </div>
+                                        </span>
+                                        <?php
+                                    } 
+                                }
                             ?>
-                                <i class="fas fa-heart heart-icon-part"></i>
-                            <?php }else{ ?>
-                                <i class="far fa-heart"></i> 
-                            <?php }
-                            ?>
-                        </span>
-                        </div>
+                            <div class="wire_bangle_heading mb-2">
+                                {{ $product->primary_category->category_name }}
+                                <input type="hidden" class="variant_id" value="{{ $product->variant_id }}">    
+                                <input type="hidden" class="item_type" value="0">    
+                                <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                    <?php 
+                                        if(is_wishlist($product->variant_id,0)){
+                                            ?>
+                                            <i class="fas fa-heart heart-icon-part"></i>
+                                            <?php 
+                                        }else{ 
+                                            ?>
+                                            <i class="far fa-heart"></i> 
+                                            <?php 
+                                        }
+                                    ?>
+                                </span>
+                            </div>
                             <div class="wire_bangle_sub_heading wire_bangle_description"><a href="{{ $url }}">{{ $product->product_title }}</a></div>
                             <div class="d-flex justify-content-between  align-items-center">
                                 <div class="d-flex align-items-center">
@@ -242,119 +276,88 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                     <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $product->regular_price }}</span></span>
                                     <?php } ?>
                                 </div>
-
-                                <?php 
-                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
-                                foreach($ProductVariantVariant as $productvariants){
-                                if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
-                                ?>
-                                <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">
-                                <?php
-                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
-                                    $ia = 1;
-                                    foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
-                                     ?>
-                                    <span class="form-check d-inline-block">
-                                        <a href="{{ $attributeurl }}">
-                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
-                                        </a>
-                                        <div class="wire_bangle_color_input_label"></div>
-                                    </span>
-                                <?php        
-                                    $ia++;    
-                                }
-                                ?>
-                                </div></span>
-                                <?php
-                                    } 
-                                }
-                                ?>
-                                
-                               
                                 </div>
                             </div>
                         </div>
                     </div>
                     <?php $shape_no++;  ?>
                     @endforeach 
-                    
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="shop_dimond_by_shape diamond_margin">
+    <div class="diamond_margin">
         <div class="container">
-            <div class="mb-4 mb-md-0 pb-md-5 text-center ">
-                <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
-                <div class="sub_title shop_diamond_paragraph">
-                    {{ $homesetting->section_diamond_shotline }}
+            <div class="shop_dimond_by_shape">
+                <div class="mb-4 mb-md-0 pb-md-5 text-center ">
+                    <h2 class="heading-h2 shop_diamond_by_shape_heading">{{ $homesetting->section_diamond_title }}</h2>
+                    <div class="sub_title shop_diamond_paragraph">
+                        {{ $homesetting->section_diamond_shotline }}
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/round.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">round</div>
-                        </a>
+                <div>
+                    <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/round.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">round</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/oval.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">oval</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/princess.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">princess</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">cushion</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">marquise</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/pear.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">pear</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">radiant</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/heart.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">heart</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">emerald</div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
+                                <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
+                                <div class="shop_by_diamond_shpae_name">asscher</div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/oval.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">oval</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/princess.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">princess</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">cushion</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">marquise</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/pear.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">pear</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">radiant</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/heart.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">heart</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">emerald</div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
-                            <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
-                            <div class="shop_by_diamond_shpae_name">asscher</div>
-                        </a>
-                    </div>
-                   
                 </div>
             </div>
         </div>
@@ -363,65 +366,64 @@ $dddd =  "Glide with the shine of beautiful Jewels";
     <div class="engagement_ring_section px-0">
         <div class="container engagement_diamond_section">
             <div class="row">
-                    <div class="col-lg-5 col-xl-4 pe-lg-4">
-                        <div class="engagement_diamond_img">
-                            <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
-                        </div>
+                <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
+                    <div class="engagement_diamond_img">
+                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
                     </div>
-                    <div class="col-lg-7 col-xl-8 mt-4 mt-lg-0">
-                        <h2 class="mb-md-4 heading-h2">{{ strtolower($step->main_title) }}</h2>
-                        <p class="engagement_diamond_paragraph_part mb-4">
-                            {{ $step->main_shotline }}
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
-                                <div class="position-relative">
+                </div>
+                <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
+                    <h2 class="mb-md-4 heading-h2">{{ strtolower($step->main_title) }}</h2>
+                    <p class="engagement_diamond_paragraph_part mb-4">
+                        {{ $step->main_shotline }}
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="position-relative">
+                                <div class="engagement_diamond_box mb-3">
+                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
+                                </div> 
+                                <a href="{{ url('/step/'.$step->slug.'/one'); }}">
+                                    <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
+                                </a>
+                            </div>
+                            <div>
+                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
+                                    {{ $step->step1_shotline }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
+                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
                                     </div> 
-                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}">
-                                        <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
-                                        {{ $step->step1_shotline }}
-                                    </p>
-                                </div>
+                                    <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                             </div>
-                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
-                                <div class="position-relative">
-                                        <div class="engagement_diamond_box mb-3">
-                                            <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
-                                        </div> 
-                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
-                                </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
-                                    {{ $step->step2_shotline }}
-                                </p>
+                            <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
+                                {{ $step->step2_shotline }}
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="position-relative">
+                                <div class="engagement_diamond_box mb-3">
+                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
+                                </div> 
+                                <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                             </div>
-                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
-                                <div class="position-relative">
-                                    <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
-                                    </div> 
-                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
+                            <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
+                            {{ $step->step3_shotline }}
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
+                            <div class="position-relative">
+                                <div class="engagement_diamond_box mb-3">
+                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
                                 </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
-                                {{ $step->step3_shotline }}
-                                </p>
+                                <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                             </div>
-                            <div class="col-md-6 mb-5 mb-4 d-flex d-lg-block align-items-lg-start px-0">
-                                <div class="position-relative">
-                                    <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
-                                    </div>
-                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
-                                </div>
-                                <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
-                                    {{ $step->step4_shotline }}
-                                </p>
-                            </div>
+                            <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
+                                {{ $step->step4_shotline }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -446,7 +448,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
         </div>
     </div>
 
-    <div class="smiling_gemver_banner shop_dimond_by_shape">
+    <div class="smiling_gemver_banner">
         <div class="container">
             <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_smiling_difference_title }}</h2>
             <div class="row">
@@ -512,13 +514,13 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 </div>
             </div>
             <div class="mt-3 text-center">
-                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
+                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-md-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
             </div>
         </div> 
     </div>
 
     @if(count($BlogBanners) > 0)
-        <div class="shop_dimond_by_shape ads-banner-section">
+        <div class="ads-banner-section">
             <div class="container">
                 <div class="row">
                     @foreach($BlogBanners as $BlogBanner)
