@@ -4143,10 +4143,10 @@ width: 100%;
         /*border: 5px solid #b4c7d9;*/
     }
 
-    #customer-stories .owl-stage {
+    #customer-stories .owl-stage, .products_item .owl-stage {
         display: flex;
     }
-    #customer-stories .owl-item {
+    #customer-stories .owl-item, .products_item .owl-item {
         display: flex;
         flex: 1 0 auto;
     }
@@ -4285,11 +4285,12 @@ width: 100%;
     
     .wire_bangle_description .wire_bangle_sub_heading {
         font-size: 16px;
-        display: -webkit-box;
+        margin-bottom: 5px;
+        /*display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        height: 44px;
+        height: 44px;*/
     }
     
     .home-page-header marquee {
@@ -6591,15 +6592,12 @@ width: 100%;
         font-style: normal;
         font-weight: 600;
         font-size: 40px;
-        line-height: 60px;
         color: #0B1727 !important;
     }
     
     .shop-colorful-bg .sub_title {
         font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
+        font-size: 24px;
         color: #0B1727;
         margin-top: 15px;
     }

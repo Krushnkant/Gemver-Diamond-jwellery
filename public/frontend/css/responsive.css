@@ -379,6 +379,12 @@
     .wire_bangle_color_theme {
         padding-left: 0;
     }
+    .shop-colorful-bg .heading-h2 {
+        font-size: 22px;
+    }
+    .shop-colorful-bg .sub_title {
+        font-size: 16px;
+    }
     /* --------------------------------------------------------------------------------------- */
     .smiling_box_icon {
         margin: auto;
@@ -1034,11 +1040,10 @@
         margin-bottom: 30px;
     }
     .shop-colorful-bg .heading-h2 {
-        font-size: 18px;
-        line-height: normal;
+        font-size: 28px;
     }
     .shop-colorful-bg .sub_title {
-        font-size: 15px;
+        font-size: 18px;
     }
     /* -------------------------------------------------------------- */
     .row-grid-list.list .round_cut_lab_diamonds_box .round_cut_lab_diamonds_list_img {
@@ -1233,12 +1238,14 @@
         line-height: 42px;
     }
     .shop_by_category,
-    .shop_dimond_by_shape,
     .customer_stories,
     .engagement_ring_section,
     .customise_own_ring_section,
     .gemver_diamonds_section {
         padding: 20px 0;
+    }
+    .shop_dimond_by_shape {
+        padding: 40px 0;
     }
     .footer-part-section {
         margin-top: 15px;
@@ -1533,7 +1540,7 @@
     }
     .shop_dimond_by_shape .owl-nav {
         padding-top: 0;
-        position: initial;
+        /*position: initial;*/
     }
     .shop-by-category .owl-prev {
         left: -40px;

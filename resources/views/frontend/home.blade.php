@@ -1,6 +1,9 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+<?php 
+$dddd =  "Glide with the shine of beautiful Jewels"; 
+?>
 
     @if(count($banners) > 0)
         <div class="owl-carousel owl-theme home-page-slider">
@@ -30,7 +33,6 @@
                 @endif  
                 <div class="item">
                         <div class="background-slider ">
-                            <!-- <div class="background-smoke-slider position-relative " style="background:url({{ asset($banner->banner_thumb) }});"> -->
                             <div class="background-smoke-slider position-relative">
                                 <div class="d-block d-md-none mobile-view-img">
                                     <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" ">
@@ -40,7 +42,7 @@
                                 </div>
                                 <div class="">
                                     <div class="background-text-part px-3 px-lg-4 container">
-                                        <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto ">
+                                        <!-- <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto "> -->
                                         <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
                                         <div class="paragraph mt-0 mt-md-5 ">
                                         {!! $banner->description !!}
@@ -130,28 +132,18 @@
     <div class="">
         <div class="shop-colorful-bg">
             <div class="container">
-                <div class="row text-center py-2 pb-3 py-lg-5 align-items-center">
+                <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="shop-colorful-img">
                         <img src="{{ asset('frontend/image/diamond-part.png') }}" alt="">
                     </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
                         <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
-                            <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
                             {{ $dddd }}
                         </div>
-                        <!-- <div class="sub_title text-start text-md-start d-none d-sm-block">
-                            <?php $dddd =  "Glide with the shine of beautiful Jewels"; ?>
-                            {{ $dddd }}
-                        </div>  -->
                     </div>
-                    <!-- <div class="col-12">
-                        <div class="sub_title text-center text-md-center d-sm-none">
-                           {{ $dddd }}
-                        </div> 
-                    </div> -->
                 </div>
             </div>
         </div>

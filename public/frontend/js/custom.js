@@ -86,25 +86,28 @@ $(document).ready(function() {
     });
 
     $('.shop-dimond-by-shape-slider').owlCarousel({
-        loop: true,
+        loop: false,
         dots: false,
         margin: 10,
         nav: true,
         responsive: {
             0: {
-                items: 3
+                items: 4
             },
             576: {
-                items: 3
+                items: 5
             },
-            650: {
-                items: 4
+            610: {
+                items: 6
+            },
+            767: {
+                items: 7
             },
             992: {
-                items: 4
+                items: 8
             },
             1400: {
-                items: 5
+                items: 8
             },
             1800: {
                 items: 9
