@@ -27,7 +27,7 @@ class MenuPageController extends Controller
     }
 
     public function updateEngagementPage(Request $request){
-        //dd($request->all());
+   
         $messages = [
             'banner_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
             'main_shotline.required' =>'Please provide a main shotline',
@@ -70,7 +70,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
         $menupages->section4_button_title = $request->section4_button_title;
         $menupages->section4_button_url = $request->section4_button_url;
-        $menupages->section5_title = $request->section3_title;
+        $menupages->section5_title = $request->section5_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
         $menupages->section51_category = $request->section51_category;
@@ -340,7 +340,7 @@ class MenuPageController extends Controller
         $menupages->section4_description = $request->section4_description;
         $menupages->section4_button_title = $request->section4_button_title;
         $menupages->section4_button_url = $request->section4_button_url;
-        $menupages->section5_title = $request->section3_title;
+        $menupages->section5_title = $request->section5_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
         $menupages->section51_category = $request->section51_category;
@@ -813,7 +813,7 @@ class MenuPageController extends Controller
         $menupages->section33_category_id = $request->section33_category_id;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
-        $menupages->section5_title = $request->section3_title;
+        $menupages->section5_title = $request->section5_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
         $menupages->section51_category = $request->section51_category;
@@ -1042,7 +1042,6 @@ class MenuPageController extends Controller
     }
 
     public function updateCustomJewelleryPage(Request $request){
-        //dd($request->all());
         $messages = [
             'banner_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
             'banner_mobile_image.mimes' =>'Please provide a Valid Extension Image(e.g: .jpg .png)',
@@ -1075,7 +1074,7 @@ class MenuPageController extends Controller
         $menupages->section3_title = $request->section3_title;
         $menupages->section4_title = $request->section4_title;
         $menupages->section4_description = $request->section4_description;
-        $menupages->section5_title = $request->section3_title;
+        $menupages->section5_title = $request->section5_title;
         $menupages->section51_title = $request->section51_title;
         $menupages->section51_description = $request->section51_description;
         $menupages->section51_category = $request->section51_category;
@@ -1285,7 +1284,7 @@ class MenuPageController extends Controller
                     if($subtitleold != ""){
                         $shapdataold = MenuPageShapeStyle::find($request->orderdataid[$key]);
                         $shapdataold->title = $subtitleold;
-                        $shapdata->subdiscription = $request->subdiscriptionold[$key];
+                        $shapdataold->subdiscription = $request->subdiscriptionold[$key];
                         $shapdataold->category_id = (isset($request->category_id_old[$key])  && $request->category_id_old[$key] != "" ? $request->category_id_old[$key] : 0);
                         $path = public_path("images/shopstyle_image/");
                         if(isset($request->imageold[$key]) && $request->imageold[$key] != ""){

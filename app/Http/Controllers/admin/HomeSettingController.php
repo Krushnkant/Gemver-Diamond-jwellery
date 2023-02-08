@@ -36,6 +36,7 @@ class HomeSettingController extends Controller
         $Settings->section_diamond_title = $request->section_diamond_title;
         $Settings->section_diamond_shotline = $request->section_diamond_shotline;
         $Settings->section_smiling_difference_title = $request->section_smiling_difference_title;
+        $Settings->section_blog_banner_title = $request->section_blog_banner_title;
         $Settings->section_stories_title = $request->section_stories_title;
         $Settings->section_stories_description = $request->section_stories_description;
         $Settings->section_customise_title = $request->section_customise_title;
@@ -49,9 +50,12 @@ class HomeSettingController extends Controller
         $Settings->section_why_gemver_description = $request->section_why_gemver_description;
         $Settings->section_why_gemver_title1 = $request->section_why_gemver_title1;   
         $Settings->section_why_gemver_description1 = $request->section_why_gemver_description1;   
+        $Settings->section_why_gemver_button_title1 = $request->section_why_gemver_button_title1;   
+        $Settings->section_why_gemver_button_url1 = $request->section_why_gemver_button_url1;   
         $Settings->section_why_gemver_image1 = ($request->homeImg1 != "") ? $request->homeImg1 :$Settings->section_why_gemver_image1;  
         $Settings->section_why_gemver_title2 = $request->section_why_gemver_title2;   
-        $Settings->section_why_gemver_description2 = $request->section_why_gemver_description2;   
+        $Settings->section_why_gemver_description2 = $request->section_why_gemver_description2;  
+        $Settings->section_why_gemver_button_title2 = $request->section_why_gemver_button_title2;  
         $Settings->section_why_gemver_image2 = ($request->homeImg2 != "") ? $request->homeImg2 :$Settings->section_why_gemver_image2; 
         //$Settings->most_viewed_product_id =  implode(',',$request->most_viewed_product_id);  
        

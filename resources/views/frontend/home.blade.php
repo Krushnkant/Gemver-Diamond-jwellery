@@ -514,7 +514,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 </div>
             </div>
             <div class="mt-3 text-center">
-                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-md-4" href="{{ url('gemver-difference') }}">Gemver Difference</a>
+                <a  class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-md-4" href="{{ url('gemver-difference') }}">{{ $homesetting->section_smiling_difference_title }}</a>
             </div>
         </div> 
     </div>
@@ -522,6 +522,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
     @if(count($BlogBanners) > 0)
         <div class="ads-banner-section">
             <div class="container">
+                <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_blog_banner_title }}</h2>
                 <div class="row">
                     @foreach($BlogBanners as $BlogBanner)
                     <?php 
@@ -529,13 +530,13 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         $url = "";
                         if($BlogBanner['dropdown_id'] == 1){
                             $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                            $url = url('/shop/'.$category->slug); 
+                            $url = url('shop/'.$category->slug); 
                         }elseif($BlogBanner['dropdown_id'] == 2){
                             $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
                             $cat_id = explode(',',$Product->primary_category_id);
                             $var_id = $Product->product_variant[0]->id;
                             $slug = $Product->product_variant[0]->slug;
-                            $url = url('/product-details/'.$slug);
+                            $url = url('product-details/'.$slug);
                         }
                         if($blogcount == 1){
                         $blogcol = 12; 
@@ -621,7 +622,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="owl-carousel owl-theme shop-by-style-slider">
                             @foreach($shopbystyle as $shopby)
                             <div class="item">
-                                <a href=" @if($shopby->setting == 'product-setting') {{ url('product-setting/'.$shopby->category->slug) }} @else {{ url('diamond-setting/'.$shopby->category->slug.'/'.$shopby->id) }} @endif " class="engagement_ring_img">
+                                <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img" target="_blank">
                                     <img src="{{ url($shopby->image) }}" alt="">
                                     <div class="shop_by_style_heading text-center">
                                         {{ $shopby->title }}
@@ -650,7 +651,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                  {{ $homesetting->section_why_gemver_title1 }}
                             </div>
                             <p class="diamonds_paragraph">{{ $homesetting->section_why_gemver_description1 }}</p>
-                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds">Customize</button>
+                            <button type="button"  data-value='{{ ($homesetting->section_why_gemver_button_url1) ? $homesetting->section_why_gemver_button_url1 : '#'; }}'  class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds customize-button-url">{{ $homesetting->section_why_gemver_button_title1 }}</button>
                         </div>
                     </div>
                 </div>
@@ -800,6 +801,12 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 var banner_url = $(this).attr("data-value");
                 window.location.href = banner_url;
             });
+
+            $(document).on('click','.customize-button-url',function(){
+                var banner_url = $(this).attr("data-value");
+                window.location.href = banner_url;
+            });
+
             $('body').on('click', '#save_newInquiryBtn', function () {
                 save_inquiry($(this),'save_new');
             });

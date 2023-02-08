@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="engagement_bg_slider">
-    <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}"> 
+   
     <div class="d-block d-md-none mobile-view-img">  
         <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
         <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
@@ -11,7 +11,7 @@
    <div class="d-none d-md-block desktop-view-img">
         <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
    </div>
-    </a>
+   
    
     <!-- <div class="container engagement_text_part">
         <div class="engagement_text_part">
@@ -21,6 +21,16 @@
             </p>
         </div>
     </div> -->
+    <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
+        <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
+        <p class="custom_engagement_paragrph mb-3 mb-xl-4">
+            {{ $MenuPage->main_shotline }}
+        </p>
+        <div class="d-flex flex-wrap justify-content-center">
+            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+            <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
+        </div>
+   </div>
 </div>
 
 
