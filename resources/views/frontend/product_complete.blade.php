@@ -35,7 +35,7 @@
                                     <div class="step-heading mt-2">
                                         choose setting
                                     </div>
-                                    <span><a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span><a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                     
                                 </li>
                                 <li class="active" data-step="2">
@@ -45,7 +45,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <span><a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span><a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="3">
                                     <div class="step-img">
@@ -77,7 +77,7 @@
                                 </span>
                                 <div class="d-flex edit_price_text mt-1">
                                     <span class="me-2">
-                                        <a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="edit_text">Edit</a>
+                                        <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
                                     </span>
                                     <span>
                                         |
@@ -108,7 +108,7 @@
                             </span> 
                             <div class="d-flex edit_price_text mt-1">
                                 <span class="me-2">
-                                    <a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="edit_text">Edit</a>
+                                    <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
                                 </span>
                                 <span>
                                     |

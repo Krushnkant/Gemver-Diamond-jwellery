@@ -45,7 +45,7 @@
                         </span>
                         <div class="d-flex edit_price_text mt-1">
                             <span class="me-2">
-                                <a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="edit_text">Edit</a>
+                                <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
                             </span>
                             <span>
                                 |
@@ -132,7 +132,7 @@
                         </span>
                         <div class="d-flex edit_price_text mt-1">
                             <span class="me-2">
-                                <a href="{{ url('/product-setting/'. $CatId) }}" class="edit_text">Browse Settings</a>
+                                <a href="{{ url('product-setting/'. $Category->slug) }}" class="edit_text">Browse Settings</a>
                             </span>
                         </div>
                     </div>

@@ -39,7 +39,7 @@
                                         choose diamond
                                         
                                     </div>
-                                    <span><a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
+                                    <span><a href="{{ url('/diamond-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
                                 </li>
                                 <li class="active" data-step="2">
                                     <div class="step-img">
@@ -75,7 +75,7 @@
                                     <div class="step-heading mt-2">
                                         choose diamond
                                     </div>
-                                    <a href="{{ url('/diamond-setting/'. $CatId) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
+                                    <a href="{{ url('/diamond-setting/'. $Category->slug) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
                                 </li>
                                 <li data-step="3">
                                     <div class="step-img">
@@ -299,7 +299,7 @@
                                   })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                 ?>    
                                 @foreach($product_attribute as $attribute_term)
-                                @if(isset($attribute_term->attribute_terms[0]->id)){
+                                @if(isset($attribute_term->attribute_terms[0]->id))
                                 <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
                                         <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->display_attrname }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
                                         <label class="form-check-label wire_bangle_carat_label" for="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
