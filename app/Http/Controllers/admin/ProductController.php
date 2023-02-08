@@ -1553,6 +1553,10 @@ class ProductController extends Controller
                 'use_comman' => isset($myValue['use_comman' . $attrReq]) ? 1 : 0 ,
                 'terms_id' => $attribute_term_string
             ]);
+
+            $product = Product::find($request->product_id);
+            $product->attr_ids = $request['attr_ids'];
+            $product->save();
   
         }
 
