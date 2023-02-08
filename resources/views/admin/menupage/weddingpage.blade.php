@@ -26,7 +26,7 @@
                       
                         <div class="row col-lg-12">
                            
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center" >
                               <div class="form-group">
                                 <label class="col-form-label" for="main_title"> Title <span class="text-danger">*</span>
                                 </label>
@@ -41,7 +41,7 @@
                                 <div id="main_shotline-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                             </div>
-                            <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                    <label class="col-form-label" for="banner_image">Banner Image <span class="text-danger">*</span>
                                    </label>
@@ -50,7 +50,7 @@
                                     <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                   </div>
                                </div>
-                               <div class="col-lg-3 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                               <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                     <label class="col-form-label" for="banner_mobile_image">Banner Mobile Image <span class="text-danger">*</span>
                                     </label>

@@ -162,8 +162,18 @@
                            
                             </div>
 
-                            
+                            <hr>
+                            <h4 class="card-title">
+                               Offer Banner
+                            </h4>
 
+                            <div class="form-group">
+                                <label class="col-form-label" for="section_blog_banner_title">Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="section_blog_banner_title" name="section_blog_banner_title" value="{{ $homesettings->section_blog_banner_title }}">
+                                <div id="section_blog_banner_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </div>
+                        
                             <hr>
                             <h4 class="card-title">
                                Testimonial Section
@@ -334,7 +344,39 @@
                                     <textarea  id="section_why_gemver_description2" class="form-control" name="section_why_gemver_description2">{{ $homesettings->section_why_gemver_description2 }}</textarea>
                                     <div id="section_why_gemver_description2-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </div>
+                            </div>
+                                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_why_gemver_button_title1"> Button Title
+                                        </label>
+                                        <input type="text" class="form-control input-flat" id="section_why_gemver_button_title1" name="section_why_gemver_button_title1" value="{{ $homesettings->section_why_gemver_button_title1 }}">
+                                        <div id="section_why_gemver_button_title1-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    </div>
                                 </div>
+                                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_why_gemver_button_title2"> Button Title 
+                                        </label>
+                                        <input type="text" class="form-control input-flat" id="section_why_gemver_button_title2" name="section_why_gemver_button_title2" value="{{ $homesettings->section_why_gemver_button_title2 }}">
+                                        <div id="section_why_gemver_button_title2-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="section_why_gemver_button_url1"> Button URL
+                                        </label>
+                                        <input type="text" class="form-control input-flat" id="section_why_gemver_button_url1" name="section_why_gemver_button_url1" value="{{ $homesettings->section_why_gemver_button_url1 }}">
+                                        <div id="section_why_gemver_button_url1-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                                    
+                                </div>
+                                
+                                
+                                    
+                               
                                 <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
                                 <div class="form-group">
                                     <label class="col-form-label" for="Thumbnail"> Image  

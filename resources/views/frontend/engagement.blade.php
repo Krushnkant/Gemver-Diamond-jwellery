@@ -16,7 +16,7 @@
         </div>
    
    <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
-        <div class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</div>
+        <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
         <p class="custom_engagement_paragrph mb-3 mb-xl-4">
             {{ $MenuPage->main_shotline }}
         </p>

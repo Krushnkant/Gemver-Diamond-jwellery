@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                            
-                            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center" style="display: none;">
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center" >
                               <div class="form-group">
                                 <label class="col-form-label" for="main_title"> Title <span class="text-danger">*</span>
                                 </label>

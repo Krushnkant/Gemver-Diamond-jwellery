@@ -120,23 +120,23 @@
 //     allowClear: true
 // });
 
-$('#attribute_id_diamond_term').select2({
-    width: '100%',
-    placeholder: "Select Attribute for Variation Term",
-    allowClear: true
-});
+// $('#attribute_id_diamond_term').select2({
+//     width: '100%',
+//     placeholder: "Select Attribute for Variation Term",
+//     allowClear: true
+// });
 
-$('#category_id').select2({
-    width: '100%',
-    placeholder: "Select Category",
-    allowClear: true
-});
+// $('#category_id').select2({
+//     width: '100%',
+//     placeholder: "Select Category",
+//     allowClear: true
+// });
 
-$('#setting').select2({
-    width: '100%',
-    placeholder: "Select Setting",
-    allowClear: true
-});
+// $('#setting').select2({
+//     width: '100%',
+//     placeholder: "Select Setting",
+//     allowClear: true
+// });
 
 $(document).ready(function() {
  
@@ -410,34 +410,34 @@ $( document ).ready(function() {
 });
 
 
-$('body').on("change","#setting",function(){
-    $("#attr-cover-spin").fadeIn();
+// $('body').on("change","#setting",function(){
+//     $("#attr-cover-spin").fadeIn();
 
-    var setting = this.value;
-    if(setting==''){
-        $("#attribute_variation").hide();
-        $("#attribute_variation_term").hide();
-        $("#attribute_diamond").hide();
-        $("#attribute_diamond_term").hide();
-        $("#attr-cover-spin").fadeOut();
-    } else {
-        if (setting == 'product-setting') {
-            $('#attribute_id_diamond_term').empty();
-            $('#attribute_id_diamond').empty();
-            $("#attribute_diamond").hide();
-            $("#attribute_diamond_term").hide();
-            $("#attr-cover-spin").fadeOut();
-        } else {
-            $('#attribute_id_variation_term').empty();
-            //$('#attribute_id_variation').empty();
-            $("#attribute_variation").hide();
-            $("#attribute_variation_term").hide();
-            $("#attribute_diamond").show();
-            $("#attribute_diamond_term").show();
-            $("#attr-cover-spin").fadeOut();
-        }
-    }
-});
+//     var setting = this.value;
+//     if(setting==''){
+//         $("#attribute_variation").hide();
+//         $("#attribute_variation_term").hide();
+//         $("#attribute_diamond").hide();
+//         $("#attribute_diamond_term").hide();
+//         $("#attr-cover-spin").fadeOut();
+//     } else {
+//         if (setting == 'product-setting') {
+//             $('#attribute_id_diamond_term').empty();
+//             $('#attribute_id_diamond').empty();
+//             $("#attribute_diamond").hide();
+//             $("#attribute_diamond_term").hide();
+//             $("#attr-cover-spin").fadeOut();
+//         } else {
+//             $('#attribute_id_variation_term').empty();
+//             //$('#attribute_id_variation').empty();
+//             $("#attribute_variation").hide();
+//             $("#attribute_variation_term").hide();
+//             $("#attribute_diamond").show();
+//             $("#attribute_diamond_term").show();
+//             $("#attr-cover-spin").fadeOut();
+//         }
+//     }
+// });
 
 </script>
 <!-- category JS end -->

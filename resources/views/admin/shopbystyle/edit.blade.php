@@ -5,16 +5,7 @@
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     <input type="hidden" name="shopbystyle_id" value="{{ isset($shopby)?($shopby->id):'' }}">
 
-    <div class="form-group"  >
-        <label class="col-form-label" for="category_id">Select Category
-        </label>
-        <select id='category_id' name="category_id" class="form-control">
-        <option value="">Select Category</option>
-            @foreach($categories as $category)
-                <option value="{{ $category['id'] }}" @if(isset($shopby) && $shopby->category_id == $category['id']) selected @endif >{{ $category['category_name'] }}</option>
-            @endforeach
-        </select>
-    </div>
+   
     
 
     <div class="form-group">
@@ -58,7 +49,14 @@
         <div id="categorythumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <div class="form-group" >
+    <div class="form-group">
+        <label class="col-form-label" for="setting">Redirect URL <span class="text-danger">*</span>
+        </label>
+        <input type="text" class="form-control input-flat" id="setting" name="setting"  value="{{ isset($shopby)?($shopby->setting):'' }}">
+        <div id="setting-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+    </div>
+
+    {{-- <div class="form-group" >
         <label class="col-form-label" for="setting">Select Setting <span class="text-danger">*</span>
         </label>
         <select id='setting' name="setting" class="">
@@ -79,7 +77,7 @@
             @endforeach
         </select>
         <div id="attribute_id_variation_term-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-    </div>
+    </div> --}}
 
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newShopByStyleBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
     <button type="button" class="btn btn-primary mt-4" id="save_closeShopByStyleBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>

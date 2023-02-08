@@ -724,7 +724,7 @@
                             <option value="color-desc">Sort by color: high to low</option>
 
                             <option value="clarity">Sort by clarity: low to high</option>
-                            <option value="clarity-desc">Sort by clarity: high to low</option>
+                            <option value="clarity-desc" selected>Sort by clarity: high to low</option>
 
                             <option value="cut">Sort by cut: low to high</option>
                             <option value="cut-desc">Sort by cut: high to low</option>

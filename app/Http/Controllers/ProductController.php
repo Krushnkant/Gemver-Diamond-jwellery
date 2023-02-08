@@ -46,7 +46,7 @@ class ProductController extends Controller
     {
         $variantid = getSlugId('ProductVariant',$variantslug);
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
-        $Product = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        $Product = Product::select('products.id','products.meta_title','products.meta_description','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
         $primary_category_idss = array();
         $primary_category_ids = explode(',',$Product->primary_category_id);
         foreach($primary_category_ids as $primary_category_id){
@@ -58,7 +58,8 @@ class ProductController extends Controller
         $settings = Settings::first();
         $meta_title = isset($Product->meta_title)?$Product->meta_title:"";
         $meta_description = isset($Product->meta_description)?$Product->meta_description:"";
-        return view('frontend.product',compact('Product','variantid','attribute_term_ids','settings','primary_category_idss'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
+       
+        return view('frontend.product',compact('Product','variantid','attribute_term_ids','settings','primary_category_idss'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description,'title'=>$Product->product_title]);
     }
 
     public function fetchproduct(Request $request){

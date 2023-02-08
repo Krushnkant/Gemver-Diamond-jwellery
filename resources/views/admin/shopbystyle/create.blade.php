@@ -4,7 +4,7 @@
     {{ csrf_field() }}
     <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
  
-    <div class="form-group"  >
+    {{-- <div class="form-group"  >
         <label class="col-form-label" for="category_id">Select Category
         </label>
         <select id='category_id' name="category_id" class="form-control">
@@ -13,7 +13,7 @@
                 <option value="{{ $category['id'] }}"  >{{ $category['category_name'] }}</option>
             @endforeach
         </select>
-    </div>
+    </div> --}}
 
     <div class="form-group">
         <label class="col-form-label" for="title">Title <span class="text-danger">*</span>
@@ -30,7 +30,14 @@
         <div id="categorythumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <div class="form-group" >
+    <div class="form-group">
+        <label class="col-form-label" for="setting">Redirect URL <span class="text-danger">*</span>
+        </label>
+        <input type="text" class="form-control input-flat" id="setting" name="setting">
+        <div id="setting-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+    </div>
+
+    {{-- <div class="form-group" >
         <label class="col-form-label" for="setting">Select Setting <span class="text-danger">*</span>
         </label>
         <select id='setting' name="setting" class="">
@@ -38,7 +45,7 @@
             <option value="diamond-setting">Start with a Lab Diamond</option>
         </select>
         <div id="attribute_id_variation-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-    </div>
+    </div> --}}
 
    
     <!-- <div class="form-group" id="attribute_variation" >

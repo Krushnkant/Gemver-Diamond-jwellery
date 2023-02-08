@@ -76,42 +76,43 @@ class ShopByStyleController extends Controller
                 }
                 $shopby->image = $request->catImg;
             }
-            $shopby->category_id = $request->category_id;
+            //$shopby->category_id = $request->category_id;
             $shopby->title = $request->title;
             $shopby->setting = $request->setting;
-            if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
-                $shopby->attributes = $request->attribute_id_variation;
-            }else{
-                $shopby->attributes = null;
-            }
+            // $shopby->setting = $request->setting;
+            // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
+            //     $shopby->attributes = $request->attribute_id_variation;
+            // }else{
+            //     $shopby->attributes = null;
+            // }
 
-            if (isset($request->attribute_id_variation_term) && !empty($request->attribute_id_variation_term)){
-                $shopby->attribute_terms = $request->attribute_id_variation_term;
-            }else{
-                $shopby->attribute_terms = null;
-            }
+            // if (isset($request->attribute_id_variation_term) && !empty($request->attribute_id_variation_term)){
+            //     $shopby->attribute_terms = $request->attribute_id_variation_term;
+            // }else{
+            //     $shopby->attribute_terms = null;
+            // }
     
         }
         else{
             $action = "add";
             $shopby = new ShopByStyle();
-            $shopby->category_id = $request->category_id;
+            //$shopby->category_id = $request->category_id;
             $shopby->title = $request->title;
             $shopby->setting = $request->setting;
             $shopby->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $shopby->image = $request->catImg;
          
-            if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
-                $shopby->attributes = $request->attribute_id_variation;
-            }else{
-                $shopby->attributes = null;
-            }
+            // if (isset($request->attribute_id_variation) && !empty($request->attribute_id_variation)){
+            //     $shopby->attributes = $request->attribute_id_variation;
+            // }else{
+            //     $shopby->attributes = null;
+            // }
 
-            if (isset($request->attribute_id_variation_term) && !empty($request->attribute_id_variation_term)){
-                $shopby->attribute_terms = $request->attribute_id_variation_term;
-            }else{
-                $shopby->attribute_terms = null;
-            }
+            // if (isset($request->attribute_id_variation_term) && !empty($request->attribute_id_variation_term)){
+            //     $shopby->attribute_terms = $request->attribute_id_variation_term;
+            // }else{
+            //     $shopby->attribute_terms = null;
+            // }
         }
 
         $shopby->save();
