@@ -7229,9 +7229,12 @@ width: 100%;
         border-bottom: 1px solid #e9e8e8;
     }
     .select2-container--default .selection .select2-selection--multiple .select2-selection__choice__remove {
-        margin-left: 5px;
+        margin-left: 10px;
         color: #ffffff;
         float: right;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+        color: #ffffff;
     }
     .select2-container--default .selection .select2-selection--multiple .select2-selection__choice {
         background-color: var(--secondary);
