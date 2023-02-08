@@ -191,7 +191,7 @@
                         </div>
                         @endif
                     @elseif($attribute->id == 21 || $attribute->id == 9)
-                        @if($Category->mainparentid == 44)
+                        @if($Category->mainparentid == 46)
                         <div class="col-md-6">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -212,7 +212,7 @@
                         </div>
                         @endif
                     @elseif($attribute->id == 22)
-                        @if($Category->mainparentid == 45)
+                        @if($Category->mainparentid == 50)
                         <div class="col-md-6">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -416,7 +416,7 @@
                 var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
                     return elem.id 
                 });
-                 console.log(selectedValues);
+        
                // $('.filter_data').html('<div id="loading" style="" ></div>');
                 var keyword = "{{ isset($_GET['s'])?$_GET['s']:"" }}";
                 var action = 'fetch_data';
