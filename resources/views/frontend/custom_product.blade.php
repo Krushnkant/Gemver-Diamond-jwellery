@@ -471,6 +471,11 @@
                 closeOnSelect: false,
             });
 
+            $('.selectattribute').on('change', function() {
+                page = 1;
+                filter_data(page);
+            });
+
             $('body').on('mouseover', '.product-image', function () {  
                   
             }, function () {
@@ -501,6 +506,11 @@
             function filter_data(page,scroll=0)
             {
                 $('.filter_data').html('<div id="loading" style="" ></div>');
+
+                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                    return elem.id 
+                });
+
                 var action = 'fetch_data';
                 var catid  = '{{ $CatId }}';
                 var minimum_price = $('#hidden_minimum_price').val();
@@ -508,13 +518,14 @@
                 var minimum_price_input = $('#minimum_price').val();
                 var maximum_price_input = $('#maximum_price').val();
                 var attribute = get_filter('attribute');
+                var selectattribute = selectedValues;
                 var specification = get_filter('specification');
                 var sorting = $('#sorting :selected').val();
                 $.ajax({
                    // url:"{{ url('/product-filter') }}",
                     url: ENDPOINT + "/custom_products?page=" + page,
                     method:"POST",
-                    data:{action:action,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,attribute:attribute,sorting:sorting,specification:specification,_token: '{{ csrf_token() }}'},
+                    data:{action:action,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,catid:catid,minimum_price:minimum_price,maximum_price:maximum_price,attribute:attribute,sorting:sorting,specification:specification,selectattribute:selectattribute,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },

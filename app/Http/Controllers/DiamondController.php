@@ -534,6 +534,21 @@ class DiamondController extends Controller
                 $query = $query->where('product_variant_variants.estatus',1);
             }
 
+            if(isset($data["selectattribute"])){
+                $selectattribute=$data["selectattribute"];
+               $query = $query->where(function($q) use($selectattribute){
+                foreach($selectattribute as $key=>$c){
+                    if ($key == 0) {
+                        $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                    } else {
+                        $q = $q->orWhere(function ($query1) use ($c){
+                            $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                        });
+                    }
+                }
+               });
+            }
+
             // if(isset($data["attribute"])){
             //     $attribute=$data["attribute"];
             //    $query = $query->where(function($q) use($attribute){
