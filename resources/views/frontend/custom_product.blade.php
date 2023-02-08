@@ -236,19 +236,115 @@
                 </div>
                 </div>
                 @foreach($Attributes as $attribute)
-                <!-- <div class="col-lg-6">
-                    <div class="round_cut_lab_range_slider row">
-                            <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">{{ $attribute->display_attrname }}</div>
-                            <div class="col-md-12 filter-checkbox">    
-                                @foreach($attribute->attributeterm as $term)
-                                <div class="form-group me-3 d-inline-block">
-                                    <input type="checkbox" class="common_selector attribute"  name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
-                                    <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
-                                </div>
-                                @endforeach 
+                
+                    
+                    @if($attribute->id == 19)
+                        @if($Category->mainparentid == 2)
+                        <div class="col-md-6">
+                            <div class="round_cut_lab_range_slider">
+                                <ul class="right_side_ul round_cut_lab_range_slider row">
+                                    <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
+                                    <div class="col-lg-12">
+                                        <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
+                                        @foreach($attribute->attributeterm as $term)
+                                            {{-- <div class="form-group mb-3 d-inline-block me-3">
+                                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                            </div> --}}
+                                            <option value="{{ $term->id }}" >{{ $term->attrterm_name }}</option>
+                                        @endforeach 
+                                        </select>
+                                    </div>
+                                </ul>
                             </div>
-                    </div>
-                </div>       -->
+                        </div>
+                        @endif
+                      
+                    @elseif($attribute->id == 20)
+                        @if($Category->mainparentid == 24)
+                        <div class="col-md-6">
+                            <div class="round_cut_lab_range_slider">
+                                <ul class="right_side_ul round_cut_lab_range_slider row">
+                                    <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
+                                    <div class="col-lg-12">
+                                        <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
+                                        @foreach($attribute->attributeterm as $term)
+                                            {{-- <div class="form-group mb-3 d-inline-block me-3">
+                                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                            </div> --}}
+                                            <option value="{{ $term->id }}" >{{ $term->attrterm_name }}</option>
+                                        @endforeach 
+                                        </select>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                    @elseif($attribute->id == 21 || $attribute->id == 9)
+                        @if($Category->mainparentid == 44)
+                        <div class="col-md-6">
+                            <div class="round_cut_lab_range_slider">
+                                <ul class="right_side_ul round_cut_lab_range_slider row">
+                                    <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
+                                    <div class="col-lg-12">
+                                        <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
+                                        @foreach($attribute->attributeterm as $term)
+                                            {{-- <div class="form-group mb-3 d-inline-block me-3">
+                                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                            </div> --}}
+                                            <option value="{{ $term->id }}" >{{ $term->attrterm_name }}</option>
+                                        @endforeach 
+                                        </select>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                    @elseif($attribute->id == 22)
+                        @if($Category->mainparentid == 45)
+                        <div class="col-md-6">
+                            <div class="round_cut_lab_range_slider">
+                                <ul class="right_side_ul round_cut_lab_range_slider row">
+                                    <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
+                                    <div class="col-lg-12">
+                                        <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
+                                        @foreach($attribute->attributeterm as $term)
+                                            {{-- <div class="form-group mb-3 d-inline-block me-3">
+                                                <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                                <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                            </div> --}}
+                                            <option value="{{ $term->id }}" >{{ $term->attrterm_name }}</option>
+                                        @endforeach 
+                                        </select>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                   
+                    @elseif($attribute->id == 13)    
+                    <div class="col-md-6">
+                        <div class="round_cut_lab_range_slider">
+                            <ul class="right_side_ul round_cut_lab_range_slider row">
+                                <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
+                                <div class="col-lg-12">
+                                    <select name="attribute[]" class="selectattribute common_selector attribute" multiple>
+                                    @foreach($attribute->attributeterm as $term)
+                                        {{-- <div class="form-group mb-3 d-inline-block me-3">
+                                            <input type="checkbox" class="common_selector attribute" name="attribute[]"  value="{{ $term->id }}" id="{{ $term->id }}">
+                                            <label for="{{ $term->id }}">{{ $term->attrterm_name }}</label>
+                                        </div> --}}
+                                        <option value="{{ $term->id }}" >{{ $term->attrterm_name }}</option>
+                                    @endforeach 
+                                    </select>
+                                </div>
+                            </ul>
+                        </div>
+                    </div> 
+                    @endif
+              
                 @endforeach
             
                 <div class="row text-end mb-3">
@@ -365,6 +461,15 @@
 
     <script>
         $(document).ready(function(){
+
+            $('.selectattribute').select2({
+                width: '100%',
+                multiple: true,
+                placeholder: "Select...",
+                allowClear: true,
+                autoclose: false,
+                closeOnSelect: false,
+            });
 
             $('body').on('mouseover', '.product-image', function () {  
                   
