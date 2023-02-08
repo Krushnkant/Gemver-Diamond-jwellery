@@ -507,10 +507,20 @@
             {
                 $('.filter_data').html('<div id="loading" style="" ></div>');
 
-                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
-                    return elem.id 
+                var selectedValues = [];    
+                var array = [];    
+                $('.selectattribute').each(function(){
+                    if($(this).val() != ""){
+                        var array = $(this).val();
+                        $.each( array, function( key, value ) {
+                          selectedValues.push(value); 
+                        });
+                    }
                 });
-
+                // var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                //     return elem.id 
+                // });
+                // console.log(selectedValues);
                 var action = 'fetch_data';
                 var catid  = '{{ $CatId }}';
                 var minimum_price = $('#hidden_minimum_price').val();

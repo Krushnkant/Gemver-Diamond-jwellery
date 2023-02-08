@@ -186,7 +186,7 @@
                                 </span>
                                 <div class="d-flex edit_price_text mt-1">
                                     <span class="me-2">
-                                        <a href="{{ url('/diamond-setting/'. $Category->slug) }}" class="edit_text">Browse Lab Diamonds</a>
+                                        <a href="{{ url('diamond-setting/'. $Category->slug) }}" class="edit_text">Browse Lab Diamonds</a>
                                     </span>
                                 </div>
                                     

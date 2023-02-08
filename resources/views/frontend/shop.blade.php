@@ -413,8 +413,19 @@
                 // });
 
 
-                var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
-                    return elem.id 
+                // var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
+                //     return elem.id 
+                // });
+
+                var selectedValues = [];    
+                var array = [];    
+                $('.selectattribute').each(function(){
+                    if($(this).val() != ""){
+                        var array = $(this).val();
+                        $.each( array, function( key, value ) {
+                          selectedValues.push(value); 
+                        });
+                    }
                 });
         
                // $('.filter_data').html('<div id="loading" style="" ></div>');
