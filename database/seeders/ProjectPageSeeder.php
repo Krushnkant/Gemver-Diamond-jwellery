@@ -661,9 +661,9 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Trusted By',
             'route_url' => 'admin.trustedby.list',
             'is_display_in_menu' => 0,
-            'icon_class' => 'fa fa-question-circle',
+            'icon_class' => 'fa fa-handshake-o',
             'inner_routes' => 'admin.trustedby.list,admin.trustedby.addorupdate,admin.alltrustedbyslist,admin.trustedby.changetrustedbystatus,admin.trustedby.edit,admin.trustedby.delete',
-            'sr_no' => 13
+            'sr_no' => 12
         ]);
 
 
