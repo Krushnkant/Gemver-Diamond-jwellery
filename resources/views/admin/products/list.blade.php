@@ -25,7 +25,7 @@
                                 <?php $page_id = \App\Models\ProjectPage::where('route_url','admin.products.list')->pluck('id')->first(); ?>
                                 @if(getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) )
                                     <button type="button" class="btn btn-primary mr-2" id="AddProductBtn"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                    <button type="button" class="btn btn-primary" id="ShowDarfProductBtn">Show Draf Product</button>
+                                    <button type="button" class="btn btn-primary" id="ShowDarfProductBtn">Products in Draft</button>
                                 @endif
                                 {{-- <button class="btn btn-danger" onclick="deleteMultipleAttributes()"><i class="fa fa-trash" aria-hidden="true"></i></button>--}}
                             </div>

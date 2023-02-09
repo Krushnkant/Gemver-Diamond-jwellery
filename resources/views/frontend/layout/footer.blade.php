@@ -11,31 +11,15 @@
                     <div class="footer-part-heading mb-3">Trusted By</div>
                     <div class="col-md-12 text-center">
                         <div id="trustby-slider" class="owl-carousel owl-theme">
+                            <?php $trustedbies = \App\Models\TrustedBy::where('estatus', 1)->get(); ?>
+                            @foreach($trustedbies as $trusted)
                             <div class="item">
-                                <a href="#" class="">
-                                    <img src="{{ URL('frontend/image/gia.png') }}" alt="">
+                                <a href="{{ ($trusted->redirect_url != '')?$trusted->redirect_url:'#' }}" class="">
+                                    <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="">
                                 </a>
                             </div>
-                            <div class="item">
-                                <a href="#" class="">
-                                    <img src="{{ URL('frontend/image/SSL-Secure-Connection.png') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="">
-                                    <img src="{{ URL('frontend/image/trust-pilot.png') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="">
-                                    <img src="{{ URL('frontend/image/lets-encrypt.png') }}" alt="">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#" class="">
-                                    <img src="{{ URL('frontend/image/McAfee-Logo.png') }}" alt="">
-                                </a>
-                            </div>
+                            @endforeach
+                            
                         </div>
                     </div>
                     <!-- <div class="">

@@ -302,6 +302,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('faq/{id}/edit',[\App\Http\Controllers\admin\FaqController::class,'editFaq'])->name('faq.edit');
     Route::get('faq/{id}/delete',[\App\Http\Controllers\admin\FaqController::class,'deleteFaq'])->name('faq.delete');
 
+    Route::get('trustedby',[\App\Http\Controllers\admin\TrustedByController::class,'index'])->name('trustedby.list');
+    Route::get('trustedby/create',[\App\Http\Controllers\admin\TrustedByController::class,'create'])->name('trustedby.add');
+    Route::post('addorupdatetrustedby',[\App\Http\Controllers\admin\TrustedByController::class,'addorupdatetrustedby'])->name('trustedby.addorupdatetrustedby');
+    Route::post('alltrustedbyslist',[\App\Http\Controllers\admin\TrustedByController::class,'alltrustedbylist'])->name('alltrustedbyslist');
+    Route::get('trustedby/{id}/edit',[\App\Http\Controllers\admin\TrustedByController::class,'edittrustedby'])->name('trustedby.edit');
+    Route::get('trustedby/{id}/delete',[\App\Http\Controllers\admin\TrustedByController::class,'deletetrustedby'])->name('trustedby.delete');
+    Route::get('chagetrustedbystatus/{id}',[\App\Http\Controllers\admin\TrustedByController::class,'chagetrustedbystatus'])->name('trustedby.chagetrustedbystatus');
+
     Route::get('suggestions',[\App\Http\Controllers\admin\SuggestionController::class,'index'])->name('suggestions.list');
     Route::post('allSuggestionslist',[\App\Http\Controllers\admin\SuggestionController::class,'allSuggestionslist'])->name('allSuggestionslist');
     Route::get('suggestion/{id}/delete',[\App\Http\Controllers\admin\SuggestionController::class,'deleteSuggestion'])->name('suggestion.delete');

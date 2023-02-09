@@ -655,6 +655,17 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 12
         ]);
 
+        ProjectPage::create([
+            'id' => 66,
+            'parent_menu' => 0,
+            'label' => 'Trusted By',
+            'route_url' => 'admin.trustedby.list',
+            'is_display_in_menu' => 0,
+            'icon_class' => 'fa fa-question-circle',
+            'inner_routes' => 'admin.trustedby.list,admin.trustedby.addorupdate,admin.alltrustedbyslist,admin.trustedby.changetrustedbystatus,admin.trustedby.edit,admin.trustedby.delete',
+            'sr_no' => 13
+        ]);
+
 
         
         $users = User::where('role',"!=",1)->get();
