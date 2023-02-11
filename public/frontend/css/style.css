@@ -5809,12 +5809,12 @@ width: 100%;
     }
 
     .diff-box {
-        box-shadow: inset 0px 0px 20px 1px rgb(141 104 78);
+        /*box-shadow: inset 0px 0px 20px 1px rgb(141 104 78);
+        background-color: #ffd9a3;*/
         padding: 30px 20px;
-        background-color: #ffd9a3;
         border-radius: 5px;
-        /* background-color: #d7ebff; */
-        /* box-shadow: inset 0px 0px 20px 1px #2c3e50; */
+        background-color: #d7ebff; 
+        box-shadow: inset 0px 0px 20px 1px #2c3e50; 
     }
     
     .fancy_color_diamonds {
@@ -6028,7 +6028,7 @@ width: 100%;
     }
     
     .review_star svg {
-        color: #fdd835;
+        color: #e3bf1f;
     }
     
     .review_description_paragraph {
@@ -7282,4 +7282,7 @@ width: 100%;
     ::-webkit-scrollbar-track{
         background-color: var(--light-bg);
         box-shadow: inset 0 0 6px rgba(0,0,0,.4);
+    }
+    .order-includes-sections {
+        background: url(../image/order_include.png) no-repeat;
     }
