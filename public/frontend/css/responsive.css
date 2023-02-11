@@ -1974,6 +1974,10 @@
 }
 
 @media (max-width:575px) {
+    .order-content-box {
+        padding: 25px;
+        background-color: rgba(255,255,255,0.5);
+    }
     .about_us_sub_heading {
         font-size: 24px;
     }

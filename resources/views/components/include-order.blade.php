@@ -30,15 +30,15 @@
         </div>
     </div> -->
     <div class="order-includes-sections">
-        <div class="row mt-2 mt-md-0 justify-content-center your_order_include_img">
+        <div class="your_order_include_img">
             <div class="your_include_boxes_img_part">
-                <div class="offset-md-6 col-md-6">
-                    <div class="row">
+                <div class="offset-md-4 col-md-8">
+                    <div class="row order-content-box">
                         <div class="order-includes-heading text-start text-lg-center d-xl-block mb-3 mb-md-4">
                             {{ $OrderIncludes->title }}
                         </div>
                         @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
-                            <div class="col-sm-6 col-md-6 col-xl-6 order-box-part px-0 px-md-3 order-include-col">
+                            <div class="col-sm-12 col-md-4 col-xl-4 order-box-part px-0 px-md-3 order-include-col">
                                 <div class="order-box d-flex align-items-center">
                                     <span class="order-img d-block mb-2">
                                         <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   

@@ -7285,4 +7285,7 @@ width: 100%;
     }
     .order-includes-sections {
         background: url(../image/order_include.png) no-repeat;
+        padding: 90px 0px;
+        background-size: contain;
+        margin-bottom: 70px;
     }
