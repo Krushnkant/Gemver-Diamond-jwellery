@@ -634,7 +634,7 @@
     }
     .round_cut_lab_range_slider .form-group label {
         font-size: 13px;
-        min-width: 55px;
+        min-width: 53px;
     }
     .round_cut_lab_range_slider .form-group label:before {
         width: 20px;
