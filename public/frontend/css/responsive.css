@@ -1360,8 +1360,11 @@
         height: 28px;
         min-width: 100%;
     }
+    .round_checkbox_part {
+        margin-right: 0;
+    }
     .round_cut_lab_checkbox input[type="checkbox"] {
-        width: 42px;
+        width: 45px;
         height: 45px;
     }
     .round_cut_lab_checkbox input+.shape_img {
