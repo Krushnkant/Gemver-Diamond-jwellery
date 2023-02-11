@@ -1975,7 +1975,7 @@
 
 @media (max-width:575px) {
     .order-includes-sections {
-        padding: 50px;
+        padding: 50px 40px;
         background-size: cover;
     }
     .order-content-box {
