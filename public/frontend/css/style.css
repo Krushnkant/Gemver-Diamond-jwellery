@@ -7097,9 +7097,9 @@ width: 100%;
         background: url(../image/minus_part.svg) no-repeat;
     }
     
-    .engagement-section .owl-item img {
+    /*.engagement-section .owl-item img {
         height: 300px;
-    }
+    }*/
     
     .main-img-li {
         display: inline-block;
