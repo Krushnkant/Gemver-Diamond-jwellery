@@ -30,7 +30,7 @@
         </div>
     </div> -->
     <div class="order-includes-sections">
-        <div class="your_order_include_img">
+        <div class="your_order_include_img container">
             <div class="your_include_boxes_img_part">
                 <div class="offset-md-4 col-md-8">
                     <div class="row order-content-box">
