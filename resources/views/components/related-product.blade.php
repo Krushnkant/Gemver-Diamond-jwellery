@@ -35,8 +35,8 @@
                                     foreach($ProductVariantVariant as $productvariants){
                                         if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                                             ?>
-                                            <span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block">
-                                                <div class="wire_bangle_color_part">
+                                            <span class="wire_bangle_color wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
+                                                <div class="wire_bangle_color_part mb-2">
                                                     <?php
                                                         $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
                                                         $ia = 1;
