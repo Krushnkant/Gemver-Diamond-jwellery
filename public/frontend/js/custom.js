@@ -223,7 +223,7 @@ $(document).ready(function() {
     });
     $('.product-detail').owlCarousel({
         loop: false,
-        margin: 10,
+        margin: 20,
         nav: true,
         dots: false,
         responsive: {
