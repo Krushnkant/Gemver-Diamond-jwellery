@@ -274,7 +274,7 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                         </div>
-                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
+                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
                             {{ $MenuPage->section31_title }}
                         </a>
                         <!-- <div class="text-center create_your_own_heading mb-3 d-block mt-3">
@@ -294,7 +294,7 @@
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                         </div>
-                        <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block">
+                        <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
                             {{ $MenuPage->section32_title }}
                         </a>
                         <!-- <div class="text-center create_your_own_heading mb-3 d-block mt-3">
