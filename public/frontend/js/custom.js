@@ -143,7 +143,7 @@ $(document).ready(function() {
         dots: false,
         responsive: {
             0: {
-                items: 3,
+                items: 2,
                 autoHeight: true,
             },
             768: {
