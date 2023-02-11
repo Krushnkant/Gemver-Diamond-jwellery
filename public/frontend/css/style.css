@@ -7157,11 +7157,11 @@ width: 100%;
         position: relative;
     }
     
-    .your_include_boxes_img_part {
+    /*.your_include_boxes_img_part {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-    }
+    }*/
     
     .round_cut_lab_checkbox input:checked {
         background-image: none !important;
