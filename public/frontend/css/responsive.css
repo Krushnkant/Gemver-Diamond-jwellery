@@ -1367,6 +1367,9 @@
         width: 45px;
         height: 45px;
     }
+    .shape-part-img {
+        display: block;
+    }
     .round_cut_lab_checkbox input+.shape_img {
         min-width: 45px;
         min-height: 45px;
