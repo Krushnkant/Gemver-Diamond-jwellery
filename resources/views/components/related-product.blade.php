@@ -81,7 +81,7 @@
                                 <div class="d-flex justify-content-between  align-items-center">
                                     <div class="d-flex align-items-center">
                                         <span class="wire_bangle_price wire_bangle_price_part">
-                                            $ {{ $sale_price }}
+                                            ${{ $sale_price }}
                                         </span>
                                         <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $regular_price }}</span></span>
                                     </div>

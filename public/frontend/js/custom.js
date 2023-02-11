@@ -223,21 +223,24 @@ $(document).ready(function() {
     });
     $('.product-detail').owlCarousel({
         loop: false,
-        margin: 25,
+        margin: 10,
         nav: true,
         dots: false,
         responsive: {
             0: {
                 items: 1
             },
-            500: {
+            460: {
                 items: 2,
             },
-            992: {
+            767: {
                 items: 3,
             },
-            1200: {
+            990: {
                 items: 4
+            },
+            1366: {
+                items: 5
             }
         }
     });
