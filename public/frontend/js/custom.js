@@ -751,7 +751,7 @@ $(document).on("click", "#cust_btn", function() {
 $(window).on('load', function() { // makes sure the whole site is loaded 
     $('.loader-btn').fadeOut(); // will first fade out the loading animation 
     $('.header-loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-    //$('body').delay(350).css({ 'overflow': 'visible' });
+    $('body').delay(350).css({ 'overflow': 'visible' });
 });
 
 $(function() {
@@ -879,5 +879,5 @@ $(".table-grid-view>.table-view-part.list").click(function() {
 
 // ------------------------------------------------------------//
 $(window).on('load', function() {
-  //  $(".header-part").css('top', $(".home-page-slider-header").height() + "px");
+    $(".header-part").css('top', $(".home-page-slider-header").height() + "px");
 });
