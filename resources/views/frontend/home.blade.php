@@ -368,7 +368,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="row">
                 <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
                     <div class="engagement_diamond_img">
-                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="">
+                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
@@ -380,7 +380,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" loading="lazy"></a>
                                 </div> 
                                 <a href="{{ url('/step/'.$step->slug.'/one'); }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
@@ -395,7 +395,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""></a>
+                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" loading="lazy"></a>
                                     </div> 
                                     <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                             </div>
@@ -406,7 +406,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" loading="lazy"></a>
                                 </div> 
                                 <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                             </div>
@@ -417,7 +417,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" loading="lazy"></a>
                                 </div>
                                 <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                             </div>
@@ -470,7 +470,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt=""> 
+                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt="" loading="lazy"> 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -588,7 +588,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                             <div class="mt-4">
                                                 <div class="testimonial-author-img">
-                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}" loading="lazy">
                                                 </div>
                                                 <div class="author-info">
                                                     <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -622,7 +622,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="owl-carousel owl-theme shop-by-style-slider">
                             @foreach($shopbystyle as $shopby)
                             <div class="item">
-                                <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img" target="_blank">
+                                <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img" target="_blank" >
                                     <img src="{{ url($shopby->image) }}" alt="" loading="lazy">
                                     <div class="shop_by_style_heading text-center">
                                         {{ $shopby->title }}
@@ -657,12 +657,12 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%">
+                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%" loading="lazy">
                     </div>
                 </div>
                 <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%">
+                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%" loading="lazy">
                     </div>
                 </div>
                 <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
@@ -777,11 +777,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         //     <source src='{$media_url}' type='video/mp4'>
                         //     Your browser does not support the video tag.
                         // </video>";
-                        echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
+                        echo "<img src='{$thumbnail_url}' style='height:300px;' loading='lazy'  />";
                     }
  
                     else{
-                        echo "<img src='{$media_url}' style='height:300px;'  />";
+                        echo "<img src='{$media_url}' style='height:300px;' loading='lazy' />";
                     }
                     ?>
                     
