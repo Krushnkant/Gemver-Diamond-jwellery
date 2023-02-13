@@ -163,7 +163,7 @@ class HomeController extends Controller
         $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
         $SmilingDifference = SmilingDifference::get();
         $diamonds = Diamond::get();
-        return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
+        return view('frontend.home1',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
     public function createSlug($title, $id = 0)
