@@ -15,7 +15,7 @@
                             @foreach($trustedbies as $trusted)
                             <div class="item">
                                 <a href="{{ ($trusted->redirect_url != '')?$trusted->redirect_url:'#' }}" class="">
-                                    <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="">
+                                    <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="" loading="lazy">
                                 </a>
                             </div>
                             @endforeach
@@ -163,7 +163,7 @@
                     <div class="footer-heading mb-2 mb-md-2 d-flex justify-content-between">
                         Payments Accepted
                     </div>
-                    <img src="{{ asset('frontend/image/payment-cards.png') }}" alt="Payments Accepted">
+                    <img src="{{ asset('frontend/image/payment-cards.png') }}" alt="Payments Accepted" loading="lazy">
                 </div>
             </div>
         </div>

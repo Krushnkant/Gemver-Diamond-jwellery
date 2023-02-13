@@ -318,7 +318,7 @@ class CategoryController extends Controller
                 $image = $request->file('files')[0];
                 $image_name = 'categoryThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
                 
-                $destinationPath = public_path('images/categoryThumb');
+                //$destinationPath = public_path('images/categoryThumb');
                     // $image->move($destinationPath, $image_name);
 
                 // $img = Image::make($image->getRealPath());
@@ -327,7 +327,17 @@ class CategoryController extends Controller
                 // })->save($destinationPath.'/'.$image_name);
         
                 // $destinationPath = public_path('/images');
-                $image->move($destinationPath, $image_name);
+
+                $destinationPath = public_path('images/categoryThumb/'.$image_name);
+                $imageTemp = $_FILES["files"]["tmp_name"][0];
+              
+                if($_FILES["files"]["size"][0] > 500000){
+                    compressImage($imageTemp, $destinationPath, 90);
+                }else{
+                    $destinationPath = public_path('images/categoryThumb');
+                    $image->move($destinationPath, $image_name);  
+                }
+                //$image->move($destinationPath, $image_name);
                 
                 
                 return response()->json(['data' => 'images/categoryThumb/'.$image_name]);

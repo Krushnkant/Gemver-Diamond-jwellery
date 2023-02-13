@@ -53,8 +53,17 @@ class MegaMenuController extends Controller
         if ($request->hasFile('menu_thumb')) {
             $image = $request->file('menu_thumb');
             $menu_thumb = 'menu_thumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/megamenu');
-            $image->move($destinationPath, $menu_thumb);
+            // $destinationPath = public_path('images/megamenu');
+            // $image->move($destinationPath, $menu_thumb);
+            $destinationPath = public_path('images/megamenu/'.$menu_thumb);
+            $imageTemp = $_FILES["menu_thumb"]["tmp_name"];
+            
+            if($_FILES["menu_thumb"]["size"] > 500000){
+                compressImage($imageTemp, $destinationPath, 90);
+            }else{
+                $destinationPath = public_path('images/blogThumb');
+                $image->move($destinationPath, $menu_thumb);  
+            }
             if(isset($old_image)) {
                 $old_image = public_path('images/megamenu/' . $old_image);
                 if (file_exists($old_image)) {
