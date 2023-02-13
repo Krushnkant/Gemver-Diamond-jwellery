@@ -508,27 +508,30 @@ function count_order_items($OrderId){
 }
 
 function compressImage($source, $destination, $quality) { 
+    //dd($destination);
     // Get image info 
-    $imgInfo = getimagesize($source[0]); 
-
+   
+    $imgInfo = getimagesize($source); 
+    //dd($imgInfo);
     $mime = $imgInfo['mime']; 
+   // dd($source);
     // Create a new image from file 
     switch($mime){ 
         case 'image/jpeg': 
-            $image = imagecreatefromjpeg($source); 
+            $image = imageCreateFromJpeg($source); 
             break; 
         case 'image/png': 
-            $image = imagecreatefrompng($source); 
+            $image = imageCreateFromPng($source); 
             break; 
         case 'image/gif': 
-            $image = imagecreatefromgif($source); 
+            $image = imageCreateFromGif($source); 
             break; 
         default: 
-            $image = imagecreatefromjpeg($source); 
+            $image = @imagecreatefromjpeg($source); 
     } 
      
     // Save image 
-    imagejpeg($image, $destination, 50); 
+    imagejpeg($image, $destination, 70); 
      
     // Return compressed image 
     return $destination; 
