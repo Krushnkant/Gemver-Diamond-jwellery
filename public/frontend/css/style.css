@@ -1038,6 +1038,14 @@ background-size: cover;
         color: var(--primary);
     }
 
+    .footer-ul-part li {
+        margin-bottom: 10px;
+    }
+
+    .footer-ul-part li a svg {
+        margin-right: 10px;
+    }
+
     .footer-paragraph {
         font-weight: normal;
         font-size: 16px;

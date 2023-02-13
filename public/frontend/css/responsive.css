@@ -2001,6 +2001,11 @@
 }
 
 @media (max-width:767px) {
+
+    .policy_page_section img {
+        width: 100%;
+    }
+
     .wire_bangle_page .product_slider_main_item img {
         height: 100%;
     }
