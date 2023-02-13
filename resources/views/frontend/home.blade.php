@@ -85,10 +85,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="background-slider ">
                             <div class="background-smoke-slider position-relative">
                                 <div class="d-block d-md-none mobile-view-img">
-                                    <img src="{{ asset('images/loader.gif') }}" alt=" " loading="lazy" data-src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" class="delayed-load" >
+                                    <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy" data-src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}"  >
                                 </div>
                                 <div class="d-none d-md-block desktop-view-img">
-                                    <img src="{{ asset('images/loader.gif') }}" alt=" " loading="lazy" data-src="{{ asset($banner->banner_thumb) }}" class="delayed-load" >
+                                    <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy" data-src="{{ asset($banner->banner_thumb) }}"  >
                                 </div>
                                 <div class="">
                                     <div class="background-text-part px-3 px-lg-4 container">
@@ -854,9 +854,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
 <script src="{{ asset('frontend/js/all.min.js') }}"></script>   
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
-
-<script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script>
 <script>    
     $(document).ready(function(){
         $(window).on('load', showDatetime());
