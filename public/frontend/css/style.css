@@ -978,7 +978,7 @@ background-size: cover;
     .customise_own_ring_section {
         padding: 0;
         border-radius: 15px;
-        /*margin: 60px 0;*/
+        margin: 60px 0 0;
     }
 
     .ads-banner-section {
@@ -3565,7 +3565,7 @@ border: 0;
         background-color: #0B1727;
         color: #fff;
         background-color: var(--secondary);
-        margin-bottom: 126px;
+        /* margin-bottom: 126px; */
     }
 
     .header-loader {
