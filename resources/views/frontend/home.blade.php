@@ -88,7 +88,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                     <img src="{{ asset('images/loader.gif') }}" alt=" " loading="lazy" data-src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" class="delayed-load" >
                                 </div>
                                 <div class="d-none d-md-block desktop-view-img">
-                                    <img src="{{ asset('images/loader.gif' }}" alt=" " loading="lazy" data-src="{{ asset($banner->banner_thumb) }}" class="delayed-load" >
+                                    <img src="{{ asset('images/loader.gif') }}" alt=" " loading="lazy" data-src="{{ asset($banner->banner_thumb) }}" class="delayed-load" >
                                 </div>
                                 <div class="">
                                     <div class="background-text-part px-3 px-lg-4 container">
