@@ -68,8 +68,17 @@ class AttributeTermsController extends Controller
         if ($request->hasFile('attrtermthumb')) {
             $image = $request->file('attrtermthumb');
             $image_name = 'attrTermThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/attrTermThumb');
-            $image->move($destinationPath, $image_name);
+            // $destinationPath = public_path('images/attrTermThumb');
+            // $image->move($destinationPath, $image_name);
+            $destinationPath = public_path('images/attrTermThumb/'.$image_name);
+            $imageTemp = $_FILES["attrtermthumb"]["tmp_name"];
+            
+            if($_FILES["attrtermthumb"]["size"] > 500000){
+                compressImage($imageTemp, $destinationPath, 90);
+            }else{
+                $destinationPath = public_path('images/attrTermThumb');
+                $image->move($destinationPath, $image_name);  
+            }
             if(isset($old_image)) { 
                 $old_image = public_path('images/attrTermThumb/' . $old_image);
                 if (file_exists($old_image)) {

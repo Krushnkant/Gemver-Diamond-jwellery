@@ -230,8 +230,17 @@ class BlogBannerController extends Controller
             if ($request->hasFile('files')) {
                 $image = $request->file('files')[0];
                 $image_name = 'bannerThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('images/bannerThumb');
-                $image->move($destinationPath, $image_name);
+                // $destinationPath = public_path('images/bannerThumb');
+                // $image->move($destinationPath, $image_name);
+                $destinationPath = public_path('images/bannerThumb/'.$image_name);
+                $imageTemp = $_FILES["files"]["tmp_name"];
+                
+                if($_FILES["files"]["size"] > 500000){
+                    compressImage($imageTemp, $destinationPath, 90);
+                }else{
+                    $destinationPath = public_path('images/bannerThumb');
+                    $image->move($destinationPath, $image_name);  
+                }
                 return response()->json(['data' => 'images/bannerThumb/'.$image_name]);
             }
         }

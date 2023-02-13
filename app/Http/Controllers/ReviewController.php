@@ -56,10 +56,19 @@ class ReviewController extends Controller
         if ($request->hasFile('review_pic')) {
             $images = $request->file('review_pic');
             $rimages = [];
-            foreach ($images as $image) {
+            foreach ($images as $key => $image) {
                 $image_name = 'ReviewImg_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-                $destinationPath = public_path('images/categoryThumb');
-                $image->move($destinationPath, $image_name);
+                // $destinationPath = public_path('images/categoryThumb');
+                // $image->move($destinationPath, $image_name);
+                $destinationPath = public_path('images/categoryThumb/'.$image_name);
+                $imageTemp = $_FILES["review_pic"]["tmp_name"][$key];
+              
+                if($_FILES["review_pic"]["size"][$key] > 500000){
+                    compressImage($imageTemp, $destinationPath, 90);
+                }else{
+                    $destinationPath = public_path('images/categoryThumb');
+                    $image->move($destinationPath, $image_name);  
+                }
                 $rimages[]  = 'images/categoryThumb/'.$image_name;
             }
             $review->review_imgs =  implode(',',$rimages); 

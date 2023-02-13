@@ -57,8 +57,18 @@ class TrustedByController extends Controller
         if ($request->hasFile('trustedbythumb')) {
             $image = $request->file('trustedbythumb');
             $image_name = 'trustedbyThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('images/trustedbyThumb');
-            $image->move($destinationPath, $image_name);
+            // $destinationPath = public_path('images/trustedbyThumb');
+            // $image->move($destinationPath, $image_name);
+            $destinationPath = public_path('images/trustedbyThumb/'.$image_name);
+            $imageTemp = $_FILES["trustedbythumb"]["tmp_name"];
+
+            if($_FILES["trustedbythumb"]["size"] > 500000){
+                compressImage($imageTemp, $destinationPath, 90);
+            }else{
+                $destinationPath = public_path('images/trustedbyThumb');
+                $image->move($destinationPath, $image_name);  
+            }
+
             if(isset($old_image)) { 
                 $old_image = public_path('images/trustedbyThumb/' . $old_image);
                 if (file_exists($old_image)) {
