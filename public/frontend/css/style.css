@@ -1,7 +1,7 @@
     /* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
     /* @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); */
     /* @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-    /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
     @font-face {
@@ -35,10 +35,6 @@
     li {
         margin: 0;
         padding: 0;
-    }
-
-    .container {
-        max-width: 1440px;
     }
 
     img {
@@ -3201,7 +3197,7 @@ border: 0;
     }
 
     .bottom-to-top-btn {
-        background-color: var(--white-secondary);
+        background-color: #c7c7c7;
         position: fixed;
         width: 35px;
         height: 35px;
@@ -5658,6 +5654,7 @@ width: 100%;
         border: 0;
         padding: 10px 0;
         text-align: center;
+        margin-right: 15px;
     }
 
     .cart-icon-part .dropdown-toggle {
@@ -6559,8 +6556,12 @@ width: 100%;
         height: 34px;
     } */
 
-    .animation-slider-text .item {
+    /*.animation-slider-text .item {
         animation: drop-in 1200ms ease 500ms backwards;
+    }*/
+
+    .choose_your_setting_faq .panel {
+        padding: 0 10px;
     }
 
     .see-all-btn .explore-category-btn {
@@ -6979,7 +6980,7 @@ width: 100%;
     }
 
     .custom-made-section {
-        padding: 70px 0;
+        padding: 70px 0 100px;
     }
 
     .custom-made-section-padding {

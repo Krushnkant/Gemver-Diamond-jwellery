@@ -1,3 +1,8 @@
+@media (min-width: 1530px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1440px;
+    }
+}
 @media (max-width:1600px) {
     .about_us_product {
         padding: 15px;
@@ -1197,7 +1202,7 @@
         top: 50%;
         transform: translateY(-50%) rotate(270deg);
     }
-
+37
     .mega-menu-img {
         width: 30px;
         height: 30px;
@@ -1890,7 +1895,7 @@
     }
 
     .custom-made-section {
-        padding: 30px 0;
+        padding: 40px 0 70px;
     }
 
     .custom-made-section-padding {
@@ -2003,7 +2008,8 @@
 @media (max-width:767px) {
 
     .policy_page_section img {
-        width: 100%;
+        width: 100% !important;
+        height: auto !important;
     }
 
     .wire_bangle_page .product_slider_main_item img {
@@ -3046,9 +3052,10 @@
 
     .engagement_start_diamond,
     .engagement_start_setting {
-        padding: 0px 16px;
-        font-size: 12px;
-        min-width: auto;
+        /*padding: 0px 16px;*/
+        /*font-size: 12px;*/
+        /*min-width: auto;*/
+        margin-bottom: 15px;
     }
 
     .custom_made_heading {
@@ -3722,10 +3729,10 @@
         font-size: 38px;
     }
 
-    .engagement_start_diamond,
+    /*.engagement_start_diamond,
     .engagement_start_setting {
         padding: 0 27px;
-    }
+    }*/
 
     .choose_your_setting_heading {
         font-size: 28px;

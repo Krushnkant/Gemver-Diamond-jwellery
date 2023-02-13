@@ -684,9 +684,9 @@ $(document).ready(function() {
             mouseDrag: false,
             autoplay: true,
             autoplayTimeout: 5000,
-            smartSpeed: 3000,
-            animateOut: "slideOutDown",
-            animateIn: "slideInDown",
+            smartSpeed: 5000,
+            // animateOut: "slideOutLeft",
+            // animateIn: "slideInLeft",
         });
     });
 

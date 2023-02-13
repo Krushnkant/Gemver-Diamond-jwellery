@@ -169,7 +169,7 @@
                                                     <ul class="mega-menu-two-colum">
                                                         <li>
                                                             <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
-                                                                {{-- <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img " loading="lazy"></span> --}}
+                                                                <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img " loading="lazy"></span>
                                                                 <span class="ms-2 ms-md-2 d-inline-block">round</span>
                                                             </a>
                                                         </li>

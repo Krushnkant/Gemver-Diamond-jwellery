@@ -40,10 +40,10 @@
     @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
     @if($num == 1)
         <div class="custom-made-section"> 
-            <div class="container text-center">
+            <div class="container">
                 <div class="row two_part_box_section">
                     <div class="col-md-6 ps-md-0 pe-md-4 order-1 order-md-2 mb-3 mb-md-0">
-                        <div class="choose_your_setting_box text-center custom-made-bg">
+                        <div class="choose_your_setting_box custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
                                     {{ $menupageshapestyle->title }}
@@ -51,9 +51,9 @@
                                 <p class="custom_engagement_paragrph mb-4 text-start ms-0">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto ms-md-0" id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                <div class="engagement_button">
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting" id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
         ?>
         @if($arr[$num % 2] == 'Even')
         <div class=""> 
-            <div class="container custom-made-section-padding text-center">
+            <div class="container custom-made-section-padding">
                 <div class="row two_part_box_section">
                     <div class="banner_part_img_parent col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
                         <figure class="mb-0 custom-image-part">
@@ -222,9 +222,9 @@
                                 <p class="custom_engagement_paragrph mb-4 text-start ms-0">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                <div class="engagement_button">
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -235,11 +235,11 @@
         @else
 
         <div class="my-3 my-xl-4"> 
-            <div class="container text-center">
+            <div class="container">
                 <div class="row two_part_box_section ring-part-section">
                     
                     <div class="col-md-6 ps-md-0 pe-md-4 mb-3 mb-md-0">
-                        <div class="choose_your_setting_box text-center custom-made-bg">
+                        <div class="choose_your_setting_box custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
                                     {{ $menupageshapestyle->title }}
@@ -247,9 +247,9 @@
                                 <p class="custom_engagement_paragrph mb-4 ms-0 text-start">
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
-                                <div class="engagement_button text-center d-md-flex flex-nowrap">
-                                    <button class="engagement_start_diamond d-block me-md-3 mx-auto ms-md-0" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting d-block mx-auto ms-md-0"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                <div class="engagement_button">
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
