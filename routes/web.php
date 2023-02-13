@@ -44,6 +44,7 @@ Route::get('/clear-cache', function() {
 //Frontend Route
 
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
+Route::get('/home',[HomeController::class,'index1'])->name('frontend.home');
 Route::get('infopage/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
 Route::get('infopage/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
 Route::post('contact-us',[ContactUsController::class,'save'])->name('frontend.contact.save');
