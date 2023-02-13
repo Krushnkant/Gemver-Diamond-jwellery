@@ -85,10 +85,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="background-slider ">
                             <div class="background-smoke-slider position-relative">
                                 <div class="d-block d-md-none mobile-view-img">
-                                    <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy">
+                                    <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy" data-src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}"  >
                                 </div>
                                 <div class="d-none d-md-block desktop-view-img">
-                                    <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
+                                    <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy" data-src="{{ asset($banner->banner_thumb) }}"  >
                                 </div>
                                 <div class="">
                                     <div class="background-text-part px-3 px-lg-4 container">
@@ -163,10 +163,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
                     @foreach($categories as $category)
                     <div class="item">
-                        <a href="{{ URL('/shop/'.$category->slug)}}">
+                        <a href="{{ URL('shop/'.$category->slug)}}">
                             <div class="catrgery_box">
                                 <span class="catrgory_img">
-                                    <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}" loading="lazy">
+                                    <img src="{{ url('images/loader.gif') }}" alt="{{ $category->category_name }}" loading="lazy" data-src="{{ $category->category_thumb }}" class="delayed-load" >
                                 </span>
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
@@ -185,7 +185,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="shop-colorful-img">
-                        <img src="{{ asset('frontend/image/diamond-part.png') }}" alt="" loading="lazy">
+                        <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/diamond-part.png') }}" class="delayed-load" >
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
@@ -260,7 +260,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="{{ $alt_text }}" loading="lazy" data-src="{{ $image }}" class="delayed-load" >
                                 <?php }else{ ?>
                                    
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
@@ -279,11 +279,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                                 $ia = 1;
                                                 foreach($product_attribute as $attribute_term){
-                                                    $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
+                                                    $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
-                                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
+                                                        <img src="{{ url('images/loader.gif') }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto delayed-load" loading="lazy" data-src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}"  >
                                                         </a>
                                                         <div class="wire_bangle_color_input_label"></div>
                                                     </span>
@@ -349,61 +349,61 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                         <div class="item">
                             <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/round.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/round.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">round</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/oval.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/oval.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">oval</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/princess.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/princess.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">princess</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/cushion.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">cushion</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/marquise.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">marquise</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/pear.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/pear.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">pear</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/radiant.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">radiant</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/heart.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/heart.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">heart</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/emerald.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/emerald.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">emerald</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/asscher.png') }}" alt="" loading="lazy">
+                                <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/asscher.png') }}" class="delayed-load" >
                                 <div class="shop_by_diamond_shpae_name">asscher</div>
                             </a>
                         </div>
@@ -418,7 +418,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="row">
                 <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
                     <div class="engagement_diamond_img">
-                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" loading="lazy">
+                        <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ url('images/steps/'.$step->main_image) }}" class="delayed-load" >
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
@@ -430,9 +430,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/one'); }}"><img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/diamond_1_part.png') }}" class="delayed-load" ></a>
                                 </div> 
-                                <a href="{{ url('/step/'.$step->slug.'/one'); }}">
+                                <a href="{{ url('step/'.$step->slug.'/one'); }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
                                 </a>
                             </div>
@@ -445,9 +445,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" loading="lazy"></a>
+                                        <a href="{{ url('step/'.$step->slug.'/two'); }}"><img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/diamond_2_part.png') }}" class="delayed-load" ></a>
                                     </div> 
-                                    <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
+                                    <a href="{{ url('step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                 {{ $step->step2_shotline }}
@@ -456,9 +456,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/three'); }}"><img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/diamond_3_part.png') }}" class="delayed-load" ></a>
                                 </div> 
-                                <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
+                                <a href="{{ url('step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                             {{ $step->step3_shotline }}
@@ -467,9 +467,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/four'); }}"><img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/diamond_4_part.png') }}" class="delayed-load" ></a>
                                 </div>
-                                <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
+                                <a href="{{ url('step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                 {{ $step->step4_shotline }}
@@ -492,7 +492,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
                 <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" loading="lazy">
+                    <img src="{{ url('images/loader.gif') }}" alt="" width="100%" loading="lazy" data-src="{{ url($homesetting->section_customise_image) }}" class="delayed-load" >
                 </div>
             </div>
         </div>
@@ -505,7 +505,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_1.png') }}" alt="" loading="lazy"> 
+                            <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/smiling_1.png') }}" class="delayed-load" > 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -520,7 +520,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt="" loading="lazy"> 
+                            <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/smiling_2.png') }}" class="delayed-load" > 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -535,7 +535,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_3.png') }}" alt="" loading="lazy"> 
+                            <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/smiling_3.png') }}" class="delayed-load" > 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -550,7 +550,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_4.png') }}" alt="" loading="lazy"> 
+                            <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ asset('frontend/image/smiling_4.png') }}" class="delayed-load" > 
                         </div>
                        <div class="ms-3 ms-md-0">
                         <div class="smiling_box_heading">
@@ -605,7 +605,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
                         <a href="{{ $url }}" class="banner_part_img_parent">
                             <figure>
-                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="" loading="lazy">
+                                <img class="delayed-load" src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ url($BlogBanner['banner_thumb']) }}"  >
                             </figure>
                         </a>
                     </div>
@@ -638,7 +638,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                             <div class="mt-4">
                                                 <div class="testimonial-author-img">
-                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}" loading="lazy">
+                                                    <img src="{{ url('images/loader.gif') }}" alt="{{ $testimonial->name }}" loading="lazy" data-src="{{ url('images/testimonials/'.$testimonial->image) }}" class="delayed-load" >
                                                 </div>
                                                 <div class="author-info">
                                                     <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -673,7 +673,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             @foreach($shopbystyle as $shopby)
                             <div class="item">
                                 <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img" target="_blank" >
-                                    <img src="{{ url($shopby->image) }}" alt="" loading="lazy">
+                                    <img src="{{ url('images/loader.gif') }}" alt="" loading="lazy" data-src="{{ url($shopby->image) }}" class="delayed-load" >
                                     <div class="shop_by_style_heading text-center">
                                         {{ $shopby->title }}
                                     </div>
@@ -707,12 +707,12 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%" loading="lazy">
+                        <img src="{{ url('images/loader.gif') }}" alt="" width="100%" loading="lazy" data-src="{{ url($homesetting->section_why_gemver_image1) }}" class="delayed-load" >
                     </div>
                 </div>
                 <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%" loading="lazy">
+                        <img src="{{ url('images/loader.gif') }}" alt="" width="100%" loading="lazy" data-src="{{ url($homesetting->section_why_gemver_image2) }}" class="delayed-load" >
                     </div>
                 </div>
                 <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
@@ -827,11 +827,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         //     <source src='{$media_url}' type='video/mp4'>
                         //     Your browser does not support the video tag.
                         // </video>";
-                        echo "<img src='{$thumbnail_url}' style='height:300px;' loading='lazy'  />";
+                        echo "<img src='{ url('images/loader.gif') }' style='height:300px;' loading='lazy' data-src='{$thumbnail_url}' class='delayed-load'  />";
                     }
  
                     else{
-                        echo "<img src='{$media_url}' style='height:300px;' loading='lazy' />";
+                        echo "<img src='{ url('images/loader.gif') }' style='height:300px;' loading='lazy' data-src='{$media_url}' class='delayed-load' />";
                     }
                     ?>
                     
@@ -856,6 +856,14 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 <script>    
     $(document).ready(function(){
+        $(window).on('load', showDatetime());
+      
+      function showDatetime() {
+        $('.delayed-load').each(function(){
+          $(this).attr('src',$(this).data('src'));
+        });
+      }
+
         $(document).on('click','.banner-url',function(){
             var banner_url = $(this).attr("data-value");
             window.location.href = banner_url;
