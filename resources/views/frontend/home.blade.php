@@ -1,6 +1,56 @@
-@extends('frontend.layout.layout')
+<?php
+$settings = \App\Models\Settings::first();
+?>
 
-@section('content')
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <title>{{ $settings->company_name }}  {{  isset($meta_title) ? " | ".$meta_title:"" }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ URL('images/company/'.$settings->company_favicon) }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="canonical" href="{{ url()->full() }}" />
+    <meta name="title" content="{{ isset($meta_title) ? $meta_title:"" }}"/>
+    <meta name="description" content="{{ isset($meta_description) ? $meta_description :"" }}"/>
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
+    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+    <!-- TrustBox script -->
+    {{-- <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> --}}
+    <!-- End TrustBox script -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-962R43V393');
+    </script>
+    
+</head>
+<body>
+
+
+ <div class="header-loader">
+    <div class="loader-btn" role="status"> 
+    <img src="{{ asset('frontend/image/page-loader.gif') }}" alt="">
+    </div>
+</div>
+<input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
+<div class="">
+@include('frontend.layout.header')
 <?php 
 $dddd =  "Glide with the shine of beautiful Jewels"; 
 ?>
@@ -795,88 +845,158 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
-    <script>    
-        $(document).ready(function(){
-            $(document).on('click','.banner-url',function(){
-                var banner_url = $(this).attr("data-value");
-                window.location.href = banner_url;
-            });
+  
+@include('frontend.layout.footer')
+<script src="{{ asset('frontend/js/popper.min.js') }}"></script>
+<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/js/slick.js') }}"></script>   
+<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 
-            $(document).on('click','.customize-button-url',function(){
-                var banner_url = $(this).attr("data-value");
-                window.location.href = banner_url;
-            });
+<script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script>
+<script>    
+    $(document).ready(function(){
+        $(document).on('click','.banner-url',function(){
+            var banner_url = $(this).attr("data-value");
+            window.location.href = banner_url;
+        });
 
-            $('body').on('click', '#save_newInquiryBtn', function () {
-                save_inquiry($(this),'save_new');
-            });
-            function save_inquiry(btn,btn_type){
-                $(btn).prop('disabled',true);
-                $(btn).find('.loadericonfa').show();
-                var action  = $(btn).attr('data-action');
-                var formData = new FormData($("#InquiryCreateForm")[0]);
-                
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ route('frontend.inquiry.save') }}",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (res) {
-                       
-                        if(res.status == 'failed'){
-                            $(btn).prop('disabled',false);
-                            $(btn).find('.loadericonfa').hide();
+        $(document).on('click','.customize-button-url',function(){
+            var banner_url = $(this).attr("data-value");
+            window.location.href = banner_url;
+        });
 
-                            if (res.errors.name) {
-                                $('#name-error').show().text(res.errors.name);
-                            } else {
-                                $('#name-error').hide();
-                            }
-                            if (res.errors.email) {
-                                $('#email-error').show().text(res.errors.email);
-                            } else {
-                                $('#email-error').hide();
-                            }
-
-                            if (res.errors.mobile_no) {
-                                $('#mobile_no-error').show().text(res.errors.mobile_no);
-                            } else {
-                                $('#mobile_no-error').hide();
-                            }
-                            if (res.errors.inquiry) {
-                                $('#inquiry-error').show().text(res.errors.inquiry);
-                            } else {
-                                $('#inquiry-error').hide();
-                            } 
-                        }
-                        if(res.status == 200){
-                            $('#inquiry-error').hide();
-                            $('#mobile_no-error').hide();
-                            $('#email-error').hide();
-                            $('#name-error').hide();
-                            document.getElementById("InquiryCreateForm").reset();
-                            $(btn).prop('disabled',false);
-                            $(btn).find('.loadericonfa').hide();
-                            //location.href="{{ route('frontend.contactus')}}";
-                            var success_message = 'Thank You For Bulk Order Inquiry';
-                            $('#success-alert').text(success_message);
-                            $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                              $("#success-alert").slideUp(1000);
-                              //location.reload();
-                              //window.location.href = "{{ url('/') }}";
-                            });
-                        }
-
-                    },
-                    error: function (data) {
+        $('body').on('click', '#save_newInquiryBtn', function () {
+            save_inquiry($(this),'save_new');
+        });
+        function save_inquiry(btn,btn_type){
+            $(btn).prop('disabled',true);
+            $(btn).find('.loadericonfa').show();
+            var action  = $(btn).attr('data-action');
+            var formData = new FormData($("#InquiryCreateForm")[0]);
+            
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('frontend.inquiry.save') }}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                   
+                    if(res.status == 'failed'){
                         $(btn).prop('disabled',false);
                         $(btn).find('.loadericonfa').hide();
-                        toastr.error("Please try again",'Error',{timeOut: 5000});
+
+                        if (res.errors.name) {
+                            $('#name-error').show().text(res.errors.name);
+                        } else {
+                            $('#name-error').hide();
+                        }
+                        if (res.errors.email) {
+                            $('#email-error').show().text(res.errors.email);
+                        } else {
+                            $('#email-error').hide();
+                        }
+
+                        if (res.errors.mobile_no) {
+                            $('#mobile_no-error').show().text(res.errors.mobile_no);
+                        } else {
+                            $('#mobile_no-error').hide();
+                        }
+                        if (res.errors.inquiry) {
+                            $('#inquiry-error').show().text(res.errors.inquiry);
+                        } else {
+                            $('#inquiry-error').hide();
+                        } 
                     }
-                });
-            }
+                    if(res.status == 200){
+                        $('#inquiry-error').hide();
+                        $('#mobile_no-error').hide();
+                        $('#email-error').hide();
+                        $('#name-error').hide();
+                        document.getElementById("InquiryCreateForm").reset();
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+                        //location.href="{{ route('frontend.contactus')}}";
+                        var success_message = 'Thank You For Bulk Order Inquiry';
+                        $('#success-alert').text(success_message);
+                        $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                          $("#success-alert").slideUp(1000);
+                          //location.reload();
+                          //window.location.href = "{{ url('/') }}";
+                        });
+                    }
+
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
+        }
+    });
+</script>
+<script>
+    $(document).ready(function() {   
+        $("#main_search").keyup(function() {
+            search_data($(this).val());
         });
-    </script>
- @endsection
-   
+
+        function search_data(keyword)
+        {
+        
+            var action = "search";
+            $.ajax({
+            // url:"{{ url('/product-filter') }}",
+            // url: ENDPOINT + "/search_products",
+                url:"{{ url('/search_products') }}",
+                method:"POST",
+                data:{action:action,keyword:keyword,_token: '{{ csrf_token() }}'},
+                beforeSend: function() {
+                    $('.serach-load').show();
+                },
+                success:function(response){
+                    if(response != ""){
+                        $('#mega-menu-scrollbar').show();
+                        $('.main_search_section').html(response);
+                        $('.serach-load').hide(); 
+                    }else{
+                        $('#mega-menu-scrollbar').hide();
+                        $('.main_search_section').html(response);
+                        $('.serach-load').hide();   
+                    }
+                    // if(scroll == 1){
+                    //     if (response['artilces'] == "") {
+                    //         $('.auto-load').html("We don't have more data to display ");
+                    //         return;
+                    //     }
+                    //     $('.auto-load').hide();   
+                    //     $("#data-wrapper").append(response['artilces']);
+                    // }else{
+                    //     if (response['artilces'] == "") {
+                    //         $('#data-wrapper').html("No Result Found");
+                    //         $('.auto-load').hide();
+                    //         return;
+                    //     }
+                    //     $("#data-wrapper").html(response['artilces']);  
+                    //     $('.auto-load').hide(); 
+                    // }  
+                    
+                }
+            });
+        }
+
+        $('body').on('click', '#searchBtn', function () {
+            var main_search = $("#main_search").val();
+            location.href = "{{ url('shop') }}?s="+main_search;
+        });
+   });
+   </script>
+
+</body>
+</html>
+
