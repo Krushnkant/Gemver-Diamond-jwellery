@@ -50,7 +50,7 @@ $settings = \App\Models\Settings::first();
 </div> --}}
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 <div class="">
-{{-- @include('frontend.layout.header') --}}
+ @include('frontend.layout.header')
 <?php 
 $dddd =  "Glide with the shine of beautiful Jewels"; 
 ?>
