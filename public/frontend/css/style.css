@@ -847,8 +847,12 @@ background-size: cover;
     }
 
     .testimonial-section {
-        background-image: url(../image/testimonials-background.png);
+        background-image: url(../image/testimonials-background.jpeg);
         padding: 40px 0;
+    }
+
+    span.select2-dropdown.select2-dropdown--below {
+        z-index: 99999;
     }
 
     .customer-stories-img,
@@ -1088,11 +1092,6 @@ background-size: cover;
 
     .footer-social-media-icons li {
         display: inline-block;
-        width: 30px;
-        height: 30px;
-        background: transparent;
-        text-align: center;
-        line-height: 30px;
     }
 
     .footer-social-media-icons li svg {
