@@ -136,9 +136,9 @@
                                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">{{ $attribute->display_attrname }}</span>
                                 <div class="col-md-12 shape-part-img">
                                     @foreach($attribute->attributeterm as $term)
-                                    <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="{{ $term->attrterm_name }}">
-                                            <input class="form-check-input attribute common_selector" value="{{ $term->id }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">
-                                            <img src="{{ url('images/attrTermThumb/'.$term->attrterm_thumb) }}" alert="{{ $term->attrterm_name }}" class="attr-img" width="45" height="45">
+                                    <span class="form-check position-relative ps-0 round_checkbox_part attr-shape-check-span" data-toggle="tooltip" data-placement="top" title="{{ $term->attrterm_name }}">
+                                        <input class="form-check-input attribute common_selector attr-shape-check" value="{{ $term->id }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">
+                                        <img src="{{ url('images/attrTermThumb/'.$term->attrterm_thumb) }}" alert="{{ $term->attrterm_name }}" class="attr-img" width="45" height="45">
                                     </span> 
                                 
                                     @endforeach 
@@ -306,10 +306,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 col-md-6 px-0 d-lg-none">
+                <div class="col-3 col-md-6 d-lg-none">
                     <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                         <i class="fa-solid fa-filter"></i>
-                        <span class="ms-2 d-sm-inline-block">filter</span>
+                        <span class="ms-2 d-sm-inline-block">Search</span>
                     </button>
                 </div>
                 <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">

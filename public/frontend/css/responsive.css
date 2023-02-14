@@ -1619,9 +1619,9 @@
         top: calc(59px + 10px);
     }
 
-    .home-page-bg {
+    /* .home-page-bg {
         margin-bottom: 60px;
-    }
+    } */
 
     .category-slider .owl-prev {
         left: 0;
@@ -1698,9 +1698,18 @@
         margin-right: 0;
     }
 
+    .round_checkbox_part.attr-shape-check-span {
+        margin-right: 4px;
+    }
+
     .round_cut_lab_checkbox input[type="checkbox"] {
         width: 45px;
         height: 45px;
+    }
+
+    .round_cut_lab_checkbox input[type="checkbox"].attr-shape-check {
+        width: 50px;
+        height: 50px;
     }
 
     .round_checkbox_part {
@@ -3302,9 +3311,9 @@
         font-size: 13px;
     }
 
-    .home-page-bg {
+    /* .home-page-bg {
         margin-bottom: 106px;
-    }
+    } */
 
     /* --------------------------------- gemver difference ---------------------------------------------------------- */
     .gemver_diffrence_box {
@@ -3774,9 +3783,9 @@
     /*.customise_own_ring_section {
         margin: 0;
     }*/
-    .home-page-bg {
+    /* .home-page-bg {
         margin-bottom: 106px;
-    }
+    } */
 
     .from_text input,
     .to_text input {
@@ -3849,9 +3858,9 @@
     /* .heading-h1 {
         font-size: 91px;
     } */
-    .home-page-bg {
+    /* .home-page-bg {
         margin-bottom: 106px;
-    }
+    } */
 
     .header ul li {
         padding: 10px 20px;
