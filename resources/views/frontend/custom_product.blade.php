@@ -240,7 +240,7 @@
                     
                     @if($attribute->id == 19)
                         @if($Category->mainparentid == 2)
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -262,7 +262,7 @@
                       
                     @elseif($attribute->id == 20)
                         @if($Category->mainparentid == 24)
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -283,7 +283,7 @@
                         @endif
                     @elseif($attribute->id == 21 || $attribute->id == 9)
                         @if($Category->mainparentid == 44)
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -304,7 +304,7 @@
                         @endif
                     @elseif($attribute->id == 22)
                         @if($Category->mainparentid == 45)
-                        <div class="col-md-6">
+                        <div class="col-md-6 mt-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -325,7 +325,7 @@
                         @endif
                    
                     @elseif($attribute->id == 13)    
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-2">
                         <div class="round_cut_lab_range_slider">
                             <ul class="right_side_ul round_cut_lab_range_slider row">
                                 <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
