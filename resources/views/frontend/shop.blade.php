@@ -111,8 +111,8 @@
                         </ul>
                     </div>
                 </div> --}}
-                <div class="col-lg-6">
-                    <div class="round_cut_lab_range_slider mt-md-0 row">
+                <div class="col-lg-6 mt-2">
+                    <div class="round_cut_lab_range_slider  row">
                         <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</div>
                         <div class="round_cut_lab_diamonds_price col-lg-12">
                             <div class="align-items-center mb-2 position-relative">
@@ -255,7 +255,7 @@
                         @endif            
                     @else    
                     <div class="col-md-6">
-                        <div class="round_cut_lab_range_slider">
+                        <div class="round_cut_lab_range_slider ">
                             <ul class="right_side_ul round_cut_lab_range_slider row">
                                 <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
                                 <div class="col-lg-12">
