@@ -54,9 +54,9 @@
                                         <th style="width: 50%">Company Favicon</th>
                                         <td>
                                             @if(isset($Settings->company_favicon))
-                                                <img src="{{ url('images/company/'.$Settings->company_favicon) }}" width="150px" height="" alt="Company Favicon" id="company_favicon_val">
+                                                <img src="{{ url('images/company/'.$Settings->company_favicon) }}" width="30px" height="" alt="Company Favicon" id="company_favicon_val">
                                             @else
-                                                <img src="{{ url('images/placeholder_image.png') }}" width="150px" height="" alt="Company Favicon" id="company_favicon_val">
+                                                <img src="{{ url('images/placeholder_image.png') }}" width="30px" height="" alt="Company Favicon" id="company_favicon_val">
                                             @endif
                                         </td>
                                     </tr>

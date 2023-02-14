@@ -180,7 +180,7 @@ class OrderController extends Controller
 
                     $date = '<span><b>Order Date:</b></span><span>'.date('d-m-Y h:i A', strtotime($Order->created_at)).'</span>';
                     if(isset($Order->delivery_date)){
-                        $date .= '<span><b>Delivery Date:</b></span><span>'.$Order->delivery_date.'</span>';
+                        $date .= '<span><b>Delivery Date:</b></span><span>'.date('d-m-Y h:i A', strtotime($Order->delivery_date)).'</span>';
                     }
 
                     $table = '<table class="subclass text-center" cellpadding="6" cellspacing="0" border="0" style="padding-left:50px; width: 50%">';
