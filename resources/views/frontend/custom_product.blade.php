@@ -214,7 +214,7 @@
             </ul>
             @endif 
         </div>
-        <div class="row filter-data d-md-flex mt-md-4">
+        <div class="row filter-data pt-3 d-md-flex mb-4">
                 <div class="text-end close-icon d-lg-none">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
@@ -347,12 +347,26 @@
               
                 @endforeach
             
-                <div class="row text-end mb-3">
+                {{-- <div class="row text-end mb-3">
                     <div class="col-md-12">
                         <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </div>
+                </div> --}}
+                <div class="row align-items-center">
+                    <div class="col-md-12 text-center text-md-end px-0 mt-4">
+                        <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                            <span class="d-inline-block d-lg-none  apply-btn me-3">
+                                <button type="button" class= "apply-btn">Apply</button>
+                            </span>
+                            <span class="d-inline-block reset-btn reset-btn-part">
+                                <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
         </div>
+    </div>
+    <div class="container">
         <div class="wire_bangle_line"></div>
         <div class="row align-items-center d-flex justify-content-end mt-3">
             <div class="col-lg-6 text-center text-sm-start">
@@ -413,6 +427,7 @@
         </div>
     </div>
 </div>
+
     @php
         $hidemodel = 0;
     @endphp
