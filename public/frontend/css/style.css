@@ -1,7 +1,7 @@
     /* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
     /* @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap'); */
     /* @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
     @font-face {
@@ -1246,7 +1246,7 @@ background-size: cover;
     .background-sub-slider {
         margin-top: 0;
         background-color: var(--light-bg);
-        padding: 30px 0; 
+        padding: 30px 0;
     }
 
     .about_us_product {
@@ -2215,7 +2215,8 @@ background-size: cover;
         background: none;
     }
 
-    .round_cut_lab_checkbox .shape_img {
+    .round_cut_lab_checkbox .shape_img,
+    .round_cut_lab_checkbox .attr-img {
         position: absolute;
         top: 0;
         left: 0;
@@ -2245,9 +2246,7 @@ background-size: cover;
         color: #fff;
     }
 
-    .round_cut_lab_checkbox input:checked+.attr-img {
-
-    }
+    .round_cut_lab_checkbox input:checked+.attr-img {}
 
     .round_cut_lab_checkbox .round_checkbox_part {
         display: inline-block;
@@ -2262,7 +2261,8 @@ background-size: cover;
         fill: #fff;
     }
 
-    .round_cut_lab_checkbox input+.shape_img, .round_cut_lab_checkbox input+.attr-img {
+    .round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox input+.attr-img {
         width: 100%;
         min-width: 55px;
         min-height: 55px;
