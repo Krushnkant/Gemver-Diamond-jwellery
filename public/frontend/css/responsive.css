@@ -1,8 +1,15 @@
-@media (min-width: 1530px){
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+@media (min-width: 1530px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
         max-width: 1440px;
     }
 }
+
 @media (max-width:1600px) {
     .about_us_product {
         padding: 15px;
@@ -1202,8 +1209,8 @@
         top: 50%;
         transform: translateY(-50%) rotate(270deg);
     }
-37
-    .mega-menu-img {
+
+    37 .mega-menu-img {
         width: 30px;
         height: 30px;
     }
@@ -1700,7 +1707,8 @@
         display: block;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
+    .round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox input+.attr-img {
         min-width: 45px;
         min-height: 45px;
         line-height: 33px !important;
@@ -2680,7 +2688,8 @@
         height: 30px;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
+    .round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox input+.attr-img {
         min-width: 47px;
         min-height: 47px;
     }
@@ -3341,7 +3350,8 @@
         display: block !important;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
+    .round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox input+.attr-img {
         width: 47px;
         height: 47px;
         min-width: 47px;
