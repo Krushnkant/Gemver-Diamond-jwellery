@@ -275,11 +275,23 @@
                     @endif
                 @endif
                 @endforeach
-                <div class="text-end mb-3">
+                {{-- <div class="text-end mb-3">
                     <div class="col-md-12 ">
                         <button type="button" id="reSet" style="border: 1px var(--primary) solid" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </div>
                     
+                </div> --}}
+                <div class="row align-items-center">
+                    <div class="col-md-12 text-center text-md-end px-0 mt-4">
+                        <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                            <span class="d-inline-block d-lg-none  apply-btn me-3">
+                                <button type="button" class= "apply-btn">Apply</button>
+                            </span>
+                            <span class="d-inline-block reset-btn reset-btn-part">
+                                <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
