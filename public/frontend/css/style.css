@@ -2268,6 +2268,7 @@ background-size: cover;
         min-height: 55px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 7px;
+        pointer-events: none;
     }
 
     /*.round_cut_lab_checkbox input+.shape_img {
