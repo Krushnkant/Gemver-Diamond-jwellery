@@ -43,7 +43,7 @@
                 <div class="text-end close-icon d-lg-none">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-3 mb-md-2">
                     <div class="round_cut_lab_range_slider mt-md-0 row">
                         <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">price</div>
                         <div class="round_cut_lab_diamonds_price col-lg-12">
@@ -64,7 +64,7 @@
                 
                 @foreach($Attributes as $attribute)
                 @if($attribute->attribute_name == "Karat")
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-3 mb-md-2">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->display_attrname }}</li>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 @elseif($attribute->id == 15)
-                {{-- <div class="col-lg-6">
+                {{-- <div class="col-lg-6 mb-3 mb-md-2">
                     <div class="round_cut_lab_range_slider">
                         <ul class="right_side_ul round_cut_lab_range_slider row">
                             <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2 carat-input-part">{{ $attribute->display_attrname }}</li>
@@ -111,7 +111,7 @@
                         </ul>
                     </div>
                 </div> --}}
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-6 mb-3 mb-md-2">
                     <div class="round_cut_lab_range_slider  row">
                         <div class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</div>
                         <div class="round_cut_lab_diamonds_price col-lg-12">
@@ -131,14 +131,14 @@
                 </div>
                 @elseif($attribute->id == 18)
                 
-                <div class="col-lg-6 round_cut_lab_filter">
+                <div class="col-lg-6 mb-3 mb-md-2 round_cut_lab_filter">
                     <div class="round_cut_lab_checkbox row mb-2">
                         <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">{{ $attribute->display_attrname }}</span>
                         <div class="col-md-12 shape-part-img">
                             @foreach($attribute->attributeterm as $term)
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="{{ $term->attrterm_name }}">
                                     <input class="form-check-input attribute common_selector" value="{{ $term->id }}" type="checkbox" name="shape[]"   id="flexRadioDefault{{ $term->attrterm_name }}">
-                                    <img src="{{ url('images/attrTermThumb/'.$term->attrterm_thumb) }}" alert="{{ $term->attrterm_name }}"  width="45" height="45">
+                                    <img src="{{ url('images/attrTermThumb/'.$term->attrterm_thumb) }}" alert="{{ $term->attrterm_name }}" class="attr-img" width="45" height="45">
                             </span> 
                            
                             @endforeach 
@@ -149,7 +149,7 @@
                     
                     @if($attribute->id == 19)
                         @if($Category->mainparentid == 4)
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3 mb-md-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -171,7 +171,7 @@
                       
                     @elseif($attribute->id == 20)
                         @if($Category->mainparentid == 24)
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3 mb-md-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -192,7 +192,7 @@
                         @endif
                     @elseif($attribute->id == 21 || $attribute->id == 9)
                         @if($Category->mainparentid == 46)
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3 mb-md-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -213,7 +213,7 @@
                         @endif
                     @elseif($attribute->id == 22)
                         @if($Category->mainparentid == 50)
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3 mb-md-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -234,7 +234,7 @@
                         @endif
                     @elseif($attribute->id == 23)
                         @if($Category->mainparentid == 55)
-                        <div class="col-md-6">
+                        <div class="col-lg-6 mb-3 mb-md-2">
                             <div class="round_cut_lab_range_slider">
                                 <ul class="right_side_ul round_cut_lab_range_slider row">
                                     <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>
@@ -254,7 +254,7 @@
                         </div>
                         @endif            
                     @else    
-                    <div class="col-md-6">
+                    <div class="col-lg-6 mb-3 mb-md-2">
                         <div class="round_cut_lab_range_slider ">
                             <ul class="right_side_ul round_cut_lab_range_slider row">
                                 <li class="round_cut_lab_diamonds_heading col-lg-12 mb-2">{{ $attribute->display_attrname }}</li>

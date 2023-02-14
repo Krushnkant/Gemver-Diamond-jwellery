@@ -733,10 +733,10 @@ $(window).scroll(function() {
     var sticky = $('.header-part'),
         scroll = $(window).scrollTop();
 
-    if (scroll > 1) {
-        sticky.addClass('fixed');
+    if (scroll > 50) {
+        sticky.addClass('sticky-header');
     } else {
-        sticky.removeClass('fixed');
+        sticky.removeClass('sticky-header');
 
     }
 });
@@ -878,6 +878,6 @@ $(".table-grid-view>.table-view-part.list").click(function() {
 });
 
 // ------------------------------------------------------------//
-$(window).on('load', function() {
-    $(".header-part").css('top', $(".home-page-slider-header").height() + "px");
-});
+// $(window).on('load', function() {
+//     $(".header-part").css('top', $(".home-page-slider-header").height() + "px");
+// });

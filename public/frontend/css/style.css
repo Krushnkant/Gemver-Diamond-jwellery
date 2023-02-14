@@ -831,10 +831,10 @@ background-size: cover;
     }
 
     .customer_stories .item {
-        border: 5px solid #cbe5ff;
+        border: 5px solid #cfc8c6;
         border-radius: 0px 50px;
         padding: 40px;
-        background-color: #f3f7ff;
+        background-color: #fff9f7;
     }
 
     .author-info {
@@ -849,6 +849,8 @@ background-size: cover;
     .testimonial-section {
         background-image: url(../image/testimonials-background.jpeg);
         padding: 40px 0;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     span.select2-dropdown.select2-dropdown--below {
@@ -1215,11 +1217,11 @@ background-size: cover;
     }
 
     .about_us_background {
-        position: absolute;
+        /*position: absolute;
         top: 50%;
         left: 50%;
         width: 100%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);*/
         text-align: center;
     }
 
@@ -1243,11 +1245,12 @@ background-size: cover;
 
     .background-sub-slider {
         margin-top: 0;
-        /* padding: 50px 0; */
+        background-color: var(--light-bg);
+        padding: 30px 0; 
     }
 
     .about_us_product {
-        padding: 72px 0;
+        padding: 30px 0 72px 0;
     }
 
     /* .about_us_product_row {
@@ -2213,10 +2216,6 @@ background-size: cover;
     }
 
     .round_cut_lab_checkbox .shape_img {
-        /* position: absolute; */
-        /* max-width: 30px;
-top: 50%;
-transform: translateY(-50%); */
         position: absolute;
         top: 0;
         left: 0;
@@ -2246,6 +2245,10 @@ transform: translateY(-50%); */
         color: #fff;
     }
 
+    .round_cut_lab_checkbox input:checked+.attr-img {
+
+    }
+
     .round_cut_lab_checkbox .round_checkbox_part {
         display: inline-block;
         cursor: pointer;
@@ -2259,25 +2262,22 @@ transform: translateY(-50%); */
         fill: #fff;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
-        width: 100%;
+    .round_cut_lab_checkbox input+.shape_img, .round_cut_lab_checkbox input+.attr-img {
         width: 100%;
         min-width: 55px;
         min-height: 55px;
         border: 1px solid rgba(11, 23, 39, 0.1);
         padding: 7px;
-        text-transform: capitalize !important;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
+    /*.round_cut_lab_checkbox input+.shape_img {
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
         text-transform: capitalize;
         color: var(--secondary);
-        line-height: 50px;
         pointer-events: none;
-    }
+    }*/
 
     .round_cut_lab_diamonds_price .ui-widget.ui-widget-content {
         background-color: #0b172733;
@@ -2734,15 +2734,6 @@ transform: translateY(-50%); */
         justify-content: center;
     }
 
-    .background-sub-slider {
-        position: relative;
-        height: 150px;
-        background-size: 150px;
-        background-position: 33%center;
-        background-repeat: no-repeat;
-        background-color: var(--light-bg);
-    }
-
     .about_us_background .sub_heading {
         color: var(--primary);
     }
@@ -2753,12 +2744,6 @@ transform: translateY(-50%); */
 
     .about_us_link svg path {
         fill: var(--primary);
-    }
-
-    .background-sub-slider img {
-        height: 130px;
-        object-fit: cover;
-        display: none;
     }
 
     .background-label-slide {
@@ -5943,8 +5928,8 @@ width: 100%;
     }
 
     .header-part {
-        position: fixed;
-        z-index: 999;
+        /*position: fixed;
+        z-index: 999;*/
         background-color: #fff;
         width: 100%;
         transition: all 0.3s ease-in-out;
@@ -5954,9 +5939,16 @@ width: 100%;
         font-size: 15px;
     }
 
-    .header-part.fixed {
+    /*.header-part.fixed {
         top: 0 !important;
         box-shadow: 0px 1px 5px 0px rgb(191 207 223);
+    }*/
+
+    .sticky-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
     }
 
     div#toast-container .toast-success {
@@ -6789,9 +6781,13 @@ width: 100%;
     }
 
     .round_cut_lab_checkbox .other_box {
-        font-size: 13px !important;
-        line-height: 46px !important;
+        font-size: 13px;
+        line-height: 46px;
         text-align: center;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: var(--secondary);
+        pointer-events: none;
     }
 
     .apply-btn {
@@ -7202,7 +7198,7 @@ width: 100%;
         box-shadow: none;
     }
 
-    .round_checkbox_part img {
+    /*.round_checkbox_part img {
         position: absolute;
         top: 56%;
         transform: translate(-50%, -50%);
@@ -7210,7 +7206,7 @@ width: 100%;
         width: 30px;
         height: 30px;
         pointer-events: none;
-    }
+    }*/
 
     .order-part {
         position: relative;
