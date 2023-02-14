@@ -27,7 +27,7 @@
             {{ $MenuPage->main_shotline }}
         </p>
         <div class="d-flex flex-wrap justify-content-center">
-            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ ($MenuPage->main_first_button_name)?$MenuPage->main_first_button_name:"" }}</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>
    </div>
@@ -280,7 +280,7 @@
                             {{ $faq->question }}
                         </button>
                             <div class="panel" style="display: none;">
-                                <p>{!! $faq->answer !!}</p>
+                                {!! $faq->answer !!}
                             </div>
                         @endforeach
                 @endif

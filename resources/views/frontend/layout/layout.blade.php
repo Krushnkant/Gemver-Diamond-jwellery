@@ -53,7 +53,7 @@ $settings = \App\Models\Settings::first();
 </div> 
 
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
-<div class="">
+
 @include('frontend.layout.header')
 @yield('content')
 @include('frontend.layout.footer')
