@@ -995,11 +995,8 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             location.href = "{{ url('shop') }}?s="+main_search;
         });
    });
-   $(document).ready(function() {
-       $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
-    })
    </script>
-   
+
 </body>
 </html>
 

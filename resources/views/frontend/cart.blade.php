@@ -102,8 +102,9 @@
                 <div class="my_cart_heading mb-3 px-3">My Cart</div>
                 <div class="row">
                     <!-- <div class="wire_bangle_line mb-md-5"></div> -->
+                    @if(isset($cart_data) && count($cart_data))
                     <div class="tab-content1 clearfix px-3 col-lg-8">
-                        @if(isset($cart_data) && count($cart_data))
+                   
                         <div class="tab-pane">
                            
                             <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
@@ -312,7 +313,9 @@
                                 </div>
                             </div>
                         </div>
-                        @else
+                        
+                    </div>
+                    @else
                             <div class="row">
                                 <div class="col-md-12 mycard py-5 text-center">
                                     <div class="mycards">
@@ -322,7 +325,7 @@
                                 </div>
                             </div>
                         @endif
-                    </div>  
+                    @if(isset($cart_data) && count($cart_data))  
                     <div class="col-lg-4 px-md-3">
                         <div class="order_summary_box ms-0">
                         <div class="row order_summary_input_part">
@@ -408,6 +411,7 @@
                         
                     </div>
                     </div> 
+                    @endif
             </div>
         </div>
         <!-- @if(isset($cart_data) && count($cart_data))

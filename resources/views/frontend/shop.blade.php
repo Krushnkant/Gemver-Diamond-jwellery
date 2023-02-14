@@ -276,9 +276,10 @@
                 @endif
                 @endforeach
                 <div class="text-end mb-3">
-                    <div class="col-md-12">
-                        <button type="button" id="reSet" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
+                    <div class="col-md-12 ">
+                        <button type="button" id="reSet" style="border: 1px var(--primary) solid" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -286,7 +287,7 @@
         <div class="container">
             <div class="wire_bangle_line"></div>
             <div class="row align-items-center mt-4 justify-content-end">
-                <div class="col-lg-6 text-center text-sm-start">
+                <div class="col-lg-6  text-sm-start">
                     <div class="row no-gutters mb-3 align-items-center justify-content-start">
                         <div class="col-12 col-md-auto px-0">
                             Result (<span class="total-product"> </span>)
@@ -329,7 +330,7 @@
         <script>
         
         $(document).ready(function(){
-
+            
            
             $('.selectattribute').on('change', function() {
                 page = 1;
@@ -611,8 +612,12 @@
 
         });
 
+      
+
     
 </script>
+
+
 
 
 @endsection
