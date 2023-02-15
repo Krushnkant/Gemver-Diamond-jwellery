@@ -194,6 +194,13 @@
                                 echo $spe;
                                 ?>
                             </div>
+                            @if($Product->sizechart_image != "")
+                                <div class="portfolio-slides">
+                                    <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}">
+                                    Show Size Chart
+                                    </a>
+                                </div>
+                            @endif
                             <!-- @if($Product->design_number != "")
                             <div class="row">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
@@ -204,23 +211,23 @@
                             @endif -->
                             <!-- <div class="" id="specificationproduct123">
                             </div>  -->
-                            <?php
-                            $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
-                            //dd($product_attributes_specification);
-                            foreach($product_attributes_specification as $product_attribute_specification){  
-                                $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
-                                $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
-                                $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
-                                ?>
-                                <div class="" id="specificationproduct143">
+                            <div class="" id="specificationproduct143">
+                                <?php
+                                $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
+                                //dd($product_attributes_specification);
+                                foreach($product_attributes_specification as $product_attribute_specification){  
+                                    $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
+                                    $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
+                                    $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
+                                    ?>
                                     <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
                                         <span class="d-block col-6 col-sm-4 col-md-5 col-xl-4 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->display_attrname }}</span>
                                         <span class="wire_bangle_color_theme d-block col-6 col-sm-8 col-md-7 col-xl-8">{{ $product_attribute_term_name }}</span>
                                     </div>
-                                </div>    
-                                <?php
-                            }
-                            ?>
+                                    <?php
+                                }
+                                ?>
+                            </div>
                         </form>
                         <div class="d-sm-flex">
                             <span class="inquiry_now_btn d-sm-inline-block">
@@ -1201,7 +1208,7 @@ $(document).ready(function(){
   load_data(id, _token);
  });
 
- $(function() {
+$(function() {
   $('#slick-lightbox').slickLightbox();
   $('#slick-lightbox-btn').on('click', function(e) {
     e.preventDefault();

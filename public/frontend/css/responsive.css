@@ -600,12 +600,6 @@
         font-size: 14px;
     }
 
-    .select_setting_btn {
-        min-width: 97px;
-        min-height: 39px;
-        font-size: 9px;
-    }
-
     .select_contact_btn {
         min-width: 164px;
         min-height: 47px;
@@ -1026,6 +1020,22 @@
     .choose_your_setting_faq p {
         font-size: 12px;
         padding: 6px 0;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .select_setting_btn {
+        min-width: 158px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .select_setting_btn {
+        min-width: 211px;
+    }
+
+    .select_setting_btn.gemver-button-part {
+        min-width: 140px;
     }
 }
 

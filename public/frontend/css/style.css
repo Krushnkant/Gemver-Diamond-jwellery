@@ -4148,12 +4148,14 @@ width: 100%;
     }
 
     #customer-stories .owl-stage,
-    .products_item .owl-stage {
+    .products_item .owl-stage,
+    .shop_by_category .owl-stage {
         display: flex;
     }
 
     #customer-stories .owl-item,
-    .products_item .owl-item {
+    .products_item .owl-item,
+    .shop_by_category .owl-item {
         display: flex;
         flex: 1 0 auto;
     }
@@ -5977,7 +5979,7 @@ width: 100%;
         position: absolute;
         transform: translateX(-50%);
         left: calc(44% + 0px);
-        width: 61%;
+        width: 60%;
         height: 1px;
         background: #000;
     }
@@ -6450,7 +6452,7 @@ width: 100%;
     }
 
     .gemver-button-part {
-        min-width: 161px;
+        min-width: 164px;
     }
 
     .eye-part-icon {
@@ -7025,7 +7027,7 @@ width: 100%;
     .engagement-slider-sub-text .custom_engagement_paragrph {
         max-width: 600px;
         color: #000;
-        text-align: center;
+        /* text-align: center; */
     }
 
     .engagement-slider-sub-text .engagement-paragraph {
