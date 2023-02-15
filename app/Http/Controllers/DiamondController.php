@@ -1005,7 +1005,7 @@ class DiamondController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
-                $url =  URL('laddiamond-details/'.$Diamond->slug);
+                $url =  URL('labdiamond-details/'.$Diamond->slug);
                 if($Diamond->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->Stone_Img_url;
                 }else{

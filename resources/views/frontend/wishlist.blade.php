@@ -136,7 +136,7 @@
                                 $item_image = explode(',',$item->Stone_Img_url);
                                 $regular_price = 0;
                                 $auto_discount_percent = 0;
-                                $url =  url('laddiamond-details/'.$item->slug);
+                                $url =  url('labdiamond-details/'.$item->slug);
                             }
                             ?>
                             <tr class="cartpage product-data">

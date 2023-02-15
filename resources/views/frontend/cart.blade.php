@@ -259,7 +259,7 @@
                                             $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
                                             $sale_price = $item->Sale_Amt;
                                             $item_image = explode(',',$item->Stone_Img_url); 
-                                            $url =  url('laddiamond-details/'.$item->slug);
+                                            $url =  url('labdiamond-details/'.$item->slug);
 
                                         }
                                         

@@ -120,7 +120,7 @@ Route::get('/compareladdiamond',[CompareController::class,'compareladdiamond'])-
 
 Route::get('/lab-diamond/{shap?}/{color?}',[DiamondController::class,'laddiamond']);
 Route::post('/alllab-diamond',[DiamondController::class,'getLadDiamonds']);
-Route::get('/laddiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
+Route::get('/labdiamond-details/{id}',[DiamondController::class,'getLadDiamondDetails']);
 
 Route::get('/step/{slug}/one',[StepController::class,'stepone']);
 Route::get('/step/{slug}/two',[StepController::class,'steptwo']);
