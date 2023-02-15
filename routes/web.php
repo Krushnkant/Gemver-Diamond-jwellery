@@ -312,6 +312,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('trustedby/{id}/delete',[\App\Http\Controllers\admin\TrustedByController::class,'deletetrustedby'])->name('trustedby.delete');
     Route::get('chagetrustedbystatus/{id}',[\App\Http\Controllers\admin\TrustedByController::class,'chagetrustedbystatus'])->name('trustedby.chagetrustedbystatus');
 
+    Route::get('sizechart',[\App\Http\Controllers\admin\SizeChartController::class,'index'])->name('sizechart.list');
+Route::get('sizechart/create',[\App\Http\Controllers\admin\SizeChartController::class,'create'])->name('sizechart.add');
+Route::post('addorupdatesizechart',[\App\Http\Controllers\admin\SizeChartController::class,'addorupdatesizechart'])->name('sizechart.addorupdatesizechart');
+Route::post('allsizechartslist',[\App\Http\Controllers\admin\SizeChartController::class,'allsizechartlist'])->name('allsizechartslist');
+Route::get('sizechart/{id}/edit',[\App\Http\Controllers\admin\SizeChartController::class,'editsizechart'])->name('sizechart.edit');
+Route::get('sizechart/{id}/delete',[\App\Http\Controllers\admin\SizeChartController::class,'deletesizechart'])->name('sizechart.delete');
+Route::get('chagesizechartstatus/{id}',[\App\Http\Controllers\admin\SizeChartController::class,'chagesizechartstatus'])->name('sizechart.chagesizechartstatus');
+
     Route::get('suggestions',[\App\Http\Controllers\admin\SuggestionController::class,'index'])->name('suggestions.list');
     Route::post('allSuggestionslist',[\App\Http\Controllers\admin\SuggestionController::class,'allSuggestionslist'])->name('allSuggestionslist');
     Route::get('suggestion/{id}/delete',[\App\Http\Controllers\admin\SuggestionController::class,'deleteSuggestion'])->name('suggestion.delete');
