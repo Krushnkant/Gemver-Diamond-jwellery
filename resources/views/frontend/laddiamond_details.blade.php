@@ -605,7 +605,7 @@
                 <div class="owl-carousel owl-theme product-detail mb-5 px-0">
                     @foreach($DiamondRelated as $Diamond)
                     <?php
-                      $url =  URL('laddiamond-details/'.$Diamond->slug);
+                      $url =  URL('labdiamond-details/'.$Diamond->slug);
                       if($Diamond->Stone_Img_url != ""){
                           $Diamond_image = $Diamond->Stone_Img_url;
                       }else{

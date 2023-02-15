@@ -90,7 +90,7 @@ class CompareController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
-                $url =  URL('laddiamond-details/'.$Diamond->product->slug);
+                $url =  URL('labdiamond-details/'.$Diamond->product->slug);
                 if($Diamond->product->Stone_Img_url != ""){
                     $Diamond_image = $Diamond->product->Stone_Img_url;
                 }else{
