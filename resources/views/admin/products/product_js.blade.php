@@ -16,6 +16,13 @@ $(document).ready(function(){
     let TermSelCheckbox =[];
     let AttributeSelCheckbox =[];
 
+    $('#sizechart').select2({
+        width: '100%',
+        placeholder: "Select...",
+        allowClear: true,
+        autoclose: false,
+        closeOnSelect: false,
+    });
 
 
     @if(Route::current()->getName() == 'admin.products.edit')

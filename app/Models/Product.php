@@ -62,4 +62,8 @@ class Product extends Model
     public function product_attributes(){
         return $this->hasMany(ProductAttribute::class,'product_id','id');
     }
+
+    public function sizechart(){
+        return $this->hasOne(SizeChart::class,'id','sizechart_id');
+    }
 }

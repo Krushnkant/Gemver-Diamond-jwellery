@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantSpecification;
 use App\Models\ProductVariantVariant;
+use App\Models\SizeChart;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,7 @@ class ProductController extends Controller
     private $page = "Product";
 
     public function index(){
+        
         return view('admin.products.list')->with('page',$this->page);
     }
 
@@ -48,7 +50,8 @@ class ProductController extends Controller
             array_push($catArray,$category);
         }
         $attributes = Attribute::where('estatus',1)->get()->toArray();
-        return view('admin.products.create',compact('catArray','segment','attributes'))->with('page',$this->page);
+        $sizecharts = SizeChart::where('estatus',1)->get();
+        return view('admin.products.create',compact('catArray','segment','attributes','sizecharts'))->with('page',$this->page);
     }
 
     public function getAttrVariation($id){
@@ -586,6 +589,7 @@ class ProductController extends Controller
         $product->attr_ids = $request->attr_ids;
         $product->note = isset($request->notes) ? $request->notes : null;
         $product->is_custom = isset($request->is_custom) ? $request->is_custom : 0;
+        $product->sizechart_id = isset($request->sizechart) ? $request->sizechart : 0;
         $product->estatus = 1;
         $product->save();
 
@@ -1329,7 +1333,8 @@ class ProductController extends Controller
         //dd($product->primary_categories[0]->category_name);
         $CategorySel = isset($product->primary_category_id) ? ($product->primary_categories[0]->category_name) : ($product->primary_categories[0]->category_name);
         $attributes = Attribute::where('estatus',1)->get()->toArray();
-        return view('admin.products.edit',compact('catArray','product','CategorySel','attr_term_ids','attributes'))->with('page',$this->page);
+        $sizecharts = SizeChart::where('estatus',1)->get();
+        return view('admin.products.edit',compact('catArray','product','CategorySel','attr_term_ids','attributes','sizecharts'))->with('page',$this->page);
     }
 
     public function changeproductstatus($id){
