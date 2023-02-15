@@ -4557,21 +4557,17 @@ width: 100%;
 
     .sign_up_now_text {
         font-size: 18px;
-        font-weight: 500;
+        /* font-weight: 500; */
         line-height: 26px;
-        color: var(--primary);
+        color: gray;
     }
 
-    .sign_up_now_text:hover {
-        color: var(--primary);
-    }
-
+    .sign_up_now_text:hover a,
     .forgot_password_text:hover {
         color: var(--primary);
     }
 
     .forgot_password_text {
-        font-weight: 500;
         font-size: 15px;
         line-height: 19px;
         color: var(--primary);
@@ -6457,6 +6453,7 @@ width: 100%;
         top: 50%;
         transform: translateY(-50%);
         right: 15px;
+        cursor: pointer;
     }
 
     .min_max_part {
