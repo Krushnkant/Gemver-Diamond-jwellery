@@ -10,13 +10,13 @@
             </div>
             <div class="col-md-6 login_padding mt-3 mt-md-0">
                 <div class="login_page_heading text-center mb-3 mb-md-4 mb-xl-5">
-                    Forget Password
+                    Reset Password
                 </div>
                 <div>
                 <form method="post" id="ForgetForm">
                         {{ csrf_field() }} 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Enter your Email <span class="text-danger">*</span></label>
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email">
                         <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>

@@ -2034,6 +2034,23 @@
 
 @media (max-width:767px) {
 
+    .product_modal .popup_img {
+        max-width: 50px;
+        margin-bottom: 0;
+    }
+
+    .thumbbox {
+        margin: auto;
+    }
+
+    .descbox {
+        text-align: left;
+    }
+
+    .product_modal .popup_part {
+        padding: 10px;
+    }
+
     .policy_page_section img {
         width: 100% !important;
         height: auto !important;
