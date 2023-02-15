@@ -97,72 +97,71 @@
             </div>
         </div> -->
         <div class="mt-5 px-3">
-        @if($check_diamond == 1)
-            <ul class="d-block d-lg-flex progressbar_ul">
-                    <li class="step-progressbar-part">
-                        <div class="step-progressbar-step-part ">
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                        choose diamonds
-                                    </span>
-                                    <div class="d-flex edit_price_text mt-1">
-                                        <span class="me-2">
-                                            <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
-                                        </span>
-                                        <span>
-                                            |
-                                        </span>
-                                        <div class="d-flex ms-2">
-                                            <span class="price_text me-2">
-                                                price:
-                                            </span>
-                                            <span class="price_part">
-                                                ${{ $DiamondPrice }}
-                                            </span>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    
-                    </li>
-                    <li class="step-progressbar-part active">
-                        <div class="step-progressbar-step-part">
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                    choose settings
-                                </span> 
-                               
-                            </div>
-                        </div>
-                        
-                    </li>
-                    <li class="step-progressbar-part">
-                        <div class="step-progressbar-step-part">
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                      complete the {{ $Category->category_name }}
-                                </span>
-                                
-                            </div>
-                        </div>
-                    
-                    </li>
-            </ul>
-                @else  
+            @if($check_diamond == 1)
                 <ul class="d-block d-lg-flex progressbar_ul">
-                    
+                        <li class="step-progressbar-part">
+                            <div class="step-progressbar-step-part ">
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
+                                </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                            choose diamonds
+                                        </span>
+                                        <div class="d-flex edit_price_text mt-1">
+                                            <span class="me-2">
+                                                <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
+                                            </span>
+                                            <span>
+                                                |
+                                            </span>
+                                            <div class="d-flex ms-2">
+                                                <span class="price_text me-2">
+                                                    price:
+                                                </span>
+                                                <span class="price_part">
+                                                    ${{ $DiamondPrice }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="step-progressbar-part active">
+                            <div class="step-progressbar-step-part">
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
+                                </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                        choose settings
+                                    </span> 
+                                
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <li class="step-progressbar-part">
+                            <div class="step-progressbar-step-part">
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
+                                </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                        complete the {{ $Category->category_name }}
+                                    </span>
+                                    
+                                </div>
+                            </div>
+                        
+                        </li>
+                </ul>
+            @else
+                <ul class="d-block d-lg-flex progressbar_ul">
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
@@ -205,13 +204,13 @@
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
-                                      complete the {{ $Category->category_name }}
+                                        complete the {{ $Category->category_name }}
                                 </span>
-                               
+                                
                             </div>
                         </div>
                     </li>
-            </ul>
+                </ul>
             @endif 
         </div>
         <div class="row filter-data pt-3 d-md-flex mb-4">
@@ -219,7 +218,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
                 <div class="col-lg-6">
-                <div class="row round_cut_lab_range_slider">
+                    <div class="row round_cut_lab_range_slider">
                         <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">price</div>
                         <div class="round_cut_lab_diamonds_price mb-2 col-md-12">
                             <div class="align-items-center mb-2 position-relative">
@@ -233,11 +232,10 @@
                             <input type="hidden" id="hidden_minimum_price" />
                             <input type="hidden" id="hidden_maximum_price" />
                         </div>
-                </div>
+                    </div>
                 </div>
                 @foreach($Attributes as $attribute)
                 
-                    
                     @if($attribute->id == 19)
                         @if($Category->mainparentid == 2)
                         <div class="col-md-6 mt-2">
@@ -379,7 +377,7 @@
             <div class="col-3 col-md-6 d-lg-none ps-0">
                         <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                             <i class="fa-solid fa-filter"></i>
-                            <span class="ms-2 d-sm-inline-block">filter</span>
+                            <span class="ms-2 d-sm-inline-block">Search</span>
                         </button>
                     </div>
             <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
@@ -394,7 +392,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
                         </svg>
-                        <span>filter</span>
+                        <span>Search</span>
                     </button>
                 </span> -->
                 <!-- <div class="right_side_panel scrollbar" id="style-1">

@@ -1615,9 +1615,9 @@
         padding: 0 !important;
     }
 
-    .header-part {
+    /* .header-part {
         top: calc(59px + 10px);
-    }
+    } */
 
     /* .home-page-bg {
         margin-bottom: 60px;
@@ -1694,28 +1694,28 @@
         min-width: 100%;
     }
 
-    .round_checkbox_part {
+    /* .round_checkbox_part {
         margin-right: 0;
-    }
+    } */
 
     .round_checkbox_part.attr-shape-check-span {
         margin-right: 4px;
     }
 
-    .round_cut_lab_checkbox input[type="checkbox"] {
+    /* .round_cut_lab_checkbox input[type="checkbox"] {
         width: 45px;
         height: 45px;
-    }
+    } */
 
-    .round_cut_lab_checkbox input[type="checkbox"].attr-shape-check {
+    /* .round_cut_lab_checkbox input[type="checkbox"].attr-shape-check {
         width: 50px;
         height: 50px;
-    }
+    } */
 
-    .round_checkbox_part {
+    /* .round_checkbox_part {
         width: 50px;
         height: 50px;
-    }
+    } */
 
     .shape-part-img {
         display: block;
@@ -1727,11 +1727,11 @@
         line-height: 33px !important;
     }
 
-    .round_cut_lab_checkbox input+.shape_img {
+    /* .round_cut_lab_checkbox input+.shape_img {
         min-width: 45px;
         min-height: 45px;
         line-height: 33px !important;
-    }
+    } */
 
     .contact-google-map {
         position: initial;
@@ -1941,7 +1941,7 @@
     .engagement-slider-sub-text .custom_engagement_paragrph {
         margin-left: 0;
         max-width: none;
-        text-align: left;
+        /* text-align: left; */
     }
 
     .first_image_part {
@@ -2151,8 +2151,7 @@
     }
 
     .product_modal .popup_heading {
-        font-size: 21px;
-        margin-top: 30px;
+        font-size: 40px;
     }
 
     .close-button {
@@ -2730,10 +2729,10 @@
         min-height: 47px;
     }
 
-    .round_cut_lab_checkbox input[type="checkbox"] {
+    /* .round_cut_lab_checkbox input[type="checkbox"] {
         width: 47px;
         height: 47px;
-    }
+    } */
 
     .filter-checkbox {
         display: grid;
@@ -2856,9 +2855,9 @@
         min-width: 200px;
     }
 
-    .header-part {
+    /* .header-part {
         top: 35px !important;
-    }
+    } */
 
     /* ---------- step progress bar----------------------- */
     .step-progressbar .tab-steps--list li:before {
@@ -3370,12 +3369,12 @@
         height: 30px;
     }
 
-    .round_cut_lab_checkbox input[type="checkbox"] {
+    /* .round_cut_lab_checkbox input[type="checkbox"] {
         width: 47px;
         height: 47px;
         min-width: 47px;
         min-height: 47px;
-    }
+    } */
 
     .comman_input_part {
         width: 80px !important;
@@ -3386,13 +3385,13 @@
         display: block !important;
     }
 
-    .round_cut_lab_checkbox input+.shape_img,
+    /* .round_cut_lab_checkbox input+.shape_img,
     .round_cut_lab_checkbox input+.attr-img {
         width: 47px;
         height: 47px;
         min-width: 47px;
         min-height: 47px;
-    }
+    } */
 
     .shop-colorful-img img {
         margin-bottom: 0;
@@ -3472,12 +3471,13 @@
 }
 
 @media (min-width:992px) and (max-width:1600px) {
-    .about_us_background {
+
+    /*.about_us_background {
         position: absolute;
         transform: translate(-50%, -50%);
     }
 
-    /* .about_us_background .sub_heading {
+     .about_us_background .sub_heading {
         color: #fff;
     }
     .about_us_link a {
@@ -3514,6 +3514,16 @@
 
     .lab_grown_diamonds_text {
         top: 84%;
+    }
+}
+
+@media (max-width:1430px) {
+    .shape-part-img {
+        display: inline-block;
+    }
+
+    .round_cut_lab_checkbox .round_checkbox_part {
+        margin-bottom: 5px;
     }
 }
 

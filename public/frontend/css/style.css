@@ -4173,7 +4173,7 @@ width: 100%;
     /* ---------------------------------------------------------------- */
 
     .product_modal .popup_heading {
-        font-size: 26px;
+        font-size: 22px;
         /* color: var(--secondary) !important; */
     }
 
@@ -5089,8 +5089,8 @@ width: 100%;
     .address_form_part .form-check-input:checked[type=radio] {
         background: none;
         background-color: #0d6efd;
-        border: 2px #fff solid;
-        outline: 1px #0d6efd solid;
+        /* border: 2px #fff solid; */
+        /* outline: 1px #0d6efd solid; */
     }
 
     .add_new_address_btn {
@@ -5742,13 +5742,13 @@ width: 100%;
         letter-spacing: 0.05em;
         color: var(--primary);
         font-family: 'Poppins', sans-serif;
-        text-align: center;
+        /* text-align: center; */
     }
 
     .custom_engagement_paragrph {
         font-weight: 400;
         font-size: 16px;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.05em;
         color: #808080;
         max-width: auto;
@@ -6638,7 +6638,7 @@ width: 100%;
     }
 
     .create_yout_own_engagemtnt_ring_btn {
-        padding: 0 20px;
+        padding: 10px 20px;
     }
 
     .create_yout_own_engagemtnt_ring_btn:hover {
@@ -6807,6 +6807,7 @@ width: 100%;
     .reset-btn-part {
         border: 1px var(--primary) solid;
         width: 50%;
+        text-align: center;
     }
 
     @keyframes marquee {
@@ -7033,10 +7034,6 @@ width: 100%;
 
     .email-part-contact {
         text-transform: lowercase;
-    }
-
-    .create_yout_own_engagemtnt_ring_btn {
-        line-height: 40px;
     }
 
     select#sorting option {
