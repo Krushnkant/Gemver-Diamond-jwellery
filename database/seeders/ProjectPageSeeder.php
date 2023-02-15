@@ -633,16 +633,16 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 0 
         ]);
 
-        ProjectPage::create([ 
-            'id' => 64, 
-            'parent_menu' => 0, 
-            'label' => 'Footer Set', 
-            'is_display_in_menu' => 0,
-            'route_url' => 'admin.footerpage',  
-            'inner_routes' => 'admin.footerpage,admin.menupage.updatefooterpage', 
-            'icon_class' => 'fa fa-picture-o', 
-            'sr_no' => 16 
-        ]);
+        // ProjectPage::create([ 
+        //     'id' => 64, 
+        //     'parent_menu' => 0, 
+        //     'label' => 'Footer Set', 
+        //     'is_display_in_menu' => 0,
+        //     'route_url' => 'admin.footerpage',  
+        //     'inner_routes' => 'admin.footerpage,admin.menupage.updatefooterpage', 
+        //     'icon_class' => 'fa fa-picture-o', 
+        //     'sr_no' => 16 
+        // ]);
 
         ProjectPage::create([
             'id' => 65,
@@ -663,6 +663,27 @@ class ProjectPageSeeder extends Seeder
             'is_display_in_menu' => 0,
             'icon_class' => 'fa fa-handshake-o',
             'inner_routes' => 'admin.trustedby.list,admin.trustedby.addorupdate,admin.alltrustedbyslist,admin.trustedby.changetrustedbystatus,admin.trustedby.edit,admin.trustedby.delete',
+            'sr_no' => 12
+        ]);
+
+        ProjectPage::create([ 
+            'id' => 64, 
+            'parent_menu' => 57, 
+            'label' => 'Footer Menu', 
+            'is_display_in_menu' => 1,
+            'route_url' => 'admin.footerpage',  
+            'inner_routes' => 'admin.footerpage,admin.menupage.updatefooterpage', 
+            'icon_class' => 'fa fa-picture-o', 
+            'sr_no' => 16 
+        ]);
+
+        ProjectPage::create([
+            'id' => 67,
+            'parent_menu' => 9,
+            'label' => 'Size Chart',
+            'route_url' => 'admin.sizechart.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.sizechart.list,admin.sizechart.addorupdate,admin.allsizechartslist,admin.sizechart.changesizechartstatus,admin.sizechart.edit,admin.sizechart.delete',
             'sr_no' => 12
         ]);
 

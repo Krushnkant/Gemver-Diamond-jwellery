@@ -152,6 +152,20 @@
                                     <label id="Slug-error" class="error invalid-feedback animated fadeInDown" for=""></label>
                                 </div>
 
+                                <div class="row form-group ">
+                                    <label class="col-lg-12 col-form-label" for="">Select Size Chart<span class="text-danger">*</span></label>
+                                    <div class="col-lg-12">
+                                        <select class="form-control" id="sizechart" name="sizechart">
+                                            <option></option>
+                                            @foreach($sizecharts as $sizechart)
+                                            <option value="{{ $sizechart->id }}" @if($sizechart->id==1) selected @endif>{{ $sizechart->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                              
+
                                 <div class="row" style="display:none;">
                                     <div class="col-md-12">
                                         <div class="form-group">

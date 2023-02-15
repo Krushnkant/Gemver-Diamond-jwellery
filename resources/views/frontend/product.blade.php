@@ -234,6 +234,13 @@
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                         </div>
+                        @if($Product->sizechart_image != "")
+                        <div class="portfolio-slides">
+                            <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}">
+                               Show Size Chart
+                            </a>
+                        </div>
+                        @endif
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                 <div class="modal-content p-3 p-md-4">
@@ -460,6 +467,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         @if($Product->desc != "")
             <div class="row mt-xl-5 pt-xxl-0 mb-xxl-4 mt-3" id="description">
@@ -1190,7 +1198,22 @@ $(document).ready(function(){
   load_data(id, _token);
  });
 
+ $('.portfolio-slides').slick({
+  infinite        : true,
+  slidesToShow    : 3,
+  slidesToScroll  : 1,
+  mobileFirst     : true
 });
+
+
+$('.portfolio-slides').slickLightbox({
+  itemSelector        : 'a',
+  navigateByKeyboard  : true
+});
+
+});
+
+
 </script>
 
 @endsection
