@@ -59,8 +59,8 @@
     <div class="nav-header">
         <div class="brand-logo">
             <a href="#">
-                <b class="logo-abbr"><img src="{{ asset('images/logo.png') }}" alt=""> </b>
-                <span class="logo-compact"><img src="{{ asset('images/logo-compact.png') }}" alt=""></span>
+                <b class="logo-abbr"><img src="{{ asset('images/favicon.png') }}" alt=""> </b>
+                <span class="logo-compact"><img src="{{ asset('images/favicon.png') }}" alt=""></span>
                 <span class="brand-title text-white">
                 Gemver 
                     <!-- <img src="{{ url('public/images/logo-text.png') }}" alt=""> -->

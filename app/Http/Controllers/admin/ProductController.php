@@ -1555,8 +1555,10 @@ class ProductController extends Controller
             ]);
 
             $product = Product::find($request->product_id);
+            if($product){
             $product->attr_ids = $request['attr_ids'];
             $product->save();
+            }
   
         }
 
