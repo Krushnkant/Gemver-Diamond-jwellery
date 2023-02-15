@@ -162,7 +162,7 @@
                                             </div>
 
                                             <div class="mega-menu-three-part">
-                                                <div class="submenu-box">
+                                                <div class="submenu-box  mt-4">
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                     </div>
@@ -230,7 +230,7 @@
                                                     </ul>
                                                   
                                                 </div>
-                                                <div class="submenu-box ms-lg-5 me-lg-4">
+                                                <div class="submenu-box mt-4">
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">Fancy Color</span>
                                                     </div>
