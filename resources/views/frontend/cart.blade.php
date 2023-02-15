@@ -132,6 +132,37 @@
                                     $diamond_terms = "";
                                     if(isset($data['item_type']) && $data['item_type'] == 2){
                                         $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
+                                        if(!$item){
+                                            if(session()->has('customer')){
+                                                $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
+                                                if($cart_data){
+                                                $cart_data->delete();
+                                                }
+                                                return response()->json(['status'=>'Item Removed from Wish List']);
+                                            }else{
+                                                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                                                $cart_data = json_decode($cookie_data, true);
+
+                                                $item_id_list = array_column($cart_data, 'item_id');
+                                                $prod_id_is_there = $data['item_id'];
+
+                                                if(in_array($prod_id_is_there, $item_id_list))
+                                                {
+                                                    foreach($cart_data as $keys => $values)
+                                                    {
+                                                        if($cart_data[$keys]["item_id"] == $data['item_id'])
+                                                        {
+                                                            unset($cart_data[$keys]);
+                                                            $item_data = json_encode($cart_data);
+                                                            $minutes = Config::get('constants.cookie_time');
+                                                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                                                            return response()->json(['status'=>'Item Removed from Cart']);
+                                                        }
+                                                    }
+                                                }
+                                            }  
+                                        }
+                                        
                                         $item_name = $item->product->product_title;
                                         $sale_price = $item->sale_price;
                                         $item_image = explode(',',$item->images); 
@@ -153,6 +184,36 @@
 
                                     }elseif(isset($data['item_type']) && $data['item_type'] == 0){
                                         $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
+                                        if(!$item){
+                                            if(session()->has('customer')){
+                                                $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
+                                                if($cart_data){
+                                                $cart_data->delete();
+                                                }
+                                                return response()->json(['status'=>'Item Removed from Wish List']);
+                                            }else{
+                                                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                                                $cart_data = json_decode($cookie_data, true);
+
+                                                $item_id_list = array_column($cart_data, 'item_id');
+                                                $prod_id_is_there = $data['item_id'];
+
+                                                if(in_array($prod_id_is_there, $item_id_list))
+                                                {
+                                                    foreach($cart_data as $keys => $values)
+                                                    {
+                                                        if($cart_data[$keys]["item_id"] == $data['item_id'])
+                                                        {
+                                                            unset($cart_data[$keys]);
+                                                            $item_data = json_encode($cart_data);
+                                                            $minutes = Config::get('constants.cookie_time');
+                                                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                                                            return response()->json(['status'=>'Item Removed from Cart']);
+                                                        }
+                                                    }
+                                                }
+                                            }  
+                                        }
                                         $item_name = $item->product->product_title;
                                         $sale_price = $item->sale_price;
                                         $item_image = explode(',',$item->images); 
@@ -165,14 +226,50 @@
                                         $url =  URL('product-details/'.$item['slug']); 
                                     }else{
                                         $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                        $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
-                                        $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
-                                        $sale_price = $item->Sale_Amt;
-                                        $item_image = explode(',',$item->Stone_Img_url); 
-                                        $url =  url('laddiamond-details/'.$item->slug);
+                                        if(!$item){
+                                            if(session()->has('customer')){
+                                                $cart_datas = \App\Models\ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
+                                                //dd($cart_data);
+                                                if($cart_datas){
+                                                 $cart_datas->delete();
+                                                }
+                                               
+                                            }else{
+                                                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                                                $cart_datas = json_decode($cookie_data, true);
+
+                                                $item_id_list = array_column($cart_datas, 'item_id');
+                                                $prod_id_is_there = $data['item_id'];
+
+                                                if(in_array($prod_id_is_there, $item_id_list))
+                                                {
+                                                    foreach($cart_datas as $keys => $values)
+                                                    {
+                                                        if($cart_datas[$keys]["item_id"] == $data['item_id'])
+                                                        {
+                                                            unset($cart_datas[$keys]);
+                                                            $item_data = json_encode($cart_datas);
+                                                            $minutes = Config::get('constants.cookie_time');
+                                                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                                                           
+                                                        }
+                                                    }
+                                                }
+                                            }  
+                                        }else{
+                                            $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
+                                            $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
+                                            $sale_price = $item->Sale_Amt;
+                                            $item_image = explode(',',$item->Stone_Img_url); 
+                                            $url =  url('laddiamond-details/'.$item->slug);
+
+                                        }
+                                        
+                                        
                                     }
-                                    
+                                   
                                     ?>
+                                    @if($item)
                                     <tr class="cartpage">
                                         <td class="cart-product-name-info">
                                             <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
@@ -272,7 +369,9 @@
                                     <?php
                                     $total = $total + $sale_price * $data['item_quantity'];
                                     $total_qty = $total_qty + $data['item_quantity'];
+                                    
                                     ?>
+                                    @endif
                                     @endforeach
                                     {{-- <tr class="cartpage">
                                     
@@ -316,15 +415,16 @@
                         
                     </div>
                     @else
-                            <div class="row">
-                                <div class="col-md-12 mycard py-5 text-center">
-                                    <div class="mycards">
-                                        <h4>Your cart is currently empty.</h4>
-                                    
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-12 mycard py-5 text-center">
+                                <div class="mycards">
+                                    <h4>Your cart is currently empty.</h4>
+                                
                                 </div>
                             </div>
-                        @endif
+                        </div>
+                    @endif
+               
                     @if(isset($cart_data) && count($cart_data))  
                     <div class="col-lg-4 px-md-3">
                         <div class="order_summary_box ms-0">
