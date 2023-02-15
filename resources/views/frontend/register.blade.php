@@ -15,19 +15,22 @@
                 <div>
                 <form method="post" id="registerForm">
                     {{ csrf_field() }}     
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Enter your Name <span class="text-danger">*</span></label>
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
                         <input type="name" class="form-control" name="name" id="name" placeholder="Enter your name">
                         <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                    <div class="mb-3 email_text">
-                        <label for="email" class="form-label">Enter your Email <span class="text-danger">*</span></label>
+                    <div class="mb-4 email_text">
+                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email">
                         <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                    <div class="mb-3 password_text">
-                        <label for="password" class="form-label">Enter Password <span class="text-danger">*</span></label>
+                    <div class="mb-4 password_text">
+                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                        <div class="position-relative">
                         <input type="password" class="form-control" name="password" id="password" placeholder="**********">
+                            <i toggle="#password-field" class="fa-solid fa-eye eye-part-icon toggle-password"></i>
+                        </div>
                         <div id="password-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                    <div class="login_btn mt-3 mt-md-4 mt-xl-5">
@@ -48,6 +51,13 @@
 
 <!--register page JS start -->
 <script type="text/javascript">
+    $(document).on('click', '.toggle-password', function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+
+        var input = $("#password");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+    });
     $('#registerForm').on('submit', function (e) {
         $("#name-error").html("");
         $("#email-error").html("");
