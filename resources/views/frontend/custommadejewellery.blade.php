@@ -22,12 +22,12 @@
         </div>
     </div> -->
 <div class="container">
-        <div class="container engagement-slider-sub-text px-3 mt-3 mt-lg-0">
+        <div class=" engagement-slider-sub-text px-3 mt-3 mt-lg-0">
         <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
         <p class="custom_engagement_paragrph mb-3 mb-xl-4">
             {{ $MenuPage->main_shotline }}
         </p>
-        <div class="d-flex flex-wrap justify-content-center">
+        <div class="d-flex flex-wrap ">
             <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ ($MenuPage->main_first_button_name)?$MenuPage->main_first_button_name:"Shop Now" }}</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>

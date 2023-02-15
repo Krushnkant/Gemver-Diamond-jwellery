@@ -785,7 +785,7 @@ class ProductController extends Controller
                             $image = url('images/placeholder_image.png');  
                         }
 
-                        $url =  URL('laddiamond-details/'.$row->slug);
+                        $url =  URL('labdiamond-details/'.$row->slug);
                         $output .= '
 
                         <li class="">
