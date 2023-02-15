@@ -165,7 +165,7 @@
         <div class="col-md-6 round_cut_lab_filter">
             <div class="round_cut_lab_checkbox row">
                 <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape </div>
-                <div class="col-md-12 d-flex justify-content-between">
+                <div class="col-md-12 shape-part-img">
                     <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
                         <input class="form-check-input shape common_selector" value="round" type="checkbox" name="shape[]" {{ (  isset($ShopBy->attribute_terms) && $ShopBy->attribute_terms  ==  'round'  ) ? 'checked' : '' }} id="flexRadioDefaultround">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none" class="shape_img">
@@ -607,7 +607,7 @@
                 <div class="round_cut_lab_diamonds_price col-md-12 col-lg-12 col-xl-12">
                     <div class="align-items-center mb-2 position-relative">
                         <div class="d-lg-flex flex-lg-nowrap">
-                            <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
+                            <div class="position-relative me-md-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">L</div>
                                 <div class="d-flex meas_length">
                                     <div class="from_text me-1">
@@ -624,7 +624,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="position-relative me-sm-4 mb-3 d-block d-lg-inline-block">
+                            <div class="position-relative me-md-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">W</div>
                                 <div class="d-flex meas_width">
                                     <span class="from_text me-1">
@@ -785,7 +785,7 @@
             </div>
         </div>
         <div class="row align-items-center">
-            <div class="col-md-12 text-center text-sm-end px-0">
+            <div class="col-md-12 text-center text-md-end px-0">
                 <span class="d-inline-block">
                     <div class="round_cut_lab_range_slider text-end me-3">
                         <!-- <div class="form-group mb-3 d-inline-block" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
