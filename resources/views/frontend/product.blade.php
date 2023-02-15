@@ -235,12 +235,15 @@
                             </span>
                         </div>
                         @if($Product->sizechart_image != "")
-                        <div class="portfolio-slides">
-                            <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}">
-                               Show Size Chart
-                            </a>
+                        <div class="row-images" id="slick-lightbox">
+                            <div class="item">
+                                <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" target="_blank">
+                                    Show Size Chart
+                                </a>
+                            </div>
                         </div>
                         @endif
+                        
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                 <div class="modal-content p-3 p-md-4">
@@ -1198,23 +1201,23 @@ $(document).ready(function(){
   load_data(id, _token);
  });
 
- $('.portfolio-slides').slick({
-  infinite        : true,
-  slidesToShow    : 3,
-  slidesToScroll  : 1,
-  mobileFirst     : true
-});
-
-
-$('.portfolio-slides').slickLightbox({
-  itemSelector        : 'a',
-  navigateByKeyboard  : true
+ $(function() {
+  $('#slick-lightbox').slickLightbox();
+  $('#slick-lightbox-btn').on('click', function(e) {
+    e.preventDefault();
+    $('.item:first-child A','#slick-lightbox').click();
+  });
 });
 
 });
 
 
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script>
 
 @endsection
   
