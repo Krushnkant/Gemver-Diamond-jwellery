@@ -27,7 +27,7 @@
             {{ $MenuPage->main_shotline }}
         </p>
         <div class="d-flex flex-wrap justify-content-center">
-            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ ($MenuPage->main_first_button_name)?$MenuPage->main_first_button_name:"" }}</a>
+            <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ ($MenuPage->main_first_button_name)?$MenuPage->main_first_button_name:"Shop Now" }}</a>
             <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
         </div>
    </div>
@@ -85,15 +85,15 @@
                             </a>
                         </li>
                         <li class="two main-img-li">
-                            <a class="fancy_color_img second_img"  href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                            <a class="fancy_color_img second_img"  href="{{ url('shop/'.$MenuPage->section52_category) }}">
                                 <div class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</div>
-                                <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                                <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section52_title }}" class=" me-0">
                             </a>
                         </li>
                         <li class="main-img-li">
-                            <a class="fancy_color_img third_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                            <a class="fancy_color_img third_img" href="{{ url('shop/'.$MenuPage->section53_category) }}">
                                 <div  class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</div>
-                                <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                                <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section53_title }}" class=" me-0">
                             </a>
                         </li>
                     </ul>
