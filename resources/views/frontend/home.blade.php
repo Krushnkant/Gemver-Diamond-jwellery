@@ -731,7 +731,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
                         </div>
 
-                        <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade inquiry_now_modal" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                     <div class="modal-content p-3 p-md-4">
                                         <div class="row">
@@ -763,7 +763,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input form-control" name="country_code_mobile" id="country_code_mobile"> 
                                                             <option value=""></option>
-                                                            <option data-countryCode="GB" value="44" Selected>Norway (+47)</option>
+                                                            <option data-countryCode="GB" value="44">Norway (+47)</option>
                                                             <option data-countryCode="US" value="1">UK (+44)</option>
                                                             <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
@@ -962,11 +962,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                             <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
                                                             <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
                                                             <option data-countryCode="UG" value="256">Uganda (+256)</option>
-                                                            <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                                            <option data-countryCode="GB" value="44">UK (+44)</option>
                                                             <option data-countryCode="UA" value="380">Ukraine (+380)</option>
                                                             <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
                                                             <option data-countryCode="UY" value="598">Uruguay (+598)</option>
-                                                            <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                                            <option data-countryCode="US" value="1">USA (+1)</option>
                                                             <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
                                                             <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
                                                             <option data-countryCode="VA" value="379">Vatican City (+379)</option>
@@ -990,7 +990,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                     <div class="input-group-prepend">
                                                         <select class="" name="country_code_whatsapp" id="country_code_whatsapp"> 
                                                             <option></option>
-                                                            <option data-countryCode="GB" value="44" Selected>Norway (+47)</option>
+                                                            <option data-countryCode="GB" value="44">Norway (+47)</option>
                                                             <option data-countryCode="US" value="1">UK (+44)</option>
                                                             <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
@@ -1189,11 +1189,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                             <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
                                                             <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
                                                             <option data-countryCode="UG" value="256">Uganda (+256)</option>
-                                                            <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                                            <option data-countryCode="GB" value="44">UK (+44)</option>
                                                             <option data-countryCode="UA" value="380">Ukraine (+380)</option>
                                                             <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
                                                             <option data-countryCode="UY" value="598">Uruguay (+598)</option>
-                                                            <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                                            <option data-countryCode="US" value="1">USA (+1)</option>
                                                             <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
                                                             <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
                                                             <option data-countryCode="VA" value="379">Vatican City (+379)</option>
@@ -1428,13 +1428,13 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 
         $('#country_code_mobile').select2({
             width: '100%',
-            placeholder: "Select Category",
+            placeholder: "Select Country Code",
             allowClear: false
         });
 
         $('#country_code_whatsapp').select2({
             width: '100%',
-            placeholder: "Select Category",
+            placeholder: "Select Country Code",
             allowClear: false
         });
    });
