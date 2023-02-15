@@ -97,7 +97,7 @@
                         <div class="form-group" id="is_filter_div">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" id="is_filter" class="form-check-input" value="0" name="is_filter">Use Filter ?
+                                    <input type="checkbox" id="is_filter" class="form-check-input" value="0" name="is_filter">Add to Filter ?
                                 </label>
                             </div>
                         </div>
@@ -108,13 +108,13 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group" id="is_description_div" style="display:none;">
+                        {{-- <div class="form-group" id="is_description_div" style="display:none;">
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" id="is_description" class="form-check-input" value="0"  name="is_description">Use Term Description ?
                                 </label>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="attribute_id" id="attribute_id">

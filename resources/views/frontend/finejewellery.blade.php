@@ -85,15 +85,15 @@
                         </a>
                     </li>
                     <li class="two main-img-li">
-                        <a class="fancy_color_img second_img"  href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                        <a class="fancy_color_img second_img"  href="{{ url('shop/'.$MenuPage->section52_category) }}">
                             <div class="lab_grown_diamond_heading">{{ $MenuPage->section52_title }}</div>
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                            <img src="{{ url('images/aboutus/'.$MenuPage->section52_image) }}" alt="{{ $MenuPage->section52_title }}" class=" me-0">
                         </a>
                     </li>
                     <li class="main-img-li">
-                        <a class="fancy_color_img third_img" href="{{ url('shop/'.$MenuPage->section51_category) }}">
+                        <a class="fancy_color_img third_img" href="{{ url('shop/'.$MenuPage->section53_category) }}">
                             <div  class="lab_grown_diamond_heading">{{ $MenuPage->section53_title }}</div>
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section51_title }}" class=" me-0">
+                            <img src="{{ url('images/aboutus/'.$MenuPage->section53_image) }}" alt="{{ $MenuPage->section53_title }}" class=" me-0">
                         </a>
                     </li>
                 </ul>

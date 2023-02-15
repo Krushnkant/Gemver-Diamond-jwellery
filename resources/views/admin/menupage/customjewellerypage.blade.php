@@ -58,6 +58,15 @@
                                         <img src="{{ url('images/placeholder_image.png') }}" class="" id="banner_mobile_image_show" height="100px" width="100px"  style="margin-top: 5px">
                                 </div>
                             </div>
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center" >
+                                <div class="form-group">
+                                    <label class="col-form-label" for="main_first_button_name"> Button Title 
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_first_button_name" name="main_first_button_name" >
+                                    <div id="main_first_button_name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
+                                
+                            </div>
                             <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                     <select  name="main_banner_category_id" id="categories" class="form-control">
@@ -389,6 +398,7 @@
         $.get("{{ url('admin/menupage') }}" +'/5/edit', function (data) {
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
+           $('#main_first_button_name').val(data.main_first_button_name);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
            $('#section2_title').val(data.section2_title);

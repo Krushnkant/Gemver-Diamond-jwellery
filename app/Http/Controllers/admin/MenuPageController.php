@@ -1068,7 +1068,7 @@ class MenuPageController extends Controller
         $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
-        //$menupages->main_first_button_name = $request->main_first_button_name;
+        $menupages->main_first_button_name = $request->main_first_button_name;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
         $menupages->section3_title = $request->section3_title;
