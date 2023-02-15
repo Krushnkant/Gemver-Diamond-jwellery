@@ -1,24 +1,23 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-        <div class="background-sub-slider">
-            <div class="">
-                <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
-                <div class="about_us_background">
-                    <h1 class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</h1>
-                    <div class="about_us_link">
-                        <a href="{{ URL('/') }}">home</a>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
-                            <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
-                            <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
-                        </svg>
-                        <a href="#">{{ $Category->category_name }} setting</a>
-                    </div>
+    <div class="background-sub-slider">
+        <div class="">
+            <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
+            <div class="about_us_background">
+                <h1 class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</h1>
+                <div class="about_us_link">
+                    <a href="{{ URL('/') }}">home</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
+                        <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
+                        <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
+                    </svg>
+                    <a href="#">{{ $Category->category_name }} setting</a>
                 </div>
             </div>
-
         </div>
     </div>
+    <!-- </div> -->
 
     <div class="wire_bangle_page container">
         <!-- <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
@@ -94,8 +93,8 @@
             </div>
         </div> -->
         <div class="mb-lg-5 mb-4 px-3">
-        @if($check_diamond == 1)
-            <ul class="d-block d-lg-flex progressbar_ul">
+            @if($check_diamond == 1)
+                <ul class="d-block d-lg-flex progressbar_ul">
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part ">
                             <span class="step-progressbar-img ms-3">
@@ -104,27 +103,26 @@
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
-                                        choose diamonds
+                                    choose diamonds
+                                </span>
+                                <div class="d-flex edit_price_text mt-1">
+                                    <span class="me-2">
+                                        <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
                                     </span>
-                                    <div class="d-flex edit_price_text mt-1">
-                                        <span class="me-2">
-                                            <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
+                                    <span>
+                                        |
+                                    </span>
+                                    <div class="d-flex ms-2">
+                                        <span class="price_text me-2">
+                                            price:
                                         </span>
-                                        <span>
-                                            |
+                                        <span class="price_part">
+                                            ${{ $DiamondPrice }}
                                         </span>
-                                        <div class="d-flex ms-2">
-                                            <span class="price_text me-2">
-                                                price:
-                                            </span>
-                                            <span class="price_part">
-                                                ${{ $DiamondPrice }}
-                                            </span>
-                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    
                     </li>
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
@@ -138,7 +136,6 @@
                                 </span> 
                             </div>
                         </div>
-                        
                     </li>
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part">
@@ -148,17 +145,14 @@
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
-                                      complete the {{ $Category->category_name }}
+                                    complete the {{ $Category->category_name }}
                                 </span>
-                                
                             </div>
                         </div>
-                    
                     </li>
-            </ul>
-                @else  
+                </ul>
+            @else  
                 <ul class="d-block d-lg-flex progressbar_ul">
-                    
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
                             <span class="step-progressbar-img ms-3">
@@ -168,14 +162,12 @@
                             <div>
                                 <span class="step-progressbar-text">
                                     choose settings
-                                </span> 
-                                
+                                </span>
                             </div>
                         </div>
                     </li>
                     <li class="step-progressbar-part ">
                         <div class="step-progressbar-step-part">
-        
                             <span class="step-progressbar-img ms-3">
                                 {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
                                 <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
@@ -189,7 +181,6 @@
                                         <a href="{{ url('diamond-setting/'. $Category->slug) }}" class="edit_text">Browse Lab Diamonds</a>
                                     </span>
                                 </div>
-                                    
                             </div>
                         </div>
                     </li>
@@ -201,13 +192,12 @@
                             </span>
                             <div>
                                 <span class="step-progressbar-text">
-                                      complete the {{ $Category->category_name }}
+                                        complete the {{ $Category->category_name }}
                                 </span>
-                               
                             </div>
                         </div>
                     </li>
-            </ul>
+                </ul>
             @endif 
         </div>
         <div class="row" >
@@ -488,16 +478,16 @@
             </div>
         </div>
         @if($Product->desc != "")
-        <div class="row mt-4 mb-xxl-4" id="description">
-            <div class="col-md-12">
-                <div class="description_heading">
-                    description
+            <div class="row mt-4 mb-xxl-4" id="description">
+                <div class="col-md-12">
+                    <div class="description_heading">
+                        description
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="description_paragraph">{{ $Product->desc }}</p>
                 </div>
             </div>
-            <div class="col-md-12">
-                <p class="description_paragraph">{{ $Product->desc }}</p>
-            </div>
-        </div>
         @endif
         <div class="accordion wire_bangle_accordion detailsspecii" id="accordionExample">
             <div class="accordion-item">
@@ -551,9 +541,7 @@
                 </div>
             </div>
         </div>
-
         <!-- <div class="px-3 px-xxl-0" id="spe_desc">
-        
         </div> -->
         <div></div>
         <div class=" mt-md-5 mt-4 px-3 mb-md-5 mb-4">
@@ -598,17 +586,14 @@
                 <button type="button" class="btn show_more_btn">Show more</button>
             </div>  --}}
         </div>
-
-        
-        {{-- component order include  --}}
-        <x-include-order></x-include-order>
-       
-        </div>
-
-        {{-- component related product  --}}
-        <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
-
     </div>
+    {{-- component order include  --}}
+    <x-include-order></x-include-order>
+
+    {{-- component related product  --}}
+    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
+
+    <!-- </div> -->
 
     <div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">

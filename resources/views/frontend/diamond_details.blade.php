@@ -1,24 +1,23 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-        <div class="background-sub-slider">
-            <div class="">
-                <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
-                <div class="about_us_background">
-                    <h1 class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</h1>
-                    <div class="about_us_link">
-                        <a href="{{ URL('/') }}">home</a>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
-                            <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
-                            <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
-                        </svg>
-                        <a href="#">{{ $Category->category_name }} setting</a>
-                    </div>
+    <div class="background-sub-slider">
+        <div class="">
+            <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
+            <div class="about_us_background">
+                <h1 class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</h1>
+                <div class="about_us_link">
+                    <a href="{{ URL('/') }}">home</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
+                        <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white"/>
+                        <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white"/>
+                    </svg>
+                    <a href="#">{{ $Category->category_name }} setting</a>
                 </div>
             </div>
-
         </div>
     </div>
+    <!-- </div> -->
 
     <div class="wire_bangle_page container">
         <!-- <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
@@ -652,9 +651,7 @@
 
         <?php 
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
-        
         ?>
-
         <div class="mt-md-5 mt-4 px-3 mb-md-5 mb-4">
             <div class="review_description_heading order-includes-heading">
                 Reviews
@@ -666,155 +663,152 @@
                  
             </div>
         </div>
-       
+    </div>
 
-        
-         {{-- component order include  --}}
-        <x-include-order></x-include-order>
-        
-        </div>
+    {{-- component order include  --}}
+    <x-include-order></x-include-order>
 
-        @if(count($DiamondRelated) > 0)
-    <div class="container">
-        <div class="shop_by_category pt-0">
-            <div class="row">
-                <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
-                    <div>
-                        <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2>
+    @if(count($DiamondRelated) > 0)
+        <div class="container">
+            <div class="shop_by_category pt-0">
+                <div class="row">
+                    <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                        <div>
+                            <h2 class="heading-h2 mb-xl-5 mb-3 mt-md-0">Related Diamonds </h2>
+                        </div>
+                        <!-- <div class="category-line-img d-none d-md-block">
+                            <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
+                        </div> -->
                     </div>
-                    <!-- <div class="category-line-img d-none d-md-block">
-                        <img src="{{ asset('frontend/image/category-line.png') }}" alt="">
-                    </div> -->
-                </div>
-                <div class="owl-carousel owl-theme product-detail mb-5 px-0">
-                    @foreach($DiamondRelated as $Diamond)
-                    <?php
-                      $url =  URL('/diamond-details/'.$Category->slug.'/'.$Diamond->id);
-                      if($Diamond->Stone_Img_url != ""){
-                          $Diamond_image = $Diamond->Stone_Img_url;
-                      }else{
-                          if($Diamond->Shape == strtoupper('round')){
-                              $Diamond_image = url('frontend/image/1.png');    
-                          }elseif($Diamond->Shape == strtoupper('oval')){
-                              $Diamond_image = url('frontend/image/2.png');
-                          }elseif($Diamond->Shape == strtoupper('emerald')){
-                              $Diamond_image = url('frontend/image/3.png');
-                          }elseif($Diamond->Shape == strtoupper('princess')){
-                              $Diamond_image = url('frontend/image/6.png');
-                          }elseif($Diamond->Shape == strtoupper('cushion')){
-                              $Diamond_image = url('frontend/image/7.png');
-                          }elseif($Diamond->Shape == strtoupper('marquise')){
-                              $Diamond_image = url('frontend/image/8.png');
-                          }elseif($Diamond->Shape == strtoupper('pear')){
-                              $Diamond_image = url('frontend/image/9.png');
-                          }elseif($Diamond->Shape == strtoupper('HEART')){
-                              $Diamond_image = url('frontend/image/10.png');
-                          }elseif($Diamond->Shape == strtoupper('asscher')){
-                              $Diamond_image = url('frontend/image/asscher.png');
-                          }elseif($Diamond->Shape == strtoupper('radiant')){
-                              $Diamond_image = url('frontend/image/radiant.png');
-                          }else{
-                              $Diamond_image = url('frontend/image/edit_box_2.png');
-                          }
-                      }
+                    <div class="owl-carousel owl-theme product-detail mb-5 px-0">
+                        @foreach($DiamondRelated as $Diamond)
+                        <?php
+                        $url =  URL('/diamond-details/'.$Category->slug.'/'.$Diamond->id);
+                        if($Diamond->Stone_Img_url != ""){
+                            $Diamond_image = $Diamond->Stone_Img_url;
+                        }else{
+                            if($Diamond->Shape == strtoupper('round')){
+                                $Diamond_image = url('frontend/image/1.png');    
+                            }elseif($Diamond->Shape == strtoupper('oval')){
+                                $Diamond_image = url('frontend/image/2.png');
+                            }elseif($Diamond->Shape == strtoupper('emerald')){
+                                $Diamond_image = url('frontend/image/3.png');
+                            }elseif($Diamond->Shape == strtoupper('princess')){
+                                $Diamond_image = url('frontend/image/6.png');
+                            }elseif($Diamond->Shape == strtoupper('cushion')){
+                                $Diamond_image = url('frontend/image/7.png');
+                            }elseif($Diamond->Shape == strtoupper('marquise')){
+                                $Diamond_image = url('frontend/image/8.png');
+                            }elseif($Diamond->Shape == strtoupper('pear')){
+                                $Diamond_image = url('frontend/image/9.png');
+                            }elseif($Diamond->Shape == strtoupper('HEART')){
+                                $Diamond_image = url('frontend/image/10.png');
+                            }elseif($Diamond->Shape == strtoupper('asscher')){
+                                $Diamond_image = url('frontend/image/asscher.png');
+                            }elseif($Diamond->Shape == strtoupper('radiant')){
+                                $Diamond_image = url('frontend/image/radiant.png');
+                            }else{
+                                $Diamond_image = url('frontend/image/edit_box_2.png');
+                            }
+                        }
 
-                    ?>
-                   
-                   
-                    <div class="round_cut_lab_diamonds_box hover_on_mask">
-                        <a href="{{ $url }}">
-                            <div class="round_cut_lab_diamonds_img">
-                                <img src="{{ $Diamond_image }}" alt="">
-                                    <div class="round_cut_lab_diamonds_layer">
-                                        <ul>
-                                            <li>
-                                                <span class="round_product_part_1">CARAT  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
-                                            </li>
-                                            <li>
-                                                <span class="round_product_part_1"> CLARITY :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
-                                            </li>
-                                            <li>
-                                                <span class="round_product_part_1">SHAPE :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
-                                            </li>
-                                            
-                                            <li>
-                                                <span class="round_product_part_1">COLOR  :</span>
-                                                <span class="round_product_part_2">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
-                                            </li>
-                                            @if($Diamond->Cut != "")
-                                            <li>
-                                                <span class="round_product_part_1"> CUT  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
-                                            </li>
-                                            @endif
-                                            <li>
-                                                <span class="round_product_part_1"> POLISH  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
-                                            </li>
-                                            <li>
-                                                <span class="round_product_part_1"> SYMMETRY  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
-                                            </li>
-                                            
-                                            @if($Diamond->Measurement != "")
-                                            <li>
-                                                <span class="round_product_part_1"> MEASUREMENT  :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
-                                            </li>
-                                            @endif
-                                            <li>
-                                                <span class="round_product_part_1"> CERTIFIED :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
-                                            </li>
-                                            <li>
-                                                <span class="round_product_part_1">LOT :</span>
-                                                <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                            </div>
-                        </a>
-                        <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                            <div class="round_cut_lab_diamonds_info_heading mb-2">
-                                {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
-                                <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
-                                <input type="hidden" class="item_type" value="1">    
-                                <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
-                                @if(is_wishlist($Diamond->id,1))    
-                                    <i class="fas fa-heart heart-icon-part"></i> 
-                                @else
-                                    <i class="far fa-heart"></i>
-                                @endif
-                                </span>
-                            </div>
-                            <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title  }}</a></div>
-                            <div class="round_cut_lab_diamonds_info_clarity">
-                                <span>{{ $Diamond->Clarity }} clarity |</span>
-                                <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
-                                <span>{{ $Diamond->Lab }} certified</span>
-                            </div>
-                            <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
-                              <div class="d-flex align-items-center">
-                                ${{ $Diamond->Sale_Amt }} 
-                                <span class="ms-2 wire_bangle_dublicate_price product_detail_sregular_price" style="text-decoration-line: line-through">
-                              </div>
-                              <div class="product_detail_regular_price"> 
-                                $<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
-                            </div>
+                        ?>
+                    
+                    
+                        <div class="round_cut_lab_diamonds_box hover_on_mask">
+                            <a href="{{ $url }}">
+                                <div class="round_cut_lab_diamonds_img">
+                                    <img src="{{ $Diamond_image }}" alt="">
+                                        <div class="round_cut_lab_diamonds_layer">
+                                            <ul>
+                                                <li>
+                                                    <span class="round_product_part_1">CARAT  :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="round_product_part_1"> CLARITY :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
+                                                </li>
+                                                <li>
+                                                    <span class="round_product_part_1">SHAPE :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span class="round_product_part_1">COLOR  :</span>
+                                                    <span class="round_product_part_2">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
+                                                </li>
+                                                @if($Diamond->Cut != "")
+                                                <li>
+                                                    <span class="round_product_part_1"> CUT  :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
+                                                </li>
+                                                @endif
+                                                <li>
+                                                    <span class="round_product_part_1"> POLISH  :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
+                                                </li>
+                                                <li>
+                                                    <span class="round_product_part_1"> SYMMETRY  :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
+                                                </li>
+                                                
+                                                @if($Diamond->Measurement != "")
+                                                <li>
+                                                    <span class="round_product_part_1"> MEASUREMENT  :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
+                                                </li>
+                                                @endif
+                                                <li>
+                                                    <span class="round_product_part_1"> CERTIFIED :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
+                                                </li>
+                                                <li>
+                                                    <span class="round_product_part_1">LOT :</span>
+                                                    <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </div>
+                            </a>
+                            <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
+                                <div class="round_cut_lab_diamonds_info_heading mb-2">
+                                    {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
+                                    <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
+                                    <input type="hidden" class="item_type" value="1">    
+                                    <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                    @if(is_wishlist($Diamond->id,1))    
+                                        <i class="fas fa-heart heart-icon-part"></i> 
+                                    @else
+                                        <i class="far fa-heart"></i>
+                                    @endif
+                                    </span>
+                                </div>
+                                <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title  }}</a></div>
+                                <div class="round_cut_lab_diamonds_info_clarity">
+                                    <span>{{ $Diamond->Clarity }} clarity |</span>
+                                    <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
+                                    <span>{{ $Diamond->Lab }} certified</span>
+                                </div>
+                                <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    ${{ $Diamond->Sale_Amt }} 
+                                    <span class="ms-2 wire_bangle_dublicate_price product_detail_sregular_price" style="text-decoration-line: line-through">
+                                </div>
+                                <div class="product_detail_regular_price"> 
+                                    $<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
+                                </div>
+                                </div>
                             </div>
                         </div>
+                        @endforeach 
                     </div>
-                    @endforeach 
                 </div>
             </div>
         </div>
-    </div>
     @endif
         
-    </div>
+    <!-- </div> -->
 
     <div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
