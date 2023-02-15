@@ -455,10 +455,10 @@
                             @endphp
                             <li class="col-12 col-md-4">
                                 <div class="row cnt-block equal-hight popup_part mb-3 mb-md-0">
-                                    <div class="col-md-12 col-sm-3 thumbbox">
+                                    <div class="col-md-12 col-3 thumbbox">
                                         <figure class="popup_img"><img src="{{ url('images/steppopup/'.$Step->icon) }}" class="img-responsive" alt=""></figure>
                                     </div>
-                                    <div class="col-md-12 col-sm-9 descbox">
+                                    <div class="col-md-12 col-9 descbox">
                                         <div class="step-title" >Step {{ $key }}</div>
                                         <h5 class="popup_sub_heading">{{ $Step->title }}</h5>
                                         <p class="popup_paragraph">{{ $Step->description }} </p>
