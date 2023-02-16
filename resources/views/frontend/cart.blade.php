@@ -371,7 +371,7 @@
                                 <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
                                     <thead>
                                         <tr class="table-active">
-                                            <th>Product Name</th>
+                                            <th class="text-center">Product Name</th>
                                             <th style="width: 15%;">Total Amount</th>
                                         </tr>
                                     </thead>
