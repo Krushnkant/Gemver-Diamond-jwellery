@@ -521,17 +521,17 @@
                                             ?>
                                             @if($item)
                                                 <tr class="cartpage">
-                                                    <td class="cart-product-name-info">
+                                                    <td class="cart-product-name-info1">
                                                         <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
                                                         <input type="hidden" class="diamond_id" value="{{ $data['diamond_id'] }}">
                                                         <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
 
                                                         @if($data['item_type'] == 2)
                                                             <div class="row">
-                                                                <div class="col-md-2 col-sm-12">
+                                                                <div class="col-md-3 col-sm-12">
                                                                     <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}">
                                                                 </div>
-                                                                <div class="col-md-10 col-sm-12">
+                                                                <div class="col-md-9 col-sm-12">
                                                                     <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
                                                                     <span class="cart_product_specification d-block">
                                                                         {!! $diamond_terms !!}
@@ -541,35 +541,26 @@
                                                         @endif
 
                                                         <div class="row">
-                                                            <div class="col-md-2 col-sm-12">
+                                                            <div class="col-md-3 col-sm-12">
                                                                 <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}">
                                                             </div>
-                                                            <div class="col-sm-2 col-sm-12">
+                                                            <div class="col-sm-9 col-sm-12">
                                                                 <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                                                 @if(isset($data['item_type']) && $data['item_type'] != 1)   
-
                                                                     <?php
                                                                         $atr = 0;
                                                                     ?>
                                                                     <span class="cart_product_specification d-block mt-2">
                                                                         @foreach($item->product_variant_variants as $vitem)
-                                                                            <?php if($atr > 0){
-                                                                                echo '|'; } ?>{{ $vitem->attribute_term->attrterm_name }} 
+                                                                            <?php 
+                                                                            if($atr > 0){
+                                                                                echo ' | '; 
+                                                                            } 
+                                                                            ?>
+                                                                            {{ $vitem->attribute_term->attrterm_name }} 
                                                                             <?php $atr++; ?>
                                                                         @endforeach
                                                                     </span>
-                                                                    <div class="d-flex mt-3 align-items-center">
-                                                                        <span><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                                        <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
-                                                                        <span class="wire_bangle_input" >
-                                                                            <div class="wire_bangle_number number-input">
-                                                                                <button  class="sp-minus"></button>
-                                                                                <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
-                                                                                <button  class="plus sp-plus "></button>
-                                                                            </div>
-                                                                        </span>
-                                                                    </div>
-                                                                
                                                                     @if(isset($specifications))
                                                                         @foreach ($specifications as $specification)
                                                                             <span class="cart_product_specification d-block mt-2">{{ $specification['key'] }}: {{ $specification['value'] }}</span>
@@ -581,6 +572,15 @@
                                                                         {!! $item_terms !!}
                                                                     </span>
                                                                 @endif
+                                                                <span><i class="fa fa-usd" aria-hidden="true"></i></span>
+                                                                <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
+                                                                <span class="wire_bangle_input" >
+                                                                    <div class="wire_bangle_number number-input">
+                                                                        <button  class="sp-minus"></button>
+                                                                        <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
+                                                                        <button  class="plus sp-plus "></button>
+                                                                    </div>
+                                                                </span>
                                                                 <a class="delete_cart_data">
                                                                     <i class="fa fa-trash"></i>
                                                                 </a>
