@@ -102,7 +102,7 @@
                 
                 <div class="tab-pane wishlist-page my-5">
                     <div class="wishlist-heading  my-3 mb-md-4 pt-md-2 ps-4">Your Wishlist</div>
-                    <div class="table-responsive">
+                    <div class="">
                         <table class="table table-bordered table-hover table_part_product wishlist_table">
                             <thead>
                                 <tr class="table-active">
