@@ -655,7 +655,7 @@ class DiamondController extends Controller
                             }
                             $image_no++;
                             }
-                            $artilces.='</div><div class="wire_bangle_description p-3 pt-0">';
+                            $artilces.='</div><div class="wire_bangle_description p-3">';
 
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
