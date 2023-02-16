@@ -495,7 +495,7 @@
                                     Accepted payment methods :
                                 </div>
                                 <div class="accepted_payment_methods_icon mt-3">
-                                    <img src="{{ asset('frontend/image/visa_icon.png') }}" alt="" class="">
+                                    <img src="{{ asset('frontend/image/payment_method.png') }}" alt="" class="">
                                 </div>
                             </div>
                             @if($setting->max_order_price >  $total - $coupan_discount_amount)

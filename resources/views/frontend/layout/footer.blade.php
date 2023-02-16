@@ -150,7 +150,7 @@
                     <div class="footer-heading mb-2 mb-md-2 d-flex justify-content-between">
                         Payments Accepted
                     </div>
-                    <img src="{{ asset('frontend/image/payment-cards.png') }}" alt="Payments Accepted" loading="lazy">
+                    <img src="{{ asset('frontend/image/payment_method.png') }}" alt="Payments Accepted" loading="lazy">
                 </div>
             </div>
         </div>
