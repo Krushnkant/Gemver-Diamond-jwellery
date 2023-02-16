@@ -227,7 +227,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td style="font-size: 20px;">
+                                        <td class="text-center" style="font-size: 20px;">
                                             <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
                                             <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">
                                                 Remove
