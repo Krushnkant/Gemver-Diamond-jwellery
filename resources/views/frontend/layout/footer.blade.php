@@ -14,9 +14,7 @@
                             <?php $trustedbies = \App\Models\TrustedBy::where('estatus', 1)->get(); ?>
                             @foreach($trustedbies as $trusted)
                             <div class="item">
-                                <a href="{{ ($trusted->redirect_url != '')?$trusted->redirect_url:'#' }}" class="">
-                                    <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="" loading="lazy">
-                                </a>
+                                <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="" loading="lazy">
                             </div>
                             @endforeach
                             

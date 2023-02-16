@@ -1072,6 +1072,11 @@
 }
 
 @media (max-width:991px) {
+
+    .header ul li .mega-menu .mega-menu-four-part .submenu-box1 {
+        margin-top: 10px;
+    }
+
     .sub-pack {
         opacity: 1;
         pointer-events: auto;
@@ -1661,7 +1666,7 @@
         height: 100%;
     }
 
-    .mega-menu-four-part img {
+    .mega-menu-four-part ul>img {
         display: none;
     }
 
@@ -2165,9 +2170,9 @@
         font-size: 18px;
     }
 
-    .product_modal .popup_heading {
+    /* .product_modal .popup_heading {
         font-size: 40px;
-    }
+    } */
 
     .close-button {
         top: 0;
