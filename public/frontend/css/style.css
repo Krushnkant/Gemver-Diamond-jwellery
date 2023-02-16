@@ -5974,8 +5974,8 @@ width: 100%;
         content: "";
         position: absolute;
         transform: translateX(-50%);
-        left: calc(44% + 0px);
-        width: 60%;
+        left: calc(44% + 2px);
+        width: 60.5%;
         height: 1px;
         background: #000;
     }
