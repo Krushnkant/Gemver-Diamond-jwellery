@@ -544,7 +544,7 @@
                                                             <div class="col-md-3 col-sm-12">
                                                                 <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}">
                                                             </div>
-                                                            <div class="col-sm-9 col-sm-12">
+                                                            <div class="col-md-9 col-sm-12">
                                                                 <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                                                 @if(isset($data['item_type']) && $data['item_type'] != 1)   
                                                                     <?php
