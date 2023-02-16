@@ -4697,6 +4697,7 @@ width: 100%;
         border-left: 0;
         border-right: 0;
         box-shadow: none;
+        padding: 15px;
     }
 
     .table_part_product tr {
@@ -4711,15 +4712,15 @@ width: 100%;
     .my_cart_table thead th:first-child,
     .my_cart_table tbody td:first-child {
         text-align: left;
-        width: 40%;
+        /* width: 40%; */
     }
 
-    .cart-product-name-info {
+    /* .cart-product-name-info {
         padding-left: 0 !important;
         display: flex;
         align-items: center;
         width: 100% !important;
-    }
+    } */
 
     .product_part {
         display: inline-flex;
@@ -4940,10 +4941,6 @@ width: 100%;
     .delete_cart_data {
         cursor: pointer;
         padding-left: 10px;
-    }
-
-    .my_cart_table tbody td {
-        padding: 20px 0 20px 0;
     }
 
     /* ---------------------------address ----------------------------------------- */
