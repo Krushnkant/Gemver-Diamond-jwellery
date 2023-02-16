@@ -107,7 +107,6 @@
                             <thead>
                                 <tr class="table-active">
                                     <th>Item Details</th>
-                                    <th style="width: 40%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="">
@@ -147,7 +146,7 @@
                                                 <div class="col-md-2 col-4 text-center">
                                                     <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}" class="cart-item-img">
                                                 </div>
-                                                <div class="col-md-10 col-8 p-0">
+                                                <div class="col-md-6 col-8 p-0">
                                                     <div class="row">
                                                         <div class="col-md-8 col-sm-12">
                                                             <div class="">
@@ -225,13 +224,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4 col-12 p-0">
+                                                    <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
+                                                    <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">Remove</a>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td class="text-center" style="font-size: 20px;">
-                                            <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
-                                            <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">
-                                                Remove
-                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
