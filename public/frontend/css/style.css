@@ -5520,6 +5520,10 @@ width: 100%;
         text-align: center;
     }
 
+    .remove_btn {
+        color: #c10000;
+    }
+
     .move_to_cart_btn:hover,
     .remove_btn:hover {
         background: #F1F1F1 !important;
