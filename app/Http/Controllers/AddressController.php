@@ -10,7 +10,9 @@ class AddressController extends Controller
 {
     public function address(){
         $address = Address::where('user_id',session('customer.id'))->get();
-        return  view('frontend.myaccount_address',compact('address'));
+        $meta_title = "User Address";
+        $meta_description = "User Address";
+        return  view('frontend.myaccount_address',compact('address'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function addresssave(Request $request){

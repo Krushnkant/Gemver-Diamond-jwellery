@@ -13,12 +13,16 @@ class OrderController extends Controller
 {
     public function orders(){
         $orders = Order::where('user_id',session('customer.id'))->orderBy('id','desc')->get();
-        return  view('frontend.myaccount_orders',compact('orders'));
+        $meta_title = "User Orders";
+        $meta_description = "User Orders";
+        return  view('frontend.myaccount_orders',compact('orders'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function orderdetails($order_id){
         $orderdetails = Order::with('order_item','address')->where(['user_id' => session('customer.id'),'id' => $order_id])->first();
-        return  view('frontend.myaccount_orderdetail',compact('orderdetails'));
+        $meta_title = "User Order Details";
+        $meta_description = "User Order Details";
+        return  view('frontend.myaccount_orderdetail',compact('orderdetails'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function checkout(){
@@ -27,7 +31,9 @@ class OrderController extends Controller
         $settings = Settings::find(1);
         $countries = Country::get(["name","id"]);
 
-        return  view('frontend.Checkout',compact('address','carts','settings','countries'));
+        $meta_title = "Checkout";
+        $meta_description = "Checkout";
+        return  view('frontend.Checkout',compact('address','carts','settings','countries'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     
