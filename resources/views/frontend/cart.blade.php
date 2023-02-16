@@ -528,7 +528,7 @@
                                                             <div class="col-md-2 col-4 text-center">
                                                                 <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}" class="cart-item-img">
                                                             </div>
-                                                            <div class="col-md-10 col-8">
+                                                            <div class="col-md-10 col-8 p-0">
                                                                 <div class="row">
                                                                     <div class="col-md-7 col-sm-12">
                                                                         <div class="">
@@ -560,13 +560,6 @@
                                                                                 {!! $item_terms !!}
                                                                             </div>
                                                                         @endif
-                                                                        @if($data['item_type'] !== 2)
-                                                                            <div class="mt-2">
-                                                                                <a class="delete_cart_data">
-                                                                                    <i class="fa fa-trash"></i> Remove
-                                                                                </a>
-                                                                            </div>
-                                                                        @endif
                                                                     </div>
                                                                     <div class="col-md-5 col-sm-12">
                                                                     <div class="">
@@ -587,24 +580,26 @@
 
                                                         @if($data['item_type'] == 2)
                                                             <div class="row mt-4">
-                                                                <div class="col-md-2 col-sm-12 text-center">
+                                                                <div class="col-md-2 col-4 text-center">
                                                                     <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}" class="cart-item-img">
                                                                 </div>
-                                                                <div class="col-md-10 col-sm-12">
+                                                                <div class="col-md-10 col-8">
                                                                     <div class="">
                                                                         <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
                                                                     </div>
                                                                     <div class="cart_product_specification d-block mt-1">
                                                                         {!! $diamond_terms !!}
                                                                     </div>
-                                                                    <div class="mt-2">
-                                                                        <a class="delete_cart_data">
-                                                                            <i class="fa fa-trash"></i> Remove
-                                                                        </a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         @endif
+                                                        <div class="row mt-2">
+                                                            <div class="col-sm-12">
+                                                                <a class="delete_cart_data">
+                                                                    <i class="fa fa-trash"></i> Remove
+                                                                </a>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td class="total_amount">
                                                         <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * (int)$data['item_quantity'] }}</span>
