@@ -372,9 +372,7 @@
                                     <thead>
                                         <tr class="table-active">
                                             <th>Product Name</th>
-                                            <!-- <th>Amount</th> -->
-                                            <!-- <th class="text-center">QTY</th> -->
-                                            <th>Total Amount</th>
+                                            <th style="width: 10%;">Total Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody class="">
@@ -576,6 +574,9 @@
                                                                         {!! $item_terms !!}
                                                                     </div>
                                                                 @endif
+                                                                <a class="delete_cart_data mt-2">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
                                                             </div>
                                                             <div class="col-md-3 col-sm-12">
                                                                 <div class="mt-2">
@@ -589,9 +590,6 @@
                                                                         <button  class="plus sp-plus "></button>
                                                                     </div>
                                                                 </div>
-                                                                <a class="delete_cart_data mt-2">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
                                                             </div>
                                                         </div>
                                                     </td>
