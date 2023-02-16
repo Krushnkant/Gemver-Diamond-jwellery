@@ -594,7 +594,7 @@
                                                             </div>
                                                         @endif
                                                         <div class="row mt-2">
-                                                            <div class="col-sm-12">
+                                                            <div class="col-sm-2 text-center">
                                                                 <a class="delete_cart_data">
                                                                     <i class="fa fa-trash"></i> Remove
                                                                 </a>
