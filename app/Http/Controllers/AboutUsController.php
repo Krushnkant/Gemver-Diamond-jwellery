@@ -9,7 +9,6 @@ class AboutUsController extends Controller
 {
     public function index(){
         $Infopage= Infopage::first();
-        //dd($Infopage);
-        return view('frontend.aboutus',compact('Infopage'));
+        return view('frontend.aboutus',compact('Infopage'))->with(['meta_title'=>$Infopage->about_meta_title,'meta_description'=>$Infopage->about_meta_description]);
     }
 }

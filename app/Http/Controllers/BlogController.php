@@ -18,8 +18,9 @@ class BlogController extends Controller
         $homesetting = HomeSetting::first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
         $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
-      
-        return view('frontend.blogs',compact('Categories','BlogBanners','blogs','homesetting','mostviewproducts'));
+        $meta_title = " Blogs ";
+        $meta_description = " Blogs";
+        return view('frontend.blogs',compact('Categories','BlogBanners','blogs','homesetting','mostviewproducts'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function fetchblogs(Request $request){
