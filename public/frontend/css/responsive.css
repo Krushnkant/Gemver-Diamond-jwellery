@@ -2044,6 +2044,10 @@
 
 @media (max-width:767px) {
 
+    .wl-action-box a {
+        margin-bottom: 0;
+    }
+
     .product_modal .popup_img {
         max-width: 50px;
         margin-bottom: 0;
@@ -2607,6 +2611,7 @@
 }
 
 @media (min-width:576px) and (max-width:1199px) {
+
     .background-text-part {
         position: absolute;
         top: 50%;
@@ -2799,6 +2804,12 @@
 }
 
 @media (min-width:768px) and (max-width:1199px) {
+
+    .wl-action-box a {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+
     .cart-icon-part .dropdown-toggle {
         margin-right: 10px;
     }

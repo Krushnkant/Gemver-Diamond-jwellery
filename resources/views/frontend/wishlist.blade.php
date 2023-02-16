@@ -146,7 +146,7 @@
                                                 <div class="col-md-2 col-4 text-center">
                                                     <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}" class="cart-item-img">
                                                 </div>
-                                                <div class="col-md-6 col-8 p-0">
+                                                <div class="col-md-7 col-8 p-0">
                                                     <div class="row">
                                                         <div class="col-md-8 col-sm-12">
                                                             <div class="">
@@ -224,136 +224,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-12 p-0 wl-action-box">
+                                                <div class="col-md-3 col-12 p-0 wl-action-box">
                                                     <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
                                                     <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">Remove</a>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>  
-                        </table>
-                        <table class="table table-bordered table-hover table_part_product wishlist_table">
-                            <thead>
-                                <tr class="table-active">
-                                    <th>Product Name</th>
-                                    <th class="amount_col">Amount</th>
-                                    <th style=""></th>
-                                </tr>
-                            </thead>
-                            <tbody class="">
-                                @foreach ($wishlist_data as $data)
-                                    <?php 
-                                    $item_terms = '';
-                                    if($data['item_type'] == 0){
-                                        $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
-                                        $item_name = $item->product->product_title;
-                                        $sale_price = $item->sale_price;
-                                        $regular_price = $item->regular_price;
-                                        $auto_discount_percent = $item->auto_discount_percent;
-                                        $item_image = explode(',',$item->images);
-                                        $url =  URL('product-details/'.$item->slug); 
-                                    }else{
-                                        $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
-                                        $item_name = $item->short_title;
-                                        $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
-                                        /*$item_name .= '<span>'. $item->Clarity .' clarity |</span>
-                                                <span>'. $item->Color .' color |</span>
-                                                <span>'. $item->Lab .' certified</span>';*/
-
-                                        $sale_price = $item->Sale_Amt;
-                                        $item_image = explode(',',$item->Stone_Img_url);
-                                        $regular_price = 0;
-                                        $auto_discount_percent = 0;
-                                        $url =  url('labdiamond-details/'.$item->slug);
-                                    }
-                                    ?>
-                                    <tr class="cartpage product-data">
-                                    
-                                        <td class="cart-image">
-                                            <input type="hidden" class="variant_id" value="{{ $data['item_id'] }}">
-                                            <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
-                                            <div class="product_img">
-                                                <img src="{{ asset($item_image[0]) }}" height="100px" width="100px" alt="">
-                                            </div>
-
-                                            <div class="ms-3">
-                                                <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
-                                                @if($data['item_type'] != 1)
-                                                    @foreach ($item->product_variant_variants as $vitem)
-                                                        <span class="cart_product_specification d-block">
-                                                            {{ $vitem->attribute_term->attribute->attribute_name }}: {{ $vitem->attribute_term->attrterm_name }}
-                                                        </span>
-                                                    @endforeach
-                                                @endif
-
-                                                @if(isset($data['item_type']) && $data['item_type'] == 1)
-                                                    <span class="cart_product_specification d-block">
-                                                        {!! $item_terms !!}
-                                                    </span>
-                                                @endif
-                                                <div class="d-flex flex-wrap mt-2" id="speci_multi143">
-                                                    <?php
-                                                    if($data['item_type'] == 0){
-                                                        $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$item->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                                                        $spe = '';
-                                                        foreach($ProductVariantSpecification as $productvariants)
-                                                        {
-                                                        ?>
-                                                        <div class="me-4"> 
-                                                            <span class="wire_bangle_select mb-3 me-3 d-inline-block">
-                                                                <div class="select">
-                                                                    <select name="AtributeSpecification{{ $productvariants->id }}" id="AtributeSpecification{{ $productvariants->id }}" class="specification">
-                                                                        <option value="">--{{ $productvariants->attribute_name }}--</option>  
-                                                                        <?php
-                                                                        $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$item->product->id)->groupBy('attribute_id')->get();
-                                                                        
-                                                                        foreach($product_attribute as $attribute_term){
-                                                                            $term_array = explode(',',$attribute_term->terms_id);
-                                                                            $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
-                                                                        
-                                                                            $v = 1;
-                                                                            foreach($product_attributes as $term){
-                                                                                ?>            
-                                                                                <option data-spe="{{ $productvariants->attribute_name }}" data-term="{{ $term->attrterm_name }}" value="{{ $term->id }}">{{ $term->attrterm_name }}</option>
-                                                                                <?php        
-                                                                            }
-                                                                        }
-                                                                        ?>        
-                                                                    </select>
-                                                                    <div id="AtributeSpecification{{ $productvariants->id }}-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                                                </div>
-                                                            </span>
-                                                        </div>
-                                                        <?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </div>
-                                            </div>
-                                            
-                                        </td>
-                                    
-                                        <td class="cart-product-sub-total">
-                                            <span class="cart-sub-total-price amount_price">${{ number_format($sale_price, 2) }}</span>
-                                            @if($regular_price > 0)
-                                            <span class="cart-dublicate-price">
-                                                ${{ number_format($regular_price, 2) }}
-                                            </span>
-                                            @endif
-                                            @if($regular_price > 0)
-                                            <div class="cart-offer-price">
-                                                {{ $auto_discount_percent }}% off
-                                            </div>
-                                            @endif
-                                        </td>
-                                        
-                                        <td style="font-size: 20px;">
-                                            <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
-                                            <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">
-                                                Remove
-                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

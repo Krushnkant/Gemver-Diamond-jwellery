@@ -5522,6 +5522,7 @@ width: 100%;
 
     .remove_btn {
         color: #c10000;
+        margin-left: 10px;
     }
 
     .move_to_cart_btn:hover,
