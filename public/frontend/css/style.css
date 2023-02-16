@@ -5469,6 +5469,16 @@ width: 100%;
     .table_part_product tr td {
         border: 0;
         font-size: 14px;
+        padding: 15px;
+    }
+
+    .wl-amt-box {
+        margin: auto;
+    }
+
+    .wl-action-box {
+        margin: auto;
+        text-align: center;
     }
 
     .comparelist td {

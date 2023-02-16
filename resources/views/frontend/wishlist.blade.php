@@ -207,7 +207,7 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-4 col-sm-12 mt-md-0 mt-2">
+                                                        <div class="col-md-4 col-sm-12 wl-amt-box">
                                                             <div class="cart-product-sub-total">
                                                                 <span class="cart-sub-total-price amount_price">${{ number_format($sale_price, 2) }}</span>
                                                                 @if($regular_price > 0)
@@ -224,7 +224,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-12 p-0">
+                                                <div class="col-md-4 col-12 p-0 wl-action-box">
                                                     <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
                                                     <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">Remove</a>
                                                 </div>
