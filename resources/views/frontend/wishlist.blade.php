@@ -226,7 +226,7 @@
                                                 </div>
                                                 <div class="col-md-3 col-12 p-0 wl-action-box">
                                                     <a class="btn btn-primary select_cart_btn move_to_cart_btn">Move To Cart</a>
-                                                    <a href="" class="btn btn-primary delete_wishlist_data remove_btn ms-3">Remove</a>
+                                                    <a href="" class="btn btn-primary delete_wishlist_data remove_btn">Remove</a>
                                                 </div>
                                             </div>
                                         </td>
