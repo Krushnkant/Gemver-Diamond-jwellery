@@ -149,7 +149,7 @@
                                                 </div>
                                                 <div class="col-md-10 col-8 p-0">
                                                     <div class="row">
-                                                        <div class="col-md-7 col-sm-12">
+                                                        <div class="col-md-8 col-sm-12">
                                                             <div class="">
                                                                 <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                                             </div>
@@ -208,7 +208,7 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-5 col-sm-12 mt-md-0 mt-2">
+                                                        <div class="col-md-4 col-sm-12 mt-md-0 mt-2">
                                                             <div class="cart-product-sub-total">
                                                                 <span class="cart-sub-total-price amount_price">${{ number_format($sale_price, 2) }}</span>
                                                                 @if($regular_price > 0)
