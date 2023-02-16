@@ -532,10 +532,12 @@
                                                                     <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}">
                                                                 </div>
                                                                 <div class="col-md-9 col-sm-12">
-                                                                    <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
-                                                                    <span class="cart_product_specification d-block">
+                                                                    <div class="">
+                                                                        <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
+                                                                    </div>
+                                                                    <div class="cart_product_specification d-block">
                                                                         {!! $diamond_terms !!}
-                                                                    </span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         @endif
@@ -544,13 +546,15 @@
                                                             <div class="col-md-3 col-sm-12">
                                                                 <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}">
                                                             </div>
-                                                            <div class="col-md-9 col-sm-12">
-                                                                <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="">
+                                                                    <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
+                                                                </div>
                                                                 @if(isset($data['item_type']) && $data['item_type'] != 1)   
                                                                     <?php
                                                                         $atr = 0;
                                                                     ?>
-                                                                    <span class="cart_product_specification d-block mt-2">
+                                                                    <div class="cart_product_specification d-block mt-2">
                                                                         @foreach($item->product_variant_variants as $vitem)
                                                                             <?php 
                                                                             if($atr > 0){
@@ -560,10 +564,10 @@
                                                                             {{ $vitem->attribute_term->attrterm_name }} 
                                                                             <?php $atr++; ?>
                                                                         @endforeach
-                                                                    </span>
+                                                                    </div>
                                                                     @if(isset($specifications))
                                                                         @foreach ($specifications as $specification)
-                                                                            <span class="cart_product_specification d-block mt-2">{{ $specification['key'] }}: {{ $specification['value'] }}</span>
+                                                                            <div class="cart_product_specification d-block mt-2">{{ $specification['key'] }}: {{ $specification['value'] }}</div>
                                                                         @endforeach
                                                                     @endif
                                                                 @endif
@@ -572,6 +576,8 @@
                                                                         {!! $item_terms !!}
                                                                     </div>
                                                                 @endif
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-12">
                                                                 <div class="mt-2">
                                                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                                                     <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
