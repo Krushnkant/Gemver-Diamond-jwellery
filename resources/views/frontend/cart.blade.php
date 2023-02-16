@@ -101,7 +101,7 @@
             <div class="row">
                 <!-- <div class="wire_bangle_line mb-md-5"></div> -->
                 @if(isset($cart_data) && count($cart_data))
-                    <div class="tab-content1 clearfix px-3 col-lg-8">
+                    <div class="tab-content1 clearfix col-lg-8">
                         <div class="tab-pane">
                             <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
                                 Only add inquiry
@@ -113,7 +113,7 @@
                                             <th>Product Name</th>
                                             <!-- <th>Amount</th> -->
                                             <!-- <th class="text-center">QTY</th> -->
-                                            <th>Total Amount</th>
+                                            <th>Total</th>
                                         </tr>
                                     </thead>
                                     <tbody class="">
@@ -372,7 +372,7 @@
                                     <thead>
                                         <tr class="table-active">
                                             <th class="text-center">Item Details</th>
-                                            <th style="width: 15%;">Total Amount</th>
+                                            <th style="width: 15%;">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody class="">
@@ -525,64 +525,68 @@
                                                         <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
 
                                                         <div class="row">
-                                                            <div class="col-md-2 col-sm-12 text-center">
+                                                            <div class="col-md-2 col-4 text-center">
                                                                 <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}" class="cart-item-img">
                                                             </div>
-                                                            <div class="col-md-7 col-sm-12">
-                                                                <div class="">
-                                                                    <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
-                                                                </div>
-                                                                @if(isset($data['item_type']) && $data['item_type'] != 1)   
-                                                                    <?php
-                                                                        $atr = 0;
-                                                                    ?>
-                                                                    <div class="cart_product_specification d-block mt-2">
-                                                                        @foreach($item->product_variant_variants as $vitem)
-                                                                            <?php 
-                                                                            if($atr > 0){
-                                                                                echo ' | '; 
-                                                                            } 
+                                                            <div class="col-md-10 col-8">
+                                                                <div class="row">
+                                                                    <div class="col-md-7 col-sm-12">
+                                                                        <div class="">
+                                                                            <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
+                                                                        </div>
+                                                                        @if(isset($data['item_type']) && $data['item_type'] != 1)   
+                                                                            <?php
+                                                                                $atr = 0;
                                                                             ?>
-                                                                            {{ $vitem->attribute_term->attrterm_name }} 
-                                                                            <?php $atr++; ?>
-                                                                        @endforeach
+                                                                            <div class="cart_product_specification d-block mt-1">
+                                                                                @foreach($item->product_variant_variants as $vitem)
+                                                                                    <?php 
+                                                                                    if($atr > 0){
+                                                                                        echo ' | '; 
+                                                                                    } 
+                                                                                    ?>
+                                                                                    {{ $vitem->attribute_term->attrterm_name }} 
+                                                                                    <?php $atr++; ?>
+                                                                                @endforeach
+                                                                            </div>
+                                                                            @if(isset($specifications))
+                                                                                @foreach ($specifications as $specification)
+                                                                                    <div class="cart_product_specification d-block mt-1">{{ $specification['key'] }}: {{ $specification['value'] }}</div>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        @endif
+                                                                        @if(isset($data['item_type']) && $data['item_type'] == 1)
+                                                                            <div class="cart_product_specification">
+                                                                                {!! $item_terms !!}
+                                                                            </div>
+                                                                        @endif
+                                                                        @if($data['item_type'] !== 2)
+                                                                            <div class="mt-2">
+                                                                                <a class="delete_cart_data">
+                                                                                    <i class="fa fa-trash"></i> Remove
+                                                                                </a>
+                                                                            </div>
+                                                                        @endif
                                                                     </div>
-                                                                    @if(isset($specifications))
-                                                                        @foreach ($specifications as $specification)
-                                                                            <div class="cart_product_specification d-block mt-2">{{ $specification['key'] }}: {{ $specification['value'] }}</div>
-                                                                        @endforeach
-                                                                    @endif
-                                                                @endif
-                                                                @if(isset($data['item_type']) && $data['item_type'] == 1)
-                                                                    <div class="cart_product_specification">
-                                                                        {!! $item_terms !!}
+                                                                    <div class="col-md-5 col-sm-12">
+                                                                    <div class="">
+                                                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                                                        <span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
                                                                     </div>
-                                                                @endif
-                                                                @if($data['item_type'] !== 2)
-                                                                    <div class="mt-2">
-                                                                        <a class="delete_cart_data">
-                                                                            <i class="fa fa-trash"></i> Remove
-                                                                        </a>
+                                                                    <div class="wire_bangle_input mt-1">
+                                                                        <div class="wire_bangle_number number-input">
+                                                                            <button  class="sp-minus"></button>
+                                                                            <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
+                                                                            <button  class="plus sp-plus "></button>
+                                                                        </div>
                                                                     </div>
-                                                                @endif
-                                                            </div>
-                                                            <div class="col-md-3 col-sm-12">
-                                                                <div class="">
-                                                                    <i class="fa fa-usd" aria-hidden="true"></i>
-                                                                    <span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
-                                                                </div>
-                                                                <div class="wire_bangle_input mt-2">
-                                                                    <div class="wire_bangle_number number-input">
-                                                                        <button  class="sp-minus"></button>
-                                                                        <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
-                                                                        <button  class="plus sp-plus "></button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         @if($data['item_type'] == 2)
-                                                            <div class="row mb-4">
+                                                            <div class="row mt-4">
                                                                 <div class="col-md-2 col-sm-12 text-center">
                                                                     <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}" class="cart-item-img">
                                                                 </div>
@@ -590,7 +594,7 @@
                                                                     <div class="">
                                                                         <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
                                                                     </div>
-                                                                    <div class="cart_product_specification d-block">
+                                                                    <div class="cart_product_specification d-block mt-1">
                                                                         {!! $diamond_terms !!}
                                                                     </div>
                                                                     <div class="mt-2">

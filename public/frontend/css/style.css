@@ -4689,7 +4689,6 @@ width: 100%;
     .my_cart_table thead th,
     .my_cart_table tbody td {
         text-align: center;
-        vertical-align: middle;
         border-left: 0;
         border-right: 0;
         box-shadow: none;
