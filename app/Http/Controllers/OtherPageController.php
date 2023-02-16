@@ -112,7 +112,7 @@ class OtherPageController extends Controller
     public function finejewellery(){
         $MenuPage = MenuPage::with('menupageshapestyle.category','section31_category','section32_category','section33_category')->where('id',4)->first();
         $faqs = Faq::whereRaw('FIND_IN_SET(4,menu_page_ids)')->get();
-        return view('frontend.finejewellery',compact('MenuPage','faqs'));
+        return view('frontend.finejewellery',compact('MenuPage','faqs'))->with(['meta_title'=>$MenuPage->meta_title,'meta_description'=>$MenuPage->meta_description]);
     }
 
     public function custommadejewellery(){
