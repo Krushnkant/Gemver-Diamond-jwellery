@@ -9,6 +9,6 @@ class TermConditionController extends Controller
     public function index(){
         $Infopage= Infopage::first();
         //dd($Infopage);
-        return view('frontend.termcondition',compact('Infopage'));
+        return view('frontend.termcondition',compact('Infopage'))->with(['meta_title'=>$Infopage->terms_condition_meta_title,'meta_description'=>$Infopage->terms_condition_meta_description]);
     }
 }

@@ -68,8 +68,8 @@
         CKEDITOR.config.height = '300';
         $.get("{{ url('admin/infopage/aboutus/edit') }}", function (data) {
             CKEDITOR.instances['returns_days_contant'].setData(data.return_days);
-            $('#meta_title').val(data.returns_days_meta_title);
-            $('#meta_description').val(data.returns_days_meta_description);
+            $('#meta_title').val(data.return_days_meta_title);
+            $('#meta_description').val(data.return_days_meta_description);
            //$('#returns_days_contant').summernote('code', data.return_days);
         
         })

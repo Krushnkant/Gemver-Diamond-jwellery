@@ -22,7 +22,9 @@ class AuthController extends Controller
 
     public function index()
     {
-        return view('frontend.login');
+        $meta_title = "User Login";
+        $meta_description = "User Login";
+        return view('frontend.login')->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function invalid_page()
@@ -110,7 +112,9 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('frontend.register');
+        $meta_title = "User Sign Up";
+        $meta_description = "User Sign Up";
+        return view('frontend.register')->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function postRegister(Request $request)
@@ -147,7 +151,9 @@ class AuthController extends Controller
 
     public function forgetpassword()
     {
-        return view('frontend.forget_password');
+        $meta_title = "User Forget Password";
+        $meta_description = "User Forget Password";
+        return view('frontend.forget_password')->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function postForgetpassword(Request $request)
@@ -218,7 +224,9 @@ class AuthController extends Controller
 
     public function account(){
         $user = user::where('id',session('customer.id'))->first();
-        return  view('frontend.myaccount',compact('user'));
+        $meta_title = "User Account";
+        $meta_description = "User Account";
+        return  view('frontend.myaccount',compact('user'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function updateProfile(Request $request){
@@ -252,7 +260,9 @@ class AuthController extends Controller
 
     public function messagebox(){
         $user = user::where('id',session('customer.id'))->first();
-        return  view('frontend.message-box',compact('user'));
+        $meta_title = "User Message Box";
+        $meta_description = "User Message Box";
+        return  view('frontend.message-box',compact('user'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function updatePassword(Request $request){

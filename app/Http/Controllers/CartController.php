@@ -65,7 +65,9 @@ class CartController extends Controller
             $cart_data = json_decode($cookie_data, true);
         }
         $setting = Settings::first();
-        return view('frontend.cart',compact('setting'))->with('cart_data',$cart_data);
+        $meta_title = "Cart";
+        $meta_description = "Cart";
+        return view('frontend.cart',compact('setting'))->with('cart_data',$cart_data)->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function addtocart(Request $request)

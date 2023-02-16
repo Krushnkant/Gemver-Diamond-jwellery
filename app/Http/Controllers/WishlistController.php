@@ -19,7 +19,9 @@ class WishlistController extends Controller
             $cookie_data = stripslashes(Cookie::get('product_wishlist'));
             $wishlist_data = json_decode($cookie_data, true);
         }
-        return view('frontend.wishlist')->with('wishlist_data',$wishlist_data);
+        $meta_title = "Wish List";
+        $meta_description = "Wish List";
+        return view('frontend.wishlist')->with('wishlist_data',$wishlist_data)->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function addtowishlist(Request $request)
