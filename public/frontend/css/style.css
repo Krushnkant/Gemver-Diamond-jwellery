@@ -5463,6 +5463,7 @@ width: 100%;
         box-shadow: none;
         padding: 15px;
         border: 0;
+        text-align: center;
     }
 
     .table_part_product tr td {
