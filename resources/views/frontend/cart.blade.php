@@ -574,12 +574,14 @@
                                                                         {!! $item_terms !!}
                                                                     </div>
                                                                 @endif
-                                                                <a class="delete_cart_data mt-2">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
+                                                                <div class="mt-2">
+                                                                    <a class="delete_cart_data">
+                                                                        <i class="fa fa-trash"></i> Remove
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                             <div class="col-md-3 col-sm-12">
-                                                                <div class="mt-2">
+                                                                <div class="">
                                                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                                                     <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
                                                                 </div>
