@@ -527,7 +527,7 @@
                                                         <input type="hidden" class="item_type" value="{{ $data['item_type'] }}">
 
                                                         @if($data['item_type'] == 2)
-                                                            <div class="row">
+                                                            <div class="row mb-4">
                                                                 <div class="col-md-3 col-sm-12">
                                                                     <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}">
                                                                 </div>
@@ -568,20 +568,22 @@
                                                                     @endif
                                                                 @endif
                                                                 @if(isset($data['item_type']) && $data['item_type'] == 1)
-                                                                    <span class="cart_product_specification d-block">
+                                                                    <div class="cart_product_specification">
                                                                         {!! $item_terms !!}
-                                                                    </span>
+                                                                    </div>
                                                                 @endif
-                                                                <span><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                                <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
-                                                                <span class="wire_bangle_input" >
+                                                                <div class="mt-2">
+                                                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                                                    <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
+                                                                </div>
+                                                                <div class="wire_bangle_input mt-2">
                                                                     <div class="wire_bangle_number number-input">
                                                                         <button  class="sp-minus"></button>
                                                                         <input type="number" class="qty qty-input" min="1" size="1" placeholder="" onkeypress="return isNumber(event)" name="qty" id="qty" value="{{ $data['item_quantity'] }}" >
                                                                         <button  class="plus sp-plus "></button>
                                                                     </div>
-                                                                </span>
-                                                                <a class="delete_cart_data">
+                                                                </div>
+                                                                <a class="delete_cart_data mt-2">
                                                                     <i class="fa fa-trash"></i>
                                                                 </a>
                                                             </div>
