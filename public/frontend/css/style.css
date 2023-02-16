@@ -5540,10 +5540,10 @@ width: 100%;
         margin-top: 5px;
     }
 
-    .wishlist_table .cart-image {
+    /* .wishlist_table .cart-image {
         display: flex;
         padding-left: 40px;
-    }
+    } */
 
     .wishlist_table tr td {
         vertical-align: middle;

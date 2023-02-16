@@ -106,9 +106,8 @@
                         <table class="table table-bordered table-hover table_part_product wishlist_table">
                             <thead>
                                 <tr class="table-active">
-                                    <th>Product Name</th>
-                                    <th class="amount_col">Amount</th>
-                                    <th style="">Action</th>
+                                    <th>Item Details</th>
+                                    <th style="width: 40%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="">
