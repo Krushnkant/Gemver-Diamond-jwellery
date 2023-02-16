@@ -136,8 +136,9 @@ class WishlistController extends Controller
     public function deletefromwishlist(Request $request)
     {
         $variant_id = $request->input('variant_id');
-        $item_type = $request->input('item_type');
         
+        $item_type = ($request->input('item_type'))?$request->input('item_type'):0;
+
         if(session()->has('customer')){
           $wishlist_data = Wishlist::where(['user_id' => session('customer.id'),'item_id' => $variant_id,'item_type' => $item_type])->first();
           if($wishlist_data){

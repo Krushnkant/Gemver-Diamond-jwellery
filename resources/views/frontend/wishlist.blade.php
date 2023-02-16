@@ -261,10 +261,12 @@ $('.delete_wishlist_data').click(function (e) {
     e.preventDefault();
 
     var variant_id = $(this).closest(".cartpage").find('.variant_id').val();
+    var item_type = $(this).closest('.cartpage').find('.item_type').val();
 
     var data = {
         '_token': $('input[name=_token]').val(),
         "variant_id": variant_id,
+        "item_type": item_type,
     };
 
     // $(this).closest(".cartpage").remove();

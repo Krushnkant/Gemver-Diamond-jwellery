@@ -216,7 +216,7 @@
                                     </div>
                                 </div>
                                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
-                                    <a href="{{ url('/product-setting-edit/'. $CatId .'/edit') }}" class="edit_box">edit</a>
+                                    <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_box">edit</a>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 pe-0 text-end">
-                                    <a href="{{ url('/diamond-setting-edit/'. $CatId .'/edit') }}" class="edit_box">edit</a>
+                                    <a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="edit_box">edit</a>
                                 </div>
                             </div>
                         </div>
