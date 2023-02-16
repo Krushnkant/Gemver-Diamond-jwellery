@@ -4944,7 +4944,7 @@ width: 100%;
 
     .delete_cart_data {
         cursor: pointer;
-        color: red;
+        color: #c10000;
     }
 
     /* ---------------------------address ----------------------------------------- */

@@ -372,7 +372,7 @@
                                     <thead>
                                         <tr class="table-active">
                                             <th>Product Name</th>
-                                            <th style="width: 10%;">Total Amount</th>
+                                            <th style="width: 15%;">Total Amount</th>
                                         </tr>
                                     </thead>
                                     <tbody class="">
@@ -583,7 +583,7 @@
                                                             <div class="col-md-3 col-sm-12">
                                                                 <div class="">
                                                                     <i class="fa fa-usd" aria-hidden="true"></i>
-                                                                    <span class="cart-sub-total-price price_jq me-3">{{ $sale_price }}</span>
+                                                                    <span class="cart-sub-total-price price_jq">{{ $sale_price }}</span>
                                                                 </div>
                                                                 <div class="wire_bangle_input mt-2">
                                                                     <div class="wire_bangle_number number-input">
