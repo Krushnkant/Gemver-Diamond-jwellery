@@ -1331,12 +1331,17 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         } else {
                             $('#email-error').hide();
                         }
-
                         if (res.errors.mobile_no) {
                             $('#mobile_no-error').show().text(res.errors.mobile_no);
                         } else {
                             $('#mobile_no-error').hide();
                         }
+                        if (res.errors.whatsapp_number) {
+                            $('#whatsapp_number-error').show().text(res.errors.whatsapp_number);
+                        } else {
+                            $('#whatsapp_number-error').hide();
+                        }
+
                         if (res.errors.inquiry) {
                             $('#inquiry-error').show().text(res.errors.inquiry);
                         } else {
@@ -1346,6 +1351,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     if(res.status == 200){
                         $('#inquiry-error').hide();
                         $('#mobile_no-error').hide();
+                        $('#whatsapp_number-error').hide();
                         $('#email-error').hide();
                         $('#name-error').hide();
                         document.getElementById("InquiryCreateForm").reset();
@@ -1369,6 +1375,21 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 }
             });
         }
+
+        $('#exampleModal').on('hidden.bs.modal', function () {
+            $(this).find('form').trigger('reset');
+            $(this).find("#save_newInquiryBtn").removeAttr('data-action');
+            $(this).find("#save_closeInquiryBtn").removeAttr('data-action');
+            $(this).find("#save_newInquiryBtn").removeAttr('data-id');
+            $(this).find("#save_closeInquiryBtn").removeAttr('data-id');
+
+            $('#inquiry-error').hide();
+            $('#mobile_no-error').hide();
+            $('#whatsapp_number-error').hide();
+            $('#email-error').hide();
+            $('#name-error').hide();
+        });
+
     });
 </script>
 <script>

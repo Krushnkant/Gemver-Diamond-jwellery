@@ -135,7 +135,7 @@
                         $new_array = array_merge($video_array,$images_array);   
                         $image = URL($new_array['0']);
                         $sale_price = $product->sale_price;
-                        $url =  URL('/product-details/'.$product->slug); 
+                        $url =  URL('product-details/'.$product->slug); 
                         $supported_image = array(
                         'jpg',
                         'jpeg',

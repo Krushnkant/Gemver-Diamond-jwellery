@@ -8,6 +8,8 @@ class TestimonialsController extends Controller
 {
     public function index(){
         $Testimonials = Testimonial::where(['estatus' => 1])->get();
-        return view('frontend.testimonials',compact('Testimonials'));
+        $meta_title = "Testimonial";
+        $meta_description = "Testimonial";
+        return view('frontend.testimonials',compact('Testimonials'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);;
     }
 }

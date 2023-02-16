@@ -27,7 +27,7 @@ class DiamondController extends Controller
         $ProductVariantPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
-                return redirect('product_complete/'.$id); 
+                return redirect('product_complete/'.$slug); 
             }else{
                 if($cart->variant_id != 0){
                     $check_variant = 1;
@@ -68,7 +68,9 @@ class DiamondController extends Controller
        // $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
         $StepPopup = StepPopup::where(['category_id'=>$id])->get();
        // $diamond_count = Diamond::get()->count();
-        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','MaxDepth','MaxRatio','MaxTable','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
+        $meta_title = isset($Category->meta_title)?$Category->meta_title:"Custom Diamond";
+        $meta_description = isset($Category->meta_description)?$Category->meta_description:"Custom Diamond";
+        return view('frontend.diamond',compact('Category','Attributes','Maxprice','CatId','check_variant','check_variant_id','ShopBy','MaxCarat','MaxDepth','MaxRatio','MaxTable','ProductVariantPrice','StepPopup','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     } 
 
     public function getDiamonds(Request $request)
@@ -427,7 +429,7 @@ class DiamondController extends Controller
         $ProductVariantPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
-                return redirect('product_complete/'.$catid); 
+                return redirect('product_complete/'.$slug); 
             }else{
                 if($cart->variant_id != 0){
                     $check_variant = 1;
@@ -454,7 +456,9 @@ class DiamondController extends Controller
         }
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
-        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','DiamondRelated','settings','StepPopup'));
+        $meta_title = isset($Diamond->short_title)?$Diamond->short_title:"";
+        $meta_description = isset($Diamond->short_title)?$Diamond->short_title:"";
+        return view('frontend.diamond_details',compact('Diamond','Category','check_variant','CatId','ProductVariantPrice','DiamondRelated','settings','StepPopup'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function customproducts($slug,$shopbyid = 0){
@@ -468,7 +472,7 @@ class DiamondController extends Controller
         $DiamondPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
-                return redirect('product_complete/'.$id); 
+                return redirect('product_complete/'.$slug); 
             }else{
                 if($cart->diamond_id != 0){
                     $check_diamond = 1;
@@ -725,7 +729,7 @@ class DiamondController extends Controller
         $DiamondPrice = 0;
         if($cart){
             if($cart->variant_id != 0 &&  $cart->diamond_id != 0){
-                return redirect('product_complete/'.$catid); 
+                return redirect('product_complete/'.$category->slug); 
             }else{
                 if($cart->diamond_id != 0){
                     $check_diamond = 1;
@@ -808,7 +812,9 @@ class DiamondController extends Controller
         // $diamondpolish = Diamond::whereNotNull('Polish')->Where('Polish','<>','')->groupBy('Polish')->pluck('Polish');
         // $diamondsymm = Diamond::whereNotNull('Symm')->Where('Symm','<>','')->groupBy('Symm')->pluck('Symm');
         // $diamondreport = Diamond::groupBy('Lab')->pluck('Lab');
-        return view('frontend.laddiamond',compact('shap','fancycolor','Maxprice','MaxCarat','MaxDepth','MaxRatio','MaxTable','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'));
+        $meta_title = $shap." Lab Grown Diamonds ";
+        $meta_description = $shap." Lab Grown Diamonds";
+        return view('frontend.laddiamond',compact('shap','fancycolor','Maxprice','MaxCarat','MaxDepth','MaxRatio','MaxTable','MaxMeasLength','MaxMeasWidth','MaxMeasDepth'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function getLadDiamonds(Request $request)
@@ -1158,7 +1164,9 @@ class DiamondController extends Controller
         }
         //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
         $settings = Settings::first();
-        return view('frontend.laddiamond_details',compact('Diamond','Category','DiamondRelated','settings'));
+        $meta_title = isset($Diamond->short_title)?$Diamond->short_title:"";
+        $meta_description = isset($Diamond->short_title)?$Diamond->short_title:"";
+        return view('frontend.laddiamond_details',compact('Diamond','Category','DiamondRelated','settings'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     

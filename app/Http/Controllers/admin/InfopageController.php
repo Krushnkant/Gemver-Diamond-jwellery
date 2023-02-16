@@ -619,6 +619,8 @@ class InfopageController extends Controller
             return response()->json(['status' => '400']);
         }
         $Infopages->learn_about_lab_made_diamonds = $request->learn_about_lab_made_diamonds_contant;
+        $Infopages->learn_about_lab_made_diamonds_meta_title = $request->meta_title;
+        $Infopages->learn_about_lab_made_diamonds_meta_description = $request->meta_description;
 
         $Infopages->save();
         return response()->json(['status' => '200','Infopages' => $Infopages]);

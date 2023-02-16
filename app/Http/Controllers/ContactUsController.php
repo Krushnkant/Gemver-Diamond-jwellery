@@ -23,7 +23,9 @@ class ContactUsController extends Controller
         $settings = Settings::first();
         $products= Product::select('products.*','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1])->groupBy('products.id')->orderBy('products.created_at', 'DESC')->limit(12)->get();
         $SmilingDifference = SmilingDifference::get();
-        return view('frontend.contactus',compact('settings','products','SmilingDifference'));
+        $meta_title = "Contact Us";
+        $meta_description = "Contact Us";
+        return view('frontend.contactus',compact('settings','products','SmilingDifference'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);;
     }
 
     public function save(Request $request){
@@ -66,10 +68,16 @@ class ContactUsController extends Controller
         $setting = Settings::first();
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'mobile_no' => 'required',
+            'mobile_no' => 'required|regex:/^[6-9][0-9]{9}$/|digits:10',
             'email' => 'required',
             'inquiry' => 'required'
         ]);
+
+        if($request->whatsapp_number != ""){
+            $validator = Validator::make($request->all(), [
+                'whatsapp_number' => 'regex:/^[6-9][0-9]{9}$/|digits:10',
+            ]);
+        }
 
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
