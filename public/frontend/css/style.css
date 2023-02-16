@@ -4715,6 +4715,10 @@ width: 100%;
         /* width: 40%; */
     }
 
+    .cart-item-img {
+        width: 70px;
+    }
+
     /* .cart-product-name-info {
         padding-left: 0 !important;
         display: flex;

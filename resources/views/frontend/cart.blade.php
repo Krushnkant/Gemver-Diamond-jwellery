@@ -526,10 +526,10 @@
 
                                                         @if($data['item_type'] == 2)
                                                             <div class="row mb-4">
-                                                                <div class="col-md-3 col-sm-12">
-                                                                    <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}">
+                                                                <div class="col-md-2 col-sm-12 text-center">
+                                                                    <img src="{{ asset($item_image_diamond[0]) }}" alt="{!! $diamond_name !!}" class="cart-item-img">
                                                                 </div>
-                                                                <div class="col-md-9 col-sm-12">
+                                                                <div class="col-md-11 col-sm-12">
                                                                     <div class="">
                                                                         <a href="{{ $url }}" class="cart_product_name mb-2">{!! $diamond_name !!}</a>
                                                                     </div>
@@ -541,10 +541,10 @@
                                                         @endif
 
                                                         <div class="row">
-                                                            <div class="col-md-3 col-sm-12">
-                                                                <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}">
+                                                            <div class="col-md-2 col-sm-12 text-center">
+                                                                <img src="{{ asset($item_image[0]) }}" alt="{!! $item_name !!}" class="cart-item-img">
                                                             </div>
-                                                            <div class="col-md-6 col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
                                                                 <div class="">
                                                                     <a href="{{ $url }}" class="cart_product_name mb-2">{!! $item_name !!}</a>
                                                                 </div>
