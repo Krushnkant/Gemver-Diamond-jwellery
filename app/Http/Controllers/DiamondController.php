@@ -774,22 +774,23 @@ class DiamondController extends Controller
     }
 
     public function editproductsetting($catid){
+        $Category = Category::where(['estatus' => 1,'slug'=>$catid])->first();
         $ip_address = \Request::ip();
-        $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
+        $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$Category->id])->first();
         $cart->variant_id = 0;
         $cart->save();
 
-        return redirect('/product-setting/'.$catid);
+        return redirect('product-setting/'.$catid);
     }
 
     public function editdiamondsetting($catid){
-
+        $Category = Category::where(['estatus' => 1,'slug'=>$catid])->first();
         $ip_address = \Request::ip();
-        $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$catid])->first();
+        $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$Category->id])->first();
         $cart->diamond_id = 0;
         $cart->save();
 
-        return redirect('/diamond-setting/'.$catid);
+        return redirect('diamond-setting/'.$catid);
     }
 
     public function laddiamond($shap = "",$fancycolor = "")
