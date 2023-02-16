@@ -674,7 +674,7 @@ class DiamondController extends Controller
                                             </span>';
                                         $ia++;    
                                     }
-                                    $artilces .= '</div>';
+                                    $artilces .= '</div></span>';
                                 
                                 }
                             }
@@ -700,7 +700,7 @@ class DiamondController extends Controller
                                 }
                                 $artilces.='</div>';
 
-                                $artilces.=' </span>
+                                $artilces.='
                                 </div>
                             </div>
                         </div>
