@@ -69,8 +69,8 @@
         CKEDITOR.config.height = '300';
         $.get("{{ url('admin/terms_condition/terms_condition/edit') }}", function (data) {
             CKEDITOR.instances['terms_condition_contant'].setData(data.terms_condition);
-            $('#meta_title').val(data.returns_days_meta_title);
-            $('#meta_description').val(data.returns_days_meta_description);
+            $('#meta_title').val(data.terms_condition_meta_title);
+            $('#meta_description').val(data.terms_condition_meta_description);
            //$('#terms_condition_contant').summernote('code', data.terms_condition);
         
         })
