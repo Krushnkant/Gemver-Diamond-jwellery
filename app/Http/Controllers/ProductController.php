@@ -222,6 +222,33 @@ class ProductController extends Controller
                         $image_no++;
                         }
                         $output .= ' </div><div class="wire_bangle_description p-3">';
+
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
+                            foreach($ProductVariantVariant as $productvariants){
+                                if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                            
+                                    $output .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">';
+                                
+                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$row->id)->groupBy('attribute_term_id')->get();
+                                    $ia = 1;
+                                    
+                                    foreach($product_attribute as $attribute_term){
+
+                                        $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
+                                    
+                                        $output .= '<span class="form-check d-inline-block">
+                                            <a href="'.$attributeurl.'">
+                                            
+                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->display_attrname .'"  class="wire_bangle_color_img pe-auto">
+                                            </a>
+                                            <div class="wire_bangle_color_input_label"></div>
+                                        </span>';
+                                        $ia++;    
+                                    }
+                                    $output .= '</div></span>';
+                                
+                                }
+                            }
                         
                             $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'
                             <input type="hidden" class="variant_id" value="'. $row->variant_id .'">    
@@ -242,37 +269,9 @@ class ProductController extends Controller
                                 <span class="wire_bangle_price wire_bangle_price_part">
                                 $'.$sale_price .'</span>';
                                 if($row->regular_price != ""){
-                                $output.='<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">'. $row->regular_price .'</span></span>';
+                                    $output.='<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">'. $row->regular_price .'</span></span>';
                                 }
                                 $output.='</div>';
-
-                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
-                                foreach($ProductVariantVariant as $productvariants){
-                                if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
-                            
-                                $output .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part d-inline-block"><div class="wire_bangle_color_part">';
-                                
-                                    $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$row->id)->groupBy('attribute_term_id')->get();
-                                    $ia = 1;
-                                    
-                                    foreach($product_attribute as $attribute_term){
- 
-                                        $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
-                                    
-                                         $output .= '<span class="form-check d-inline-block">
-                                            <a href="'.$attributeurl.'">
-                                            
-                                            <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->display_attrname .'"  class="wire_bangle_color_img pe-auto">
-                                            </a>
-                                            <div class="wire_bangle_color_input_label"></div>
-                                        </span>';
-                                    $ia++;    
-                                }
-                                $output .= '</div></span>';
-                                
-                                    } 
-                                } 
-                                
                                 $output .= ' </div>
                         </div>
                     </div>

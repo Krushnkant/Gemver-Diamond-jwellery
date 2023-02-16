@@ -312,7 +312,7 @@
                         <span class="ms-2 d-sm-inline-block">Search</span>
                     </button>
                 </div>
-                <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
+                <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end">
                     <span class="wire_bangle_select text-start wire_bangle_shop wire_bangle_select_box_sort select_box_option ">
                         <select class="form-control" name="sorting" id="sorting" class="">
                             <option value="">default sorting</option>
