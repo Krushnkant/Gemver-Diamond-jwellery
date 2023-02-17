@@ -1,7 +1,25 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+<?php 
+$banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image : $MenuPage->banner_image; 
+?>
 
+<div class="engagement_bg_slider" style="background: url(<?php echo 'images/aboutus/'.$banner_img; ?>);">
+    <div class="container">
+        <div class="engagement-slider-sub-text px-3">
+            <h1 class="custom_made_heading">{{ $MenuPage->main_title }}</h1>
+            <p class="custom_engagement_paragrph">
+                {{ $MenuPage->main_shotline }}
+            </p>
+            <div class="">
+                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{--
 <div class="engagement_bg_slider">
     <div class="d-block d-md-none mobile-view-img">  
         <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
@@ -31,6 +49,7 @@
         </div>
     </div> -->
 </div>
+--}}
 
 <div class="container">
     <div class="choose_your_setting_section wedding_bands_section">

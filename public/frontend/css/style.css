@@ -5613,6 +5613,10 @@ width: 100%;
 
     .engagement_bg_slider {
         position: relative;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        padding: 70px 0;
+        background-position: center center !important;
     }
 
     .engagement_text_part {
@@ -5647,13 +5651,13 @@ width: 100%;
     .engagement_start_setting {
         background: var(--primary) !important;
         border-radius: 7px;
-        font-weight: 500;
-        font-size: 15px;
+/*        font-weight: 500;*/
+        font-size: 16px;
         letter-spacing: 0.05em;
         color: #FFFFFF !important;
         min-width: 240px;
         border: 0;
-        padding: 10px 0;
+        padding: 15px 40px;
         text-align: center;
         margin-right: 15px;
     }
@@ -5753,21 +5757,21 @@ width: 100%;
     .custom_made_heading {
         font-weight: 600;
         font-size: 30px;
-        line-height: 35px;
         letter-spacing: 0.05em;
         color: var(--primary);
         font-family: 'Poppins', sans-serif;
         /* text-align: center; */
+        margin-bottom: 15px;
     }
 
     .custom_engagement_paragrph {
         font-weight: 400;
-        font-size: 16px;
+        font-size: 18px;
         /* text-align: center; */
         letter-spacing: 0.05em;
         color: #808080;
         max-width: auto;
-        margin: auto;
+        /*margin: auto;*/
     }
 
     .custom_made_paragraph {
@@ -7022,10 +7026,11 @@ width: 100%;
     } */
 
     .engagement-slider-sub-text {
-        position: absolute;
+        /*position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        left: 30%;
+        left: 30%;*/
+        padding: 150px 0;
     }
 
     .engagement-heading {
@@ -7041,6 +7046,7 @@ width: 100%;
         max-width: 600px;
         color: #000;
         /* text-align: center; */
+        margin-bottom: 40px;
     }
 
     .engagement-slider-sub-text .engagement-paragraph {
