@@ -5526,9 +5526,11 @@ width: 100%;
     }
 
     a.size-guide-text {
-        color: #7ab4ef;
+        color: #6186ab;
+    }
+
+    a.size-guide-text:hover {
         border-bottom: 1px solid;
-        padding-bottom: 2px;
     }
 
     .move_to_cart_btn:hover,
