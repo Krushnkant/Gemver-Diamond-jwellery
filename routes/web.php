@@ -43,6 +43,8 @@ Route::get('/clear-cache', function() {
 
 //Frontend Route
 
+Route::view('/sitemap.xml', 'frontend.sitemap');
+
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('/home',[HomeController::class,'index1'])->name('frontend.home');
 Route::get('/home1',[HomeController::class,'index2'])->name('frontend.home');
