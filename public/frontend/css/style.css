@@ -5525,6 +5525,12 @@ width: 100%;
         margin-left: 10px;
     }
 
+    a.size-guide-text {
+        color: #7ab4ef;
+        border-bottom: 1px solid;
+        padding-bottom: 2px;
+    }
+
     .move_to_cart_btn:hover,
     .remove_btn:hover {
         background: #F1F1F1 !important;
@@ -5651,7 +5657,7 @@ width: 100%;
     .engagement_start_setting {
         background: var(--primary) !important;
         border-radius: 7px;
-/*        font-weight: 500;*/
+        /*        font-weight: 500;*/
         font-size: 16px;
         letter-spacing: 0.05em;
         color: #FFFFFF !important;

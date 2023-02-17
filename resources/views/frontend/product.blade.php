@@ -195,11 +195,13 @@
                                 ?>
                             </div>
                             @if($Product->sizechart_image != "")
-                                <div class="portfolio-slides">
-                                    <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}">
-                                    Show Size Chart
+                            <div class="row-images" id="slick-lightbox">
+                                <div class="item">
+                                    <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" class="size-guide-text" target="_blank">
+                                        Size Guide
                                     </a>
                                 </div>
+                            </div>
                             @endif
                             <!-- @if($Product->design_number != "")
                             <div class="row">
@@ -241,15 +243,6 @@
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                         </div>
-                        @if($Product->sizechart_image != "")
-                        <div class="row-images" id="slick-lightbox">
-                            <div class="item">
-                                <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" target="_blank">
-                                    Show Size Chart
-                                </a>
-                            </div>
-                        </div>
-                        @endif
                         
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">

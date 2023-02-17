@@ -1398,7 +1398,7 @@
     }
 
     .header ul li .mega-menu li a {
-        padding: 8px 30px;
+        padding: 8px 10px 8px 25px;
         border: 0;
     }
 
@@ -1409,7 +1409,7 @@
     .header ul li .mega-menu li .menus_title,
     .header ul li .mega-menu .menus_title {
         font-size: 15px;
-        padding: 8px 30px;
+        padding: 8px 25px;
     }
 
     /* .background-smoke-slider {
@@ -2493,7 +2493,7 @@
     .choose_your_setting_box .engagement_start_diamond,
     .choose_your_setting_box .engagement_start_setting {
         min-width: auto;
-/*        height: 37px;*/
+        /*        height: 37px;*/
         padding: 11px 19px;
         margin-bottom: 10px;
         min-width: 220px;
@@ -2627,6 +2627,7 @@
     .engagement_bg_slider {
         padding: 45px 0;
     }
+
     .custom_made_heading {
         font-size: 20px;
         line-height: normal;
