@@ -198,7 +198,7 @@
                             <div class="row-images" id="slick-lightbox">
                                 <div class="item">
                                     <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" class="size-guide-text" target="_blank">
-                                        Size Guide
+                                        <i class="fa fa-ruler-horizontal"></i> &nbsp; Size Guide
                                     </a>
                                 </div>
                             </div>
