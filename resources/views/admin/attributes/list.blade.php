@@ -97,14 +97,14 @@
                         <div class="form-group" id="is_filter_div">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" id="is_filter" class="form-check-input" value="0" name="is_filter">Add to Filter ?
+                                    <input type="checkbox" id="is_filter" class="form-check-input" value="0" name="is_filter"> Add to Filter 
                                 </label>
                             </div>
                         </div>
                         <div class="form-group" id="is_dropdown_div" style="display:none;">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" id="is_dropdown" class="form-check-input" value="0"  name="is_dropdown">Use Dropdown ?
+                                    <input type="checkbox" id="is_dropdown" class="form-check-input" value="0"  name="is_dropdown"> Display as Select Box 
                                 </label>
                             </div>
                         </div>

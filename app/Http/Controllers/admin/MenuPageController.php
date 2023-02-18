@@ -7,6 +7,7 @@ use App\Models\MenuPage;
 use App\Models\Category;
 use App\Models\MenuPageShapeStyle;
 use App\Models\Product;
+use App\Models\CustomPage;
 use App\Models\FooterPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -1316,11 +1317,12 @@ class MenuPageController extends Controller
 
     public function footerpage()
     {
+        $custompages = CustomPage::where(['estatus' => 1])->get();
         $footerpage = FooterPage::where(['page_id' =>1])->get();
         $footerpage2 = FooterPage::where(['page_id' =>2])->get();
         $footerpage3 = FooterPage::where(['page_id' =>3])->get();
         $categories = Category::select('category_name',"slug")->where(['estatus' => 1,'is_custom' =>0])->orderBy('created_at','DESC')->get();
-        return view('admin.menupage.footerset',compact('categories','footerpage','footerpage2','footerpage3'))->with('page',"Footer Page");
+        return view('admin.menupage.footerset',compact('categories','footerpage','footerpage2','footerpage3','custompages'))->with('page',"Footer Page");
     }
 
     public function category(){

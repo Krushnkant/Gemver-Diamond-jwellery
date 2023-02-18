@@ -71,6 +71,8 @@ Route::get('infopage/diamond-anatomy',[OtherPageController::class,'diamondanatom
 Route::get('infopage/learn-about-lab-made-diamonds',[OtherPageController::class,'learnaboutlabmadediamonds'])->name('frontend.learnaboutlabmadediamonds');
 Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
 
+Route::get('info/{slug}',[OtherPageController::class,'custompage'])->name('frontend.custompage');
+
 
 // Route::view('engagement','frontend.engagement');
 // Route::view('finejewellery','frontend.finejewellery');
@@ -315,12 +317,21 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('chagetrustedbystatus/{id}',[\App\Http\Controllers\admin\TrustedByController::class,'chagetrustedbystatus'])->name('trustedby.chagetrustedbystatus');
 
     Route::get('sizechart',[\App\Http\Controllers\admin\SizeChartController::class,'index'])->name('sizechart.list');
-Route::get('sizechart/create',[\App\Http\Controllers\admin\SizeChartController::class,'create'])->name('sizechart.add');
-Route::post('addorupdatesizechart',[\App\Http\Controllers\admin\SizeChartController::class,'addorupdatesizechart'])->name('sizechart.addorupdatesizechart');
-Route::post('allsizechartslist',[\App\Http\Controllers\admin\SizeChartController::class,'allsizechartlist'])->name('allsizechartslist');
-Route::get('sizechart/{id}/edit',[\App\Http\Controllers\admin\SizeChartController::class,'editsizechart'])->name('sizechart.edit');
-Route::get('sizechart/{id}/delete',[\App\Http\Controllers\admin\SizeChartController::class,'deletesizechart'])->name('sizechart.delete');
-Route::get('chagesizechartstatus/{id}',[\App\Http\Controllers\admin\SizeChartController::class,'chagesizechartstatus'])->name('sizechart.chagesizechartstatus');
+    Route::get('sizechart/create',[\App\Http\Controllers\admin\SizeChartController::class,'create'])->name('sizechart.add');
+    Route::post('addorupdatesizechart',[\App\Http\Controllers\admin\SizeChartController::class,'addorupdatesizechart'])->name('sizechart.addorupdatesizechart');
+    Route::post('allsizechartslist',[\App\Http\Controllers\admin\SizeChartController::class,'allsizechartlist'])->name('allsizechartslist');
+    Route::get('sizechart/{id}/edit',[\App\Http\Controllers\admin\SizeChartController::class,'editsizechart'])->name('sizechart.edit');
+    Route::get('sizechart/{id}/delete',[\App\Http\Controllers\admin\SizeChartController::class,'deletesizechart'])->name('sizechart.delete');
+    Route::get('chagesizechartstatus/{id}',[\App\Http\Controllers\admin\SizeChartController::class,'chagesizechartstatus'])->name('sizechart.chagesizechartstatus');
+
+    Route::get('custompage',[\App\Http\Controllers\admin\CustomPageController::class,'index'])->name('custompage.list');
+    Route::get('custompage/create',[\App\Http\Controllers\admin\CustomPageController::class,'create'])->name('custompage.add');
+    Route::post('addorupdatecustompage',[\App\Http\Controllers\admin\CustomPageController::class,'addorupdatecustompage'])->name('custompage.addorupdatecustompage');
+    Route::post('allcustompagelist',[\App\Http\Controllers\admin\CustomPageController::class,'allcustompagelist'])->name('allcustompagelist');
+    Route::get('custompage/{id}/edit',[\App\Http\Controllers\admin\CustomPageController::class,'editcustompage'])->name('custompage.edit');
+    Route::get('custompage/{id}/delete',[\App\Http\Controllers\admin\CustomPageController::class,'deletecustompage'])->name('custompage.delete');
+    Route::get('chagecustompagestatus/{id}',[\App\Http\Controllers\admin\CustomPageController::class,'chagecustompagestatus'])->name('custompage.chagecustompagestatus');
+    Route::get('custompage/createSlug/{title}',[\App\Http\Controllers\admin\CategoryController::class,'createSlug'])->name('custompage.createSlug');
 
     Route::get('suggestions',[\App\Http\Controllers\admin\SuggestionController::class,'index'])->name('suggestions.list');
     Route::post('allSuggestionslist',[\App\Http\Controllers\admin\SuggestionController::class,'allSuggestionslist'])->name('allSuggestionslist');
