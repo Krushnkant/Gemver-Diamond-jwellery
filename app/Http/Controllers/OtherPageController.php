@@ -128,6 +128,57 @@ class OtherPageController extends Controller
         return view('frontend.custompage',compact('custompage'))->with(['meta_title'=>$custompage->meta_title,'meta_description'=>$custompage->meta_description]);
     }
 
+    public function sizeremove(){
+        //$products= Product::where('id',215)->get();
+        $products= Product::whereBetween('id', [31, 60])->get();
+        $ProductVariantVariantsdeletesize = \App\Models\ProductVariantVariant::whereIn('attribute_id',[3,4])->forceDelete();
+        //dd($products);
+        foreach($products as $product){
+            $productattributes = \App\Models\ProductAttribute::where('product_id',$product->id)->where('use_variation',1)->whereIn('attribute_id',[3,4])->get();
+            if(count($productattributes) > 0){
+                foreach($productattributes as $productattribute){
+                    $PAttribute = \App\Models\ProductAttribute::find($productattribute->id);
+                    $PAttribute->use_variation = 0;
+                    $PAttribute->save();
+                }
+
+            }
+            $array = [];
+            $ProductVariants = \App\Models\ProductVariant::where('product_id',$product->id)->get()->pluck('id');
+            foreach($ProductVariants as $ProductVariant){
+                $ProductVariantVariants = \App\Models\ProductVariantVariant::where('product_id',$product->id)->where('attribute_id','<>',3)->where('attribute_id','<>',4)->where('product_variant_id',$ProductVariant)->get()->pluck('attribute_term_id')->toArray();
+                //dd(implode("-",$ProductVariantVariants));
+                $ProductVariantrr = \App\Models\ProductVariant::find($ProductVariant);
+                $ProductVariantrr->testids = implode("-",$ProductVariantVariants);
+                $ProductVariantrr->save();
+                $array[] = implode("-",$ProductVariantVariants);
+            }
+        
+            $ProductVariantg = \App\Models\ProductVariant::where('product_id',$product->id)->groupby('testids')->get()->pluck('id');
+            
+            $ProductVariantgd = \App\Models\ProductVariant::where('product_id',$product->id)->whereNotIn('id', $ProductVariantg)->forceDelete();
+            $ProductVariantgd = \App\Models\ProductVariantVariant::where('product_id',$product->id)->whereNotIn('product_variant_id', $ProductVariantg)->forceDelete();
+        }
+
+    } 
+
+
+    public function deleteterm(){
+        $AttributeTerms = \App\Models\AttributeTerm::withTrashed()->where('estatus',3)->get()->pluck('id');
+        $array = [];
+        foreach($AttributeTerms as $AttributeTerm){
+            $ProductVariantVariants = \App\Models\ProductVariantVariant::where('attribute_term_id',$AttributeTerm)->get()->pluck('product_variant_id')->toArray();
+            foreach($ProductVariantVariants as $ProductVariantVariant){
+                //$array[] =  $ProductVariantVariant;
+                $ProductVariantgd = \App\Models\ProductVariant::where('id',$ProductVariantVariant)->forceDelete();
+                $ProductVariantgd1 = \App\Models\ProductVariantVariant::where('product_variant_id',$ProductVariantVariant)->forceDelete();
+
+            }
+        }
+    } 
+
+    
+
     
 
    
