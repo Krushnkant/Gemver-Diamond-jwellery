@@ -72,6 +72,8 @@ Route::get('infopage/learn-about-lab-made-diamonds',[OtherPageController::class,
 Route::get('infopage/conflict-free-diamonds',[OtherPageController::class,'conflictfreediamonds'])->name('frontend.conflictfreediamonds');
 
 Route::get('info/{slug}',[OtherPageController::class,'custompage'])->name('frontend.custompage');
+Route::get('sizeremove',[OtherPageController::class,'sizeremove'])->name('frontend.sizeremove');
+Route::get('deleteterm',[OtherPageController::class,'deleteterm'])->name('frontend.deleteterm');
 
 
 // Route::view('engagement','frontend.engagement');
