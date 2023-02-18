@@ -687,6 +687,15 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 12
         ]);
 
+        ProjectPage::create([
+            'id' => 68,
+            'parent_menu' => 22,
+            'label' => 'Custom Page',
+            'route_url' => 'admin.custompage.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.custompage.list,admin.custompage.addorupdate,admin.allcustompageslist,admin.custompage.changecustompagestatus,admin.custompage.edit,admin.custompage.delete',
+        ]);
+
 
         
         $users = User::where('role',"!=",1)->get();

@@ -85,6 +85,9 @@
                                             <option value="weddingbands"  >Wedding Rings</option>
                                             <option value="finejewellery"  >Fine Jewellery</option>
                                             <option value="custommadejewellery"  >Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"  >{{ $custompage->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -137,6 +140,9 @@
                                             <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
                                             <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
                                             <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"  {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }}>{{ $custompage->title }}</option>
+                                            @endforeach
                                         </select>
                                         @endif
                                     </div>
@@ -246,6 +252,9 @@
                                             <option value="weddingbands"  >Wedding Rings</option>
                                             <option value="finejewellery"  >Fine Jewellery</option>
                                             <option value="custommadejewellery"  >Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"  >{{ $custompage->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -299,6 +308,9 @@
                                             <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
                                             <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
                                             <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"  {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>
+                                            @endforeach
                                             
                                         </select>
                                         @endif
@@ -408,6 +420,9 @@
                                             <option value="weddingbands"  >Wedding Rings</option>
                                             <option value="finejewellery"  >Fine Jewellery</option>
                                             <option value="custommadejewellery"  >Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"  >{{ $custompage->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -461,6 +476,9 @@
                                             <option value="weddingbands"  {{ ($footer->value == "weddingbands") ? "selected" : "" }}>Wedding Rings</option>
                                             <option value="finejewellery"  {{ ($footer->value == "finejewellery") ? "selected" : "" }}>Fine Jewellery</option>
                                             <option value="custommadejewellery"  {{ ($footer->value == "custommadejewellery") ? "selected" : "" }}>Custom Made Jewellery</option>
+                                            @foreach($custompages as $custompage)
+                                                <option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>
+                                            @endforeach
                                         </select>
                                         @endif
                                     </div>
@@ -679,6 +697,10 @@
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
         '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+
+        ' foreach($custompages as $custompage){ '+
+            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
+        ' } '+
     
         '</select>'+
         '</div>'+
@@ -743,6 +765,10 @@
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
         '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+
+        ' foreach($custompages as $custompage){ '+
+            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
+        ' } '+
     
         '</select>'+
         '</div>'+
@@ -806,6 +832,10 @@
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
         '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+
+        ' foreach($custompages as $custompage){ '+
+            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
+        ' } '+
    
        '</select>'+
        '</div>'+

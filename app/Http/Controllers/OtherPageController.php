@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Infopage;
 use App\Models\DiamondAnatomy;
 use App\Models\MenuPage;
+use App\Models\CustomPage;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\GenverDifference;
@@ -120,6 +121,11 @@ class OtherPageController extends Controller
         $faqs = Faq::whereRaw('FIND_IN_SET(5,menu_page_ids)')->get();
         $custom_categories = Category::where(['estatus' => 1,'is_custom' =>1])->orderBy('created_at','DESC')->get();
         return view('frontend.custommadejewellery',compact('MenuPage','custom_categories','faqs'))->with(['meta_title'=>$MenuPage->meta_title,'meta_description'=>$MenuPage->meta_description]);
+    }
+
+    public function custompage($slug){
+        $custompage= CustomPage::where('slug',$slug)->first();
+        return view('frontend.custompage',compact('custompage'))->with(['meta_title'=>$custompage->meta_title,'meta_description'=>$custompage->meta_description]);
     }
 
     
