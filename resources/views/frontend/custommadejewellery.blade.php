@@ -1,7 +1,25 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+<?php 
+$banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image : $MenuPage->banner_image; 
+?>
 
+<div class="engagement_bg_slider" style="background: url(<?php echo 'images/aboutus/'.$banner_img; ?>);">
+    <div class="container">
+        <div class="engagement-slider-sub-text px-3">
+            <h1 class="custom_made_heading">{{ $MenuPage->main_title }}</h1>
+            <p class="custom_engagement_paragrph">
+                {{ $MenuPage->main_shotline }}
+            </p>
+            <div class="">
+                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{--
 <div class="engagement_bg_slider">
    
     <div class="d-block d-md-none mobile-view-img">  
@@ -34,7 +52,7 @@
    </div>
    </div>
 </div>
-
+--}}
 
 
     <?php $num = 1; ?>
@@ -44,7 +62,7 @@
         <div class="custom-made-section"> 
             <div class="container">
                 <div class="row two_part_box_section">
-                    <div class="col-md-6 ps-md-0 pe-md-4 order-1 order-md-2 mb-3 mb-md-0">
+                    <div class="col-md-6 ps-md-0 pe-md-4 order-2 order-md-1 mb-3 mb-md-0">
                         <div class="choose_your_setting_box custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -60,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 order-1 order-md-2 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
+                    <div class="col-md-6 order-1 order-md-2 design_engagemnt_image lab-diamond-img pe-md-0">
                        <div class="banner_part_img_parent">
                         <figure class="mb-0 custom-image-part">
                             <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
@@ -100,29 +118,13 @@
                         </li>
                     </ul>
                 </div>
-                    <!-- <div class="col-12 col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-2">
-                        <figure class="position-relative mb-0 me-md-2">
-                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
-                            <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
-                        </figure>
-                    </div>
-                    <div class="col-12 col-md-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-1 d-flex flex-column justify-content-between">
-                        <figure class="position-relative mb-0 image_view_column_part_1"> 
-                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
-                            <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
-                        </figure>
-                        <figure class="mb-0 position-relative image_view_column_part_2">
-                            <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img mt-0">
-                            <div class="lab_grown_diamonds_text three-lab-grown">Lab grown diamonds</div>
-                        </figure>
-                    </div> -->
                </div>
             </div>
         </div>
         @endif
 
         
-        <div class="shop_dimond_by_shape explore_diamonds_section custom-made-section custom-made-section">
+        <div class="shop_dimond_by_shape explore_diamonds_section custom-made-section">
             <div class="container">
                 <div class="mb-4 text-center ">
                     <div class="choose_your_setting_heading text-center mb-2 mb-md-3 explore_diamonds_heading">Explore Diamonds By Shape</div>
@@ -198,24 +200,19 @@
         </div>
     @else
         <?php
-
         $arr = ["Even", "Odd"];
-      
-        
-        
-        
         ?>
         @if($arr[$num % 2] == 'Even')
-        <div class=""> 
-            <div class="container custom-made-section-padding">
+        <div class="container"> 
+            <div class="custom-made-section-padding">
                 <div class="row two_part_box_section">
-                    <div class="banner_part_img_parent col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img">
+                    <div class="banner_part_img_parent col-md-6 design_engagemnt_image lab-diamond-img">
                         <figure class="mb-0 custom-image-part">
                             <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         </figure>
                     </div>
 
-                    <div class="col-md-6 order-1 ps-md-4 order-md-2 mb-3 mb-md-0">
+                    <div class="col-md-6 ps-md-4 mb-3 mb-md-0">
                         <div class="choose_your_setting_box text-start custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -240,7 +237,7 @@
             <div class="container">
                 <div class="row two_part_box_section ring-part-section">
                     
-                    <div class="col-md-6 ps-md-0 pe-md-4 mb-3 mb-md-0">
+                    <div class="col-md-6 order-2 order-md-1 ps-md-0 pe-md-4 mb-3 mb-md-0">
                         <div class="choose_your_setting_box custom-made-bg">
                             <div class="">
                                 <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -257,7 +254,7 @@
                         </div>
                     </div>
                  
-                    <div class="banner_part_img_parent col-md-6 design_engagemnt_image lab-diamond-img pe-md-0">
+                    <div class="banner_part_img_parent col-md-6 design_engagemnt_image lab-diamond-img pe-md-0 order-1 order-md-2">
                         <figure class="mb-0 custom-image-part">
                             <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         </figure>

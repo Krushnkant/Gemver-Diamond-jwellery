@@ -194,13 +194,18 @@
                                 echo $spe;
                                 ?>
                             </div>
-                            @if($Product->sizechart_image != "")
-                                <div class="portfolio-slides">
-                                    <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}">
-                                    Show Size Chart
+                            <div class="row-images mt-3 mb-4" id="slick-lightbox">
+                                <div class="item">
+                                    <a href="#" class="size-guide-text me-3" target="_blank">
+                                        <i class="far fa-heart"></i>  &nbsp; Add to Wishlist
                                     </a>
+                                    @if($Product->sizechart_image != "")
+                                        <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" class="size-guide-text mx-4" target="_blank">
+                                            <i class="fa fa-ruler-horizontal"></i> &nbsp; Size Guide
+                                        </a>
+                                    @endif
                                 </div>
-                            @endif
+                            </div>
                             <!-- @if($Product->design_number != "")
                             <div class="row">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
@@ -241,15 +246,6 @@
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                         </div>
-                        @if($Product->sizechart_image != "")
-                        <div class="row-images" id="slick-lightbox">
-                            <div class="item">
-                                <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" target="_blank">
-                                    Show Size Chart
-                                </a>
-                            </div>
-                        </div>
-                        @endif
                         
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
