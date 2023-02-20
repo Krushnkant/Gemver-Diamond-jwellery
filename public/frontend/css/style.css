@@ -6342,7 +6342,7 @@ width: 100%;
     }
 
     .engegement_ring_box_part {
-        padding: 40px 0;
+        padding: 40px 15px;
     }
 
     .engagement-section .owl-prev,
@@ -7276,7 +7276,7 @@ width: 100%;
         left: 20px;
         right: 0;
         z-index: 99;
-        font-size: 15px;
+        font-size: 14px;
         bottom: 10px;
         text-transform: capitalize;
         font-weight: 500;
