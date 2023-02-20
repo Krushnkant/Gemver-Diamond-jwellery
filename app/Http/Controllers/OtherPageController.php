@@ -130,7 +130,7 @@ class OtherPageController extends Controller
 
     public function sizeremove(){
         //$products= Product::where('id',215)->get();
-        $products= Product::whereBetween('id', [31, 60])->get();
+        $products= Product::whereBetween('id', [1, 500])->get();
         $ProductVariantVariantsdeletesize = \App\Models\ProductVariantVariant::whereIn('attribute_id',[3,4])->forceDelete();
         //dd($products);
         foreach($products as $product){
