@@ -364,7 +364,7 @@
                         </div>
                         <div class="d-flex flex-wrap">
                             <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
-                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart
+                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2" type="button" >add to cart
                                 <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>

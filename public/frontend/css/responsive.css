@@ -2051,6 +2051,15 @@
 
 @media (max-width:767px) {
 
+    .product-delivery-start,
+    .product-delivery-end {
+        margin-top: 15px;
+    }
+
+    .select_setting_btn {
+        min-width: 249px;
+    }
+
     .engagement-slider-sub-text {
         padding: 30px 0;
     }
@@ -2528,6 +2537,12 @@
 
     .round_cut_lab_range_color .form-group label {
         height: 26px;
+    }
+}
+
+@media (max-width: 540px) {
+    .select_setting_btn {
+        min-width: 164px;
     }
 }
 
