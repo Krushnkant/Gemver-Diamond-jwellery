@@ -19,40 +19,8 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
     </div>
 </div>
 
-{{--
-<div class="engagement_bg_slider">
-    <div class="d-block d-md-none mobile-view-img">  
-        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
-        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
-    </div>
-    <div class="d-none d-md-block desktop-view-img">
-            <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-    </div>
-    <div class="container">
-        <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
-            <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
-            <p class="custom_engagement_paragrph mb-3 mb-xl-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="d-flex flex-wrap">
-                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
-                <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
-            </div>
-        </div>
-    </div>
-    <!-- <div class="container engagement_text_part">
-        <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
-            <p class="engagement_paragraph mb-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-        </div>
-    </div> -->
-</div>
---}}
-
 <div class="container">
-    <div class="choose_your_setting_section wedding_bands_section">
+    <div class="row choose_your_setting_section wedding_bands_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
             Choose Your Style
         </div>
@@ -128,13 +96,13 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
 <div class="create_your_own_section custom_made_wedding_bands_section my-0">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-7 mb-4">
+            <div class="col-md-7 mt-md-0 mt-4 order-2 order-md-1">
                 <div class="text-center">
                     <div class="">
                         <div class="choose_your_setting_heading text-center text-center mb-2 mb-xl-3">
                             {{ $MenuPage->section1_title }}
                         </div>
-                        <p class="custom_engagement_paragrph custom_made_paragraph">  
+                        <p class="custom_engagement_paragrph">
                             {{ $MenuPage->section1_description }}
                         </p>
                     </div>
@@ -146,7 +114,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                     </a>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 order-1 order-md-2">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
             </div>  
         </div>

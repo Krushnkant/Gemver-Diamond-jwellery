@@ -1,56 +1,23 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-<?php 
-$banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image : $MenuPage->banner_image; 
-?>
+    <?php 
+    $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image : $MenuPage->banner_image; 
+    ?>
 
-<div class="engagement_bg_slider" style="background: url(<?php echo 'images/aboutus/'.$banner_img; ?>);">
-    <div class="container">
-        <div class="engagement-slider-sub-text px-3">
-            <h1 class="custom_made_heading">{{ $MenuPage->main_title }}</h1>
-            <p class="custom_engagement_paragrph">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="">
-                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+    <div class="engagement_bg_slider" style="background: url(<?php echo 'images/aboutus/'.$banner_img; ?>);">
+        <div class="container">
+            <div class="engagement-slider-sub-text px-3">
+                <h1 class="custom_made_heading">{{ $MenuPage->main_title }}</h1>
+                <p class="custom_engagement_paragrph">
+                    {{ $MenuPage->main_shotline }}
+                </p>
+                <div class="">
+                    <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-{{--
-<div class="engagement_bg_slider">
-   
-    <div class="d-block d-md-none mobile-view-img">  
-        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
-        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
-   </div>
-   <div class="d-none d-md-block desktop-view-img">
-        <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-   </div>
-   <div class="container">
-        <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
-            <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
-            <p class="custom_engagement_paragrph mb-3 mb-xl-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="d-flex flex-wrap">
-                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
-                <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
-            </div>
-        </div>
-   </div>
-    <!-- <div class="container engagement_text_part">
-        <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
-            <p class="engagement_paragraph mb-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-        </div>
-    </div> -->
-</div>
---}}
 
     <div class="choose-your-section"> 
         <div class="container">
@@ -86,7 +53,6 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
             </div>
         </div>
     </div>
-
 
     @if(isset($MenuPage->section51_title) && $MenuPage->section51_title != "")
     <div class="container">
@@ -138,14 +104,13 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
     </div>
     @endif
 
-
     <div class="mt-xxl-5">
         <div class="container">
             <div class="row two_part_box_section">
-                <div class="col-md-6 order-2 order-md-1 design_engagemnt_image lab-diamond-img px-0">
+                <div class="col-md-6 design_engagemnt_image lab-diamond-img px-md-0">
                     <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
                 </div> 
-                <div class="col-md-6 order-1 order-md-2 mb-3 mb-md-0 px-0">
+                <div class="col-md-6 mb-3 mb-md-0 px-md-0">
                     <div class="choose_your_setting_box text-center py-4">
                         <div class="">
                             <div class="custom_made_heading text-center mb-2 mb-xl-3">
@@ -165,36 +130,40 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
     </div>
 
     <div class="container gifts-box-padding">
-        <div class="choose_your_setting_heading text-center mb-3 mb-xl-3">{{ $MenuPage->section3_title }}</div>
-        <p class="dainty-ring-gifts-paragraph mt-3 mb-4 mb-xl-4">  
-            {{ $MenuPage->section3_description }}   
-        </p>
-        <div class="owl-carousel owl-theme gifts-slider">
-            <div class="item gifts-item">
-                <div class="banner_part_img_parent">
-                    <figure class="mb-0 custom-image-part shadow-none">
-                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="choose_your_setting_heading text-center mb-3 mb-xl-3">{{ $MenuPage->section3_title }}</div>
+                <p class="dainty-ring-gifts-paragraph mt-3 mb-4 mb-xl-4">  
+                    {{ $MenuPage->section3_description }}   
+                </p>
+                <div class="owl-carousel owl-theme gifts-slider">
+                    <div class="item gifts-item">
+                        <div class="banner_part_img_parent">
+                            <figure class="mb-0 custom-image-part shadow-none">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
+                                    <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
+                                </div>
+                            </figure>
                         </div>
-                    </figure>
-                </div>
-            </div>
-            <div class="item gifts-item">
-                 <div class="banner_part_img_parent">
-                    <figure class="mb-0 custom-image-part shadow-none">
-                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
+                    </div>
+                    <div class="item gifts-item">
+                         <div class="banner_part_img_parent">
+                            <figure class="mb-0 custom-image-part shadow-none">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
+                                    <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
+                                </div>
+                            </figure>
+                         </div>
+                    </div>
+                    <div class="item gifts-item">
+                        <div class="banner_part_img_parent">
+                            <figure class="mb-0 custom-image-part shadow-none">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
+                                    <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
+                                </div>
+                            </figure>
                         </div>
-                    </figure>
-                 </div>
-            </div>
-            <div class="item gifts-item">
-                <div class="banner_part_img_parent">
-                    <figure class="mb-0 custom-image-part shadow-none">
-                        <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
-                            <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
-                        </div>
-                    </figure>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,7 +178,6 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
             </div>
         </div> -->
-        
     </div>
 
     <div class="container choose_your_setting_faq">
@@ -231,10 +199,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
             </div>
         </div>
     </div>
-    
-
-    
- 
+     
     <script type="text/javascript">
         $(document).ready(function() {    
             $('body').on('click', '#shopProductBtn', function () {

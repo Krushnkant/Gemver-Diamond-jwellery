@@ -19,44 +19,8 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
     </div>
 </div>
 
-{{--
-<div class="engagement_bg_slider">
-    
-    <div class="d-block d-md-none mobile-view-img">  
-        <?php $mobile_view_image = ($MenuPage->banner_mobile_image)?$MenuPage->banner_mobile_image:$MenuPage->banner_image; ?>
-        <img src="{{ url('images/aboutus/'.$mobile_view_image) }}" alt="">
-    </div>
-    <div class="d-none d-md-block desktop-view-img">
-            <img src="{{ url('images/aboutus/'.$MenuPage->banner_image) }}" alt="">
-    </div>
-    <div class="container">
-        <div class="engagement-slider-sub-text px-3 mt-3 mt-lg-0">
-            <h1 class="custom_made_heading mb-3 mb-xl-4">{{ $MenuPage->main_title }}</h1>
-            <p class="custom_engagement_paragrph mb-3 mb-xl-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="d-flex flex-wrap">
-                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
-                <!-- <a href="#" class="engagement_start_diamond ">Start with Setting</a> -->
-            </div>
-        </div>
-    </div>
-    <!-- <div class="container engagement_text_part">
-        <div class="engagement_text_part">
-            <h1 class="heading-h1 engagement_heading text-start mb-3">{{ $MenuPage->main_title }}</h1>
-            <p class="engagement_paragraph mb-4">
-                {{ $MenuPage->main_shotline }}
-            </p>
-            <div class="engagement_button">
-                <button  id="settingProductBtn" class="engagement_start_diamond" data-id="{{ $MenuPage->category_id }}">{{ $MenuPage->main_first_button_name }}</button>
-                <button  class="engagement_start_setting ms-2 ms-md-3" id="settingDiamondBtn" data-id="{{ $MenuPage->category_id }}">{{ $MenuPage->main_second_button_name }}</button>
-            </div>
-        </div>
-    </div> -->
-</div>
---}}
 <div class="container">
-    <div class="choose_your_setting_section">
+    <div class="row choose_your_setting_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
             Choose Your Style
         </div> 
@@ -77,7 +41,6 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
     </div>
 </div>
 @if(isset($MenuPage->section51_title) && $MenuPage->section51_title != "")
-
 <div class="container">
         <div class="choose_your_setting_section pt-0">
             <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5 our_engagement_picks_part">
@@ -111,7 +74,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
 </div>
 @endif
 @if(count($products) > 0)
-<div class="shop_dimond_by_shape1 choose_your_setting_section pt-0">
+    <div class="shop_dimond_by_shape1 choose_your_setting_section pt-0">
         <div class="container">
             <div class="">
                 <div class="choose_your_setting_heading text-center mb-2 mb-lg-3">{{ $MenuPage->section2_title }}</div>
@@ -254,7 +217,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
 @endif
 <div class="container engegement_ring_box_part pt-0 pb-0">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-3 mb-md-0 pe-md-4 text-start">
+        <div class="col-md-6 mb-3 mb-md-0 pe-md-4 text-start order-2 order-md-1">
             <div class="choose_your_setting_box text-start custom-bg-remove">
                 <div class="">
                     <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -270,7 +233,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 </div>
             </div>
         </div>
-        <div class="col-md-6 design_engagemnt_image">
+        <div class="col-md-6 design_engagemnt_image order-1 order-md-2">
            <div class="custom-image-part">
                 <img src="{{ url('images/aboutus/'.$MenuPage->section1_image) }}" alt="">
            </div>
@@ -350,7 +313,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
 
 <div class="container gift-box-margin">
     <div class="row two_part_box_section">
-        <div class="col-md-6 mb-md-0 px-0 px-md-3 ps-md-4 text-start order-2">
+        <div class="col-md-6 mb-md-0 ps-md-4 text-start order-2">
             <div class="choose_your_setting_box text-start custom-bg-remove">
                 <div class="">
                     <div class="custom_made_heading text-start mb-2 mb-xl-3">
@@ -365,7 +328,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 </div>
             </div>
         </div>
-        <div class="col-md-6 design_engagemnt_image px-0 px-md-3 mt-3 mt-md-0 order-1">
+        <div class="col-md-6 design_engagemnt_image mt-3 mt-md-0 order-1">
             <div class="custom-image-part"> 
                 <img src="{{ url('images/aboutus/'.$MenuPage->section4_image) }}" alt="">
             </div>
@@ -392,48 +355,6 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
         </div>
     </div>
 </div>
-
-
-    <!-- <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Accordion Item #1
-            </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Accordion Item #2
-            </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Accordion Item #3
-            </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-            </div>
-            </div>
-        </div>
-        </div> -->
-
-
 
 <script type="text/javascript">
 $(document).ready(function() {    

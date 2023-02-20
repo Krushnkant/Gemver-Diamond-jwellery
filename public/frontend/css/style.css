@@ -6989,7 +6989,8 @@ width: 100%;
     }
 
     .ready-to-ship-section {
-        padding: 70px 0;
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
 
     .engagement-section {
@@ -6998,7 +6999,8 @@ width: 100%;
     }
 
     .gifts-box-padding {
-        padding: 70px 0;
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
 
     .choose-your-section {
@@ -7146,16 +7148,17 @@ width: 100%;
         width: 100%;
         text-align: left;
         margin: 5px 0;
-        font-weight: 600;
+        font-weight: 500;
         position: relative;
         border-bottom: 1px #eee solid;
         border-radius: 0;
+        font-size: 16px;
     }
 
     .choose_your_setting_faq p {
         padding: 8px 0;
         margin-bottom: 0;
-        font-size: 15px;
+        font-size: 16px;
         color: #818181;
     }
 
