@@ -2051,6 +2051,17 @@
 
 @media (max-width:767px) {
 
+    .order-includes-sections {
+        padding: 40px 25px;
+        background-size: cover;
+        background-position: left;
+    }
+
+    .order-content-box {
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
     .product-delivery-start,
     .product-delivery-end {
         margin-top: 15px;
@@ -2553,16 +2564,6 @@
 }
 
 @media (max-width:575px) {
-    .order-includes-sections {
-        padding: 40px 25px;
-        background-size: cover;
-        background-position: left;
-    }
-
-    .order-content-box {
-        padding: 25px;
-        background-color: rgba(255, 255, 255, 0.5);
-    }
 
     .about_us_sub_heading {
         font-size: 24px;
