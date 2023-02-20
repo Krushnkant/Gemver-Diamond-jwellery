@@ -7,7 +7,7 @@ $settings = \App\Models\Settings::first();
 
 <head>
     <!-- Required meta tags -->
-    <title>{{ $settings->company_name }}  {{  isset($meta_title) ? " | ".$meta_title:"" }}</title>
+    <title>{{ isset($meta_title) ? $meta_title : $settings->company_name }}</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ URL('images/company/'.$settings->company_favicon) }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
