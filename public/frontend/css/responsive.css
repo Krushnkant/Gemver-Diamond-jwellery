@@ -440,8 +440,8 @@
     }
 
     .about_box_bg {
-        padding: 50px;
-        min-height: 200px;
+        padding: 30px;
+        min-height: 150px;
     }
 
     .shop_dimond_by_shape .owl-nav,
@@ -3319,11 +3319,6 @@
         margin-top: 0;
     }
 
-    .about_box_bg {
-        padding: 25px;
-        min-height: 216px;
-    }
-
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
     }
@@ -3715,11 +3710,6 @@
         font-size: 17px;
     }
 
-    .about_box_bg {
-        padding: 50px;
-        min-height: 250px;
-    }
-
     .own_ring_img img {
         max-height: 400px;
     }
@@ -3971,9 +3961,6 @@
     /* .h3-heading {
         font-size: 55px;
     } */
-    .about_box_bg {
-        padding: 50px;
-    }
 
     .header ul li .mega-menu .mega-menu-four-part {
         min-width: 1000px;
