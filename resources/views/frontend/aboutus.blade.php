@@ -43,7 +43,7 @@
                 <div class="mb-3 item">
                     <div class="position-relative about_box_bg">
                         <div class="about_box_content">
-                            <div class="about_us_sub_heading mb-2 mb-lg-0 mb-xxl-3">
+                            <div class="about_us_sub_heading mb-2">
                             {{ $Infopage->value1 }}
                             </div>
                             <div class="about_us_sub_paragraph">
@@ -57,7 +57,7 @@
                 <div class="mb-3 item">
                     <div class="position-relative about_box_bg">
                         <div class="about_box_content">
-                            <div class="about_us_sub_heading mb-2 mb-lg-0 mb-xxl-3">
+                            <div class="about_us_sub_heading mb-2">
                             {{ $Infopage->value2 }}
                             </div>
                             <div class="about_us_sub_paragraph">
@@ -85,7 +85,7 @@
                 <div class="mb-3 item">
                     <div class="position-relative about_box_bg">
                         <div class="about_box_content">
-                            <div class="about_us_sub_heading mb-2 mb-lg-0 mb-xxl-3">
+                            <div class="about_us_sub_heading mb-2">
                             {{ $Infopage->value4 }}
                             </div>
                             <div class="about_us_sub_paragraph">
