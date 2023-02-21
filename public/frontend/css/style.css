@@ -1274,9 +1274,9 @@ background-size: cover;
         padding-left: 72px;
     } */
 
-    .about_us_bg_part {
+    /* .about_us_bg_part {
         background: var(--light-bg);
-    }
+    } */
 
     .about_box_bg {
         background-color: #445468;
