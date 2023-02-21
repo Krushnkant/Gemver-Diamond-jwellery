@@ -485,11 +485,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 
     <div class="customise_own_ring_section">
         <div class="row">
-            <div class="col-md-6 text-center text-md-start px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
+            <div class="col-md-6 px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
                 <div class="engagement_ring_diamond_part">
-                    <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-md-start">{{ $homesetting->section_customise_title }}</h2>
-                    <div class="customer_stories_paragraph  mb-3 mb-lg-5">{{ $homesetting->section_customise_description }}</div>
-                    <a style="" class="explore-category-btn diamond-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
+                    <h2 class="heading-h2">{{ $homesetting->section_customise_title }}</h2>
+                    <div class="customer_stories_paragraph  mb-3 mb-lg-4">{{ $homesetting->section_customise_description }}</div>
+                    <a style="" class="explore-category-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
                 </div>
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">

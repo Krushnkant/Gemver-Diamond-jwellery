@@ -2051,6 +2051,10 @@
 
 @media (max-width:767px) {
 
+    .dedication-section-img {
+        width: 100%;
+    }
+
     .order-includes-sections {
         padding: 40px 25px;
         background-size: cover;
