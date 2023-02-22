@@ -23,7 +23,7 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}"> -->
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     <!-- TrustBox script -->
     {{-- <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> --}}
@@ -1774,7 +1774,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
-<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
+<!-- <script src="{{ asset('frontend/js/all.min.js') }}"></script>    -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 
 <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
