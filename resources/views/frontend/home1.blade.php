@@ -562,7 +562,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                                 $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_9259931660110124.png";
                                                                 $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_5284571660111310.png";
                                                                 $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_3432521660110185.png";
-                                                                $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_9077991676280678.png";
+                                                                $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_9077991676280678.jpg";
                                                                 $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/icon_7576081674628903.png";
                                                             }
                                                             if($mab == 1){
@@ -1170,17 +1170,23 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             <?php
                                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                                 $ia = 1;
+                                                $ai = 0;
+                                                $attrImage = array();
+                                                $attrImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/attrTermThumb_1148411660373331.jpg";
+                                                $attrImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/attrTermThumb_1440301660373349.jpg";
+                                                $attrImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/attrTermThumb_9487801660373373.jpg";
                                                 foreach($product_attribute as $attribute_term){
                                                     $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
-                                                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" >
+                                                        <img src="<?php echo $attrImage[$ai]; ?>" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" >
                                                         </a>
                                                         <div class="wire_bangle_color_input_label"></div>
                                                     </span>
                                                     <?php        
-                                                    $ia++;    
+                                                    $ia++;
+                                                    $ai++;    
                                                 }
                                             ?>
                                             </div>
