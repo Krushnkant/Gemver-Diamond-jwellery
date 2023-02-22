@@ -1801,7 +1801,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             ?>
                             @foreach($trustedbies as $trusted)
                             <div class="item">
-                                <img src="<?php echo $proImage[$pimg]; ?>" alt="" loading="lazy">
+                                <img src="<?php echo $proImage[$pimg]; ?>" alt="">
                             </div>
                             <?php 
                             $pimg++; ?>
@@ -1937,7 +1937,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="footer-heading mb-2 mb-md-2 d-flex justify-content-between">
                         Payments Accepted
                     </div>
-                    <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/payment_method.png" alt="Payments Accepted" loading="lazy">
+                    <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/payment_method.png" alt="Payments Accepted">
                 </div>
             </div>
         </div>
