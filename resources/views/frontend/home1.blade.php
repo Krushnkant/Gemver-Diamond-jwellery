@@ -668,6 +668,13 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         </div>
                         <div class="col-lg-7">
                             <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
+                                <?php
+                                    $testImage = array();
+                                    $testImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/Testimonial_5165681659330678.jpg";
+                                    $testImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/Testimonial_8839381659330649.jpg";
+                                    
+                                    $timg = 0;
+                                ?>
                                 @foreach($testimonials as $testimonial)
                                     <div class="item">
                                         <div class="customer-stories-quotes">
@@ -676,7 +683,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                             <div class="mt-4">
                                                 <div class="testimonial-author-img">
-                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}" >
+                                                    <img src="<?php echo $testImage[$timg]; ?>" alt="{{ $testimonial->name }}" >
                                                 </div>
                                                 <div class="author-info">
                                                     <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -685,6 +692,8 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                         </div>
                                     </div>
+                                    <?php 
+                                    $timg++; ?>
                                 @endforeach    
                             </div>
                         </div>
