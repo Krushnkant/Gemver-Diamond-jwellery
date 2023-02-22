@@ -1725,7 +1725,8 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             </div>
         </div>
     </div>
-
+    
+    {{--
     <div class="Instagram-post-section px-0">
         <h2 class="heading-h2 text-center mb-4">Instagram</h2>
         @if(isset($contents["data"]))
@@ -1767,6 +1768,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="text-center"> No Post Found</div>
         @endif
     </div>
+    --}}
   
 @include('frontend.layout.footer')
 <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
