@@ -748,11 +748,12 @@ $(document).on("click", "#cust_btn", function() {
 
 });
 
-// $(window).on('load', function() { // makes sure the whole site is loaded 
-//     $('.loader-btn').fadeOut(); // will first fade out the loading animation 
-//     $('.header-loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-//     $('body').delay(350).css({ 'overflow': 'visible' });
-// });
+$(window).on('load', function() { // makes sure the whole site is loaded 
+    $('body').css({ 'overflow': 'hidden' });
+    $('.loader-btn').fadeOut(); // will first fade out the loading animation 
+    $('.header-loader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+    $('body').delay(350).css({ 'overflow': 'visible' });
+});
 
 $(function() {
     $('[data-toggle="tooltip"]').tooltip()
