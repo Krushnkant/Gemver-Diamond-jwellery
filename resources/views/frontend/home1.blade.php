@@ -232,6 +232,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         '3gp'
                     );
                     $index = 0;
+                    $pimg = 0;
                     ?>
                     @foreach($products as $product) 
                      
@@ -287,7 +288,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="<?php echo $proImage[$shape_no]; ?>" alt="{{ $alt_text }}">
+                                <img src="<?php echo $proImage[$pimg]; ?>" alt="{{ $alt_text }}">
                                 <?php }else{ ?>
                                    
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
@@ -357,7 +358,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             </div>
                         </div>
                     </div>
-                    <?php $shape_no++;  ?>
+                    <?php $pimg++; $shape_no++;  ?>
                     @endforeach 
                 </div>
             </div>
