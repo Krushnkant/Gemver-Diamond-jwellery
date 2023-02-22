@@ -179,7 +179,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <a href="{{ URL('/shop/'.$category->slug)}}">
                             <div class="catrgery_box">
                                 <span class="catrgory_img">
-                                    <img src="<?php echo $catImage[$cat]; ?>" alt="{{ $category->category_name }}" >
+                                    <img src="<?php echo $catImage[$img]; ?>" alt="{{ $category->category_name }}" >
                                 </span>
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
