@@ -22,7 +22,7 @@
 
     body {
         position: relative;
-        overflow: hidden;
+        /* overflow: hidden; */
         font-family: 'Roboto', sans-serif;
     }
 
