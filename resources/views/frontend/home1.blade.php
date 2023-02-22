@@ -249,6 +249,8 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_6954861669894181.png";
                         $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7627821669803103+(1).png";
                         $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7681201669798824.png";
+                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7854681669893580.png";
+                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7997451669895620.png";
 
                         $video_array = array();
                         $images_array = array();
