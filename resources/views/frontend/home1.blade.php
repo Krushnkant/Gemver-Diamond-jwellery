@@ -784,7 +784,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                         </li>
                                                         <li>
                                                             <a href="{{ URL('/product-setting/'.$car->slug)}}" class="d-flex">
-                                                                <img src="<?php echo $mimg[$mimg]; ?>" alt=" " class="mega-menu-img "> <span class="ms-3 ms-lg-2">Start with a Setting</span></a>
+                                                                <img src="<?php echo $mimg[$cmg]; ?>" alt=" " class="mega-menu-img "> <span class="ms-3 ms-lg-2">Start with a Setting</span></a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ URL('/diamond-setting/'.$car->slug)}}" class="d-flex"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/mega-menu-img-2.png" alt=" " class="mega-menu-img "><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
@@ -792,7 +792,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                     </ul>
                                                 </div>
                                                 <?php 
-                                                $mimg++;
+                                                $cmg++;
                                                 $cat_no++;
                                             } ?>
 
