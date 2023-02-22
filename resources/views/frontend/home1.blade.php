@@ -852,7 +852,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
-<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
+<!-- <script src="{{ asset('frontend/js/all.min.js') }}"></script>    -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 
 <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
