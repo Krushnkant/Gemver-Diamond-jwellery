@@ -92,7 +92,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
                     <div class="logo-image header-logo mx-lg-auto mb-0">
                         <a href="{{ URL('/') }}">
-                            <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
+                            <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/company_logo_5824141664853670.png" alt="">
                         </a>
                     </div>
                     <span class="d-flex align-items-center justify-content-end header_logo_cart">
@@ -282,19 +282,19 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                 <ul class="mega-menu-two-colum loose-lab-diamonds-diamond">
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Yellow') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/yellow.png') }}" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/yellow.png" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Yellow</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Orange') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/orange.png') }}" alt="Orange" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/orange.png" alt="Orange" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Orange</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Pink') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/pink.png') }}" alt="Pink" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/pink.png" alt="Pink" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Pink</span>
                                                         </a>
                                                     </li>
@@ -318,31 +318,31 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Red') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/red.png') }}" alt="Red" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/red.png" alt="Red" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Red</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/White') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/white.png') }}" alt="White" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/white.png" alt="White" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">White</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Violet') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/violet.png') }}" alt="Violet" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/violet.png" alt="Violet" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Violet</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Purple') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/purple.png') }}" alt="Purple" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/purple.png" alt="Purple" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Purple</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Olive') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/olive.png') }}" alt="Olive" class="diamond-mega-menu-img"></span>
+                                                            <span class="d-inline-block"><img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/olive.png" alt="Olive" class="diamond-mega-menu-img"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Olive</span>
                                                         </a>
                                                     </li>
