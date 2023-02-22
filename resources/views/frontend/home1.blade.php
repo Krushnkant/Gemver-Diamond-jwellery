@@ -85,10 +85,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="background-slider ">
                             <div class="background-smoke-slider position-relative">
                                 <div class="d-block d-md-none mobile-view-img">
-                                    <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/bg-img-04.jpg" alt=" " >
+                                    <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt=" " loading="lazy">
                                 </div>
                                 <div class="d-none d-md-block desktop-view-img">
-                                    <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_5262271675507815.png" alt=" " >
+                                    <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt=" " loading="lazy">
                                 </div>
                                 <div class="">
                                     <div class="background-text-part px-3 px-lg-4 container">
@@ -148,17 +148,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
     <!-- </div> -->
     
     @if(count($categories) > 0)
-    <?php
-        $catImage = array();
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/cat1.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/cat2.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/cat3.jpg";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/cat4.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/cat5.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_9374251676277899.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_2763951676278030.png";
-        $catImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_1354941676277958.png";
-    ?>
     <div class="container">
         <div class="shop_by_category shop_by_category_padding">
             <div class="row">
@@ -172,21 +161,17 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
-                    <?php 
-                    $img = 0; ?>
                     @foreach($categories as $category)
                     <div class="item">
                         <a href="{{ URL('/shop/'.$category->slug)}}">
                             <div class="catrgery_box">
                                 <span class="catrgory_img">
-                                    <img src="<?php echo $catImage[$img]; ?>" alt="{{ $category->category_name }}" >
+                                    <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="{{ $category->category_name }}" loading="lazy">
                                 </span>
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
                         </a>
                     </div>
-                    <?php 
-                    $img++; ?>
                     @endforeach 
                 </div>
             </div>
@@ -200,7 +185,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="shop-colorful-img">
-                        <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/diamond-part.png" alt="" >
+                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
@@ -232,26 +217,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         '3gp'
                     );
                     $index = 0;
-                    $pimg = 0;
                     ?>
                     @foreach($products as $product) 
                      
                     <?php
-
-                        $proImage = array();
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_1608621669799130+(1).png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_4684831669799809.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_4796651669894301.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_5336831669802112+(1).png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_5799281669798749+(2).png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_5999771669808139.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_6719491669888568.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_6954861669894181.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7627821669803103+(1).png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7681201669798824.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7854681669893580.png";
-                        $proImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/ProductImg_7997451669895620.png";
-
+                    
                         $video_array = array();
                         $images_array = array();
                         $images = explode(",",$product->images);
@@ -290,7 +260,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                    if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="<?php echo $proImage[$pimg]; ?>" alt="{{ $alt_text }}">
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="{{ $alt_text }}" loading="lazy">
                                 <?php }else{ ?>
                                    
                                     <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
@@ -313,7 +283,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
-                                                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" >
+                                                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
                                                         </a>
                                                         <div class="wire_bangle_color_input_label"></div>
                                                     </span>
@@ -360,7 +330,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             </div>
                         </div>
                     </div>
-                    <?php $pimg++; $shape_no++;  ?>
+                    <?php $shape_no++;  ?>
                     @endforeach 
                 </div>
             </div>
@@ -379,61 +349,61 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                         <div class="item">
                             <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">round</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">oval</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">princess</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">cushion</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">marquise</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">pear</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">radiant</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">heart</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">emerald</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
-                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" >
+                                <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                 <div class="shop_by_diamond_shpae_name">asscher</div>
                             </a>
                         </div>
@@ -448,7 +418,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="row">
                 <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
                     <div class="engagement_diamond_img">
-                        <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/Step_9119221660801490.jpg" alt="">
+                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
@@ -460,7 +430,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" ></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" loading="lazy"></a>
                                 </div> 
                                 <a href="{{ url('/step/'.$step->slug.'/one'); }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
@@ -475,7 +445,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" ></a>
+                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"></a>
                                     </div> 
                                     <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                             </div>
@@ -486,7 +456,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" ></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"></a>
                                 </div> 
                                 <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                             </div>
@@ -497,7 +467,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" ></a>
+                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"></a>
                                 </div>
                                 <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                             </div>
@@ -522,7 +492,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
                 <div class="own_ring_img">
-                    <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_3284881676018051.png" alt="" width="100%" >
+                    <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" width="100%" loading="lazy">
                 </div>
             </div>
         </div>
@@ -535,7 +505,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_1.png') }}" alt="" > 
+                            <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"> 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -550,7 +520,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt="" > 
+                            <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"> 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -565,7 +535,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_3.png') }}" alt="" > 
+                            <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"> 
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -580,7 +550,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_4.png') }}" alt="" > 
+                            <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy"> 
                         </div>
                        <div class="ms-3 ms-md-0">
                         <div class="smiling_box_heading">
@@ -604,12 +574,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
             <div class="container">
                 <h2 class="mb-4 mb-md-5 heading-h2 text-center smiling_gemver_heading">{{ $homesetting->section_blog_banner_title }}</h2>
                 <div class="row">
-                    <?php 
-                        $bimg = 0; 
-                        $catbImage = array();
-                        $catbImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_2402781674619366.png";
-                        $catbImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_4798191674619313.png";
-                    ?>
                     @foreach($BlogBanners as $BlogBanner)
                     <?php 
                         $blogcount = count($BlogBanners);
@@ -641,12 +605,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
                         <a href="{{ $url }}" class="banner_part_img_parent">
                             <figure>
-                                <img class="" src="<?php echo $catbImage[$bimg]; ?>" alt="" >
+                                <img class="" src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                             </figure>
                         </a>
                     </div>
-                    <?php 
-                    $bimg++; ?>
                     @endforeach 
                 </div>
             </div>
@@ -668,13 +630,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         </div>
                         <div class="col-lg-7">
                             <div id="customer-stories" class="owl-carousel owl-theme customer-stories">
-                                <?php
-                                    $testImage = array();
-                                    $testImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/Testimonial_5165681659330678.jpg";
-                                    $testImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/Testimonial_8839381659330649.jpg";
-                                    
-                                    $timg = 0;
-                                ?>
                                 @foreach($testimonials as $testimonial)
                                     <div class="item">
                                         <div class="customer-stories-quotes">
@@ -683,7 +638,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                             <div class="mt-4">
                                                 <div class="testimonial-author-img">
-                                                    <img src="<?php echo $testImage[$timg]; ?>" alt="{{ $testimonial->name }}" >
+                                                    <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}" loading="lazy">
                                                 </div>
                                                 <div class="author-info">
                                                     <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -692,8 +647,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                                             </div>
                                         </div>
                                     </div>
-                                    <?php 
-                                    $timg++; ?>
                                 @endforeach    
                             </div>
                         </div>
@@ -717,28 +670,15 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="row">
                     <div class="col-md-12 text-center   ">
                         <div class="owl-carousel owl-theme shop-by-style-slider">
-                        <?php 
-                            $blimg = 0; 
-                            $catblImage = array();
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_7480571672055001.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_7014281674621271.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_6647951672055032.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_4959271672055078.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_4766161672054951.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_3373781672055056.png";
-                            $catblImage[] = "https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_1565071672985314+(1).png";
-                        ?>
                             @foreach($shopbystyle as $shopby)
                             <div class="item">
                                 <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img" target="_blank" >
-                                    <img src="<?php echo $catblImage[$blimg]; ?>" alt="" >
+                                    <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" loading="lazy">
                                     <div class="shop_by_style_heading text-center">
                                         {{ $shopby->title }}
                                     </div>
                                 </a>
                             </div>
-                            <?php 
-                            $blimg++; ?>
                             @endforeach
                         </div>
                     </div>
@@ -767,12 +707,12 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
-                        <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_6332151676894651.png" alt="" width="100%" >
+                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" width="100%" loading="lazy">
                     </div>
                 </div>
                 <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
-                        <img src="https://wvimagebucket.s3.ap-south-1.amazonaws.com/categoryThumb_9488321661071659.jpg" alt="" width="100%" >
+                        <img src="https://d24ppbhzdyfrur.cloudfront.net/uploads/image_url/s3_image/6393428/Sample_RD_HI-SI.jpg" alt="" width="100%" loading="lazy">
                     </div>
                 </div>
                 <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
@@ -887,11 +827,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         //     <source src='{$media_url}' type='video/mp4'>
                         //     Your browser does not support the video tag.
                         // </video>";
-                        echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
+                        echo "<img src='{$thumbnail_url}' style='height:300px;' loading='lazy'  />";
                     }
  
                     else{
-                        echo "<img src='{$media_url}' style='height:300px;' />";
+                        echo "<img src='{$media_url}' style='height:300px;' loading='lazy' />";
                     }
                     ?>
                     
