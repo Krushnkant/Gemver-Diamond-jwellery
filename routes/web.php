@@ -20,6 +20,7 @@ use App\Http\Controllers\StepController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CountryStateCityController;
+use App\Http\Controllers\SocialFeedController;
 
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -101,6 +102,8 @@ Route::post('/search_products',[ProductController::class,'search_products'])->na
 Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
 Route::get('/blog/{id}',[BlogController::class,'blogdetails'])->name('frontend.blog.blog');
+
+Route::get('social-feed',[SocialFeedController::class,'index'])->name('frontend.socialfeed');
 
 Route::get('infopage/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
 
