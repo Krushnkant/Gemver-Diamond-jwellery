@@ -130,6 +130,7 @@
             </div>
         </div>
     </div>
+    @if(isset($socialfeed) && $socialfeed != "")
     <div class="container py-5 mb-5">
         <div class="row">
             <div class="col-md-5 dedication-section-img">
@@ -151,6 +152,7 @@
             </div>
         </div>
     </div>
+    @endif
     
     <!-- HTML For All Social Activity Page -->
     <!-- <div class="container py-5 mb-5">
@@ -225,7 +227,7 @@
         <div class="button-box text-center mt-5">
             <a href="#" class="load-more-btn">Load More</a>
         </div>
-    </div> 
+    </div> -->
     @endsection
 
 
