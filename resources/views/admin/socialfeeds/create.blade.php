@@ -58,7 +58,7 @@
         <div id="catthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row" style="display: none;">
         <label class="col-lg-12 col-form-label" for="">URL handle <span class="text-danger">*</span></label>
         <div class="col-lg-12">
             <div class="input-group mb-2">
@@ -73,14 +73,14 @@
         <label id="Slug-error" class="error invalid-feedback animated fadeInDown" for=""></label>
     </div>
      
-    <div class="form-group">
+    <div class="form-group" style="display: none;">
         <label class="col-form-label" for="meta_title">Meta Title 
         </label>
         <input type="text" class="form-control input-flat" id="meta_title" name="meta_title" value="{{ isset($socialfeed)?($socialfeed->meta_title):'' }}">
     </div>
     
 
-    <div class="form-group">
+    <div class="form-group" style="display: none;">
         <label class="col-form-label" for="meta_description">Meta Description 
         </label>
         <textarea type="text" class="form-control input-default" id="meta_description" name="meta_description">{{ isset($socialfeed)?($socialfeed->meta_description):'' }}</textarea>
