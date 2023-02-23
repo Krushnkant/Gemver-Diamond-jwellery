@@ -23,7 +23,7 @@ class ProductController extends Controller
         $Category = Category::where(['id' => $CatId])->first();
         
         $Products= Product::where(['estatus' => 1,'is_custom' => 0])->get();
-        if($id != ""){
+        if($id != 0){
             if($Category->parent_category_id == 0){
           
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->where('parent_category_id',$Category->id)->orwhere('id',$Category->id)->get();
@@ -31,7 +31,7 @@ class ProductController extends Controller
                 $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => $Category->parent_category_id])->get();
             }
         }else{
-            $Categories = Category::where(['estatus' => 1,'is_custom' => 0])->get();
+            $Categories = Category::where(['estatus' => 1,'is_custom' => 0,'parent_category_id' => 0])->get();
         }
       
         $Attributes = Attribute::with('attributeterm')->where(['estatus' => 1,'is_filter' => 1])->get();
