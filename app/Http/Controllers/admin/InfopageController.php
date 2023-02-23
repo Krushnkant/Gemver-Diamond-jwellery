@@ -7,6 +7,7 @@ use App\Models\ProjectPage;
 use App\Models\Infopage;
 use App\Models\DiamondAnatomy;
 use App\Models\GenverDifference;
+use App\Models\SocialFeed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,12 +26,13 @@ class InfopageController extends Controller
 
     public function index(){
         $Infopages = Infopage::first();
+        $socialfeeds = SocialFeed::where('estatus',1)->get();
         $canWrite = false;
         $page_id = ProjectPage::where('route_url','admin.infopage.list')->pluck('id')->first();
         if( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
             $canWrite = true;
         }
-        return view('admin.infopage.list',compact('Infopages','canWrite'))->with('page',$this->page);
+        return view('admin.infopage.list',compact('Infopages','canWrite','socialfeeds'))->with('page',$this->page);
     }
 
     public function editAboutus(){
@@ -79,6 +81,9 @@ class InfopageController extends Controller
         $Infopages->value4 = $request->value4;
         $Infopages->about_meta_title = $request->meta_title;
         $Infopages->about_meta_description = $request->meta_description;
+        $Infopages->about_our_mission_title = $request->about_our_mission_title;
+        $Infopages->about_our_mission_contant = $request->about_our_mission_contant;
+        $Infopages->social_feed = $request->social_feed;
 
         $old_first_section_image = $Infopages->first_section_image;
         if ($request->hasFile('first_section_image')) {

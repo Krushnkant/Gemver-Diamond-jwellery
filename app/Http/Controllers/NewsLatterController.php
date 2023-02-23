@@ -14,7 +14,8 @@ class NewsLatterController extends Controller
     public function save(Request $request)
     {
         $messages = [
-            'newslatteremail.required' =>'Please provide a email'
+            'newslatteremail.required' =>'Please provide a email',
+            'newslatteremail.email' =>'Please enter valid email'
         ];
         $validator = Validator::make($request->all(), [
             'newslatteremail' => 'required|email'

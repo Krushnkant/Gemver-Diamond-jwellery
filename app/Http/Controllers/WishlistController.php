@@ -26,9 +26,9 @@ class WishlistController extends Controller
 
     public function addtowishlist(Request $request)
     {
+        //dd($request->input('variant_id'));
         $variant_id = $request->input('variant_id');
         $item_type = $request->input('item_type');
-
         if(session()->has('customer')){
             
         $user_id = session('customer.id');

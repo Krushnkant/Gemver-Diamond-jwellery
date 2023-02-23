@@ -696,6 +696,17 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.custompage.list,admin.custompage.addorupdate,admin.allcustompageslist,admin.custompage.changecustompagestatus,admin.custompage.edit,admin.custompage.delete',
         ]);
 
+        ProjectPage::create([ 
+            'id' => 69, 
+            'parent_menu' => 0, 
+            'label' => 'Social Feed', 
+            'route_url' => 'admin.socialfeed.list', 
+            'is_display_in_menu' => 0,
+            'icon_class' => 'fa fa-handshake-o',
+            'inner_routes' => 'admin.socialfeed.list,admin.socialfeed.add,admin.socialfeed.save,admin.allbloglist,admin.socialfeed.changesocialfeedtatus,admin.socialfeed.delete,admin.socialfeed.edit,admin.socialfeed.uploadfile,admin.socialfeed.removefile',
+            'sr_no' => 12
+        ]);
+
 
         
         $users = User::where('role',"!=",1)->get();

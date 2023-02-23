@@ -796,6 +796,37 @@ $(document).ready(function() {
         });
     });
 
+
+    $(document).on('click', '.add-to-wishlist-btn-details', function(e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+        var variant_id = $(this).attr('data-variant_id');
+        var item_type = $(this).attr('data-item_typ');
+
+        $.ajax({
+            url: base_url + "/add-to-wishlist",
+            method: "POST",
+            data: {
+                'variant_id': variant_id,
+                'item_type': item_type,
+            },
+            success: function(response) {
+                if (response.action == 'add') {
+                    thisdata.html('<i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist');
+                    // wishload();
+                } else if (response.action == 'remove') {
+                    thisdata.html('<i class="far fa-heart" ></i> &nbsp; Add to Wishlist');
+                    //wishload();
+                }
+            },
+        });
+    });
+
     $(document).on('click', '.add-to-wishlist-btn-diamond', function(e) {
 
         e.preventDefault();
@@ -822,6 +853,39 @@ $(document).ready(function() {
                     //wishload();
                 } else if (response.action == 'remove') {
                     thisdata.closest('.round_cut_lab_diamonds_box').find('.add-to-wishlist-btn-diamond').html('<i class="far fa-heart"></i>');
+                    //wishload();
+                }
+            },
+        });
+    });
+
+    $(document).on('click', '.add-to-wishlist-btn-diamond-details', function(e) {
+        
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var thisdata = $(this);
+
+        var diamond_id = $(this).attr('data-variant_id');
+        var item_type = 1;
+     
+        $.ajax({
+            url: base_url + "/add-to-wishlist",
+            method: "POST",
+            data: {
+                'variant_id': diamond_id,
+                'item_type': item_type,
+            },
+            success: function(response) {
+                console.log(response);
+                if (response.action == 'add') {
+                    thisdata.html('<i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist');
+                    //wishload();
+                } else if (response.action == 'remove') {
+                    thisdata.html('<i class="far fa-heart"></i> &nbsp; Add to Wishlist');
                     //wishload();
                 }
             },
