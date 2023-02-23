@@ -146,16 +146,87 @@
                         {!! $socialfeed->description  !!}
                     </div>
                     <div class="btn-section">
-                        <a href="{{ url('social-feed') }}">View All <i class="fa fa-arrow-right"></i></a>
+                        <a href="#">View All <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endif
     
-   
-    
+    <!-- HTML For All Social Activity Page -->
+    <!-- <div class="container py-5 mb-5">
+        <div class="social-act-list-box">
+            <div class="social-act-blog">
+                <div class="row">
+                    <div class="col-md-5 dedication-section-img">
+                        <div class="about_us_img">
+                            <img src="https://pegasusinc.in/assets/images/project/gal3.jpg" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="col-md-7 py-4 dedication-section-content">
+                        <div class="">
+                            <h2 class="heading-h2 mb-4 mt-2">Our Dedication to Giving</h2>
+                            <div class="about_content">
+                                <p>we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price</p>
+
+                                <p>In 2015, we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price. we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price.</p>
+                            </div>
+                            <div class="btn-section">
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-act-blog">
+                <div class="row">
+                    <div class="col-md-5 dedication-section-img">
+                        <div class="about_us_img">
+                            <img src="https://pegasusinc.in/assets/images/project/gal3.jpg" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="col-md-7 py-4 dedication-section-content">
+                        <div class="">
+                            <h2 class="heading-h2 mb-4 mt-2">Our Dedication to Giving</h2>
+                            <div class="about_content">
+                                <p>we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price</p>
+
+                                <p>In 2015, we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price. we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price.</p>
+                            </div>
+                            <div class="btn-section">
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-act-blog">
+                <div class="row">
+                    <div class="col-md-5 dedication-section-img">
+                        <div class="about_us_img">
+                            <img src="https://pegasusinc.in/assets/images/project/gal3.jpg" alt="" width="">
+                        </div>
+                    </div>
+                    <div class="col-md-7 py-4 dedication-section-content">
+                        <div class="">
+                            <h2 class="heading-h2 mb-4 mt-2">Our Dedication to Giving</h2>
+                            <div class="about_content">
+                                <p>we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price</p>
+                                <p>In 2015, we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price. we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price.</p>
+                                <p>In 2015, we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price. we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price.</p>
+                            </div>
+                            <div class="btn-section">
+                                <a href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-box text-center mt-5">
+            <a href="#" class="load-more-btn">Load More</a>
+        </div>
+    </div> -->
     @endsection
 
 
