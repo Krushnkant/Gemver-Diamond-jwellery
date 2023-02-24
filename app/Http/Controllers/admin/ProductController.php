@@ -1994,7 +1994,7 @@ class ProductController extends Controller
                     </div>
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                    <button class=" RemoveBox btn btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
+                    <button class=" RemoveBox btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
                 </div>
             </div>
             ';
@@ -2155,7 +2155,7 @@ class ProductController extends Controller
                 </div>
 
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                        <button class=" RemoveBox btn btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
+                        <button class=" RemoveBox btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
                 </div>
             </div>
             ';
