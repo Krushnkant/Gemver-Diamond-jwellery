@@ -146,7 +146,7 @@
                         {!! $socialfeed->description  !!}
                     </div>
                     <div class="btn-section">
-                        <a href="#">View All <i class="fa fa-arrow-right"></i></a>
+                        <a href="{{ url('/social-feed') }}">View All <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
