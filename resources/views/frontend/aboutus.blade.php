@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
-    
+    @endif
     <!-- HTML For All Social Activity Page -->
     <!-- <div class="container py-5 mb-5">
         <div class="social-act-list-box">
