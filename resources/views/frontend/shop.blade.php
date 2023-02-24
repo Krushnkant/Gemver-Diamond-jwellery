@@ -397,6 +397,7 @@
 
             function filter_data(page,scroll=0)
             {
+                alert(page);
                 // var cart = $('.selectattribute'); //
 
                 // var val = [];
