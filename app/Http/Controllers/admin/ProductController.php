@@ -611,6 +611,7 @@ class ProductController extends Controller
                 
                 for ($j=1;$j<=$myValue['matrix_no'.$term_id];$j++) {
                     //dd($myValue['SKU-'.$term_id.'-'.$j]);
+                    if(isset($myValue['slug-'.$myValue['term_id'].'-'.$j])){
                     $product_variant = new ProductVariant();
                     $product_variant->slug = $this->createSlug($request->slug.'-'.$myValue['slug-'.$myValue['term_id'].'-'.$j]);
                     $product_variant->product_id = $product->id;
@@ -656,7 +657,7 @@ class ProductController extends Controller
                         // }
                         }
                     }
-
+                }
             }
     
 
@@ -1903,23 +1904,26 @@ class ProductController extends Controller
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
                        
                     </div>
                 </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    
+                </div>
             ';
         for($i = 0; $i < count($matrix); $i++){
             
-        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
+        
         
        
         //$name = $AttributeTermc->attrterm_name; 
         $name = "";
         $slug_name = $AttributeTermc->attrterm_name;
         //dd($matrix[$i]); die; 
-        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
+        
         $required_variation_ids = $comman_id;
         foreach($matrix[$i] as $key => $tt){
             $AttributeTerm = AttributeTerm::where('estatus',1)->where('id',$tt)->first();
@@ -1940,6 +1944,9 @@ class ProductController extends Controller
         
          
         //dd($required_variation_ids);
+        $html .= '<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">';
+        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
+        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
         $html .= '<input type="hidden" name="slug-'.$t.'-'.$term_id.'" value="'. str_replace('.', 'p', $slug_name) .'">';
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
         $html .= '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -1978,7 +1985,7 @@ class ProductController extends Controller
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <input type="text" class="form-control input-default SKU" placeholder="SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
@@ -1986,6 +1993,10 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <button class=" RemoveBox btn btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
+                </div>
+            </div>
             ';
         $term_id = ++$term_id;              
         }
@@ -2062,13 +2073,13 @@ class ProductController extends Controller
         if(!in_array($matrix[$i],$res)){
        
 
-        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
+        
     
         //$name = $AttributeTermc->attrterm_name; 
         $name = "";
         $slug_name = "";
         //dd($matrix[$i]); die; 
-        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
+        
         $required_variation_ids = $comman_id;
         
             foreach($matrix[$i] as $key => $tt){
@@ -2092,11 +2103,13 @@ class ProductController extends Controller
         
             }
              
-        
+        $html .= '<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">';
+        $html .= '<input type="hidden" name="matrix_no'.$t.'"  value="'.count($matrix).'">';
+        $html .= '<input type="hidden" name="Variation'.$t.'-'.$term_id.'-'.$comman_id.'"  value="'.$comman_id.'">';
         //dd($required_variation_ids);
         $html .= '<input type="hidden" name="slug-'.$t.'-'.$term_id.'" value="'. str_replace('.', 'p', $slug_name) .'">';
         $html .= '<input type="hidden" name="varVariation'.$t.'-'.$term_id.'" value="'.$required_variation_ids.'">';
-        $html .= '<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        $html .= '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <div class="row">
                         <div class="col-lg-12 font-weight-bold">
                             '.$name.'
@@ -2104,7 +2117,7 @@ class ProductController extends Controller
                     </div>
                 </div>';    
         $html .= '
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 ">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
                     <div class="form-group row">
                         
                         <div class="col-lg-12">
@@ -2113,7 +2126,7 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                        
                         <div class="col-lg-12">
@@ -2122,7 +2135,7 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         
                         <div class="col-lg-12">
@@ -2132,7 +2145,7 @@ class ProductController extends Controller
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <input type="text" class="form-control input-default SKU" placeholder="SKU" id-data="SKU-'.$t.'-'.$term_id.'" id="" name="SKU-'.$t.'-'.$term_id.'" value="">
@@ -2140,6 +2153,11 @@ class ProductController extends Controller
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <button class=" RemoveBox btn btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
+                </div>
+            </div>
             ';
         }    
         $term_id = ++$term_id;              
