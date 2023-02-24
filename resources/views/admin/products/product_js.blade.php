@@ -316,7 +316,7 @@ $(document).ready(function(){
 
     $('#variant-data').on('click', '.RemoveBox', function() {
         var boxid = $(this).attr("data-id");
-       // console.log(TermSelCheckbox);
+       
         //alert(boxid);
          TermSelCheckbox = jQuery.grep(TermSelCheckbox, function(value) {
              //alert(value);
@@ -325,7 +325,7 @@ $(document).ready(function(){
          var attr_term_ids = TermSelCheckbox.join(",");
         // console.log(attr_term_ids);
         $("#attr_term_ids").val(attr_term_ids);
-        $(this).parent().parent().parent().remove();
+        $(this).parent().parent().remove();
         
     });
 

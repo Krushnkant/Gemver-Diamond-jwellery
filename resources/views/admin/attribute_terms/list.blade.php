@@ -117,7 +117,7 @@
                     <h5 class="modal-title"></h5>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to remove this Term?
+                    Are you sure you wish to remove this Term and this Term related products also deleted?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
