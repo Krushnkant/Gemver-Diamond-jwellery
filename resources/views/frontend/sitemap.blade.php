@@ -858,3 +858,4 @@
 <url>
 <loc>https://gemver.com/product-details/115-ct-lab-grown-diamond-engagement-ring-whitegold-10kt-4</loc>
 </url>
+</urlset>
