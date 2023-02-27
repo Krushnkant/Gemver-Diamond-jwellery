@@ -40,7 +40,7 @@ $settings = \App\Models\Settings::first();
 
     gtag('config', 'G-962R43V393');
     </script>
-    
+  
 </head>
 <body>
 
@@ -163,6 +163,16 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
+                    {{-- <div class="item">
+                        <a href="#">
+                            <div class="catrgery_box">
+                                <span class="catrgory_img">
+                                    <iframe width="100%" height="500px" src="https://eloquentjavascript.net/Eloquent_JavaScript.pdf#page=1&view=FitH,top" type="application/pdf" frameborder="0" allowfullscreen></iframe>
+                                </span>
+                                <span class="catrgery_heading">pdf</span>
+                            </div>
+                        </a>
+                    </div> --}}
                     @foreach($categories as $category)
                     <div class="item">
                         <a href="{{ URL('/shop/'.$category->slug)}}">
@@ -174,7 +184,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             </div>
                         </a>
                     </div>
+
                     @endforeach 
+
                 </div>
             </div>
         </div>

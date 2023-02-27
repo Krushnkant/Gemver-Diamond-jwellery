@@ -134,7 +134,7 @@
                     <h5 class="modal-title">Remove Attribute</h5>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to remove this Attribute?
+                    Are you sure you wish to remove this Attribute and this attribute related products also deleted ?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -406,11 +406,11 @@
             var tab_type = get_attributes_page_tabType();
             if(tab_type=='attribute_tab'){
                 $('#DeleteAttributeModal').find('.modal-title').html("Remove Attribute");
-                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute?");
+                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute and this attribute related products also deleted?");
             }
             else{
                 $('#DeleteAttributeModal').find('.modal-title').html("Remove Attribute");
-                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute?");
+                $('#DeleteAttributeModal').find('.modal-body').html("Are you sure you wish to remove this Attribute and this attribute related products also deleted?");
             }
         });
 

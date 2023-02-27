@@ -219,8 +219,15 @@ class AttributeController extends Controller
         if ($attribute){
             $attribute->estatus = 3;
             $attribute->save();
-
             $attribute->delete();
+
+            $ProductVariantVariants = \App\Models\ProductVariantVariant::where('attribute_id',$id)->get()->pluck('product_variant_id')->toArray();
+            foreach($ProductVariantVariants as $ProductVariantVariant){
+                $ProductVariantgd = \App\Models\ProductVariant::where('id',$ProductVariantVariant)->forceDelete();
+                $ProductVariantgd1 = \App\Models\ProductVariantVariant::where('product_variant_id',$ProductVariantVariant)->forceDelete();
+                $ProductAttribute2 = \App\Models\ProductAttribute::where('attribute_id',$id)->forceDelete();
+            }
+            
             return response()->json(['status' => '200']);
         }
         return response()->json(['status' => '400']);

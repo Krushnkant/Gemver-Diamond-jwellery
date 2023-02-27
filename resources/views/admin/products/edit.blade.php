@@ -249,11 +249,11 @@
                                         }else{
                                             $primaryclass = '';
                                         } 
-                                        ////dd($product);
+                                       
                                         $attr_array = explode(',',$product->attr_ids);
-                                        //print_r($attr_array); die;
+                                   
                                         $attribute = \App\Models\Attribute::find($product_attribute['attribute_id']);
-                                    
+                                         
                                         ?>
                                         
                                         <div id ="" class="single-variation-box col-lg-6 col-md-12  col-xs-12 panel panel-default active" data-term="{{ $attribute->attr_name }}">
@@ -676,7 +676,6 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  .d-xl-block">
                                                         <div class="form-group row font-weight-bold">
                                                             <label class="col-lg-12 col-form-label" for="">{{ $name_main }}  Variation</label>
-                                        
                                                         </div>
                                                     </div>
 
@@ -702,17 +701,20 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                         <div class="form-group row">
                                                             <label class="col-lg-12 col-form-label" for="SKU">SKU <span class="text-danger">*</span></label>
                 
                                                         </div>
-                                                    </div>   
+                                                    </div>
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                        
+                                                    </div>    
                                                 <?php
                                                     
                                                     $variant_terms = \App\Models\ProductVariantVariant::where('product_id',$product->id)->where('attribute_term_id',$product_variant)->get()->pluck('product_variant_id');
                                                     ?>
-                                                    <input type="hidden" name="matrix_no{{ $term_item_id }}"  value="{{ count($variant_terms) }}">
+                                                    
                                                     <?php 
                                                         $t = 1;
                                                     foreach($variant_terms as $variant_ter){
@@ -737,7 +739,7 @@
                                                             }
                                                         }
                                                     ?>
-                                                        <input type="hidden" name="Variation{{$term_item_id}}-{{$t}}-{{$tt}}'"  value="{{ $tt }}">
+                                                        
                                                         <?php  
                                                             if($required_variation_ids != "" ){
                                                             $required_variation_ids = $required_variation_ids.','.$tt;
@@ -748,13 +750,15 @@
                                                     $variant = \App\Models\ProductVariant::Where('id',$variant_ter)->first()->toArray();
                                         
                                                 ?>
-
+                                                 <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="hidden" name="Variation{{$term_item_id}}-{{$t}}-{{$tt}}'"  value="{{ $tt }}">
+                                                <input type="hidden" name="matrix_no{{ $term_item_id }}"  value="{{ count($variant_terms) }}">
                                                 <input type="hidden" name="varVariation{{$term_item_id}}-{{$t}}" value="{{ $required_variation_ids }}">
                                                 <input type="hidden" name="tmpdata[]" value="{{ $required_variation_ids }}">
                                                 <input type="hidden" name="slug-{{$term_item_id}}-{{$t}}" value="{{ str_replace('.', 'p', $slug_name); }}">
 
                                                     
-                                
+                                            
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                         <div class=" row">
                                                             <div class="col-lg-12 font-weight-bold">
@@ -790,16 +794,21 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                                         <div class="form-group row">
                                                             
                                                             <div class="col-lg-12">
                                                                 <input type="text" class="form-control input-default SKU " {{ ($variant['SKU'] == "")?'':'readonly' }} id="SKU" placeholder="SKU" name="SKU-{{$term_item_id}}-{{$t}}" value="{{ $variant['SKU'] }}">
                                                                 <label id="SKU-{{$term_item_id}}-{{$t}}-error" class="error invalid-feedback animated fadeInDown" for="SKU"></label>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
-                                                
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                        <button class=" RemoveBox btn-white"><i class="fa fa-trash-o text-danger" aria-hidden="true"></i></button>
+                                                    </div>
+                                                </div>
+                                                    
 
                                                 <?php $t++; } ?>
                                                 </div>

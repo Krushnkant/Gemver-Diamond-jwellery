@@ -95,6 +95,52 @@
                 <div class="card">
                     <div class="card-body">
                       
+                        <div class="row col-lg-12">
+                        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                              <div class="form-group">
+                                <label class="col-form-label" for="about_our_mission_title"> Section Title <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control input-flat" id="about_our_mission_title" name="about_our_mission_title" >
+                                <div id="about_our_mission_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+                             
+                             <div class="form-group">
+                                <label class="col-form-label" for="about_our_mission_contant"> Section Contant <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="about_our_mission_contant" name="about_our_mission_contant"></textarea>
+                                <div id="about_our_mission_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+
+                             <div class="form-group">
+                                <label class="col-form-label" for="social_feed"> Select Social Feed<span class="text-danger">*</span>
+                                </label>
+                                <select class="form-control" name="social_feed" id="social_feed">
+                                    <option></option>
+                                    @foreach ($socialfeeds as $socialfeed)
+                                    <option value="{{ $socialfeed->slug }}">{{ $socialfeed->title }}</option>
+                                    @endforeach
+                                    
+                                  
+                                </select>
+                                <div id="social_feed-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                             </div>
+
+                             </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                      
                         <div class="col-lg-12">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  justify-content-center">
                            <div class="form-group row">
@@ -173,7 +219,11 @@
 <!-- settings JS start -->
 <script type="text/javascript">
     $( document ).ready(function() {
-    
+        $('#social_feed').select2({
+            width: '100%',
+            placeholder: "Select Social Feed",
+            allowClear: true
+        });
 
         CKEDITOR.replace('second_section_contant',{
             toolbar_full: [
@@ -218,8 +268,13 @@
            $('#value3').val(data.value3);
            $('#title4').val(data.title4);
            $('#value4').val(data.value4);
+           if($('#social_feed').find("option[value='" + data.social_feed + "']").length) {
+                $('#social_feed').val(data.social_feed).trigger('change');
+            }
            $('#meta_title').val(data.about_meta_title);
            $('#meta_description').val(data.about_meta_description);
+           $('#about_our_mission_title').val(data.about_our_mission_title);
+           $('#about_our_mission_contant').val(data.about_our_mission_contant);
             if(data.first_section_image==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#first_section_image_show').attr('src', default_image);

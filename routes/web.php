@@ -20,6 +20,7 @@ use App\Http\Controllers\StepController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CountryStateCityController;
+use App\Http\Controllers\SocialFeedController;
 
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -41,9 +42,9 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-//Frontend Route
+//Frontend Route 
 
-Route::view('/sitemap.xml', 'frontend.sitemap');
+Route::get('/sitemap.xml',[HomeController::class,'sitemap']);
 
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('/home',[HomeController::class,'index1'])->name('frontend.home');
@@ -101,6 +102,8 @@ Route::post('/search_products',[ProductController::class,'search_products'])->na
 Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
 Route::get('/blog/{id}',[BlogController::class,'blogdetails'])->name('frontend.blog.blog');
+
+Route::get('social-feed',[SocialFeedController::class,'index'])->name('frontend.socialfeed');
 
 Route::get('infopage/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
 
@@ -452,6 +455,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('blogcategories/{id}/delete',[\App\Http\Controllers\admin\BlogCategoryController::class,'deletecategory'])->name('blogcategories.delete');
     Route::get('blogcategories/{id}/edit',[\App\Http\Controllers\admin\BlogCategoryController::class,'editcategory'])->name('blogcategories.edit');
 
+
+
     Route::get('blogs',[\App\Http\Controllers\admin\BlogController::class,'index'])->name('blogs.list');
     Route::get('blogs/create',[\App\Http\Controllers\admin\BlogController::class,'create'])->name('blogs.add');
     Route::post('blogs/save',[\App\Http\Controllers\admin\BlogController::class,'save'])->name('blogs.save');
@@ -658,7 +663,17 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('whyupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'whyupdatefooterpage'])->name('whyupdatefooterpage');
     Route::post('contactupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'contactupdatefooterpage'])->name('contactupdatefooterpage');
 
-    
+    Route::get('socialfeed',[\App\Http\Controllers\admin\SocialFeedController::class,'index'])->name('socialfeed.list');
+    Route::get('socialfeed/create',[\App\Http\Controllers\admin\SocialFeedController::class,'create'])->name('socialfeed.add');
+    Route::post('socialfeed/save',[\App\Http\Controllers\admin\SocialFeedController::class,'save'])->name('socialfeed.save');
+    Route::post('allsocialfeedlist',[\App\Http\Controllers\admin\SocialFeedController::class,'allsocialfeedlist'])->name('allsocialfeedlist');
+    Route::get('changesocialfeedstatus/{id}',[\App\Http\Controllers\admin\SocialFeedController::class,'changesocialfeedstatus'])->name('socialfeed.changesocialfeedstatus');
+    Route::get('socialfeed/{id}/delete',[\App\Http\Controllers\admin\SocialFeedController::class,'deletesocialfeed'])->name('socialfeed.delete');
+    Route::get('socialfeed/{id}/edit',[\App\Http\Controllers\admin\SocialFeedController::class,'editsocialfeed'])->name('socialfeed.edit');
+    Route::post('socialfeed/uploadfile',[\App\Http\Controllers\admin\SocialFeedController::class,'uploadfile'])->name('socialfeed.uploadfile');
+    Route::post('socialfeed/removefile',[\App\Http\Controllers\admin\SocialFeedController::class,'removefile'])->name('socialfeed.removefile');
+    Route::get('socialfeed/createSlug/{title}',[\App\Http\Controllers\admin\SocialFeedController::class,'createSlug'])->name('socialfeed.createSlug');
+
 });
 
 Route::group(['middleware'=>['auth']],function (){

@@ -229,6 +229,13 @@ class AttributeTermsController extends Controller
             $attributeTerm->save();
 
             $attributeTerm->delete();
+
+            $ProductVariantVariants = \App\Models\ProductVariantVariant::where('attribute_term_id',$id)->get()->pluck('product_variant_id')->toArray();
+            foreach($ProductVariantVariants as $ProductVariantVariant){
+                $ProductVariantgd = \App\Models\ProductVariant::where('id',$ProductVariantVariant)->forceDelete();
+                $ProductVariantgd1 = \App\Models\ProductVariantVariant::where('product_variant_id',$ProductVariantVariant)->forceDelete();
+            }
+
             return response()->json(['status' => '200']);
         }
         return response()->json(['status' => '400']);

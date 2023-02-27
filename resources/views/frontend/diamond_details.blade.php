@@ -455,6 +455,26 @@
                                     
                                 </div>
                             </div>
+
+                            <div class="row-images mt-3 mb-4" id="slick-lightbox">
+                                <div class="item">
+                                    
+                                    <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-diamond-details" data-variant_id="{{ $Diamond->id }}" data-item_type="1" target="_blank">
+                                        <?php 
+                                        if(is_wishlist($Diamond->id,0)){ 
+                                            ?>
+                                            <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
+                                            <?php 
+                                        } else { 
+                                            ?>
+                                            <i class="far fa-heart"></i> &nbsp; Add to Wishlist
+                                            <?php 
+                                        }
+                                        ?>
+                                    </a>
+                                </div>
+                            </div>     
+                                  
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
                             <div class="inquiry_now_btn mb-3">
                                 <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>

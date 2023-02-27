@@ -120,41 +120,39 @@
             @endif
         </div>
     </div>
-
+   
     <div class="container py-5">
         <div class="row our_mission_box">
             <div class="col-md-6 offset-md-3">
-                <img src="https://gemver.com/images/company/company_favicon_2959951676353747.png" alt="Our Mission">
-                <h2 class="heading-h2 mb-4 mt-2">Our Mission</h2>
-                <p class="center-block mb-xs-0 max-w800">We provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price</p>
+                <img src="{{ URL('images/company/'.$settings->company_favicon) }}" alt="Our Mission">
+                <h2 class="heading-h2 mb-4 mt-2">{{ $Infopage->about_our_mission_title }}</h2>
+                <p class="center-block mb-xs-0 max-w800">{{ $Infopage->about_our_mission_contant }}</p>
             </div>
         </div>
     </div>
-
+    @if(isset($socialfeed) && $socialfeed != "")
     <div class="container py-5 mb-5">
         <div class="row">
             <div class="col-md-5 dedication-section-img">
                 <div class="about_us_img">
-                    <img src="https://pegasusinc.in/assets/images/project/gal3.jpg" alt="" width="">
+                    <img src="{{ url($socialfeed->blog_thumb) }}" alt="" width="">
                 </div>
             </div>
             <div class="col-md-7 py-4 dedication-section-content">
                 <div class="">
-                    <span class="">We are helping to social</span>
-                    <h2 class="heading-h2 mb-4 mt-2">Our Dedication to Giving</h2>
+                    <span class="">{{ $socialfeed->sub_title  }}</span>
+                    <h2 class="heading-h2 mb-4 mt-2">{{ $socialfeed->title  }}</h2>
                     <div class="about_content">
-                        <p>we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price</p>
-
-                        <p>In 2015, we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price. we provide a wide range of Lab Grown diamonds and jewelry in every shape, size, and color at a reasonable price.</p>
+                        {!! $socialfeed->description  !!}
                     </div>
                     <div class="btn-section">
-                        <a href="#">View All <i class="fa fa-arrow-right"></i></a>
+                        <a href="{{ url('/social-feed') }}">View All <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    @endif
     <!-- HTML For All Social Activity Page -->
     <!-- <div class="container py-5 mb-5">
         <div class="social-act-list-box">

@@ -208,6 +208,8 @@ class DiamondController extends Controller
 
     public function importnewdiamond(Request $request){
         set_time_limit(0);
+        $oldids = Diamond::whereIn('Shape',['Round','Heart','Cushion'])->get()->pluck('diamond_id')->toarray();
+        
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
@@ -239,6 +241,7 @@ class DiamondController extends Controller
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
+                    unset($oldids[array_search($collection->id, $oldids)]);
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -304,8 +307,8 @@ class DiamondController extends Controller
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                                    $Diamond->StockStatus = $collection->available;
-                                    $Diamond->save();    
+                            $Diamond->StockStatus = $collection->available;
+                            $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -447,6 +450,7 @@ class DiamondController extends Controller
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
+                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -504,12 +508,12 @@ class DiamondController extends Controller
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
                                     $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);       
+                                    // $Diamond->short_title = $short_title;      
+                                    // $Diamond->long_title = $long_title;  
+                                    //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);       
                                     $Diamond->amt_discount = $percentage;       
-                                    $Diamond->shape = strtoupper($collection->shape); 
-                                    $Diamond->Measurement = $DiamondMeasurement; 
+                                    // $Diamond->shape = strtoupper($collection->shape); 
+                                    // $Diamond->Measurement = $DiamondMeasurement; 
                                     $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
@@ -624,7 +628,19 @@ class DiamondController extends Controller
                         } 
                     }    
                 }
+                //dd($oldids);
+                
            }
+        }
+
+        foreach($oldids as $oldid){
+            // $deletediamond = Diamond::where('diamond_id',$oldid);
+            // $deletediamond->StockStatus = 0;
+            // $deletediamond->save();
+            Diamond::where('diamond_id', $oldid)
+            ->update([
+                'StockStatus' => '0'
+                ]);
         }
 
         $action = "add";
@@ -633,6 +649,7 @@ class DiamondController extends Controller
 
     public function importnewdiamond1(Request $request){
         set_time_limit(0);
+        $oldids = Diamond::whereIn('Shape',['Asscher','Emerald','Oval'])->get()->pluck('diamond_id')->toarray();
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
@@ -664,6 +681,7 @@ class DiamondController extends Controller
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
+                    unset($oldids[array_search($collection->id, $oldids)]);
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -870,6 +888,7 @@ class DiamondController extends Controller
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
+                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -1015,12 +1034,23 @@ class DiamondController extends Controller
            }
         }
 
+        foreach($oldids as $oldid){
+            // $deletediamond = Diamond::where('diamond_id',$oldid);
+            // $deletediamond->StockStatus = 0;
+            // $deletediamond->save();
+            Diamond::where('diamond_id', $oldid)
+            ->update([
+                'StockStatus' => '0'
+                ]);
+        }
+
         $action = "add";
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
     public function importnewdiamond2(Request $request){
         set_time_limit(0);
+        $oldids = Diamond::whereIn('Shape',['Radiant','Marquise','Princess','Pear'])->get()->pluck('diamond_id')->toarray();
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
@@ -1052,6 +1082,7 @@ class DiamondController extends Controller
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
+                    unset($oldids[array_search($collection->id, $oldids)]);
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -1258,6 +1289,7 @@ class DiamondController extends Controller
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
+                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -1401,12 +1433,23 @@ class DiamondController extends Controller
            }
         }
 
+        foreach($oldids as $oldid){
+            // $deletediamond = Diamond::where('diamond_id',$oldid);
+            // $deletediamond->StockStatus = 0;
+            // $deletediamond->save();
+            Diamond::where('diamond_id', $oldid)
+            ->update([
+                'StockStatus' => '0'
+                ]);
+        }
+
         $action = "add";
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
     public function importnewdiamond3(Request $request){
         set_time_limit(0);
+        $oldids = Diamond::whereIn('Shape',["Briolette","Eurocut","Flanders","Half Moon","Kite","Old Miner","Bullet","Hexagonal","Lozenge","Tapered Bullet","Octagonal","Triangle","Rose Cut","Ideal Oval","Ideal Square","Square Emerald","Sig81","Cushion Modified Brilliant","Ideal Cushion","Pentagonal","Star","Trapezoid","Trilliant","Baguette","Shield","Tapered Baguette","Square","Ideal Heart","Other"])->get()->pluck('diamond_id')->toarray();
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
@@ -1438,6 +1481,7 @@ class DiamondController extends Controller
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
+                    unset($oldids[array_search($collection->id, $oldids)]);
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
@@ -1495,13 +1539,13 @@ class DiamondController extends Controller
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
                             $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                    // $Diamond->short_title = $short_title;      
+                                    // $Diamond->long_title = $long_title;  
+                                    // $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                             $Diamond->amt_discount = $percentage;       
-                            $Diamond->shape = strtoupper($collection->shape); 
-                            $Diamond->Measurement = $DiamondMeasurement; 
-                                    $Diamond->StockStatus = $collection->available;
+                            // $Diamond->shape = strtoupper($collection->shape); 
+                            // $Diamond->Measurement = $DiamondMeasurement; 
+                            //         $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                         }else{ 
                             $data = ([
@@ -1644,6 +1688,7 @@ class DiamondController extends Controller
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
+                            unset($oldids[array_search($collection->id, $oldids)]);
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
@@ -1701,12 +1746,12 @@ class DiamondController extends Controller
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
                                     $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                    // $Diamond->short_title = $short_title;      
+                                    // $Diamond->long_title = $long_title;  
+                                    // $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                     $Diamond->amt_discount = $percentage;       
-                                    $Diamond->shape = strtoupper($collection->shape); 
-                                    $Diamond->Measurement = $DiamondMeasurement; 
+                                    // $Diamond->shape = strtoupper($collection->shape); 
+                                    // $Diamond->Measurement = $DiamondMeasurement; 
                                     $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
@@ -1785,6 +1830,16 @@ class DiamondController extends Controller
                     }    
                 }
            }
+        }
+
+        foreach($oldids as $oldid){
+            // $deletediamond = Diamond::where('diamond_id',$oldid);
+            // $deletediamond->StockStatus = 0;
+            // $deletediamond->save();
+            Diamond::where('diamond_id', $oldid)
+            ->update([
+                'StockStatus' => '0'
+                ]);
         }
 
         $action = "add";

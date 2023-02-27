@@ -14,6 +14,8 @@ use App\Models\ProductVariant;
 use App\Models\SmilingDifference;
 
 
+
+
 class HomeController extends Controller
 {
     public function index(){
@@ -87,7 +89,7 @@ class HomeController extends Controller
         $products= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->groupBy('products.id')->orderBy('products.created_at', 'asc')->limit(12)->get();
         $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 1])->get()->ToArray();
         $SmilingDifference = SmilingDifference::get();
-        $diamonds = Diamond::get();
+        $diamonds = Diamond::where('StockStatus',1)->get();
         return view('frontend.home',compact('categories','testimonials','banners','step','homesetting','shopbystyle','products','BlogBanners','SmilingDifference','diamonds','contents'));
     }
 
@@ -265,6 +267,10 @@ class HomeController extends Controller
         return Diamond::select('slug')->where('slug', 'like', $slug.'%')
         ->where('id', '<>', $id)
         ->get();
+    }
+
+    public function sitemap(){
+        return  response()->view('frontend.sitemap')->header('Content-Type', 'text/xml');
     }
     
     
