@@ -14,6 +14,8 @@ use App\Models\ProductVariant;
 use App\Models\SmilingDifference;
 
 
+
+
 class HomeController extends Controller
 {
     public function index(){
@@ -265,6 +267,10 @@ class HomeController extends Controller
         return Diamond::select('slug')->where('slug', 'like', $slug.'%')
         ->where('id', '<>', $id)
         ->get();
+    }
+
+    public function sitemap(){
+        return  response()->view('frontend.sitemap')->header('Content-Type', 'text/xml');
     }
     
     

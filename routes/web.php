@@ -42,9 +42,9 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-//Frontend Route
+//Frontend Route 
 
-Route::view('/sitemap.xml', 'frontend.sitemap');
+Route::get('/sitemap.xml',[HomeController::class,'sitemap']);
 
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('/home',[HomeController::class,'index1'])->name('frontend.home');
