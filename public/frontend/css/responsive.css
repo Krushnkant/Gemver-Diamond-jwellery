@@ -2027,7 +2027,7 @@
         font-size: 14px;
         bottom: 15px;
         left: 14px;
-        z-index: 0;
+        /* z-index: 0; */
     }
 
     .main-img-li img {
