@@ -803,12 +803,17 @@ class MenuPageController extends Controller
         $menupages->main_title = $request->main_title;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->main_first_button_name = $request->main_first_button_name;
+        $menupages->shapestyle_title = $request->shapestyle_title;
+        $menupages->shapestyle_description = $request->shapestyle_description;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
         $menupages->section1_button_title = $request->section1_button_title;
         $menupages->section1_button_url = $request->section1_button_url;
         $menupages->section3_title = $request->section3_title;
         $menupages->section3_description = $request->section3_description;
+        $menupages->section31_title = $request->section31_title;
+        $menupages->section32_title = $request->section32_title;
+        $menupages->section33_title = $request->section33_title;
         $menupages->section31_category_id = $request->section31_category_id;
         $menupages->section32_category_id = $request->section32_category_id;
         $menupages->section33_category_id = $request->section33_category_id;

@@ -94,7 +94,21 @@
                         <h4 class="card-title">
                             Section 1
                         </h4>
-                      
+                        
+                           
+                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12" >
+                            <div class="form-group ">
+                                <label class="col-form-label" for="shapestyle_title"> Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="shapestyle_title" name="shapestyle_title">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label" for="shapestyle_description"> Description 
+                                </label>
+                                <textarea type="text" class="form-control input-default" id="shapestyle_description" name="shapestyle_description"></textarea>
+                            </div>
+                        </div>
+
                         <div class="row add-value">
                             <div class="row col-lg-12">
                                 <div class="col-lg-2 ">
@@ -111,7 +125,7 @@
                                 </div>
                                 <div class="col-lg-3 ">
                                     <div class="form-group">
-                                        <label class="col-form-label" for="section_category_title"> Discription 
+                                        <label class="col-form-label" for="section_category_title"> Description 
                                         </label>
                                    </div>
                                 </div>
@@ -424,6 +438,12 @@
                         
                             <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
+                                    <label class="col-form-label" for="section31_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section31_title" name="section31_title" >
+                                    <div id="section31_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-form-label" for="section31_image"> Image <span class="text-danger">*</span>
                                     </label>
                                     <input type="file" class="form-control-file" id="section31_image" name="section31_image">
@@ -441,6 +461,12 @@
                             </div>
 
                             <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section31_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section32_title" name="section32_title" >
+                                    <div id="section32_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-form-label" for="section32_image"> Image <span class="text-danger">*</span>
                                     </label>
@@ -463,6 +489,12 @@
 
 
                             <div class="col-lg-4 col-md-8 col-sm-10 col-xs-12  justify-content-center">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="section33_title"> Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="section33_title" name="section33_title" >
+                                    <div id="section33_title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-form-label" for="section33_image"> Image <span class="text-danger">*</span>
                                     </label>
@@ -550,9 +582,11 @@
         
         
         $.get("{{ url('admin/menupage') }}" +'/4/edit', function (data) {
-            $('#main_title').val(data.main_title);
+           $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
            $('#main_first_button_name').val(data.main_first_button_name);
+           $('#shapestyle_title').val(data.shapestyle_title);
+           $('#shapestyle_description').val(data.shapestyle_description);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
            $('#section1_button_title').val(data.section1_button_title);
@@ -572,6 +606,7 @@
            $('#section32_description').val(data.section32_description);
            $('#section33_title').val(data.section33_title);
            $('#section33_description').val(data.section33_description);
+
            $('#section4_title').val(data.section4_title);
            $('#section4_description').val(data.section4_description);
 
