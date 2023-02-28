@@ -37,6 +37,11 @@
                         <div class="product_slider_main_item video-player-btn-item">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_main_item video-player-btn-item">
+                            <iframe  width="100%" height="500px" src="{{ $Diamond->Certificate_url }}" type="application/pdf" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        @endif
                     </div>
                     <div class="slider slider-nav">
                         @if($Diamond->Stone_Img_url != '')
@@ -47,6 +52,11 @@
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_item">
+                            <h3><img src="{{ url('frontend/image/certification.jpg') }}" alt=""></h3>
+                        </div>
+                        @endif
                     </div>
                       <!-- <div class="view_360_btn text-center mt-3">
                         <button class="select_setting_btn btn-hover-effect btn-hover-effect-black" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view in 360 degree</button>
