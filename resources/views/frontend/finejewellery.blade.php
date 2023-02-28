@@ -83,22 +83,6 @@
                     </li>
                 </ul>
             </div>
-                <!-- <div class="col-12 col-md-8 image_view_column banner_part_img_parent first_image_part h-100 pe-0 ps-0 ps-md-2">
-                    <figure class="position-relative mb-0 me-md-2">
-                        <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img me-0">
-                        <div class="lab_grown_diamonds_text our_engagement_label">Lab grown diamonds</div>
-                    </figure>
-                </div>
-                <div class="col-12 col-md-4 image_view_column_part banner_part_img_parent engagement_part px-0 px-md-1 d-flex flex-column justify-content-between">
-                    <figure class="position-relative mb-0 image_view_column_part_1"> 
-                        <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img">
-                        <div class="lab_grown_diamonds_text">Lab grown diamonds</div>
-                    </figure>
-                    <figure class="mb-0 position-relative image_view_column_part_2">
-                        <img src="{{ url('frontend/image/banner_3.jpg') }}" alt="asscher" class="fancy_color_img mt-0">
-                        <div class="lab_grown_diamonds_text three-lab-grown">Lab grown diamonds</div>
-                    </figure>
-                </div> -->
            </div>
         </div>
     </div>
@@ -141,6 +125,7 @@
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
+                                    <div class="lab_grown_diamond_heading">Heart Engagement Rings</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                                 </div>
                             </figure>
@@ -150,6 +135,7 @@
                          <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
+                                    <div class="lab_grown_diamond_heading">Heart Engagement Rings</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                                 </div>
                             </figure>
@@ -159,6 +145,7 @@
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
+                                    <div class="lab_grown_diamond_heading">Heart Engagement Rings</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
                                 </div>
                             </figure>
@@ -167,17 +154,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
-                <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
-            </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
-                <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
-            </div>
-            <div class="col-md-4 mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
-                <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
-            </div>
-        </div> -->
     </div>
 
     <div class="container choose_your_setting_faq">
