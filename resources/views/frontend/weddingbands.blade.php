@@ -22,7 +22,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
 <div class="container">
     <div class="row choose_your_setting_section wedding_bands_section">
         <div class="choose_your_setting_heading text-center mb-3 mb-md-4 mb-lg-5">
-            Choose Your Style
+            {{ $MenuPage->shapestyle_title }}
         </div>
         <div class="owl-carousel owl-theme engagement-section">
                 @if($MenuPage->menupageshapestyle)

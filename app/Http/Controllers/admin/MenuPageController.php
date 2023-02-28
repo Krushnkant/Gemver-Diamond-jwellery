@@ -56,6 +56,7 @@ class MenuPageController extends Controller
         $menupages->main_shotline = $request->main_shotline;
         $menupages->main_first_button_name = $request->main_first_button_name;
         $menupages->main_second_button_name = $request->main_second_button_name;
+        $menupages->shapestyle_title = $request->shapestyle_title;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
         $menupages->section1_button_title = $request->section1_button_title;
@@ -326,6 +327,7 @@ class MenuPageController extends Controller
         $menupages->main_banner_category_id = $request->main_banner_category_id;
         $menupages->main_shotline = $request->main_shotline;
         $menupages->main_first_button_name = $request->main_first_button_name;
+        $menupages->shapestyle_title = $request->shapestyle_title;
         $menupages->section1_title = $request->section1_title;
         $menupages->section1_description = $request->section1_description;
         $menupages->section1_button_title = $request->section1_button_title;

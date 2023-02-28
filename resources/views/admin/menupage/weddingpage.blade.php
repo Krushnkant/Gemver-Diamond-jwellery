@@ -92,6 +92,13 @@
                         <h4 class="card-title">
                             Section 1
                         </h4>
+                        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12" >
+                            <div class="form-group ">
+                                <label class="col-form-label" for="shapestyle_title"> Title 
+                                </label>
+                                <input type="text" class="form-control input-flat" id="shapestyle_title" name="shapestyle_title">
+                            </div>
+                        </div>
                       
                         <div class="row add-value">
                             <div class="row col-lg-12">
@@ -581,6 +588,7 @@
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
            $('#main_first_button_name').val(data.main_first_button_name);
+           $('#shapestyle_title').val(data.shapestyle_title);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
            $('#section1_button_title').val(data.section1_button_title);
