@@ -23,10 +23,10 @@
         <div class="container">
             <div class="row">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
-                    Choose Your jewellery 
+                    {{ $MenuPage->shapestyle_title }} 
                 </div>
                 <p class="choose_your_setting_paragraph wedding_bands_paragraph text-center mb-3 mb-md-4 mb-xl-5">
-                    Whatever the occasion, we've got a beatiful piece of jewellery for you.
+                    {{ $MenuPage->shapestyle_description }} 
                 </p>
                 @if($MenuPage->menupageshapestyle)
                 <div class="owl-carousel owl-theme finejewellery-slider mb-0">
@@ -125,7 +125,7 @@
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
-                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">Heart Engagement Rings</div>
+                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section31_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                                 </div>
                             </figure>
@@ -135,7 +135,7 @@
                          <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
-                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">Heart Engagement Rings</div>
+                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section32_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                                 </div>
                             </figure>
@@ -145,7 +145,7 @@
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
                                 <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
-                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">Heart Engagement Rings</div>
+                                    <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section33_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
                                 </div>
                             </figure>
