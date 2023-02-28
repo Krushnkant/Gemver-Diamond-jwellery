@@ -23,10 +23,10 @@
         <div class="container">
             <div class="row">
                 <div class="choose_your_setting_heading text-center mb-2 mb-md-3">
-                    {{ $MenuPage->main_title }} 
+                    {{ $MenuPage->shapestyle_title }} 
                 </div>
                 <p class="choose_your_setting_paragraph wedding_bands_paragraph text-center mb-3 mb-md-4 mb-xl-5">
-                    {{ $MenuPage->main_title }} 
+                    {{ $MenuPage->shapestyle_description }} 
                 </p>
                 @if($MenuPage->menupageshapestyle)
                 <div class="owl-carousel owl-theme finejewellery-slider mb-0">
