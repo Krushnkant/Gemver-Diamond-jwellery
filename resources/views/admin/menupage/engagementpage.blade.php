@@ -625,11 +625,16 @@
             allowClear: false
         });
 
+        
+
         $('#categories').select2({
             width: '100%',
             placeholder: "Select Main Banner Category",
             allowClear: false
         });
+
+
+
         
         $.get("{{ url('admin/menupage') }}" +'/1/edit', function (data) {
             $('#main_title').val(data.main_title);
