@@ -7463,3 +7463,7 @@ width: 100%;
     .input-group-prepend span.select2-selection__arrow {
         padding-top: 45px;
     }
+
+    .owl-stage {
+        margin: auto;
+    }
