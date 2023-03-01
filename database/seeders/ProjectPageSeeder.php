@@ -453,7 +453,7 @@ class ProjectPageSeeder extends Seeder
         ProjectPage::create([
             'id' => 45,
             'parent_menu' => 22,
-            'label' => 'Why Friendly',
+            'label' => 'Why Gemver',
             'route_url' => 'admin.why_friendly.list',
             'is_display_in_menu' => 1,
             'inner_routes' => 'admin.why_friendly.list,admin.why_friendlyWhyFriendly.edit,admin.why_friendly.updateWhyFriendly'
