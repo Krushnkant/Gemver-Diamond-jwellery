@@ -5,7 +5,7 @@
         <div class="col p-md-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Why Friendly</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Why Gemver</a></li>
             </ol>
         </div>
     </div>
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-body">
                         {{--<h4 class="card-title">
-                            Why Friendly
+                            Why Gemver
                         </h4>--}}
                         <div class="col-lg-12">
                           <form class="form-valide" action="" id="WhyFriendlyForm" method="post">
@@ -24,7 +24,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group">
-                                <label class="col-form-label" for="why_friendly_contant">Why Friendly Contant <span class="text-danger">*</span>
+                                <label class="col-form-label" for="why_friendly_contant">Why Gemver Contant <span class="text-danger">*</span>
                                 </label>
                                 <textarea  id="why_friendly_contant" name="why_friendly_contant"></textarea>
                                 <div id="why_friendly_contant-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -101,7 +101,7 @@
                     $('#saveWhyFriendlyBtn').prop('disabled',false);
                     $('#saveWhyFriendlyBtn').find('.loadericonfa').hide();
                     $("#UserDiscountPerVal").html(res.why_friendly_contant + " %");
-                    toastr.success("Why Friendly Updated",'Success',{timeOut: 5000});
+                    toastr.success("Why Gemver Updated",'Success',{timeOut: 5000});
                 }
 
                 if(res.status == 400){

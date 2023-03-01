@@ -199,7 +199,7 @@
                                 </tr>
                                 
                                 <tr>
-                                    <th style="width: 50%">Why Friendly</th>
+                                    <th style="width: 50%">Why Gemver</th>
                                     <td class="text-right">
                                         @if($canWrite == true)
                                             <a href="{{ route('admin.why_friendly.list') }}" target="_blank" class="btn btn-outline-dark btn-sm" >

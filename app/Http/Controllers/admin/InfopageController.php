@@ -573,7 +573,7 @@ class InfopageController extends Controller
 
     public function updateWhyFriendly(Request $request){
         $messages = [
-            'why_friendly_contant.required' =>'Please provide a why friendly contant',
+            'why_friendly_contant.required' =>'Please provide a Why Gemver contant',
         ];
 
         $validator = Validator::make($request->all(), [
