@@ -1319,17 +1319,21 @@ class ProductController extends Controller
     }
 
     public function editproduct($id){
-        $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray();
-        $catArray = array();
-        foreach ($categories as $category){
-            
-            array_push($catArray,$category);
-        }
+        
 
        
 
         $product = Product::with('primary_categories','product_attributes','attribute.attributeterm','product_variant.product_variant_specification')->where('id',$id)->first();
-
+        if($product->is_custom == 0){
+            $categories = Category::where('estatus',1)->where('is_custom',0)->get()->toArray(); 
+        }else{
+            $categories = Category::where('estatus',1)->where('is_custom',1)->get()->toArray(); 
+        }
+        
+        $catArray = array();
+        foreach ($categories as $category){
+            array_push($catArray,$category);
+        }
         $attr_term_ids = explode(",",$product->attr_term_ids);
         //dd($product->primary_categories[0]->category_name);
         $CategorySel = isset($product->primary_category_id) ? ($product->primary_categories[0]->category_name) : ($product->primary_categories[0]->category_name);
