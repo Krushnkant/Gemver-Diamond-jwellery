@@ -1036,7 +1036,11 @@ class ProductController extends Controller
                     if(in_array($ext, $supported_image)) {  
                       $nestedData['image'] = '<img src="'.url($images[0]).'" width="50px" height="50px"/>';
                     }else{
-                      $nestedData['image'] = '<img src="'.url($images[1]).'" width="50px" height="50px"/>';
+                        if(isset($images[1])){
+                           $nestedData['image'] = '<img src="'.url($images[1]).'" width="50px" height="50px"/>';
+                        }else{
+                            $nestedData['image'] = '<img src="'.url('images/placeholder_image.png').'" width="50px" height="50px"/>';
+                        }
                     }
                     $nestedData['product_title'] = $product_info;
                     $nestedData['product_code'] = isset($product->product->hsn_code) ? $product->product->hsn_code : "-";
