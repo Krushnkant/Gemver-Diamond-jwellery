@@ -47,7 +47,7 @@
                                                         $ia = 1;
                                                         foreach($product_attribute as $attribute_term){
                                                             if($iscustom == 1){
-                                                                $url =  URL('custom-product-details/'.$Cslug.'/'.$attribute_term->product_variant->slug); 
+                                                                $attributeurl =  URL('custom-product-details/'.$Cslug.'/'.$attribute_term->product_variant->slug); 
                                                             }else{
                                                                 $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug);
                                                             }
