@@ -39,7 +39,8 @@
                         </div>
                         @if($Diamond->Certificate_url != "")
                         <div class="product_slider_main_item video-player-btn-item">
-                            <iframe  width="100%" height="500px" src="{{ $Diamond->Certificate_url }}" type="application/pdf" frameborder="0" allowfullscreen></iframe>
+                            {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf" frameborder="0" allowfullscreen></iframe> --}}
+                            <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
                         </div>
                         @endif
                     </div>

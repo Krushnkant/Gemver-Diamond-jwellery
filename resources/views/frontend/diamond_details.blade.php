@@ -230,6 +230,12 @@
                         <div class="product_slider_main_item video-player-btn-item video-player-diamond-btn">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_main_item video-player-btn-item">
+                            {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf" frameborder="0" allowfullscreen></iframe> --}}
+                            <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
+                        </div>
+                        @endif
                        
                     </div>
                     <div class="slider slider-nav">
@@ -241,6 +247,11 @@
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_item">
+                            <h3><img src="{{ url('frontend/image/certification.png') }}" alt=""></h3>
+                        </div>
+                        @endif
                       
                     </div>
                       <!-- <div class="view_360_btn text-center mt-3">
