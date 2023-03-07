@@ -77,7 +77,7 @@ class DiamondController extends Controller
     {
         $share_array = array("round","princess","cushion","asscher","emerald","oval","radiant","marquise","heart","pear");
         $data = $request->all();
-        $query = Diamond::where('estatus',1);
+        $query = Diamond::where('StockStatus','<>',0)->where('estatus',1);
 
         
         if($data["minimum_price"] && $data["maximum_price"]){
@@ -450,9 +450,9 @@ class DiamondController extends Controller
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $Weight = (int)$Diamond->Weight;
         if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
-          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id'=>$catid])->get();
@@ -827,7 +827,7 @@ class DiamondController extends Controller
         $share_array = array("round","princess","cushion","asscher","emerald","oval","radiant","marquise","heart","pear");
         $data = $request->all();
        // \DB::enableQueryLog();
-        $query = Diamond::where('estatus',1);
+        $query = Diamond::where('StockStatus','<>',0)->where('estatus',1);
         if($data["minimum_price"] && $data["maximum_price"]){
             $query = $query->where('Sale_Amt','>=',$data["minimum_price"]);
             $query = $query->where('Sale_Amt','<=',$data["maximum_price"]);
@@ -1163,9 +1163,9 @@ class DiamondController extends Controller
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $Weight = (int)$Diamond->Weight;
         if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
-          $DiamondRelated = Diamond::where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }
         //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
         $settings = Settings::first();
