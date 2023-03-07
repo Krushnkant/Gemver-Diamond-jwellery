@@ -46,7 +46,12 @@
                                                         $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$Related->id)->groupBy('attribute_term_id')->get();
                                                         $ia = 1;
                                                         foreach($product_attribute as $attribute_term){
-                                                            $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
+                                                            if($iscustom == 1){
+                                                                $url =  URL('custom-product-details/'.$Cslug.'/'.$attribute_term->product_variant->slug); 
+                                                            }else{
+                                                                $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug);
+                                                            }
+                                                             
                                                             ?>
                                                             <span class="form-check d-inline-block">
                                                                 <a href="{{ $attributeurl }}">
