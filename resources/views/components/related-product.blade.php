@@ -15,7 +15,12 @@
                      $image = URL($images['0']);
                      $sale_price = $Related->product_variant[$key]->sale_price;
                      $regular_price =  $Related->product_variant[$key]->regular_price ;
-                     $url =  URL('product-details/'.$Related->product_variant[$key]->slug); 
+                     if($iscustom == 1){
+                        $url =  URL('custom-product-details/'.$Cslug.'/'.$Related->product_variant[$key]->slug); 
+                     }else{
+                        $url =  URL('product-details/'.$Related->product_variant[$key]->slug); 
+                     }
+                     
 
                     $alt_text = "";
                     if($Related->product_variant[$key]->alt_text != ""){
