@@ -1277,11 +1277,11 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         //     <source src='{$media_url}' type='video/mp4'>
                         //     Your browser does not support the video tag.
                         // </video>";
-                        echo "<img src='{$thumbnail_url}' style='height:300px;' loading='lazy'  />";
+                        echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
                     }
  
                     else{
-                        echo "<img src='{$media_url}' style='height:300px;' loading='lazy' />";
+                        echo "<img src='{$media_url}' style='height:300px;'  />";
                     }
                     ?>
                     
