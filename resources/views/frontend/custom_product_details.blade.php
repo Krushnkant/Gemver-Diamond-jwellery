@@ -617,7 +617,8 @@
     <x-include-order></x-include-order>
 
     {{-- component related product  --}}
-    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
+    <?php $is_custom = 1; ?>
+    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id" :iscustom=1></x-related-product>
 
     <!-- </div> -->
 

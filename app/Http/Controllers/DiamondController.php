@@ -503,7 +503,7 @@ class DiamondController extends Controller
         if(isset($data["action"]))
         {
             $category = Category::find($data['catid']);
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id','product_variants.slug as vslug')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
@@ -620,7 +620,7 @@ class DiamondController extends Controller
                         'jpeg',
                         'png'
                     );
-                    $url =  URL('custom-product-details/'.$category->slug.'/'.$product->id.'/'.$product->variant_id);
+                    $url =  URL('custom-product-details/'.$category->slug.'/'.$product->vslug);
 
                     $alt_text = "";
                     if($product->alt_text != ""){
@@ -664,12 +664,13 @@ class DiamondController extends Controller
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
                                 if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
-                            
+                                    
                                     $artilces .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part"><div class="wire_bangle_color_part">';
                                     $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                     $ia = 1;
                                     foreach($product_attribute as $attribute_term){
-                                        $attributeurl =  URL('/custom-product-details/'.$data['catid'].'/'.$product->id.'/'.$attribute_term->product_variant_id); 
+                                        $pv = \App\Models\ProductVariant::select('slug')->where('id',$attribute_term->product_variant_id)->first();
+                                        $attributeurl =  URL('custom-product-details/'.$category->slug.'/'.$pv->slug); 
                                         $artilces .= '<span class="form-check d-inline-block">
                                                 <a href="'.$attributeurl.'">
                                                 <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->attrterm_name .'"  class="wire_bangle_color_img pe-auto">
@@ -719,7 +720,10 @@ class DiamondController extends Controller
         }
     }
 
-    public function getCustomProductDetails($catid,$id,$vid){
+    public function getCustomProductDetails($catid,$vid){
+        $productv = ProductVariant::where('slug',$vid)->orWhere('id', $vid)->first();
+        $id = $productv->product_id;
+        $vid = $productv->id;
         $category = Category::where('slug',$catid)->first();
         $CatId = $category->id;
         $catid =  $category->id;
