@@ -716,7 +716,7 @@
     <x-include-order></x-include-order>
 
     {{-- component related product  --}}
-    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
+    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id" :iscustom=1></x-related-product>
     <!-- </div> -->
     <div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
