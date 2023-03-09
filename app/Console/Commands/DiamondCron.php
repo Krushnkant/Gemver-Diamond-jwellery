@@ -499,15 +499,7 @@ class DiamondCron extends Command
                             }  
                         }
 
-                        foreach($oldids as $oldid){
-                            // $deletediamond = Diamond::where('diamond_id',$oldid);
-                            // $deletediamond->StockStatus = 0;
-                            // $deletediamond->save();
-                            Diamond::where('diamond_id', $oldid)
-                            ->update([
-                                'StockStatus' => '0'
-                                ]);
-                        }
+                       
 
                       
     
@@ -517,6 +509,16 @@ class DiamondCron extends Command
                     
                 }
            }
+        }
+
+        foreach($oldids as $oldid){
+            // $deletediamond = Diamond::where('diamond_id',$oldid);
+            // $deletediamond->StockStatus = 0;
+            // $deletediamond->save();
+            Diamond::where('diamond_id', $oldid)
+            ->update([
+                'StockStatus' => '0'
+                ]);
         }
        
     }
