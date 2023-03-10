@@ -214,42 +214,42 @@ class Diamond3Cron extends Command
                             
                         } 
                         
-                        $Vendor = Vendor::where('vendor_id',$collection->vendor_id)->first();
-                        if($Vendor == ""){
-                            $vendordata = ([
-                                'vendor_id' => $collection->vendor_id,
-                                'vendor_phone' => $collection->vendor_phone,
-                                'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                'vendor_email' => $collection->vendor_email,
-                                'contact_person' => $collection->contact_person,
-                                'vendor_street_address' => $collection->vendor_street_address,
-                                'vendor_city' => $collection->vendor_city,
-                                'vendor_state' => $collection->vendor_state,
-                                'vendor_country' => $collection->vendor_country,
-                                'vendor_zip_code' => $collection->vendor_zip_code,
-                                'vendor_iphone' => $collection->vendor_iphone  
-                        ]);
-                        Vendor::insert($vendordata);
-                        }else{
-                            if(!in_array($collection->vendor_id,$vender_array)){
-                                    Vendor::where('vendor_id',$collection->vendor_id)
-                                        ->update([
-                                            'vendor_phone' => $collection->vendor_phone,
-                                            'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                            'vendor_email' => $collection->vendor_email,
-                                            'contact_person' => $collection->contact_person,
-                                            'vendor_street_address' => $collection->vendor_street_address,
-                                            'vendor_city' => $collection->vendor_city,
-                                            'vendor_state' => $collection->vendor_state,
-                                            'vendor_country' => $collection->vendor_country,
-                                            'vendor_zip_code' => $collection->vendor_zip_code,
-                                            'vendor_iphone' => $collection->vendor_iphone 
-                                        ]);
+                        // $Vendor = Vendor::where('vendor_id',$collection->vendor_id)->first();
+                        // if($Vendor == ""){
+                        //     $vendordata = ([
+                        //         'vendor_id' => $collection->vendor_id,
+                        //         'vendor_phone' => $collection->vendor_phone,
+                        //         'vendor_mobile_phone' => $collection->vendor_mobile_phone,
+                        //         'vendor_email' => $collection->vendor_email,
+                        //         'contact_person' => $collection->contact_person,
+                        //         'vendor_street_address' => $collection->vendor_street_address,
+                        //         'vendor_city' => $collection->vendor_city,
+                        //         'vendor_state' => $collection->vendor_state,
+                        //         'vendor_country' => $collection->vendor_country,
+                        //         'vendor_zip_code' => $collection->vendor_zip_code,
+                        //         'vendor_iphone' => $collection->vendor_iphone  
+                        // ]);
+                        // Vendor::insert($vendordata);
+                        // }else{
+                        //     if(!in_array($collection->vendor_id,$vender_array)){
+                        //             Vendor::where('vendor_id',$collection->vendor_id)
+                        //                 ->update([
+                        //                     'vendor_phone' => $collection->vendor_phone,
+                        //                     'vendor_mobile_phone' => $collection->vendor_mobile_phone,
+                        //                     'vendor_email' => $collection->vendor_email,
+                        //                     'contact_person' => $collection->contact_person,
+                        //                     'vendor_street_address' => $collection->vendor_street_address,
+                        //                     'vendor_city' => $collection->vendor_city,
+                        //                     'vendor_state' => $collection->vendor_state,
+                        //                     'vendor_country' => $collection->vendor_country,
+                        //                     'vendor_zip_code' => $collection->vendor_zip_code,
+                        //                     'vendor_iphone' => $collection->vendor_iphone 
+                        //                 ]);
                                     
-                                    array_push($vender_array,$collection->vendor_id);
+                        //             array_push($vender_array,$collection->vendor_id);
                                         
-                            }     
-                        }
+                        //     }     
+                        // }
                     }  
                 } 
             }    
