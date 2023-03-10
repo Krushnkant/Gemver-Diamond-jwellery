@@ -1161,7 +1161,11 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond = Diamond::where('estatus',1)->where('slug',$id)->orWhere('id', $id)->first();
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $Weight = (int)$Diamond->Weight;
+        if($Diamond->Weight != ""){
+            $Weight = (int)$Diamond->Weight;
+        }else{
+            $Weight = 0;   
+        }
         if($Diamond->FancyColor != ""){
           $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{
