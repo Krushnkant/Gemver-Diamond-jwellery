@@ -1160,22 +1160,25 @@ class DiamondController extends Controller
     public function getLadDiamondDetails($id){
         $Category = Category::where(['estatus' => 1,'is_custom'=>1])->get();
         $Diamond = Diamond::where('estatus',1)->where('slug',$id)->orWhere('id', $id)->first();
-        //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        if($Diamond->Weight != ""){
-            $Weight = (int)$Diamond->Weight;
-        }else{
-            $Weight = 0;   
+        if(isset($Diamond->Weight)){
+            //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+            if($Diamond->Weight != ""){
+                //$Weight = (int)$Diamond->Weight;
+                $Weight = $Diamond->Weight;
+            }else{
+                $Weight = 0;   
+            }
+            if($Diamond->FancyColor != ""){
+            $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+            }else{
+            $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
+            }
+            //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
+            $settings = Settings::first();
+            $meta_title = isset($Diamond->short_title)?$Diamond->short_title:"";
+            $meta_description = isset($Diamond->short_title)?$Diamond->short_title:"";
+            return view('frontend.laddiamond_details',compact('Diamond','Category','DiamondRelated','settings'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
         }
-        if($Diamond->FancyColor != ""){
-          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
-        }else{
-          $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('Color',$Diamond->Color)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
-        }
-        //$DiamondRelated = Diamond::where('id','<>',$id)->where('Shape',$Diamond->Shape)->limit(10)->get();
-        $settings = Settings::first();
-        $meta_title = isset($Diamond->short_title)?$Diamond->short_title:"";
-        $meta_description = isset($Diamond->short_title)?$Diamond->short_title:"";
-        return view('frontend.laddiamond_details',compact('Diamond','Category','DiamondRelated','settings'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     
