@@ -215,6 +215,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="sub_title text-center text-md-start">
                             {{ $dddd }}
                         </div>
+                        <div class="shop-colorful-bg-btn-div">
+                            <a href="{{ url('/lab-diamond') }}" class="shopnow_diamond">Shop Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

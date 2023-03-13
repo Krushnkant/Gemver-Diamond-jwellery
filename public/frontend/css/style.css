@@ -1324,6 +1324,23 @@ background-size: cover;
         color: #858585;
     }
 
+    .shop-colorful-bg-btn-div {
+        margin-top: 20px;
+    }
+
+    .shop-colorful-bg-btn-div a {
+        background: #000000;
+        border-radius: 7px;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        color: #FFFFFF;
+        min-width: 240px;
+        border: 0;
+        padding: 15px 40px;
+        text-align: center;
+        margin-right: 15px
+    }
+
     .btn-section a i.fa.fa-arrow-right {
         margin-left: 5px;
     }
