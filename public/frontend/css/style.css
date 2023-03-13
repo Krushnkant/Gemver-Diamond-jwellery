@@ -376,12 +376,6 @@ h6 {
     top: 0;
     width: 100%
 }
-.btn-hover-effect-black:hover,
-.create_yout_own_engagemtnt_ring_btn:hover,
-.shop_diamond_by_shape_heading,
-.shop_dimond_by_shape .owl-nav span {
-    color: #fff !important
-}
 .background-pendal {
     position: absolute;
     top: 0;
@@ -399,6 +393,12 @@ h6 {
     position: relative;
     z-index: 1;
     text-transform: capitalize
+}
+.btn-hover-effect-black:hover,
+.create_yout_own_engagemtnt_ring_btn:hover,
+.shop_diamond_by_shape_heading,
+.shop_dimond_by_shape .owl-nav span {
+    color: #fff !important;
 }
 .shop_by_diamond_shpae_name {
     color: #fff;
