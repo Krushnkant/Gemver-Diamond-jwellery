@@ -1303,7 +1303,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 @include('frontend.layout.footer')
 <script src="{{ asset('frontend/js/popper.min.js') }}" async></script>
 <script src="{{ asset('frontend/js/bootstrap.min.js') }}" async></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}" async></script>
+<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
 <script src="{{ asset('frontend/js/all.min.js') }}" async></script>   
