@@ -475,6 +475,10 @@ h6 {
 .step_two_design .click_here_btn:hover {
     color: #0b1727
 }
+.sub_title {
+    font-size: 16px;
+    color: gray
+}
 .explore-category-btn:hover a,
 .explore_diamonds_heading,
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,
@@ -835,7 +839,7 @@ span.select2-dropdown.select2-dropdown--below {
     transform: translate(-50%, -50%)
 }
 .footer-part-section {
-    padding: 60px 60px 30px;
+    padding: 50px 50px 30px;
     background: var(--light-bg)
 }
 .footer-col .footer-heading,
@@ -3321,10 +3325,6 @@ span.to_text input::placeholder {
     100% {
         left: -200%
     }
-}
-.sub_title {
-    font-size: 16px;
-    color: gray
 }
 .header-logo img {
     width: auto;
