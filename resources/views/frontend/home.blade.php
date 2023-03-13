@@ -1301,17 +1301,17 @@ $dddd =  "Glide with the shine of beautiful Jewels";
     </div>
   
 @include('frontend.layout.footer')
-<script src="{{ asset('frontend/js/popper.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/slick.js') }}"></script>   
-<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script async src="{{ asset('frontend/js/popper.min.js') }}"></script>
+<script async src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+<script async src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+<script async src="{{ asset('frontend/js/custom.js') }}"></script>
+<script async src="{{ asset('frontend/js/slick.js') }}"></script>   
+<script async src="{{ asset('frontend/js/all.min.js') }}"></script>   
+<script async src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 {{-- <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script> --}}
+<script async src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script> --}}
 <script>    
     $(document).ready(function(){
         $(document).on('click','.banner-url',function(){
