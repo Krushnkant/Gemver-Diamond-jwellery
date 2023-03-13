@@ -48,7 +48,6 @@ $settings = \App\Models\Settings::first();
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "g2tcy46q6v");
     </script>
-  
 </head>
 <body>
 
@@ -1301,14 +1300,14 @@ $dddd =  "Glide with the shine of beautiful Jewels";
     </div>
   
 @include('frontend.layout.footer')
-<script src="{{ asset('frontend/js/popper.min.js') }}" async></script>
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}" async></script>
+<script src="{{ asset('frontend/js/popper.min.js') }}"></script>
+<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
-<script src="{{ asset('frontend/js/all.min.js') }}" async></script>   
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js" async></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" async></script>
+<script src="{{ asset('frontend/js/all.min.js') }}"></script>   
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 {{-- <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
 <script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script> --}}
