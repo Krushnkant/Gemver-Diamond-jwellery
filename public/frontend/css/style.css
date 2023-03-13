@@ -1341,7 +1341,7 @@ background-size: cover;
         margin-right: 15px
     }
 
-    .shop-colorful-bg-btn-div a i {
+    .shop-colorful-bg-btn-div a .fa-arrow-right {
         margin-left: 10px;
         vertical-align: middle;
     }
