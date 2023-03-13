@@ -1140,7 +1140,6 @@ background-size: cover;
     .footer-copyright-text,
     .footer-copyright-text a {
         display: inline-block;
-        font-weight: 700;
         font-size: 15px;
         line-height: 20px;
         letter-spacing: 0.05em;
@@ -1152,7 +1151,7 @@ background-size: cover;
     }
 
     .footer-copyright-text {
-        opacity: 0.5;
+        opacity: 0.8;
     }
 
     .footer-logo {
