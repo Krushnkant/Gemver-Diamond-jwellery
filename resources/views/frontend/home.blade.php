@@ -649,7 +649,8 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                             <div class="">
                                 <h2 class="heading-h2 text-white heading-h2-yellow-color text-center text-lg-start">{{ $homesetting->section_stories_title }}</h2>
                                 <div class="customer_stories_paragraph mb-3 mb-lg-0 text-center text-lg-start mb-3">{{ $homesetting->section_stories_description }}</div>
-                                <div class="customer_stories_img">
+                                <div class="customer-stories-btn-div">
+                                    <a href="{{ url('/infopage/testimonials') }}">View All</a>
                                 </div>
                             </div>
                         </div>
