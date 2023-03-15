@@ -465,7 +465,7 @@
                                 @if($setting->max_order_price >  $total - $coupan_discount_amount)
                                     <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>
                                 @else
-                                    <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn checkout_disability" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                                    <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn disabled" id="proceed_to_checkout_btn">Proceed to checkout</button>
                                 @endif
                             </div>
                         </div>
@@ -587,10 +587,10 @@
         var max_order_amount = "{{ $setting->max_order_price }}";
         if(main_total < max_order_amount){
             $("#proceed_to_checkout_btn").addClass("check_max_amounty");
-            $("#proceed_to_checkout_btn").removeClass("checkout_disability");
+            $("#proceed_to_checkout_btn").removeClass("disabled");
         }else{
             $("#proceed_to_checkout_btn").removeClass("check_max_amounty");
-            $("#proceed_to_checkout_btn").addClass("checkout_disability");
+            $("#proceed_to_checkout_btn").addClass("disabled");
             
         }
 
