@@ -127,7 +127,7 @@
                                                     $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                                                     if(!$item){
                                                         if(session()->has('customer')){
-                                                            $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
+                                                            $cart_data = \App\Models\ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
                                                             if($cart_data){
                                                             $cart_data->delete();
                                                             }
@@ -175,7 +175,7 @@
                                                     $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                                                     if(!$item){
                                                         if(session()->has('customer')){
-                                                            $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
+                                                            $cart_data = \App\Models\ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
                                                             if($cart_data){
                                                             $cart_data->delete();
                                                             }

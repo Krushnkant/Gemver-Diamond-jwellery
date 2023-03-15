@@ -164,12 +164,16 @@ class HomeBannerController extends Controller
                     if( $banner->dropdown_id==1){
                         $category = Category::where('estatus',1)->where('id',$banner->value)->first();
                         
-                        $redirect = '<label class="">Category</label><a target="_blank" href="'. url('/shop/'.$category->slug).'"><p>'.$category->category_name.'</p></a>';
+                        $redirect = '<label class="">Category</label><a target="_blank" href="'. url('shop/'.$category->slug).'"><p>'.$category->category_name.'</p></a>';
                     }
                     elseif ($banner->dropdown_id==2){
                         $product = Product::where('estatus',1)->where('id',$banner->value)->first();
                         $product_variant = ProductVariant::where('estatus',1)->where('product_id',$banner->value)->first();
-                        $redirect = '<label class="">Product</span></label><a target="_blank" href="'. url('/product-details/'.$product_variant->slug).'"><p>'.$product->product_title.'</p></a>';
+                        if(isset($product_variant->slug)){
+                            $redirect = '<label class="">Product</span></label><a target="_blank" href="'. url('product-details/'.$product_variant->slug).'"><p>'.$product->product_title.'</p></a>';
+                        }else{
+                            $redirect = '<label class="">None</span></label>';
+                        }
                     }else{
                         $redirect = '<label class="">None</span></label>';
                     }
