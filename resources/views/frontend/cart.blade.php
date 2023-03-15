@@ -165,7 +165,7 @@
                                                         $specifications = $data['specification'];
                                                     }
                                                     $diamond = \App\Models\Diamond::where('id',$data['diamond_id'])->first();
-                                                    $diamond_name = $diamond->Shape.' '. round($diamond->Weight,2) .' ct';
+                                                    $diamond_name = $diamond->short_title;
                                                     $diamond_terms = $diamond->Clarity .' Clarity | '. $diamond->Color .' Color | '. $diamond->Lab .' Certified';
                                                     $sale_price_diamond = $diamond->Sale_Amt;
                                                     $item_image_diamond = explode(',',$diamond->Stone_Img_url); 
@@ -245,7 +245,7 @@
                                                             }
                                                         }  
                                                     }else{
-                                                        $item_name = $item->Shape.' '. round($item->Weight,2) .' ct';
+                                                        $item_name = $item->short_title;
                                                         $item_terms = $item->Clarity .' Clarity | '. $item->Color .' Color | '. $item->Lab .' Certified';
                                                         $sale_price = $item->Sale_Amt;
                                                         $item_image = explode(',',$item->Stone_Img_url); 
