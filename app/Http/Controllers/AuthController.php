@@ -74,7 +74,7 @@ class AuthController extends Controller
 
                 $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                 $cart_datas = json_decode($cookie_data, true);
-               
+        
                 if($cart_datas){  
                     foreach($cart_datas as $cart){
                         
@@ -100,6 +100,7 @@ class AuthController extends Controller
                       
                         }
                     }
+                    Cookie::queue(Cookie::forget('shopping_cart'));
                 }
             
                 return response()->json(['status'=>200]);
