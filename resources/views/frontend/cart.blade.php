@@ -103,8 +103,8 @@
                 @if(isset($cart_data) && count($cart_data))
                     <div class="tab-content1 clearfix col-lg-8">
                         <div class="tab-pane">
-                            <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
-                                Only add inquiry
+                            <div class="alert alert-warning inquiry-alert" role="alert" style="display:none;">
+                                Maximum order amount limit exceeded. The Order will not be placed.
                             </div>
                             <div class="">
                                 <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
@@ -465,7 +465,7 @@
                                 @if($setting->max_order_price >  $total - $coupan_discount_amount)
                                     <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>
                                 @else
-                                    <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                                    <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn checkout_disability" id="proceed_to_checkout_btn">Proceed to checkout</button>
                                 @endif
                             </div>
                         </div>
@@ -587,8 +587,11 @@
         var max_order_amount = "{{ $setting->max_order_price }}";
         if(main_total < max_order_amount){
             $("#proceed_to_checkout_btn").addClass("check_max_amounty");
+            $("#proceed_to_checkout_btn").removeClass("checkout_disability");
         }else{
             $("#proceed_to_checkout_btn").removeClass("check_max_amounty");
+            $("#proceed_to_checkout_btn").addClass("checkout_disability");
+            
         }
 
         $('.final_price').html(main_total);
