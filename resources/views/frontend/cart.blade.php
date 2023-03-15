@@ -103,8 +103,8 @@
                 @if(isset($cart_data) && count($cart_data))
                     <div class="tab-content1 clearfix col-lg-8">
                         <div class="tab-pane">
-                            <div class="alert alert-success inquiry-alert" role="alert" style="display:none;">
-                                Only add inquiry
+                            <div class="alert alert-warning inquiry-alert" role="alert" style="display:none;">
+                                Maximum order amount limit exceeded. The Order will not be placed.
                             </div>
                             <div class="">
                                 <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
