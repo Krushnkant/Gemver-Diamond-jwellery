@@ -4875,6 +4875,11 @@ width: 100%;
         border: 0;
     }
 
+    .continue_shopping_btn:hover {
+        background: var(--primary);
+        color: #ffffff;
+    }
+
     .apply_your_code_btn {
         border: 1px solid #EBEBEB;
         border-radius: 4px;
@@ -4899,7 +4904,7 @@ width: 100%;
         background: var(--light-bg);
         border: 1px solid #DEDEDE;
         border-radius: 9px;
-        max-width: 389px;
+        /* max-width: 389px; */
         margin-right: 0;
         margin-left: auto;
         padding: 10px 30px;
@@ -4929,14 +4934,14 @@ width: 100%;
     }
 
     .apply_btn {
-        background: var(--primary) !important;
+        background: var(--primary);
         border-radius: 4px;
         font-weight: 500;
         font-size: 14px;
         line-height: 14px;
         letter-spacing: 0.05em;
         color: #fff;
-        min-width: 92px;
+        width: 100%;
         height: 43px;
         border: 0;
         outline: 0;
@@ -4949,6 +4954,7 @@ width: 100%;
 
     .apply_btn:hover {
         background: var(--primary);
+        opacity: 0.9;
     }
 
     .order_summary_heading {
@@ -4960,7 +4966,7 @@ width: 100%;
     }
 
     .proceed_to_checkout_btn {
-        background: var(--secondary) !important;
+        background: var(--secondary);
         border-radius: 6px;
         font-weight: 500;
         font-size: 14px;
@@ -4979,6 +4985,7 @@ width: 100%;
 
     .proceed_to_checkout_btn:hover {
         background: var(--secondary);
+        opacity: 0.9;
     }
 
     .order_table_heading,
