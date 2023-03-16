@@ -1626,6 +1626,7 @@ background-size: cover;
 
     .inquiry_now_btn button:hover {
         border: 0;
+        opacity: 0.9;
     }
 
     .inquiry_now_btn button[disabled] {
