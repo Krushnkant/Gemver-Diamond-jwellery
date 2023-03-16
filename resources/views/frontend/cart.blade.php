@@ -475,16 +475,16 @@
         @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-12 col-lg-12 col-xl-12">
-                <div class="row mt-3 mt-lg-5 checkout_box mb-4">
+                <div class="row checkout_box">
                     <div class="col-sm-6 col-lg-6 checkout_box_col">
                         <div class="checkout_box_part_img">
                             <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
                         </div>
                         <div class="checkout_box_part_paragraph mt-3">
-                            Insured Shipping WorldWide <br> Delivered At Your Door Step
+                            Insured Shipping WorldWide Delivered <br> At Your Door Step
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-6 checkout_box_col mt-3 mt-sm-0">
+                    <div class="col-sm-6 col-lg-6 checkout_box_col">
                         <div class="checkout_box_part_img">
                             <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
                         </div>
