@@ -373,8 +373,7 @@
                                     {{ date('dS M, Y', strtotime ('+10 day')) }}
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                 @else
                     <div class="row">
@@ -473,7 +472,7 @@
                 @endif
             </div>
         </div>
-        <!-- @if(isset($cart_data) && count($cart_data))
+        @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-6 col-lg-7 col-xl-8">
                 <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button>
@@ -502,7 +501,7 @@
             </div>
            
         </div>
-        @endif -->
+        @endif
 
     </div>
     
