@@ -474,31 +474,27 @@
         </div>
         @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
-            <div class="col-md-6 col-lg-7 col-xl-8">
-                <!-- <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button> -->
-                    <div class="row mt-3 mt-md-5 checkout_box mb-4">
-                        <div class="col-sm-6 col-lg-6 checkout_box_col">
-                            <div class="checkout_box_part_img">
-                                <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
-                            </div>
-                            <div class="checkout_box_part_paragraph mt-3">
-                                Insured Shipping WorldWide <br> Delivered At Your Door Step
-                            </div>
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="row mt-3 mt-lg-5 checkout_box mb-4">
+                    <div class="col-sm-6 col-lg-6 checkout_box_col">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
                         </div>
-                        <div class="col-sm-6 col-lg-6 checkout_box_col mt-3 mt-sm-0">
-                            <div class="checkout_box_part_img">
-                                <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
-                            </div>
-                            <div class="checkout_box_part_paragraph mt-3">
-                                Estimated date of shipment<br>
-                                {{ date('dS M, Y', strtotime ('+'.env('SHIPMENT_DAYS', 0).' day')) }}
-                            </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Insured Shipping WorldWide <br> Delivered At Your Door Step
                         </div>
                     </div>
+                    <div class="col-sm-6 col-lg-6 checkout_box_col mt-3 mt-sm-0">
+                        <div class="checkout_box_part_img">
+                            <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
+                        </div>
+                        <div class="checkout_box_part_paragraph mt-3">
+                            Estimated date of shipment<br>
+                            {{ date('dS M, Y', strtotime ('+10 day')) }}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="col-md-6 col-lg-5 col-xl-4 text-end">
-               
-            </div> -->
         </div>
         @endif
 
