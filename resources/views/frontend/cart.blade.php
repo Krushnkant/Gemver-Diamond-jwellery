@@ -355,7 +355,7 @@
                             </div>
                         </div>
                         <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button>
-                        <div class="row mt-3 mt-lg-5 checkout_box mb-4">
+                        <!-- <div class="row mt-3 mt-lg-5 checkout_box mb-4">
                             <div class="col-sm-6 col-lg-6 checkout_box_col">
                                 <div class="checkout_box_part_img">
                                     <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
@@ -373,14 +373,14 @@
                                     {{ date('dS M, Y', strtotime ('+10 day')) }}
                                 </div>
                             </div>
-                        </div> 
+                        </div>  -->
                     </div>
                 @else
                     <div class="row">
                         <div class="col-md-12 mycard py-5 text-center">
                             <div class="mycards">
-                                <h4>Your cart is currently empty.</h4>
-                            
+                                <h4>Your cart is currently empty!</h4>
+                                <button type="button" class="continue_shopping_btn mt-3" >Continue Shopping</button>
                             </div>
                         </div>
                     </div>
@@ -475,7 +475,7 @@
         @if(isset($cart_data) && count($cart_data))
         <div class="row mb-5">
             <div class="col-md-6 col-lg-7 col-xl-8">
-                <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button>
+                <!-- <button type="button" class="continue_shopping_btn mb-3" >Continue Shopping</button> -->
                     <div class="row mt-3 mt-md-5 checkout_box mb-4">
                         <div class="col-sm-6 col-lg-6 checkout_box_col">
                             <div class="checkout_box_part_img">
@@ -496,10 +496,9 @@
                         </div>
                     </div>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-4 text-end">
+            <!-- <div class="col-md-6 col-lg-5 col-xl-4 text-end">
                
-            </div>
-           
+            </div> -->
         </div>
         @endif
 
