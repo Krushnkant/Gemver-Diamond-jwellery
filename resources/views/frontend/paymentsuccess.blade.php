@@ -7,7 +7,7 @@
         {{-- <svg xmlns="http://www.w3.org/2000/svg" class="mb-3 mb-md-5 message_box_icon" width="83" height="60" viewBox="0 0 83 60" fill="none">
             <path d="M8.89258 0C3.95612 0 0 4.21666 0 9.21886V50.7497C0 55.7519 3.9563 60 8.89258 60H74.1074C79.0439 60 83 55.7519 83 50.7497V9.21886C83 4.21666 79.0437 0 74.1074 0H8.89258ZM9.32473 6.00043H73.7067L43.2608 35.2508C42.1532 36.3152 40.9132 36.3166 39.8021 35.2508L9.32473 6.00043ZM5.92813 11.0005L26.1225 30.3757L5.92813 50.751V11.0005ZM77.0716 11.0005V50.751L56.939 30.3436L77.0716 11.0005ZM52.6778 34.4704L71.914 54.0028H11.1157L30.4155 34.5026L35.7269 39.596C38.9463 42.6841 44.1185 42.6889 47.3373 39.596L52.6778 34.4704Z" fill="#008FE7"/>
         </svg> --}}
-        <img src="{{ url('/images/sucess.png') }}" class="logo-image mb-5">
+        <img src="{{ url('frontend/image/sucess.png') }}" class="logo-image mb-5">
         <div class="message_box_heading mb-3 mb-xl-5">
             Payment was successfull.
         </div>
