@@ -47,8 +47,8 @@ Route::get('/clear-cache', function() {
 Route::get('/sitemap.xml',[HomeController::class,'sitemap']);
 
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
-Route::get('/home',[HomeController::class,'index1'])->name('frontend.home');
-Route::get('/home1',[HomeController::class,'index2'])->name('frontend.home');
+Route::get('/home',[HomeController::class,'index1'])->name('frontend.home1');
+Route::get('/home1',[HomeController::class,'index2'])->name('frontend.home2');
 Route::get('infopage/about-us',[AboutUsController::class,'index'])->name('frontend.aboutus');
 Route::get('infopage/contact-us',[ContactUsController::class,'index'])->name('frontend.contactus');
 Route::post('contact-us',[ContactUsController::class,'save'])->name('frontend.contact.save');
@@ -140,12 +140,12 @@ Route::post('/opinion',[OpinionController::class,'save'])->name('frontend.opinio
 
 Route::post('add-to-wishlist',[WishlistController::class,'addtowishlist'])->name('frontend.addtowishlist');
 Route::get('/load-wishlist-data',[WishlistController::class,'wishloadbyajax'])->name('frontend.wishloadbyajax');
-Route::get('/wishlist',[WishlistController::class,'index'])->name('frontend.index');
+Route::get('/wishlist',[WishlistController::class,'index'])->name('frontend.wishlist');
 Route::delete('/delete-from-wishlist',[WishlistController::class,'deletefromwishlist'])->name('frontend.deletefromwishlist');
 
 Route::post('add-to-cart',[CartController::class,'addtocart'])->name('frontend.addtocart');
 Route::get('/load-cart-data',[CartController::class,'cartloadbyajax'])->name('frontend.cartloadbyajax');
-Route::get('/cart',[CartController::class,'index'])->name('frontend.index');
+Route::get('/cart',[CartController::class,'index'])->name('frontend.cart');
 Route::delete('/delete-from-cart',[CartController::class,'deletefromcart'])->name('frontend.deletefromcart');
 Route::post('/update-to-cart',[CartController::class,'updatetocart'])->name('frontend.updatetocart');
 
@@ -536,8 +536,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('shopbystyle/{id}/edit',[\App\Http\Controllers\admin\ShopByStyleController::class,'editshopbystyle'])->name('shopbystyle.edit');
     Route::post('shopbystyle/uploadfile',[\App\Http\Controllers\admin\ShopByStyleController::class,'uploadfile'])->name('shopbystyle.uploadfile');
     Route::post('shopbystyle/removefile',[\App\Http\Controllers\admin\ShopByStyleController::class,'removefile'])->name('shopbystyle.removefile');
-    Route::get('shopbystyle/checkparentcat/{id}',[\App\Http\Controllers\admin\ShopByStyleController::class,'checkparentcat'])->name('shopbystyle.checkparentcat');
-    Route::get('shopbystyle/getterm/{id}', [\App\Http\Controllers\admin\ShopByStyleController::class, 'loadterm'])->name('shopbystyle.checkparentcat');
+    Route::get('shopbystyle/checkparentcat/{id}',[\App\Http\Controllers\admin\ShopByStyleController::class,'checkparentcat'])->name('shopbystyle.checkparentcate');
+    Route::get('shopbystyle/getterm/{id}', [\App\Http\Controllers\admin\ShopByStyleController::class, 'loadterm'])->name('shopbystyle.loadterm');
 
     Route::get('offers',[\App\Http\Controllers\admin\OfferController::class,'index'])->name('offers.list');
     Route::post('addorupdateoffer',[\App\Http\Controllers\admin\OfferController::class,'addorupdateoffer'])->name('offers.addorupdate');
@@ -550,13 +550,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('order_includes/create',[\App\Http\Controllers\admin\OrderIncludesController::class,'create'])->name('order_includes.add');
     Route::post('order_includes/save',[\App\Http\Controllers\admin\OrderIncludesController::class,'save'])->name('order_includes.save');
     Route::post('allorderinludeslist',[\App\Http\Controllers\admin\OrderIncludesController::class,'allorderinludeslist'])->name('allorderinludeslist');
-    Route::get('changeorder_includesstatus/{id}',[\App\Http\Controllers\admin\OrderIncludesController::class,'changeorder_includestatus'])->name('order_includes.changeshopbystylestatus');
+    Route::get('changeorder_includesstatus/{id}',[\App\Http\Controllers\admin\OrderIncludesController::class,'changeorder_includestatus'])->name('order_includes.changeorder_includestatus');
     Route::get('order_includes/{id}/delete',[\App\Http\Controllers\admin\OrderIncludesController::class,'deleteorder_includes'])->name('order_includes.delete');
     Route::get('order_includes/{id}/edit',[\App\Http\Controllers\admin\OrderIncludesController::class,'editorder_includes'])->name('order_includes.edit');
     Route::post('order_includes/uploadfile',[\App\Http\Controllers\admin\OrderIncludesController::class,'uploadfile'])->name('order_includes.uploadfile');
     Route::post('order_includes/removefile',[\App\Http\Controllers\admin\OrderIncludesController::class,'removefile'])->name('order_includes.removefile');
     Route::get('order_includes/checkparentcat/{id}',[\App\Http\Controllers\admin\OrderIncludesController::class,'checkparentcat'])->name('order_includes.checkparentcat');
-    Route::get('order_includes/getterm/{id}', [\App\Http\Controllers\admin\OrderIncludesController::class, 'loadterm'])->name('order_includes.checkparentcat');
+    Route::get('order_includes/getterm/{id}', [\App\Http\Controllers\admin\OrderIncludesController::class, 'loadterm'])->name('order_includes.loadterm');
 
     Route::get('blogbanners',[\App\Http\Controllers\admin\BlogBannerController::class,'index'])->name('blogbanners.list');
     Route::get('blogbanners/create',[\App\Http\Controllers\admin\BlogBannerController::class,'create'])->name('blogbanners.add');

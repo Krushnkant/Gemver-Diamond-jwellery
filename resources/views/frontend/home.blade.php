@@ -18,13 +18,15 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/> --}}
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     
     <!-- TrustBox script -->
@@ -60,9 +62,7 @@ $settings = \App\Models\Settings::first();
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 <div class="">
 @include('frontend.layout.header')
-<?php 
-$dddd =  "Glide with the shine of beautiful Jewels"; 
-?>
+
 
     @if(count($banners) > 0)
         <div class="owl-carousel owl-theme home-page-slider">
@@ -170,16 +170,6 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
-                    {{-- <div class="item">
-                        <a href="#">
-                            <div class="catrgery_box">
-                                <span class="catrgory_img">
-                                    <iframe width="100%" height="500px" src="https://eloquentjavascript.net/Eloquent_JavaScript.pdf#page=1&view=FitH,top" type="application/pdf" frameborder="0" allowfullscreen></iframe>
-                                </span>
-                                <span class="catrgery_heading">pdf</span>
-                            </div>
-                        </a>
-                    </div> --}}
                     @foreach($categories as $category)
                     <div class="item">
                         <a href="{{ URL('/shop/'.$category->slug)}}">
@@ -212,7 +202,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
                         <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
-                            {{ $dddd }}
+                            <?php 
+                                $titleJewels =  "Glide with the shine of beautiful Jewels"; 
+                            ?>
+                            {{ $titleJewels }}
                         </div>
                         <div class="shop-colorful-bg-btn-div">
                             <a href="{{ url('/lab-diamond') }}" class="shopnow_diamond">Shop Now <i class="fa fa-arrow-right"></i></a>
@@ -454,9 +447,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/one'); }}"><img src="{{ asset('frontend/image/diamond_1_part.png') }}" alt="" loading="lazy"></a>
                                 </div> 
-                                <a href="{{ url('/step/'.$step->slug.'/one'); }}">
+                                <a href="{{ url('step/'.$step->slug.'/one'); }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
                                 </a>
                             </div>
@@ -469,9 +462,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                     <div class="engagement_diamond_box mb-3">
-                                        <a href="{{ url('/step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" loading="lazy"></a>
+                                        <a href="{{ url('step/'.$step->slug.'/two'); }}"><img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" loading="lazy"></a>
                                     </div> 
-                                    <a href="{{ url('/step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
+                                    <a href="{{ url('step/'.$step->slug.'/two'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                 {{ $step->step2_shotline }}
@@ -480,9 +473,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/three'); }}"><img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" loading="lazy"></a>
                                 </div> 
-                                <a href="{{ url('/step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
+                                <a href="{{ url('step/'.$step->slug.'/three'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                             {{ $step->step3_shotline }}
@@ -491,9 +484,9 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                         <div class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('/step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/four'); }}"><img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" loading="lazy"></a>
                                 </div>
-                                <a href="{{ url('/step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
+                                <a href="{{ url('step/'.$step->slug.'/four'); }}"><div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div></a>
                             </div>
                             <p class="customer_stories_paragraph engagement_diamond_paragraph ms-3 ms-lg-0 mb-0">
                                 {{ $step->step4_shotline }}
@@ -1276,10 +1269,7 @@ $dddd =  "Glide with the shine of beautiful Jewels";
                 <div class="instafeed_inner">
                     <?php
                     if($media_type=="VIDEO"){
-                        // echo "<video controls style='width:100%; display: block !important;height:300px;'>
-                        //     <source src='{$media_url}' type='video/mp4'>
-                        //     Your browser does not support the video tag.
-                        // </video>";
+                    
                         echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
                     }
  
@@ -1306,8 +1296,10 @@ $dddd =  "Glide with the shine of beautiful Jewels";
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
 <script src="{{ asset('frontend/js/all.min.js') }}"></script>   
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+<script src="{{ asset('frontend/js/jquery.cookie.min.j') }}"></script>   
+<script src="{{ asset('frontend/js/select2.min.js') }}"></script>   
+{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> --}}
 
 {{-- <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
 <script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script> --}}
