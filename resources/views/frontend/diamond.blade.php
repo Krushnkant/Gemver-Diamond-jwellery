@@ -1195,6 +1195,9 @@
                     $("#minimum_price_input").val(min);
                     $("#hidden_maximum_price").val(max);
                     $("#maximum_price_input").val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
             });
@@ -1240,6 +1243,9 @@
                     $("#hidden_maximum_carat").val(max);
                     $("#minimum_carat_input").val(min);
                     $("#maximum_carat_input").val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
             });
@@ -1286,6 +1292,9 @@
                     $("#hidden_maximum_depth").val(max);
                     $("#minimum_depth_input").val(min);
                     $("#maximum_depth_input").val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
             });
@@ -1334,6 +1343,9 @@
 
                     $("#minimum_ratio_input").val(min);
                     $("#maximum_ratio_input").val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
             });
@@ -1382,6 +1394,9 @@
 
                     $("#minimum_table_input").val(min);
                     $("#maximum_table_input").val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
             });

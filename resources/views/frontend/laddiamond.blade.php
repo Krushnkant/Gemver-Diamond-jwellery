@@ -1013,6 +1013,9 @@
                 $( "#minimum_price_input" ).val(min);
                 $( "#hidden_maximum_price" ).val(max);
                 $( "#maximum_price_input" ).val(max);
+                //filter_data(page);
+            },
+            stop: function(event, ui) {
                 filter_data(page);
             }
             });
@@ -1056,8 +1059,11 @@
                 $( "#hidden_maximum_carat" ).val(max);
                 $( "#minimum_carat_input" ).val(min);
                 $( "#maximum_carat_input" ).val(max);
-                filter_data(page);
-              }
+                //filter_data(page);
+              },
+                stop: function(event, ui) {
+                    filter_data(page);
+                }
             });
             //$( "#carat" ).html($( "#slider-range-carat" ).slider( "values", 0 ) +" - " + $( "#slider-range-carat" ).slider( "values", 1 ) );
             $( "#carat-start" ).html(" $" + $( "#slider-range-carat" ).slider( "values", 0 ) );
@@ -1101,8 +1107,11 @@
                 $( "#hidden_maximum_depth" ).val(max);
                 $( "#minimum_depth_input" ).val(min);
                 $( "#maximum_depth_input" ).val(max);
+                //filter_data(page);
+              },
+            stop: function(event, ui) {
                 filter_data(page);
-              }
+            }
             });
             //$( "#depth" ).html($( "#slider-range-depth" ).slider( "values", 0 ) + " - " + $( "#slider-range-depth" ).slider( "values", 1 ) );
             $( "#depth-start" ).html(" $" + $( "#slider-range-depth" ).slider( "values", 0 ) );
@@ -1148,8 +1157,11 @@
 
                 $( "#minimum_ratio_input" ).val(min);
                 $( "#maximum_ratio_input" ).val(max);
+                //filter_data(page);
+              },
+            stop: function(event, ui) {
                 filter_data(page);
-              }
+            }
             });
             //$( "#ratio" ).html($( "#slider-range-ratio" ).slider( "values", 0 ) + " - " + $( "#slider-range-ratio" ).slider( "values", 1 ) );
             $( "#ratio-start" ).html(" $" + $( "#slider-range-ratio" ).slider( "values", 0 ) );
@@ -1194,8 +1206,11 @@
 
                 $( "#minimum_table_input" ).val(min);
                 $( "#maximum_table_input" ).val(max);
+                //filter_data(page);
+              },
+            stop: function(event, ui) {
                 filter_data(page);
-              }
+            }
             });
             //$( "#table" ).html($( "#slider-range-table" ).slider( "values", 0 ) + " - " + $( "#slider-range-table" ).slider( "values", 1 ) );
             $( "#table-start" ).html(" $" + $( "#slider-range-table" ).slider( "values", 0 ) );
