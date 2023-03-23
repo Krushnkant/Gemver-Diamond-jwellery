@@ -107,7 +107,7 @@ class OtherPageController extends Controller
         $MenuPage = MenuPage::with('menupageshapestyle.category')->where('id',3)->first();
         $faqs = Faq::whereRaw('FIND_IN_SET(3,menu_page_ids)')->get();
         $SmilingDifference = SmilingDifference::get();
-        return view('frontend.labgrowndiamonds',compact('MenuPage','SmilingDifference','faqs'))->with(['meta_title'=>$MenuPage->meta_title,'meta_description'=>$MenuPage->meta_description]);
+        return view('frontend.labgrowndiamonds',compact('MenuPage','SmilingDifference','faqs'));
     }
 
     public function finejewellery(){

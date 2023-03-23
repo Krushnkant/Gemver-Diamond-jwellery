@@ -87,7 +87,7 @@ Route::get('deleteterm',[OtherPageController::class,'deleteterm'])->name('fronte
 
 Route::get('engagement',[OtherPageController::class,'engagement']);
 Route::get('finejewellery',[OtherPageController::class,'finejewellery']);
-Route::get('labgrowndiamonds',[OtherPageController::class,'labgrowndiamonds']);
+//Route::get('labgrowndiamonds',[OtherPageController::class,'labgrowndiamonds']);
 Route::get('custommadejewellery',[OtherPageController::class,'custommadejewellery']);
 Route::get('weddingbands',[OtherPageController::class,'weddingbands']);
 

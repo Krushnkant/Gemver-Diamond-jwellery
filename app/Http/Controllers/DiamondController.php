@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 class DiamondController extends Controller
 {
     public function index($slug,$shopbyid = 0){
-        $Category = Category::where(['estatus' => 1,'slug'=>$slug])->first();
-        $id = $Category->id;
+        $Category = Category::where('estatus',1)->where('slug',$slug)->orWhere('id',$slug)->first();
+        $id = isset($Category->id)?$Category->id:0;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address'=>$ip_address,'category_id'=>$id])->first();
         $check_variant = 0;
@@ -448,7 +448,7 @@ class DiamondController extends Controller
         $Category = Category::where(['estatus' => 1,'id'=>$catid])->first();
         $Diamond = Diamond::where('estatus',1)->where('slug',$id)->orWhere('id', $id)->first();
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $Weight = (int)$Diamond->Weight;
+        $Weight = isset($Diamond->Weight)?(int)$Diamond->Weight:0;
         if($Diamond->FancyColor != ""){
           $DiamondRelated = Diamond::where('StockStatus','<>',0)->where('id','<>',$Diamond->id)->where('Shape',$Diamond->Shape)->Where('FancyColor',$Diamond->FancyColor)->Where('Weight',">=",$Weight)->orderBy('Weight','ASC')->limit(10)->get();
         }else{

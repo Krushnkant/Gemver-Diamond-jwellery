@@ -633,7 +633,10 @@
                     $( "#minimum_price" ).val(min);
                     $( "#hidden_maximum_price" ).val(max);
                     $( "#maximum_price" ).val(max);
-                    filter_data();
+                    //filter_data();
+                },
+                stop: function(event, ui) {
+                    filter_data(page);
                 }
                 });
                 //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
@@ -655,8 +658,11 @@
                 $( "#carat" ).html( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                 $( "#hidden_minimum_price_carat" ).val(ui.values[ 0 ]);
                 $( "#hidden_maximum_price_carat" ).val(ui.values[ 1 ]);
-                filter_data(page);
-              }
+                //filter_data(page);
+              },
+                stop: function(event, ui) {
+                    filter_data(page);
+                }
             });
             $( "#carat" ).html($( "#slider-range-carat" ).slider( "values", 0 ) +
              " - " + $( "#slider-range-carat" ).slider( "values", 1 ) );

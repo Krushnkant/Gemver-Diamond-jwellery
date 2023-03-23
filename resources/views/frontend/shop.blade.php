@@ -546,6 +546,9 @@
                     $( "#minimum_price" ).val(min);
                     $( "#hidden_maximum_price" ).val(max);
                     $( "#maximum_price" ).val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
 
@@ -592,6 +595,9 @@
                     $( "#minimum_carat" ).val(min);
                     $( "#hidden_maximum_carat" ).val(max);
                     $( "#maximum_carat" ).val(max);
+                    //filter_data(page);
+                },
+                stop: function(event, ui) {
                     filter_data(page);
                 }
 
