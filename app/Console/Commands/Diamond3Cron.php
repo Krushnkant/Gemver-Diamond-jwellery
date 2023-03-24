@@ -130,16 +130,11 @@ class Diamond3Cron extends Command
                         
                         $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                         if($Diamond){
-                        
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                            $Diamond->short_title = $short_title;      
-                            $Diamond->long_title = $long_title;  
-                            $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                            $Diamond->amt_discount = $percentage;       
-                            $Diamond->shape = strtoupper($collection->shape); 
-                            $Diamond->Measurement = $DiamondMeasurement; 
+                            $Diamond->real_Amt = $real_amt;  
+                            //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                            $Diamond->amt_discount = $percentage; 
                             $Diamond->StockStatus = $collection->available;
                             $Diamond->save();    
                         }else{ 
@@ -290,13 +285,9 @@ class Diamond3Cron extends Command
                                 
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
-                                    $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                                    $Diamond->amt_discount = $percentage;       
-                                    $Diamond->shape = strtoupper($collection->shape); 
-                                    $Diamond->Measurement = $DiamondMeasurement; 
+                                    $Diamond->real_Amt = $real_amt; 
+                                    //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                    $Diamond->amt_discount = $percentage;   
                                     $Diamond->StockStatus = $collection->available;
                                     $Diamond->save();    
                                 }else{ 
