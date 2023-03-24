@@ -47,40 +47,7 @@ class DiamondCron extends Command
         set_time_limit(0);
         \Log::info("Diamond Round Heart Cushion Uploaded start !");
         $oldids = Diamond::whereIn('Shape',['Round','Heart','Cushion'])->get()->pluck('diamond_id')->toarray();
-        // $public_path = __DIR__ . '/../../../public/csv/vdb_LG_diamonds.csv';
-        // Excel::import(new ImportDiamondNewLatest, $public_path);
-        // $action = "add";
-        // 
-
-   
-
-        // $curl = curl_init();
-
-        // curl_setopt_array($curl, array(
-        // CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=2',
-        // CURLOPT_RETURNTRANSFER => true,
-        // CURLOPT_ENCODING => '',
-        // CURLOPT_MAXREDIRS => 10,
-        // CURLOPT_TIMEOUT => 0,
-        // CURLOPT_FOLLOWLOCATION => true,
-        // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        // CURLOPT_CUSTOMREQUEST => 'GET',
-        // CURLOPT_HTTPHEADER => array(
-        //     'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-        // ),
-        // ));
-
-        // $response = curl_exec($curl);
-        // $err = curl_error($curl);
-        // curl_close($curl);
-        // if ($err) {
-        //    return "cURL Error #:" . $err;
-        // } else {
-        //     dd(json_decode($response));
-        // }
-        // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
-        // Excel::import(new ImportDiamondNewLatest, $public_path);
-        // $action = "add";
+        
         $vender_array = array(); 
         $curl = curl_init();
 
@@ -111,7 +78,7 @@ class DiamondCron extends Command
                 {
                     unset($oldids[array_search($collection->id, $oldids)]);
                     
-                    //dd($collection);
+                  
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
                         
@@ -169,14 +136,14 @@ class DiamondCron extends Command
                             $Diamond->Amt = $collection->total_sales_price;      
                             $Diamond->Sale_Amt = $sale_amt;      
                             $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                            $Diamond->short_title = $short_title;      
+                            $Diamond->long_title = $long_title;  
+                            $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                             $Diamond->amt_discount = $percentage;      
                             $Diamond->shape = strtoupper($collection->shape); 
                             $Diamond->Measurement = $DiamondMeasurement; 
-                                    $Diamond->StockStatus = $collection->available;
-                                    $Diamond->save();    
+                            $Diamond->StockStatus = $collection->available;
+                            $Diamond->save();    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -225,68 +192,14 @@ class DiamondCron extends Command
                                 'Eyeclean' => $collection->eye_clean,
                                 'Discount' => $collection->discount_percent,
                                 'Girdle_Per' => $collection->girdle_percent,
-                                
-                                
-                                // 'Milkey' => $collection->milky,
-                                
                                 'Culet_Size_ID' => $collection->culet_size,
                                 'Ratio' => $collection->meas_ratio,
                                 'growth_type' => $collection->growth_type,
                                 'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
-                                // 'Culet_Condition_ID' => $collection->culet_condition,
-                                
-                                
-                                
-                                
-                                // 'Laser_Inscription' => $collection->inscription,
-                                // 'Stone_Comment' => $collection->cert_comment,
-                                // 'KeyToSymbols' => $keytosymbols,
-                                // 'Black_Inclusion' => $collection->black_inclusion,
-                                // 'Open_Inclusion' => $collection->open_inclusion,
-                                
-                                
                             ]);
-                            Diamond::insert($data);
-
-                            
+                            Diamond::insert($data);  
                         } 
                         
-                        // $Vendor = Vendor::where('vendor_id',$collection->vendor_id)->first();
-                        // if($Vendor == ""){
-                        //     $vendordata = ([
-                        //         'vendor_id' => $collection->vendor_id,
-                        //         'vendor_phone' => $collection->vendor_phone,
-                        //         'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                        //         'vendor_email' => $collection->vendor_email,
-                        //         'contact_person' => $collection->contact_person,
-                        //         'vendor_street_address' => $collection->vendor_street_address,
-                        //         'vendor_city' => $collection->vendor_city,
-                        //         'vendor_state' => $collection->vendor_state,
-                        //         'vendor_country' => $collection->vendor_country,
-                        //         'vendor_zip_code' => $collection->vendor_zip_code,
-                        //         'vendor_iphone' => $collection->vendor_iphone  
-                        // ]);
-                        // Vendor::insert($vendordata);
-                        // }else{
-                        //     if(!in_array($collection->vendor_id,$vender_array)){
-                        //             Vendor::where('vendor_id',$collection->vendor_id)
-                        //                 ->update([
-                        //                     'vendor_phone' => $collection->vendor_phone,
-                        //                     'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                        //                     'vendor_email' => $collection->vendor_email,
-                        //                     'contact_person' => $collection->contact_person,
-                        //                     'vendor_street_address' => $collection->vendor_street_address,
-                        //                     'vendor_city' => $collection->vendor_city,
-                        //                     'vendor_state' => $collection->vendor_state,
-                        //                     'vendor_country' => $collection->vendor_country,
-                        //                     'vendor_zip_code' => $collection->vendor_zip_code,
-                        //                     'vendor_iphone' => $collection->vendor_iphone 
-                        //                 ]);
-                                    
-                        //             array_push($vender_array,$collection->vendor_id);
-                                        
-                        //     }     
-                        // }
                     }  
                 } 
             }    
@@ -371,12 +284,8 @@ class DiamondCron extends Command
                                 }else{
                                     $long_title = $collection->long_title;
                                 }
-
-                                
-                                
                                 $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                                 if($Diamond){
-                                
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
                                     $Diamond->real_Amt = $real_amt;
@@ -436,74 +345,17 @@ class DiamondCron extends Command
                                         'Eyeclean' => $collection->eye_clean,
                                         'Discount' => $collection->discount_percent,
                                         'Girdle_Per' => $collection->girdle_percent,
-                                        
-                                        
-                                        // 'Milkey' => $collection->milky,
-                                        
                                         'Culet_Size_ID' => $collection->culet_size,
                                         'Ratio' => $collection->meas_ratio,
                                         'growth_type' => $collection->growth_type,
-                                        // 'Culet_Condition_ID' => $collection->culet_condition,
                                         'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
                                         
-                                        
-                                        
-                                        // 'Laser_Inscription' => $collection->inscription,
-                                        // 'Stone_Comment' => $collection->cert_comment,
-                                        // 'KeyToSymbols' => $keytosymbols,
-                                        // 'Black_Inclusion' => $collection->black_inclusion,
-                                        // 'Open_Inclusion' => $collection->open_inclusion,
-                                        
                                     ]);
-                                    Diamond::insert($data);
-        
-                                    
+                                    Diamond::insert($data); 
                                 } 
-                                
-                                // $Vendor = Vendor::where('vendor_id',$collection->vendor_id)->first();
-                                // if($Vendor == ""){
-                                //     $vendordata = ([
-                                //         'vendor_id' => $collection->vendor_id,
-                                //         'vendor_phone' => $collection->vendor_phone,
-                                //         'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                //         'vendor_email' => $collection->vendor_email,
-                                //         'contact_person' => $collection->contact_person,
-                                //         'vendor_street_address' => $collection->vendor_street_address,
-                                //         'vendor_city' => $collection->vendor_city,
-                                //         'vendor_state' => $collection->vendor_state,
-                                //         'vendor_country' => $collection->vendor_country,
-                                //         'vendor_zip_code' => $collection->vendor_zip_code,
-                                //         'vendor_iphone' => $collection->vendor_iphone  
-                                // ]);
-                                // Vendor::insert($vendordata);
-                                // }else{
-                                //     if(!in_array($collection->vendor_id,$vender_array)){
-                                //             Vendor::where('vendor_id',$collection->vendor_id)
-                                //                 ->update([
-                                //                     'vendor_phone' => $collection->vendor_phone,
-                                //                     'vendor_mobile_phone' => $collection->vendor_mobile_phone,
-                                //                     'vendor_email' => $collection->vendor_email,
-                                //                     'contact_person' => $collection->contact_person,
-                                //                     'vendor_street_address' => $collection->vendor_street_address,
-                                //                     'vendor_city' => $collection->vendor_city,
-                                //                     'vendor_state' => $collection->vendor_state,
-                                //                     'vendor_country' => $collection->vendor_country,
-                                //                     'vendor_zip_code' => $collection->vendor_zip_code,
-                                //                     'vendor_iphone' => $collection->vendor_iphone 
-                                //                 ]);
-                                            
-                                //             array_push($vender_array,$collection->vendor_id);
-                                                
-                                //     }     
-                                // }
+                            
                             }  
                         }
-
-                       
-
-                      
-    
-                        //Diamond::whereIn('diamond_id',$oldids)->delete();
                     }
                     
                     
@@ -511,15 +363,22 @@ class DiamondCron extends Command
            }
         }
 
-        foreach($oldids as $oldid){
-            // $deletediamond = Diamond::where('diamond_id',$oldid);
-            // $deletediamond->StockStatus = 0;
-            // $deletediamond->save();
-            Diamond::where('diamond_id', $oldid)
-            ->update([
-                'StockStatus' => '0'
-                ]);
-        }
+        // foreach($oldids as $oldid){
+        //     // $deletediamond = Diamond::where('diamond_id',$oldid);
+        //     // $deletediamond->StockStatus = 0;
+        //     // $deletediamond->save();
+        //     Diamond::where('diamond_id', $oldid)
+        //     ->update([
+        //         'StockStatus' => '0'
+        //         ]);
+        // }
+
+        
+        Diamond::whereIn('diamond_id',$oldids)
+        ->update([
+            'StockStatus' => '0'
+            ]);
+    
         \Log::info("Diamond Round Heart Cushion Uploaded end !");
     }
 
@@ -530,7 +389,6 @@ class DiamondCron extends Command
         if (! $allSlugs->contains('slug', $slug)){
             return $slug;
         }
-
         $i = 1;
         $is_contain = true;
         do {
