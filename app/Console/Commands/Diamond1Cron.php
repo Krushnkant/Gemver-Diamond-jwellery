@@ -45,6 +45,9 @@ class Diamond1Cron extends Command
        
         //\Log::info("Diamond Asscher Emerald Oval Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Asscher','Emerald','Oval'])->get()->pluck('diamond_id')->toarray();
+        $PriceRanges = PriceRange::where('estatus',1)->get();
+        $Company = Company::where('id',1)->first();
+        $company_per = $Company->company_percentage;
 
         set_time_limit(0);
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
@@ -82,12 +85,7 @@ class Diamond1Cron extends Command
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
-                        
-                        $PriceRanges = PriceRange::where('estatus',1)->get();
                         $amount = (int)$collection->total_sales_price;
-
-                        $Company = Company::where('id',1)->first();
-                        $company_per = $Company->company_percentage;
 
                         $company_per = 0;
                         foreach($PriceRanges as $PriceRange){
@@ -130,16 +128,17 @@ class Diamond1Cron extends Command
                             $long_title = $collection->long_title;
                         }
                         
-                        $Diamond = Diamond::where('diamond_id',$collection->id)->first();
+                        $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                         if($Diamond){
-                        
-                            $Diamond->Amt = $collection->total_sales_price;      
-                            $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;  
-                            //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                            $Diamond->amt_discount = $percentage; 
-                            $Diamond->StockStatus = $collection->available;
-                            $Diamond->save();    
+                            if($Diamond->Sale_Amt != $sale_amt){
+                                $Diamond->Amt = $collection->total_sales_price;      
+                                $Diamond->Sale_Amt = $sale_amt;      
+                                $Diamond->real_Amt = $real_amt; 
+                                //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                $Diamond->amt_discount = $percentage;
+                                $Diamond->StockStatus = $collection->available;
+                                $Diamond->save();
+                            }    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -237,12 +236,7 @@ class Diamond1Cron extends Command
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
                                 
-                                $PriceRanges = PriceRange::where('estatus',1)->get();
                                 $amount = (int)$collection->total_sales_price;
-        
-                                $Company = Company::where('id',1)->first();
-                                $company_per = $Company->company_percentage;
-        
                                 $company_per = 0;
                                 foreach($PriceRanges as $PriceRange){
                                     if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
@@ -284,16 +278,17 @@ class Diamond1Cron extends Command
                                     $long_title = $collection->long_title;
                                 }
                                 
-                                $Diamond = Diamond::where('diamond_id',$collection->id)->first();
+                                $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                                 if($Diamond){
-                                
-                                    $Diamond->Amt = $collection->total_sales_price;      
-                                    $Diamond->Sale_Amt = $sale_amt;      
-                                    $Diamond->real_Amt = $real_amt; 
-                                    //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                                    $Diamond->amt_discount = $percentage;
-                                    $Diamond->StockStatus = $collection->available;
-                                    $Diamond->save();    
+                                    if($Diamond->Sale_Amt != $sale_amt){
+                                        $Diamond->Amt = $collection->total_sales_price;      
+                                        $Diamond->Sale_Amt = $sale_amt;      
+                                        $Diamond->real_Amt = $real_amt; 
+                                        //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                        $Diamond->amt_discount = $percentage;
+                                        $Diamond->StockStatus = $collection->available;
+                                        $Diamond->save();
+                                    }    
                                 }else{ 
                                     $data = ([
                                         'Company_id' => 1,  
@@ -373,10 +368,7 @@ class Diamond1Cron extends Command
         //         ]);
         // }
 
-        Diamond::whereIn('diamond_id',$oldids)
-        ->update([
-            'StockStatus' => '0'
-            ]);
+        Diamond::whereIn('diamond_id',$oldids)->update(['StockStatus' => '0']);
        
     }
 

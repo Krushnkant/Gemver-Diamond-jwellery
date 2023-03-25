@@ -44,6 +44,9 @@ class Diamond2Cron extends Command
         
         //\Log::info("Diamond Heart Radiant Marquise Princess Pear Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Radiant','Marquise','Princess','Pear'])->get()->pluck('diamond_id')->toarray();
+        $PriceRanges = PriceRange::where('estatus',1)->get();
+        $Company = Company::where('id',1)->first();
+        $company_per = $Company->company_percentage;
 
         set_time_limit(0);
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
@@ -81,13 +84,7 @@ class Diamond2Cron extends Command
                     //dd($collection);
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
-                        
-                        $PriceRanges = PriceRange::where('estatus',1)->get();
                         $amount = (int)$collection->total_sales_price;
-
-                        $Company = Company::where('id',1)->first();
-                        $company_per = $Company->company_percentage;
-
                         $company_per = 0;
                         foreach($PriceRanges as $PriceRange){
                             if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
@@ -129,16 +126,17 @@ class Diamond2Cron extends Command
                             $long_title = $collection->long_title;
                         }
                         
-                        $Diamond = Diamond::where('diamond_id',$collection->id)->first();
+                        $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                         if($Diamond){
-                        
-                            $Diamond->Amt = $collection->total_sales_price;      
-                            $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;  
-                            //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                            $Diamond->amt_discount = $percentage;
-                            $Diamond->StockStatus = $collection->available;
-                            $Diamond->save();    
+                            if($Diamond->Sale_Amt != $sale_amt){
+                                $Diamond->Amt = $collection->total_sales_price;      
+                                $Diamond->Sale_Amt = $sale_amt;      
+                                $Diamond->real_Amt = $real_amt; 
+                                //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                $Diamond->amt_discount = $percentage;
+                                $Diamond->StockStatus = $collection->available;
+                                $Diamond->save();
+                            }    
                         }else{ 
                             $data = ([
                                 'Company_id' => 1,  
@@ -235,13 +233,7 @@ class Diamond2Cron extends Command
                             //dd($collection);
                             if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                                 $Stone_No = $collection->stock_num;
-                                
-                                $PriceRanges = PriceRange::where('estatus',1)->get();
                                 $amount = (int)$collection->total_sales_price;
-        
-                                $Company = Company::where('id',1)->first();
-                                $company_per = $Company->company_percentage;
-        
                                 $company_per = 0;
                                 foreach($PriceRanges as $PriceRange){
                                     if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
@@ -283,71 +275,72 @@ class Diamond2Cron extends Command
                                 $long_title = $collection->long_title;
                             }
                                 
-                                $Diamond = Diamond::where('diamond_id',$collection->id)->first();
-                                if($Diamond){
-                                
+                            $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
+                            if($Diamond){
+                                if($Diamond->Sale_Amt != $sale_amt){
                                     $Diamond->Amt = $collection->total_sales_price;      
                                     $Diamond->Sale_Amt = $sale_amt;      
-                                    $Diamond->real_Amt = $real_amt;  
-                                   // $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                                    $Diamond->amt_discount = $percentage; 
+                                    $Diamond->real_Amt = $real_amt; 
+                                    //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                    $Diamond->amt_discount = $percentage;
                                     $Diamond->StockStatus = $collection->available;
-                                    $Diamond->save();    
-                                }else{ 
-                                    $data = ([
-                                        'Company_id' => 1,  
-                                        'Stone_No' => $Stone_No,
-                                        'diamond_id' => $collection->id,
-                                        'short_title' => $short_title,
-                                        'long_title' => $long_title,
-                                        'slug' => $this->createSlug($short_title),
-                                        'vendor_id' => $collection->vendor_id,
-                                        'StockStatus' => $collection->available,
-                                        'Weight' => $collection->size,
-                                        'Lab_Report_No' => $collection->lab_sequence_no,
-                                        'Location' => $collection->city.','.$collection->state.','.$collection->country,
-                                        'Amt' => $collection->total_sales_price,
-                                        'Sale_Amt' => $sale_amt,
-                                        'real_Amt' => $real_amt,
-                                        'amt_discount' => $percentage,
-                                        'shape' => strtoupper($collection->shape),
-                                        'Color' => $collection->color,
-                                        'Measurement' =>  $DiamondMeasurement,
-                                        'meas_length' => ($collection->meas_length)?$collection->meas_length:0,
-                                        'meas_width' => ($collection->meas_width)?$collection->meas_width:0,
-                                        'meas_depth' => ($collection->meas_depth)?$collection->meas_depth:0,
-                                        'Certificate_url' => $collection->cert_url,
-                                        'Video_url' => $collection->video_url,
-                                        'Stone_Img_url' => isset($collection->image_url)?$collection->image_url:"",
-                                        'Rate' => $collection->price_per_carat,
-                                        'Lab' => $collection->lab,
-                                        'FancyColorIntens' => $collection->fancy_color_intensity,
-                                        'FancyColorOvertone' => $collection->fancy_color_overtone,
-                                        'FancyColor' => $collection->fancy_color_dominant_color,
-                                        'Symm' =>  $collection->symmetry,
-                                        'Polish' => $collection->polish,
-                                        'Clarity' => $collection->clarity,
-                                        'Cut' => $collection->cut,
-                                        'Total_Depth_Per' => $collection->depth_percent,
-                                        'Table_Diameter_Per' => $collection->table_percent,
-                                        'GirdleThin_ID' => $collection->girdle_min,
-                                        'GirdleThick_ID' => $collection->girdle_max,
-                                        'FlrColor' => $collection->fluor_color,
-                                        'FlrIntens' => $collection->fluor_intensity,
-                                        'CrownHeight' => $collection->crown_height,
-                                        'CrownAngle' => $collection->crown_angle,
-                                        'PavillionHeight' => $collection->pavilion_depth,
-                                        'PavillionAngle' => $collection->pavilion_angle,
-                                        'Eyeclean' => $collection->eye_clean,
-                                        'Discount' => $collection->discount_percent,
-                                        'Girdle_Per' => $collection->girdle_percent,
-                                        'Culet_Size_ID' => $collection->culet_size,
-                                        'Ratio' => $collection->meas_ratio,
-                                        'growth_type' => $collection->growth_type,
-                                        'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
-                                        
-                                    ]);
-                                    Diamond::insert($data);
+                                    $Diamond->save();
+                                }    
+                            }else{ 
+                                $data = ([
+                                    'Company_id' => 1,  
+                                    'Stone_No' => $Stone_No,
+                                    'diamond_id' => $collection->id,
+                                    'short_title' => $short_title,
+                                    'long_title' => $long_title,
+                                    'slug' => $this->createSlug($short_title),
+                                    'vendor_id' => $collection->vendor_id,
+                                    'StockStatus' => $collection->available,
+                                    'Weight' => $collection->size,
+                                    'Lab_Report_No' => $collection->lab_sequence_no,
+                                    'Location' => $collection->city.','.$collection->state.','.$collection->country,
+                                    'Amt' => $collection->total_sales_price,
+                                    'Sale_Amt' => $sale_amt,
+                                    'real_Amt' => $real_amt,
+                                    'amt_discount' => $percentage,
+                                    'shape' => strtoupper($collection->shape),
+                                    'Color' => $collection->color,
+                                    'Measurement' =>  $DiamondMeasurement,
+                                    'meas_length' => ($collection->meas_length)?$collection->meas_length:0,
+                                    'meas_width' => ($collection->meas_width)?$collection->meas_width:0,
+                                    'meas_depth' => ($collection->meas_depth)?$collection->meas_depth:0,
+                                    'Certificate_url' => $collection->cert_url,
+                                    'Video_url' => $collection->video_url,
+                                    'Stone_Img_url' => isset($collection->image_url)?$collection->image_url:"",
+                                    'Rate' => $collection->price_per_carat,
+                                    'Lab' => $collection->lab,
+                                    'FancyColorIntens' => $collection->fancy_color_intensity,
+                                    'FancyColorOvertone' => $collection->fancy_color_overtone,
+                                    'FancyColor' => $collection->fancy_color_dominant_color,
+                                    'Symm' =>  $collection->symmetry,
+                                    'Polish' => $collection->polish,
+                                    'Clarity' => $collection->clarity,
+                                    'Cut' => $collection->cut,
+                                    'Total_Depth_Per' => $collection->depth_percent,
+                                    'Table_Diameter_Per' => $collection->table_percent,
+                                    'GirdleThin_ID' => $collection->girdle_min,
+                                    'GirdleThick_ID' => $collection->girdle_max,
+                                    'FlrColor' => $collection->fluor_color,
+                                    'FlrIntens' => $collection->fluor_intensity,
+                                    'CrownHeight' => $collection->crown_height,
+                                    'CrownAngle' => $collection->crown_angle,
+                                    'PavillionHeight' => $collection->pavilion_depth,
+                                    'PavillionAngle' => $collection->pavilion_angle,
+                                    'Eyeclean' => $collection->eye_clean,
+                                    'Discount' => $collection->discount_percent,
+                                    'Girdle_Per' => $collection->girdle_percent,
+                                    'Culet_Size_ID' => $collection->culet_size,
+                                    'Ratio' => $collection->meas_ratio,
+                                    'growth_type' => $collection->growth_type,
+                                    'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
+                                    
+                                ]);
+                                Diamond::insert($data);
         
                                     
                                 } 
@@ -371,10 +364,7 @@ class Diamond2Cron extends Command
         //         ]);
         // }
 
-        Diamond::whereIn('diamond_id',$oldids)
-        ->update([
-            'StockStatus' => '0'
-            ]);
+        Diamond::whereIn('diamond_id',$oldids)->update(['StockStatus' => '0']);
        
     }
 
