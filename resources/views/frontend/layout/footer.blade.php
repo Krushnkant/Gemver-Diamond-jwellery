@@ -11,7 +11,7 @@
                     <div class="footer-part-heading mb-3">Trusted By</div>
                     <div class="col-md-12 text-center">
                         <div id="trustby-slider" class="owl-carousel owl-theme">
-                            <?php $trustedbies = \App\Models\TrustedBy::where('estatus', 1)->get(); ?>
+                            <?php $trustedbies = \App\Models\TrustedBy::where('estatus', 1)->get('trustedbythumb'); ?>
                             @foreach($trustedbies as $trusted)
                             <div class="item">
                                 <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="">
@@ -35,7 +35,7 @@
                     </svg>
                    </div>
                 </div>
-                <?php $footer1 = \App\Models\FooterPage::where('page_id', 1)->get(); ?>
+                <?php $footer1 = \App\Models\FooterPage::where('page_id', 1)->get(['title','value']); ?>
                 <ul class="footer-ul-part d-md-block">
                     @foreach($footer1 as $fo1)
                     <li>
@@ -53,7 +53,7 @@
                     </svg>
                    </div>
                 </div>
-                <?php $footer2 = \App\Models\FooterPage::where('page_id', 2)->get(); ?>
+                <?php $footer2 = \App\Models\FooterPage::where('page_id', 2)->get(['title','value']); ?>
                 <ul class="footer-ul-part d-md-block">
                     @foreach($footer2 as $fo2)
                     <li>
@@ -72,7 +72,7 @@
                     </svg>
                    </div>
                 </div>
-                <?php $footer3 = \App\Models\FooterPage::where('page_id', 3)->get(); ?>
+                <?php $footer3 = \App\Models\FooterPage::where('page_id', 3)->get(['title','value']); ?>
                 <ul class="footer-ul-part d-md-block">
                     @foreach($footer3 as $fo3)
                     <li>

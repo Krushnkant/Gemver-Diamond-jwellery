@@ -36,9 +36,12 @@
                             </div>
                             <div class="wire_bangle_description p-2">
                                 <?php 
-                                    $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
+                                    //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Related->id)->groupBy('attribute_id')->get();
+                                    $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
+                                        $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")->whereNotNull('attrterm_thumb');
+                                    })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$Related->id)->groupBy('product_variant_variants.attribute_id')->get();
                                     foreach($ProductVariantVariant as $productvariants){
-                                        if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                        //if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                                             ?>
                                             <span class="wire_bangle_color wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
                                                 <div class="wire_bangle_color_part mb-2">
@@ -66,7 +69,7 @@
                                                 </div>
                                             </span>
                                             <?php
-                                        } 
+                                       // } 
                                     }
                                 ?>
                                 <div class="wire_bangle_heading mb-2">

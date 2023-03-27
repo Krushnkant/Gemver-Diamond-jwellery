@@ -661,7 +661,10 @@ class DiamondController extends Controller
                             }
                             $artilces.='</div><div class="wire_bangle_description p-3">';
 
-                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                            //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
+                                $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")->whereNotNull('attrterm_thumb');
+                            })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$product->id)->groupBy('product_variant_variants.attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
                                 if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
                                     

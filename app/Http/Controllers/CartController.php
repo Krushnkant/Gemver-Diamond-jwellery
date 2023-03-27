@@ -203,29 +203,24 @@ class CartController extends Controller
 
     public function cartloadbyajax()
     {
+        $totalcart = "0";
         if(session()->has('customer')){
-            $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
-            if(count($cart_data) > 0){
-             return json_encode(array('totalcart' => count($cart_data)));
-      
-        }else{
-            $totalcart = "0";
-            return json_encode(array('totalcart' => $totalcart));
-         
-        }
+            $cart_data = ItemCart::select(['id'])->where('user_id',session('customer.id'))->count();
+            if($cart_data > 0){
+                return json_encode(array('totalcart' => count($cart_data)));
+            }else{
+                return json_encode(array('totalcart' => $totalcart));
+            }
         }else{
             if(Cookie::get('shopping_cart'))
             {
                 $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                 $cart_data = json_decode($cookie_data, true);
                 $totalcart = count($cart_data);
-
-                return json_encode(array('totalcart' => $totalcart)); 
-                
+                return json_encode(array('totalcart' => $totalcart));
             }
             else
             {
-                $totalcart = "0";
                 return json_encode(array('totalcart' => $totalcart));
                 
             }

@@ -172,10 +172,10 @@ $settings = \App\Models\Settings::first();
                 <div class="owl-carousel owl-theme shop-by-category mb-5">
                     @foreach($categories as $category)
                     <div class="item">
-                        <a href="{{ URL('/shop/'.$category->slug)}}">
+                        <a href="{{ URL('shop/'.$category->slug)}}">
                             <div class="catrgery_box">
                                 <span class="catrgory_img">
-                                    <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}" loading="lazy">
+                                    <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}">
                                 </span>
                                 <span class="catrgery_heading">{{ $category->category_name }}</span>
                             </div>
@@ -200,7 +200,7 @@ $settings = \App\Models\Settings::first();
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
-                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format(count($diamonds)) }} Diamonds available <br> in the Store</h2>
+                        <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format($diamonds) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
                             <?php 
                                 $titleJewels =  "Glide with the shine of beautiful Jewels"; 
@@ -228,38 +228,40 @@ $settings = \App\Models\Settings::first();
                 <div class="owl-carousel owl-theme products_item">
                 <?php 
                     $shape_no = 1;
-                    $supported_video = array(
-                        'mov',
-                        'mp4',
-                        '3gp'
-                    );
+                    // $supported_video = array(
+                    //     'mov',
+                    //     'mp4',
+                    //     '3gp'
+                    // );
                     $index = 0;
                     ?>
                     @foreach($products as $product) 
                      
                     <?php
                     
-                        $video_array = array();
-                        $images_array = array();
+                       // $video_array = array();
+                       // $images_array = array();
                         $images = explode(",",$product->images);
-                        foreach($images as $key => $value){
-                        $ext = pathinfo($value, PATHINFO_EXTENSION);
-                        if(in_array($ext, $supported_video)){
-                            $video_array[] = $value;
-                        }else{
-                            $images_array[] = $value;
-                        } 
-        
-                        }
-                        $new_array = array_merge($video_array,$images_array);   
-                        $image = URL($new_array['0']);
+                        $image = URL($images['0']);
+                        // foreach($images as $key => $value){
+                        //     $ext = pathinfo($value, PATHINFO_EXTENSION);
+                        //     if(in_array($ext, $supported_video)){
+                        //         $video_array[] = $value;
+                        //     }else{
+                        //         $images_array[] = $value;
+                        //     } 
+                        // }
+                        // $new_array = array_merge($video_array,$images_array);   
+                        // $image = URL($new_array['0']);
+                         
+                        // $supported_image = array(
+                        // 'jpg',
+                        // 'jpeg',
+                        // 'png'
+                        // );
+
                         $sale_price = $product->sale_price;
                         $url =  URL('product-details/'.$product->slug); 
-                        $supported_image = array(
-                        'jpg',
-                        'jpeg',
-                        'png'
-                        );
 
                         $alt_text = "";
                         if($product->alt_text != ""){
@@ -273,22 +275,28 @@ $settings = \App\Models\Settings::first();
                         <div class="wire_bangle_img position-relative">
                             <a class="wire_bangle_hover_a" href="{{ $url }}">
                                 <?php 
-                                   $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                                   if(in_array($ext, $supported_image)) {  
+                                  // $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                                  // if(in_array($ext, $supported_image)) {  
                                 ?>
                                 
-                                <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy">
-                                <?php }else{ ?>
+                                {{-- <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy"> --}}
+                                <?php // }else{ ?>
                                    
-                                    <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video>
-                                <?php } ?>
+                                    {{-- <video  loop="true" autoplay="autoplay"  muted style="width:100%; height:200px;" name="media"><source src="{{ $image }}" type="video/mp4"></video> --}}
+                                <?php // } ?>
+                                <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy">
                             </a>
                         </div>
                         <div class="wire_bangle_description p-2">
                             <?php 
-                                $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                                //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
+                                        $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
+                                            ->whereNotNull('attrterm_thumb');
+                                    })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$product->id)->groupBy('product_variant_variants.attribute_id')->get();
+                              
                                 foreach($ProductVariantVariant as $productvariants){
-                                    if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                    //if($productvariants->attrterm_thumb != ''){
                                         ?>
                                         <span class="wire_bangle_color wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
                                             <div class="wire_bangle_color_part mb-2">
@@ -296,7 +304,7 @@ $settings = \App\Models\Settings::first();
                                                 $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                                 $ia = 1;
                                                 foreach($product_attribute as $attribute_term){
-                                                    $attributeurl =  URL('/product-details/'.$attribute_term->product_variant->slug); 
+                                                    $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
@@ -311,7 +319,7 @@ $settings = \App\Models\Settings::first();
                                             </div>
                                         </span>
                                         <?php
-                                    } 
+                                   // } 
                                 }
                             ?>
                             <div class="wire_bangle_heading mb-2">
@@ -504,7 +512,7 @@ $settings = \App\Models\Settings::first();
                 <div class="engagement_ring_diamond_part">
                     <h2 class="heading-h2">{{ $homesetting->section_customise_title }}</h2>
                     <div class="customer_stories_paragraph  mb-3 mb-lg-4">{{ $homesetting->section_customise_description }}</div>
-                    <a style="" class="explore-category-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->category->slug) }}"> {{ $homesetting->section_customise_label }}</a>
+                    <a style="" class="explore-category-btn buy_lab_diamonds_btn black_hover_btn" href="{{ url('shop/'.$homesetting->slug) }}"> {{ $homesetting->section_customise_label }}</a>
                 </div>
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
@@ -1296,7 +1304,7 @@ $settings = \App\Models\Settings::first();
 <script src="{{ asset('frontend/js/custom.js') }}"></script>
 <script src="{{ asset('frontend/js/slick.js') }}"></script>   
 <script src="{{ asset('frontend/js/all.min.js') }}"></script>   
-<script src="{{ asset('frontend/js/jquery.cookie.min.j') }}"></script>   
+<script src="{{ asset('frontend/js/jquery.cookie.min.js') }}"></script>   
 <script src="{{ asset('frontend/js/select2.min.js') }}"></script>   
 {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> --}}
