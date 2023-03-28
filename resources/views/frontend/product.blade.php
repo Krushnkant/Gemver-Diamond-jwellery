@@ -584,6 +584,8 @@ $(document).ready(function(){
                     $(".select_cart_btn").prop('disabled', true);
                     $(".select_cart_btn").css("background-color", "#808080");
                 }else{
+                    $('#vimage').html(data.vimage);
+                    sliderjs();
                     $("#inquiry-error").html("");
                     $("#inquiry-error").hide();
                     $(".select_setting_btn").prop('disabled', false);
@@ -629,14 +631,14 @@ $(document).ready(function(){
                     }
                     
                     $('#speci_multi').html(data.speci_multi);
-                    $('#vimage').html(data.vimage);
+                    
                     $('#spe_desc').html(data.spe_desc);
                     $('#variantstr').html(data.variantstr);
                     var img = data.result.images.split(",");
                     $img_in = "{{ url('/') }}"+"/"+img[0];
                     $('#inquiry_image').attr('src', $img_in);
                     // selectjs();
-                     sliderjs();
+                    
                 } 
             }
         });
