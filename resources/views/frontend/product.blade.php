@@ -530,7 +530,7 @@
     {{-- component order include  --}}
     <x-include-order></x-include-order>
      {{-- component related product  --}}
-    <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
+    {{-- <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product> --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script>  --}}
