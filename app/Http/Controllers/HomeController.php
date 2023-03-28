@@ -48,7 +48,7 @@ class HomeController extends Controller
         ini_set('memory_limit', '1024M');
         //Initial settings, Just specify Source and Destination Image folder.
         $ImagesDirectory    = public_path('images/ProductImg/'); //Source Image Directory End with Slash
-        $DestImagesDirectory    = public_path('images/ProductImg1/'); //Destination Image Directory End with Slash
+        $DestImagesDirectory    = public_path('images/ImageImg1/'); //Destination Image Directory End with Slash
         $NewImageWidth      = 850; //New Width of Image
         $NewImageHeight     = 850; // New Height of Image
         $Quality        = 80; //Image Quality
@@ -62,7 +62,7 @@ class HomeController extends Controller
                     while(($file1 = readdir($subdir))!== false){
                         echo $imagePath = $ImagesDirectory.$file1;
                         echo"<br>";
-                        echo $destPath = $DestImagesDirectory.$f."/".$file1;
+                        echo $destPath = $DestImagesDirectory.$file1;
                         echo"<br>";
                         $checkValidImage = @getimagesize($imagePath);
                         //	mkdir($destPath,2);
