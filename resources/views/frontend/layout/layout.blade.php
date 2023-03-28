@@ -73,11 +73,11 @@ $settings = \App\Models\Settings::first();
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-{{-- <div class="header-loader">
+<div class="header-loader">
     <div class="loader-btn" role="status"> 
     <img src="{{ asset('frontend/image/page-loader.gif') }}" alt="">
     </div>
-</div>  --}}
+</div> 
 
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 
