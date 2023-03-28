@@ -503,7 +503,7 @@ class DiamondController extends Controller
         if(isset($data["action"]))
         {
             $category = Category::find($data['catid']);
-            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id','product_variants.slug as vslug')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where('products.primary_category_id',$data['catid'])->where('products.estatus',1);
+            $query = Product::select('products.*','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id','product_variants.slug as vslug')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where('products.is_custom',1)->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where('products.primary_category_id',$data['catid'])->where('products.estatus',1)->where('product_variants.term_item_id',2);
             
             // if($request->keyword){
             //     // This will only execute if you received any keyword
