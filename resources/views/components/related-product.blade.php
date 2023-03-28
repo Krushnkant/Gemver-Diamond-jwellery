@@ -32,7 +32,7 @@
                     <div class="hover_effect_part wire_bangle_shop_radio" >
                         <div class="wire_bangle_img_radio_button">
                             <div class="wire_bangle_img mb-3 position-relative">
-                                <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}"></a>
+                                <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy"></a>
                             </div>
                             <div class="wire_bangle_description p-2">
                                 <?php 
@@ -58,7 +58,7 @@
                                                             ?>
                                                             <span class="form-check d-inline-block">
                                                                 <a href="{{ $attributeurl }}">
-                                                                <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto">
+                                                                <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
                                                                 </a>
                                                                 <div class="wire_bangle_color_input_label"></div>
                                                             </span>

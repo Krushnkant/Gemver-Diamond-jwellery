@@ -25,7 +25,9 @@
 
     <div class="wire_bangle_page container">
         <div class="row" >
-           
+            <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
+                
+            </div>
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
