@@ -60,9 +60,9 @@ class HomeController extends Controller
                 if(is_dir($file)){
                     $subdir = opendir($ImagesDirectory.$file);
                     while(($file1 = readdir($subdir))!== false){
-                        echo $imagePath = $ImagesDirectory.$f."/".$file1;
+                        echo $imagePath = $ImagesDirectory.$file1;
                         echo"<br>";
-                        echo $destPath = $DestImagesDirectory.$f."/".$file1;
+                        echo $destPath = $DestImagesDirectory.$file1;
                         echo"<br>";
                         $checkValidImage = @getimagesize($imagePath);
                         //	mkdir($destPath,2);
