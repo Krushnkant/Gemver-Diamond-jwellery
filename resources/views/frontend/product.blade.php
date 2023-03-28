@@ -25,37 +25,7 @@
 
     <div class="wire_bangle_page container">
         <div class="row" >
-            <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
-                <div class="slider slider-single mb-5">
-                    <?php
-                    $supported_image = array(
-                        'jpg',
-                        'jpeg',
-                        'png'
-                    ); 
-                    foreach($Product->product_variant as $variant){
-                        $images = explode(",",$variant->images);
-                        foreach($images as $image){
-                        $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                        if(in_array($ext, $supported_image)){ 
-                       ?>
-                            <div class="product_slider_main_item">
-                                <img src="{{ URL($image) }}" alt="">
-                            </div>
-                            <?php }else{ ?> 
-                            <div class="product_slider_main_item">
-                                <video controls="" autoplay="" style="width:100%; height:100%;" name="media"><source src="{{ URL($image) }}" type="video/mp4"></video>
-                            </div>    
-                            <?php 
-                         }
-                        }
-                    }
-                    ?> 
-                </div>
-                <div class="slider slider-nav">
-                 
-                </div>
-            </div>
+           
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
@@ -584,8 +554,6 @@ $(document).ready(function(){
                     $(".select_cart_btn").prop('disabled', true);
                     $(".select_cart_btn").css("background-color", "#808080");
                 }else{
-                    $('#vimage').html(data.vimage);
-                    sliderjs();
                     $("#inquiry-error").html("");
                     $("#inquiry-error").hide();
                     $(".select_setting_btn").prop('disabled', false);
@@ -631,14 +599,14 @@ $(document).ready(function(){
                     }
                     
                     $('#speci_multi').html(data.speci_multi);
-                    
+                    $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
                     $('#variantstr').html(data.variantstr);
                     var img = data.result.images.split(",");
                     $img_in = "{{ url('/') }}"+"/"+img[0];
                     $('#inquiry_image').attr('src', $img_in);
                     // selectjs();
-                    
+                     sliderjs();
                 } 
             }
         });
