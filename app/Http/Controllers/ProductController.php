@@ -50,9 +50,6 @@ class ProductController extends Controller
         foreach($primary_category_ids as $primary_category_id){
             $primary_category_idss[] = (int)$primary_category_id;
         }
-        //$primary_category_ids = implode(',',$primary_category_idss);
-        //$ProductRelated= Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2])->WhereIn('primary_category_id',$primary_category_idss)->where('products.id','<>',$Product->id)->groupBy('products.id')->limit(8)->get();
-        //$OrderIncludes= OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $settings = Settings::first(['company_email','company_mobile_no']);
         $meta_title = isset($Product->meta_title)?$Product->meta_title:"";
         $meta_description = isset($Product->meta_description)?$Product->meta_description:"";
@@ -302,7 +299,7 @@ class ProductController extends Controller
         ); 
         if(isset($data["action"]))
         {
-            $product_variants = ProductVariant::where('product_id',$product_id)->where('estatus',1)->get();
+            $product_variants = ProductVariant::where('product_id',$product_id)->where('estatus',1)->get(['id']);
             
             $vatid = 0;
             foreach($product_variants as $product_variant){

@@ -53,7 +53,18 @@
                     ?> 
                 </div>
                 <div class="slider slider-nav">
-                 
+                    <?php 
+                    foreach($Product->product_variant as $variant){
+                        $images = explode(",",$variant->images);
+                        foreach($images as $image){
+                            ?>
+                            <div class="product_slider_item">
+                                <h3><img src="{{ URL($image) }}" alt=""></h3>
+                            </div>    
+                            <?php 
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
@@ -77,10 +88,7 @@
                            
 
                             <?php
-                            //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
-                            $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
-                                        $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id");
-                                    })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$Product->id)->groupBy('product_variant_variants.attribute_id')->get();
+                            $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                             foreach($ProductVariantVariant as $productvariants){
                                // $categories = \App\Models\Attribute::where('estatus',1)->where('id',$Product->id)->get();
                                 if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
