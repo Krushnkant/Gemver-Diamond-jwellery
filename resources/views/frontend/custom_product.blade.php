@@ -565,17 +565,17 @@
                                 return;
                             }
                             $("#data-wrapper").append(response['artilces']);
-                            $(".total-product").html(data['datacount']);
+                            $(".total-product").html(response['datacount']);
                             $('.auto-load').hide(); 
                         }else{
                             if (response['artilces'] == "") {
                                 $('#data-wrapper').html("No Result Found");
-                                $(".total-product").html(data['datacount']);
+                                $(".total-product").html(response['datacount']);
                                 $('.auto-load').hide();
                                 return;
                             }
                             $("#data-wrapper").html(response['artilces']);
-                            $(".total-product").html(data['datacount']);
+                            $(".total-product").html(response['datacount']);
                             $('.auto-load').hide();   
                         }
                         
