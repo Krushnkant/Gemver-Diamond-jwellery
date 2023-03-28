@@ -26,7 +26,35 @@
     <div class="wire_bangle_page container">
         <div class="row" >
             <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
-                
+                <div class="slider slider-single mb-5">
+                    <?php
+                    $supported_image = array(
+                        'jpg',
+                        'jpeg',
+                        'png'
+                    ); 
+                    foreach($Product->product_variant as $variant){
+                        $images = explode(",",$variant->images);
+                        foreach($images as $image){
+                        $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                        if(in_array($ext, $supported_image)){ 
+                       ?>
+                            <div class="product_slider_main_item">
+                                <img src="{{ URL($image) }}" alt="">
+                            </div>
+                            <?php }else{ ?> 
+                            <div class="product_slider_main_item">
+                                <video controls="" autoplay="" style="width:100%; height:100%;" name="media"><source src="{{ URL($image) }}" type="video/mp4"></video>
+                            </div>    
+                            <?php 
+                         }
+                        }
+                    }
+                    ?> 
+                </div>
+                <div class="slider slider-nav">
+                 
+                </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
