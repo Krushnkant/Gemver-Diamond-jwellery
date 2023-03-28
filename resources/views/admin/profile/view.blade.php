@@ -280,7 +280,7 @@ $('body').on('click', '#save_UserBtn', function () {
                 $("#dob_val").html(res.user.dob);
                 $("#password_val").html(res.user.decrypted_password);
                 if(res.user.profile_pic!=null) {
-                    $('#Profile_pic_val').attr('src', "{{url('images/profile_pic')}}" +"/" + res.user.profile_pic);
+                    $('#Profile_pic_val').attr('src',res.user.profile_pic);
                 }
                 toastr.success("Profile Updated",'Success',{timeOut: 5000});
             }

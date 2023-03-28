@@ -588,6 +588,7 @@ class DiamondController extends Controller
                 $query = $query->where('product_variant_specifications.attribute_term_id',$specification);
                 $query = $query->where('product_variant_specifications.estatus',1);
             }
+            $result_total = $query->groupBy('products.id')->get();
 
             if(isset($data["sorting"])){ 
                 if($data["sorting"]== "date")   
@@ -717,7 +718,7 @@ class DiamondController extends Controller
             }
 
         $TotalDiamond = Product::where('products.is_custom',1)->where('products.estatus',1)->get();
-        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($query) * $_GET['page']];   
+        $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($query) * $_GET['page'],'datacount' => count($result_total)];   
         return $data;
 
         }
