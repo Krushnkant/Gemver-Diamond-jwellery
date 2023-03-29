@@ -210,7 +210,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 </div>
             </div>
             <div class="text-center mt-3 mt-xl-5">
-                <a  href="{{ url('shop/'.$MenuPage->category->slug) }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All {{ $MenuPage->category->category_name }}</a>
+                <a  href="{{ isset($MenuPage->category->slug)?url('shop/'.$MenuPage->category->slug):"#" }}" class="explore-category-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn view_all_rings_btn">View All {{ isset($MenuPage->category->category_name)?$MenuPage->category->category_name:"#" }}</a>
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                         </div>
-                        <a href="{{ url('product-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
+                        <a href="{{ isset($MenuPage->category->slug)?url('product-setting/'.$MenuPage->category->slug):"#" }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
                             {{ $MenuPage->section31_title }}
                         </a>
                         <!-- <div class="text-center create_your_own_heading mb-3 d-block mt-3">
@@ -274,7 +274,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                         <div class="create_your_own_image">
                             <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                         </div>
-                        <a href="{{ url('diamond-setting/'.$MenuPage->category->slug) }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
+                        <a href="{{ isset($MenuPage->category->slug)?url('diamond-setting/'.$MenuPage->category->slug):'#' }}" class="text-center create_your_own_heading mb-3 d-block mt-3">
                             {{ $MenuPage->section32_title }}
                         </a>
                         <!-- <div class="text-center create_your_own_heading mb-3 d-block mt-3">

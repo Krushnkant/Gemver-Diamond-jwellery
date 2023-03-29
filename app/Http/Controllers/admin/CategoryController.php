@@ -283,43 +283,50 @@ class CategoryController extends Controller
     }
 
     public function deletecategory($id){
-        $products = Product::whereRaw('FIND_IN_SET('.$id.',primary_category_id)')->get();
-        dd($products);
-        foreach($products as $product){
-           $catarray = explode(",",$product->primary_category_id);
-           $pos = array_search($id, $catarray);
-            if($pos !== false) {
-                unset($catarray[$pos]);
+        $subcategory = Category::where('parent_category_id',$id)->first();
+            if(!$subcategory){
+            $products = Product::whereRaw('FIND_IN_SET('.$id.',primary_category_id)')->get();
+            foreach($products as $product){
+            $catarray = explode(",",$product->primary_category_id);
+            $pos = array_search($id, $catarray);
+                if($pos !== false) {
+                    unset($catarray[$pos]);
+                }
+                if(count($catarray) > 0 ){
+                    $catstring = implode(",",$catarray);
+                    Product::where('id', $product->id)->update(array('primary_category_id' => $catstring));
+                }else{
+                    $product = Product::find($product->id);
+                    $product->estatus = 3;
+                    $product->save();
+                    $product->delete();
+                    
+                    $productvariants =ProductVariant::where('product_id',$product->id)->get(['id']);
+                    foreach($productvariants as $variant){
+                        $productvariant = ProductVariant::find($variant->id);
+                        $productvariant->estatus = 3;
+                        $productvariant->save();
+                        $productvariant->delete();
+                    }
+                }
             }
-            if(count($catarray) > 0 ){
-                $catstring = implode(",",$catarray);
-                Product::where('id', $product->id)->update(array('primary_category_id' => $catstring));
-            }else{
-                $product = Product::find($product->id);
-                $product->estatus = 3;
-                $product->save();
-                $product->delete();
-                
-                $productvariant = ProductVariant::find($product->id);
-                $productvariant->estatus = 3;
-                $productvariant->save();
-                $productvariant->delete();
-            }
-        }
-        $category = Category::find($id);
-        if ($category){
-            $image = $category->category_thumb;
-            $category->estatus = 3;
-            $category->save();
+            $category = Category::find($id);
+            if ($category){
+                $image = $category->category_thumb;
+                $category->estatus = 3;
+                $category->save();
 
-            $category->delete();
-            $image = public_path($image);
-            if (file_exists($image)) {
-                unlink($image);
+                $category->delete();
+                $image = public_path($image);
+                if (file_exists($image)) {
+                    unlink($image);
+                }
+                return response()->json(['status' => '200']);
             }
-            return response()->json(['status' => '200']);
-        }
-        return response()->json(['status' => '400']);
+            return response()->json(['status' => '400']);
+       }else{
+        return response()->json(['status' => '300']);
+       }
     }
 
     public function editcategory($id){

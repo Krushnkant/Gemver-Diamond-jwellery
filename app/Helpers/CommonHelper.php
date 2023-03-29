@@ -546,7 +546,7 @@ function getSlugId($model,$slug){
       $item = ProductVariant::where('slug',$slug)->first();  
     }
     if(!isset($item->id)){
-        dd('Not Found');
+        return 0;
     }
     return $item->id;
     

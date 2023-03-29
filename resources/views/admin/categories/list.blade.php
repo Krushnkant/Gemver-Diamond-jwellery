@@ -330,6 +330,14 @@ $('body').on('click', '#RemoveCategorySubmit', function (e) {
                 category_table();
                 toastr.error("Please try again",'Error',{timeOut: 5000});
             }
+
+            if(res.status == 300){
+                $("#DeleteCategoryModal").modal('hide');
+                $('#RemoveCategorySubmit').prop('disabled',false);
+                $("#RemoveCategorySubmit").find('.removeloadericonfa').hide();
+                category_table();
+                toastr.error("this category child categories available. first remove child categories",'Error',{timeOut: 5000});
+            }
         },
         error: function (data) {
             $("#DeleteCategoryModal").modal('hide');

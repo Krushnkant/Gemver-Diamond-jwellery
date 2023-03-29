@@ -72,8 +72,8 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button">
-                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting" id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting" id="settingProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -222,8 +222,8 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button">
-                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>
@@ -247,8 +247,8 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                                     {{ $menupageshapestyle->subdiscription }}
                                 </p>
                                 <div class="engagement_button">
-                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Diamond</button>
-                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">Start with Setting</button>
+                                    <button class="engagement_start_diamond" id="settingDiamondBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Diamond</button>
+                                    <button class="engagement_start_setting"id="settingProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"0" }}">Start with Setting</button>
                                 </div>
                             </div>
                         </div>

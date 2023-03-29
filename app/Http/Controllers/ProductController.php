@@ -21,6 +21,9 @@ class ProductController extends Controller
     {
         $CatId = getSlugId('Category',$id);
         $Category = Category::where(['id' => $CatId])->first(['category_name','meta_title','meta_description']);
+        if(!$Category){
+           return view('frontend/404');
+        }
         //$Products= Product::where(['estatus' => 1,'is_custom' => 0])->get();
         if($id != 0){
             if($Category->parent_category_id == 0){
@@ -297,9 +300,6 @@ class ProductController extends Controller
             return $data;
             }
     }
-
-
-    
 
     public function fetchproductdetails(Request $request){
         $data = $request->all();

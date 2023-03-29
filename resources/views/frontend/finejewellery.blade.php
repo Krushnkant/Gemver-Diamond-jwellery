@@ -32,7 +32,7 @@
                 <div class="owl-carousel owl-theme finejewellery-slider mb-0">
 
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                    <div class="item finejewellery-img mb-xl-4 choose_your_setting_col design_engagemnt_image banner_part_img_parent" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
+                    <div class="item finejewellery-img mb-xl-4 choose_your_setting_col design_engagemnt_image banner_part_img_parent" id="shopProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:'#' }}">
                         <figure>
                             <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         </figure>

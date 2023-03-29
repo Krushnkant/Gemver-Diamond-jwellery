@@ -134,7 +134,6 @@ class BlogBannerController extends Controller
             }
 
             $data = array();
-
             if(!empty($banners))
             {
                 foreach ($banners as $banner)

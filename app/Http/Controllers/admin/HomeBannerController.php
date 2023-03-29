@@ -134,7 +134,7 @@ class HomeBannerController extends Controller
             }
 
             $data = array();
-
+            
             if(!empty($banners))
             {
                 foreach ($banners as $banner)

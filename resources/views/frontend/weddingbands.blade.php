@@ -28,7 +28,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 @if($MenuPage->menupageshapestyle)
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
                 <div class="item">
-                    <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ $menupageshapestyle->category->slug }}">
+                    <div class="text-center mb-3 choose_your_setting_col" id="shopProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:"" }}">
                         <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         <div class="choose_sub_heading mt-3 ">
                             {{ $menupageshapestyle->title }}
@@ -193,7 +193,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                                 <?php } ?>
                             </a>
                         </div>
-                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ $product->primary_category->category_name }}
+                        <div class="wire_bangle_description p-3"><div class="wire_bangle_heading mb-2">{{ isset($product->primary_category->category_name)?$product->primary_category->category_name:"#" }}
                         <input type="hidden" class="variant_id" value="{{ $product->variant_id }}">    
                         <input type="hidden" class="item_type" value="0">    
                         <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
