@@ -253,7 +253,7 @@ function chagecustompageStatus(custompage_id) {
     
     $.ajax({
         type: 'GET',
-        url: "{{ url('admin/changecustompagestatus') }}" +'/' + custompage_id,
+        url: "{{ url('admin/chagecustompagestatus') }}" +'/' + custompage_id,
         success: function (res) {
             if(res.status == 200 && res.action=='deactive'){
                 $("#custompageStatuscheck_"+custompage_id).val(2);
@@ -287,7 +287,7 @@ $('body').on('click', '#RemovecustompageSubmit', function (e) {
     var custompage_id = $(this).attr('data-id');
     $.ajax({
         type: 'GET',
-        url: "{{ url('admin/custompages') }}" +'/' + custompage_id +'/delete',
+        url: "{{ url('admin/custompage') }}" +'/' + custompage_id +'/delete',
         success: function (res) {
             if(res.status == 200){
                 $("#DeletecustompageModal").modal('hide');

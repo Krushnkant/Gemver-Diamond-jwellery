@@ -177,7 +177,7 @@ class CustomPageController extends Controller
         }
     }
 
-    public function changecustompagestatus($id){
+    public function chagecustompagestatus($id){
         $custompage = CustomPage::find($id);
         if ($custompage->estatus==1){
             $custompage->estatus = 2;
@@ -199,10 +199,10 @@ class CustomPageController extends Controller
             $custompage->save();
 
             $custompage->delete();
-            $image = public_path($image);
-            if (file_exists($image)) {
-                unlink($image);
-            }
+            // $image = public_path($image);
+            // if (file_exists($image)) {
+            //     unlink($image);
+            // }
             return response()->json(['status' => '200']);
         }
         return response()->json(['status' => '400']);

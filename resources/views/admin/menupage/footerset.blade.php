@@ -695,13 +695,16 @@
         '<option value="engagement"  >Engagement Rings</option>'+
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
-        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>';
+        var array = '<?php echo  $custompages; ?>';
 
-        ' foreach($custompages as $custompage){ '+
-            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
-        ' } '+
-    
-        '</select>'+
+        if(array.length > 0){  
+            html += '<?php foreach($custompages as $custompage){ ?>'+
+            '<option value="info/<?php echo $custompage->slug ?>"   <?php ($footer->value == "info/".$custompage->slug) ? "selected" : "" ?> ><?php echo $custompage->title; ?></option>'+
+        '<?php }  ?>';
+        }
+
+        html += '</select>'+
         '</div>'+
         '</div>'+
         '<div class="col-md-2">'+
@@ -762,13 +765,16 @@
         '<option value="engagement"  >Engagement Rings</option>'+
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
-        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>';
+        var array = '<?php echo  $custompages; ?>';
+        
+        if(array.length > 0){  
+            html += '<?php foreach($custompages as $custompage){ ?>'+
+            '<option value="info/<?php echo $custompage->slug ?>"   <?php ($footer->value == "info/".$custompage->slug) ? "selected" : "" ?> ><?php echo $custompage->title; ?></option>'+
+        '<?php }  ?>';
+        }
 
-        ' foreach($custompages as $custompage){ '+
-            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
-        ' } '+
-    
-        '</select>'+
+        html += '</select>'+
         '</div>'+
         '</div>'+
         '<div class="col-md-2">'+
@@ -828,13 +834,16 @@
         '<option value="engagement"  >Engagement Rings</option>'+
         '<option value="weddingbands"  >Wedding Rings</option>'+
         '<option value="finejewellery"  >Fine Jewellery</option>'+
-        '<option value="custommadejewellery"  >Custom Made Jewellery</option>'+
+        '<option value="custommadejewellery"  >Custom Made Jewellery</option>';
+        var array = '<?php echo  $custompages; ?>';
+        
+        if(array.length > 0){  
+            html += '<?php foreach($custompages as $custompage){ ?>'+
+            '<option value="info/<?php echo $custompage->slug ?>"   <?php ($footer->value == "info/".$custompage->slug) ? "selected" : "" ?> ><?php echo $custompage->title; ?></option>'+
+        '<?php }  ?>';
+        }
 
-        ' foreach($custompages as $custompage){ '+
-            '<option value="info/{{ $custompage->slug }}"   {{ ($footer->value == "info/".$custompage->slug) ? "selected" : "" }} >{{ $custompage->title }}</option>'+
-        ' } '+
-   
-       '</select>'+
+        html += '</select>'+
        '</div>'+
        '</div>'+
        '<div class="col-md-2">'+
