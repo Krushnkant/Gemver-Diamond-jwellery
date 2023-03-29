@@ -66,21 +66,23 @@ class ProductController extends Controller
             //\DB::enableQueryLog(); 
             $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
+            
+            if(isset($request->keyword) && $request->keyword != ""){
+                // This will only execute if you received any keyword
+                $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');
+                $query = $query->where('products.desc','LIKE','%'.$request->keyword.'%');
+            }
+
             if(isset($request->slug) && $request->slug != 0){
-                if(str_contains($request->slug, 'yellow')){
+                if(str_contains($request->slug, 'yellow-gold')){
                     $query = $query->where('product_variants.term_item_id',1);
-                }elseif(str_contains($request->slug, 'rose')){
+                }elseif(str_contains($request->slug, 'rose-gold')){
                     $query = $query->where('product_variants.term_item_id',3);
                 }else{
                     $query = $query->where('product_variants.term_item_id',2);
                 }
             }else{
                 $query = $query->where('product_variants.term_item_id',2);
-            }
-            if(isset($request->keyword) && $request->keyword != ""){
-                // This will only execute if you received any keyword
-                $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');
-                $query = $query->where('products.desc','LIKE','%'.$request->keyword.'%');
             }
             
             if($data["minimum_price"] && $data["maximum_price"]){
