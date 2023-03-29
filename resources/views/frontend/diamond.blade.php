@@ -7,14 +7,14 @@
     <div class="">
         <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
         <div class="about_us_background">
-            <h1 class="sub_heading mb-lg-3">{{ $Category->category_name }} setting</h1>
+            <h1 class="sub_heading mb-lg-3">{{ isset($Category->category_name)?$Category->category_name:"" }} setting</h1>
             <div class="about_us_link">
                 <a href="{{ URL('/') }}">home</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none" class="mx-2">
                     <path d="M4.30029 4.32471L6.97613 7L4.30029 9.67529L5.44971 10.8247L9.27388 7L5.44971 3.17529L4.30029 4.32471Z" fill="white" />
                     <path d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z" fill="white" />
                 </svg>
-                <a href="#">{{ $Category->category_name }} setting</a>
+                <a href="#">{{ isset($Category->category_name)?$Category->category_name:"" }} setting</a>
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
                     </span>
                     <div>
                         <span class="step-progressbar-text">
-                            complete the {{ $Category->category_name }}
+                            complete the {{ isset($Category->category_name)?$Category->category_name:"" }}
                         </span>
 
                     </div>
@@ -148,7 +148,7 @@
                     </span>
                     <div>
                         <span class="step-progressbar-text">
-                            complete the {{ $Category->category_name }}
+                            complete the {{ isset($Category->category_name)?$Category->category_name:"" }}
                         </span>
 
                     </div>

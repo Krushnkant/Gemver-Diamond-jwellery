@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        
+        <input type="hidden" id="slug" value="{{ $id }}"/>
         <div class="container shop_page round_cut_lab_diamonds_page">
             <div class="row my-3">
                 <div class="col-md-12 px-0">
@@ -444,6 +444,7 @@
                // $('.filter_data').html('<div id="loading" style="" ></div>');
                 var keyword = "{{ isset($_GET['s'])?$_GET['s']:"" }}";
                 var action = 'fetch_data';
+                var slug = $('#slug').val();
                 var minimum_price = $('#hidden_minimum_price').val();
                 var maximum_price = $('#hidden_maximum_price').val();
                 var minimum_price_input = $('#minimum_price').val();
@@ -456,7 +457,7 @@
                 $.ajax({
                     url:"{{ url('/product-filter') }}?page=" + page,
                     method:"POST",
-                    data:{action:action,keyword:keyword,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,selectattribute:selectattribute,_token: '{{ csrf_token() }}'},
+                    data:{action:action,keyword:keyword,minimum_price_input:minimum_price_input,maximum_price_input:maximum_price_input,minimum_price:minimum_price,maximum_price:maximum_price,category:category,sorting:sorting,attribute:attribute,specification:specification,selectattribute:selectattribute,slug:slug,_token: '{{ csrf_token() }}'},
                     beforeSend: function() {
                         $('.auto-load').show();
                     },

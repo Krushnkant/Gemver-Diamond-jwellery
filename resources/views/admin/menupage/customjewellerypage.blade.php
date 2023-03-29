@@ -67,7 +67,7 @@
                                  </div>
                                 
                             </div>
-                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                            {{-- <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                     <select  name="main_banner_category_id" id="categories" class="form-control">
                                     <option value="">Select Main Banner Category</option>
@@ -76,6 +76,14 @@
                                         @endforeach
                                     </select>
                                 </div>
+                            </div> --}}
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center" >
+                                <div class="form-group">
+                                    <label class="col-form-label" for="main_banner_category_id"> Main Banner Url
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_banner_category_id" name="main_banner_category_id" >
+                                    <div id="main_banner_category_id-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
                             </div>
                            
                             
@@ -398,6 +406,7 @@
         $.get("{{ url('admin/menupage') }}" +'/5/edit', function (data) {
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
+           $('#main_banner_category_id').val(data.main_banner_category_id);
            $('#main_first_button_name').val(data.main_first_button_name);
            $('#section1_title').val(data.section1_title);
            $('#section1_description').val(data.section1_description);
@@ -421,7 +430,7 @@
            $('#section52_description').val(data.section52_description);
            $('#section53_title').val(data.section53_title);
            $('#section53_description').val(data.section53_description);
-           $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
+          // $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
 
            $('[name=section51_category]').val(data.section51_category).change();
            $('[name=section52_category]').val(data.section52_category).change();

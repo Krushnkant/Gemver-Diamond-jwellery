@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\StepPopup;
+use App\Models\Product;
+use App\Models\ProductVariant;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -281,6 +283,29 @@ class CategoryController extends Controller
     }
 
     public function deletecategory($id){
+        $products = Product::whereRaw('FIND_IN_SET('.$id.',primary_category_id)')->get();
+        dd($products);
+        foreach($products as $product){
+           $catarray = explode(",",$product->primary_category_id);
+           $pos = array_search($id, $catarray);
+            if($pos !== false) {
+                unset($catarray[$pos]);
+            }
+            if(count($catarray) > 0 ){
+                $catstring = implode(",",$catarray);
+                Product::where('id', $product->id)->update(array('primary_category_id' => $catstring));
+            }else{
+                $product = Product::find($product->id);
+                $product->estatus = 3;
+                $product->save();
+                $product->delete();
+                
+                $productvariant = ProductVariant::find($product->id);
+                $productvariant->estatus = 3;
+                $productvariant->save();
+                $productvariant->delete();
+            }
+        }
         $category = Category::find($id);
         if ($category){
             $image = $category->category_thumb;

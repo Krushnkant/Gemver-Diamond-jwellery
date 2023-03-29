@@ -10,19 +10,17 @@ use App\Models\Product;
 use App\Models\HomeSetting;
 use App\Models\ShopByStyle;
 use App\Models\BlogBanner;
-use App\Models\ProductVariant;
+use App\Models\Settings;
 use App\Models\SmilingDifference;
-
-
-
 
 class HomeController extends Controller
 {
-    public function index(){
-        
-        
+    public function index()
+    {
+        $setting = Settings::first(['instagram_token']);
         $fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username";
-        $token = env('INSTAGRAM_TOKEN', '');
+        //$token = env('INSTAGRAM_TOKEN', '');
+        $token = $setting->instagram_token;
         $limit = 10;
         $json_feed_url="https://graph.instagram.com/me/media?fields={$fields}&access_token={$token}&limit={$limit}";
         $json_feed = @file_get_contents($json_feed_url);

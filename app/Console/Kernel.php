@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('diamond1:cron-reset')->everyMinute();
         $schedule->command('diamond2:cron-reset')->everyMinute();
         $schedule->command('diamond3:cron-reset')->everyMinute();
+        $schedule->command('instagram:cron-reset')->everyMinute();
 
          //$schedule->command('diamond:cron')->dailyAt('07:00');
     }

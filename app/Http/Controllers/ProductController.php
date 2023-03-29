@@ -37,7 +37,7 @@ class ProductController extends Controller
         
         $meta_title = isset($Category->meta_title)?$Category->meta_title:"";
         $meta_description = isset($Category->meta_description)?$Category->meta_description:"";
-        return view('frontend.shop',compact('Categories','Attributes','Maxprice','CatId','Category'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
+        return view('frontend.shop',compact('Categories','Attributes','Maxprice','CatId','Category','id'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function product_detail($variantslug)
@@ -58,13 +58,25 @@ class ProductController extends Controller
 
     public function fetchproduct(Request $request){
         $data = $request->all();
+      
         if(isset($data["action"]))
         {
            
             //$attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             //\DB::enableQueryLog(); 
-            $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1,'product_variants.term_item_id' => 2]);
+            $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
             
+            if(isset($request->slug) && $request->slug != 0){
+                if(str_contains($request->slug, 'yellow')){
+                    $query = $query->where('product_variants.term_item_id',1);
+                }elseif(str_contains($request->slug, 'rose')){
+                    $query = $query->where('product_variants.term_item_id',3);
+                }else{
+                    $query = $query->where('product_variants.term_item_id',2);
+                }
+            }else{
+                $query = $query->where('product_variants.term_item_id',2);
+            }
             if(isset($request->keyword) && $request->keyword != ""){
                 // This will only execute if you received any keyword
                 $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');

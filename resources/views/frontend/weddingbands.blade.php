@@ -13,7 +13,7 @@ $banner_img = ($MenuPage->banner_mobile_image) ? $MenuPage->banner_mobile_image 
                 {{ $MenuPage->main_shotline }}
             </p>
             <div class="">
-                <a href="{{ url('shop/'.$MenuPage->main_banner_category_id) }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
+                <a href="{{ $MenuPage->main_banner_category_id }}" class="engagement_start_diamond me-2 me-lg-3">{{ $MenuPage->main_first_button_name }}</a>
             </div>
         </div>
     </div>

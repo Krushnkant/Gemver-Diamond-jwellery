@@ -92,7 +92,7 @@
                                 
                             </div>
 
-                            <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
+                            {{-- <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12  justify-content-center">
                                 <div class="form-group">
                                     <select  name="main_banner_category_id" id="categories" class="form-control">
                                     <option value="">Select Main Banner Category</option>
@@ -101,6 +101,15 @@
                                         @endforeach
                                     </select>
                                 </div>
+                            </div> --}}
+
+                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12  justify-content-center" >
+                                <div class="form-group">
+                                    <label class="col-form-label" for="main_banner_category_id"> Main Banner Url
+                                    </label>
+                                    <input type="text" class="form-control input-flat" id="main_banner_category_id" name="main_banner_category_id" >
+                                    <div id="main_banner_category_id-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                 </div>
                             </div>
                             
                             </div>
@@ -640,6 +649,7 @@
             $('#main_title').val(data.main_title);
            $('#main_shotline').val(data.main_shotline);
            
+           $('#main_banner_category_id').val(data.main_banner_category_id);
            $('#main_first_button_name').val(data.main_first_button_name);
            $('#main_second_button_name').val(data.main_second_button_name);
            $('#shapestyle_title').val(data.shapestyle_title);
@@ -675,7 +685,7 @@
 
            //$('#cat_id option[value="'+data.category_id+'"]');
            $('[name=cat_id]').val(data.category_id).change();
-           $('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
+           //$('[name=main_banner_category_id]').val(data.main_banner_category_id).change();
 
            $('[name=section51_category]').val(data.section51_category).change();
            $('[name=section52_category]').val(data.section52_category).change();
