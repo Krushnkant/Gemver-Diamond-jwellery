@@ -13,6 +13,10 @@ use App\Models\ProductVariantSpecification;
 use App\Models\ProductVariantVariant;
 use App\Models\SizeChart;
 use App\Models\ProjectPage;
+use App\Models\BlogBanner;
+use App\Models\Banner;
+use App\Models\Wishlist;
+use App\Models\ItemCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -1390,6 +1394,18 @@ class ProductController extends Controller
                 }
             }
 
+            $wishlists = Wishlist::where('item_type',0)->where('item_id',$id)->get(['id']);
+            foreach($wishlists as $wishlist){
+                $wish = Wishlist::find($wishlist->id);
+                $wish->delete();
+            }
+
+            $carts = ItemCart::whereIn('item_type',[0,2])->where('item_id',$id)->get(['id']);
+            foreach($carts as $cart){
+                $carti = ItemCart::find($cart->id);
+                $carti->delete();
+            }
+
             $product_variant_variants = ProductVariantVariant::where('product_variant_id',$id)->get();
             foreach ($product_variant_variants as $product_variant_variant)
             {
@@ -1407,6 +1423,24 @@ class ProductController extends Controller
 
             $cnt_product_variants = ProductVariant::where('product_id',$product_id)->count();
             if ($cnt_product_variants == 0){
+
+
+                $blogbanners =BlogBanner::where('dropdown_id',2)->where('value',$product_id)->get(['id']);
+                foreach($blogbanners as $banner){
+                    $blogbanner = BlogBanner::find($banner->id);
+                    $blogbanner->dropdown_id = 3;
+                    $blogbanner->value = "";
+                    $blogbanner->save();
+                }
+
+                $banners = Banner::where('application_dropdown_id',2)->where('product_variant_id',$product_id)->get(['id']);
+                foreach($banners as $ban){
+                    $banner = Banner::find($ban->id);
+                    $banner->application_dropdown_id = 1;
+                    $banner->value = "";
+                    $banner->save();
+                }
+
                 $product = Product::find($product_id);
                 $cat_id = isset($product->subchild_category_id) ? $product->subchild_category_id : $product->child_category_id;
                 $product->estatus = 3;

@@ -11,6 +11,8 @@ use App\Models\MenuCategory;
 use App\Models\MenuPageShapeStyle;
 use App\Models\StepPopup;
 use App\Models\Product;
+use App\Models\Wishlist;
+use App\Models\ItemCart;
 use App\Models\ProductVariant;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
@@ -325,8 +327,6 @@ class CategoryController extends Controller
                         $banner->save();
                     }
 
-
-
                     $product = Product::find($product->id);
                     $product->estatus = 3;
                     $product->save();
@@ -338,6 +338,18 @@ class CategoryController extends Controller
                         $productvariant->estatus = 3;
                         $productvariant->save();
                         $productvariant->delete();
+
+                        $wishlists = Wishlist::where('item_type',0)->where('item_id',$variant->id)->get(['id']);
+                        foreach($wishlists as $wishlist){
+                            $wish = Wishlist::find($wishlist->id);
+                            $wish->delete();
+                        }
+
+                        $carts = ItemCart::whereIn('item_type',[0,2])->where('item_id',$variant->id)->get(['id']);
+                        foreach($carts as $cart){
+                            $carti = ItemCart::find($cart->id);
+                            $carti->delete();
+                        }
                     }
                 }
             }
