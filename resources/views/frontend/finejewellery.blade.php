@@ -32,7 +32,7 @@
                 <div class="owl-carousel owl-theme finejewellery-slider mb-0">
 
                 @foreach($MenuPage->menupageshapestyle as $menupageshapestyle)
-                    <div class="item finejewellery-img mb-xl-4 choose_your_setting_col design_engagemnt_image banner_part_img_parent" id="shopProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:'#' }}">
+                    <div class="item finejewellery-img mb-xl-4 choose_your_setting_col design_engagemnt_image banner_part_img_parent" id="shopProductBtn" data-id="{{ isset($menupageshapestyle->category->slug)?$menupageshapestyle->category->slug:'' }}">
                         <figure>
                             <img src="{{ url('images/shopstyle_image/'.$menupageshapestyle->image) }}" alt="">
                         </figure>
@@ -124,7 +124,7 @@
                     <div class="item gifts-item">
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
-                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section31_category->slug }}">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ isset($MenuPage->section31_category->slug)?$MenuPage->section31_category->slug:"" }}">
                                     <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section31_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section31_image) }}" alt="">
                                 </div>
@@ -134,7 +134,7 @@
                     <div class="item gifts-item">
                          <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
-                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section32_category->slug }}">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ isset($MenuPage->section32_category->slug)?$MenuPage->section32_category->slug:"" }}">
                                     <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section32_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section32_image) }}" alt="">
                                 </div>
@@ -144,7 +144,7 @@
                     <div class="item gifts-item">
                         <div class="banner_part_img_parent">
                             <figure class="mb-0 custom-image-part shadow-none">
-                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ $MenuPage->section33_category->slug }}">
+                                <div class="mb-3 mb-md-0 shopProductBtn dainty-ring-gifts-icon" data-id="{{ isset($MenuPage->section33_category->slug)?$MenuPage->section33_category->slug:"" }}">
                                     <div class="lab_grown_diamond_heading fj_lab_grown_diamond_heading">{{ $MenuPage->section33_title }}</div>
                                     <img src="{{ url('images/aboutus/'.$MenuPage->section33_image) }}" alt="">
                                 </div>

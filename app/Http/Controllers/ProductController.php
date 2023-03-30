@@ -48,6 +48,9 @@ class ProductController extends Controller
         $variantid = getSlugId('ProductVariant',$variantslug);
         $attribute_term_ids = ProductVariantVariant::where('product_variant_id',$variantid)->where('estatus',1)->get()->pluck('attribute_term_id')->toArray();
         $Product = Product::select('products.id','products.meta_title','products.meta_description','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id','size_charts.thumb as sizechart_image')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("size_charts", "size_charts.id", "=", "products.sizechart_id")->where(['product_variants.id' => $variantid,'products.estatus' => 1,'product_variants.estatus' => 1])->first();
+        if(!$Product){
+            return view('frontend/404');
+         }
         $primary_category_idss = array();
         $primary_category_ids = explode(',',$Product->primary_category_id);
         foreach($primary_category_ids as $primary_category_id){

@@ -4,7 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attribute;
+use App\Models\BlogBanner;
+use App\Models\Banner;
 use App\Models\Category;
+use App\Models\MenuCategory;
+use App\Models\MenuPageShapeStyle;
 use App\Models\StepPopup;
 use App\Models\Product;
 use App\Models\ProductVariant;
@@ -167,10 +171,11 @@ class CategoryController extends Controller
                 0 =>'sr_no',
                 1 =>'category_thumb',
                 2 => 'category_name',
-                3 => 'total_products',
-                4 => 'estatus',
-                5 => 'created_at',
-                6 => 'action',
+                3 => 'parent_category_name',
+                4 => 'total_products',
+                5 => 'estatus',
+                6 => 'created_at',
+                7 => 'action',
             );
             $totalData = Category::count();
             
@@ -188,7 +193,7 @@ class CategoryController extends Controller
 
             if(empty($request->input('search.value')))
             {
-                $categories = Category::offset($start)
+                $categories = Category::with('parent')->offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
                     ->get();
@@ -196,8 +201,11 @@ class CategoryController extends Controller
             }
             else {
                 $search = $request->input('search.value');
-                $categories =  Category::where('sr_no','LIKE',"%{$search}%")
+                $categories =  Category::with('parent')->where('sr_no','LIKE',"%{$search}%")
                     ->orWhere('category_name', 'LIKE',"%{$search}%")
+                    ->orWhereHas('parent',function ($mainQuery) use($search) {
+                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                    })
                     ->offset($start)
                     ->limit($limit)
                     ->orderBy($order,$dir)
@@ -206,6 +214,9 @@ class CategoryController extends Controller
 
                 $totalFiltered = Category::where('sr_no','LIKE',"%{$search}%")
                     ->orWhere('category_name', 'LIKE',"%{$search}%")
+                    ->orWhereHas('parent',function ($mainQuery) use($search) {
+                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                    })
                     ->count();
           
             }
@@ -250,6 +261,7 @@ class CategoryController extends Controller
                     }
                     $nestedData['category_thumb'] = '<img src="'. $thumb_path .'" width="50px" height="50px" alt="Thumbnail">';
                     $nestedData['category_name'] = $category->category_name;
+                    $nestedData['parent_category_name'] = isset($category->parent->category_name)?$category->parent->category_name:"-";
                     $nestedData['total_products'] = $category->total_products;
                     $nestedData['estatus'] = $estatus;
                     $nestedData['created_at'] = date('d-m-Y h:i A', strtotime($category->created_at));
@@ -296,11 +308,30 @@ class CategoryController extends Controller
                     $catstring = implode(",",$catarray);
                     Product::where('id', $product->id)->update(array('primary_category_id' => $catstring));
                 }else{
+
+                    $blogbanners =BlogBanner::where('dropdown_id',2)->where('value',$product->id)->get(['id']);
+                    foreach($blogbanners as $banner){
+                        $blogbanner = BlogBanner::find($banner->id);
+                        $blogbanner->dropdown_id = 3;
+                        $blogbanner->value = "";
+                        $blogbanner->save();
+                    }
+
+                    $banners = Banner::where('application_dropdown_id',2)->where('product_variant_id',$product->id)->get(['id']);
+                    foreach($banners as $ban){
+                        $banner = Banner::find($ban->id);
+                        $banner->application_dropdown_id = 1;
+                        $banner->value = "";
+                        $banner->save();
+                    }
+
+
+
                     $product = Product::find($product->id);
                     $product->estatus = 3;
                     $product->save();
                     $product->delete();
-                    
+
                     $productvariants =ProductVariant::where('product_id',$product->id)->get(['id']);
                     foreach($productvariants as $variant){
                         $productvariant = ProductVariant::find($variant->id);
@@ -310,6 +341,37 @@ class CategoryController extends Controller
                     }
                 }
             }
+
+            $menucategories =MenuCategory::where('category_id',$id)->get(['id']);
+            foreach($menucategories as $menucategory){
+                $menucategorie = MenuCategory::find($menucategory->id);
+                $menucategorie->estatus = 3;
+                $menucategorie->save();
+                $menucategorie->delete();
+            }
+
+            $menupageshapestyles =MenuPageShapeStyle ::where('category_id',$id)->get(['id']);
+            foreach($menupageshapestyles as $style){
+                $menupageshapestyle = MenuPageShapeStyle::find($style->id);
+                $menupageshapestyle->delete();
+            }
+
+            $blogbanners =BlogBanner::where('dropdown_id',1)->where('value',$id)->get(['id']);
+            foreach($blogbanners as $banner){
+                $blogbanner = BlogBanner::find($banner->id);
+                $blogbanner->dropdown_id = 3;
+                $blogbanner->value = "";
+                $blogbanner->save();
+            }
+
+            $banners = Banner::where('application_dropdown_id',3)->where('value',$id)->get(['id']);
+            foreach($banners as $ban){
+                $banner = Banner::find($ban->id);
+                $banner->application_dropdown_id = 1;
+                $banner->value = "";
+                $banner->save();
+            }
+
             $category = Category::find($id);
             if ($category){
                 $image = $category->category_thumb;

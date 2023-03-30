@@ -106,7 +106,7 @@
 
                     
                    
-                    @if(isset($mostviewproducts) && $mostviewproducts != "")
+                    @if(isset($mostviewproducts) && count($mostviewproducts) > 0)
                         <div class="blog-detail-post-heading mt-4">
                             Most Viewed Product
                         </div>

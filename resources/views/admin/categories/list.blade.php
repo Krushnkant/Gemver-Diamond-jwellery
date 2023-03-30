@@ -46,6 +46,7 @@
                                         <th>Sr. No</th>
                                         <th>Image</th>
                                         <th>Name</th>
+                                        <th>Parent Category Name</th>
                                         <th>Total Products</th>
                                         <th>Status</th>
                                         <th>Date</th>
@@ -57,6 +58,7 @@
                                         <th>Sr. No</th>
                                         <th>Image</th>
                                         <th>Name</th>
+                                        <th>Parent Name</th>
                                         <th>Total Products</th>
                                         <th>Status</th>
                                         <th>Date</th>
@@ -88,7 +90,8 @@
                     <h5 class="modal-title">Remove Category</h5>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to remove this Category?
+                    <b>Are you sure you wish to remove this Category?</b>  <br>
+                    This category made be used products,menu category,home banner,banner,menu page shap style... it will be remove all. 
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -255,10 +258,11 @@ function category_table(is_clearState=false){
             { "width": "50px", "targets": 0 },
             { "width": "120px", "targets": 1 },
             { "width": "170px", "targets": 2 },
-            { "width": "100px", "targets": 3 },
-            { "width": "70px", "targets": 4 },
-            { "width": "120px", "targets": 5 },
+            { "width": "170px", "targets": 3 },
+            { "width": "100px", "targets": 4 },
+            { "width": "70px", "targets": 5 },
             { "width": "120px", "targets": 6 },
+            { "width": "120px", "targets": 7 },
         ],
         "columns": [
             {data: 'sr_no', name: 'sr_no', class: "text-center", orderable: false,
@@ -268,6 +272,7 @@ function category_table(is_clearState=false){
             },
             {data: 'category_thumb', name: 'category_thumb', orderable: false, searchable: false, class: "text-center"},
             {data: 'category_name', name: 'category_name', class: "text-left"},
+            {data: 'parent_category_name', name: 'parent_category_name', class: "text-left"},
             {data: 'total_products', name: 'total_products', class: "text-center"},
             {data: 'estatus', name: 'estatus', orderable: false, searchable: false, class: "text-center"},
             {data: 'created_at', name: 'created_at', searchable: false, class: "text-left"},
@@ -336,7 +341,7 @@ $('body').on('click', '#RemoveCategorySubmit', function (e) {
                 $('#RemoveCategorySubmit').prop('disabled',false);
                 $("#RemoveCategorySubmit").find('.removeloadericonfa').hide();
                 category_table();
-                toastr.error("this category child categories available. first remove child categories",'Error',{timeOut: 5000});
+                toastr.error("You cannot delete this category as long as it has child categories.",'Error',{timeOut: 5000});
             }
         },
         error: function (data) {

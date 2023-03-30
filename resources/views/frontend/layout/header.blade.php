@@ -477,7 +477,7 @@
                                                                     }
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('/shop/'.$car->category->slug)}}">
+                                                                        <a href="{{ URL('shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
