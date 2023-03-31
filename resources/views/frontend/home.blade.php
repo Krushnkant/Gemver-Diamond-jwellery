@@ -175,7 +175,7 @@ $settings = \App\Models\Settings::first();
                         
                         <picture>
                             <source media="(max-width:767px)"  srcset="{{ asset('images/diamond-part.webp') }}" type="image/webp">
-                            <img src="{{ asset('frontend/images/diamond-part.webp') }}" alt="" loading="lazy">
+                            <img src="{{ asset('images/diamond-part.webp') }}" alt="" loading="lazy">
                          </picture>
                     </div>
                     </div>
