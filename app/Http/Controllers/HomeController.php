@@ -70,66 +70,66 @@ class HomeController extends Controller
 
     public function index2(){
 
-        ini_set('max_execution_time', 0);
-        ini_set('memory_limit', '1024M');
-        //Initial settings, Just specify Source and Destination Image folder.
-        $ImagesDirectory    = public_path('images/categoryicon/'); //Source Image Directory End with Slash
-        $DestImagesDirectory    = public_path('images/categoryicon1/'); //Destination Image Directory End with Slash
-        $NewImageWidth      = 850; //New Width of Image
-        $NewImageHeight     = 850; // New Height of Image
-        $Quality        = 80; //Image Quality
-       // dd($ImagesDirectory);
-        //Open Source Image directory, loop through each Image and resize it.
-        if($dir = opendir($ImagesDirectory)){
-            while(($file = readdir($dir))!== false){
-                $f = $file;
-                if(is_dir($file)){
-                    $subdir = opendir($ImagesDirectory.$file);
-                    while(($file1 = readdir($subdir))!== false){
-                        echo $imagePath = $ImagesDirectory.$file1;
-                        echo"<br>";
-                        echo $destPath = $DestImagesDirectory.$file1;
-                        echo"<br>";
-                        $checkValidImage = @getimagesize($imagePath);
-                        //	mkdir($destPath,2);
-                        if(file_exists($imagePath) && $checkValidImage) //Continue only if 2 given parameters are true
-                        {
-                            //Image looks valid, resize.
-                            if($this->resizeImage($imagePath,$destPath,$NewImageWidth,$NewImageHeight,$Quality))
-                            {
-                                echo $file.' resize Success!<br />'; 
-                                /*
-                                Now Image is resized, may be save information in database?
-                                */
+    //     ini_set('max_execution_time', 0);
+    //     ini_set('memory_limit', '1024M');
+    //     //Initial settings, Just specify Source and Destination Image folder.
+    //     $ImagesDirectory    = public_path('images/categoryicon/'); //Source Image Directory End with Slash
+    //     $DestImagesDirectory    = public_path('images/categoryicon1/'); //Destination Image Directory End with Slash
+    //     $NewImageWidth      = 850; //New Width of Image
+    //     $NewImageHeight     = 850; // New Height of Image
+    //     $Quality        = 80; //Image Quality
+    //    // dd($ImagesDirectory);
+    //     //Open Source Image directory, loop through each Image and resize it.
+    //     if($dir = opendir($ImagesDirectory)){
+    //         while(($file = readdir($dir))!== false){
+    //             $f = $file;
+    //             if(is_dir($file)){
+    //                 $subdir = opendir($ImagesDirectory.$file);
+    //                 while(($file1 = readdir($subdir))!== false){
+    //                     echo $imagePath = $ImagesDirectory.$file1;
+    //                     echo"<br>";
+    //                     echo $destPath = $DestImagesDirectory.$file1;
+    //                     echo"<br>";
+    //                     $checkValidImage = @getimagesize($imagePath);
+    //                     //	mkdir($destPath,2);
+    //                     if(file_exists($imagePath) && $checkValidImage) //Continue only if 2 given parameters are true
+    //                     {
+    //                         //Image looks valid, resize.
+    //                         if($this->resizeImage($imagePath,$destPath,$NewImageWidth,$NewImageHeight,$Quality))
+    //                         {
+    //                             echo $file.' resize Success!<br />'; 
+    //                             /*
+    //                             Now Image is resized, may be save information in database?
+    //                             */
 
-                            }else{
-                                echo $file.' resize Failed!<br />'; 
-                            }
-                        }
-                    }
-                }else{
-                    $imagePath = $ImagesDirectory.$file;
-                    $destPath = $DestImagesDirectory.$file;
-                    $checkValidImage = @getimagesize($imagePath);
+    //                         }else{
+    //                             echo $file.' resize Failed!<br />'; 
+    //                         }
+    //                     }
+    //                 }
+    //             }else{
+    //                 $imagePath = $ImagesDirectory.$file;
+    //                 $destPath = $DestImagesDirectory.$file;
+    //                 $checkValidImage = @getimagesize($imagePath);
 
-                    if(file_exists($imagePath) && $checkValidImage) //Continue only if 2 given parameters are true
-                    {
-                        //Image looks valid, resize.
-                        if($this->resizeImage($imagePath,$destPath,$NewImageWidth,$NewImageHeight,$Quality))
-                        {
-                            echo $file.' resize Success!<br />'; 
-                            /*
-                            Now Image is resized, may be save information in database?
-                            */
+    //                 if(file_exists($imagePath) && $checkValidImage) //Continue only if 2 given parameters are true
+    //                 {
+    //                     //Image looks valid, resize.
+    //                     if($this->resizeImage($imagePath,$destPath,$NewImageWidth,$NewImageHeight,$Quality))
+    //                     {
+    //                         echo $file.' resize Success!<br />'; 
+    //                         /*
+    //                         Now Image is resized, may be save information in database?
+    //                         */
 
-                        }else{
-                            echo $file.' resize Failed!<br />';
-                        }
-                    }
-                }
-            }
-            closedir($dir);
-        }
+    //                     }else{
+    //                         echo $file.' resize Failed!<br />';
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         closedir($dir);
+    //     }
         
 
         
