@@ -38,7 +38,7 @@
                                 <?php 
                                 //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
                              
-                                $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::select('slug','attrterm_thumb','attrterm_name')->leftJoin("attribute_terms",function($join){
                                         $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
                                             ->whereNotNull('attrterm_thumb');
                                     })->leftJoin('product_variants', 'product_variants.id', '=', 'product_variant_variants.product_variant_id')->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$Related->id)->whereNotNull('attrterm_thumb')->groupBy('product_variant_variants.attribute_id','attribute_term_id')->get();
