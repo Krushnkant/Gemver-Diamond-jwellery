@@ -353,8 +353,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/round.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/round.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/round.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/round.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/round.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">round</div>
                             </a>
@@ -363,8 +363,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/oval.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/oval.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/oval.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/oval.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/oval.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">oval</div>
                             </a>
@@ -380,8 +380,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/cushion.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/cushion.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/cushion.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/cushion.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/cushion.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">cushion</div>
                             </a>
@@ -390,8 +390,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/marquise.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/marquise.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/marquise.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/marquise.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/marquise.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">marquise</div>
                             </a>
@@ -400,8 +400,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/pear.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/pear.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/pear.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/pear.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/pear.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">pear</div>
                             </a>
@@ -410,8 +410,8 @@ $settings = \App\Models\Settings::first();
                             <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
                                 {{-- <img src="{{ asset('frontend/image/radiant.png') }}" alt="" loading="lazy"> --}}
                                 <picture>
-                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/radiant.png') }}" type="image/webp">
-                                    <img src="{{ asset('images/webp/radiant.png') }}" alt="" loading="lazy">
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/radiant.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/radiant.webp') }}" alt="" loading="lazy">
                                  </picture>
                                 <div class="shop_by_diamond_shpae_name">radiant</div>
                             </a>
