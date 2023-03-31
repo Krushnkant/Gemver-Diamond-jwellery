@@ -351,43 +351,68 @@ $settings = \App\Models\Settings::first();
                     <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                         <div class="item">
                             <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/round.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/round.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/round.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/round.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">round</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/oval.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/oval.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/oval.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/oval.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">oval</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
                                 <img src="{{ asset('frontend/image/princess.png') }}" alt="" loading="lazy">
+                                
                                 <div class="shop_by_diamond_shpae_name">princess</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/cushion.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/cushion.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/cushion.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">cushion</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/marquise.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/marquise.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/marquise.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">marquise</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/pear.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/pear.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/pear.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/pear.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">pear</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="" loading="lazy">
+                                {{-- <img src="{{ asset('frontend/image/radiant.png') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/radiant.png') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/radiant.png') }}" alt="" loading="lazy">
+                                 </picture>
                                 <div class="shop_by_diamond_shpae_name">radiant</div>
                             </a>
                         </div>
@@ -494,7 +519,11 @@ $settings = \App\Models\Settings::first();
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
                 <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" loading="lazy">
+                    {{-- <img src="{{ url('images/webp/categoryThumb_3284881676018051.webp') }}" alt="" width="100%" loading="lazy"> --}}
+                    <picture>
+                        <source media="(max-width:767px)"  srcset="{{ asset('images/webp/categoryThumb_3284881676018051.webp') }}" type="image/webp">
+                        <img src="{{ asset('images/webp/categoryThumb_3284881676018051.webp') }}" alt="" loading="lazy">
+                     </picture>
                 </div>
             </div>
         </div>
@@ -609,7 +638,11 @@ $settings = \App\Models\Settings::first();
                     <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
                         <a href="{{ $url }}" class="banner_part_img_parent">
                             <figure>
-                                <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="" loading="lazy">
+                                {{-- <img class="" src="{{ url('images/webp/categoryThumb_4798191674619313.webp') }}" alt="" loading="lazy"> --}}
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/webp/categoryThumb_4798191674619313.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/webp/categoryThumb_4798191674619313.webp') }}" alt="" loading="lazy">
+                                 </picture>
                             </figure>
                         </a>
                     </div>
