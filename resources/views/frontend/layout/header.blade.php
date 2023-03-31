@@ -129,7 +129,7 @@
                                 </div>
                                 
                                 <?php
-                                $megamenu = \App\Models\MegaMenu::where('estatus', 1)->where('id', 4)->first(['title','redirect_url','menu_thumb']);
+                                $megamenu = \App\Models\MegaMenu::where('estatus', 1)->where('id',4)->first(['title','redirect_url','menu_thumb']);
                                 
                                 if ($megamenu != "") {
                                 ?>
@@ -314,7 +314,7 @@
                                 <?php
                                 $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus', 1)->where('id', 1)->first();
                                 //dd($megamenu->sub_menu);
-                                if ($megamenu != "") {
+                                if ($megamenu != ""){
                                 ?>
                                     <li class="">
                                         <a href="{{ url($megamenu->redirect_url) }}">
