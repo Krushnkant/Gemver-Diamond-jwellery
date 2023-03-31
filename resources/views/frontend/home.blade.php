@@ -87,11 +87,15 @@ $settings = \App\Models\Settings::first();
                 <div class="item">
                     <div class="background-slider ">
                         <div class="background-smoke-slider position-relative">
-                            <div class="d-block d-md-none mobile-view-img">
+                            {{-- <div class="d-block d-md-none mobile-view-img">
                                 <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy">
-                            </div>
-                            <div class="d-none d-md-block desktop-view-img">
-                                <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
+                            </div> --}}
+                            <div class="">
+                                <picture>
+                                    <source media="(max-width:767px)"  srcset="{{ asset('images/categoryThumb_5262271675507815.webp') }}" type="image/webp">
+                                    <img src="{{ asset('images/categoryThumb_5262271675507815.webp') }}" alt="Image description">
+                                 </picture>
+                                
                             </div>
                             <div class="">
                                 <div class="background-text-part px-3 px-lg-4 container">
