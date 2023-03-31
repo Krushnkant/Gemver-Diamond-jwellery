@@ -73,8 +73,8 @@ class HomeController extends Controller
         ini_set('max_execution_time', 0);
         ini_set('memory_limit', '1024M');
         //Initial settings, Just specify Source and Destination Image folder.
-        $ImagesDirectory    = public_path('images/megamenu/'); //Source Image Directory End with Slash
-        $DestImagesDirectory    = public_path('images/megamenu1/'); //Destination Image Directory End with Slash
+        $ImagesDirectory    = public_path('images/categoryicon/'); //Source Image Directory End with Slash
+        $DestImagesDirectory    = public_path('images/categoryicon1/'); //Destination Image Directory End with Slash
         $NewImageWidth      = 850; //New Width of Image
         $NewImageHeight     = 850; // New Height of Image
         $Quality        = 80; //Image Quality
