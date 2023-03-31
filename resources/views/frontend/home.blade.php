@@ -51,11 +51,11 @@ $settings = \App\Models\Settings::first();
 <body>
 
 
- <div class="header-loader">
+ {{-- <div class="header-loader">
     <div class="loader-btn" role="status"> 
     <img src="{{ asset('frontend/image/page-loader.gif') }}" alt="">
     </div>
-</div>
+</div> --}}
 <input type="hidden" name="web_url" value="{{ url("/") }}" id="web_url">
 <div class="">
 @include('frontend.layout.header')
@@ -172,7 +172,11 @@ $settings = \App\Models\Settings::first();
                 <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                     <div class="shop-colorful-img">
-                        <img src="{{ asset('frontend/image/diamond-part.png') }}" alt="" loading="lazy">
+                        
+                        <picture>
+                            <source media="(max-width:767px)"  srcset="{{ asset('images/diamond-part.webp') }}" type="image/webp">
+                            <img src="{{ asset('frontend/image/diamond-part.webp') }}" alt="" loading="lazy">
+                         </picture>
                     </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
