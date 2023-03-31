@@ -19,19 +19,16 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/> --}}
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
     
     <!-- TrustBox script -->
     {{-- <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script> --}}
-    <!-- End TrustBox script -->
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
@@ -67,86 +64,57 @@ $settings = \App\Models\Settings::first();
     @if(count($banners) > 0)
         <div class="owl-carousel owl-theme home-page-slider">
             @foreach($banners as $banner)
-                @if($banner->button_name == "")
-                    @if($banner->application_dropdown_id == 1)
-                        <a href="#">
-                    @elseif($banner->application_dropdown_id == 2)
-                        <?php 
+                @if($banner->application_dropdown_id == 1)
+                    <?php  $banner_url =  "#"?>
+                @elseif($banner->application_dropdown_id == 2)
+                    <?php 
                         $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                        //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
                         $banner_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
-                        ?>
-                        <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @elseif($banner->application_dropdown_id == 3)
-                        <?php 
+                    ?>
+                @elseif($banner->application_dropdown_id == 3)
+                    <?php 
                         $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
                         $banner_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
-                        ?>
-                        <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @elseif($banner->application_dropdown_id == 4)
-                        <?php 
-                            $banner_url = $banner->value;
-                        ?>
+                    ?>
+                    
+                @elseif($banner->application_dropdown_id == 4)
+                    <?php $banner_url = $banner->value; ?>
+                @endif
+                
+                @if($banner->button_name == "")
                     <a href="{{ ($banner_url != '') ? $banner_url : '#'; }}">
-                    @endif
                 @endif  
                 <div class="item">
-                        <div class="background-slider ">
-                            <div class="background-smoke-slider position-relative">
-                                <div class="d-block d-md-none mobile-view-img">
-                                    <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy">
-                                </div>
-                                <div class="d-none d-md-block desktop-view-img">
-                                    <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
-                                </div>
-                                <div class="">
-                                    <div class="background-text-part px-3 px-lg-4 container">
-                                        <!-- <img src="{{ asset('frontend/image/line.png') }} " alt=" " class="line-image d-none mx-auto "> -->
-                                        <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
-                                        <div class="paragraph mt-0 mt-md-5 ">
-                                        {!! $banner->description !!}
-                                        </div>
-                                        @if($banner->button_name != "")
-                                        @if($banner->application_dropdown_id == 1)
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 2)
-                                        <?php 
-                                            
-                                            $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                                            //$banner_url = URL('product-details/'.$banner->value.'/'.$banner->product_variant_id);
-                                            if(isset($product_variant->slug)){
-                                                $banner_url = URL('product-details/'.$product_variant->slug);
-                                            }else{
-                                                $banner_url = "#";
-                                            }
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 3)
-                                        <?php 
-                                            $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                                            $banner_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @elseif($banner->application_dropdown_id == 4)
-                                        <?php 
-                                            $banner_url = $banner->value;
-                                        ?>
-                                        <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
-                                            {{ $banner->button_name }}
-                                        </button>
-                                        @endif
-                                        @endif
-                                       
+                    <div class="background-slider ">
+                        <div class="background-smoke-slider position-relative">
+                            <div class="d-block d-md-none mobile-view-img">
+                                <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt=" " loading="lazy">
+                            </div>
+                            <div class="d-none d-md-block desktop-view-img">
+                                <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
+                            </div>
+                            <div class="">
+                                <div class="background-text-part px-3 px-lg-4 container">
+                                    <h1 class="heading-h1 home_page_heading">{!! $banner->title !!}</h1>
+                                    <div class="paragraph mt-0 mt-md-5 ">
+                                    {!! $banner->description !!}
                                     </div>
+                                    @if($banner->button_name != "")
+                                        @if($banner->application_dropdown_id == 1)
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button" >
+                                                {{ $banner->button_name }}
+                                            </button>
+                                        @else
+                                            <button  class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : '#'; }}'>
+                                                {{ $banner->button_name }}
+                                            </button>
+                                        @endif
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
                 @if($banner->button_name == "")
                 </a>
@@ -163,7 +131,6 @@ $settings = \App\Models\Settings::first();
                 <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                     <div class="mb-3 mt-md-0">
                         <h2 class="heading-h2">{{ $homesetting->section_category_title }}</h2>
-                        <!-- <button class="explore-category-btn btn-hover-effect btn-hover-effect-black mb-5 mb-md-0">explore ring</button> -->
                         <div class="sub_title">
                            {{ $homesetting->section_category_shotline }}
                         </div>
@@ -181,15 +148,20 @@ $settings = \App\Models\Settings::first();
                             </div>
                         </a>
                     </div>
-
                     @endforeach 
-
                 </div>
             </div>
         </div>
     </div>
     @endif
-
+    <?php
+    \DB::enableQueryLog();
+    // $ProductVariantVariant = \App\Models\ProductVariantVariant::select('product_variant_variants.attribute_id')->leftJoin("attribute_terms",function($join){
+    //         $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
+    //             ->whereNotNull('attrterm_thumb');
+    //     })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',4)->groupBy('product_variant_variants.attribute_id')->get();
+    //     dd(\DB::getQueryLog());
+    ?>
     <div class="">
         <div class="shop-colorful-bg">
             <div class="container">
@@ -202,10 +174,7 @@ $settings = \App\Models\Settings::first();
                     <div class="col-12 col-md-6 col-lg-6 col-xl-7 offset-xl-1 text-center text-md-start pt-5 pt-md-0">
                         <h2 class="heading-h2 mb-0 text-center text-md-start">{{ number_format($diamonds) }} Diamonds available <br> in the Store</h2>
                         <div class="sub_title text-center text-md-start">
-                            <?php 
-                                $titleJewels =  "Glide with the shine of beautiful Jewels"; 
-                            ?>
-                            {{ $titleJewels }}
+                            Glide with the shine of beautiful Jewels
                         </div>
                         <div class="shop-colorful-bg-btn-div">
                             <a href="{{ url('/lab-diamond') }}" class="shopnow_diamond">Shop Now <i class="fa fa-arrow-right"></i></a>
@@ -234,6 +203,7 @@ $settings = \App\Models\Settings::first();
                     //     '3gp'
                     // );
                     $index = 0;
+                   
                     ?>
                     @foreach($products as $product) 
                      
@@ -290,25 +260,24 @@ $settings = \App\Models\Settings::first();
                         <div class="wire_bangle_description p-2">
                             <?php 
                                 //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
+                             
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
                                         $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
                                             ->whereNotNull('attrterm_thumb');
-                                    })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$product->id)->groupBy('product_variant_variants.attribute_id')->get();
-                              
-                                foreach($ProductVariantVariant as $productvariants){
-                                    //if($productvariants->attrterm_thumb != ''){
+                                    })->leftJoin('product_variants', 'product_variants.id', '=', 'product_variant_variants.product_variant_id')->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$product->id)->whereNotNull('attrterm_thumb')->groupBy('product_variant_variants.attribute_id','attribute_term_id')->get();
+                                    if(count($ProductVariantVariant) > 0){
                                         ?>
                                         <span class="wire_bangle_color wire_bangle_color_img_part text-center wire_bangle_color_ring_part">
                                             <div class="wire_bangle_color_part mb-2">
                                             <?php
-                                                $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
+                                               // $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                                 $ia = 1;
-                                                foreach($product_attribute as $attribute_term){
-                                                    $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
+                                                foreach($ProductVariantVariant as $productvariants){
+                                                    $attributeurl =  URL('product-details/'.$productvariants->slug); 
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
-                                                        <img src="{{ url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) }}" alt="{{ $attribute_term->attribute_terms[0]->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
+                                                        <img src="{{ url('images/attrTermThumb/'.$productvariants->attrterm_thumb) }}" alt="{{ $productvariants->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
                                                         </a>
                                                         <div class="wire_bangle_color_input_label"></div>
                                                     </span>
@@ -319,8 +288,8 @@ $settings = \App\Models\Settings::first();
                                             </div>
                                         </span>
                                         <?php
-                                   // } 
-                                }
+                                    } 
+                               
                             ?>
                             <div class="wire_bangle_heading mb-2">
                                 {{ $product->primary_category->category_name }}
@@ -604,14 +573,16 @@ $settings = \App\Models\Settings::first();
                         $blogcount = count($BlogBanners);
                         $url = "";
                         if($BlogBanner['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                            $url = url('shop/'.$category->slug); 
+                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first(['slug']);
+                            $url = isset($category->slug)?url('shop/'.$category->slug):""; 
                         }elseif($BlogBanner['dropdown_id'] == 2){
-                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first();
-                            $cat_id = explode(',',$Product->primary_category_id);
-                            $var_id = $Product->product_variant[0]->id;
-                            $slug = $Product->product_variant[0]->slug;
-                            $url = url('product-details/'.$slug);
+                            $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first(['id']);
+                            //$cat_id = explode(',',$Product->primary_category_id);
+                            //$var_id = $Product->product_variant[0]->id;
+                            if(isset($Product->product_variant[0]->slug)){
+                                $slug = $Product->product_variant[0]->slug;
+                                $url = url('product-details/'.$slug);
+                            }
                         }
                         if($blogcount == 1){
                         $blogcol = 12; 
@@ -1265,8 +1236,6 @@ $settings = \App\Models\Settings::first();
            
             @foreach($contents["data"] as $post)
             <?php
-                $username = isset($post["username"]) ? $post["username"] : "";
-                $caption = isset($post["caption"]) ? $post["caption"] : "";
                 $media_url = isset($post["media_url"]) ? $post["media_url"] : "";
                 $permalink = isset($post["permalink"]) ? $post["permalink"] : "";
                 $media_type = isset($post["media_type"]) ? $post["media_type"] : ""; 
@@ -1306,11 +1275,7 @@ $settings = \App\Models\Settings::first();
 <script src="{{ asset('frontend/js/all.min.js') }}"></script>   
 <script src="{{ asset('frontend/js/jquery.cookie.min.js') }}"></script>   
 <script src="{{ asset('frontend/js/select2.min.js') }}"></script>   
-{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> --}}
 
-{{-- <script src="{{ asset('plugins/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('plugins/toastr/js/toastr.init.js') }}"></script> --}}
 <script>    
     $(document).ready(function(){
         $(document).on('click','.banner-url',function(){
@@ -1384,7 +1349,7 @@ $settings = \App\Models\Settings::first();
                         var success_message = 'Thank You For Bulk Order Inquiry';
                         $('#success-alert').text(success_message);
                         $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                          $("#success-alert").slideUp(1000);
+                        $("#success-alert").slideUp(1000);
                           //location.reload();
                           //window.location.href = "{{ url('/') }}";
                         });
@@ -1413,10 +1378,6 @@ $settings = \App\Models\Settings::first();
             $('#name-error').hide();
         });
 
-    });
-</script>
-<script>
-    $(document).ready(function() {   
         $("#main_search").keyup(function() {
             search_data($(this).val());
         });
@@ -1481,8 +1442,10 @@ $settings = \App\Models\Settings::first();
             placeholder: "Select Country Code",
             allowClear: false
         });
-   });
-   </script>
+
+    });
+</script>
+
 
 </body>
 </html>
