@@ -312,8 +312,7 @@
                                     </li>
                                 <?php } ?>
                                 <?php
-                                //$megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category')->where('estatus', 1)->where('id', 1)->first();
-                                $megamenu = \App\Models\MegaMenu::where('estatus', 1)->where('id', 1)->first();
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus', 1)->where('id', 1)->first();
                                 //dd($megamenu->sub_menu);
                                 if ($megamenu != ""){
                                 ?>
@@ -378,16 +377,15 @@
 
                                                                 <?php
                                                                 foreach ($sub->sub_category as $car){
-                                                                    $category = \App\Models\Category::where('id', $car->category_id)->first(['category_thumb','slug']);
                                                                     if ($car->icon != "") {
                                                                         $icon = url('images/categoryicon/' . $car->icon);
                                                                     } else {
-                                                                        $icon = url($category->category_thumb);
+                                                                        $icon = url($car->category->category_thumb);
                                                                     }
                                                                
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('shop/'.$category->slug)}}">
+                                                                        <a href="{{ URL('/shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
@@ -412,7 +410,7 @@
                                     </li>
                                 <?php } ?>
                                 <?php
-                                $megamenu = \App\Models\MegaMenu::where('estatus', 1)->where('id', 2)->first();
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus', 1)->where('id', 2)->first();
                                 //dd($megamenu->sub_menu);
                                 if ($megamenu != "") {
                                 ?>
@@ -472,15 +470,14 @@
 
                                                                 <?php
                                                                 foreach ($sub->sub_category as $car) {
-                                                                    $category = \App\Models\Category::where('id', $car->category_id)->first(['category_thumb','slug']);
                                                                     if ($car->icon != "") {
                                                                         $icon = url('images/categoryicon/' . $car->icon);
                                                                     } else {
-                                                                        $icon = url($category->category_thumb);
+                                                                        $icon = url($car->category->category_thumb);
                                                                     }
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('shop/'.$category->slug)}}">
+                                                                        <a href="{{ URL('shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
@@ -506,7 +503,7 @@
                                 <?php } ?>
 
                                 <?php
-                                $megamenu = \App\Models\MegaMenu::where('estatus', 1)->where('id', 3)->first();
+                                $megamenu = \App\Models\MegaMenu::with('sub_menu.sub_category.category')->where('estatus', 1)->where('id', 3)->first();
                                 //dd($megamenu->sub_menu);
                                 if ($megamenu != "") {
                                 ?>
@@ -564,15 +561,14 @@
                                                             <ul class="{{ $twocolum }}">
                                                                 <?php
                                                                 foreach ($sub->sub_category as $car) {
-                                                                    $category = \App\Models\Category::where('id', $car->category_id)->first(['category_thumb','slug']);
                                                                     if ($car->icon != "") {
                                                                         $icon = url('images/categoryicon/' . $car->icon);
                                                                     } else {
-                                                                        $icon = url($category->category_thumb);
+                                                                        $icon = url($car->category->category_thumb);
                                                                     }
                                                                 ?>
                                                                     <li>
-                                                                        <a href="{{ URL('shop/'.$category->slug)}}">
+                                                                        <a href="{{ URL('shop/'.$car->category->slug)}}">
                                                                             <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img " loading="lazy"> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                         </a>
                                                                     </li>
