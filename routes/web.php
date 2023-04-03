@@ -85,11 +85,11 @@ Route::get('deleteterm',[OtherPageController::class,'deleteterm'])->name('fronte
 
  //Route::view('demo','frontend.engagement');
 
-Route::get('engagement',[OtherPageController::class,'engagement']);
-Route::get('finejewellery',[OtherPageController::class,'finejewellery']);
+Route::get('engagement-rings',[OtherPageController::class,'engagement']);
+Route::get('lab-diamond-jewelry',[OtherPageController::class,'finejewellery']);
 //Route::get('labgrowndiamonds',[OtherPageController::class,'labgrowndiamonds']);
-Route::get('custommadejewellery',[OtherPageController::class,'custommadejewellery']);
-Route::get('weddingbands',[OtherPageController::class,'weddingbands']);
+Route::get('custom-made-jewelry',[OtherPageController::class,'custommadejewellery']);
+Route::get('wedding-bands',[OtherPageController::class,'weddingbands']);
 
 
 Route::get('/shop/{catid?}',[ProductController::class,'index'])->name('frontend.shop'); 
