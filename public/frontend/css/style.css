@@ -1985,12 +1985,14 @@ background-size: cover;
         height: 1px;
     }
 
+    .diamon-color-tab-title li a:hover,
     .wire_bangle_tabs_part li a:hover,
     .wire_bangle_tabs_part li a:focus {
         color: var(--secondary);
     }
 
-    .wire_bangle_tabs_part li a {
+    .wire_bangle_tabs_part li a,
+    .diamon-color-tab-title li a {
         color: var(--primary);
         cursor: pointer;
     }
@@ -6307,16 +6309,13 @@ width: 100%;
         border-right: 0;
     }
 
-    .filter-part-shape li a {
-        opacity: 0.8;
-    }
-
     .filter-part-shape li.active a {
         opacity: 1;
     }
 
     .filter-part-shape li a {
         position: relative;
+        opacity: 0.8;
     }
 
     .filter-part-shape li a:after {
@@ -6382,7 +6381,7 @@ width: 100%;
         letter-spacing: 0.05em;
         color: var(--primary);
         min-width: 100px;
-        height: 36px;
+        /* height: 36px; */
         line-height: 30px;
         border: 0;
     }
@@ -6932,7 +6931,7 @@ width: 100%;
 
     .reset-btn-part {
         border: 1px var(--primary) solid;
-        width: 50%;
+        /* width: 50%; */
         text-align: center;
     }
 
