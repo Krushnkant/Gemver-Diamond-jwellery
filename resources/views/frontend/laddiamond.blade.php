@@ -1027,7 +1027,7 @@
                 //filter_data(page);
             },
             stop: function(event, ui) {
-                filter_data(page);
+               // filter_data(page);
             }
             });
             //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +" - $" + $( "#slider-range" ).slider( "values", 1 ) );
@@ -1073,7 +1073,7 @@
                 //filter_data(page);
               },
                 stop: function(event, ui) {
-                    filter_data(page);
+                    //filter_data(page);
                 }
             });
             //$( "#carat" ).html($( "#slider-range-carat" ).slider( "values", 0 ) +" - " + $( "#slider-range-carat" ).slider( "values", 1 ) );
@@ -1121,7 +1121,7 @@
                 //filter_data(page);
               },
             stop: function(event, ui) {
-                filter_data(page);
+               // filter_data(page);
             }
             });
             //$( "#depth" ).html($( "#slider-range-depth" ).slider( "values", 0 ) + " - " + $( "#slider-range-depth" ).slider( "values", 1 ) );
@@ -1171,7 +1171,7 @@
                 //filter_data(page);
               },
             stop: function(event, ui) {
-                filter_data(page);
+               // filter_data(page);
             }
             });
             //$( "#ratio" ).html($( "#slider-range-ratio" ).slider( "values", 0 ) + " - " + $( "#slider-range-ratio" ).slider( "values", 1 ) );
@@ -1220,7 +1220,7 @@
                 //filter_data(page);
               },
             stop: function(event, ui) {
-                filter_data(page);
+               // filter_data(page);
             }
             });
             //$( "#table" ).html($( "#slider-range-table" ).slider( "values", 0 ) + " - " + $( "#slider-range-table" ).slider( "values", 1 ) );
