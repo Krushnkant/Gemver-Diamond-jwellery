@@ -667,8 +667,14 @@
                         </div>
                     </span>
                     <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                        <span class="d-inline-block d-lg-none  apply-btn me-3">
-                            <button type="button" class= "apply-btn">Apply</button>
+                        <!-- <span class="d-inline-block apply-btn me-3">
+                            <button type="button" id="apply-btn" class= "apply-btn">Apply</button>
+                        </span>
+                        <span class="d-inline-block reset-btn reset-btn-part">
+                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                        </span> -->
+                        <span class="d-inline-block reset-btn-part">
+                            <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
                         </span>
                         <span class="d-inline-block reset-btn reset-btn-part">
                             <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
@@ -877,7 +883,12 @@
                 location.reload();
             });
 
-            $(".common_input").keyup(function(){
+            // $(".common_input").keyup(function(){
+            //     page = 1;
+            //     filter_data(page);
+            // });
+
+            $("#apply-btn").click(function(){
                 page = 1;
                 filter_data(page);
             });
@@ -976,10 +987,10 @@
                 return filter;
             }
         
-            $('.common_selector').click(function(){
-                 page = 1;
-                filter_data(page);
-            });
+            // $('.common_selector').click(function(){
+            //      page = 1;
+            //     filter_data(page);
+            // });
         
             ['minimum_price_input', 'maximum_price_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
                 let [minimum_price_input, maximum_price_input] = $("#slider-range").slider('values');
@@ -1296,17 +1307,17 @@
         }
         });
 
-        $(".color").click(function(){
-            $(".fancycolor").prop('checked', false);
-             page = 1;
-            filter_data(page);
-        });
+        // $(".color").click(function(){
+        //     $(".fancycolor").prop('checked', false);
+        //      page = 1;
+        //     filter_data(page);
+        // });
 
-        $(".fancycolor").click(function(){
-            $(".color").prop('checked', false);
-             page = 1;
-            filter_data(page);
-        });
+        // $(".fancycolor").click(function(){
+        //     $(".color").prop('checked', false);
+        //      page = 1;
+        //     filter_data(page);
+        // });
 
         });
    </script>

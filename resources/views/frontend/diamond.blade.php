@@ -799,8 +799,11 @@
                     </div>
                 </span>
                 <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                        <span class="d-inline-block d-lg-none  apply-btn me-3">
-                            <button type="button" class= "apply-btn">Apply</button>
+                        <!-- <span class="d-inline-block d-lg-none  apply-btn me-3">
+                            <button type="button" id="apply-btn" class= "apply-btn">Apply</button>
+                        </span> -->
+                        <span class="d-inline-block reset-btn-part">
+                            <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
                         </span>
                         <span class="d-inline-block reset-btn reset-btn-part">
                             <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
@@ -1151,12 +1154,18 @@
             return filter;
         }
 
-        $('.common_selector').click(function() {
-            page = 1;
-            filter_data(page);
-        });
+        // $('.common_selector').click(function() {
+        //     page = 1;
+        //     filter_data(page);
+        // });
+        
 
-        $(".common_input").keyup(function() {
+        // $(".common_input").keyup(function() {
+        //     page = 1;
+        //     filter_data(page);
+        // });
+
+        $('#apply-btn').click(function() {
             page = 1;
             filter_data(page);
         });
@@ -1483,17 +1492,17 @@
         }
         });
 
-        $(".color").click(function(){
-            $(".fancycolor").prop('checked', false);
-             page = 1;
-            filter_data(page);
-        });
+        // $(".color").click(function(){
+        //     $(".fancycolor").prop('checked', false);
+        //      page = 1;
+        //     filter_data(page);
+        // });
 
-        $(".fancycolor").click(function(){
-            $(".color").prop('checked', false);
-             page = 1;
-            filter_data(page);
-        });
+        // $(".fancycolor").click(function(){
+        //     $(".color").prop('checked', false);
+        //      page = 1;
+        //     filter_data(page);
+        // });
 
         
 

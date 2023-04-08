@@ -237,6 +237,7 @@ class DiamondController extends Controller
            return "cURL Error #:" . $err;
         } else {
             $diamonds = json_decode($response);
+            
             if(isset($diamonds->response->body->diamonds)){ 
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
