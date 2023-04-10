@@ -7541,7 +7541,7 @@ width: 100%;
     }
 
     .apply-btn-cust:hover {
-        color: var(--primary);
+        color: var(--primary) !important;
         background: transparent;
     }
 
