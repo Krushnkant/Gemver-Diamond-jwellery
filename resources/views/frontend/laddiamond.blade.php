@@ -679,7 +679,7 @@
                         <span class="d-inline-block reset-btn reset-btn-part">
                             <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
                         </span> -->
-                        <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0 apply-btn-cust apply-btn-border">Apply</button>
+                        <button type="button" id="apply-btn" class="diamond-btn apply-btn-cust apply-btn-border">Apply</button>
                         <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0 apply-btn-border">Reset</button>
                     </div>
                 </div>

@@ -248,10 +248,10 @@
         height: 150px;
     }
 
-    .btn-hover-effect::before,
+    /* .btn-hover-effect::before,
     .btn-hover-effect::after {
         background: #BB9761;
-    }
+    } */
 
     .btn-hover-effect:hover {
         color: #0B1727;
