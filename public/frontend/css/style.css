@@ -6373,7 +6373,7 @@ width: 100%;
     }
 
     .reset-btn {
-        border: 1px var(--primary) solid;
+        /* border: 1px var(--primary) solid; */
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
@@ -7513,7 +7513,15 @@ width: 100%;
 
     .apply-btn-border {
         width: 48%;
-        border: 1px solid var(--primary) !important;
+        border-radius: 0;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        min-width: 100px;
+        line-height: 30px;
+        border: 1px solid var(--primary);
+        background: transparent;
     }
 
     .apply-btn-cust {
@@ -7529,15 +7537,16 @@ width: 100%;
     }
 
     .apply-btn-cust:before {
-        background: #2C3E50 !important;
+        background: var(--primary);
     }
 
     .apply-btn-cust:hover {
-        color: #2C3E50 !important;
+        color: var(--primary);
+        background: transparent;
     }
 
     .apply-btn-cust:hover:before {
-        background: white !important;
+        background: transparent;
     }
 
     .apply-btn-cust:after {
