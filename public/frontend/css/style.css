@@ -7510,3 +7510,38 @@ width: 100%;
     .owl-stage {
         margin: auto;
     }
+
+    .apply-btn-border {
+        width: 48%;
+        border: 1px solid #2C3E50 !important;
+    }
+
+    .apply-btn-cust {
+        color: #fff;
+    }
+
+    .apply-btn-cust:before {
+        background: #2C3E50 !important;
+    }
+
+    .apply-btn-cust:hover {
+        color: #2C3E50 !important;
+    }
+
+    .apply-btn-cust:hover:before {
+        background: white !important;
+    }
+
+    .apply-btn-cust:after {
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .apply-btn-cust:hover:after {
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 0%;
+    }

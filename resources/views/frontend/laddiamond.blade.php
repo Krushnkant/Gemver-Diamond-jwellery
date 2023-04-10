@@ -28,7 +28,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
-                <div class="round_cut_lab_checkbox row mb-2">
+                <div class="round_cut_lab_checkbox row round_cut_lab_checkbox_new mb-2">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">shape </span>
                     <div class="col-md-12 shape-part-img">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
@@ -662,7 +662,7 @@
                         <div class="round_cut_lab_range_slider text-end me-3">
                             <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <input type="checkbox" value="" name=""  id="checkbox_1">
-                                <label for="checkbox_1">advanced filters</label>
+                                <label for="checkbox_1">Advanced Filters</label>
                             </div>
                         </div>
                     </span>
@@ -673,12 +673,14 @@
                         <span class="d-inline-block reset-btn reset-btn-part">
                             <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
                         </span> -->
-                        <span class="d-inline-block reset-btn-part">
+                        <!-- <span class="d-inline-block reset-btn-part">
                             <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
                         </span>
                         <span class="d-inline-block reset-btn reset-btn-part">
                             <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
-                        </span>
+                        </span> -->
+                        <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0 apply-btn-cust apply-btn-border">Apply</button>
+                        <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0 apply-btn-border">Reset</button>
                     </div>
                 </div>
             </div>

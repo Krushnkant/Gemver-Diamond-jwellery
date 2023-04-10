@@ -1035,6 +1035,12 @@
     }
 }
 
+@media only screen and (max-width: 992px) {
+    .apply-btn-mobile {
+        justify-content: unset;
+    }
+}
+
 @media (min-width:992px) {
     .wire_bangle_main_box:nth-child(3n+1) {
         padding: 0 9px 0 15px;
@@ -2788,6 +2794,12 @@
     .from_text input,
     .to_text input {
         height: 30px;
+    }
+
+    .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.attr-img {
+        min-width: 55px;
+        min-height: 55px;
     }
 
     .round_cut_lab_checkbox input+.shape_img,
