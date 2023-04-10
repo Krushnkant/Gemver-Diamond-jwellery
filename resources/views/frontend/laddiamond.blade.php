@@ -657,7 +657,7 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-md-12 text-center text-md-end px-0 mt-4">
+                <div class="col-md-12 text-center text-lg-end px-0 mt-4">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
                             <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -667,18 +667,6 @@
                         </div>
                     </span>
                     <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                        <!-- <span class="d-inline-block apply-btn me-3">
-                            <button type="button" id="apply-btn" class= "apply-btn">Apply</button>
-                        </span>
-                        <span class="d-inline-block reset-btn reset-btn-part">
-                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
-                        </span> -->
-                        <!-- <span class="d-inline-block reset-btn-part">
-                            <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
-                        </span>
-                        <span class="d-inline-block reset-btn reset-btn-part">
-                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
-                        </span> -->
                         <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
                         <button type="button" id="reSetLab" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                     </div>
