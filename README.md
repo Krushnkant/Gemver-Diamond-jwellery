@@ -62,3 +62,56 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+### SQL SELECT Query Functions
+
+If the query is "Select From “Chapter” Table where ChaptrerId = 5"
+
+Use any one query of below to SELECT the data from Chapter table as below
+```csharp
+Chapter objChapter = new Chapter() { ChapterId = 5 };
+DataTable dt= ChapterBLL.Select(objChapter);
+
+OR
+
+DataTable dt= ChapterBLL.Select(newChapter() { ChapterId = 5 });
+```
+
+### SQL INSERT Query Functions
+
+Use below query to INSERT the data to Chapter table as below
+```csharp
+var objChapter = new Chapter()
+{
+	SubjectId = 1,
+	ChapterName = “Set Theory”,
+	ChapterNumber = 2,
+};
+var NewId = ChapterBLL.Insert(objChapter);
+```
+"NewId" Will have value of primary Key of new inserted Row.
+
+### SQL UPDATE Query Functions
+
+Use below query to UPDATE the data in Chapter table as below
+```csharp
+var objChapter = new Chapter()
+{
+	ChapterId = 2
+	SubjectId = 1,
+	ChapterName = “Set Theory”,
+	ChapterNumber = 2,
+};
+int Count = ChapterBLL.Update(objChapter);
+```
+"Count" Will Number of rows Updated by Query.
+
+### SQL UPDATE Query Functions
+
+Use below query to DELETE the data from Chapter table as below
+```csharp
+int Count = ChapterBLL.Delete(new Chapter() { ChapterId = 5 });
+```
+"Count" Will Number of rows Deleted by Query.
+
+Note: We delete by primary key only.
