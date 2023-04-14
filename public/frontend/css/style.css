@@ -7511,18 +7511,6 @@ width: 100%;
         margin: auto;
     }
 
-<<<<<<< HEAD
-    @media only screen and (max-width: 767px) {
-        .gem-img-center {
-            height: 100% !important;
-            width: 100% !important;
-        }
-    }
-
-    .gem-img-center {
-        display: block;
-        margin: auto;
-=======
     .apply-btn-border {
         width: 48%;
         border-radius: 0;
@@ -7573,5 +7561,18 @@ width: 100%;
         left: 50%;
         top: 50%;
         width: 0%;
->>>>>>> 1522ebac3eaa070e88d9290f55ec5e40ebb51091
     }
+
+    @media only screen and (max-width: 767px) {
+        .gem-img-center {
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+
+    .gem-img-center {
+        display: block;
+        margin: auto;
+    }
+
+    
