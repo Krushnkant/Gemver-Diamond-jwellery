@@ -248,10 +248,10 @@
         height: 150px;
     }
 
-    .btn-hover-effect::before,
+    /* .btn-hover-effect::before,
     .btn-hover-effect::after {
         background: #BB9761;
-    }
+    } */
 
     .btn-hover-effect:hover {
         color: #0B1727;
@@ -1032,6 +1032,12 @@
 
     .select_setting_btn.gemver-button-part {
         min-width: 140px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .apply-btn-mobile {
+        justify-content: unset;
     }
 }
 
@@ -2788,6 +2794,12 @@
     .from_text input,
     .to_text input {
         height: 30px;
+    }
+
+    .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.shape_img,
+    .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.attr-img {
+        min-width: 55px;
+        min-height: 55px;
     }
 
     .round_cut_lab_checkbox input+.shape_img,

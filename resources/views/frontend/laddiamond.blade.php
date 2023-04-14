@@ -28,7 +28,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="col-lg-6 round_cut_lab_filter">
-                <div class="round_cut_lab_checkbox row mb-2">
+                <div class="round_cut_lab_checkbox row round_cut_lab_checkbox_new mb-2">
                     <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">shape </span>
                     <div class="col-md-12 shape-part-img">
                             <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip" data-placement="top" title="Round">
@@ -129,7 +129,7 @@
             <div class="col-lg-6 round_cut_lab_filter">
                 <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">
-                    <ul  class="nav wire_bangle_tabs_part filter-part-shape justify-content-start justify-content-sm-start filter-tab" id="myTab" role="tablist">
+                    <ul  class="nav diamon-color-tab-title filter-part-shape justify-content-start justify-content-sm-start filter-tab" id="myTab" role="tablist">
                         <li class="active nav-item ps-0">
                             <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa" data-toggle="tab">Color </a>
                         </li>
@@ -657,28 +657,18 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-md-12 text-center text-md-end px-0 mt-4">
+                <div class="col-md-12 text-center text-lg-end px-0 mt-4">
                     <span class="d-inline-block">
                         <div class="round_cut_lab_range_slider text-end me-3">
                             <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <input type="checkbox" value="" name=""  id="checkbox_1">
-                                <label for="checkbox_1">advanced filters</label>
+                                <label for="checkbox_1">Advanced Filters</label>
                             </div>
                         </div>
                     </span>
                     <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                        <!-- <span class="d-inline-block apply-btn me-3">
-                            <button type="button" id="apply-btn" class= "apply-btn">Apply</button>
-                        </span>
-                        <span class="d-inline-block reset-btn reset-btn-part">
-                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
-                        </span> -->
-                        <span class="d-inline-block reset-btn-part">
-                            <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
-                        </span>
-                        <span class="d-inline-block reset-btn reset-btn-part">
-                            <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
-                        </span>
+                        <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
+                        <button type="button" id="reSetLab" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                     </div>
                 </div>
             </div>

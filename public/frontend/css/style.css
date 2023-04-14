@@ -1985,12 +1985,14 @@ background-size: cover;
         height: 1px;
     }
 
+    .diamon-color-tab-title li a:hover,
     .wire_bangle_tabs_part li a:hover,
     .wire_bangle_tabs_part li a:focus {
         color: var(--secondary);
     }
 
-    .wire_bangle_tabs_part li a {
+    .wire_bangle_tabs_part li a,
+    .diamon-color-tab-title li a {
         color: var(--primary);
         cursor: pointer;
     }
@@ -4388,11 +4390,11 @@ width: 100%;
     .wire_bangle_description .wire_bangle_sub_heading {
         font-size: 16px;
         margin-bottom: 5px;
-        /*display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
         overflow: hidden;
-        height: 44px;*/
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
     }
 
     .home-page-header marquee {
@@ -6307,16 +6309,13 @@ width: 100%;
         border-right: 0;
     }
 
-    .filter-part-shape li a {
-        opacity: 0.8;
-    }
-
     .filter-part-shape li.active a {
         opacity: 1;
     }
 
     .filter-part-shape li a {
         position: relative;
+        opacity: 0.8;
     }
 
     .filter-part-shape li a:after {
@@ -6374,7 +6373,7 @@ width: 100%;
     }
 
     .reset-btn {
-        border: 1px var(--primary) solid;
+        /* border: 1px var(--primary) solid; */
         background: transparent !important;
         border-radius: 0;
         font-weight: 400;
@@ -6382,7 +6381,7 @@ width: 100%;
         letter-spacing: 0.05em;
         color: var(--primary);
         min-width: 100px;
-        height: 36px;
+        /* height: 36px; */
         line-height: 30px;
         border: 0;
     }
@@ -6932,7 +6931,7 @@ width: 100%;
 
     .reset-btn-part {
         border: 1px var(--primary) solid;
-        width: 50%;
+        /* width: 50%; */
         text-align: center;
     }
 
@@ -7512,6 +7511,7 @@ width: 100%;
         margin: auto;
     }
 
+<<<<<<< HEAD
     @media only screen and (max-width: 767px) {
         .gem-img-center {
             height: 100% !important;
@@ -7522,4 +7522,56 @@ width: 100%;
     .gem-img-center {
         display: block;
         margin: auto;
+=======
+    .apply-btn-border {
+        width: 48%;
+        border-radius: 0;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        min-width: 100px;
+        line-height: 30px;
+        border: 1px solid var(--primary);
+        background: transparent;
+    }
+
+    .apply-btn-cust {
+        width: 48%;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        min-width: 100px;
+        line-height: 30px;
+        color: #fff;
+        background-color: var(--primary);
+        border: 1px solid var(--primary);
+    }
+
+    .apply-btn-cust:before {
+        background: var(--primary);
+    }
+
+    .apply-btn-cust:hover {
+        color: var(--primary) !important;
+        background: transparent;
+    }
+
+    .apply-btn-cust:hover:before {
+        background: transparent;
+    }
+
+    .apply-btn-cust:after {
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .apply-btn-cust:hover:after {
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 0%;
+>>>>>>> 1522ebac3eaa070e88d9290f55ec5e40ebb51091
     }
