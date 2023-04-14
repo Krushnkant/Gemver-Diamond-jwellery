@@ -7511,3 +7511,15 @@ width: 100%;
     .owl-stage {
         margin: auto;
     }
+
+    @media only screen and (max-width: 767px) {
+        .gem-img-center {
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+
+    .gem-img-center {
+        display: block;
+        margin: auto;
+    }
