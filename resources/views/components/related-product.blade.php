@@ -14,7 +14,7 @@
                      $images = explode(",",$Related->product_variant[$key]->images);
                      $image = URL($images['0']);
                      $sale_price = $Related->product_variant[$key]->sale_price;
-                     $regular_price =  $Related->product_variant[$key]->regular_price ;
+                     $regular_price =  $Related->product_variant[$key]->regular_price;
                      if($iscustom == 1){
                         $url =  URL('custom-product-details/'.$Cslug.'/'.$Related->product_variant[$key]->slug); 
                      }else{
@@ -92,7 +92,7 @@
                                         <span class="wire_bangle_price wire_bangle_price_part">
                                             ${{ $sale_price }}
                                         </span>
-                                        <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">{{ $regular_price }}</span></span>
+                                        <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_prices">{{ $Related->product_variant[$key]->regular_prices }}</span></span>
                                     </div>
                                 </div>
                             </div>
