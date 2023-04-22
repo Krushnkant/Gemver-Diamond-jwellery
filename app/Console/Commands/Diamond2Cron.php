@@ -364,7 +364,7 @@ class Diamond2Cron extends Command
         //         ]);
         // }
 
-        Diamond::whereIn('diamond_id',$oldids)->update(['StockStatus' => '0']);
+        Diamond::whereIn('diamond_id',$oldids)->where('StockStatus',<>,0)->update(['StockStatus' => '0']);
        
     }
 

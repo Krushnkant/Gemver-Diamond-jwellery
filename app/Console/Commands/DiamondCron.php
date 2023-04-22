@@ -367,7 +367,7 @@ class DiamondCron extends Command
         // }
 
         
-        $stockstatusupdate = Diamond::whereIn('diamond_id',$oldids)->update(['StockStatus' => '0']);
+        $stockstatusupdate = Diamond::whereIn('diamond_id',$oldids)->where('StockStatus',<>,0)->update(['StockStatus' => '0']);
     
         \Log::info("Diamond Round Heart Cushion Uploaded end !");
     }
