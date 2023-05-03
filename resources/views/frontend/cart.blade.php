@@ -686,7 +686,7 @@
         if(check_login) {
             location.href="{{ url('/checkout') }}";
         } else {
-            location.href="{{ url('/login') }}";
+            location.href="{{ url('/register') }}";
             "{{ Session::put('afterLogin','/cart');}}";
         }
     });
