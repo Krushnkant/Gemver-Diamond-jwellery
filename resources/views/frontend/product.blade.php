@@ -266,10 +266,11 @@
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <div class="input-group ">
+                                                <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <select class="d-block wire_bangle_input" name="country_code_mobile"> 
-                                                        <option data-countryCode="GB" value="44">Norway (+47)</option>
+                                                        <select class="d-block wire_bangle_input form-control" name="country_code_mobile" id="country_code_mobile"> 
+                                                            <option value=""></option>
+                                                            <option data-countryCode="GB" value="44">Norway (+47)</option>
                                                             <option data-countryCode="US" value="1">UK (+44)</option>
                                                             <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
@@ -485,6 +486,7 @@
                                                             <option data-countryCode="YE" value="967">Yemen (South)(+967)</option>
                                                             <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                                                             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
+                                                           
                                                         </select>
                                                     </div>
                                                     <input type="text" name="mobile_no" id="mobile_no" placeholder="mobile number" class="d-block form-control">
@@ -494,8 +496,9 @@
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
-                                                        <select class="d-block wire_bangle_input" name="country_code_whatsapp"> 
-                                                        <option data-countryCode="GB" value="44">Norway (+47)</option>
+                                                        <select class="" name="country_code_whatsapp" id="country_code_whatsapp"> 
+                                                            <option></option>
+                                                            <option data-countryCode="GB" value="44">Norway (+47)</option>
                                                             <option data-countryCode="US" value="1">UK (+44)</option>
                                                             <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                                                             <option data-countryCode="AD" value="376">Andorra (+376)</option>
