@@ -147,6 +147,7 @@ class AuthController extends Controller
         $user->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
         $user->save();
 
+        $user = User::where('id',$user->id)->first();
         $data = array(
             'id' => $user->id,
             'full_name' => $user->full_name,
