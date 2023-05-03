@@ -96,7 +96,7 @@
                 if(res.status == 200){
                     $('#RegisterSubmit').prop('disabled',false);
                     toastr.success("You have Successfully Register",'Success',{timeOut: 5000});
-                    location.href ="{{ url('/login') }}";
+                    location.href ="{{ url('/account') }}";
                     //return redirect()->back();
                 }
 
