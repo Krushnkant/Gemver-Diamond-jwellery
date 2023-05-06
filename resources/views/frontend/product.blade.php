@@ -1,6 +1,7 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+    <div style="display: none"><?php echo '<pre>'; print_r($Product); ?></div>
     <div class="background-sub-slider">
         <div class="">
             <div class="about_us_background">
