@@ -178,7 +178,7 @@
                                 </a>
                             </div>
                             <?php 
-                                if($Product->sizechart_image != ""){
+                                // if($Product->sizechart_image != ""){
                                     ?>
                                     <div class="row-images mt-3 mb-4" id="slick-lightbox">
                                         <div class="item">
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                     <?php
-                                }
+                                // }
                             ?>
                             <!-- @if($Product->design_number != "")
                             <div class="row">
