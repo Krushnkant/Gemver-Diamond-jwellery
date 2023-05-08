@@ -41,7 +41,17 @@ $settings = \App\Models\Settings::first();
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'AW-11131777521');
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
+    
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -158,6 +168,18 @@ $settings = \App\Models\Settings::first();
    });
    </script>
 
+<script>
+    window.addEventListener('load', function() {
+
+        jQuery('body').on('mousedown', '[href*="https://api.whatsapp.com/"]', function() {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11131777521/QLl9CPLT-pwYEPHjhbwp'
+        });
+        })
+
+    });
+
+</script>
 </body>
 </html>
 
