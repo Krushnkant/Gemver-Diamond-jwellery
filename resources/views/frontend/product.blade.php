@@ -177,9 +177,7 @@
                                     {{-- <i class="far fa-heart"></i>  &nbsp; Add to Wishlist --}}
                                 </a>
                             </div>
-                            <?php 
-                                // if($Product->sizechart_image != ""){
-                                    ?>
+                            @if($Product->sizechart_image != "")
                                     <div class="row-images mt-3 mb-4" id="slick-lightbox">
                                         <div class="item">
                                             <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" class="size-guide-text" target="_blank">
@@ -187,9 +185,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <?php
-                                // }
-                            ?>
+                                   @endif
                             <!-- @if($Product->design_number != "")
                             <div class="row">
                                 <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
