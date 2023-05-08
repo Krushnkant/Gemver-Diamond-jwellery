@@ -48,7 +48,7 @@ $settings = \App\Models\Settings::first();
 
         gtag('config', 'AW-11131777521');
     </script>
-
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-962R43V393"></script>
     
@@ -167,7 +167,6 @@ $settings = \App\Models\Settings::first();
         });
    });
    </script>
-
 <script>
     window.addEventListener('load', function() {
 
@@ -176,6 +175,19 @@ $settings = \App\Models\Settings::first();
             'send_to': 'AW-11131777521/QLl9CPLT-pwYEPHjhbwp'
         });
         })
+
+        jQuery('body').on('mousedown', '[href*="tel:"]', function() {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-11131777521/WxyzCN6p7pwYEPHjhbwp'
+            });
+        })
+
+        jQuery('body').on('mousedown', '[href*="mailto:"]', function() {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-11131777521/abGNCOGp7pwYEPHjhbwp'
+            });
+        })
+
 
     });
 
