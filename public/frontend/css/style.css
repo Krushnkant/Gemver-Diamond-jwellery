@@ -501,6 +501,11 @@ background-size: cover;
         padding: 10px 0;
     }
 
+    .blog-detail-paragraph ul li {
+        margin-left: 20px;
+        list-style: disc;
+    }
+
     .most-viewed-slider .owl-next,
     .most-viewed-slider .owl-prev {
         background: transparent !important;
@@ -7574,5 +7579,3 @@ width: 100%;
         display: block;
         margin: auto;
     }
-
-    
