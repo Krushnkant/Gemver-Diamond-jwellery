@@ -215,14 +215,15 @@
                             </div>
                         </form>
                         <div class="d-sm-flex">
-                            <span class="inquiry_now_btn d-sm-inline-block">
-                                <button class="select_setting_btn diamond-btn mb-2 mt-2" type="button"  >inquiry now</button>
-                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            </span>
+                            
                             <span class="inquiry_now_btn product-data d-sm-inline-block">
                                 <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
                                 <input type="hidden" class="item_type" value="0"> 
-                                <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-sm-3" type="button">Add To Cart</button>
+                                <button class="select_cart_btn diamond-btn mb-2 mt-2 " type="button">Add To Cart</button>
+                                <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                            </span>
+                            <span class="inquiry_now_btn d-sm-inline-block">
+                                <button class="select_setting_btn diamond-btn mb-2 mt-2 ms-sm-3" type="button"  >inquiry now</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                         </div>
@@ -266,7 +267,7 @@
                                                 <input type="email" name="email" id="email" placeholder="enter your email" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
+                                            <div class="mb-3 col-md-12 ps-0">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input form-control" name="country_code_mobile" id="country_code_mobile"> 
@@ -494,7 +495,7 @@
                                                     <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
+                                            <div class="mb-3 col-md-6 ps-0" style="display:none;">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
                                                         <select class="" name="country_code_whatsapp" id="country_code_whatsapp"> 

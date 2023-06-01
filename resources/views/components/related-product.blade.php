@@ -54,7 +54,7 @@
                                                     ?>
                                                     <span class="form-check d-inline-block">
                                                         <a href="{{ $attributeurl }}">
-                                                        <img src="{{ url('images/attrTermThumb/'.$productvariants->attrterm_thumb) }}" alt="{{ $productvariants->attrterm_name }}"  class="wire_bangle_color_img pe-auto" loading="lazy">
+                                                        <img src="{{ url('images/attrTermThumb/'.$productvariants->attrterm_thumb) }}" alt="{{ $productvariants->attrterm_name }}"  class="wire_bangle_color_img pe-auto" >
                                                         </a>
                                                         <div class="wire_bangle_color_input_label"></div>
                                                     </span>

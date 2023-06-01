@@ -333,7 +333,7 @@
                                                 <input type="email" name="email" id="email" placeholder="enter your email" class="d-block wire_bangle_input">
                                                 <div id="email-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
+                                            <div class="mb-3 col-md-12 ps-0">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input" name="country_code_mobile"> 
@@ -346,7 +346,7 @@
                                                     <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0">
+                                            <div class="mb-3 col-md-6 ps-0" style="diasplay:none;">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input" name="country_code_whatsapp"> 
@@ -392,12 +392,13 @@
                             </div>
                         </div> 
                         <div class="d-flex flex-wrap">
-                            <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
-                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2" type="button" >add to cart
+                            <button class="select_setting_btn  add-to-cart btn-hover-effect btn-hover-effect-black diamond-bt mb-2 me-2" type="button" >add to cart
                                 <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </button>
+                            <button class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+
                             <div class="d-lg-flex gemever-button">
                             @foreach($Category as $cat)
                                 <button  data-id="{{ $cat->id }}" data-slug="{{ $cat->slug }}" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt mb-2 save_addToCart me-1 gemver-button-part">add to {{ $cat->category_name }}</button>
