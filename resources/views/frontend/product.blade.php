@@ -746,7 +746,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-6 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
+                            <div class="col-4 col-xxl-5 offset-xxl-2 text-start text-xl-center ps-0 ps-lg-3 pe-0 product-delivery-end">
                                 <div class="mt-md-3">
                                     <p>Estimated Date of Delivery <br>
                                        <b>{{ date('dS M, Y', strtotime ('+'.env('DELIVERY_DAYS', 0).' day')) }} </b>
@@ -1584,6 +1584,7 @@ function save_hint(btn,btn_type){
                 $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
+                window.location.href = "{{ url('/cart') }}";
                 //alertify.set('notifier','position','top-right');
                 //alertify.success(response.status);
             },

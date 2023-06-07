@@ -85,13 +85,14 @@ class ContactUsController extends Controller
             $data = $request->all();
             $inquiry = Inquiry::Create($data);
             if(isset($data['stone_no'])){
-                $ip_address = Request::ip();
+                $ip_address = $request->ip();
                 $cart = Cart::where(['ip_address'=>$ip_address]);
                 $cart->delete();
             }
             if($inquiry != null){
                 //dd($inquiry);
                // echo $inquiry->SKU.'demo'; die;
+               $product_info = "";
                 if($inquiry->SKU != ''){
                     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->SKU)->first();
                     if($product){

@@ -346,7 +346,7 @@
                                                     <div id="mobile_no-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                                 </div>
                                             </div>
-                                            <div class="mb-3 col-md-6 ps-0" style="diasplay:none;">
+                                            <div class="mb-3 col-md-6 ps-0" style="display:none;">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
                                                         <select class="d-block wire_bangle_input" name="country_code_whatsapp"> 
@@ -945,6 +945,7 @@ $('.add-to-cart').click(function (e) {
                 $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
+                window.location.href = "{{ url('/cart') }}";
                 //alertify.set('notifier','position','top-right');
                 //alertify.success(response.status);
             },

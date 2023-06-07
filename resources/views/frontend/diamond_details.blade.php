@@ -973,6 +973,7 @@ $('.add-to-cart').click(function (e) {
                 $(btn).find('.loadericonfa').hide();
                 toastr.success(response.status,'Success',{timeOut: 5000});
                 cartload();
+                window.location.href = "{{ url('/cart') }}";
                 //alertify.set('notifier','position','top-right');
                 //alertify.success(response.status);
             },
