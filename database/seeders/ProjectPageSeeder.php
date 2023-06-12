@@ -564,6 +564,15 @@ class ProjectPageSeeder extends Seeder
             'inner_routes' => 'admin.homebanners.list,admin.homebanners.add,admin.homebanners.save,admin.allhomebannerlist,admin.homebanners.changehomebannerstatus,admin.homebanners.delete,admin.homebanners.edit,admin.homebanners.uploadfile,admin.homebanners.removefile'
         ]);
 
+        ProjectPage::create([
+            'id' => 70,
+            'parent_menu' => 54,
+            'label' => 'Ad Checkout',
+            'route_url' => 'admin.checkoutbanners.list', 
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.checkoutbanners.list,admin.checkoutbanners.add,admin.checkoutbanners.save,admin.allhomebannerlist,admin.checkoutbanners.changecheckoutbannerstatus,admin.checkoutbanners.delete,admin.checkoutbanners.edit,admin.checkoutbanners.uploadfile,admin.checkoutbanners.removefile'
+        ]);
+
         ProjectPage::create([ 
             'id' => 56, 
             'parent_menu' => 54, 

@@ -91,10 +91,11 @@ class PayPalPaymentController extends Controller
         $user['State'] = isset($address_info->state) ? $address_info->state: '';
         $user['Country'] = isset($address_info->country) ? $address_info->country: '';
         $user['Pincode'] = isset($address_info->pincode) ? $address_info->pincode: '';
+        $user_id = isset($address_info->user_id) ? $address_info->user_id: 0;
         
     
         $order = new Order();
-        $order->user_id = session('customer.id');
+        $order->user_id = $user_id;
         $order->address_id = $request->address_id;
         $order->custom_orderid = Carbon::now()->format('ymd') . $last_order_id;
         $order->sub_totalcost = isset($request->sub_totalcost) ? $request->sub_totalcost: null;

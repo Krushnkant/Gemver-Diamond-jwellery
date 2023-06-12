@@ -75,7 +75,7 @@
                                         </svg>
                                     </a>
                                 </span>
-                                <span class="position-relative dropdown shopping-part">
+                                <span class="position-relative dropdown shopping-part" id="mini_cart">
                                     <a href="{{ URL('/cart') }}" class="btn btn-secondary dropdown-toggle" id="">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="cart-icon-svg" width="20" height="18" version="1.1" viewBox="0 0 700 700">
                                             <g>
@@ -87,6 +87,7 @@
                                         </svg>
                                         <span class="cart-icon-label basket-item-count-cart">0</span>
                                     </a>
+                                   
                                 </span>
                                 <span class="position-relative dropdown">
                                     @if(session()->has('customer'))
@@ -368,7 +369,7 @@
                                                     ?>
                                                         <div class="submenu-box mt-4">
                                                             <div class="d-block mb-2">
-                                                                <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                                                <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
                                                             </div>
                                                             
                                                              
@@ -464,7 +465,7 @@
                                                 ?>
                                                         <div class="submenu-box">
                                                             <div class="d-block mb-2">
-                                                                <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                                                <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
                                                             </div>
                                                             <ul class="{{ $twocolum }}">
 
@@ -556,7 +557,8 @@
                                                 ?>
                                                         <div class="submenu-box">
                                                             <div class="d-block mb-2">
-                                                                <span class="menus_title menus_title_part">{{ $sub->title }}</span>
+                                                            <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
+
                                                             </div>
                                                             <ul class="{{ $twocolum }}">
                                                                 <?php

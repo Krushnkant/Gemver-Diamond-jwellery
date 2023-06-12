@@ -110,8 +110,9 @@ class MegaMenuController extends Controller
             return response()->json(['status' => '400']);
         }
         $SubMenu->title = $request->title;
+        $SubMenu->page_url = $request->page_url;
         $SubMenu->save();
-        return response()->json(['status' => '200','title' => $SubMenu->title ]);
+        return response()->json(['status' => '200','title' => $SubMenu->title,'page_url' => $SubMenu->page_url ]);
     }
 
 

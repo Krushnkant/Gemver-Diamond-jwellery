@@ -98,6 +98,7 @@ Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
 Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');
 Route::post('/search_products',[ProductController::class,'search_products'])->name('frontend.search_products'); 
+ 
 
 Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
@@ -108,6 +109,7 @@ Route::get('social-feed',[SocialFeedController::class,'index'])->name('frontend.
 Route::get('infopage/testimonials',[TestimonialsController::class,'index'])->name('frontend.testimonials');
 
 Route::post('/inquiry',[ContactUsController::class,'inquiry_save'])->name('frontend.inquiry.save');
+Route::post('/inquiry/cart',[ContactUsController::class,'inquiry_save_cart'])->name('frontend.inquiry.savecart');
 Route::post('/news-latter',[NewsLatterController::class,'save'])->name('frontend.newslatter.save');
 Route::post('/hint',[ContactUsController::class,'hint_save'])->name('frontend.hint.save');
 
@@ -122,6 +124,7 @@ Route::get('/product_complete/{catid}',[DiamondController::class,'getProductComp
 Route::get('/product-setting-edit/{id}/edit',[DiamondController::class,'editproductsetting']);
 Route::get('/diamond-setting-edit/{id}/edit',[DiamondController::class,'editdiamondsetting']);
 
+Route::post('/cart_products',[CartController::class,'cart_products'])->name('frontend.cart_products');
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
@@ -172,31 +175,40 @@ Route::get('country-state-city', [CountryStateCityController::class, 'index']);
 Route::post('get-states-by-country', [CountryStateCityController::class, 'getState']);
 Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity']);
 
+ //order route
+ Route::get('checkout',[\App\Http\Controllers\OrderController::class,'checkout'])->name('frontend.checkout');
+ Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
 
+ //my accound route
+ Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('user.address');
+ //Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
+ Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
+ Route::get('address/{id}/delete',[\App\Http\Controllers\AddressController::class,'deleteaddress'])->name('address.delete');
+ Route::get('address/{id}/edit',[\App\Http\Controllers\AddressController::class,'editaddress'])->name('address.edit');
+ Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
 
+ Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
+ Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
+ Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
+
+ Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
+ Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
 
 Route::group(['middleware'=>['frontendauth']],function (){
 
     //order route
-    Route::get('checkout',[\App\Http\Controllers\OrderController::class,'checkout'])->name('frontend.checkout');
-    Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
+    // Route::get('checkout',[\App\Http\Controllers\OrderController::class,'checkout'])->name('frontend.checkout');
+    // Route::post('orders/saveorder',[\App\Http\Controllers\OrderController::class,'saveorder'])->name('orders.saveorder');
 
     //my accound route
-    Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('user.address');
-    //Route::get('address',[\App\Http\Controllers\OrderController::class,'address'])->name('frontend.checkout');
-    Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
-    Route::get('address/{id}/delete',[\App\Http\Controllers\AddressController::class,'deleteaddress'])->name('address.delete');
-    Route::get('address/{id}/edit',[\App\Http\Controllers\AddressController::class,'editaddress'])->name('address.edit');
-
-    Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
+    // Route::get('address', [\App\Http\Controllers\AddressController::class,'address'])->name('user.address');
+    // Route::post('address/save',[\App\Http\Controllers\AddressController::class,'addresssave'])->name('address.save');
+    // Route::get('address/{id}/delete',[\App\Http\Controllers\AddressController::class,'deleteaddress'])->name('address.delete');
+    // Route::get('address/{id}/edit',[\App\Http\Controllers\AddressController::class,'editaddress'])->name('address.edit');
+    // Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
 
 
-    Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
-    Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
-    Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
-
-    Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
-    Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
+   
 
 
     Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('order.orders');
@@ -593,6 +605,17 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('homebanners/uploadfile',[\App\Http\Controllers\admin\HomeBannerController::class,'uploadfile'])->name('homebanners.uploadfile');
     Route::post('homebanners/removefile',[\App\Http\Controllers\admin\HomeBannerController::class,'removefile'])->name('homebanners.removefile');
     Route::post('homebanners/getBannerInfoVal',[\App\Http\Controllers\admin\HomeBannerController::class,'getBannerInfoVal'])->name('homebanners.getBannerInfoVal');
+
+    Route::get('checkoutbanners',[\App\Http\Controllers\admin\CheckoutBannerController::class,'index'])->name('checkoutbanners.list');
+    Route::get('checkoutbanners/create',[\App\Http\Controllers\admin\CheckoutBannerController::class,'create'])->name('checkoutbanners.add');
+    Route::post('checkoutbanners/save',[\App\Http\Controllers\admin\CheckoutBannerController::class,'save'])->name('checkoutbanners.save');
+    Route::post('allhomebannerlist',[\App\Http\Controllers\admin\CheckoutBannerController::class,'allhomebannerlist'])->name('allhomebannerlist');
+    Route::get('changecheckoutbannerstatus/{id}',[\App\Http\Controllers\admin\CheckoutBannerController::class,'changecheckoutbannerstatus'])->name('checkoutbanners.changecheckoutbannerstatus');
+    Route::get('checkoutbanners/{id}/delete',[\App\Http\Controllers\admin\CheckoutBannerController::class,'deletebanner'])->name('checkoutbanners.delete');
+    Route::get('checkoutbanners/{id}/edit',[\App\Http\Controllers\admin\CheckoutBannerController::class,'editbanner'])->name('checkoutbanners.edit');
+    Route::post('checkoutbanners/uploadfile',[\App\Http\Controllers\admin\CheckoutBannerController::class,'uploadfile'])->name('checkoutbanners.uploadfile');
+    Route::post('checkoutbanners/removefile',[\App\Http\Controllers\admin\CheckoutBannerController::class,'removefile'])->name('checkoutbanners.removefile');
+    Route::post('checkoutbanners/getBannerInfoVal',[\App\Http\Controllers\admin\CheckoutBannerController::class,'getBannerInfoVal'])->name('checkoutbanners.getBannerInfoVal');
 
     Route::get('pricerange',[\App\Http\Controllers\admin\PriceRangeController::class,'index'])->name('pricerange.list');
     Route::post('addorupdatepricerange',[\App\Http\Controllers\admin\PriceRangeController::class,'addorupdatepricerange'])->name('pricerange.addorupdate');

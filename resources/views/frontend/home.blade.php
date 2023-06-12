@@ -1223,7 +1223,7 @@ $settings = \App\Models\Settings::first();
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

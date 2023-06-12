@@ -78,8 +78,12 @@
                         <input type="text" class="form-control input-flat" id="title" name="title" placeholder="Title">
                         <div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-
-                    
+                    <div class="form-group">
+                        <label class="col-form-label" for="title">Page Url 
+                        </label>
+                        <input type="text" class="form-control input-flat" id="page_url" name="page_url" placeholder="Page Url">
+                        <div id="page-url-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                    </div> 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
@@ -102,6 +106,7 @@
         $.get("{{ url('admin/submenus') }}" +'/' + sub_menu_id +'/edit', function (data) {
             $('#sub_menu_id').val(data.id);
             $('#title').val(data.title);
+            $('#page_url').val(data.page_url);
             
         })
     });

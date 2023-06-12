@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class AddressController extends Controller
 {
@@ -59,9 +61,22 @@ class AddressController extends Controller
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
 
-    
+        if(session()->has('customer')){
+            $user_id = $request->user_id;
+        }else{
+            $user = new User();
+            $user->full_name = $request->first_name .' '. $request->last_name;
+            $user->email = $request->email;
+            $user->password = Hash::make('123abc');
+            $user->decrypted_password = '123abc';
+            $user->role = 3;
+            $user->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
+            $user->save();
+            $user_id = $user->id;
+        }
+
         $address = new Address();
-        $address->user_id = $request->user_id;
+        $address->user_id = $user_id;
         $address->first_name = $request->first_name;
         $address->last_name = $request->last_name;
         $address->email = $request->email;

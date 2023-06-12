@@ -336,7 +336,7 @@
                                         {{ $item_name }} ✖ {{ $cart['item_quantity'] }}
                                         @endif
                                         <input class="form-check-input" type="hidden" name="item[]" id="item" value="{{  $item->id }}"> 
-                                        <input class="form-check-input" type="hidden" name="diamond_id[]" id="diamond_id" value="{{ $cart->diamond_id }}"> 
+                                        <input class="form-check-input" type="hidden" name="diamond_id[]" id="diamond_id" value="{{ $cart['diamond_id'] }}"> 
                                         <input class="form-check-input" type="hidden" name="qty[]" id="qty" value="{{  $cart['item_quantity'] }}"> 
                                         <input class="form-check-input" type="hidden" name="item_type[]" id="item_type" value="{{  $cart['item_type'] }}"> 
                                     </div>   

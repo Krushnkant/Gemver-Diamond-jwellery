@@ -14,6 +14,8 @@ use App\Models\AttributeTerm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
+use Illuminate\Support\Facades\Cookie;
+use App\Models\ItemCart;
 
 
 class ContactUsController extends Controller
@@ -165,6 +167,131 @@ class ContactUsController extends Controller
                 //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
                 return response()->json(['status' => '200']); 
             }
+        }
+    }
+
+    public function inquiry_save_cart(Request $request){
+        $setting = Settings::first();
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile_no' => 'required|regex:/^[6-9][0-9]{9}$/|digits:10',
+            'email' => 'required',
+            'inquiry' => 'required'
+        ]);
+
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+        }else{
+           
+
+            if(session()->has('customer')){
+                $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
+            }else{
+                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                $cart_data = json_decode($cookie_data, true);
+            }
+
+            foreach($cart_data as $cart){
+                if($cart['item_type'] == 0){
+                    $product = ProductVariant::with('product')->where('id',$cart['item_id'])->first();
+                    $request->request->add(['SKU' => $product->SKU]);   
+                    $request->request->add(['stone_no' => null]); 
+                }elseif($cart['item_type'] == 1){
+                  
+                    $diamond = Diamond::where('id',$cart['item_id'])->first();
+                    $request->request->add(['stone_no' => $diamond->Stone_No]);
+                    $request->request->add(['SKU' => null]); 
+                }else{
+                    $product = ProductVariant::with('product')->where('id',$cart['item_id'])->first();
+                    $request->request->add(['SKU' => $product->SKU]);
+                    $diamond = Diamond::where('id',$cart['diamond_id'])->first(); 
+                    $request->request->add(['stone_no' => $diamond->stone_no]);
+                }
+                
+                $data = $request->all();
+                //dd($data);
+                $inquiry = Inquiry::Create($data);
+                
+                if($inquiry != null){
+                    //dd($inquiry);
+                // echo $inquiry->SKU.'demo'; die;
+                    
+                    $product_info = "";
+                    if($inquiry->SKU != ''){
+                        $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->SKU)->first();
+                        if($product){
+                        $product_info = '<span>'.$product->product->product_title.'</span><br><span> SKU: '.$product->SKU.'</span><br>';
+                        $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
+                            $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
+                        })->leftJoin('attribute_terms', function($join) {
+                            $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
+                        })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
+                        
+                        foreach($Productvariantvariants as $Productvariantvariant){
+                            $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span><br>';
+                        }
+                        }else{
+                            //$product_info = '-';
+                        }
+                        }else{
+                            //$product_info = '-';
+                        }
+                        $diamond_info = "";
+                        $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
+                        if($diamond){
+                        $diamond_info = '<span>'.$diamond->Stone_No.'</span><br>
+                                            <span> Weight: '.$diamond->Weight.'</span><br>
+                                            <span> Color: '.$diamond->Color.'</span><br>
+                                            <span> Clarity: '.$diamond->Clarity.'</span><br>
+                                            <span> Cut: '.$diamond->Cut.'</span><br>';
+                        }else{
+                        //$diamond_info = '-';
+                        }
+
+                        if($inquiry->stone_no == "" && $inquiry->SKU == ""){
+                            $product_info = 'bulk order inquiry'; 
+                        }
+
+                        
+                        $spe_info ='';
+
+                        if($inquiry->specification_term_id != ""){
+                            $term_ids = explode(',', $inquiry->specification_term_id);
+                            foreach($term_ids as $term_id){
+                                $Productterms = AttributeTerm::leftJoin('attributes', function($join) {
+                                    $join->on('attributes.id', '=', 'attribute_terms.attribute_id');
+                                })->where('attribute_terms.id',$term_id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
+                                if($Productterms){
+                                foreach($Productterms as $Productterm){
+                                    $spe_info .= '<span>'.$Productterm->attribute_name.' : '.$Productterm->attrterm_name.'</span><br>';
+                                }
+                                }else{
+                                // $spe_info .= '-';
+                                }
+                            }
+                        }else{
+                        //$spe_info ='-';   
+                        }
+                
+                    $data1 = [
+                        'product_info' => $product_info,
+                        'diamond_info' => $diamond_info,
+                        'spe_info' => $spe_info
+                    ];
+
+                // dd($data1);
+                    
+                    // $data2 = [
+                    //     'message1' => 'Thank You For Product Inquiry'
+                    // ]; 
+                    $templateName = 'email.mailDatainquiry';
+                    $mail_sending = Helpers::MailSending($templateName, $data1, $inquiry->email, 'Inquiry');
+                    //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
+                   
+                }
+            }
+            return response()->json(['status' => '200']); 
         }
     }
 

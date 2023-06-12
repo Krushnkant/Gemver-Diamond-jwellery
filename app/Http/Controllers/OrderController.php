@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Settings;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 
 class OrderController extends Controller
@@ -27,7 +28,13 @@ class OrderController extends Controller
 
     public function checkout(){
         $address = Address::where('user_id',session('customer.id'))->get();
-        $carts = ItemCart::where('user_id',session('customer.id'))->get();
+        if(session()->has('customer')){
+            $carts = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
+        }else{
+            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+            $carts = json_decode($cookie_data,true);
+        }
+        
         $settings = Settings::find(1);
         $countries = Country::get(["name","id"]);
 
