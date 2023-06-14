@@ -115,7 +115,6 @@ $settings = \App\Models\Settings::first();
     $(document).ready(function() {   
         $("#main_search").keyup(function() {
             search_data($(this).val());
-            alert();
         });
 
         function search_data(keyword)

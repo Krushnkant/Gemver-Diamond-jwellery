@@ -1490,7 +1490,7 @@
 
     .mobile-menu-search-box-part {
         position: absolute;
-        top: calc(100% + 0px);
+        top: calc(1.2% + 40px);
         left: 0;
         right: 0;
         width: 100%;

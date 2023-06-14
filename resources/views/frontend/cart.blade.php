@@ -1076,7 +1076,7 @@
     });
 
     $('body').on('click', '#save_newInquiryBtnCart', function () {
-        alert();
+        
         save_inquiry_cart($(this),'save_new');
             
     });
