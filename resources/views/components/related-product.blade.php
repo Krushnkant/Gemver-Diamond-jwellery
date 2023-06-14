@@ -32,7 +32,7 @@
                     <div class="hover_effect_part wire_bangle_shop_radio" >
                         <div class="wire_bangle_img_radio_button">
                             <div class="wire_bangle_img mb-3 position-relative">
-                                <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy"></a>
+                                <a class="wire_bangle_hover_a" href="{{ $url }}"><img src="{{ $image }}" alt="{{ $alt_text }}" ></a>
                             </div>
                             <div class="wire_bangle_description p-2">
                                 <?php 
