@@ -440,12 +440,19 @@
                             }
                             
                             ?>
-                            
+                            @if(count($BlogBanners) > 1)
                             <div class="col-sm-6 col-lg-6 ">
                                 <div class="mt-4">
                                     <a href="{{ $url }}"><img src="{{ url($BlogBanner['banner_thumb']) }}" alt=""></a>
                                 </div>
+                            </div>
+                            @else
+                            <div class="col-sm-12 col-lg-12 ">
+                                <div class="mt-4">
+                                    <a href="{{ $url }}"><img src="{{ url($BlogBanner['banner_thumb']) }}" alt=""></a>
                                 </div>
+                            </div>
+                            @endif
                            
                          
                         @endforeach
