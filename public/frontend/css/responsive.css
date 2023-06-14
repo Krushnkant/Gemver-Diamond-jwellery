@@ -2114,6 +2114,13 @@
     .policy_page_section img {
         width: 100% !important;
         height: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .policy_page_section p {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .wire_bangle_page .product_slider_main_item img {

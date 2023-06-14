@@ -2716,6 +2716,11 @@ background-size: cover;
 
     .policy_page_section p {
         font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .policy_page_section img {
+        padding: 15px;
     }
 
     .policy_page_heading {
