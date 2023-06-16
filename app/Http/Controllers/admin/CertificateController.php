@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Opinion;
+use App\Models\RequestCertificate;
 use App\Models\Settings;
 use App\Models\Product;
 use App\Models\Diamond;
@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Helpers;
 
-class OpinionController extends Controller
+class CertificateController extends Controller
 {
     public function index()
     {
         $action = "list";
-        return view('admin.opinion.list',compact('action'));
+        return view('admin.certificate.list',compact('action'));
     }
 
-    public function allopinionslist(Request $request){
+    public function allcertificateslist(Request $request){
         if ($request->ajax()) {
 
             $columns = array(
@@ -34,9 +34,9 @@ class OpinionController extends Controller
                 5=> 'action',
             );
 
-            $totalData = Opinion::count();
+            $totalData = RequestCertificate::count();
             if (isset($estatus)){
-                $totalData = Opinion::where('estatus',$estatus)->count();
+                $totalData = RequestCertificate::where('estatus',$estatus)->count();
             }
            
             $totalFiltered = $totalData;
@@ -53,18 +53,18 @@ class OpinionController extends Controller
             if(empty($request->input('search.value')))
             {
                 
-                $Opinions = Opinion::offset($start)
+                $certificates = RequestCertificate::offset($start)
                 ->limit($limit)
                 ->orderBy($order,$dir);
 
                 if (isset($estatus)){
-                    $Opinions = $Opinions->where('estatus',$estatus);
+                    $certificates = $certificates->where('estatus',$estatus);
                 }
-                $Opinions = $Opinions->get();
+                $certificates = $certificates->get();
             }
             else {
                 $search = $request->input('search.value');
-                $Opinions =  Opinion::where(function($query) use($search){
+                $certificates =  RequestCertificate::where(function($query) use($search){
                     $query->where('id','LIKE',"%{$search}%")
                           ->orWhere('name', 'LIKE',"%{$search}%")
                           ->orWhere('message', 'LIKE',"%{$search}%");
@@ -74,7 +74,7 @@ class OpinionController extends Controller
                     ->orderBy($order,$dir)
                     ->get();
                 if (isset($estatus)){
-                    $Opinions = $Opinions->where('estatus',$estatus)->where(function($query) use($search){
+                    $certificates = $certificates->where('estatus',$estatus)->where(function($query) use($search){
                         $query->where('id','LIKE',"%{$search}%")
                               ->orWhere('name', 'LIKE',"%{$search}%")
                               ->orWhere('message', 'LIKE',"%{$search}%");
@@ -85,7 +85,7 @@ class OpinionController extends Controller
                         ->get();
                 }
 
-                $totalFiltered = Opinion::where(function($query) use($search){
+                $totalFiltered = RequestCertificate::where(function($query) use($search){
                     $query->where('id','LIKE',"%{$search}%")
                          ->orWhere('name', 'LIKE',"%{$search}%")
                          ->orWhere('message', 'LIKE',"%{$search}%");
@@ -101,32 +101,32 @@ class OpinionController extends Controller
             }
             $data = array();
 
-            if(!empty($Opinions))
+            if(!empty($certificates))
             {
-                foreach ($Opinions as $opinion)
+                foreach ($certificates as $certificate)
                 {
                     $page_id = ProjectPage::where('route_url','admin.users.list')->pluck('id')->first();
                    
                     $customer_info = '';
-                    if (isset($opinion->name)){
-                        $customer_info .= '<span><i class="fa fa-user" aria-hidden="true"></i> ' .$opinion->name .'</span>';
+                    if (isset($certificate->name)){
+                        $customer_info .= '<span><i class="fa fa-user" aria-hidden="true"></i> ' .$certificate->name .'</span>';
                     }
-                    if (isset($opinion->email)){
-                        $customer_info .= '<span><i class="fa fa-envelope" aria-hidden="true"></i> ' .$opinion->email .'</span>';
+                    if (isset($certificate->email)){
+                        $customer_info .= '<span><i class="fa fa-envelope" aria-hidden="true"></i> ' .$certificate->email .'</span>';
                     }
-                    if (isset($opinion->mobile_no)){
-                        $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$opinion->mobile_no .'</span>';
+                    if (isset($certificate->phone_number)){
+                        $customer_info .= '<span><i class="fa fa-phone" aria-hidden="true"></i> ' .$certificate->phone_number .'</span>';
                     }    
                     
-                    if($opinion->type == 1){
-                        $product = Product::where('id',$opinion->item_id)->first();
+                    if($certificate->type == 1){
+                        $product = Product::where('id',$certificate->item_id)->first();
                         if($product){
                             $product_info = '<span>'.$product->product_title.'</span>';
                         }else{
                             $product_info = '-';
                         }
                     }else{
-                        $product = Diamond::where('id',$opinion->item_id)->first();
+                        $product = Diamond::where('id',$certificate->item_id)->first();
                         if($product){
                             $product_info = '<span>'.$product->long_title.'</span>';
                         }else{
@@ -136,14 +136,14 @@ class OpinionController extends Controller
                     }
                    
                     $message = '';
-                    if (isset($opinion->message)){
-                        $message .= '<span> ' .$opinion->message .'</span>';
+                    if (isset($certificate->message)){
+                        $message .= '<span> ' .$certificate->message .'</span>';
                     }
 
                     $action='';
-                    $action .= '<a href="mailto:'.$opinion->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
+                    $action .= '<a href="mailto:'.$certificate->email.'" data-email="" class="btn btn-info text-white btn-sm" target="_blank" ><i class="fa fa-envelope" aria-hidden="true"></i></a>';
                     
-                    $newDate = date("d-m-Y", strtotime($opinion->created_at));
+                    $newDate = date("d-m-Y", strtotime($certificate->created_at));
                     $nestedData['customer_info'] = $customer_info;
                     $nestedData['product_info'] = $product_info;
                     $nestedData['message'] = $message;
@@ -168,7 +168,8 @@ class OpinionController extends Controller
         $setting = Settings::first();
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
+            'phone_number' => 'required',
             'message' => 'required'
         ]);
 
@@ -176,47 +177,15 @@ class OpinionController extends Controller
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }else{
             $data = $request->all();
-            $opinion = Opinion::Create($data);
+            $certificate = RequestCertificate::Create($data);
         
-            if($opinion != null){
-                //dd($inquiry);
-               // echo $inquiry->SKU.'demo'; die;
-                // if($inquiry->SKU != ''){
-                //     $product = ProductVariant::with('product')->where('SKU', 'like', '%' . $inquiry->SKU)->first();
-                //     if($product){
-                //     $product_info = '<span>'.$product->product->product_title.'</span><span> SKU: '.$product->SKU.'</span>';
-                //     $Productvariantvariants = ProductVariantVariant::leftJoin('attributes', function($join) {
-                //         $join->on('product_variant_variants.attribute_id', '=', 'attributes.id');
-                //       })->leftJoin('attribute_terms', function($join) {
-                //         $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
-                //       })->where('product_variant_id',$product->id)->select('attributes.attribute_name','attribute_terms.attrterm_name')->get();
-                       
-                //     foreach($Productvariantvariants as $Productvariantvariant){
-                //         $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span>';
-                //     }
-                //     }else{
-                //         $product_info = '-';
-                //     }
-                //     }else{
-                //         $product_info = '-';
-                //     }
-
-                //     if($inquiry->stone_no == "" && $inquiry->SKU == ""){
-                //         $product_info = 'bulk order inquiry'; 
-                //     }
-
-                
-                // $data1 = [
-                //     'product_info' => $product_info,
-                // ];
-
-               // dd($data1);
-                
+            if($certificate != null){
+               
                 $data2 = [
-                    'message1' => 'Thank You For Product Opinion'
+                    'message1' => 'Thank You For Certificate Request'
                 ]; 
                 $templateName = 'email.mailDatainquiry';
-                //$mail_sending = Helpers::MailSending($templateName, $data2, $opinion->email, 'Inquiry');
+                //$mail_sending = Helpers::MailSending($templateName, $data2, $certificate->email, 'Inquiry');
                 //$mail_sending1 = Helpers::MailSending($templateName, $data1, $setting->send_email, $inquiry->subject);
                 return response()->json(['status' => '200']); 
             }

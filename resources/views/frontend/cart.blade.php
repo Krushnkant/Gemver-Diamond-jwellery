@@ -325,8 +325,11 @@
                                                                                 //dd($product_attributes);
                                                                                 $v = 1;
                                                                                 foreach($product_attributes as $term){
-                                                                                
-                                                                                $selected = in_array($term->id, $specifications)?"selected":"";
+                                                                                    $selected = "";
+                                                                                if($specifications != ""){
+                                                                                  $selected = in_array($term->attrterm_name, array_column($specifications,'value'))?"selected":"";
+                                                                            
+                                                                                }
                                                                                 $spe .='<option '.$selected.' data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'" >'.$term->attrterm_name .'</option>'; 
                                                                                 
                                                                                 }

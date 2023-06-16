@@ -20,78 +20,7 @@
     <!-- </div> -->
 
     <div class="wire_bangle_page container">
-        <!-- <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
-            <div class="col-lg-2 text-center text-lg-start">
-                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your {{ $Category->category_name }}</div>
-            </div>
-            <div class="col-lg-10">
-                <div class="flex-container step-progressbar">
-                    <div class="flex-row text-center">
-                        <div class="flex-col-xs-12">
-                            @if($check_diamond == 1)
-                            <ul class="tab-steps--list">
-                                <li data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="choose diamond">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                        
-                                    </div>
-                                    <span><a href="{{ url('/diamond-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                </li>
-                                <li class="active" data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="choose setting">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                </li>
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="complete the {{ $Category->category_name }}">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @else
-                            <ul class="tab-steps--list">
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                </li>
-                                <li data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                    <a href="{{ url('/diamond-setting/'. $Category->slug) }}" class="step-heading-link mt-2 d-block">browse lab diamonds</a>
-                                </li>
-                                <li data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the {{ $Category->category_name }}
-                                    </div>
-                                </li>
-                            </ul>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
+        
         <div class="mb-lg-5 mb-4 px-3">
             @if($check_diamond == 1)
                 <ul class="d-block d-lg-flex progressbar_ul">
@@ -392,6 +321,9 @@
                             
                            <div class="inquiry_now_btn">
                              <button type="button" id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">select setting</button>
+                                @if($check_diamond == 1)
+                                  <button id="save_newAddToCartBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to cart</button>
+                                @endif
                            </div>
                             <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </form>
@@ -542,6 +474,12 @@
                                 </div>
                             </div>
                             @endif
+                            <div class="col-xl-6 px-0" >
+                                <div class="mt-4 wire_bangle_share row">
+                                    <span class="col-5 col-sm-3 col-xl-3 ps-0 wire_bangle_heading_part_1">Certificate No.</span>
+                                    <span role="button" class="size-guide-text wire_bangle_color_theme text-primary col-7 col-sm-9 col-xl-9 request_diamond_number"> Request Certificate </span>
+                                </div>
+                            </div>
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
@@ -613,6 +551,55 @@
             </div>  --}}
         </div>
     </div>
+    <div class="modal fade inquiry_now_modal" id="requestDiamondModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                                    <div class="modal-content">
+                                        <div class="row">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading">Request Certificate</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-success" id="cartificatesuccess-alert" style="display: none;">
+                                        </div>
+                                        
+                                        <form  method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{ $Product->id }}"> 
+                                        <div class="row mb-0">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="customername-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="phone_number"  placeholder="enter your phone number" class="d-block wire_bangle_input">
+                                                <div id="phone_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                          
+                                            <div class="mb-3 col-md-12 ps-0">
+                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                <div id="customeremail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-12 ps-0 mb-3">
+                                                <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
+                                                
+                                                <div id="customermessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
+                                            </div>
+                                        </div>
+ 
+                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newCertificateBtn" >send 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
+    
     {{-- component order include  --}}
     <x-include-order></x-include-order>
 
@@ -665,9 +652,6 @@
                         <div id="hintmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;"></div>
                     </div>
                 </div>
-
-
-
                 <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn" >send 
                     <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                         <span class="visually-hidden">Loading...</span>
@@ -680,6 +664,9 @@
 
 <script>    
 $(document).ready(function(){
+    $('body').on('click', '.request_diamond_number', function () {
+        jQuery("#requestDiamondModal").modal('show');
+    });
     filter_data();
     selectjs();
     //sliderjs();
@@ -868,6 +855,76 @@ $(document).ready(function(){
         filter_data();
     });
 
+    $('body').on('click', '#save_newCertificateBtn', function () {
+    save_cartificate($(this),'save_new');
+});
+
+function save_cartificate(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#requestCertificateCreateForm")[0]);
+    formData.append('type',1);
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.certificate.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                if (res.errors.name) {
+                    $('#customername-error').show().text(res.errors.name);
+                } else {
+                    $('#customername-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#customeremail-error').show().text(res.errors.email);
+                } else {
+                    $('#customeremail-error').hide();
+                }
+                if (res.errors.phone_number) {
+                    $('#phone_number-error').show().text(res.errors.phone_number);
+                } else {
+                    $('#phone_number-error').hide();
+                }
+                if (res.errors.message) {
+                    $('#customermessage-error').show().text(res.errors.message);
+                } else {
+                    $('#customermessage-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#customermessage-error').hide();
+               
+                $('#phone_number-error').hide();
+                $('#customeremail-error').hide();
+                $('#customername-error').hide();
+                document.getElementById("requestCertificateCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Request';
+                $('#cartificatesuccess-alert').text(success_message);
+                $("#cartificatesuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $("#cartificatesuccess-alert").slideUp(1000);
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+
+
 });
 </script>
 
@@ -898,6 +955,26 @@ $('body').on('click', '#save_newProductBtn', function () {
     }
 });
 
+$('body').on('click', '#save_newAddToCartBtn', function () {
+    var valid = true;
+    $(document).find('.specification').each(function() {
+        var thi = $(this);
+        var this_err = $(thi).attr('name') + "-error";
+        if($(thi).val()=="" || $(thi).val()==null){
+            $("#"+this_err).html("Please select any value");
+            $("#"+this_err).show();
+            valid = false;
+        }else{
+            $("#"+this_err).hide();
+            valid = true;
+        } 
+    })
+
+    if(valid){
+        save_cart($(this),'add_to_cart');
+    }
+});
+
 function save_cart(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
@@ -914,7 +991,7 @@ function save_cart(btn,btn_type){
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.cart.save') }}",
-        data: {specification:specification,variant_id:variant_id,ip_address:ip_address,category_id:category_id,_token: '{{ csrf_token() }}'},
+        data: {specification:specification,variant_id:variant_id,ip_address:ip_address,category_id:category_id,btn_type:btn_type,_token: '{{ csrf_token() }}'},
 
         success: function (res) {
             if(res.status == 'failed'){
@@ -929,14 +1006,20 @@ function save_cart(btn,btn_type){
                  
             }
             if(res.status == 200){
-                
-                var check_diamond = '{{ $check_diamond }}';
-                if(check_diamond == 0){
-                    $url = "{{ url('diamond-setting') }}" +'/' + slug
+                if(btn_type == "add_to_cart"){
+                    $url = "{{ url('cart') }}";
                 }else{
-                    $url = "{{ url('product_complete') }}" +'/' + slug
+                    var check_diamond = '{{ $check_diamond }}';
+                    if(check_diamond == 0){
+                        $url = "{{ url('diamond-setting') }}" +'/' + slug
+                    }else{
+                        $url = "{{ url('product_complete') }}" +'/' + slug
+                    }
+                   
+
                 }
                 window.location = $url;
+                
             }
 
         },

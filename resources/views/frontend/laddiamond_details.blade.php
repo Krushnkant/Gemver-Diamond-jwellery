@@ -86,6 +86,12 @@
                         </div>
                         <div class="wire_bangle_share mb-4">
                             <div class="row">
+                            <div class="col-xl-6 ps-0">
+                                        <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
+                                            <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
+                                            <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span>
+                                        </div>
+                                    </div>
                                 <div class="col-xl-6 ps-0">
                                     <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                         <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
@@ -504,6 +510,54 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade inquiry_now_modal" id="requestDiamondModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                                    <div class="modal-content">
+                                        <div class="row">
+                                            <div class="col-6 ps-0 text-start">
+                                                <div class="mb-xl-4 mb-3 product_heading">Request Certificate</div>
+                                            </div>
+                                            <div class="col-6 text-end pe-0">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-success" id="cartificatesuccess-alert" style="display: none;">
+                                        </div>
+                                        
+                                        <form  method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{ $Diamond->id }}"> 
+                                        <div class="row mb-0">
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <div id="customername-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            
+                                            <div class="mb-3 col-md-6 ps-0">
+                                                <input type="text" name="phone_number"  placeholder="enter your phone number" class="d-block wire_bangle_input">
+                                                <div id="phone_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                          
+                                            <div class="mb-3 col-md-12 ps-0">
+                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                <div id="customeremail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
+                                            </div>
+                                            <div class="mb-3 col-md-12 ps-0 mb-3">
+                                                <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
+                                                
+                                                <div id="customermessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
+                                            </div>
+                                        </div>
+ 
+                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newCertificateBtn" >send 
+                                            <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -815,6 +869,10 @@ $('body').on('click', '.select_contact_btn', function () {
     jQuery("#opinionModal").modal('show');
 });
 
+$('body').on('click', '.request_diamond_number', function () {
+    jQuery("#requestDiamondModal").modal('show');
+});
+
 function save_cart(btn,category_id,category_slug){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
@@ -1116,6 +1174,74 @@ function save_opinion(btn,btn_type){
                 $('#opinionsuccess-alert').text(success_message);
                 $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
                 $("#opinionsuccess-alert").slideUp(1000);
+                });
+            }
+
+        },
+        error: function (data) {
+            $(btn).prop('disabled',false);
+            $(btn).find('.loadericonfa').hide();
+            toastr.error("Please try again",'Error',{timeOut: 5000});
+        }
+    });
+}
+
+$('body').on('click', '#save_newCertificateBtn', function () {
+    save_cartificate($(this),'save_new');
+});
+
+function save_cartificate(btn,btn_type){
+    $(btn).prop('disabled',true);
+    $(btn).find('.loadericonfa').show();
+    var action  = $(btn).attr('data-action');
+    var formData = new FormData($("#requestCertificateCreateForm")[0]);
+    formData.append('type',2);
+    $.ajax({
+        type: 'POST',
+        url: "{{ route('frontend.certificate.save') }}",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (res) {
+            
+            if(res.status == 'failed'){
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                if (res.errors.name) {
+                    $('#customername-error').show().text(res.errors.name);
+                } else {
+                    $('#customername-error').hide();
+                }
+                if (res.errors.email) {
+                    $('#customeremail-error').show().text(res.errors.email);
+                } else {
+                    $('#customeremail-error').hide();
+                }
+                if (res.errors.phone_number) {
+                    $('#phone_number-error').show().text(res.errors.phone_number);
+                } else {
+                    $('#phone_number-error').hide();
+                }
+                if (res.errors.message) {
+                    $('#customermessage-error').show().text(res.errors.message);
+                } else {
+                    $('#customermessage-error').hide();
+                } 
+            }
+            if(res.status == 200){
+                $('#customermessage-error').hide();
+               
+                $('#phone_number-error').hide();
+                $('#customeremail-error').hide();
+                $('#customername-error').hide();
+                document.getElementById("requestCertificateCreateForm").reset();
+                $(btn).prop('disabled',false);
+                $(btn).find('.loadericonfa').hide();
+                //location.href="{{ route('frontend.contactus')}}";
+                var success_message = 'Thank You For Request';
+                $('#cartificatesuccess-alert').text(success_message);
+                $("#cartificatesuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                $("#cartificatesuccess-alert").slideUp(1000);
                 });
             }
 

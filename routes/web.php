@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\admin\OpinionController;
+use App\Http\Controllers\admin\CertificateController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermConditionController;
@@ -140,6 +141,7 @@ Route::get('/step/{slug}/three',[StepController::class,'stepthree']);
 Route::get('/step/{slug}/four',[StepController::class,'stepfour']);
 
 Route::post('/opinion',[OpinionController::class,'save'])->name('frontend.opinion.save');
+Route::post('/certificate',[CertificateController::class,'save'])->name('frontend.certificate.save');
 
 Route::post('add-to-wishlist',[WishlistController::class,'addtowishlist'])->name('frontend.addtowishlist');
 Route::get('/load-wishlist-data',[WishlistController::class,'wishloadbyajax'])->name('frontend.wishloadbyajax');
@@ -458,6 +460,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('opinions',[\App\Http\Controllers\admin\OpinionController::class,'index'])->name('opinions.list');
     Route::post('allopinionslist',[\App\Http\Controllers\admin\OpinionController::class,'allopinionslist'])->name('allopinionslist');
     Route::get('inquiries/{id}/delete',[\App\Http\Controllers\admin\OpinionController::class,'deleteinquiries'])->name('inquiries.delete');
+
+    Route::get('certificates',[\App\Http\Controllers\admin\CertificateController::class,'index'])->name('certificates.list');
+    Route::post('allcertificateslist',[\App\Http\Controllers\admin\CertificateController::class,'allcertificateslist'])->name('allcertificateslist');
 
     Route::get('blogcategories',[\App\Http\Controllers\admin\BlogCategoryController::class,'index'])->name('blogcategories.list');
     Route::get('blogcategories/create',[\App\Http\Controllers\admin\BlogCategoryController::class,'create'])->name('blogcategories.add');

@@ -716,6 +716,16 @@ class ProjectPageSeeder extends Seeder
             'sr_no' => 12
         ]);
 
+        ProjectPage::create([
+            'id' => 71,
+            'parent_menu' => 5,
+            'label' => 'Request Certificate',
+            'route_url' => 'admin.certificates.list',
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.certificates.list'
+            
+        ]);
+
 
         
         $users = User::where('role',"!=",1)->get();

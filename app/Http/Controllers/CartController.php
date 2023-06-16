@@ -51,6 +51,135 @@ class CartController extends Controller
             $cart->save();
         }
 
+        if($request->btn_type == "add_to_cart"){
+            $prod_id = (isset($request->variant_id) && $request->variant_id) ? $request->variant_id : $cart->variant_id;
+            $diamond_id = (isset($request->diamond_id ) && $request->diamond_id) ? $request->diamond_id  : $cart->diamond_id;
+            $action = "add";
+            $quantity = 1;
+            $item_type = 2;
+            $arrspe = "";
+
+            if(session()->has('customer')){
+                $user_id = session('customer.id');
+                $cart_data = ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'diamond_id' => $diamond_id,'item_type' => $item_type])->first();
+                if($cart_data){
+                    if($action == 'update_qty'){
+                        ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->update([
+                            'item_quantity' =>  $quantity
+                        ]);   
+                    }else{
+                        ItemCart::where(['user_id' => session('customer.id'),'item_id' => $prod_id,'item_type' => $item_type])->update([
+                            'item_quantity' => $cart_data['item_quantity'] + $quantity
+                        ]);
+                    }
+                    
+                    return response()->json(['status'=>'200']);
+                }else{
+                    $cart = New ItemCart();
+                    $cart->user_id = $user_id;
+                    $cart->item_id = $prod_id;
+                    $cart->diamond_id = $diamond_id;
+                    $cart->item_quantity = $quantity;
+                    $cart->item_type = $item_type;
+                    $cart->specification = (isset($arrspe) && $arrspe != "")?json_encode($arrspe) :"";
+                    $cart->save();
+                    return response()->json(['status'=>'200']);
+                }
+            }else{
+                    
+                if(Cookie::get('shopping_cart'))
+                {
+                    $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                    $cart_data = json_decode($cookie_data, true);
+                }
+                else
+                {
+                    $cart_data = array();
+                }
+                $item_id_list = array_column($cart_data, 'item_id');
+                $diamond_id_list = array_column($cart_data, 'diamod_id');
+                $prod_id_is_there = $prod_id;
+                $diamond_id_is_there = $diamond_id;
+
+                if(in_array($prod_id_is_there, $item_id_list) && in_array($diamond_id_is_there, $diamond_id_list))
+                {
+                    foreach($cart_data as $keys => $values)
+                    {
+                        if($cart_data[$keys]["item_id"] == $prod_id && $cart_data[$keys]["diamond_id"] == $diamond_id)
+                        {
+                            if($action == 'update_qty'){
+                            $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                            }else{
+                                $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                            }
+                            $item_data = json_encode($cart_data);
+                            $minutes = Config::get('constants.cookie_time');
+                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                            return response()->json(['status'=>'Added to Cart','status2'=>'2']);
+                        }else{
+                            if($action == 'update_qty'){
+                                $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                            }else{
+                                $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                            }
+                        
+                            $item_data = json_encode($cart_data);
+                            $minutes = Config::get('constants.cookie_time');
+                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                            return response()->json(['status'=>'200']);
+                        }
+                    }
+                
+
+                }elseif(in_array($prod_id_is_there, $item_id_list)){
+                    
+                    foreach($cart_data as $keys => $values)
+                    {
+                        if($cart_data[$keys]["item_id"] == $prod_id)
+                        {
+                            if($action == 'update_qty'){
+                                $cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                            }else{
+                                $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $request->input('quantity'); 
+                            }
+                            $item_data = json_encode($cart_data);
+                            $minutes = Config::get('constants.cookie_time');
+                            Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                            return response()->json(['status'=>'200']);
+                        }
+                    }
+
+                }
+                else
+                {
+                    if($item_type == 0){
+                        $products = ProductVariant::find($prod_id);
+                    }elseif($item_type == 1){
+                        $products = Diamond::find($prod_id);
+                    }else{
+                        $products = ProductVariant::find($prod_id);
+                        $diamonds = Diamond::find($diamond_id); 
+                    }
+                    if($products)
+                    {
+                        $item_array = array(
+                            'item_id' => $prod_id,
+                            'diamond_id' => $diamond_id,
+                            'item_quantity' => $quantity,
+                            'item_type' => $item_type,
+                            'specification' => $arrspe
+                        );
+                        $cart_data[] = $item_array;
+
+                        $item_data = json_encode($cart_data);
+                        $minutes = Config::get('constants.cookie_time');
+                        Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                        return response()->json(['status'=>'200']);
+                    }
+                }
+        }
+        }
+
         return response()->json(['status' => '200']); 
 
 

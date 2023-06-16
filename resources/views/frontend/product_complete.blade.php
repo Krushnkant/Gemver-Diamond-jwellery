@@ -18,49 +18,7 @@
     </div>
     <!-- </div> -->
     <div class="wire_bangle_page container">
-        <!-- <div class="row mb-lg-5 pb-lg-5 mb-4  align-items-center step-progressbar-row">
-            <div class="col-lg-2 text-center text-lg-start">
-                <div class="step-progressbar-side-heading mb-3 mb-lg-0">Create Your Ring</div>
-            </div>
-            <div class="col-lg-10">
-                <div class="flex-container step-progressbar">
-                    <div class="flex-row text-center">
-                        <div class="flex-col-xs-12">
-                            <ul class="tab-steps--list">
-                                <li class="active" data-step="1">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="choose setting">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose setting
-                                    </div>
-                                    <span><a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                    
-                                </li>
-                                <li class="active" data-step="2">
-                                    <div class="step-img">
-                                        <img src="{{ url('frontend/image/diamon_img.jpeg') }}" alt="choose diamond">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        choose diamond
-                                    </div>
-                                    <span><a href="{{ url('diamond-setting-edit/'. $Category->slug .'/edit') }}" class="step-heading-link mt-2 d-inline-block">edit</a></span>
-                                </li>
-                                <li class="active" data-step="3">
-                                    <div class="step-img">
-                                        <img src="{{ url($Category->category_thumb) }}" alt="complete the ring">
-                                    </div>
-                                    <div class="step-heading mt-2">
-                                        complete the ring
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
+     
         <div class="mb-lg-5 pb-lg-5 mb-4 px-3">
             <ul class="d-block d-lg-flex progressbar_ul">
                 <li class="step-progressbar-part">
