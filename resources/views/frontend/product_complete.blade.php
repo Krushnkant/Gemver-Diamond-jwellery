@@ -205,35 +205,46 @@
                         
                             <div class="wire_bangle_carat">
                             <div class="mb-0">    
-                            <?php     
-                            $ProductVariantSpecification = \App\Models\ProductVariantSpecification::with('attribute_terms')->leftJoin("attributes", "attributes.id", "=", "product_variant_specifications.attribute_id")->where('product_variant_specifications.estatus',1)->where('product_variant_id',$Product->id)->where('is_specification',1)->where('is_dropdown',1)->groupBy('product_variant_specifications.attribute_id')->get();
-                            $spe = '';
-                            foreach($ProductVariantSpecification as $productvariants)
-                            {
-                            $spe .='<span class="wire_bangle_select mb-3 me-3 d-inline-block select_box_option">
-                                <select name="AtributeSpecification'.$productvariants->attribute->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                    <option value="">-- '.$productvariants->attribute->display_attrname .'--</option>';   
                             
-                                $product_attribute = \App\Models\ProductVariantSpecification::where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_variant_id',$Product->id)->groupBy('attribute_term_id')->get();
-                                $term_ids = explode(',',$cart->specification_term_id);  
-                                foreach($product_attribute as $attribute_term){
-                                    $term_array = explode(',',$attribute_term->attribute_term_id);
-                                    $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
-                                    $v = 1;
-                                    foreach($product_attributes as $term){
-                                        $spe .='<option value="'. $term->id .'"';
-                                        if(in_array($term->id, $term_ids)){
-                                            $spe .=' selected ';
-                                        }
-                                        $spe .='>'.$term->attrterm_name .'</option>'; 
+
+<?php
+                           
+                           $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$Product->product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
+                           
+                           $spe = '';
+                           foreach($ProductVariantSpecification as $productvariants)
+                           {
+
+                           $spe .='<div class="me-4"><span class="wire_bangle_select mb-3 me-3 d-inline-block select_box_option">
+                                   <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
+                                       <option value="">-- '.$productvariants->display_attrname .'--</option>';   
+                           
+                               $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->product->id)->groupBy('attribute_id')->get();
+                               // dd($product_attribute);
+                               foreach($product_attribute as $attribute_term){
+                                   $term_array = explode(',',$attribute_term->terms_id);
+                                   
+                                   $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
+                                   //dd($product_attributes);
+                                   $v = 1;
+                                   foreach($product_attributes as $term){
+                                    $selected = "";
+                                    if($cart->specification_term_id != ""){
+                                        $selected = $cart->specification_term_id == $term->id?"selected":"";
                                     }
-                                }   
-                            $spe .='</select>
-                            <div id="AtributeSpecification'.$productvariants->attribute->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                            </span>';
-                            echo $spe;
-                            }
-                            ?>
+                                  
+                                   $spe .='<option '.$selected.' data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'" >'.$term->attrterm_name .'</option>'; 
+                                   
+                                   }
+                               }   
+                               $spe .='</select>
+                                   <div id="AtributeSpecification'.$productvariants->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                               </span> </div>';
+                               }
+                           
+                           echo $spe;
+                           
+                           ?>
                             
                             </div>
                             </div>

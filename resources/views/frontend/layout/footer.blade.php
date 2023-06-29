@@ -170,7 +170,8 @@
     </a>
 
 <script type="text/javascript">
-$( document ).ready(function() {    
+$( document ).ready(function() { 
+       
 $('body').on('click', '#save_newNewsLatterBtn', function () {
     save_newslatter($(this),'save_new');
 });

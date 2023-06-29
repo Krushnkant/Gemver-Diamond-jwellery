@@ -37,6 +37,7 @@ class CartController extends Controller
             $cart->diamond_id = isset($request->diamond_id) ? $request->diamond_id : $cart->diamond_id;
             $cart->variant_id = isset($request->variant_id) ? $request->variant_id : $cart->variant_id; 
             $cart->specification_term_id = isset($request->specification) ? $request->specification : $cart->specification_term_id;
+            $cart->specification_term = (isset($request->arrspe) && $request->arrspe != "")?json_encode($request->arrspe) :"";
             $cart->save();
         }else{
             $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
@@ -48,6 +49,8 @@ class CartController extends Controller
             $cart->diamond_id = isset($request->diamond_id) ? $request->diamond_id : 0;
             $cart->variant_id = isset($request->variant_id) ? $request->variant_id : 0; 
             $cart->specification_term_id = isset($request->specification) ? $request->specification : null;
+            $cart->specification_term = (isset($request->arrspe) && $request->arrspe != "")?json_encode($request->arrspe) :"";
+            
             $cart->save();
         }
 
@@ -57,7 +60,7 @@ class CartController extends Controller
             $action = "add";
             $quantity = 1;
             $item_type = 2;
-            $arrspe = "";
+            $arrspe = $cart->specification_term;
 
             if(session()->has('customer')){
                 $user_id = session('customer.id');
@@ -81,8 +84,10 @@ class CartController extends Controller
                     $cart->diamond_id = $diamond_id;
                     $cart->item_quantity = $quantity;
                     $cart->item_type = $item_type;
-                    $cart->specification = (isset($arrspe) && $arrspe != "")?json_encode($arrspe) :"";
+                    $cart->specification = (isset($arrspe) && $arrspe != "")? $arrspe :"";
                     $cart->save();
+                    $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
+                    $cartdelete->delete();
                     return response()->json(['status'=>'200']);
                 }
             }else{
@@ -126,6 +131,8 @@ class CartController extends Controller
                             $item_data = json_encode($cart_data);
                             $minutes = Config::get('constants.cookie_time');
                             Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                            $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
+                            $cartdelete->delete();
                             return response()->json(['status'=>'200']);
                         }
                     }
@@ -145,6 +152,8 @@ class CartController extends Controller
                             $item_data = json_encode($cart_data);
                             $minutes = Config::get('constants.cookie_time');
                             Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                            $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
+                            $cartdelete->delete();
                             return response()->json(['status'=>'200']);
                         }
                     }
@@ -167,17 +176,19 @@ class CartController extends Controller
                             'diamond_id' => $diamond_id,
                             'item_quantity' => $quantity,
                             'item_type' => $item_type,
-                            'specification' => $arrspe
+                            'specification' => (isset($arrspe) && $arrspe != "")? json_decode($arrspe) :""
                         );
                         $cart_data[] = $item_array;
 
                         $item_data = json_encode($cart_data);
                         $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                        $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
+                        $cartdelete->delete();
                         return response()->json(['status'=>'200']);
                     }
                 }
-        }
+            }
         }
 
         return response()->json(['status' => '200']); 
@@ -188,11 +199,14 @@ class CartController extends Controller
     public function index()
     {
         //dd(session('coupon.discount_type_id'));
+        $cart_data = [];
         if(session()->has('customer')){
             $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
         }else{
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-            $cart_data = json_decode($cookie_data, true);
+            if($cookie_data != ""){
+                $cart_data = json_decode($cookie_data,true);
+            }
         }
         $setting = Settings::first();
         $meta_title = "Cart";
@@ -432,18 +446,20 @@ class CartController extends Controller
 
     public function cart_products(Request $request){
         $data = $request->all();
-        
-        
-            $output = '';
-          
+        $total = 0;
+        $cart_data = [];
+            $output = ' <div class="my_cart_heading mb-3 px-3 text-center">My Cart</div><hr>';
+            
             if(session()->has('customer')){
                 $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
             }else{
                 $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-                $cart_data = json_decode($cookie_data,true);
+                if($cookie_data != ""){
+                    $cart_data = json_decode($cookie_data,true);
+                }
             }
             
-     
+            
                 
                 if(count($cart_data) > 0){
                     foreach($cart_data as $data){
@@ -585,32 +601,66 @@ class CartController extends Controller
                  
                     if($item){
                        
-                        $output .= '
+                 
 
-                        <li class="">
-                            <a href="'.$url.'" class="header-mega-menu-part">
-                            <div class="d-flex">
-                                    <span>
-                                        <img src="'.asset($item_image[0]).'" alt="">
-                                    </span>
-                                    <span class="ms-3">
-                                        <div class="product_name"> 
-                                            '.$item_name.'
-                                        </div>
-                                        <div class="product_price">
-                                            $ '.$sale_price.'
-                                        </div>
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                    
-                    ';
+                    if($data['item_type'] == 2){
+                        $output .= '<div class="mt-3 d-flex align-items-center">
+                        <div class="px-0">
+                            <div class="blog-sidebar-top-selling position-relative">
+                            <img src="'. asset($item_image_diamond[0]) .'" alt="'. $diamond_name .'">
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-8 px-0 ms-3">
+                            <div class="blog-detail-paragraph">
+                                <a href="" class="top_selling_heading mb-2 d-inline-block">'. $diamond_name .'</a>
+                                
+                                <div class="top_selling_price">'.$diamond_terms.'</div>
+                            </div>
+                        </div>
+                    </div>
+                ';   
+                }
+
+                    $output .= '<div class="mt-3 d-flex align-items-center">
+                    <div class="px-0">
+                        <div class="blog-sidebar-top-selling position-relative">
+                           <img src="'.asset($item_image[0]).'" alt="">
+                        </div>
+                    </div>
+                    <div class="col-9 col-lg-8 px-0 ms-3">
+                        <div class="blog-detail-paragraph">
+                            <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>
+                            <div class="" style="font-size: 12px !important;">'.$item_terms.'</div>
+                            <div class="">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
+                        
+                        </div>
+                    </div>
+                </div><hr>
+                              ';
+                    $total = $total + $sale_price * $data['item_quantity'];
+                   // $total_qty = $total_qty + $data['item_quantity'];
+                      
                     }
                 }
+                $output .= '<div class="mt-3 d-flex align-items-center">';
+                if(4000 >  $total){
+                    $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>';
+                }else{
+                    $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn disabled" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                    <br>
+                    ';
+                }
+                $output .= '</div>';
+
+                if(4000 <  $total){
+                    $output .= ' <div class="alert alert-warning inquiry-alert" role="alert" >
+                    Maximum order amount limit exceeded. The Order will not be placed.
+                    </div>';
+                }
+
                 
                 }else{
-                    $output .= '';  
+                    $output .= '<div class="text-center">Your cart is currently empty!</div>';  
                 } 
           
             

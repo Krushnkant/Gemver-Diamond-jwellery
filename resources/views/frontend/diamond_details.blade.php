@@ -943,7 +943,6 @@ $('.add-to-cart').click(function (e) {
             }
         });
         var thisdata = $(this);
-        console.log($(this).closest('.diamond-data'));
         var diamond_id = $(this).closest('.diamond-data').find('#diamond_id').val();
         var item_type = $(this).closest('.diamond-data').find('#item_type').val();
         var quantity = 1;

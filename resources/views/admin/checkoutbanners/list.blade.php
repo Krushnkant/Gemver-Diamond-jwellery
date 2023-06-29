@@ -78,10 +78,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Remove Home Banner</h5>
+                    <h5 class="modal-title">Remove Checkout Banner</h5>
                 </div>
                 <div class="modal-body">
-                    Are you sure you wish to remove this Home Banner?
+                    Are you sure you wish to remove this Checkout Banner?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
@@ -269,7 +269,7 @@ function banner_table(is_clearState=false){
             }
         },
         "ajax":{
-            "url": "{{ url('admin/allhomebannerlist') }}",
+            "url": "{{ url('admin/allcheckoutbannerlist') }}",
             "dataType": "json",
             "type": "POST",
             "data":{ _token: '{{ csrf_token() }}' },

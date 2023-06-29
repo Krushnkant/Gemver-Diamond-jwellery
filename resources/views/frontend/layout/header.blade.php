@@ -87,7 +87,9 @@
                                         </svg>
                                         <span class="cart-icon-label basket-item-count-cart">0</span>
                                     </a>
-                                   
+                                    <div class="dropdown-menu dropdown-menu-right cart-item-list" aria-labelledby="cartDropdown">
+                                    
+                                    </div>
                                 </span>
                                 <span class="position-relative dropdown">
                                     @if(session()->has('customer'))
@@ -768,4 +770,39 @@
             </div>
         </div>
     </div>
-    
+    <script>
+    $(document).ready(function() {
+    $('.position-relative.dropdown.shopping-part').hover(
+       
+        function() {
+           
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(300);
+        },
+        function() {
+           
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(300);
+        }
+    );
+
+   
+   
+    $.ajax({
+            url:"{{ url('/cart_products') }}",
+            method:"POST",
+            data:{_token: '{{ csrf_token() }}'},
+            success:function(data){ 
+                console.log(data);
+                $('.cart-item-list').html(data);
+            
+            }
+        }); 
+
+        //$('.check_max_amounty').click(function (e) {
+    $('body').on('click', '.check_max_amounty', function (e) {     
+        e.preventDefault();
+        var check_login = "{{ is_login() }}";
+        location.href="{{ url('/checkout') }}";
+      
+    });
+});
+    </script>

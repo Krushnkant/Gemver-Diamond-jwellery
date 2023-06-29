@@ -89,7 +89,7 @@ class CheckoutBannerController extends Controller
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
-    public function allhomebannerlist(Request $request){
+    public function allcheckoutbannerlist(Request $request){
         if ($request->ajax()) {
             $columns = array(
                 0 =>'sr_no',

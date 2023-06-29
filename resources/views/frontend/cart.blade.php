@@ -164,6 +164,7 @@
                                                         $specifications = json_decode($data['specification'],true);
                                                     }else{
                                                         $specifications = $data['specification'];
+                                                       
                                                     }
                                                     $diamond = \App\Models\Diamond::where('id',$data['diamond_id'])->first();
                                                     $diamond_name = $diamond->short_title;
@@ -209,6 +210,7 @@
                                                     $item_image = explode(',',$item->images); 
                                                     if(session()->has('customer')){
                                                         $specifications = json_decode($data['specification'],true);
+                                                        
                                                     }else{
                                                         $specifications = $data['specification'];
                                                     }
@@ -291,7 +293,7 @@
                                                                                     <?php $atr++; ?>
                                                                                 @endforeach
                                                                             </div>
-                                                                            @if(isset($specifications))
+                                                                            @if(isset($specifications) && $specifications != "")
                                                                                 @foreach ($specifications as $specification)
                                                                                     <div class="cart_product_specification d-block mt-1">{{ $specification['key'] }}: {{ $specification['value'] }}</div>
                                                                                 @endforeach
@@ -326,7 +328,7 @@
                                                                                 $v = 1;
                                                                                 foreach($product_attributes as $term){
                                                                                     $selected = "";
-                                                                                if($specifications != ""){
+                                                                                if(isset($specifications) && $specifications != ""){
                                                                                   $selected = in_array($term->attrterm_name, array_column($specifications,'value'))?"selected":"";
                                                                             
                                                                                 }
@@ -918,7 +920,7 @@
 
 
     $('body').on('change', '.qty', function () {  
-        alert('cart');
+        //alert('cart');
         var sum = 0;
         var total = 0;
         var maintotal = 0;

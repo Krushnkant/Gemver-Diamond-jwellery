@@ -614,7 +614,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('checkoutbanners',[\App\Http\Controllers\admin\CheckoutBannerController::class,'index'])->name('checkoutbanners.list');
     Route::get('checkoutbanners/create',[\App\Http\Controllers\admin\CheckoutBannerController::class,'create'])->name('checkoutbanners.add');
     Route::post('checkoutbanners/save',[\App\Http\Controllers\admin\CheckoutBannerController::class,'save'])->name('checkoutbanners.save');
-    Route::post('allhomebannerlist',[\App\Http\Controllers\admin\CheckoutBannerController::class,'allhomebannerlist'])->name('allhomebannerlist');
+    Route::post('allcheckoutbannerlist',[\App\Http\Controllers\admin\CheckoutBannerController::class,'allcheckoutbannerlist'])->name('allcheckoutbannerlist');
     Route::get('changecheckoutbannerstatus/{id}',[\App\Http\Controllers\admin\CheckoutBannerController::class,'changecheckoutbannerstatus'])->name('checkoutbanners.changecheckoutbannerstatus');
     Route::get('checkoutbanners/{id}/delete',[\App\Http\Controllers\admin\CheckoutBannerController::class,'deletebanner'])->name('checkoutbanners.delete');
     Route::get('checkoutbanners/{id}/edit',[\App\Http\Controllers\admin\CheckoutBannerController::class,'editbanner'])->name('checkoutbanners.edit');

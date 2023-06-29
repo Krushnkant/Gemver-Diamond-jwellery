@@ -957,6 +957,7 @@ $('body').on('click', '#save_newProductBtn', function () {
 
 $('body').on('click', '#save_newAddToCartBtn', function () {
     var valid = true;
+    
     $(document).find('.specification').each(function() {
         var thi = $(this);
         var this_err = $(thi).attr('name') + "-error";
@@ -965,6 +966,7 @@ $('body').on('click', '#save_newAddToCartBtn', function () {
             $("#"+this_err).show();
             valid = false;
         }else{
+           
             $("#"+this_err).hide();
             valid = true;
         } 
@@ -978,6 +980,11 @@ $('body').on('click', '#save_newAddToCartBtn', function () {
 function save_cart(btn,btn_type){
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
+    var arrspe = [];
+    var element = $(".specification").find('option:selected'); 
+    var DataSpe = element.attr("data-spe");
+    var DataTerm = element.attr("data-term");
+    arrspe.push({'key' : DataSpe,'value' : DataTerm });
 
     var dataarray = [];
     $(".specification").each(function () {
@@ -991,7 +998,7 @@ function save_cart(btn,btn_type){
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.cart.save') }}",
-        data: {specification:specification,variant_id:variant_id,ip_address:ip_address,category_id:category_id,btn_type:btn_type,_token: '{{ csrf_token() }}'},
+        data: {specification:specification,variant_id:variant_id,ip_address:ip_address,category_id:category_id,btn_type:btn_type,arrspe:arrspe,_token: '{{ csrf_token() }}'},
 
         success: function (res) {
             if(res.status == 'failed'){
