@@ -2,7 +2,7 @@
 
     <div id="attr-cover-spin" class="cover-spin"></div>
     {{ csrf_field() }}
-    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 container justify-content-center">
     <input type="hidden" name="orderincludes_id" value="{{ isset($orderincludes)?($orderincludes->id):'' }}">
 
 
@@ -14,6 +14,13 @@
     </div>
 
     <div class="form-group">
+        <label class="col-form-label" for="description">Description <span class="text-danger">*</span>
+        </label>
+        <textarea class="form-control input-flat" id="description" name="description" >{{ isset($orderincludes)?($orderincludes->description):'' }}</textarea>
+        <div id="description-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+    </div>
+
+    <!-- <div class="form-group">
         <label class="col-form-label" for="Thumbnail">Thumbnail  <span class="text-danger">*</span>
         </label>
         <input type="file" name="files[]" id="catIconFiles" multiple="multiple">
@@ -43,23 +50,28 @@
         </div>
         <?php } ?>
         <div id="categorythumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-    </div>
+    </div> -->
      
     <div class="row add-value">
         <div class="row col-lg-12">
-        <div class="col-lg-4 ">
+        <div class="col-lg-3 ">
             <div class="form-group ">
                 <input type="file" class="form-control-file" id="image[]" onchange="" name="image[]">
             </div>
         </div>
-        <div class="col-lg-4 ">
+        <div class="col-lg-4">
             <div class="form-group">
-             
                 <input type="text" class="form-control input-flat" id="subtitle" name="subtitle[]">
                 <div id="subtitle-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
            </div>
         </div>
-        <div class="col-lg-2 ">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <textarea class="form-control input-flat" id="subdescription" name="subdescription[]" ></textarea>
+                <div id="subdescription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+           </div>
+        </div>
+        <div class="col-lg-1">
             <div class="form-group">
                 
             <button type="button" class="btn btn-outline-primary " id="Add" data-action="add">+ </button>
@@ -71,7 +83,7 @@
         @foreach($orderincludes->orderincludesdata as $orderincludedata)
 
         <div class="row col-lg-12">
-            <div class="col-lg-4 ">
+            <div class="col-lg-3 ">
                 <div class="form-group ">
                     <input type="hidden" class="form-control-file"  name="orderdataid[]" value="{{ $orderincludedata->id }}"> 
                     <input type="file" class="form-control-file" id="image" onchange="" name="imageold[]">
@@ -85,7 +97,13 @@
                     
                 </div>
             </div>
-            <div class="col-lg-2 ">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <textarea class="form-control input-flat" id="subdescriptionold" name="subdescriptionold[]" >{{ $orderincludedata->description }}</textarea>
+                    <div id="subdescriptionold-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+            </div>
+            </div>
+            <div class="col-lg-1 ">
                 <button type="button" class="minus_btn btn mb-1 btn-dark" >- </button> 
             </div>
         </div>

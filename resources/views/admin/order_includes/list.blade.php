@@ -309,7 +309,7 @@ function removeuploadedimg(divId ,inputId, imgName){
 
 $('body').on('click', '#Add', function(){    
       var html = '';
-      html += '<div class="row col-lg-12"><div class="col-lg-4 ">'+
+      html += '<div class="row col-lg-12"><div class="col-lg-3 ">'+
         '<div class="form-group ">'+
         '<input type="file" class="form-control-file" id="image" onchange="" name="image[]">'+
         '</div>'+
@@ -321,7 +321,14 @@ $('body').on('click', '#Add', function(){
         '<div id="title-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
         '</div>'+
         '</div>'+
-        '<div class="col-md-2">'+
+        '<div class="col-lg-4 ">'+
+        '<div class="form-group">'+
+       
+        '<textarea class="form-control input-flat" id="subdescription" name="subdescription[]" ></textarea>'+
+        '<div id="subdescription-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>'+
+        '</div>'+
+        '</div>'+
+        '<div class="col-lg-1">'+
             '<button type="button"  class="minus_btn btn mb-1 btn-dark">-</button>'+
         '</div>'+
         '</div></div>';

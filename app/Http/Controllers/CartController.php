@@ -600,6 +600,8 @@ class CartController extends Controller
                         }
                  
                     if($item){
+
+                        
                        
                  
 
@@ -629,9 +631,30 @@ class CartController extends Controller
                     </div>
                     <div class="col-9 col-lg-8 px-0 ms-3">
                         <div class="blog-detail-paragraph">
-                            <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>
-                            <div class="" style="font-size: 12px !important;">'.$item_terms.'</div>
-                            <div class="">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
+                            <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>';
+                            if(isset($data['item_type']) && $data['item_type'] != 1){   
+                                                                            
+                                                                                $atr = 0;
+                                                                            
+                                                                                $output .= ' <div class="cart_product_specification d-block mt-1">';
+                                                                                foreach($item->product_variant_variants as $vitem){
+                                                                                   
+                                                                                    if($atr > 0){
+                                                                                        $output .= ' | '; 
+                                                                                    } 
+                                                                                    
+                                                                                    $output .= ' '.$vitem->attribute_term->attrterm_name .' ';
+                                                                                     $atr++;
+                                                                                }
+                                                                                $output .= '</div>';
+                                                                        if(isset($specifications) && $specifications != ""){
+                                                                                foreach ($specifications as $specification){
+                                                                                $output .= ' <div class="cart_product_specification d-block mt-1">'. $specification["key"] .' : '.  $specification['value'] .'</div>';
+                                                                                }}}
+                            if(isset($data['item_type']) && $data['item_type'] == 1){
+                            $output .= ' <div class="" style="font-size: 12px !important;">'.$item_terms.'</div>';
+                            }
+                           $output .= ' <div class="">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
                         
                         </div>
                     </div>

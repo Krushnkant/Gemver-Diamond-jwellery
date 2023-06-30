@@ -32,13 +32,13 @@ class OrderIncludesController extends Controller
     public function save(Request $request){
         //dd($request->all());
         $messages = [
-            'title.required' =>'Please provide a Category Name',
-            'catImg.required' =>'Please provide a Category Image',
+            'title.required' =>'Please provide a title',
+            // 'catImg.required' =>'Please provide a Category Image',
         ];
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'catImg' => 'required',
+            // 'catImg' => 'required',
             
         ], $messages);
     
@@ -56,16 +56,17 @@ class OrderIncludesController extends Controller
             return response()->json(['status' => '400']);
         }
 
-        if ($order->image != $request->catImg){
-            if(isset($order->image)) {
-                $image = public_path($order->image);
-                if (file_exists($image)) {
-                    unlink($image);
-                }
-            }
-            $order->image = $request->catImg;
-        }
+        // if ($order->image != $request->catImg){
+        //     if(isset($order->image)) {
+        //         $image = public_path($order->image);
+        //         if (file_exists($image)) {
+        //             unlink($image);
+        //         }
+        //     }
+        //     $order->image = $request->catImg;
+        // }
         $order->title = $request->title;
+        $order->description = $request->description;
         $order->save();
          
         if($order){
@@ -75,6 +76,7 @@ class OrderIncludesController extends Controller
                         $orderdata = new OrderIncludesData();
                         $orderdata->order_id = $order->id;
                         $orderdata->title = $subtitle;
+                        $orderdata->description = $request->$subdescription[$key];
                         $path = public_path("images/order_image/");
                         if(isset($request->image[$key]) && $request->image[$key] != ""){
                             $result = Helpers::UploadImage($request->image[$key], $path);
@@ -94,6 +96,7 @@ class OrderIncludesController extends Controller
                     if($subtitleold != ""){
                     $orderdataold = OrderIncludesData::find($request->orderdataid[$key]);
                     $orderdataold->title = $subtitleold;
+                    $orderdataold->description = $request->subdescriptionold[$key];
                     $path = public_path("images/order_image/");
                     if(isset($request->imageold[$key]) && $request->imageold[$key] != ""){
                         //dd($request->imageold[$key]);
