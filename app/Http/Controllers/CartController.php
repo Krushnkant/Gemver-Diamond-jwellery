@@ -176,13 +176,14 @@ class CartController extends Controller
                             'diamond_id' => $diamond_id,
                             'item_quantity' => $quantity,
                             'item_type' => $item_type,
-                            'specification' => (isset($arrspe) && $arrspe != "")? json_decode($arrspe) :""
+                            'specification' => (isset($request->arrspe) && $request->arrspe != "")?$request->arrspe :""
                         );
                         $cart_data[] = $item_array;
 
                         $item_data = json_encode($cart_data);
                         $minutes = Config::get('constants.cookie_time');
                         Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                        $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                         $cartdelete = Cart::where(['ip_address'=>$request->ip_address]);
                         $cartdelete->delete();
                         return response()->json(['status'=>'200']);
