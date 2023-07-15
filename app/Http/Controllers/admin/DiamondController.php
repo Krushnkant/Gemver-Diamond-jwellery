@@ -239,6 +239,7 @@ class DiamondController extends Controller
             $diamonds = json_decode($response);
             
             if(isset($diamonds->response->body->diamonds)){ 
+                $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
@@ -424,7 +425,7 @@ class DiamondController extends Controller
         } 
 
         if(isset($total_diamond) && $total_diamond > 0){
-           $totalpage = (int) floor(($total_diamond / 100));
+           $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
@@ -679,6 +680,7 @@ class DiamondController extends Controller
         } else {
             $diamonds = json_decode($response);
             if(isset($diamonds->response->body->diamonds)){ 
+                $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
@@ -862,7 +864,7 @@ class DiamondController extends Controller
         } 
 
         if(isset($total_diamond) && $total_diamond > 0){
-           $totalpage = (int) floor(($total_diamond / 100));
+           $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true&page_number='.$x,
@@ -1080,6 +1082,7 @@ class DiamondController extends Controller
         } else {
             $diamonds = json_decode($response);
             if(isset($diamonds->response->body->diamonds)){ 
+                $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
@@ -1263,7 +1266,7 @@ class DiamondController extends Controller
         } 
 
         if(isset($total_diamond) && $total_diamond > 0){
-           $totalpage = (int) floor(($total_diamond / 100));
+           $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
@@ -1479,6 +1482,7 @@ class DiamondController extends Controller
         } else {
             $diamonds = json_decode($response);
             if(isset($diamonds->response->body->diamonds)){ 
+                $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
@@ -1662,7 +1666,7 @@ class DiamondController extends Controller
         } 
 
         if(isset($total_diamond) && $total_diamond > 0){
-           $totalpage = (int) floor(($total_diamond / 100));
+           $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number='.$x,

@@ -154,19 +154,37 @@ class InquiryController extends Controller
                         $product_info = '-';
                     }
 
-                    $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
-                    if($diamond){
-                        $diamond_info = '<img src="'.$diamond->Stone_Img_url.'" width="80px" class="mr-3 float-left" height="80px" />';
-                        $diamond_info .= '<span>'.$diamond->Stone_No.'</span>
-                                        <span> Weight: '.$diamond->Weight.'</span>
-                                        <span> Color: '.$diamond->Color.'</span>
-                                        <span> Clarity: '.$diamond->Clarity.'</span>';
-                        if($diamond->Cut != ""){                
-                            $diamond_info .= '<span> Cut: '.$diamond->Cut.'</span>';
+                    if($inquiry->stone_no != ''){
+
+                        $item_details = json_decode($inquiry->item_details,true);
+                        if(isset($item_details['diamondId'])){
+                        $diamond_info = '<img src="'.$item_details['DiamondImage'].'" width="80px" class="mr-3 float-left" height="80px" />';
+                        $diamond_info .= '<span>'.$item_details['DiamondTitle'].'</span>';
+                        $diamond_info .= '<span>'.$item_details['diamondId'].'</span>';
+                        foreach($item_details['spe'] as $key => $spe ){
+                          $diamond_info .= '<span>  '.$spe['term'] .' : '.$spe['term_name'] .'</span>';
                         }
+                        }else{
+                            $diamond_info.= "-";
+                        }
+
                     }else{
-                       $diamond_info = '-';
+                        $diamond_info = '-';
                     }
+
+                    // $diamond = Diamond::where('stone_no',$inquiry->stone_no)->first();
+                    // if($diamond){
+                    //     $diamond_info = '<img src="'.$diamond->Stone_Img_url.'" width="80px" class="mr-3 float-left" height="80px" />';
+                    //     $diamond_info .= '<span>'.$diamond->Stone_No.'</span>
+                    //                     <span> Weight: '.$diamond->Weight.'</span>
+                    //                     <span> Color: '.$diamond->Color.'</span>
+                    //                     <span> Clarity: '.$diamond->Clarity.'</span>';
+                    //     if($diamond->Cut != ""){                
+                    //         $diamond_info .= '<span> Cut: '.$diamond->Cut.'</span>';
+                    //     }
+                    // }else{
+                    //    $diamond_info = '-';
+                    // }
 
                     if($inquiry->stone_no == "" && $inquiry->sku == ""){
                         $product_info = 'bulk order inquiry'; 

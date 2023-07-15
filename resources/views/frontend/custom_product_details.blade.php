@@ -1145,7 +1145,7 @@ function save_opinion(btn,btn_type){
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
     var formData = new FormData($("#opinionCreateForm")[0]);
-  
+    formData.append('type',1);
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.opinion.save') }}",

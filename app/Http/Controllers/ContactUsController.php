@@ -92,6 +92,8 @@ class ContactUsController extends Controller
                 $cart->delete();
             }
             if($inquiry != null){
+                $product_info = "";
+                $diamond_info = "";
                 //dd($inquiry);
                // echo $inquiry->SKU.'demo'; die;
                $product_info = "";
@@ -108,6 +110,25 @@ class ContactUsController extends Controller
                     foreach($Productvariantvariants as $Productvariantvariant){
                         $product_info .= '<span>'.$Productvariantvariant->attribute_name.' : '.$Productvariantvariant->attrterm_name.'</span><br>';
                     }
+
+                    foreach($Productvariantvariants as $Productvariantvariant){
+                        $spe[] = array(
+                            'term' => $Productvariantvariant->attribute_name,
+                            'term_name' => $Productvariantvariant->attrterm_name
+                        );    
+                    }
+
+                    $sale_price = $product->sale_price;
+                    $item_image = explode(',',$product->images);  
+                    $item_name = $product->product->product_title;
+
+                    $order_item['variantId'] = $product->id;
+                    $order_item['orderItemPrice'] = $sale_price;
+                    $order_item['ProductTitle'] = $item_name;
+                    $order_item['ProductImage'] = $item_image[0];
+                    $order_item['spe'] = $spe;
+
+
                     }else{
                         //$product_info = '-';
                     }
@@ -122,6 +143,34 @@ class ContactUsController extends Controller
                                         <span> Color: '.$diamond->Color.'</span><br>
                                         <span> Clarity: '.$diamond->Clarity.'</span><br>
                                         <span> Cut: '.$diamond->Cut.'</span><br>';
+
+                                        $item_name = $diamond->Shape.' '. round($diamond->Weight,2) .' ct ';
+                                    
+                                        $sale_price = $diamond->Sale_Amt;
+                                        $item_image = explode(',',$diamond->Stone_Img_url);
+                                        
+                                        $spe[] = array(
+                                            'term_name' => $diamond->Clarity,
+                                            'term' => 'Clarity'
+                                        );
+
+                                        $spe[] = array(
+                                            'term_name' => $diamond->Color,
+                                            'term' => 'Color'
+                                        );
+
+                                        $spe[] = array(
+                                            'term_name' => $diamond->Lab,
+                                            'term' => 'certified'
+                                        );
+
+                                
+                                        $order_item['diamondId'] = (isset($diamond->id))?$diamond->id:0;
+                                        $order_item['orderItemPrice'] = $sale_price;
+                                        $order_item['DiamondTitle'] = $item_name;
+                                        $order_item['DiamondImage'] = (isset($item_image[0]))?$item_image[0]:"";
+                                        $order_item['spe'] = $spe;
+
                     }else{
                        //$diamond_info = '-';
                     }
@@ -129,6 +178,12 @@ class ContactUsController extends Controller
                     if($inquiry->stone_no == "" && $inquiry->SKU == ""){
                         $product_info = 'bulk order inquiry'; 
                     }
+
+                    $item_details = json_encode($order_item);
+                    Inquiry::where('id', $inquiry->id)
+                    ->update([
+                        'item_details' => $item_details
+                        ]);
 
                     
                     $spe_info ='';

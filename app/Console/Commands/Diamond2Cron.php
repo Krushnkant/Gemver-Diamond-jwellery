@@ -77,6 +77,7 @@ class Diamond2Cron extends Command
         } else {
             $diamonds = json_decode($response);
             if(isset($diamonds->response->body->diamonds)){ 
+                $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
@@ -202,7 +203,7 @@ class Diamond2Cron extends Command
         } 
 
         if(isset($total_diamond) && $total_diamond > 0){
-           $totalpage = (int) floor(($total_diamond / 100));
+           $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
