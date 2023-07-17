@@ -449,7 +449,7 @@ class CartController extends Controller
         $data = $request->all();
         $total = 0;
         $cart_data = [];
-            $output = ' <div class="my_cart_heading p-2 text-center">My Cart</div><hr>';
+            $output = ' <div class="my_cart_heading p-2 pb-0 text-center">My Cart</div><hr>';
             
             if(session()->has('customer')){
                 $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
