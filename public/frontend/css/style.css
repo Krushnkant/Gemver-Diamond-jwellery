@@ -5794,7 +5794,7 @@ width: 100%;
     }
 
     .cart-icon-part .dropdown-menu {
-        min-width: 130px;
+        min-width: 315px;
         top: calc(100% + 15px) !important;
         left: 50% !important;
         transform: translateX(-65%) !important;
@@ -7587,8 +7587,7 @@ width: 100%;
     }
 
     .cart-item-list {
-        width: 300px; /* Adjust the width as needed */
+        width: 300px;
+        /* Adjust the width as needed */
         padding: 10px !important;
     }
-    
-  

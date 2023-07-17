@@ -449,7 +449,7 @@ class CartController extends Controller
         $data = $request->all();
         $total = 0;
         $cart_data = [];
-            $output = ' <div class="my_cart_heading mb-3 px-3 text-center">My Cart</div><hr>';
+            $output = ' <div class="my_cart_heading p-2 text-center">My Cart</div><hr>';
             
             if(session()->has('customer')){
                 $cart_data = ItemCart::where('user_id',session('customer.id'))->get()->toArray();
@@ -607,13 +607,13 @@ class CartController extends Controller
                  
 
                     if($data['item_type'] == 2){
-                        $output .= '<div class="mt-3 d-flex align-items-center">
+                        $output .= '<div class="col-sm-3">
                         <div class="px-0">
                             <div class="blog-sidebar-top-selling position-relative">
                             <img src="'. asset($item_image_diamond[0]) .'" alt="'. $diamond_name .'">
                             </div>
                         </div>
-                        <div class="col-9 col-lg-8 px-0 ms-3">
+                        <div class="col-sm-9">
                             <div class="blog-detail-paragraph">
                                 <a href="" class="top_selling_heading mb-2 d-inline-block">'. $diamond_name .'</a>
                                 
@@ -624,20 +624,20 @@ class CartController extends Controller
                 ';   
                 }
 
-                    $output .= '<div class="mt-3 d-flex align-items-center">
+                    $output .= '<div class="col-sm-3">
                     <div class="px-0">
                         <div class="blog-sidebar-top-selling position-relative">
                            <img src="'.asset($item_image[0]).'" alt="">
                         </div>
                     </div>
-                    <div class="col-9 col-lg-8 px-0 ms-3">
+                    <div class="col-sm-9">
                         <div class="blog-detail-paragraph">
                             <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>';
                             if(isset($data['item_type']) && $data['item_type'] != 1){   
                                                                             
                                                                                 $atr = 0;
                                                                             
-                                                                                $output .= ' <div class="cart_product_specification d-block mt-1">';
+                                                                                $output .= ' <div class="cart_product_specification d-block">';
                                                                                 foreach($item->product_variant_variants as $vitem){
                                                                                    
                                                                                     if($atr > 0){
@@ -650,23 +650,23 @@ class CartController extends Controller
                                                                                 $output .= '</div>';
                                                                         if(isset($specifications) && $specifications != ""){
                                                                                 foreach ($specifications as $specification){
-                                                                                $output .= ' <div class="cart_product_specification d-block mt-1">'. $specification["key"] .' : '.  $specification['value'] .'</div>';
+                                                                                $output .= ' <div class="cart_product_specification d-block">'. $specification["key"] .' : '.  $specification['value'] .'</div>';
                                                                                 }}}
                             if(isset($data['item_type']) && $data['item_type'] == 1){
-                            $output .= ' <div class="" style="font-size: 12px !important;">'.$item_terms.'</div>';
+                            $output .= ' <div class="cart_product_specification d-block">'.$item_terms.'</div>';
                             }
-                           $output .= ' <div class="">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
+                           $output .= ' <div class="cart_product_specification d-block">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
                         
                         </div>
                     </div>
-                </div><hr>
+                </div>
                               ';
                     $total = $total + $sale_price * $data['item_quantity'];
                    // $total_qty = $total_qty + $data['item_quantity'];
                       
                     }
                 }
-                $output .= '<div class="mt-3 d-flex align-items-center">';
+                $output .= '<div class="pb-2 pe-3 ps-3">';
                 if(4000 >  $total){
                     $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>';
                 }else{
@@ -684,7 +684,7 @@ class CartController extends Controller
 
                 
                 }else{
-                    $output .= '<div class="text-center">Your cart is currently empty!</div>';  
+                    $output .= '<div class="text-center p-2">Your cart is currently empty!</div>';  
                 } 
           
             
