@@ -606,7 +606,7 @@ class CartController extends Controller
                             if($data['item_type'] == 2){
                                 $output .= '<div class="row mb-3">
                                                 <div class="col-sm-3">
-                                                    <div class="blog-sidebar-top-selling position-relative">
+                                                    <div class="mini-cart-product-img">
                                                     <img src="'. asset($item_image_diamond[0]) .'" alt="'. $diamond_name .'">
                                                     </div>
                                                 </div>
@@ -623,7 +623,7 @@ class CartController extends Controller
 
                             $output .= '<div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <div class="blog-sidebar-top-selling position-relative">
+                                                <div class="mini-cart-product-img">
                                                 <img src="'.asset($item_image[0]).'" alt="">
                                                 </div>
                                             </div>
