@@ -463,6 +463,7 @@ class CartController extends Controller
             
                 
                 if(count($cart_data) > 0){
+                    $output .= '<div class="item-list-box">';
                     foreach($cart_data as $data){
             
                         $diamond_name = "";
@@ -600,87 +601,84 @@ class CartController extends Controller
                             
                         }
                  
-                    if($item){
+                        if($item){
 
-                        
-                       
-                 
-
-                    if($data['item_type'] == 2){
-                        $output .= '<div class="row mb-3">
-                        <div class="col-sm-3">
-                            <div class="blog-sidebar-top-selling position-relative">
-                            <img src="'. asset($item_image_diamond[0]) .'" alt="'. $diamond_name .'">
-                            </div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="blog-detail-paragraph">
-                                <a href="" class="top_selling_heading mb-2 d-inline-block">'. $diamond_name .'</a>
-                                
-                                <div class="top_selling_price">'.$diamond_terms.'</div>
-                            </div>
-                        </div>
-                    </div>
-                ';   
-                }
-
-                    $output .= '<div class="row mb-3">
-                    <div class="col-sm-3">
-                        <div class="blog-sidebar-top-selling position-relative">
-                           <img src="'.asset($item_image[0]).'" alt="">
-                        </div>
-                    </div>
-                    <div class="col-sm-9">
-                        <div class="blog-detail-paragraph">
-                            <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>';
-                            if(isset($data['item_type']) && $data['item_type'] != 1){   
-                                                                            
-                                                                                $atr = 0;
-                                                                            
-                                                                                $output .= ' <div class="cart_product_specification d-block">';
-                                                                                foreach($item->product_variant_variants as $vitem){
-                                                                                   
-                                                                                    if($atr > 0){
-                                                                                        $output .= ' | '; 
-                                                                                    } 
-                                                                                    
-                                                                                    $output .= ' '.$vitem->attribute_term->attrterm_name .' ';
-                                                                                     $atr++;
-                                                                                }
-                                                                                $output .= '</div>';
-                                                                        if(isset($specifications) && $specifications != ""){
-                                                                                foreach ($specifications as $specification){
-                                                                                $output .= ' <div class="cart_product_specification d-block">'. $specification["key"] .' : '.  $specification['value'] .'</div>';
-                                                                                }}}
-                            if(isset($data['item_type']) && $data['item_type'] == 1){
-                            $output .= ' <div class="cart_product_specification d-block">'.$item_terms.'</div>';
+                            if($data['item_type'] == 2){
+                                $output .= '<div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <div class="blog-sidebar-top-selling position-relative">
+                                                    <img src="'. asset($item_image_diamond[0]) .'" alt="'. $diamond_name .'">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <div class="blog-detail-paragraph">
+                                                        <a href="" class="top_selling_heading mb-2 d-inline-block">'. $diamond_name .'</a>
+                                                        
+                                                        <div class="top_selling_price">'.$diamond_terms.'</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ';   
                             }
-                           $output .= ' <div class="cart_product_specification d-block">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
-                        
-                        </div>
-                    </div>
-                </div>
-                              ';
-                    $total = $total + $sale_price * $data['item_quantity'];
-                   // $total_qty = $total_qty + $data['item_quantity'];
-                      
-                    }
-                }
-                $output .= '<div class="pb-2 pe-3 ps-3">';
-                if(4000 >  $total){
-                    $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>';
-                }else{
-                    $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn disabled" id="proceed_to_checkout_btn">Proceed to checkout</button>
-                    <br>
-                    ';
-                }
-                $output .= '</div>';
 
-                if(4000 <  $total){
-                    $output .= ' <div class="alert alert-warning inquiry-alert" role="alert" >
-                    Maximum order amount limit exceeded. The Order will not be placed.
-                    </div>';
-                }
+                            $output .= '<div class="row mb-3">
+                                            <div class="col-sm-3">
+                                                <div class="blog-sidebar-top-selling position-relative">
+                                                <img src="'.asset($item_image[0]).'" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="blog-detail-paragraph">
+                                                    <a href="" class="top_selling_heading mb-2 d-inline-block">'.$item_name.'</a>';
+                                                    if(isset($data['item_type']) && $data['item_type'] != 1){   
+                                                                                                    
+                                                                                                        $atr = 0;
+                                                                                                    
+                                                                                                        $output .= ' <div class="cart_product_specification d-block">';
+                                                                                                        foreach($item->product_variant_variants as $vitem){
+                                                                                                        
+                                                                                                            if($atr > 0){
+                                                                                                                $output .= ' | '; 
+                                                                                                            } 
+                                                                                                            
+                                                                                                            $output .= ' '.$vitem->attribute_term->attrterm_name .' ';
+                                                                                                            $atr++;
+                                                                                                        }
+                                                                                                        $output .= '</div>';
+                                                                                                if(isset($specifications) && $specifications != ""){
+                                                                                                        foreach ($specifications as $specification){
+                                                                                                        $output .= ' <div class="cart_product_specification d-block">'. $specification["key"] .' : '.  $specification['value'] .'</div>';
+                                                                                                        }}}
+                                                    if(isset($data['item_type']) && $data['item_type'] == 1){
+                                                    $output .= ' <div class="cart_product_specification d-block">'.$item_terms.'</div>';
+                                                    }
+                                                $output .= ' <div class="cart_product_specification d-block">Quantity : '.$data['item_quantity'].' | $ '.$sale_price.'</div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ';
+                            $total = $total + $sale_price * $data['item_quantity'];
+                            // $total_qty = $total_qty + $data['item_quantity'];
+                        
+                        }
+                    }
+                    $output .= '</div>';
+                    $output .= '<div class="pb-2 pe-3 ps-3">';
+                    if(4000 >  $total){
+                        $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn check_max_amounty" id="proceed_to_checkout_btn">Proceed to checkout</button>';
+                    }else{
+                        $output .= ' <button type="button" class="btn btn-dark w-100 proceed_to_checkout_btn disabled" id="proceed_to_checkout_btn">Proceed to checkout</button>
+                        <br>
+                        ';
+                    }
+                    $output .= '</div>';
+
+                    if(4000 <  $total){
+                        $output .= ' <div class="alert alert-warning inquiry-alert" role="alert" >
+                        Maximum order amount limit exceeded. The Order will not be placed.
+                        </div>';
+                    }
 
                 
                 }else{
