@@ -127,6 +127,7 @@ $settings = \App\Models\Settings::first();
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.35/sweetalert2.min.js" ></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script> --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script> --}}
+<script src="//code.tidio.co/tq3yyhojklue6eb308n5honxttekkw0y.js" async></script>
 <script>
     $(document).ready(function() {   
         $("#main_search").keyup(function() {
@@ -182,7 +183,7 @@ $settings = \App\Models\Settings::first();
             location.href = "{{ url('shop') }}?s="+main_search;
         });
    });
-   </script>
+</script>
 <script>
     window.addEventListener('load', function() {
 
