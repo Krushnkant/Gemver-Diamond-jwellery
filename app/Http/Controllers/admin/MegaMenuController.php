@@ -61,7 +61,7 @@ class MegaMenuController extends Controller
             if($_FILES["menu_thumb"]["size"] > 500000){
                 compressImage($imageTemp, $destinationPath, 90);
             }else{
-                $destinationPath = public_path('images/blogThumb');
+                $destinationPath = public_path('images/megamenu');
                 $image->move($destinationPath, $menu_thumb);  
             }
             if(isset($old_image)) {
