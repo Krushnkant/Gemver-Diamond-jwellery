@@ -622,7 +622,7 @@
                                             <div class="mega-menu-four-part ">
 
                                                 <?php
-                                                $categories = \App\Models\Category::where('estatus', 1)->where('is_custom', 1)->get(['category_thumb','slug','slug']);
+                                                $categories = \App\Models\Category::where('estatus', 1)->where('is_custom', 1)->get(['category_thumb','category_name','slug']);
                                                 $img_no = 1;
                                                 $cat_no = 1;
                                                 foreach ($categories as $car) {
