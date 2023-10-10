@@ -54,38 +54,38 @@
             </div>
         </div>
     </div> -->
-    <div class="customise_own_ring_section mb-5" style="background-color:#3E9F8E;color:white; border-radius: 0px; ">
-            <div class="row">
-                <div class="col-md-6 px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
-                    <div class="engagement_ring_diamond_part">
-                        <h2 >{{ $OrderIncludes->title }}</h2>
-                        <div class="customer_stories_paragraph  mb-3 mb-lg-4">{{ $OrderIncludes->description }}</div>
-                    </div>
-                </div>
-                <div class="col-md-6 pe-0 px-0 order-1 order-md-2 " style="margin-bottom:70px;margin-top:50px;">
-                <div class="choose_your_setting_faq">
-                    <div class="row">
-                    @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
-                        <div class="col-md-8  offset-md-2 ">
-                            <button class="accordion order-box-part">
-                            <div class="order-box d-flex align-items-center">
-                                    <span class="order-img d-block ">
-                                        <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
-                                    </span>
-                                    <span class="order-text text-center d-block">
-                                        {{ $orderincludesdata->title }}
-                                    </span>
-                                </div> 
-                            </button>
-                            <div class="panel" style="display: none;">
-                            {{ $orderincludesdata->description }}
-                            </div>
-                        </div>
-                    @endforeach
-                    </div>
-                </div>
+    <!-- <div class="customise_own_ring_section mb-5" style="background-color:#3E9F8E;color:white; border-radius: 0px; ">
+        <div class="row">
+            <div class="col-md-6 px-4 engagement_ring_col_part px-0 mt-md-0 py-4 order-2 order-md-1">
+                <div class="engagement_ring_diamond_part">
+                    <h2 >{{ $OrderIncludes->title }}</h2>
+                    <div class="customer_stories_paragraph  mb-3 mb-lg-4">{{ $OrderIncludes->description }}</div>
                 </div>
             </div>
+            <div class="col-md-6 pe-0 px-0 order-1 order-md-2 " style="margin-bottom:70px;margin-top:50px;">
+            <div class="choose_your_setting_faq">
+                <div class="row">
+                @foreach($OrderIncludes->orderincludesdata as $orderincludesdata)
+                    <div class="col-md-8  offset-md-2 ">
+                        <button class="accordion order-box-part">
+                        <div class="order-box d-flex align-items-center">
+                                <span class="order-img d-block ">
+                                    <img src="{{ url('images/order_image/'.$orderincludesdata->image) }}" alt="">   
+                                </span>
+                                <span class="order-text text-center d-block">
+                                    {{ $orderincludesdata->title }}
+                                </span>
+                            </div> 
+                        </button>
+                        <div class="panel" style="display: none;">
+                        {{ $orderincludesdata->description }}
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+            </div>
+            </div>
         </div>
+    </div> -->
 @endif
 <!-- </div> -->
