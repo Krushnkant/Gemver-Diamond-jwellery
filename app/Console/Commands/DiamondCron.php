@@ -56,7 +56,7 @@ class DiamondCron extends Command
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true',
+        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&page_number=1&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -208,7 +208,7 @@ class DiamondCron extends Command
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
