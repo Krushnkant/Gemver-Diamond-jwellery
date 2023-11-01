@@ -205,7 +205,7 @@
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="pincode" id="pincode" placeholder="Enter Your Pincode" class="d-block wire_bangle_input">
+                        <input type="text" name="pincode" id="pincode" placeholder="Enter Your ZIP Code" class="d-block wire_bangle_input">
                         <div id="pincode-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                     </div>
 

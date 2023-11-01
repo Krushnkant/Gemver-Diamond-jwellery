@@ -99,7 +99,7 @@
                                
                                 <tr>
                                     <td class="text-right" colspan="4">
-                                        <h5>Coupan Discount</h5>
+                                        <h5>Coupon Discount</h5>
                                         <div class="form-group">
                                                 
                                                 <select id='coupon_id' name="coupon_id" class="" >

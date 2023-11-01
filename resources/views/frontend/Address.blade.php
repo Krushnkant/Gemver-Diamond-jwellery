@@ -63,7 +63,7 @@
                     </div>
                     <div class="row mb-3 mb-md-4">
                         <div class="col-md-12 ps-0">
-                            <label for="" class="form-label form_heading">PIN CODE</label>
+                            <label for="" class="form-label form_heading">ZIP Code</label>
                             <input type="email" class="form-control" id="" placeholder="395010">
                         </div>
                     </div>

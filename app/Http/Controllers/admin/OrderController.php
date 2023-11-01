@@ -1549,7 +1549,7 @@ class OrderController extends Controller
                                     <td  style="padding:10px 0; border-top : solid 0.5px black;">'.number_format($Order->shipping_charge, 2, '.', ',').'</td>
                              </tr>
                              <tr>
-                                    <th colspan="4" style="padding:10px 0; border-top : solid 0.5px black; border-bottom: solid 1px black;">Coupan Discount</th>
+                                    <th colspan="4" style="padding:10px 0; border-top : solid 0.5px black; border-bottom: solid 1px black;">Coupon Discount</th>
                                     <td  style="padding:10px 0; border-top : solid 0.5px black; border-bottom: solid 1px black;">'.number_format($Order->discount_amount, 2, '.', ',').'</td>
                              </tr>
                              <tr>

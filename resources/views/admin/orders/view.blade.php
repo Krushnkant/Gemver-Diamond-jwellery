@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="row custom-row">
                                     <div class="col-sm-4">
-                                        <b>Pincode <span class="text-danger">*</span></b>
+                                        <b>ZIP Code <span class="text-danger">*</span></b>
                                     </div>
                                     <div class="col-sm-8">
                                         <!-- <input type="text" class="form-control input-flat" id="Pincode" name="Pincode" value="{{ $delivery_address['Pincode'] }}" @if($Order->order_status == 4) disabled @endif> -->
@@ -331,7 +331,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-right" colspan="4">
-                                        <h5>Coupan Discount</h5>
+                                        <h5>Coupon Discount</h5>
                                     </td>
                                     <td></td>
                                     <td><h5>$ {{ $Order->discount_amount }}</h5></td>

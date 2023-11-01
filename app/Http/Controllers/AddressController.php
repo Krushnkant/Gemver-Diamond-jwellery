@@ -30,7 +30,7 @@ class AddressController extends Controller
             'city.required' =>'Please provide a City',
             'state.required' =>'Please provide a State',
             'country.required' =>'Please provide a Country',
-            'pincode.required' =>'Please provide a Pincode'
+            'pincode.required' =>'Please provide a Zip Code'
         ];
         
         $validator = Validator::make($request->all(), [
@@ -116,7 +116,7 @@ class AddressController extends Controller
             'country.required' =>'Please provide a Country',
             'state.required' =>'Please provide a State',
             'city.required' =>'Please provide a City',
-            'pincode.required' =>'Please provide a Pincode',
+            'pincode.required' =>'Please provide a ZIP Code',
         ];
 
         $validator = Validator::make($request->all(), [

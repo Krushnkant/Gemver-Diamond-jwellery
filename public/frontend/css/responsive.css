@@ -2057,6 +2057,12 @@
     .feature {
         width: 100%;
     }
+
+    .explore-ring-btn {
+        min-width: 100px;
+        min-height: 35px;
+        line-height: 32px;
+    }
 }
 
 @media (max-width:767px) {

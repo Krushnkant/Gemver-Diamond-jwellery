@@ -146,8 +146,8 @@
                          <div class="row mb-3 mb-md-4">
                             
                              <div class="col-md-12">
-                                 <label for="" class="form-label form_heading">Pin Code <span class="text-danger">*</span></label>
-                                 <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your Pincode">
+                                 <label for="" class="form-label form_heading">ZIP Code <span class="text-danger">*</span></label>
+                                 <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your ZIP Code">
                                  <div id="pincode-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                              </div>
                          </div>
@@ -232,8 +232,8 @@
                                             <div id="country-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="" class="form-label form_heading">Pin Code <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your Pincode">
+                                            <label for="" class="form-label form_heading">ZIP Code <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Your ZIP Code">
                                             <div id="pincode-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                         </div>
                                     </div>
@@ -370,7 +370,7 @@
                     <div class="row your_order_row">
                         <div class="col-6 px-0">
                              <div class="your_order_sub_heading order-title">
-                                Coupan Discount
+                                Coupon Discount
                              </div>   
                         </div>
                         <div class="col-6 text-end">

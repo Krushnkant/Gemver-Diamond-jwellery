@@ -358,7 +358,7 @@
                         </div>
                         <div class="row subtotal_row mb-3">
                             <div class="col-6 text-start">
-                                Coupan Discount
+                                Coupon Discount
                             </div>
                             <div class="col-6">
                                 -${{ $orderdetails->discount_amount }}
