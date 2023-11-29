@@ -873,382 +873,380 @@
     </div>
 
 <script type="text/javascript">
-$( document ).ready(function() {    
-$('body').on('click', '#save_newProductBtn', function () {
-    save_cart($(this),'save_new');
-});
+    $( document ).ready(function() {    
+        $('body').on('click', '#save_newProductBtn', function () {
+            save_cart($(this),'save_new');
+        });
 
-$('body').on('click', '#save_newAddToCartBtn', function () {
-    save_cart($(this),'add_to_cart');
-});
+        $('body').on('click', '#save_newAddToCartBtn', function () {
+            save_cart($(this),'add_to_cart');
+        });
 
-$('body').on('click', '.select_contact_btn', function () {
-    jQuery("#opinionModal").modal('show');
-});
+        $('body').on('click', '.select_contact_btn', function () {
+            jQuery("#opinionModal").modal('show');
+        });
 
-$('body').on('click', '.request_diamond_number', function () {
-    jQuery("#requestDiamondModal").modal('show');
-});
+        $('body').on('click', '.request_diamond_number', function () {
+            jQuery("#requestDiamondModal").modal('show');
+        });
 
-function save_cart(btn,btn_type){
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
+        function save_cart(btn,btn_type){
+            $(btn).prop('disabled',true);
+            $(btn).find('.loadericonfa').show();
 
-    var diamond_id = $('#diamond_id').val();
-    var ip_address = '{{ \Request::ip(); }}';
-    var category_id = '{{ $Category->id }}';
-    var slug = '{{ $Category->slug }}';
-    
-    $.ajax({
-        type: 'POST',
-        url: "{{ route('frontend.cart.save') }}",
-        data: {diamond_id:diamond_id,ip_address:ip_address,category_id:category_id,btn_type:btn_type,_token: '{{ csrf_token() }}'},
+            var diamond_id = $('#diamond_id').val();
+            var ip_address = '{{ \Request::ip() }}';
+            var category_id = '{{ $Category->id }}';
+            var slug = '{{ $Category->slug }}';
+            
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('frontend.cart.save') }}",
+                data: {diamond_id:diamond_id,ip_address:ip_address,category_id:category_id,btn_type:btn_type,_token: '{{ csrf_token() }}'},
 
-        success: function (res) {
-            if(res.status == 'failed'){
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();    
-            }
-            if(res.status == 200){
-                var check_variant = '{{ $check_variant }}';
-                if(btn_type == "add_to_cart"){
-                    $url = "{{ url('cart') }}";
-                }else{
-                    if(check_variant == 0){
-                        $url = "{{ url('product-setting') }}" +'/' + slug
-                    }else{
-                        $url = "{{ url('product_complete') }}" +'/' + slug
+                success: function (res) {
+                    if(res.status == 'failed'){
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();    
                     }
+                    if(res.status == 200){
+                        var check_variant = '{{ $check_variant }}';
+                        if(btn_type == "add_to_cart"){
+                            $url = "{{ url('cart') }}";
+                        }else{
+                            if(check_variant == 0){
+                                $url = "{{ url('product-setting') }}" +'/' + slug
+                            }else{
+                                $url = "{{ url('product_complete') }}" +'/' + slug
+                            }
+                        }
+                        
+                        window.location = $url;
+                    }
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
                 }
-                
-                window.location = $url;
+            });
+        }
+
+        $('.add-to-cart').click(function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            $(btn).prop('disabled',true);
+            $(btn).find('.loadericonfa').show();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var thisdata = $(this);
+            var diamond_id = $(this).closest('.diamond-data').find('#diamond_id').val();
+            var item_type = $(this).closest('.diamond-data').find('#item_type').val();
+            var quantity = 1;
+            $.ajax({
+                url: "{{ url('/add-to-cart') }}",  
+                method: "POST", 
+                data: { 
+                    'variant_id': diamond_id, 
+                    'quantity': quantity, 
+                    'item_type': item_type 
+                },
+                success: function (response) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.success(response.status,'Success',{timeOut: 5000});
+                    cartload();
+                    window.location.href = "{{ url('/cart') }}";
+                    //alertify.set('notifier','position','top-right');
+                    //alertify.success(response.status);
+                },
+            });
+        });
+    
+
+        $('body').on('click', '.hint-box', function () {
+
+            var valid = true;
+            var arrspe = [];
+            $('#specificationstr').html('');
+            $(document).find('.specification').each(function() {
+                var thi = $(this);
+                var this_err = $(thi).attr('name') + "-error";
+                if($(thi).val()=="" || $(thi).val()==null){
+                    $("#"+this_err).html("Please select any value");
+                    $("#"+this_err).show();
+                    valid = false;
+                }else{
+                    var element = $(this).find('option:selected'); 
+                    var DataSpe = element.attr("data-spe");
+                    var DataTerm = element.attr("data-term");
+                    arrspe.push({'key' : DataSpe,'value' : DataTerm });
+                    $("#"+this_err).hide();
+                    valid = true;
+                }
+            });
+
+            if(valid){
+                jQuery("#hintModal").modal('show');
             }
-        },
-        error: function (data) {
-            $(btn).prop('disabled',false);
-            $(btn).find('.loadericonfa').hide();
-            toastr.error("Please try again",'Error',{timeOut: 5000});
+        });
+        
+        $('body').on('click', '#save_newhintBtn', function () {
+            save_hint($(this),'save_new');
+        });
+
+        function save_hint(btn,btn_type){
+            
+            $(btn).prop('disabled',true);
+            $(btn).find('.loadericonfa').show();
+            var action  = $(btn).attr('data-action');
+            var formData = new FormData($("#hintCreateForm")[0]);
+            var dataarray = [];
+            $(".specification").each(function () {
+                dataarray.push($(this).val());
+            });
+            var dataspecification = dataarray.join(",");
+            
+            var qty = $('#qty').val();
+            formData.append('specification_term_id',dataspecification);
+            formData.append('qty',qty);
+            
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('frontend.hint.save') }}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    
+                    if(res.status == 'failed'){
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+
+                        if (res.errors.hintname) {
+                            $('#hintname-error').show().text(res.errors.hintname);
+                        } else {
+                            $('#hintname-error').hide();
+                        }
+                        if (res.errors.hintemail) {
+                            $('#hintemail-error').show().text(res.errors.hintemail);
+                        } else {
+                            $('#hintemail-error').hide();
+                        }
+
+                        if (res.errors.friendname) {
+                            $('#friendname-error').show().text(res.errors.friendname);
+                        } else {
+                            $('#friendname-error').hide();
+                        }
+                        if (res.errors.friendemail) {
+                            $('#friendemail-error').show().text(res.errors.friendemail);
+                        } else {
+                            $('#friendemail-error').hide();
+                        }
+
+                    
+                        // if (res.errors.inquiry) {
+                        //     $('#inquiry-error').show().text(res.errors.inquiry);
+                        // } else {
+                        //     $('#inquiry-error').hide();
+                        // } 
+                    }
+                    if(res.status == 200){
+
+
+                        $('#hintemail-error').hide();
+                        $('#hintname-error').hide();
+                        document.getElementById("hintCreateForm").reset();
+                        $(btn).prop('disabled',false);
+                        $(btn).find('.loadericonfa').hide();
+                        //location.href="{{ route('frontend.contactus')}}";
+                        var success_message = 'Thank You For send hint';
+                        $('#success-alert').text(success_message);
+                        $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                        $("#success-alert").slideUp(1000);
+                        });
+                    }
+
+                },
+                error: function (data) {
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    toastr.error("Please try again",'Error',{timeOut: 5000});
+                }
+            });
         }
     });
-}
 
-$('.add-to-cart').click(function (e) {
-      e.preventDefault();
-        var btn = $(this);
+
+    $('body').on('click', '#save_newopinionBtn', function () {
+        save_opinion($(this),'save_new');
+    });
+
+    function save_opinion(btn,btn_type){
         $(btn).prop('disabled',true);
         $(btn).find('.loadericonfa').show();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var thisdata = $(this);
-        var diamond_id = $(this).closest('.diamond-data').find('#diamond_id').val();
-        var item_type = $(this).closest('.diamond-data').find('#item_type').val();
-        var quantity = 1;
+        var action  = $(btn).attr('data-action');
+        var formData = new FormData($("#opinionCreateForm")[0]);
+        formData.append('type',2);
         $.ajax({
-            url: "{{ url('/add-to-cart') }}",  
-            method: "POST", 
-            data: { 
-                'variant_id': diamond_id, 
-                'quantity': quantity, 
-                'item_type': item_type 
-            },
-            success: function (response) {
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-                toastr.success(response.status,'Success',{timeOut: 5000});
-                cartload();
-                window.location.href = "{{ url('/cart') }}";
-                //alertify.set('notifier','position','top-right');
-                //alertify.success(response.status);
-            },
-        });
-    });
- 
-
-    $('body').on('click', '.hint-box', function () {
-
-    var valid = true;
-    var arrspe = [];
-    $('#specificationstr').html('');
-    $(document).find('.specification').each(function() {
-        var thi = $(this);
-        var this_err = $(thi).attr('name') + "-error";
-        if($(thi).val()=="" || $(thi).val()==null){
-            $("#"+this_err).html("Please select any value");
-            $("#"+this_err).show();
-            valid = false;
-        }else{
-            var element = $(this).find('option:selected'); 
-            var DataSpe = element.attr("data-spe");
-            var DataTerm = element.attr("data-term");
-            arrspe.push({'key' : DataSpe,'value' : DataTerm });
-            $("#"+this_err).hide();
-            valid = true;
-        }
-    })
-
-    if(valid){
-    jQuery("#hintModal").modal('show');
-    }
-});
-      
-$('body').on('click', '#save_newhintBtn', function () {
-    save_hint($(this),'save_new');
-});
-
-function save_hint(btn,btn_type){
-    
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
-    var action  = $(btn).attr('data-action');
-    var formData = new FormData($("#hintCreateForm")[0]);
-    var dataarray = [];
-    $(".specification").each(function () {
-      dataarray.push($(this).val());
-   })
-    var dataspecification = dataarray.join(",");
-    
-    var qty = $('#qty').val();
-    formData.append('specification_term_id',dataspecification);
-    formData.append('qty',qty);
-     
-    $.ajax({
-        type: 'POST',
-        url: "{{ route('frontend.hint.save') }}",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (res) {
-            
-            if(res.status == 'failed'){
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-
-                if (res.errors.hintname) {
-                    $('#hintname-error').show().text(res.errors.hintname);
-                } else {
-                    $('#hintname-error').hide();
+            type: 'POST',
+            url: "{{ route('frontend.opinion.save') }}",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                
+                if(res.status == 'failed'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    if (res.errors.name) {
+                        $('#opinionname-error').show().text(res.errors.name);
+                    } else {
+                        $('#opinionname-error').hide();
+                    }
+                    if (res.errors.email) {
+                        $('#opinionemail-error').show().text(res.errors.email);
+                    } else {
+                        $('#opinionemail-error').hide();
+                    }
+                    if (res.errors.message) {
+                        $('#opinionmessage-error').show().text(res.errors.message);
+                    } else {
+                        $('#opinionmessage-error').hide();
+                    } 
                 }
-                if (res.errors.hintemail) {
-                    $('#hintemail-error').show().text(res.errors.hintemail);
-                } else {
-                    $('#hintemail-error').hide();
-                }
-
-                if (res.errors.friendname) {
-                    $('#friendname-error').show().text(res.errors.friendname);
-                } else {
-                    $('#friendname-error').hide();
-                }
-                if (res.errors.friendemail) {
-                    $('#friendemail-error').show().text(res.errors.friendemail);
-                } else {
-                    $('#friendemail-error').hide();
-                }
-
-            
-                // if (res.errors.inquiry) {
-                //     $('#inquiry-error').show().text(res.errors.inquiry);
-                // } else {
-                //     $('#inquiry-error').hide();
-                // } 
-            }
-            if(res.status == 200){
-
-
-                $('#hintemail-error').hide();
-                $('#hintname-error').hide();
-                document.getElementById("hintCreateForm").reset();
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-                //location.href="{{ route('frontend.contactus')}}";
-                var success_message = 'Thank You For send hint';
-                $('#success-alert').text(success_message);
-                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
-                  $("#success-alert").slideUp(1000);
-                });
-            }
-
-        },
-        error: function (data) {
-            $(btn).prop('disabled',false);
-            $(btn).find('.loadericonfa').hide();
-            toastr.error("Please try again",'Error',{timeOut: 5000});
-        }
-    });
-}
-});
-
-
-$('body').on('click', '#save_newopinionBtn', function () {
-    save_opinion($(this),'save_new');
-});
-
-function save_opinion(btn,btn_type){
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
-    var action  = $(btn).attr('data-action');
-    var formData = new FormData($("#opinionCreateForm")[0]);
-    formData.append('type',2);
-    $.ajax({
-        type: 'POST',
-        url: "{{ route('frontend.opinion.save') }}",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (res) {
-            
-            if(res.status == 'failed'){
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-                if (res.errors.name) {
-                    $('#opinionname-error').show().text(res.errors.name);
-                } else {
-                    $('#opinionname-error').hide();
-                }
-                if (res.errors.email) {
-                    $('#opinionemail-error').show().text(res.errors.email);
-                } else {
-                    $('#opinionemail-error').hide();
-                }
-                if (res.errors.message) {
-                    $('#opinionmessage-error').show().text(res.errors.message);
-                } else {
+                if(res.status == 200){
                     $('#opinionmessage-error').hide();
-                } 
-            }
-            if(res.status == 200){
-                $('#opinionmessage-error').hide();
-               
-                $('#opinionemail-error').hide();
-                $('#opinionname-error').hide();
-                document.getElementById("opinionCreateForm").reset();
+                
+                    $('#opinionemail-error').hide();
+                    $('#opinionname-error').hide();
+                    document.getElementById("opinionCreateForm").reset();
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    //location.href="{{ route('frontend.contactus')}}";
+                    var success_message = 'Thank You For Opinion';
+                    $('#opinionsuccess-alert').text(success_message);
+                    $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#opinionsuccess-alert").slideUp(1000);
+                    });
+                }
+
+            },
+            error: function (data) {
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
-                //location.href="{{ route('frontend.contactus')}}";
-                var success_message = 'Thank You For Opinion';
-                $('#opinionsuccess-alert').text(success_message);
-                $("#opinionsuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
-                $("#opinionsuccess-alert").slideUp(1000);
-                });
+                toastr.error("Please try again",'Error',{timeOut: 5000});
             }
+        });
+    }
 
-        },
-        error: function (data) {
-            $(btn).prop('disabled',false);
-            $(btn).find('.loadericonfa').hide();
-            toastr.error("Please try again",'Error',{timeOut: 5000});
-        }
+    $('body').on('click', '#save_newCertificateBtn', function () {
+        save_cartificate($(this),'save_new');
     });
-}
 
-$('body').on('click', '#save_newCertificateBtn', function () {
-    save_cartificate($(this),'save_new');
-});
-
-function save_cartificate(btn,btn_type){
-    $(btn).prop('disabled',true);
-    $(btn).find('.loadericonfa').show();
-    var action  = $(btn).attr('data-action');
-    var formData = new FormData($("#requestCertificateCreateForm")[0]);
-    formData.append('type',2);
-    $.ajax({
-        type: 'POST',
-        url: "{{ route('frontend.certificate.save') }}",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (res) {
-            
-            if(res.status == 'failed'){
-                $(btn).prop('disabled',false);
-                $(btn).find('.loadericonfa').hide();
-                if (res.errors.name) {
-                    $('#customername-error').show().text(res.errors.name);
-                } else {
-                    $('#customername-error').hide();
+    function save_cartificate(btn,btn_type){
+        $(btn).prop('disabled',true);
+        $(btn).find('.loadericonfa').show();
+        var action  = $(btn).attr('data-action');
+        var formData = new FormData($("#requestCertificateCreateForm")[0]);
+        formData.append('type',2);
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('frontend.certificate.save') }}",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                
+                if(res.status == 'failed'){
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    if (res.errors.name) {
+                        $('#customername-error').show().text(res.errors.name);
+                    } else {
+                        $('#customername-error').hide();
+                    }
+                    if (res.errors.email) {
+                        $('#customeremail-error').show().text(res.errors.email);
+                    } else {
+                        $('#customeremail-error').hide();
+                    }
+                    if (res.errors.phone_number) {
+                        $('#phone_number-error').show().text(res.errors.phone_number);
+                    } else {
+                        $('#phone_number-error').hide();
+                    }
+                    if (res.errors.message) {
+                        $('#customermessage-error').show().text(res.errors.message);
+                    } else {
+                        $('#customermessage-error').hide();
+                    } 
                 }
-                if (res.errors.email) {
-                    $('#customeremail-error').show().text(res.errors.email);
-                } else {
-                    $('#customeremail-error').hide();
-                }
-                if (res.errors.phone_number) {
-                    $('#phone_number-error').show().text(res.errors.phone_number);
-                } else {
-                    $('#phone_number-error').hide();
-                }
-                if (res.errors.message) {
-                    $('#customermessage-error').show().text(res.errors.message);
-                } else {
+                if(res.status == 200){
                     $('#customermessage-error').hide();
-                } 
-            }
-            if(res.status == 200){
-                $('#customermessage-error').hide();
-               
-                $('#phone_number-error').hide();
-                $('#customeremail-error').hide();
-                $('#customername-error').hide();
-                document.getElementById("requestCertificateCreateForm").reset();
+                
+                    $('#phone_number-error').hide();
+                    $('#customeremail-error').hide();
+                    $('#customername-error').hide();
+                    document.getElementById("requestCertificateCreateForm").reset();
+                    $(btn).prop('disabled',false);
+                    $(btn).find('.loadericonfa').hide();
+                    //location.href="{{ route('frontend.contactus')}}";
+                    var success_message = 'Thank You For Request';
+                    $('#cartificatesuccess-alert').text(success_message);
+                    $("#cartificatesuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#cartificatesuccess-alert").slideUp(1000);
+                    });
+                }
+
+            },
+            error: function (data) {
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
-                //location.href="{{ route('frontend.contactus')}}";
-                var success_message = 'Thank You For Request';
-                $('#cartificatesuccess-alert').text(success_message);
-                $("#cartificatesuccess-alert").fadeTo(2000, 500).slideUp(500, function() {
-                $("#cartificatesuccess-alert").slideUp(1000);
-                });
+                toastr.error("Please try again",'Error',{timeOut: 5000});
             }
-
-        },
-        error: function (data) {
-            $(btn).prop('disabled',false);
-            $(btn).find('.loadericonfa').hide();
-            toastr.error("Please try again",'Error',{timeOut: 5000});
-        }
-    });
-}
+        });
+    }
 </script>
 
 <script>
     $(document).ready(function(){
      
-     var _token = $('input[name="_token"]').val();
+        var _token = $('input[name="_token"]').val();
+
+        load_data('', _token);
     
-     load_data('', _token);
-    
-     function load_data(id="", _token)
-     {
-    
-      var variant_id = $('#diamond_id').val();
-      $.ajax({
-       url:"{{ route('frontend.load_data') }}",
-       method:"POST",
-       data:{id:id,variant_id:variant_id,type:1, _token:_token},
-       success:function(data)
-       {
-        $('#load_more_button').remove();
-        if(data == ""){
-            $('.review_description_heading').hide(); 
-        }else{
-            $('.review_description_heading').show();
+        function load_data(id="", _token) {
+
+            var variant_id = $('#diamond_id').val();
+            $.ajax({
+                url:"{{ route('frontend.load_data') }}",
+                method:"POST",
+                data:{id:id,variant_id:variant_id,type:1, _token:_token},
+                success:function(data) {
+                    $('#load_more_button').remove();
+                    if(data == ""){
+                        $('.review_description_heading').hide(); 
+                    }else{
+                        $('.review_description_heading').show();
+                    }
+                    $('.resview_list').append(data);
+                }
+            });
         }
-        $('.resview_list').append(data);
-       }
-      })
-     }
     
-     $(document).on('click', '#load_more_button', function(){
-      var id = $(this).data('id');
-      $('#load_more_button').html('<b>Loading...</b>');
-      load_data(id, _token);
-     });
+        $(document).on('click', '#load_more_button', function(){
+            var id = $(this).data('id');
+            $('#load_more_button').html('<b>Loading...</b>');
+            load_data(id, _token);
+        });
     
     });
-    </script>
+</script>
 @endsection
 
     

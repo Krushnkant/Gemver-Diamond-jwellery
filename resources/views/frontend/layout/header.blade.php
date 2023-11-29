@@ -33,11 +33,21 @@
             <div class="container">
                 <div class="row align-items-center header_row">
                     <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
-                        <div class="logo-image header-logo mx-lg-auto mb-0">
+                        <div class="d-flex align-items-center mx-lg-auto">
+                            <div id="nav-icon1" class="menu-toggle-button d-block d-lg-none">
+                                <i class="fa-solid fa-bars fa-lg"></i>    
+                            </div>
+                            <div class="logo-image header-logo mb-0">
+                                <a href="{{ URL('/') }}">
+                                    <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" loading="lazy">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- <div class="logo-image header-logo mx-lg-auto mb-0">
                             <a href="{{ URL('/') }}">
                                 <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" loading="lazy">
                             </a>
-                        </div>
+                        </div> -->
                         <span class="d-flex align-items-center justify-content-end header_logo_cart">
                            <div class="search-icon-part me-3 d-lg-block mobile-menu-search-box-part">
                                 <div class="position-relative ">
@@ -53,7 +63,6 @@
                                       </div>
                                     </div>
                                     <ul class="main_search_section">
-
                                     </ul>
                                 </div>
                             </div>
@@ -113,11 +122,11 @@
                                 </span>
 
                             </div>
-                            <div id="nav-icon1" class="d-block d-lg-none">
+                            <!-- <div id="nav-icon1" class="d-block d-lg-none">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
+                            </div> -->
                         </span>
                     </div>
                     <div class="col-6 col-lg-12 text-center header">
@@ -125,10 +134,8 @@
                          
 
                             <ul class="mobile-sub-menu">
-                                <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                                <div class="menu-toggle-button menu-close-icon mega-menu-mobile-icon d-block d-lg-none open">
+                                    <i class="fa-solid fa-xmark fa-lg"></i>
                                 </div>
                                 
                                 <?php
@@ -155,7 +162,7 @@
                                             </div>
 
                                             <div class="mega-menu-three-part">
-                                                <div class="submenu-box  mt-4">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                     </div>
@@ -223,7 +230,7 @@
                                                     </ul>
                                                   
                                                 </div>
-                                                <div class="submenu-box mt-4">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <div class="d-block mb-2">
                                                         <span class="menus_title menus_title_part">Fancy Color</span>
                                                     </div>
@@ -303,7 +310,7 @@
                                                     </ul>
                                                   
                                                 </div>
-                                                <div class="submenu-box mt-4">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <ul>
                                                         <li class="menu-part-img two_part_padding ">
                                                             <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" loading="lazy">
@@ -369,13 +376,10 @@
                                                             }
                                                         }
                                                     ?>
-                                                        <div class="submenu-box mt-4">
+                                                        <div class="submenu-box mt-4 mt-lg-0">
                                                             <div class="d-block mb-2">
                                                                 <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
-                                                            </div>
-                                                            
-                                                             
-                                                      
+                                                            </div>                                       
                                                             <ul class="{{ $twocolum }}">
 
                                                                 <?php
@@ -402,7 +406,7 @@
                                                     }
                                                 }
                                                 ?>
-                                                <div class="submenu-box">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <ul class="">
                                                         <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
                                                     </ul>
@@ -465,7 +469,7 @@
                                                             }
                                                         }
                                                 ?>
-                                                        <div class="submenu-box">
+                                                        <div class="submenu-box mt-4 mt-lg-0">
                                                             <div class="d-block mb-2">
                                                                 <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
                                                             </div>
@@ -494,7 +498,7 @@
                                                     }
                                                 }
                                                 ?>
-                                                <div class="submenu-box">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <ul class="">
                                                         <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
                                                     </ul>
@@ -557,7 +561,7 @@
                                                             $twocolum = 'mega-menu-two-colum';
                                                         }
                                                 ?>
-                                                        <div class="submenu-box">
+                                                        <div class="submenu-box mt-4 mt-lg-0">
                                                             <div class="d-block mb-2">
                                                             <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
 
@@ -585,7 +589,7 @@
                                                     }
                                                 }
                                                 ?>
-                                                <div class="submenu-box">
+                                                <div class="submenu-box mt-4 mt-lg-0">
                                                     <ul class="">
                                                         <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
                                                     </ul>
@@ -632,7 +636,7 @@
                                                     }
                                                     $img_no++;
                                                 ?>
-                                                    <div class="submenu-box1">
+                                                    <div class="submenu-box1 mt-4 mt-lg-0">
                                                         <ul>
                                                             <li>
                                                                 <span class="menus_title ">create your own {{ $car->category_name }}</span>
@@ -649,7 +653,7 @@
                                                 <?php $cat_no++;
                                                 } ?>
 
-                                                <div class="submenu-box1">
+                                                <div class="submenu-box1 mt-4 mt-lg-0">
                                                     <ul>
                                                         <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
                                                     </ul>
@@ -684,7 +688,7 @@
                                                 <span></span>
                                                 <span></span>
                                             </div>
-                                            <div class="mega-menu-four-part">
+                                            <div class="mega-menu-four-part mt-4 mt-lg-0">
                                                 <ul>
                                                     <li>
                                                         <span class="menus_title">About Us </span>

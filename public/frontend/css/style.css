@@ -7602,3 +7602,9 @@ width: 100%;
         /* Adjust the width as needed */
         padding: 10px !important;
     }
+
+    .menu-close-icon {
+        text-align: right;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
