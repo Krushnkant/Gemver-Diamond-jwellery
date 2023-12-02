@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function index($id = 0)
     {
         $CatId = getSlugId('Category', $id);
-        $Category = Category::where(['id' => $CatId])->first(['id', 'parent_category_id', 'category_name', 'meta_title', 'meta_description']);
+        $Category = Category::where(['id' => $CatId])->first(['id', 'parent_category_id', 'category_name', 'category_description', 'meta_title', 'meta_description']);
         if (!$Category) {
             return view('frontend/404');
         }

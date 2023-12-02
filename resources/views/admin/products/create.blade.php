@@ -1,20 +1,20 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="row page-titles mx-0">
-        <div class="col p-md-0">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Product</a></li>
-            </ol>
-        </div>
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Product</a></li>
+        </ol>
     </div>
-    <!-- row -->
+</div>
+<!-- row -->
 
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <div id="attr-cover-spin" class="cover-spin"></div>
-        <form method="post" id="ProductForm" action="">
+    <div id="attr-cover-spin" class="cover-spin"></div>
+    <form method="post" id="ProductForm" action="">
         {{ csrf_field() }}
         <input type="hidden" id="action" name="action" value="addProduct">
         <div class="row">
@@ -34,7 +34,7 @@
                         <input type="hidden" id="attr_ids" name="attr_ids">
                         <input type="hidden" id="term_no" name="term_no" value="0">
                         <input type="hidden" id="attributes_no" name="attributes_no" value="0">
-                        <input type="hidden" id="product_u_id" name="product_u_id" value="{{ \Str::random(40); }}">
+                        <input type="hidden" id="product_u_id" name="product_u_id" value="{{ \Str::random(40) }}">
                         <div class="product-section">
                             <div class="col-sm-12">
                                 <!-- <div class="form-group row">
@@ -72,31 +72,42 @@
                                 </div> -->
 
                                 @if(isset($catArray) && !empty($catArray))
-                                <div class="form-group category" >
-                                    <label class="col-form-label" for="category_id"> Category <span class="text-danger">*</span>
+                                <div class="form-group category">
+                                    <label class="col-form-label" for="category_id"> Category <span
+                                            class="text-danger">*</span>
                                     </label>
-                                    <select id='category_id'   name="category_id[]"  class="form-control catMulti" id=""  multiple>
+                                    <select id='category_id' name="category_id[]" class="form-control catMulti" id=""
+                                        multiple>
                                         <option></option>
                                         @foreach($catArray as $cat)
-                                            <option value="<?php echo $cat['id']; ?>"><?php echo $cat['category_name']; ?></option>
+                                        <option value="<?php echo $cat['id']; ?>">
+                                            <?php echo $cat['category_name']; ?>
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 @endif
 
                                 <div class="form-group row">
-                                    <label class="col-lg-12 col-form-label" for="DesignNumber">Design Number <span class="text-danger">*</span></label>
+                                    <label class="col-lg-12 col-form-label" for="DesignNumber">Design Number <span
+                                            class="text-danger">*</span></label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control input-default DesignNumber" id="DesignNumber" name="DesignNumber" value="" >
-                                        <label id="DesignNumber-error" class="error invalid-feedback animated fadeInDown" for="DesignNumber"></label>
+                                        <input type="text" class="form-control input-default DesignNumber"
+                                            id="DesignNumber" name="DesignNumber" value="">
+                                        <label id="DesignNumber-error"
+                                            class="error invalid-feedback animated fadeInDown"
+                                            for="DesignNumber"></label>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-12 col-form-label" for="ProductName">Product Title <span class="text-danger">*</span></label>
+                                    <label class="col-lg-12 col-form-label" for="ProductName">Product Title <span
+                                            class="text-danger">*</span></label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control input-default ProductName" id="ProductName" name="ProductName" value="" >
-                                        <label id="ProductName-error" class="error invalid-feedback animated fadeInDown" for="ProductName"></label>
+                                        <input type="text" class="form-control input-default ProductName"
+                                            id="ProductName" name="ProductName" value="">
+                                        <label id="ProductName-error" class="error invalid-feedback animated fadeInDown"
+                                            for="ProductName"></label>
                                     </div>
                                 </div>
 
@@ -128,55 +139,66 @@
                                     </div>
                                 </div> -->
 
-                                
+
 
                                 <div class="row form-group">
                                     <label class="col-lg-12 col-form-label" for="Desc">Description </label>
                                     <div class="col-lg-12">
-                                        <textarea type="text" class="form-control input-default" id="desc" name="desc"></textarea>
-                                        <div id="desc-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                                        <textarea type="text" class="form-control input-default" id="desc"
+                                            name="desc"></textarea>
+                                        <div id="desc-error" class="invalid-feedback animated fadeInDown"
+                                            style="display: none;"></div>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-12 col-form-label" for="">URL handle <span class="text-danger">*</span></label>
+                                    <label class="col-lg-12 col-form-label" for="">URL handle <span
+                                            class="text-danger">*</span></label>
                                     <div class="col-lg-12">
                                         <div class="input-group mb-2">
                                             <div class="input-group-prepend">
-                                              <div class="input-group-text">https://gemver.com/product-details/</div>
+                                                <div class="input-group-text">https://gemver.com/product-details/</div>
                                             </div>
-                                            <input type="text" id="slug" class="form-control input-default" name="slug" value="">
-                                          </div>
-                                        
+                                            <input type="text" id="slug" class="form-control input-default" name="slug"
+                                                value="">
+                                        </div>
+
                                     </div>
-                                    <label id="Slug-error" class="error invalid-feedback animated fadeInDown" for=""></label>
+                                    <label id="Slug-error" class="error invalid-feedback animated fadeInDown"
+                                        for=""></label>
                                 </div>
 
                                 <div class="row form-group ">
-                                    <label class="col-lg-12 col-form-label" for="">Select Size Chart<span class="text-danger">*</span></label>
+                                    <label class="col-lg-12 col-form-label" for="">Select Size Chart<span
+                                            class="text-danger">*</span></label>
                                     <div class="col-lg-12">
                                         <select class="form-control" id="sizechart" name="sizechart">
                                             <option></option>
                                             @foreach($sizecharts as $sizechart)
-                                            <option value="{{ $sizechart->id }}" @if($sizechart->id==1) selected @endif>{{ $sizechart->title }}</option>
+                                            <option value="{{ $sizechart->id }}" @if($sizechart->id==1) selected
+                                                @endif>{{ $sizechart->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
 
-                              
+
 
                                 <div class="row" style="display:none;">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-check">
-                                                    <label class="form-check-label">
-                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input " value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" name="is_custom" id="is_custom"
+                                                        @if(isset($segment) && ($segment=='custom' ) ) checked @endif
+                                                        class="form-check-input "
+                                                        value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do
+                                                    you want to add custom product?</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -202,28 +224,39 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-check">
-                                                    <label class="form-check-label">
-                                                    <input type="checkbox" name="is_custom" id="is_custom" @if(isset($segment) && ($segment == 'custom') ) checked @endif class="form-check-input " value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do you want to add custom product?</label>
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" name="is_custom" id="is_custom"
+                                                        @if(isset($segment) && ($segment=='custom' ) ) checked @endif
+                                                        class="form-check-input "
+                                                        value="@if(isset($segment) && ($segment == 'custom') ) 1 @else 0 @endif">Do
+                                                    you want to add custom product?</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" >
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group attribute" >
-                                            <label class="col-form-label d-block" for="attribute_id"> Select Attribute <span class="text-danger">*</span>
+                                        <div class="form-group attribute">
+                                            <label class="col-form-label d-block" for="attribute_id"> Select Attribute
+                                                <span class="text-danger">*</span>
                                             </label>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <select id='attribute_id' name="attribute_id"  class="form-control attribute_id" id="" >
-                                                            <option></option>
-                                                            @foreach($attributes as $attr)
-                                                                <option data-title="<?php echo $attr['attribute_name']; ?>" value="{{ $attr['id'] }}">{{ $attr['attribute_name'] }}</option>
-                                                            @endforeach
-                                                        </select>
+                                                    <select id='attribute_id' name="attribute_id"
+                                                        class="form-control attribute_id" id="">
+                                                        <option></option>
+                                                        @foreach($attributes as $attr)
+                                                        <option data-title="<?php echo $attr['attribute_name']; ?>"
+                                                            value="{{ $attr['id'] }}">{{ $attr['attribute_name'] }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="button" data-id="0" class="AddSub btn  d-inline-block mb-3" style="background-color: #e7e7e7; color: black;" id="AddSub" style="display: none"> Add </button>
+                                                    <button type="button" data-id="0"
+                                                        class="AddSub btn  d-inline-block mb-3"
+                                                        style="background-color: #e7e7e7; color: black;" id="AddSub"
+                                                        style="display: none"> Add </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,8 +266,10 @@
                                     <div class="row add-value-sub" id="attribute-data">
                                     </div>
                                 </div>
-                                <button type="button" style="background-color: #e7e7e7; color: black;" class="save_attributes btn mt-3" id="save_attributes" style="display:none;">Save attributes</button>
-                                
+                                <button type="button" style="background-color: #e7e7e7; color: black;"
+                                    class="save_attributes btn mt-3" id="save_attributes" style="display:none;">Save
+                                    attributes</button>
+
                             </div>
                         </div>
                     </div>
@@ -242,13 +277,13 @@
             </div>
         </div>
 
-        </form>
-        <div class="row" id="VariantBox" style="display:none;">
-            <div class="col-md-12">
-                <div class="card variantCard" id="variantProductBox" >
-                    <div class="card-body">
-                        <!-- <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Variant Box</button> -->
-                        <!-- <div class="row">
+    </form>
+    <div class="row" id="VariantBox" style="display:none;">
+        <div class="col-md-12">
+            <div class="card variantCard" id="variantProductBox">
+                <div class="card-body">
+                    <!-- <button class="AddBox btn btn-primary d-inline-block mb-3" id="AddBox" style="display: none"> Add Variant Box</button> -->
+                    <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-check">
@@ -259,30 +294,31 @@
                             </div>
                         </div> -->
 
-                        <div class="panel-group col-md-12">
-                            <div class="row variation-box" id="variant-data">
-                            </div>
+                    <div class="panel-group col-md-12">
+                        <div class="row variation-box" id="variant-data">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="product-section">
-                            <div class="col-sm-12">
-                                <div class="row" >
-                                    <div class="col-md-6">
-                                         <label class="col-form-label" for="meta_title">Meta Title </label>
-                                        <input type="text" class="form-control input-default ProductName" id="meta_title" name="meta_title" value="" >
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="col-form-label" for="Desc">Meta Description </label>
-                                        <textarea type="meta_description" class="form-control input-default" id="meta_description" name="meta_description"></textarea>
-                                    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="product-section">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-form-label" for="meta_title">Meta Title </label>
+                                    <input type="text" class="form-control input-default ProductName" id="meta_title"
+                                        name="meta_title" value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="col-form-label" for="Desc">Meta Description </label>
+                                    <textarea type="meta_description" class="form-control input-default"
+                                        id="meta_description" name="meta_description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -290,31 +326,38 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="row" id="saveBtn-box" >
-            <div class="col-md-12">
-                <div class="card" id="">
-                    <div class="card-body newcard-body row">
-                        <div class="col-lg-6 col-sm-6">
-                            <button type="button" id="SubmitProductBtn" name="SubmitProductBtn" class="btn btn-primary mr-2 ">Submit Product <i class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
-                            <button type="button" id="saveDraftBtn" name="saveDraftBtn" class="btn btn-outline-primary ">Save As Draft <i class="fa fa-circle-o-notch fa-spin draftloader" style="display:none;"></i></button>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 text-right">
-{{--                            <button type="button" id="discardBtn" name="discardBtn" class="btn btn-outline-primary" onclick="discardCatalog()">Discard <i class="fa fa-circle-o-notch fa-spin discardLoader" style="display:none;"></i></button>--}}
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div id="form-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                        </div>
+    <div class="row" id="saveBtn-box">
+        <div class="col-md-12">
+            <div class="card" id="">
+                <div class="card-body newcard-body row">
+                    <div class="col-lg-6 col-sm-6">
+                        <button type="button" id="SubmitProductBtn" name="SubmitProductBtn"
+                            class="btn btn-primary mr-2 ">Submit Product <i
+                                class="fa fa-circle-o-notch fa-spin submitloader" style="display:none;"></i></button>
+                        <button type="button" id="saveDraftBtn" name="saveDraftBtn"
+                            class="btn btn-outline-primary ">Save As Draft <i
+                                class="fa fa-circle-o-notch fa-spin draftloader" style="display:none;"></i></button>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 text-right">
+                        {{-- <button type="button" id="discardBtn" name="discardBtn" class="btn btn-outline-primary"
+                            onclick="discardCatalog()">Discard <i class="fa fa-circle-o-notch fa-spin discardLoader"
+                                style="display:none;"></i></button>--}}
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div id="form-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-    
+
+</div>
+
 
 @endsection
 
 @section('js')
-    @include('admin.products.product_js')
+@include('admin.products.product_js')
 @endsection
