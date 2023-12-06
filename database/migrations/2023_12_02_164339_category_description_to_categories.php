@@ -4,17 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CategoryDescriptionToCategories extends Migration
-{
+class CategoryDescriptionToCategories extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string('category_description', '500')->nullable()->after('category_name');
+            $table->text('category_description')->nullable()->after('category_name');
         });
     }
 
@@ -23,8 +21,7 @@ class CategoryDescriptionToCategories extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::table('categories', function (Blueprint $table) {
             //
         });

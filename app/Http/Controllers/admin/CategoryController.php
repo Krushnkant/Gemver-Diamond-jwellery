@@ -19,19 +19,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Image;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
     private $page = "Category";
 
-    public function index()
-    {
+    public function index() {
         $action = "list";
         $categories = Category::where('estatus', 1)->get();
         return view('admin.categories.list', compact('action', 'categories'))->with('page', $this->page);
     }
 
-    public function create()
-    {
+    public function create() {
         $action = "create";
 
         $categories = Category::where('estatus', 1)->where('is_custom', 0)->get()->toArray();
@@ -41,48 +38,44 @@ class CategoryController extends Controller
         return view('admin.categories.list', compact('action', 'categories', 'sr_no', 'attributes', 'specifications'))->with('page', $this->page);
     }
 
-    public function save(Request $request)
-    {
+    public function save(Request $request) {
         $messages = [
             'sr_no.required' => 'Please provide valid Serial Number',
             'sr_no.numeric' => 'Please provide valid Serial Number',
             'category_name.required' => 'Please provide a Category Name',
-            'catImg.required' => 'Please provide a Category Image',
-            'category_description' => 'Max 500 Characters allowed'
+            'catImg.required' => 'Please provide a Category Image'
         ];
 
-        if (isset($request->action) && $request->action == "update") {
+        if(isset($request->action) && $request->action == "update") {
             $validator = Validator::make($request->all(), [
                 'sr_no' => 'required|numeric',
                 'category_name' => 'required',
-                'catImg' => 'required',
-                'category_description' => 'max:500'
+                'catImg' => 'required'
             ], $messages);
         } else {
             $validator = Validator::make($request->all(), [
                 'sr_no' => 'required|numeric',
                 'category_name' => 'required',
-                'catImg' => 'required',
-                'category_description' => 'max:500'
+                'catImg' => 'required'
             ], $messages);
         }
 
-        if ($validator->fails()) {
+        if($validator->fails()) {
             return response()->json(['errors' => $validator->errors(), 'status' => 'failed']);
         }
 
-        if (isset($request->action) && $request->action == "update") {
+        if(isset($request->action) && $request->action == "update") {
             $action = "update";
             $category = Category::find($request->category_id);
 
-            if (!$category) {
+            if(!$category) {
                 return response()->json(['status' => '400']);
             }
 
-            if ($category->category_thumb != $request->catImg) {
-                if (isset($category->category_thumb)) {
+            if($category->category_thumb != $request->catImg) {
+                if(isset($category->category_thumb)) {
                     $image = public_path($category->category_thumb);
-                    if (file_exists($image)) {
+                    if(file_exists($image)) {
                         unlink($image);
                     }
                 }
@@ -157,12 +150,12 @@ class CategoryController extends Controller
         $mainparentid = $this->getMainCategory($category->id);
 
 
-        if (isset($request->action) && $request->action != "update") {
+        if(isset($request->action) && $request->action != "update") {
             $category = Category::find($category->id);
             $category->mainparentid = $mainparentid;
             $category->save();
 
-            for ($i = 1; $i < 4; $i++) {
+            for($i = 1; $i < 4; $i++) {
                 $StepPopup = new StepPopup();
                 $StepPopup->category_id = $category->id;
                 $StepPopup->save();
@@ -173,9 +166,8 @@ class CategoryController extends Controller
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
-    public function allcategorylist(Request $request)
-    {
-        if ($request->ajax()) {
+    public function allcategorylist(Request $request) {
+        if($request->ajax()) {
             $columns = array(
                 0 => 'sr_no',
                 1 => 'category_thumb',
@@ -195,12 +187,12 @@ class CategoryController extends Controller
             $order = $columns[$request->input('order.0.column')];
             $dir = $request->input('order.0.dir');
 
-            if ($order == "sr_no") {
+            if($order == "sr_no") {
                 $order = "created_at";
                 $dir = 'desc';
             }
 
-            if (empty($request->input('search.value'))) {
+            if(empty($request->input('search.value'))) {
                 $categories = Category::with('parent')->offset($start)
                     ->limit($limit)
                     ->orderBy($order, $dir)
@@ -211,7 +203,7 @@ class CategoryController extends Controller
                 $categories = Category::with('parent')->where('sr_no', 'LIKE', "%{$search}%")
                     ->orWhere('category_name', 'LIKE', "%{$search}%")
                     ->orWhereHas('parent', function ($mainQuery) use ($search) {
-                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                        $mainQuery->where('category_name', 'Like', '%'.$search.'%');
                     })
                     ->offset($start)
                     ->limit($limit)
@@ -222,7 +214,7 @@ class CategoryController extends Controller
                 $totalFiltered = Category::where('sr_no', 'LIKE', "%{$search}%")
                     ->orWhere('category_name', 'LIKE', "%{$search}%")
                     ->orWhereHas('parent', function ($mainQuery) use ($search) {
-                        $mainQuery->where('category_name', 'Like', '%' . $search . '%');
+                        $mainQuery->where('category_name', 'Like', '%'.$search.'%');
                     })
                     ->count();
 
@@ -230,39 +222,39 @@ class CategoryController extends Controller
 
             $data = array();
 
-            if (!empty($categories)) {
-                foreach ($categories as $category) {
+            if(!empty($categories)) {
+                foreach($categories as $category) {
                     $page_id = ProjectPage::where('route_url', 'admin.categories.list')->pluck('id')->first();
 
-                    if ($category->estatus == 1 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
-                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_' . $category->id . '" onchange="chageCategoryStatus(' . $category->id . ')" value="1" checked="checked"><span class="slider round"></span></label>';
-                    } elseif ($category->estatus == 1) {
-                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_' . $category->id . '" value="1" checked="checked"><span class="slider round"></span></label>';
+                    if($category->estatus == 1 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_'.$category->id.'" onchange="chageCategoryStatus('.$category->id.')" value="1" checked="checked"><span class="slider round"></span></label>';
+                    } elseif($category->estatus == 1) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_'.$category->id.'" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
 
-                    if ($category->estatus == 2 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
-                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_' . $category->id . '" onchange="chageCategoryStatus(' . $category->id . ')" value="2"><span class="slider round"></span></label>';
-                    } elseif ($category->estatus == 2) {
-                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_' . $category->id . '" value="2"><span class="slider round"></span></label>';
+                    if($category->estatus == 2 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_'.$category->id.'" onchange="chageCategoryStatus('.$category->id.')" value="2"><span class="slider round"></span></label>';
+                    } elseif($category->estatus == 2) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="CategoryStatuscheck_'.$category->id.'" value="2"><span class="slider round"></span></label>';
                     }
 
-                    if (isset($category->category_thumb) && $category->category_thumb != null) {
+                    if(isset($category->category_thumb) && $category->category_thumb != null) {
                         $thumb_path = url($category->category_thumb);
                     }
 
                     $action = '';
-                    if (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
-                        $action .= '<button id="editCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="' . $category->id . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                    if(getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
+                        $action .= '<button id="editCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="'.$category->id.'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                     }
-                    if (getUSerRole() == 1 || (getUSerRole() != 1 && is_delete($page_id))) {
-                        $action .= '<button id="deleteCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteCategoryModal" onclick="" data-id="' . $category->id . '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    if(getUSerRole() == 1 || (getUSerRole() != 1 && is_delete($page_id))) {
+                        $action .= '<button id="deleteCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteCategoryModal" onclick="" data-id="'.$category->id.'"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     }
-                    if (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
-                        if ($category->is_custom == 1) {
-                            $action .= '<button id="viewpopCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="' . $category->id . '">step popup</button>';
+                    if(getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
+                        if($category->is_custom == 1) {
+                            $action .= '<button id="viewpopCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="'.$category->id.'">step popup</button>';
                         }
                     }
-                    $nestedData['category_thumb'] = '<img src="' . $thumb_path . '" width="50px" height="50px" alt="Thumbnail">';
+                    $nestedData['category_thumb'] = '<img src="'.$thumb_path.'" width="50px" height="50px" alt="Thumbnail">';
                     $nestedData['category_name'] = $category->category_name;
                     $nestedData['parent_category_name'] = isset($category->parent->category_name) ? $category->parent->category_name : "-";
                     $nestedData['total_products'] = $category->total_products;
@@ -283,39 +275,37 @@ class CategoryController extends Controller
         }
     }
 
-    public function changecategorystatus($id)
-    {
+    public function changecategorystatus($id) {
         $category = Category::find($id);
-        if ($category->estatus == 1) {
+        if($category->estatus == 1) {
             $category->estatus = 2;
             $category->save();
             return response()->json(['status' => '200', 'action' => 'deactive']);
         }
-        if ($category->estatus == 2) {
+        if($category->estatus == 2) {
             $category->estatus = 1;
             $category->save();
             return response()->json(['status' => '200', 'action' => 'active']);
         }
     }
 
-    public function deletecategory($id)
-    {
+    public function deletecategory($id) {
         $subcategory = Category::where('parent_category_id', $id)->first();
-        if (!$subcategory) {
-            $products = Product::whereRaw('FIND_IN_SET(' . $id . ',primary_category_id)')->get();
-            foreach ($products as $product) {
+        if(!$subcategory) {
+            $products = Product::whereRaw('FIND_IN_SET('.$id.',primary_category_id)')->get();
+            foreach($products as $product) {
                 $catarray = explode(",", $product->primary_category_id);
                 $pos = array_search($id, $catarray);
-                if ($pos !== false) {
+                if($pos !== false) {
                     unset($catarray[$pos]);
                 }
-                if (count($catarray) > 0) {
+                if(count($catarray) > 0) {
                     $catstring = implode(",", $catarray);
                     Product::where('id', $product->id)->update(array('primary_category_id' => $catstring));
                 } else {
 
                     $blogbanners = BlogBanner::where('dropdown_id', 2)->where('value', $product->id)->get(['id']);
-                    foreach ($blogbanners as $banner) {
+                    foreach($blogbanners as $banner) {
                         $blogbanner = BlogBanner::find($banner->id);
                         $blogbanner->dropdown_id = 3;
                         $blogbanner->value = "";
@@ -323,7 +313,7 @@ class CategoryController extends Controller
                     }
 
                     $banners = Banner::where('application_dropdown_id', 2)->where('product_variant_id', $product->id)->get(['id']);
-                    foreach ($banners as $ban) {
+                    foreach($banners as $ban) {
                         $banner = Banner::find($ban->id);
                         $banner->application_dropdown_id = 1;
                         $banner->value = "";
@@ -336,20 +326,20 @@ class CategoryController extends Controller
                     $product->delete();
 
                     $productvariants = ProductVariant::where('product_id', $product->id)->get(['id']);
-                    foreach ($productvariants as $variant) {
+                    foreach($productvariants as $variant) {
                         $productvariant = ProductVariant::find($variant->id);
                         $productvariant->estatus = 3;
                         $productvariant->save();
                         $productvariant->delete();
 
                         $wishlists = Wishlist::where('item_type', 0)->where('item_id', $variant->id)->get(['id']);
-                        foreach ($wishlists as $wishlist) {
+                        foreach($wishlists as $wishlist) {
                             $wish = Wishlist::find($wishlist->id);
                             $wish->delete();
                         }
 
                         $carts = ItemCart::whereIn('item_type', [0, 2])->where('item_id', $variant->id)->get(['id']);
-                        foreach ($carts as $cart) {
+                        foreach($carts as $cart) {
                             $carti = ItemCart::find($cart->id);
                             $carti->delete();
                         }
@@ -358,7 +348,7 @@ class CategoryController extends Controller
             }
 
             $menucategories = MenuCategory::where('category_id', $id)->get(['id']);
-            foreach ($menucategories as $menucategory) {
+            foreach($menucategories as $menucategory) {
                 $menucategorie = MenuCategory::find($menucategory->id);
                 $menucategorie->estatus = 3;
                 $menucategorie->save();
@@ -366,13 +356,13 @@ class CategoryController extends Controller
             }
 
             $menupageshapestyles = MenuPageShapeStyle::where('category_id', $id)->get(['id']);
-            foreach ($menupageshapestyles as $style) {
+            foreach($menupageshapestyles as $style) {
                 $menupageshapestyle = MenuPageShapeStyle::find($style->id);
                 $menupageshapestyle->delete();
             }
 
             $blogbanners = BlogBanner::where('dropdown_id', 1)->where('value', $id)->get(['id']);
-            foreach ($blogbanners as $banner) {
+            foreach($blogbanners as $banner) {
                 $blogbanner = BlogBanner::find($banner->id);
                 $blogbanner->dropdown_id = 3;
                 $blogbanner->value = "";
@@ -380,7 +370,7 @@ class CategoryController extends Controller
             }
 
             $banners = Banner::where('application_dropdown_id', 3)->where('value', $id)->get(['id']);
-            foreach ($banners as $ban) {
+            foreach($banners as $ban) {
                 $banner = Banner::find($ban->id);
                 $banner->application_dropdown_id = 1;
                 $banner->value = "";
@@ -388,14 +378,14 @@ class CategoryController extends Controller
             }
 
             $category = Category::find($id);
-            if ($category) {
+            if($category) {
                 $image = $category->category_thumb;
                 $category->estatus = 3;
                 $category->save();
 
                 $category->delete();
                 $image = public_path($image);
-                if (file_exists($image)) {
+                if(file_exists($image)) {
                     unlink($image);
                 }
                 return response()->json(['status' => '200']);
@@ -406,8 +396,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function editcategory($id)
-    {
+    public function editcategory($id) {
         $action = "edit";
         $categories = Category::where('estatus', 1)->where('id', "!=", $id)->where('parent_category_id', "!=", $id)->get()->toArray();
         $category = Category::find($id);
@@ -422,12 +411,11 @@ class CategoryController extends Controller
         return view('admin.categories.list', compact('action', 'category', 'attributes', 'specifications', 'categories'))->with('page', $this->page);
     }
 
-    public function uploadfile(Request $request)
-    {
-        if (isset($request->action) && $request->action == 'uploadCatIcon') {
-            if ($request->hasFile('files')) {
+    public function uploadfile(Request $request) {
+        if(isset($request->action) && $request->action == 'uploadCatIcon') {
+            if($request->hasFile('files')) {
                 $image = $request->file('files')[0];
-                $image_name = 'categoryThumb_' . rand(111111, 999999) . time() . '.' . $image->getClientOriginalExtension();
+                $image_name = 'categoryThumb_'.rand(111111, 999999).time().'.'.$image->getClientOriginalExtension();
 
                 //$destinationPath = public_path('images/categoryThumb');
                 // $image->move($destinationPath, $image_name);
@@ -439,10 +427,10 @@ class CategoryController extends Controller
 
                 // $destinationPath = public_path('/images');
 
-                $destinationPath = public_path('images/categoryThumb/' . $image_name);
+                $destinationPath = public_path('images/categoryThumb/'.$image_name);
                 $imageTemp = $_FILES["files"]["tmp_name"][0];
 
-                if ($_FILES["files"]["size"][0] > 500000) {
+                if($_FILES["files"]["size"][0] > 500000) {
                     compressImage($imageTemp, $destinationPath, 90);
                 } else {
                     $destinationPath = public_path('images/categoryThumb');
@@ -451,18 +439,17 @@ class CategoryController extends Controller
                 //$image->move($destinationPath, $image_name);
 
 
-                return response()->json(['data' => 'images/categoryThumb/' . $image_name]);
+                return response()->json(['data' => 'images/categoryThumb/'.$image_name]);
             }
         }
     }
 
-    public function removefile(Request $request)
-    {
-        if (isset($request->action) && $request->action == 'removeCatIcon') {
+    public function removefile(Request $request) {
+        if(isset($request->action) && $request->action == 'removeCatIcon') {
             $image = $request->file;
-            if (isset($image)) {
+            if(isset($image)) {
                 $image = public_path($request->file);
-                if (file_exists($image)) {
+                if(file_exists($image)) {
                     unlink($image);
                     return response()->json(['status' => '200']);
                 }
@@ -470,37 +457,34 @@ class CategoryController extends Controller
         }
     }
 
-    public function createSlug($title, $id = 0)
-    {
+    public function createSlug($title, $id = 0) {
         $slug = str_slug($title);
         $allSlugs = $this->getRelatedSlugs($slug, $id);
-        if (!$allSlugs->contains('slug', $slug)) {
+        if(!$allSlugs->contains('slug', $slug)) {
             return $slug;
         }
 
         $i = 1;
         $is_contain = true;
         do {
-            $newSlug = $slug . '-' . $i;
-            if (!$allSlugs->contains('slug', $newSlug)) {
+            $newSlug = $slug.'-'.$i;
+            if(!$allSlugs->contains('slug', $newSlug)) {
                 $is_contain = false;
                 return $newSlug;
             }
             $i++;
-        } while ($is_contain);
+        } while($is_contain);
     }
-    protected function getRelatedSlugs($slug, $id = 0)
-    {
-        return Category::select('slug')->where('slug', 'like', $slug . '%')
+    protected function getRelatedSlugs($slug, $id = 0) {
+        return Category::select('slug')->where('slug', 'like', $slug.'%')
             ->where('id', '<>', $id)
             ->get();
     }
 
     public $catid = 0;
-    function getMainCategory($id)
-    {
+    function getMainCategory($id) {
         $category = \App\Models\Category::where('estatus', 1)->where('id', $id)->first();
-        if ($category->parent_category_id != 0) {
+        if($category->parent_category_id != 0) {
             $this->getMainCategory($category->parent_category_id);
         } else {
             $this->catid = $category->id;

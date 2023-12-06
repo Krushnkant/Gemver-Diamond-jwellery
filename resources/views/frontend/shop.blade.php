@@ -28,7 +28,7 @@
     <div class="row my-3">
         <div class="col-md-12 px-0">
             <div class="row">
-                <div class="">{!! $Category->category_description !!}</div>
+                <div class="text-left">{!! $Category->category_description !!}</div>
             </div>
         </div>
     </div>
