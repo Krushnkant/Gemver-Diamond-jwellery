@@ -243,6 +243,7 @@ class CategoryController extends Controller {
                     }
 
                     $action = '';
+                    $action .= '<a href="'.url('shop/'.$category->slug).'" class="btn btn-gray text-orange btn-sm" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>';
                     if(getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
                         $action .= '<button id="editCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="'.$category->id.'"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                     }

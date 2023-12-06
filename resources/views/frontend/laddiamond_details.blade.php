@@ -421,9 +421,13 @@
                                                 <div class="input-group-prepend">
                                                     <select class="d-block wire_bangle_input"
                                                         name="country_code_mobile">
-                                                        <option>+91 </option>
-                                                        <option>+1 </option>
-                                                        <option>+94 </option>
+                                                        @foreach($CountryCodeJson as $CountryCodeOpt)
+                                                        <option
+                                                            data-countryCode="<?php echo $CountryCodeOpt['code']; ?>"
+                                                            value="<?php echo $CountryCodeOpt['dial_code']; ?>">
+                                                            <?php echo $CountryCodeOpt['name'] . ' (' . $CountryCodeOpt['dial_code']. ')'; ?>
+                                                        </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <input type="text" name="mobile_no" id="mobile_no"
@@ -438,9 +442,13 @@
                                                 <div class="input-group-prepend">
                                                     <select class="d-block wire_bangle_input"
                                                         name="country_code_whatsapp">
-                                                        <option>+91 </option>
-                                                        <option>+1 </option>
-                                                        <option>+94 </option>
+                                                        @foreach($CountryCodeJson as $CountryCodeOpt)
+                                                        <option
+                                                            data-countryCode="<?php echo $CountryCodeOpt['code']; ?>"
+                                                            value="<?php echo $CountryCodeOpt['dial_code']; ?>">
+                                                            <?php echo $CountryCodeOpt['name'] . ' (' . $CountryCodeOpt['dial_code']. ')'; ?>
+                                                        </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <input type="text" name="whatsapp_number" id="whatsapp_number"

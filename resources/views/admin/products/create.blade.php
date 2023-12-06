@@ -144,8 +144,8 @@
                                 <div class="row form-group">
                                     <label class="col-lg-12 col-form-label" for="Desc">Description </label>
                                     <div class="col-lg-12">
-                                        <textarea type="text" class="form-control input-default" id="desc"
-                                            name="desc"></textarea>
+                                        <textarea type="text" class="form-control input-default" id="desc" name="desc"
+                                            rows="3"></textarea>
                                         <div id="desc-error" class="invalid-feedback animated fadeInDown"
                                             style="display: none;"></div>
                                     </div>

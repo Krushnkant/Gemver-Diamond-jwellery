@@ -150,7 +150,7 @@
 
 
                                 <div class="row form-group">
-                                    <label class="col-lg-12 col-form-label" for="Desc">Description</label>
+                                    <label class="col-lg-12 col-form-label" for="desc">Description</label>
                                     <div class="col-lg-12">
                                         <textarea type="text" class="form-control input-default" id="desc"
                                             name="desc">{{ $product->desc }}</textarea>
@@ -244,13 +244,13 @@
                                         id="">
                                         <option></option>
                                         <?php
-                                                            $attribute_check = array();
-                                                        ?>
+                                        $attribute_check = array();
+                                        ?>
                                         @if(count($product->product_attributes) > 0)
                                         @foreach($product->product_attributes as $product_attribute)
                                         <?php
-                                                                $attribute_check[] = $product_attribute['attribute_id'];
-                                                            ?>
+                                            $attribute_check[] = $product_attribute['attribute_id'];
+                                            ?>
                                         @endforeach
                                         @endif
                                         @foreach($attributes as $attr)

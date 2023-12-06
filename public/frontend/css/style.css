@@ -7608,3 +7608,7 @@ width: 100%;
         margin-right: 20px;
         margin-bottom: 20px;
     }
+
+    #InquiryCreateForm .input-group-prepend {
+        width: 30%;
+    }
