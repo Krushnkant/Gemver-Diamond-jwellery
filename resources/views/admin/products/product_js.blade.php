@@ -1376,8 +1376,8 @@
 
             $.ajax({
                 type: "GET",
-                url: '{{ url('admin/ addAttributebox') }}' + "/" + valuee,
-                data : { VariantCnt: VariantCnt, term_id: term_no, term_name: term_name, check_add: check_add },
+                url: '{{ url("admin/addAttributebox") }}' + "/" + valuee,
+                data: { VariantCnt: VariantCnt, term_id: term_no, term_name: term_name, check_add: check_add },
                 success: function (res) {
 
                     $("#save_attributes").show();
@@ -1410,18 +1410,18 @@
                     $("#attr-cover-spin").fadeOut();
                 }
 
-                
+
             });
 
-    AttributeSelCheckbox.push(term_no);
-    var attr_ids = AttributeSelCheckbox.join(",");
-    // alert(attr_ids);
-    $("#attr_ids").val(attr_ids);
-    $(this).prop('disabled', false);
+            AttributeSelCheckbox.push(term_no);
+            var attr_ids = AttributeSelCheckbox.join(",");
+            // alert(attr_ids);
+            $("#attr_ids").val(attr_ids);
+            $(this).prop('disabled', false);
 
-        }else {
-        $(this).prop('disabled', false);
-    }
+        } else {
+            $(this).prop('disabled', false);
+        }
         // else{
         //     html += '<div class="row mt-sm-3 mx-0">'+
 
