@@ -12,55 +12,56 @@ class BlogCategoryController extends Controller
 {
     private $page = "Blog Category";
 
-    public function index(){
+    public function index()
+    {
         $action = "list";
-        $categories = BlogCategory::where('estatus',1)->get();
-        return view('admin.blogcategories.list',compact('action','categories'))->with('page',$this->page);
+        $categories = BlogCategory::where('estatus', 1)->get();
+        return view('admin.blogcategories.list', compact('action', 'categories'))->with('page', $this->page);
     }
 
-    public function create(){
+    public function create()
+    {
         $action = "create";
-        $categories = BlogCategory::where('estatus',1)->get()->toArray();
-        return view('admin.blogcategories.list',compact('action','categories'))->with('page',$this->page);
+        $categories = BlogCategory::where('estatus', 1)->get()->toArray();
+        return view('admin.blogcategories.list', compact('action', 'categories'))->with('page', $this->page);
     }
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
         $messages = [
-            'category_name.required' =>'Please provide a Category Name',
+            'category_name.required' => 'Please provide a Category Name',
         ];
 
-        if(isset($request->action) && $request->action=="update"){
+        if (isset($request->action) && $request->action == "update") {
             $validator = Validator::make($request->all(), [
                 'category_name' => 'required',
             ], $messages);
-        }
-        else{
+        } else {
             $validator = Validator::make($request->all(), [
                 'category_name' => 'required',
             ], $messages);
         }
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
+            return response()->json(['errors' => $validator->errors(), 'status' => 'failed']);
         }
 
-        if (isset($request->action) && $request->action=="update"){
+        if (isset($request->action) && $request->action == "update") {
             $action = "update";
             $category = BlogCategory::find($request->category_id);
 
-            if(!$category){
+            if (!$category) {
                 return response()->json(['status' => '400']);
             }
 
             $category->category_name = $request->category_name;
 
-        }
-        else{
+        } else {
             $action = "add";
             $category = new BlogCategory();
             $category->category_name = $request->category_name;
             $category->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
-           
+
         }
 
         $category->save();
@@ -68,17 +69,18 @@ class BlogCategoryController extends Controller
         return response()->json(['status' => '200', 'action' => $action]);
     }
 
-    public function allblogcategorylist(Request $request){
+    public function allblogcategorylist(Request $request)
+    {
         if ($request->ajax()) {
             $columns = array(
-                0 =>'sr_no',
+                0 => 'sr_no',
                 1 => 'category_name',
                 2 => 'estatus',
                 3 => 'created_at',
                 4 => 'action',
             );
             $totalData = BlogCategory::count();
-            
+
             $totalFiltered = $totalData;
 
             $limit = $request->input('length');
@@ -86,63 +88,57 @@ class BlogCategoryController extends Controller
             $order = $columns[$request->input('order.0.column')];
             $dir = $request->input('order.0.dir');
 
-            if($order == "sr_no"){
+            if ($order == "sr_no") {
                 $order = "created_at";
                 $dir = 'desc';
             }
 
-            if(empty($request->input('search.value')))
-            {
+            if (empty($request->input('search.value'))) {
                 $categories = BlogCategory::offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
-              
-            }
-            else {
+
+            } else {
                 $search = $request->input('search.value');
-                $categories =  BlogCategory::Where('category_name', 'LIKE',"%{$search}%")
+                $categories = BlogCategory::Where('category_name', 'LIKE', "%{$search}%")
                     ->offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
 
 
-                $totalFiltered = BlogCategory::Where('category_name', 'LIKE',"%{$search}%")
+                $totalFiltered = BlogCategory::Where('category_name', 'LIKE', "%{$search}%")
                     ->count();
-          
+
             }
 
 
             $data = array();
 
-            if(!empty($categories))
-            {
-                foreach ($categories as $category)
-                {
-                    $page_id = ProjectPage::where('route_url','admin.categories.list')->pluck('id')->first();
+            if (!empty($categories)) {
+                foreach ($categories as $category) {
+                    $page_id = ProjectPage::where('route_url', 'admin.categories.list')->pluck('id')->first();
 
-                    if( $category->estatus==1 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_'. $category->id .'" onchange="chageCategoryStatus('. $category->id .')" value="1" checked="checked"><span class="slider round"></span></label>';
-                    }
-                    elseif ($category->estatus==1){
-                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_'. $category->id .'" value="1" checked="checked"><span class="slider round"></span></label>';
+                    if ($category->estatus == 1 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_' . $category->id . '" onchange="chageCategoryStatus(' . $category->id . ')" value="1" checked="checked"><span class="slider round"></span></label>';
+                    } elseif ($category->estatus == 1) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_' . $category->id . '" value="1" checked="checked"><span class="slider round"></span></label>';
                     }
 
-                    if( $category->estatus==2 && (getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id))) ){
-                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_'. $category->id .'" onchange="chageCategoryStatus('. $category->id .')" value="2"><span class="slider round"></span></label>';
-                    }
-                    elseif ($category->estatus==2){
-                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_'. $category->id .'" value="2"><span class="slider round"></span></label>';
+                    if ($category->estatus == 2 && (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id)))) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_' . $category->id . '" onchange="chageCategoryStatus(' . $category->id . ')" value="2"><span class="slider round"></span></label>';
+                    } elseif ($category->estatus == 2) {
+                        $estatus = '<label class="switch"><input type="checkbox" id="BlogCategoryStatuscheck_' . $category->id . '" value="2"><span class="slider round"></span></label>';
                     }
 
 
-                    $action='';
-                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_write($page_id)) ){
-                        $action .= '<button id="editBlogCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="' .$category->id. '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
+                    $action = '';
+                    if (getUSerRole() == 1 || (getUSerRole() != 1 && is_write($page_id))) {
+                        $action .= '<button id="editBlogCategoryBtn" class="btn btn-gray text-blue btn-sm" data-id="' . $category->id . '"><i class="fa fa-pencil" aria-hidden="true"></i></button>';
                     }
-                    if ( getUSerRole()==1 || (getUSerRole()!=1 && is_delete($page_id)) ){
-                        $action .= '<button id="deleteBlogCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBlogCategoryModal" onclick="" data-id="' .$category->id. '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+                    if (getUSerRole() == 1 || (getUSerRole() != 1 && is_delete($page_id))) {
+                        $action .= '<button id="deleteBlogCategoryBtn" class="btn btn-gray text-danger btn-sm" data-toggle="modal" data-target="#DeleteBlogCategoryModal" onclick="" data-id="' . $category->id . '"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
                     }
                     $nestedData['category_name'] = $category->category_name;
                     $nestedData['estatus'] = $estatus;
@@ -153,8 +149,8 @@ class BlogCategoryController extends Controller
             }
 
             $json_data = array(
-                "draw"            => intval($request->input('draw')),
-                "recordsTotal"    => intval($totalData),
+                "draw" => intval($request->input('draw')),
+                "recordsTotal" => intval($totalData),
                 "recordsFiltered" => intval($totalFiltered),
                 "data" => $data,
             );
@@ -162,38 +158,41 @@ class BlogCategoryController extends Controller
         }
     }
 
-    public function changeblogcategorystatus($id){
+    public function changeblogcategorystatus($id)
+    {
         $category = BlogCategory::find($id);
-        if ($category->estatus==1){
+        if ($category->estatus == 1) {
             $category->estatus = 2;
             $category->save();
-            return response()->json(['status' => '200','action' =>'deactive']);
+            return response()->json(['status' => '200', 'action' => 'deactive']);
         }
-        if ($category->estatus==2){
+        if ($category->estatus == 2) {
             $category->estatus = 1;
             $category->save();
-            return response()->json(['status' => '200','action' =>'active']);
+            return response()->json(['status' => '200', 'action' => 'active']);
         }
     }
 
-    public function deletecategory($id){
+    public function deletecategory($id)
+    {
         $category = BlogCategory::find($id);
-        if ($category){
+        if ($category) {
             $category->estatus = 3;
             $category->save();
             $category->delete();
-          
+
             return response()->json(['status' => '200']);
         }
         return response()->json(['status' => '400']);
     }
 
-    public function editcategory($id){
+    public function editcategory($id)
+    {
         $action = "edit";
         //$categories = BlogCategory::where('estatus',1)->where('id',"!=",$id)->where('parent_category_id',"!=",$id)->get()->toArray();
         $category = BlogCategory::find($id);
-        
-        return view('admin.blogcategories.list',compact('action','category'))->with('page',$this->page);
+
+        return view('admin.blogcategories.list', compact('action', 'category'))->with('page', $this->page);
     }
 
 }
