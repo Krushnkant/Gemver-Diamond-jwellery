@@ -419,8 +419,9 @@
                                         <div class="mb-3 col-md-12 ps-0">
                                             <div class="input-group ">
                                                 <div class="input-group-prepend">
-                                                    <select class="d-block wire_bangle_input"
+                                                    <select class="d-block wire_bangle_input" id="country_code_mobile"
                                                         name="country_code_mobile">
+                                                        <option></option>
                                                         @foreach($CountryCodeJson as $CountryCodeOpt)
                                                         <option
                                                             data-countryCode="<?php echo $CountryCodeOpt['code']; ?>"
@@ -1463,6 +1464,12 @@
             var id = $(this).data('id');
             $('#load_more_button').html('<b>Loading...</b>');
             load_data(id, _token);
+        });
+
+        $('#country_code_mobile').select2({
+            width: '100%',
+            placeholder: "Select Country Code",
+            allowClear: false
         });
 
     });
