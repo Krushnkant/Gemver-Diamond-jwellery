@@ -152,7 +152,7 @@ class InquiryController extends Controller
                     }
 
                     if ($inquiry->stone_no != '') {
-
+                        $diamond_info = "";
                         $item_details = json_decode($inquiry->item_details, true);
                         if (isset($item_details['diamondId'])) {
                             $diamond_info = '<img src="' . $item_details['DiamondImage'] . '" width="80px" class="mr-3 float-left" height="80px" />';
