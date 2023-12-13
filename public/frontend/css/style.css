@@ -1947,7 +1947,7 @@ background-size: cover;
         line-height: 20px;
         letter-spacing: 0.05em;
         color: var(--primary);
-        opacity: 0.5;
+        /* opacity: 0.5; */
         width: 100%;
     }
 
