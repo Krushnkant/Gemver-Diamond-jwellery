@@ -131,6 +131,13 @@
                     <i class="fa fa-dashboard"></i><span class="nav-text">Dashboard</span>
                     </a>
                 </li> --}}
+                @php 
+                    $NewOpinion = 0;
+                    $NewContactInquiry = 0;
+                    $totalOrderCount = 0;
+                    $totalPaymentCount = 0;
+                    $totalInquiryCount = 0;
+                @endphp
                 @php $leftMenuPages = getLeftMenuPages(); @endphp
 
                 @foreach($leftMenuPages as $page)
@@ -181,7 +188,7 @@
                             @if($subpage['route_url'] == "admin.orders.list")
                             <?php
                             $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
-                            
+                            $totalOrderCount = $order_count;
                             ?>
                                 @if(count($order_count) > 0)
                                     <?php $menu_count = $menu_count + count($order_count); ?>
@@ -191,6 +198,7 @@
                             @if($subpage['route_url'] == "admin.return_requests_order.list")
                             <?php
                                 $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
+                                $totalPaymentCount = $payment_count;
                             ?>
                                 @if(count($payment_count) > 0)
                                   <?php $menu_count = $menu_count + count($payment_count); ?>
@@ -200,9 +208,30 @@
                             @if($subpage['route_url'] == "admin.inquiries.list")
                                 <?php
                                     $inquiry_count = \App\Models\Inquiry::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
+                                    $totalInquiryCount = $inquiry_count;
                                 ?>
                                 @if(count($inquiry_count) > 0)
                                    <?php $menu_count = $menu_count + count($inquiry_count); ?>
+                                @endif
+                            @endif
+
+                            @if($subpage['route_url'] == "admin.opinions.list")
+                                <?php
+                                    $opinion_count = \App\Models\Opinion::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
+                                    $NewOpinion = $opinion_count;
+                                ?>
+                                @if(count($opinion_count) > 0)
+                                   <?php $menu_count = $menu_count + count($opinion_count); ?>
+                                @endif
+                            @endif
+
+                            @if($subpage['route_url'] == "admin.contacts.list")
+                                <?php
+                                    $contact_inq_count = \App\Models\ContactUs::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
+                                    $NewContactInquiry = $contact_inq_count;
+                                ?>
+                                @if(count($contact_inq_count) > 0)
+                                   <?php $menu_count = $menu_count + count($contact_inq_count); ?>
                                 @endif
                             @endif
                         @endforeach
@@ -219,29 +248,32 @@
                                     <li><a href="{{ isset($subpage['route_url']) ? route($subpage['route_url']) : '#' }}">{{ $subpage['label'] }} 
                                       
                                         @if($subpage['route_url'] == "admin.orders.list")
-                                            <?php
-                                            $order_count = \App\Models\Order::whereIn('order_status',array('1','4'))->get()->toArray();
-                                            ?>
-                                            @if(count($order_count) > 0)
-                                                <span class="badge badge-primary text-white float-right">{{ count($order_count) }}</span>
+                                            @if(count($totalOrderCount) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($totalOrderCount) }}</span>
                                             @endif
                                         @endif
 
                                         @if($subpage['route_url'] == "admin.return_requests_order.list")
-                                            <?php
-                                                $payment_count = \App\Models\Order::whereIn('payment_status',array('6'))->get()->toArray();
-                                            ?>
-                                            @if(count($payment_count) > 0)
-                                                <span class="badge badge-primary text-white float-right">{{ count($payment_count) }}</span>
+                                            @if(count($totalPaymentCount) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($totalPaymentCount) }}</span>
                                             @endif
                                         @endif
 
                                         @if($subpage['route_url'] == "admin.inquiries.list")
-                                            <?php
-                                                $inquiry_count = \App\Models\Inquiry::whereDate('created_at', '=', date('Y-m-d'))->get()->toArray();
-                                            ?>
-                                            @if(count($inquiry_count) > 0)
-                                                <span class="badge badge-primary text-white float-right">{{ count($inquiry_count) }}</span>
+                                            @if(count($totalInquiryCount) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($totalInquiryCount) }}</span>
+                                            @endif
+                                        @endif
+
+                                        @if($subpage['route_url'] == "admin.opinions.list")
+                                            @if(count($NewOpinion) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($NewOpinion) }}</span>
+                                            @endif
+                                        @endif
+
+                                        @if($subpage['route_url'] == "admin.contacts.list")
+                                            @if(count($NewContactInquiry) > 0)
+                                                <span class="badge badge-primary text-white float-right">{{ count($NewContactInquiry) }}</span>
                                             @endif
                                         @endif
 
