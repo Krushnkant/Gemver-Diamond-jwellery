@@ -63,237 +63,242 @@ class ProductController extends Controller {
         return view('frontend.product', compact('Product', 'variantid', 'attribute_term_ids', 'settings', 'primary_category_idss', 'CountryCodeJson'))->with(['meta_title' => $meta_title, 'meta_description' => $meta_description, 'title' => $Product->product_title]);
     }
 
-    public function fetchproduct(Request $request) {
+    public function fetchproduct(Request $request){
+        
         $data = $request->all();
-
         if(isset($data["action"])) {
-
+           
             //$attr = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             //\DB::enableQueryLog(); 
-            $query = Product::select('products.id', 'products.product_title', 'products.primary_category_id', 'product_variants.slug', 'product_variants.alt_text', 'product_variants.images', 'product_variants.regular_price', 'product_variants.sale_price', 'product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->where(['products.is_custom' => 0, 'products.estatus' => 1, 'product_variants.estatus' => 1]);
-
-
-            if(isset($request->keyword) && $request->keyword != "") {
+            $query = Product::select('products.id','products.product_title','products.primary_category_id','product_variants.slug','product_variants.alt_text','product_variants.images','product_variants.regular_price','product_variants.sale_price','product_variants.id as variant_id')->leftJoin("product_variants", "product_variants.product_id", "=", "products.id")->leftJoin("product_attributes", "product_attributes.product_id", "=", "products.id")->leftJoin("product_variant_variants", "product_variant_variants.product_variant_id", "=", "product_variants.id")->where(['products.is_custom' => 0,'products.estatus' => 1,'product_variants.estatus' => 1]);
+            
+            if(isset($request->keyword) && $request->keyword != ""){
                 // This will only execute if you received any keyword
-                $query = $query->where('products.product_title', 'LIKE', '%'.$request->keyword.'%');
-                $query = $query->where('products.desc', 'LIKE', '%'.$request->keyword.'%');
+                $query = $query->where('products.product_title','LIKE','%'.$request->keyword.'%');
+                $query = $query->where('products.desc','LIKE','%'.$request->keyword.'%');
             }
 
-            if(isset($request->slug) && $request->slug != 0) {
+            if(isset($request->slug) && $request->slug != 0){
                 if(str_contains($request->slug, 'yellow-gold')) {
-                    $query = $query->where('product_variants.term_item_id', 1);
+                    $query = $query->where('product_variant_variants.attribute_term_id',1);
                 } elseif(str_contains($request->slug, 'rose-gold')) {
-                    $query = $query->where('product_variants.term_item_id', 3);
+                    $query = $query->where('product_variant_variants.attribute_term_id',3);
                 } else {
-                    $query = $query->where('product_variants.term_item_id', 2);
+                    $query = $query->where('product_variant_variants.attribute_term_id',2);
                 }
             } else {
-                $query = $query->where('product_variants.term_item_id', 2);
+               // $query = $query->where('product_variants.term_item_id',2);
+                $query = $query->whereRaw('FIND_IN_SET(?, product_attributes.terms_id)', [2]);
+            }
+            
+            if($data["minimum_price"] && $data["maximum_price"]){
+                $query = $query->where('product_variants.sale_price','>=',$data["minimum_price"]);
+                $query = $query->where('product_variants.sale_price','<=',$data["maximum_price"]);
             }
 
-            if($data["minimum_price"] && $data["maximum_price"]) {
-                $query = $query->where('product_variants.sale_price', '>=', $data["minimum_price"]);
-                $query = $query->where('product_variants.sale_price', '<=', $data["maximum_price"]);
-            }
-
-            if($data["minimum_price_input"] && $data["maximum_price_input"]) {
+            if($data["minimum_price_input"] && $data["maximum_price_input"]){
+                $query = $query->where('product_variants.sale_price','>=',$data["minimum_price_input"]);
+                $query = $query->where('product_variants.sale_price','<=',$data["maximum_price_input"]);
+            } elseif (!empty($data["minimum_price_input"])) {
                 $query = $query->where('product_variants.sale_price', '>=', $data["minimum_price_input"]);
-                $query = $query->where('product_variants.sale_price', '<=', $data["maximum_price_input"]);
-            } elseif(!empty($data["minimum_price_input"])) {
-                $query = $query->where('product_variants.sale_price', '>=', $data["minimum_price_input"]);
-            } elseif(!empty($data["maximum_price_input"])) {
+            } elseif (!empty($data["maximum_price_input"])) {
                 $query = $query->where('product_variants.sale_price', '<=', $data["maximum_price_input"]);
             }
             //dd($data["category"][0]);
-            if(isset($data["category"])) {
+            if(isset($data["category"])){
                 $cat_id = $data["category"];
                 //$query = $query->where('primary_category_id',$data["category"][0]);
                 //$query = $query->WhereRaw("FIND_IN_SET($cat_id, primary_category_id)");
-                $query = $query->where(function ($q) use ($cat_id) {
-                    foreach($cat_id as $key => $c) {
-                        if($key == 0) {
-                            $q = $q->whereRaw('FIND_IN_SET('.$c.',primary_category_id)');
+                $query = $query->where(function($q) use($cat_id){
+                    foreach($cat_id as $key=>$c){
+                        if ($key == 0) {
+                            $q = $q->whereRaw('FIND_IN_SET(' . $c . ',primary_category_id)');
                         } else {
-                            $q = $q->orWhere(function ($query1) use ($c) {
-                                $query1->whereRaw('FIND_IN_SET('.$c.',primary_category_id)');
+                            $q = $q->orWhere(function ($query1) use ($c){
+                                $query1->whereRaw('FIND_IN_SET(' . $c . ',primary_category_id)');
                             });
                         }
                     }
                 });
             }
-
-            if(isset($data["attribute"])) {
-                $attribute = $data["attribute"];
-                $query = $query->where(function ($q) use ($attribute) {
-                    foreach($attribute as $key => $c) {
-                        if($key == 0) {
-                            $q = $q->whereRaw('FIND_IN_SET('.$c.',product_attributes.terms_id)');
-                        } else {
-                            $q = $q->orWhere(function ($query1) use ($c) {
-                                $query1->whereRaw('FIND_IN_SET('.$c.',product_attributes.terms_id)');
-                            });
-                        }
+            
+            if(isset($data["attribute"])){
+                $attribute=$data["attribute"];
+               $query = $query->where(function($q) use($attribute){
+                foreach($attribute as $key=>$c){
+                    if ($key == 0) {
+                        $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                    } else {
+                        $q = $q->orWhere(function ($query1) use ($c){
+                            $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                        });
                     }
-                });
+                }
+               });
             }
 
-            if(isset($data["selectattribute"])) {
-                $selectattribute = $data["selectattribute"];
-                $query = $query->where(function ($q) use ($selectattribute) {
-                    foreach($selectattribute as $key => $c) {
-                        if($key == 0) {
-                            $q = $q->whereRaw('FIND_IN_SET('.$c.',product_attributes.terms_id)');
-                        } else {
-                            $q = $q->orWhere(function ($query1) use ($c) {
-                                $query1->whereRaw('FIND_IN_SET('.$c.',product_attributes.terms_id)');
-                            });
-                        }
+            if(isset($data["selectattribute"])){
+                $selectattribute=$data["selectattribute"];
+               $query = $query->where(function($q) use($selectattribute){
+                foreach($selectattribute as $key=>$c){
+                    if ($key == 0) {
+                        $q = $q->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                    } else {
+                        $q = $q->orWhere(function ($query1) use ($c){
+                            $query1->whereRaw('FIND_IN_SET(' . $c . ',product_attributes.terms_id)');
+                        });
                     }
-                });
+                }
+               });
             }
 
-            if(isset($data["specification"])) {
-                $specification = $data["specification"];
-                $query = $query->where('product_variant_specifications.attribute_term_id', $specification);
-                $query = $query->where('product_variant_specifications.estatus', 1);
+            if(isset($data["specification"])){
+                $specification=$data["specification"];
+                $query = $query->where('product_variant_specifications.attribute_term_id',$specification);
+                $query = $query->where('product_variant_specifications.estatus',1);
             }
             $result_total = $query->groupBy('products.id')->get();
-
-            if(isset($data["sorting"])) {
-                if($data["sorting"] == "date") {
-                    $query = $query->orderBy('products.created_at', 'DESC')->groupBy('products.id')->paginate(8);
-                } else if($data["sorting"] == "price") {
-                    $query = $query->orderBy('product_variants.sale_price', 'ASC')->groupBy('products.id')->paginate(8);
-                } else if($data["sorting"] == "price-desc") {
-                    $query = $query->orderBy('product_variants.sale_price', 'DESC')->groupBy('products.id')->paginate(8);
-                } else {
-                    $query = $query->orderBy('products.created_at', 'ASC')->groupBy('products.id')->paginate(8);
+           
+            if(isset($data["sorting"])){ 
+                if($data["sorting"]== "date")   
+                {
+                    $query = $query->orderBy('products.created_at','DESC')->groupBy('products.id')->paginate(8);  
+                }
+                else if($data["sorting"] == "price")
+                {
+                    $query = $query->orderBy('product_variants.sale_price','ASC')->groupBy('products.id')->paginate(8); 
+                }
+                else if($data["sorting"]=="price-desc")
+                {
+                    $query = $query->orderBy('product_variants.sale_price','DESC')->groupBy('products.id')->paginate(8); 
+                }else{
+                    $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);  
                 }
             } else {
-
-                $query = $query->orderBy('products.created_at', 'ASC')->groupBy('products.id')->paginate(8);
+                $query = $query->orderBy('products.created_at','ASC')->groupBy('products.id')->paginate(8);
             }
             // dd(\DB::getQueryLog());
             //$result = $query->groupBy('products.id')->paginate(12);
             $output = '';
-            if(count($query) > 0) {
-                foreach($query as $row) {
-                    $supported_image = array('jpg', 'jpeg', 'png');
-                    $images = explode(",", $row->images);
+            if(count($query) > 0){
+                foreach($query as $row)
+                {
+                    $supported_image = array('jpg','jpeg','png');
+                    $images = explode(",",$row->images);
                     $image = URL($images['0']);
 
                     $alt_text = "";
-
-                    if($row->alt_text != "") {
-                        $alt_texts = explode(",", $row->alt_text);
+                
+                    if($row->alt_text != ""){
+                        $alt_texts = explode(",",$row->alt_text);
                         $alt_text = $alt_texts['0'];
                     }
-
-                    $ext = pathinfo($image, PATHINFO_EXTENSION);
+                    
+                    $ext = pathinfo($image, PATHINFO_EXTENSION); 
                     $sale_price = $row->sale_price;
-                    $url = URL('product-details/'.$row->slug);
+                    $url =  URL('product-details/'.$row->slug);
                     $output .= '
-                <div class="col-6 col-sm-4 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
-                    <div class="wire_bangle_img_radio_button">
-                        <div class="wire_bangle_img mb-3 position-relative">
-                            <a class="wire_bangle_hover_a" href="'.$url.'">
-                            
-                               ';
-                    if(in_array($ext, $supported_image)) {
-                        $output .= '<img src="'.$image.'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
-                    } else {
-                        $image2 = URL($images['1']);
-                        $output .= '<img src="'.$image2.'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
-                    }
-                    $output .= '</a>
-                        </div><div class="text-center product-thumb-group">';
-                    $image_no = 1;
-                    foreach($images as $key => $image) {
-                        $alt_text = "";
-                        if($row->alt_text != "") {
-                            $alt_texts = explode(",", $row->alt_text);
-                            $alt_text = $alt_texts[$key];
-                        }
-
-                        if($image_no <= 3) {
-                            $ext = pathinfo($image, PATHINFO_EXTENSION);
-                            if(in_array($ext, $supported_image)) {
-                                $output .= '<span class="form-check d-inline-block ">
-                            <a href="javascript:void(0)">
-                            
-                            <img src="'.URL($image).'" style="width:40px; height: 40px;" alt="'.$alt_text.'" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
-                            </a>
-                            <div class="wire_bangle_color_input_label"></div>
-                        </span>';
+                    <div class="col-sm-6 col-lg-4 col-xl-3 mt-3 mt-md-4 hover_effect_part wire_bangle_shop_radio">
+                        <div class="wire_bangle_img_radio_button">
+                            <div class="wire_bangle_img mb-3 position-relative">
+                                <a class="wire_bangle_hover_a" href="'.$url.'">
+                                
+                                '; 
+                                if(in_array($ext, $supported_image)) {
+                                    $output .=  '<img src="'.  $image  .'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
+                                }else{
+                                    $image2 = URL($images['1']);
+                                    $output .=  '<img src="'.  $image2  .'" alt="'.$alt_text.'" class="main-product-image-'.$row->id.'">';
+                                }
+                                $output .=  '</a>
+                            </div><div class="text-center">';
+                            $image_no = 1;
+                            foreach($images as $key => $image){
+                                $alt_text = "";
+                                if($row->alt_text != ""){
+                                    $alt_texts = explode(",",$row->alt_text);
+                                    $alt_text = $alt_texts[$key];
+                                }
+                                
+                            if($image_no <= 3){ 
+                            $ext = pathinfo($image, PATHINFO_EXTENSION); 
+                            if(in_array($ext, $supported_image)) {     
+                            $output .= '<span class="form-check d-inline-block ">
+                                <a href="">
+                                
+                                <img src="'.URL($image) .'" style="width:40px; height: 40px;" alt="'.$alt_text.'" data-id="'.$row->id.'" class="wire_bangle_color_img pe-auto product-image ">
+                                </a>
+                                <div class="wire_bangle_color_input_label"></div>
+                            </span>';
                             }
-                        }
-                        $image_no++;
-                    }
-                    $output .= ' </div><div class="wire_bangle_description p-3">';
+                            }
+                            $image_no++;
+                            }
+                            $output .= ' </div><div class="wire_bangle_description p-3">';
 
-                    //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
-                    $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms", function ($join) {
-                        $join->on("product_variant_variants.attribute_term_id", "=", "attribute_terms.id")
-                            ->whereNotNull('attrterm_thumb');
-                    })->where('product_variant_variants.estatus', 1)->where('product_variant_variants.product_id', $row->id)->groupBy('product_variant_variants.attribute_id')->get();
-                    foreach($ProductVariantVariant as $productvariants) {
-                        //if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$row->id)->groupBy('attribute_id')->get();
+                                $ProductVariantVariant = \App\Models\ProductVariantVariant::leftJoin("attribute_terms",function($join){
+                                    $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
+                                        ->whereNotNull('attrterm_thumb');
+                                })->where('product_variant_variants.estatus',1)->where('product_variant_variants.product_id',$row->id)->groupBy('product_variant_variants.attribute_id')->get();
+                                foreach($ProductVariantVariant as $productvariants){
+                                    //if($productvariants->attribute_terms['0']->attrterm_thumb != ''){
+                                
+                                        $output .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part"><div class="wire_bangle_color_part">';
+                                    
+                                        $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$row->id)->groupBy('attribute_term_id')->get();
+                                        $ia = 1;
+                                        
+                                        foreach($product_attribute as $attribute_term){
 
-                        $output .= '<span class="wire_bangle_color mb-xxl-0 wire_bangle_color_img_part text-center wire_bangle_color_ring_part"><div class="wire_bangle_color_part">';
-
-                        $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms', 'product_variant')->where('estatus', 1)->where('attribute_id', $productvariants->attribute_id)->where('product_id', $row->id)->groupBy('attribute_term_id')->get();
-                        $ia = 1;
-
-                        foreach($product_attribute as $attribute_term) {
-
-                            $attributeurl = URL('product-details/'.$attribute_term->product_variant->slug);
-
-                            $output .= '<span class="form-check d-inline-block">
-                                            <a href="'.$attributeurl.'">
-                                            
-                                            <img src="'.url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb).'" alt="'.$attribute_term->attribute_terms[0]->display_attrname.'"  class="wire_bangle_color_img pe-auto">
-                                            </a>
-                                            <div class="wire_bangle_color_input_label"></div>
-                                        </span>';
-                            $ia++;
-                        }
-                        $output .= '</div></span>';
-
-                        //}
-                    }
-
-                    $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name.'
-                            <input type="hidden" class="variant_id" value="'.$row->variant_id.'">    
-                            <input type="hidden" class="item_type" value="0">    
-                            <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
-
-                    if(is_wishlist($row->variant_id, 0)) {
-                        $output .= ' <i class="fas fa-heart heart-icon-part"></i>';
-                    } else {
-                        $output .= ' <i class="far fa-heart"></i> ';
-                    }
-                    $output .= '</span>
+                                            $attributeurl =  URL('product-details/'.$attribute_term->product_variant->slug); 
+                                        
+                                            $output .= '<span class="form-check d-inline-block">
+                                                <a href="'.$attributeurl.'">
+                                                
+                                                <img src="'. url('images/attrTermThumb/'.$attribute_term->attribute_terms[0]->attrterm_thumb) .'" alt="'.$attribute_term->attribute_terms[0]->display_attrname .'"  class="wire_bangle_color_img pe-auto">
+                                                </a>
+                                                <div class="wire_bangle_color_input_label"></div>
+                                            </span>';
+                                            $ia++;    
+                                        }
+                                        $output .= '</div></span>';
+                                    
+                                    //}
+                                }
                             
+                                $output .= '<div class="wire_bangle_heading mb-2">'.$row->primary_category->category_name .'
+                                <input type="hidden" class="variant_id" value="'. $row->variant_id .'">    
+                                <input type="hidden" class="item_type" value="0">    
+                                <span type="button" class="btn btn-default add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">';
+                            
+                                if(is_wishlist($row->variant_id,0)){    
+                                    $output .= ' <i class="fas fa-heart heart-icon-part"></i>';
+                                } else { 
+                                    $output .= ' <i class="far fa-heart"></i> ';
+                                }
+                                $output .= '</span>
+                                
+                                </div>
+                                <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'. $row->product_title .'</a></div>
+                                <div class="d-flex justify-content-between pt-2 align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <span class="wire_bangle_price wire_bangle_price_part">
+                                    $'.$sale_price .'</span>';
+                                    if($row->regular_price != ""){
+                                        $output.='<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">'. $row->regular_price .'</span></span>';
+                                    }
+                                    $output.='</div>';
+                                    $output .= ' </div>
                             </div>
-                            <div class="wire_bangle_sub_heading wire_bangle_description"><a href="'.$url.'">'.$row->product_title.'</a></div>
-                            <div class="d-flex justify-content-between pt-2 align-items-center">
-                                <div class="d-flex align-items-center">
-                                <span class="wire_bangle_price wire_bangle_price_part">
-                                $'.$sale_price.'</span>';
-                    if($row->regular_price != "") {
-                        $output .= '<span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">$<span class="regular_price">'.$row->regular_price.'</span></span>';
-                    }
-                    $output .= '</div>';
-                    $output .= ' </div>
                         </div>
                     </div>
-                </div>
-                ';
+                    ';
                 }
             } else {
-                $output .= '';
-            }
-            $data = ['output' => $output, 'datacount' => count($result_total)];
+                $output .= '';  
+            } 
+            $data = ['output' => $output,'datacount' => count($result_total)];   
             return $data;
         }
     }
