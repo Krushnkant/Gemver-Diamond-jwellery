@@ -85,6 +85,17 @@
             <?php } ?>
             <div id="bannerthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
         </div>
+
+        <div class="form-group">
+            <label class="col-form-label" for="direction">Direction
+            </label>
+            <select class="form-control" id="direction" name="direction">
+                <option value="center" @if('center' == $banner->direction) selected @endif>Center</option>
+                <option value="right" @if('right' == $banner->direction) selected @endif>Right</option>
+                <option value="left" @if('left' == $banner->direction) selected @endif>Left</option>
+            </select>
+        </div>
+
         <div class="form-group">
             <label class="col-form-label" for="button_name">Button Name 
             </label>

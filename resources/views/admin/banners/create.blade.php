@@ -35,6 +35,16 @@
     </div>
 
     <div class="form-group">
+        <label class="col-form-label" for="direction">Direction
+        </label>
+        <select class="form-control" id="direction" name="direction">
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+        </select>
+    </div>
+
+    <div class="form-group">
         <label class="col-form-label" for="button_name">Button Name 
         </label>
         <input type="text" class="form-control input-flat" id="button_name" name="button_name">
