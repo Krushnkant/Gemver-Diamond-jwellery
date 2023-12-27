@@ -100,6 +100,7 @@ class BannerController extends Controller
             }
             $banner->title = $request->title;
             $banner->description = $request->description;
+            $banner->direction = $request->direction;
             $banner->button_name = $request->button_name;
             $banner->application_dropdown_id = $request->BannerInfo;
             $banner->value = $request->value;
@@ -113,6 +114,7 @@ class BannerController extends Controller
             $banner->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
             $banner->banner_thumb = $request->catImg;
             $banner->mobile_banner_thumb = $request->bannerImg;
+            $banner->direction = $request->direction;
             $banner->description = $request->description;
             $banner->application_dropdown_id = $request->BannerInfo;
             $banner->value = $request->value;
