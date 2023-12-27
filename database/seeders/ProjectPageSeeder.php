@@ -726,6 +726,27 @@ class ProjectPageSeeder extends Seeder
             
         ]);
 
+        ProjectPage::create([
+            'id' => 72,
+            'parent_menu' => 0,
+            'label' => 'Deal',
+            'route_url' => 'admin.deals.list',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.deals.list,admin.deals.add,admin.deals.save,admin.alldeallist,admin.deals.edit,admin.deals.delete',
+            'icon_class' => 'icon-badge', 
+            'sr_no' => 11
+        ]);
+
+        ProjectPage::create([
+            'id' => 73,
+            'parent_menu' => 0,
+            'label' => 'Redirect Page',
+            'route_url' => 'admin.redirect.list',
+            'is_display_in_menu' => 0,
+            'inner_routes' => 'admin.redirect.list,admin.redirect.add,admin.redirect.save,admin.allredirectlist,admin.redirect.edit,admin.redirect.delete',
+            'icon_class' => 'icon-badge', 
+            'sr_no' => 11
+        ]);
 
         
         $users = User::where('role',"!=",1)->get();

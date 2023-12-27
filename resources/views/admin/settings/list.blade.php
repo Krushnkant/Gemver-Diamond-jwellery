@@ -101,6 +101,10 @@
                                         <th style="width: 50%">Max Order Price</th>
                                         <td><span id="max_order_price_val">{{ $Settings->max_order_price }}</span></td>
                                     </tr>
+                                    <tr>
+                                        <th style="width: 50%">Instagram Token</th>
+                                        <td><span id="instagram_token">{{ $Settings->instagram_token }}</span></td>
+                                    </tr>
 
                                     <!-- <tr>
                                         <th style="width: 50%">Comapny Address Map</th>
@@ -290,6 +294,12 @@
                             <textarea class="form-control input-flat" id="company_address_map" name="company_address_map" placeholder=""></textarea>
                             <div id="company_address_map-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="instagram_token">Instagram Token<span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control input-flat" id="instagram_token" name="instagram_token" placeholder=""></textarea>
+                            <div id="instagram_token-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
@@ -327,6 +337,7 @@
         $('#facebook_url-error').html("");
         $('#company_address_map-error').html("");
         $('#max_order_price-error').html("");
+        $('#instagram_token-error').html("");
         var default_image = "{{ url('images/placeholder_image.png') }}";
         $('#company_logo_image_show').attr('src', default_image);
     });
@@ -348,6 +359,7 @@
             $('#facebook_url').val(data.facebook_url);
             $('#company_address_map').val(data.company_address_map);
             $('#max_order_price').val(data.max_order_price);
+            $('#instagram_token').val(data.instagram_token);
             if(data.company_logo==null){
                 var default_image = "{{ url('images/placeholder_image.png') }}";
                 $('#company_logo_image_show').attr('src', default_image);
@@ -489,6 +501,7 @@
                     $("#facebook_url_val").html(res.Settings.facebook_url);
                     $("#company_address_map").html(res.Settings.company_address_map);
                     $("#max_order_price_val").html(res.Settings.max_order_price);
+                    $("#instagram_token").html(res.Settings.instagram_token);
                     toastr.success("Settings Updated",'Success',{timeOut: 5000});
                 }
 

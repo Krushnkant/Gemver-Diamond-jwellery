@@ -81,6 +81,7 @@ class SettingsController extends Controller
         $Settings->facebook_url = $request->facebook_url;
         $Settings->company_address_map = $request->company_address_map;   
         $Settings->max_order_price = $request->max_order_price;   
+        $Settings->instagram_token = $request->instagram_token;   
         $old_image = $Settings->company_logo;
         if ($request->hasFile('company_logo')) {
             $image = $request->file('company_logo');

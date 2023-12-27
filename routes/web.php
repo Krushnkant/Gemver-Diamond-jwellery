@@ -47,6 +47,8 @@ Route::get('/clear-cache', function() {
 
 Route::get('/sitemap.xml',[HomeController::class,'sitemap']);
 
+Route::middleware(['check.old.urls'])->group(function () {
+
 Route::get('/',[HomeController::class,'index'])->name('frontend.home');
 Route::get('/home',[HomeController::class,'index1'])->name('frontend.home1');
 Route::get('/home1',[HomeController::class,'index2'])->name('frontend.home2');
@@ -195,6 +197,8 @@ Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity'
 
  Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
  Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
+
+});
 
 Route::group(['middleware'=>['frontendauth']],function (){
 
@@ -635,6 +639,24 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('allcouponlist',[\App\Http\Controllers\admin\CouponController::class,'allcouponlist'])->name('allcouponlist');
     Route::get('coupons/{id}/edit',[\App\Http\Controllers\admin\CouponController::class,'editcoupon'])->name('coupons.edit');
     Route::get('coupons/{id}/delete',[\App\Http\Controllers\admin\CouponController::class,'deletecoupon'])->name('coupons.delete');
+
+    Route::get('redirect',[\App\Http\Controllers\admin\RedirectController::class,'index'])->name('redirect.list');
+    Route::get('redirect/create',[\App\Http\Controllers\admin\RedirectController::class,'create'])->name('redirect.add');
+    Route::post('redirect/save',[\App\Http\Controllers\admin\RedirectController::class,'save'])->name('redirect.save');
+    Route::post('allredirectlist',[\App\Http\Controllers\admin\RedirectController::class,'allredirectlist'])->name('allcouponlist');
+    Route::get('redirect/{id}/edit',[\App\Http\Controllers\admin\RedirectController::class,'editredirect'])->name('redirect.edit');
+    Route::get('redirect/{id}/delete',[\App\Http\Controllers\admin\RedirectController::class,'deleteredirect'])->name('redirect.delete');
+    Route::get('redirect-file-import',[\App\Http\Controllers\admin\RedirectController::class,'importView'])->name('redirect.importview');
+    Route::post('redirect-import',[\App\Http\Controllers\admin\RedirectController::class,'import'])->name('redirect.import.save');
+    Route::get('redirect-export', [\App\Http\Controllers\admin\RedirectController::class, 'export'])->name('redirect.export');
+    
+
+    Route::get('deals',[\App\Http\Controllers\admin\DealController::class,'index'])->name('deals.list');
+    Route::get('deals/create',[\App\Http\Controllers\admin\DealController::class,'create'])->name('deals.add');
+    Route::post('deals/save',[\App\Http\Controllers\admin\DealController::class,'save'])->name('deals.save');
+    Route::post('alldealslist',[\App\Http\Controllers\admin\DealController::class,'alldealslist'])->name('alldealslist');
+    Route::get('deals/{id}/edit',[\App\Http\Controllers\admin\DealController::class,'editdeals'])->name('deals.edit');
+    Route::get('deals/{id}/delete',[\App\Http\Controllers\admin\DealController::class,'deletedeals'])->name('deals.delete');
 
     Route::get('menupage/engagementpage',[\App\Http\Controllers\admin\MenuPageController::class,'engagementpage'])->name('menupage.engagementpage');
     Route::post('updateEngagementPage',[\App\Http\Controllers\admin\MenuPageController::class,'updateEngagementPage'])->name('menupage.updateEngagementPage');

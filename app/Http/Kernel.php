@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'userpermission' => \App\Http\Middleware\custom\UserPermission::class,
         'frontendauth' => \App\Http\Middleware\FrontendAuthenticate::class,
+        'check.old.urls' => \App\Http\Middleware\CheckOldUrlsMiddleware::class,
     ];
 }

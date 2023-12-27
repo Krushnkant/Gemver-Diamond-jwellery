@@ -305,6 +305,7 @@ background-size: cover;
     .background-text-part {
         position: absolute;
         left: 50%;
+        right: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         text-align: left;
@@ -1330,7 +1331,7 @@ background-size: cover;
 
     .about_us_img {
         /* padding-left: 60px;
-        padding-right: 60px;*/
+        padding-right: 60px; */
     }
 
     .about_content p {
@@ -7603,12 +7604,26 @@ width: 100%;
         padding: 10px !important;
     }
 
-    .menu-close-icon {
-        text-align: right;
-        margin-right: 20px;
-        margin-bottom: 20px;
+    .countdown {
+        list-style-type: none;
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        background-color: red;
+       }
+    
+    .countdown li {
+        text-align: center;
+        margin: 0 10px;
     }
-
-    #InquiryCreateForm .input-group-prepend {
-        width: 30%;
+    
+    .digit {
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    .text {
+        font-size: 0.9rem;
+        margin: 0;
+        text-transform: uppercase;
     }

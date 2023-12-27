@@ -172,7 +172,7 @@ $settings = \App\Models\Settings::first();
         </div>
         @endif
         <!-- </div> -->
-
+        <x-countdown  />
         @if(count($categories) > 0)
         <div class="container">
             <div class="shop_by_category shop_by_category_padding">
