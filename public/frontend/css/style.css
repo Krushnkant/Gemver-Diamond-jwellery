@@ -7609,8 +7609,8 @@ width: 100%;
         padding: 50px;
         display: flex;
         justify-content: center;
-        background-color: red;
-       }
+        text-align: center;
+    }
     
     .countdown li {
         text-align: center;
@@ -7618,12 +7618,19 @@ width: 100%;
     }
     
     .digit {
-        font-size: 2rem;
-        margin: 0;
+        font-size: 30px;
     }
     
     .text {
         font-size: 0.9rem;
         margin: 0;
         text-transform: uppercase;
+    }
+
+    .nav-center {
+        display: flex;
+        justify-content: center; /* horizontally center items */
+        align-items: center;     /* vertically center items if needed */
+        list-style-type: none;   /* removes default list styles */
+        padding: 0;              /* removes default padding */
     }
