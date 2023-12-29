@@ -30,7 +30,7 @@ class HomeController extends Controller {
 
         $categories = Category::select(['slug', 'category_thumb', 'category_name'])->where(['estatus' => 1, 'is_custom' => 0, 'parent_category_id' => 0])->get();
         $testimonials = Testimonial::select(['description', 'name', 'country', 'image'])->where('estatus', 1)->take(10)->get();
-        $banners = Banner::select(['title', 'banner_thumb', 'mobile_banner_thumb', 'description', 'button_name', 'button_url', 'application_dropdown_id', 'value', 'product_variant_id'])->where('estatus', 1)->get();
+        $banners = Banner::select(['title', 'banner_thumb', 'mobile_banner_thumb', 'description', 'button_name', 'button_url', 'application_dropdown_id', 'value', 'product_variant_id','direction'])->where('estatus', 1)->get();
         $step = Step::select(['main_image', 'main_title', 'main_shotline', 'slug', 'step1_title', 'step1_shotline', 'step2_title', 'step2_shotline', 'step3_title', 'step3_shotline', 'step4_title', 'step4_shotline'])->where('estatus', 1)->first();
         // $homesetting = HomeSetting::with('category')->first();
         $homesetting = HomeSetting::select(['home_settings.*', 'categories.slug'])->leftJoin('categories', 'home_settings.section_customise_link', '=', 'categories.id')->first();

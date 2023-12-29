@@ -3,7 +3,6 @@
 @section('content')
 <div class="background-sub-slider">
         <div class="">
-            <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
             <div class="about_us_background">
                 <h1 class="sub_heading mb-lg-3">Blog</h1>
                 <div class="about_us_link">
@@ -22,10 +21,6 @@
             <div class="row d-flex align-items-start">
                 <div class="col-lg-8 col-xl-9 px-0 mb-3">
                     <div class="blog_tabs">
-                        <!-- <div class="blog_filter_btn d-md-none">
-                            filter btn
-                            <i class="fa-solid fa-angle-down"></i>
-                        </div> -->
                         <ul class="nav nav-tabs owl-carousel owl-theme blog-tabs" id="myTab" role="tablist">
                             <li class="nav-item category blog_tab_input item">
                                 <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" checked>
@@ -44,9 +39,6 @@
                                         {{ $Category->category_name }}
                                     </span>
                                 </label>
-                                <!-- <button class="nav-link common_selector" id="category-tab" data-value="{{ $Category->id }}" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">
-                                    <span class="ms-1">{{ $Category->category_name }}</span>
-                                </button> -->
                             </li>
                             @endforeach
                             
@@ -148,7 +140,6 @@
                             $url = isset($category->slug)?url('shop/'.$category->slug):"";
                             }elseif($BlogBanner['dropdown_id'] == 2){
                             $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
-                             //dd($Product->product_variant[0]->id);
                              if(isset($Product->product_variant)){
                                 $cat_id = $Product->primary_category_id;
                                 $var_id = $Product->product_variant[0]->id;
@@ -178,9 +169,6 @@
         $(document).ready(function(){
             var page = 1;
             filter_data(page);
-            // $("#sorting").change(function() {
-            //     filter_data(page);
-            // });
             $(window).scroll(function () {
                 if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
                     page++;
@@ -191,13 +179,11 @@
         
             function filter_data(page,scroll=0)
             {
-                // $('.blogs-fetch').html('<div id="loading" style="" ></div>');
                 var action = 'fetch_data';
                 var category = get_filter('category');
              
                 $.ajax({
                     url:"{{ url('/blogs-filter?page=') }}"+ page,
-                    //url: ENDPOINT + "/diamonds?page=" + page,
                     method:"POST",
                     data:{action:action,category:category,_token: '{{ csrf_token() }}'},
                     success:function(data){

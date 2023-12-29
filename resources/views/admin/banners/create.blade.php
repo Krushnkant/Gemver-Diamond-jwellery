@@ -34,15 +34,7 @@
         <div id="bannerthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
     </div>
 
-    <div class="form-group">
-        <label class="col-form-label" for="direction">Direction
-        </label>
-        <select class="form-control" id="direction" name="direction">
-            <option value="center">Center</option>
-            <option value="right">Right</option>
-            <option value="left">Left</option>
-        </select>
-    </div>
+    
 
     <div class="form-group">
         <label class="col-form-label" for="button_name">Button Name 
@@ -79,6 +71,16 @@
 
     <div id="infoBox" class=""></div>
     <div id="productDropdownBox" class="pb-2"></div>
+
+    <div class="form-group">
+        <label class="col-form-label" for="direction">Content Alignment
+        </label>
+        <select class="form-control" id="direction" name="direction">
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+        </select>
+    </div>
 
 
     <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="add">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;

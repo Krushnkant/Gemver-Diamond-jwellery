@@ -20,6 +20,9 @@ class DiamondController extends Controller
     public function index($slug, $shopbyid = 0)
     {
         $Category = Category::where('estatus', 1)->where('slug', $slug)->orWhere('id', $slug)->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $id = isset($Category->id) ? $Category->id : 0;
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address' => $ip_address, 'category_id' => $id])->first();
@@ -422,6 +425,9 @@ class DiamondController extends Controller
     {
 
         $Category = Category::where(['estatus' => 1, 'slug' => $slug])->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $catid = $Category->id;
         $CatId = $catid;
         $ip_address = \Request::ip();
@@ -467,6 +473,9 @@ class DiamondController extends Controller
     {
 
         $Category = Category::where(['estatus' => 1, 'slug' => $slug])->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $id = $Category->id;
         $Products = Product::where(['estatus' => 1, 'is_custom' => 1])->whereRaw('FIND_IN_SET(' . $id . ', primary_category_id)')->get();
         $ip_address = \Request::ip();
@@ -724,6 +733,9 @@ class DiamondController extends Controller
     public function getCustomProductDetails($catid, $vid)
     {
         $productv = ProductVariant::where('slug', $vid)->orWhere('id', $vid)->first();
+        if(!$productv) {
+            return view('frontend/404');
+        }
         $id = $productv->product_id;
         $vid = $productv->id;
         $category = Category::where('slug', $catid)->first();
@@ -765,6 +777,9 @@ class DiamondController extends Controller
     public function getProductComplete($catid)
     {
         $Category = Category::where(['estatus' => 1, 'slug' => $catid])->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $CatId = $Category->id;
         $catid = $Category->id;
         $ip_address = \Request::ip();
@@ -784,6 +799,9 @@ class DiamondController extends Controller
     public function editproductsetting($catid)
     {
         $Category = Category::where(['estatus' => 1, 'slug' => $catid])->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address' => $ip_address, 'category_id' => $Category->id])->first();
         $cart->variant_id = 0;
@@ -795,6 +813,9 @@ class DiamondController extends Controller
     public function editdiamondsetting($catid)
     {
         $Category = Category::where(['estatus' => 1, 'slug' => $catid])->first();
+        if(!$Category) {
+            return view('frontend/404');
+        }
         $ip_address = \Request::ip();
         $cart = Cart::where(['ip_address' => $ip_address, 'category_id' => $Category->id])->first();
         $cart->diamond_id = 0;

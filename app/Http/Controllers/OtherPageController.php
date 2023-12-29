@@ -125,6 +125,9 @@ class OtherPageController extends Controller
 
     public function custompage($slug){
         $custompage= CustomPage::where('slug',$slug)->first();
+        if(!$custompage) {
+            return view('frontend/404');
+        } 
         return view('frontend.custompage',compact('custompage'))->with(['meta_title'=>$custompage->meta_title,'meta_description'=>$custompage->meta_description]);
     }
 

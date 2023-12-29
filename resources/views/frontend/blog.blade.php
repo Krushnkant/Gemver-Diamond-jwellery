@@ -63,7 +63,7 @@
                     <?php 
                         $url = "";
                         if(isset($BlogBanners[0]['dropdown_id']) && $BlogBanners['0']['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanners['0']['value'])->first();
+                            $category = \App\Models\Category::select('slug')->where('estatus',1)->where('id',$BlogBanners['0']['value'])->first();
                             $url = isset($category->slug)?url('shop/'.$category->slug):""; 
                         }elseif(isset($BlogBanners[0]['dropdown_id']) && $BlogBanners['0']['dropdown_id'] == 2){
                             $Product = \App\Models\Product::where('id',$BlogBanners['0']['value'])->first();
@@ -118,14 +118,11 @@
                             <?php 
                             $url = "";
                             if($BlogBanner['dropdown_id'] == 1){
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first();
+                            $category = \App\Models\Category::('slug')->where('estatus',1)->where('id',$BlogBanner['value'])->first();
                             $url = isset($category->slug)?url('shop/'.$category->slug):"";
                             }elseif($BlogBanner['dropdown_id'] == 2){
                             $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
-                             //dd($Product->product_variant[0]->id);
                              if(isset($Product->product_variant)){
-                                $cat_id = $Product->primary_category_id;
-                                $var_id = $Product->product_variant[0]->id;
                                 $slug = $Product->product_variant[0]->slug;
                                 $url = url('product-details/'.$slug);
                              }else{

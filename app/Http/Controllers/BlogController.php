@@ -12,15 +12,15 @@ use Illuminate\Support\Str;
 class BlogController extends Controller
 {
     public function index(){
-        $Categories = BlogCategory::where(['estatus' => 1])->get();
+        $Categories = BlogCategory::select('id','category_name')->where(['estatus' => 1])->get();
         $BlogBanners = BlogBanner::where(['estatus' => 1,'page' => 0])->get()->ToArray();
         $blogs = Blog::where(['estatus' => 1])->inRandomOrder()->limit(4)->orderBy('id', 'DESC')->get();
-        $homesetting = HomeSetting::first();
+        $homesetting = HomeSetting::select('most_viewed_product_id')->first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
-        $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
-        $meta_title = " Blogs ";
-        $meta_description = " Blogs";
-        return view('frontend.blogs',compact('Categories','BlogBanners','blogs','homesetting','mostviewproducts'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
+        $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->whereIn('id',$mostviewproductids)->get();
+        $meta_title = "Blogs ";
+        $meta_description = "Blogs";
+        return view('frontend.blogs',compact('Categories','BlogBanners','blogs','mostviewproducts'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
     public function fetchblogs(Request $request){
@@ -30,11 +30,6 @@ class BlogController extends Controller
         {
             $category = (isset($data["category"]) && $data["category"]) ? $data["category"]  : null;
             $query = Blog::where('estatus',1);
-            // if($request->keyword){
-            //     // This will only execute if you received any keyword
-            //     $query = $query->where('name','like','%'.$keyword.'%');
-            // }
-        
             if(isset($data["category"])){
                 $query = $query->where('category_id',$data["category"]);
             }
@@ -81,13 +76,15 @@ class BlogController extends Controller
 
     public function blogdetails($slug){
           
-        $blog = Blog::with('category')->where(['slug' => $slug,'estatus' => 1])->first(); 
+        $blog = Blog::with('category')->where(['slug' => $slug,'estatus' => 1])->first();
+        if(!$blog) {
+            return view('frontend/404');
+        } 
         $blogs = Blog::where(['estatus' => 1])->limit(4)->orderBy('id', 'DESC')->get();
         $BlogBanners = Blogbanner::where(['estatus' => 1,'page' => 0])->get()->ToArray();
-        $homesetting = HomeSetting::first();
+        $homesetting = HomeSetting::select('most_viewed_product_id')->first();
         $mostviewproductids = explode(',',$homesetting->most_viewed_product_id);
         $mostviewproducts = Product::with('product_variant')->where(['estatus' => 1])->wherein('id',$mostviewproductids)->get();
-       
         $meta_title = isset($blog->meta_title)?$blog->meta_title:"";
         $meta_description = isset($blog->meta_description)?$blog->meta_description:"";
         return view('frontend.blog',compact('blog','blogs','BlogBanners','mostviewproducts'))->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
