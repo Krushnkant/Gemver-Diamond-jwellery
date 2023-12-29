@@ -296,7 +296,7 @@ function getDropdownInfoVal($Info){
 
     if ($Info == 4){
         $html .= '<div class="form-group">
-                    <label class="col-form-label" for="bannerUrl">Banner URL</label>
+                    <label class="col-form-label" for="bannerUrl">Redirect URL</label>
                     <input type="text" class="form-control input-flat" id="value" name="value" value="">
                     <label id="value-error" class="error invalid-feedback animated fadeInDown" for="value"></label>
                     </div>';

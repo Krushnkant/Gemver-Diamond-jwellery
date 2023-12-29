@@ -75,10 +75,12 @@
         </div>
 
         <div id="blogthumb-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
+
+        <button type="button" class="btn btn-outline-primary mt-4 mr-2" id="save_newBannerBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+        <button type="button" class="btn btn-primary mt-4" id="save_closeBannerBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
     </div>
 
-    <button type="button" class="btn btn-outline-primary mt-4" id="save_newBannerBtn" data-action="update">Save & New <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>&nbsp;&nbsp;
-    <button type="button" class="btn btn-primary mt-4" id="save_closeBannerBtn" data-action="update">Save & Close <i class="fa fa-circle-o-notch fa-spin loadericonfa" style="display:none;"></i></button>
+    
     </div>
 </form>
 
