@@ -9,11 +9,12 @@ $currentDateTime = Carbon::now();
 if($deal->start_date > $currentDateTime){
 ?>
 <div class="" style="background-color:  {{ $deal->background_color }}; color: {{ $deal->text_color }}; ">
-    <div class="row countdown justify-content-center" >
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <h5 class="digit">{{ $deal->title }}</h5>
+    <div class="container">
+    <div class="row countdown justify-content-center align-items-center gx-3 gy-4 gy-md-0">
+      <div class="col-lg-4 col-md-6 col-sm-12 mt-0">
+        <h2 class="mb-0 fw-normal text-uppercase">{{ $deal->title }}</h2>
       </div>
-      <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+      <div class="col-lg-3 col-md-6 col-sm-12">
         <ul class="nav-center">
             
             <li>
@@ -44,15 +45,16 @@ if($deal->start_date > $currentDateTime){
            
         </ul>
       </div>
-      <div class="col-12 col-md-6 col-lg-3 col-xl-2">
-        <h5 class="digit" >{{ $deal->date_title }}</h5>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <h4 class="text-uppercase">{{ $deal->date_title }}</h4>
         <h6 class="text">
             {{ $formattedDate }}
         </h6>
       </div>
-      <div class="col-12 col-md-6 col-lg-2 col-xl-1">
-        <a href="{{ $deal->url_button }}" target="_blank" style="color: {{ $deal->button_color }}; text-decoration: underline;  ">{{ $deal->text_button }}</a>
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <a href="{{ $deal->url_button }}" target="_blank" style="color: {{ $deal->button_color }}; border: 1px solid {{ $deal->button_color }}; padding: 10px; border-radius: 5px; display: block;">{{ $deal->text_button }}</a>
       </div>
+    </div>
     </div>
 </div>
 

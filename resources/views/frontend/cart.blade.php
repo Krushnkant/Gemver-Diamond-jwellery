@@ -479,45 +479,45 @@
                 @if(isset($cart_data) && count($cart_data))  
                     <div class="col-lg-4 px-md-3">
                         <div class="order_summary_box ms-0">
-                            <div class="row order_summary_input_part">
-                                <div class="col-12 col-sm-12 ps-0">
-                                   
-                                   <div class="row mt-4">
-                                    <div class="col-8 text-start ps-0 order_table_heading">
-                                        <span class="cart_product_name mb-2" data-bs-toggle="modal" data-bs-target="#exampleModalOffer"> Coupons and Offers </span><br>
-                                        <span>save more with coupons and offers</span>
-                                    </div>
-                                    <div class="col-4 text-end order_summary_price ">
-                                        <span class="cart_product_name mb-2"  data-bs-toggle="modal" data-bs-target="#exampleModalOffer" >Offers >></span>
-                                    </div>
+                            <div class="row order_summary_input_part offer-label-box align-items-center mt-4">
+                                <div class="col-1 p-0">
+                                    <img src="{{ asset('frontend/image/discount-tag.png') }}" alt="" class="">
                                 </div>
-                                   <div class="modal fade inquiry_now_modal" id="exampleModalOffer" aria-labelledby="exampleModalLabelOffer" aria-hidden="true">
+                                <div class="col-8">
+                                    <h6 class="mb-1">Coupons and Offers</h6>
+                                    <p class="mb-0">Save more with coupons and offers</p>
+                                </div>
+                                <div class="col-3 text-end order_summary_price ">
+                                    <a class="mb-2" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#exampleModalOffer" >Offers <i class="fa-solid fa-chevron-right"></i></a>
+                                </div>
+                                <div class="modal fade inquiry_now_modal" id="exampleModalOffer" aria-labelledby="exampleModalLabelOffer" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                         <div class="modal-content p-3 p-md-4">
-                                            <div class="row">
-                                                <div class="col-8 col-sm-6 ps-0 text-start">
-                                                    <!-- <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div> -->
+                                            <div class="row mb-3">
+                                                <div class="col-8 col-sm-8 ps-0 text-start">
+                                                    <h5 class="mb-xl-4 mb-3">Coupons and Offers</h5>
                                                 </div>
-                                                <div class="col-4 col-sm-6 text-end pe-0">
+                                                <div class="col-4 col-sm-4 text-end pe-0">
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                             </div>
                                             <div class="alert alert-success" id="success-alert" style="display: none;"></div>
-                                            <div class="row">
-                                                <div class="col-8 col-sm-8 ps-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9 ps-0">
                                                     <input type="text" placeholder="Enter your code" class="enter_yout_code_input" name="coupon_code" id="coupon_code">
                                                     <div id="coupon_code-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                                 </div>
-                                                <div class="col-4 col-sm-4 pe-0 ps-0">
+                                                <div class="col-3 col-sm-3 pe-0 ps-0">
                                                     <button type="button" class="btn btn-primary apply_btn redeem" >Apply 
                                                         <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                             <span class="visually-hidden">Loading...</span>
                                                         </div>
                                                     </button>
                                                 </div>
-
-                                                <div class="order_summary_heading text-start mt-3">
-                                                    Available Coupons
+                                            </div>
+                                            <div class="row align-items-center">
+                                                <div class="">
+                                                    <h6>Available Coupons</h6>
                                                 </div>
                                                 <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
                                                     <tbody class="">
@@ -529,26 +529,23 @@
                                                                         <div class="row">
                                                                             <div class="col-md-7 col-sm-12">
                                                                                 <div class="">
-                                                                                   <span > {{ $coupon->coupon_code }}</span> 
-                                                                                   
+                                                                                    <span> {{ $coupon->coupon_code }}</span>
                                                                                 </div>
                                                                                 <div class="cart_product_specification d-block mt-1">
                                                                                     @if($coupon->discount_type_id == 1)
-                                                                                      {{ $coupon->coupon_amount }}  <i class="fa fa-percent" aria-hidden="true"></i> Off 
+                                                                                    {{ $coupon->coupon_amount }}  <i class="fa fa-percent" aria-hidden="true"></i> Off 
                                                                                     
                                                                                     @elseif($coupon->discount_type_id == 2)
-                                                                                      {{ $coupon->coupon_amount }} $ Off
+                                                                                    {{ $coupon->coupon_amount }} $ Off
                                                                                     @endif
                                                                                 </div>
                                                                                 <div class="cart_product_specification d-block mt-1">
                                                                                     @if (isset($coupon->allow_cod) && $coupon->allow_cod!=0)
                                                                                         Applicable on both online payment and COD.
                                                                                     @else
-                                                                                       Applicable only online payment .
+                                                                                    Applicable only online payment .
                                                                                     @endif
                                                                                 </div>
-
-                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -565,11 +562,9 @@
                                                         @endforeach   
                                                     </tbody>
                                                 </table>
-
-                                           </div>
+                                            </div>
                                         </div>
-                                   </div>
-                                </div> 
+                                    </div>
                                 </div>
                                 {{-- <div class="col-8 col-sm-8 ps-0">
                                     <input type="text" placeholder="Enter your code" class="enter_yout_code_input" name="coupon_code" id="coupon_code">
@@ -612,7 +607,7 @@
                                         }else{
                                             $coupan_discount_amount  =  0;    
                                         }  
-                                        ?>
+                                    ?>
                                     <input type="hidden" id="coupan_discount_amount" value="{{ $coupan_discount_amount }}">
                                     <div class="col-6 text-end order_summary_price ">
                                         $<span class="cart-maintotal-price coupan_discount_amount">{{ $coupan_discount_amount }}</span>
