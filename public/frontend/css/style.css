@@ -4846,6 +4846,23 @@ width: 100%;
         font-size: 13px;
     }
 
+    button.btn.btn-outline-primary.redeemoffer {
+        border: 0;
+        color: var(--primary);
+        text-transform: uppercase;
+    }
+
+    .offer-details-box {
+        padding: 10px;
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    .btn-outline-primary.redeemoffer:hover {
+        opacity: 0.8;
+        background-color: transparent;
+        border: 0;
+    }
+
     .cart_product_name:hover {
         color: #808080;
     }
@@ -4857,6 +4874,31 @@ width: 100%;
         letter-spacing: 0.05em;
         color: #808080;
         display: inline-block;
+    }
+
+    .offer-code-text {
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid #bedfff;
+        border-radius: 5px;
+        background-color: #e8f3ff;
+        color: var(--primary);
+    }
+
+    .disc-text {
+        color: #ff0000;
+    }
+
+    .offer-details-box:last-child {
+        border-bottom: 0;
+    }
+
+    .disc-description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.05em;
+        color: #808080;
     }
 
     .product_name_paragraph:hover {

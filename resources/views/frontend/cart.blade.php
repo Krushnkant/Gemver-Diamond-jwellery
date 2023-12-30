@@ -491,10 +491,10 @@
                                     <a class="mb-2" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#exampleModalOffer" >Offers <i class="fa-solid fa-chevron-right"></i></a>
                                 </div>
                                 <div class="modal fade inquiry_now_modal" id="exampleModalOffer" aria-labelledby="exampleModalLabelOffer" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content p-3 p-md-4">
                                             <div class="row mb-3">
-                                                <div class="col-8 col-sm-8 ps-0 text-start">
+                                                <div class="col-8 col-sm-8 ps-0">
                                                     <h5 class="mb-xl-4 mb-3">Coupons and Offers</h5>
                                                 </div>
                                                 <div class="col-4 col-sm-4 text-end pe-0">
@@ -502,7 +502,7 @@
                                                 </div>
                                             </div>
                                             <div class="alert alert-success" id="success-alert" style="display: none;"></div>
-                                            <div class="row align-items-center">
+                                            <div class="row align-items-center mb-4">
                                                 <div class="col-9 col-sm-9 ps-0">
                                                     <input type="text" placeholder="Enter your code" class="enter_yout_code_input" name="coupon_code" id="coupon_code">
                                                     <div id="coupon_code-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
@@ -515,53 +515,40 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="row align-items-center">
-                                                <div class="">
+                                            <div class="row">
+                                                <div class="col-sm-12">
                                                     <h6>Available Coupons</h6>
                                                 </div>
-                                                <table class="table table-bordered table-hover table_part_product mb-4 my_cart_table">
-                                                    <tbody class="">
-                                                        @foreach ($coupons as $coupon)
-                                                        <tr class="cartpage">
-                                                            <td class="cart-product-name-info1">
-                                                                <div class="row">
-                                                                    <div class="col-md-10 col-8 p-0">
-                                                                        <div class="row">
-                                                                            <div class="col-md-7 col-sm-12">
-                                                                                <div class="">
-                                                                                    <span> {{ $coupon->coupon_code }}</span>
-                                                                                </div>
-                                                                                <div class="cart_product_specification d-block mt-1">
-                                                                                    @if($coupon->discount_type_id == 1)
-                                                                                    {{ $coupon->coupon_amount }}  <i class="fa fa-percent" aria-hidden="true"></i> Off 
-                                                                                    
-                                                                                    @elseif($coupon->discount_type_id == 2)
-                                                                                    {{ $coupon->coupon_amount }} $ Off
-                                                                                    @endif
-                                                                                </div>
-                                                                                <div class="cart_product_specification d-block mt-1">
-                                                                                    @if (isset($coupon->allow_cod) && $coupon->allow_cod!=0)
-                                                                                        Applicable on both online payment and COD.
-                                                                                    @else
-                                                                                    Applicable only online payment .
-                                                                                    @endif
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="total_amount">
-                                                                <button type="button" class="btn btn-primary apply_btn redeemoffer" data-code="{{ $coupon->coupon_code }}">Apply 
-                                                                    <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
-                                                                        <span class="visually-hidden">Loading...</span>
-                                                                    </div>
-                                                                </button>
-                                                            </td>
-                                                        </tr>  
-                                                        @endforeach   
-                                                    </tbody>
-                                                </table>
+                                            </div>
+                                            <div class="row ps-3 gy-2">
+                                                @foreach ($coupons as $coupon)
+                                                    <div class="offer-details-box">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="offer-code-text">
+                                                                <h6 class="mb-0">{{ $coupon->coupon_code }}</h6>
+                                                            </div>
+                                                            <div class="apply-coupon-box">
+                                                                <button type="button" class="btn btn-outline-primary redeemoffer" data-code="haha23">Apply <span class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;"><span class="visually-hidden">Loading...</span></span></button>
+                                                            </div>
+                                                        </div>
+                                                        <span class="disc-text d-block mt-2">
+                                                            @if($coupon->discount_type_id == 1)
+                                                                {{ $coupon->coupon_amount }}  <i class="fa fa-percent" aria-hidden="true"></i> Off
+                                                            
+                                                            @elseif($coupon->discount_type_id == 2)
+                                                                {{ $coupon->coupon_amount }} $ Off
+                                                            @endif
+                                                        </span>
+                                                        <div class="disc-description d-block my-2">
+                                                            @if (isset($coupon->allow_cod) && $coupon->allow_cod!=0)
+                                                                Applicable on both online payment and COD.
+                                                            @else
+                                                                Applicable only online payment.
+                                                            @endif
+                                                        </div>
+                                                        
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
