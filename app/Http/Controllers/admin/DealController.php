@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApplicationDropdown;
+use App\Models\Category;
 use App\Models\Deal;
 use App\Models\ProjectPage;
 use Illuminate\Http\Request;
@@ -15,7 +17,13 @@ class DealController extends Controller
     public function index(){
         $action = "edit";
         $deal = Deal::first();
-        return view('admin.deal.list',compact('action','deal'))->with('page',$this->page);
+        $application_dropdowns = ApplicationDropdown::get();
+        $categories = Category::where('estatus',1)->orderBy('created_at','DESC')->get();
+        $products = "";
+        if($deal->application_dropdown_id == 2) {
+            $products = getproducts($deal->value);
+        }
+        return view('admin.deal.list',compact('action','deal','application_dropdowns','categories','products'))->with('page',$this->page);
     }
 
     public function save(Request $request){
@@ -51,6 +59,9 @@ class DealController extends Controller
         $deal->button_color = $request->button_color;
         $deal->text_button = $request->text_button;
         $deal->url_button = $request->url_button;
+        $deal->application_dropdown_id = $request->BannerInfo;
+        $deal->value = $request->value;
+        $deal->product_variant_id = isset($request->product) ? $request->product : null;
         $deal->save();
 
         return response()->json(['status' => '200']);

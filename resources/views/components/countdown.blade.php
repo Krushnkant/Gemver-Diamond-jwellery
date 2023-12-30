@@ -7,7 +7,24 @@ $date = Carbon::parse($deal->start_date);
 $formattedDate = $date->format('jS F');
 $currentDateTime = Carbon::now();
 if($deal->start_date > $currentDateTime){
+     
 ?>
+ @if($deal->application_dropdown_id == 1)
+ <?php $button_url =  "#" ?>
+ @elseif($deal->application_dropdown_id == 2)
+ <?php 
+             $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$deal->product_variant_id)->first(['slug']);
+             $button_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
+         ?>
+ @elseif($deal->application_dropdown_id == 3)
+ <?php 
+             $category = \App\Models\Category::where('estatus',1)->where('id',$deal->value)->first(['slug']);
+             $button_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
+         ?>
+
+ @elseif($deal->application_dropdown_id == 4)
+ <?php $button_url = $deal->value; ?>
+ @endif  
 <div class="" style="background-color:  {{ $deal->background_color }}; color: {{ $deal->text_color }}; ">
     <div class="container">
     <div class="row countdown justify-content-center align-items-center gx-3 gy-4 gy-md-0">
@@ -52,7 +69,7 @@ if($deal->start_date > $currentDateTime){
         </h6>
       </div>
       <div class="col-lg-2 col-md-6 col-sm-12">
-        <a href="{{ $deal->url_button }}" target="_blank" style="color: {{ $deal->button_color }}; border: 1px solid {{ $deal->button_color }}; padding: 10px; border-radius: 5px; display: block;">{{ $deal->text_button }}</a>
+        <a href="{{ $button_url }}" target="_blank" style="color: {{ $deal->button_color }}; border: 1px solid {{ $deal->button_color }}; padding: 10px; border-radius: 5px; display: block;">{{ $deal->text_button }}</a>
       </div>
     </div>
     </div>
