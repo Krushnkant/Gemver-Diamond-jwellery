@@ -86,14 +86,14 @@
                     {{-- @foreach($application_dropdowns as $application_dropdown)
                     <option value="{{ $application_dropdown->id }}" @if($application_dropdown->id == $deal->application_dropdown_id) selected @endif>{{ $application_dropdown->title }}</option>
                     @endforeach --}}
-                    <option value="4" @if(4 == $deal->application_dropdown_id) selected @endif>URL</option>
-                    <option value="2" @if(2 == $deal->application_dropdown_id) selected @endif>Product</option>
-                    <option value="3" @if(3 == $deal->application_dropdown_id) selected @endif>Category</option>
+                    <option value="4" @if(isset($deal->application_dropdown_id) && 4 == $deal->application_dropdown_id) selected @endif>URL</option>
+                    <option value="2" @if(isset($deal->application_dropdown_id) && 2 == $deal->application_dropdown_id) selected @endif>Product</option>
+                    <option value="3" @if(isset($deal->application_dropdown_id) && 3 == $deal->application_dropdown_id) selected @endif>Category</option>
                 </select>
             </div>
     
             <div id="infoBox" class="">
-                @if($deal->application_dropdown_id == 2)
+                @if(isset($deal->application_dropdown_id) && $deal->application_dropdown_id == 2)
                     <div class="form-group" id="category_dropdown">
                         <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                         <select id="value" name="value" class="category_dropdown_catalog">
@@ -104,7 +104,7 @@
                         </select>
                         <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
-                @elseif($deal->application_dropdown_id == 3)
+                @elseif(isset($deal->application_dropdown_id) && $deal->application_dropdown_id == 3)
                     <div class="form-group" id="category_dropdown">
                         <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                         <select id="value" name="value" class="">
@@ -116,7 +116,7 @@
                         <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
             
-                @elseif($deal->application_dropdown_id == 4)
+                @elseif(isset($deal->application_dropdown_id) && $deal->application_dropdown_id == 4)
                     <div class="form-group">
                         <label class="col-form-label" for="bannerUrl">Redirect URL <span class="text-danger">*</span></label>
                         <input type="text" class="form-control input-flat" id="value" name="value" value="{{ $deal->value }}">
@@ -126,7 +126,7 @@
             </div>
     
             <div id="productDropdownBox" class="pb-2">
-                @if($deal->application_dropdown_id == 2)
+                @if(isset($deal->application_dropdown_id) && $deal->application_dropdown_id == 2)
                     <div class="form-group" id="">
                         <label class="col-form-label" for="product">Select Product <span class="text-danger">*</span></label>
                         <select id="product" name="product" class="">

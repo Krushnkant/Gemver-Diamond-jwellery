@@ -20,7 +20,7 @@ class DealController extends Controller
         $application_dropdowns = ApplicationDropdown::get();
         $categories = Category::where('estatus',1)->orderBy('created_at','DESC')->get();
         $products = "";
-        if($deal->application_dropdown_id == 2) {
+        if(isset($deal->application_dropdown_id) && $deal->application_dropdown_id == 2) {
             $products = getproducts($deal->value);
         }
         return view('admin.deal.list',compact('action','deal','application_dropdowns','categories','products'))->with('page',$this->page);
