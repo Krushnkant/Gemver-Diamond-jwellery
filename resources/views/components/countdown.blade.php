@@ -7,7 +7,7 @@ $date = Carbon::parse($deal->start_date);
 $formattedDate = $date->format('jS F');
 $currentDateTime = Carbon::now();
 if($deal->start_date > $currentDateTime){
-     
+    $button_url =  "#"; 
 ?>
  @if($deal->application_dropdown_id == 1)
  <?php $button_url =  "#" ?>
