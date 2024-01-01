@@ -528,7 +528,7 @@
                                                                 <h6 class="mb-0">{{ $coupon->coupon_code }}</h6>
                                                             </div>
                                                             <div class="apply-coupon-box">
-                                                                <button type="button" class="btn btn-outline-primary redeemoffer" data-code="{{ $coupon->coupon_code }}">Apply <span class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;"><span class="visually-hidden">Loading...</span></span></button>
+                                                                <button type="button" class="btn btn-outline-primary redeemoffer" data-code="{{ $coupon->coupon_code }}">Apply <span class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;"></span></button>
                                                             </div>
                                                         </div>
                                                         <span class="disc-text d-block mt-2">

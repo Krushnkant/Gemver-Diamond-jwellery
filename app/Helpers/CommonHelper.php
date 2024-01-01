@@ -272,8 +272,7 @@ function getDropdownInfoVal($Info){
 
     if ($Info == 2){
         $html .= '<div class="form-group">
-                    <label class="col-form-label" for="category">Select Category
-                    </label>
+                    <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                     <select id="value" name="value" class="category_dropdown_catalog">
                         <option></option>
                     </select>
@@ -283,8 +282,7 @@ function getDropdownInfoVal($Info){
 
     if ($Info == 3){
         $html .= '<div class="form-group" id="category_dropdown">
-                    <label class="col-form-label" for="category">Select Category
-                    </label>
+                    <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                     <select id="value" name="value" class="">
                         <option></option>
                     </select>
@@ -296,7 +294,7 @@ function getDropdownInfoVal($Info){
 
     if ($Info == 4){
         $html .= '<div class="form-group">
-                    <label class="col-form-label" for="bannerUrl">Redirect URL</label>
+                    <label class="col-form-label" for="bannerUrl">Redirect URL <span class="text-danger">*</span></label>
                     <input type="text" class="form-control input-flat" id="value" name="value" value="">
                     <label id="value-error" class="error invalid-feedback animated fadeInDown" for="value"></label>
                     </div>';

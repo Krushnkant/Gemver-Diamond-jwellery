@@ -3692,6 +3692,10 @@ border: 0;
         color: #fff;
     }
 
+    .apply-coupon-box .spinner-border-send-inquiry{
+        color: var(--primary);
+    }
+
     .inquiry_now_modal_iframe iframe {
         height: 1000px;
     }
@@ -4896,7 +4900,7 @@ width: 100%;
     .disc-description {
         font-weight: 400;
         font-size: 16px;
-        line-height: 16px;
+        line-height: 24px;
         letter-spacing: 0.05em;
         color: #808080;
     }

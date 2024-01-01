@@ -109,7 +109,7 @@ $('body').on("change",".category_dropdown_catalog",function(){
     $.get("{{ url('admin/banners/getproducts') }}" + '/' + category_id, function (data) {
         if (data) {
             var html =`<div class="form-group" id="">
-                    <label class="col-form-label" for="product">Select Product</label>
+                    <label class="col-form-label" for="product">Select Product <span class="text-danger">*</span></label>
                     <select id="product" name="product" class="">
                         <option></option>
                     </select>

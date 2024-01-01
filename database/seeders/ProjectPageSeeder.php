@@ -49,13 +49,11 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([
             'id' => 4,
-            'parent_menu' => 0,
+            'parent_menu' => 9,
             'label' => 'Review',
             'route_url' => 'admin.review.list',
-            'icon_class' => 'fa fa-comment',
             'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.review.list,admin.allReviewlist,admin.review.add,admin.review.save',
-            'sr_no' => 8
+            'inner_routes' => 'admin.review.list,admin.allReviewlist,admin.review.add,admin.review.save'
         ]);
 
         ProjectPage::create([
@@ -400,8 +398,7 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Gemver Difference',
             'route_url' => 'admin.gemver_difference.list',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.gemver_difference.list,admin.infopage.editGemverDifference,admin.infopage.updateGemverDifference',
-            'sr_no' => 12
+            'inner_routes' => 'admin.gemver_difference.list,admin.infopage.editGemverDifference,admin.infopage.updateGemverDifference'
         ]);
 
         ProjectPage::create([ 
@@ -410,8 +407,7 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Engagement Ring', 
             'route_url' => 'admin.menupage.engagementpage', 
             'is_display_in_menu' => 1, 
-            'inner_routes' => 'admin.menupage.engagementpage,admin.menupage.updateEngagementPage',
-            'sr_no' => 23 
+            'inner_routes' => 'admin.menupage.engagementpage,admin.menupage.updateEngagementPage'
         ]);
 
         ProjectPage::create([ 
@@ -461,68 +457,57 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([ 
             'id' => 46, 
-            'parent_menu' => 0, 
-            'label' => 'Sliders', 
+            'parent_menu' => 74, 
+            'label' => 'Sliders',
             'route_url' => 'admin.banners.list', 
-            'is_display_in_menu' => 0, 
+            'is_display_in_menu' => 1, 
             'inner_routes' => 'admin.banners.list,admin.banners.add,admin.banners.save,admin.allbannerlist,admin.banners.changebannerstatus,admin.banners.delete,admin.banners.edit,admin.banners.uploadfile,admin.banners.removefile',
-            'icon_class' => 'fa fa-picture-o', 
-            'sr_no' => 7 
         ]);
 
         ProjectPage::create([ 
             'id' => 47, 
-            'parent_menu' => 0, 
+            'parent_menu' => 74, 
             'label' => 'Step for Buy', 
             'route_url' => 'admin.steps.list', 
-            'is_display_in_menu' => 0, 
+            'is_display_in_menu' => 1, 
             'inner_routes' => 'admin.steps.list,admin.steps.add,admin.steps.save,admin.allsteplist,admin.steps.changestepstatus,admin.steps.delete,admin.steps.edit,admin.steps.uploadfile,admin.steps.removefile',
-            'icon_class' => 'fa fa-step-forward',
-            'sr_no' => 8
         ]);
 
         ProjectPage::create([
             'id' => 48,
-            'parent_menu' => 0,
+            'parent_menu' => 74,
             'label' => 'Shop By Style',
             'route_url' => 'admin.shopbystyle.list',
             'icon_class' => 'fa fa-shopping-cart',
             'is_display_in_menu' => 0,
             'inner_routes' => 'admin.shopbystyle.list,admin.shopbystyle.add,admin.shopbystyle.save,admin.allshopbystylelist,admin.shopbystyle.changeshopbystylestatus,admin.shopbystyle.delete,admin.shopbystyle.edit,admin.shopbystyle.uploadfile,admin.shopbystyle.removefile,admin.shopbystyle.checkparentcat',
-            'sr_no' => 9
         ]);
 
         ProjectPage::create([ 
             'id' => 49, 
-            'parent_menu' => 0, 
+            'parent_menu' => 74, 
             'label' => 'Newsletter', 
             'route_url' => 'admin.newslatter.list', 
-            'is_display_in_menu' => 0, 
-            'inner_routes' => 'admin.newslatter.list',
-            'icon_class' => 'fa fa-newspaper-o', 
-            'sr_no' => 10 
+            'is_display_in_menu' => 1, 
+            'inner_routes' => 'admin.newslatter.list'
         ]);
 
         ProjectPage::create([
             'id' => 50,
-            'parent_menu' => 0,
+            'parent_menu' => 75,
             'label' => 'Coupon',
             'route_url' => 'admin.coupons.list',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.coupons.list,admin.coupons.add,admin.coupons.save,admin.allcouponlist,admin.coupons.edit,admin.coupons.delete',
-            'icon_class' => 'icon-badge', 
-            'sr_no' => 11 
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.coupons.list,admin.coupons.add,admin.coupons.save,admin.allcouponlist,admin.coupons.edit,admin.coupons.delete'
         ]);
 
         ProjectPage::create([
             'id' => 51,
-            'parent_menu' => 0,
+            'parent_menu' => 75,
             'label' => 'Price',
             'route_url' => 'admin.pricerange.list',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission',
-            'icon_class' => 'fa fa-money',
-            'sr_no' => 12
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.pricerange.list,admin.pricerange.addorupdate,admin.allpricerangeslist,admin.pricerange.changepricerangestatus,admin.pricerange.edit,admin.pricerange.delete,admin.pricerange.permission,admin.pricerange.savepermission'
         ]);
 
         ProjectPage::create([
@@ -532,7 +517,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null,
             'icon_class' => 'fa fa-users',
             'is_display_in_menu' => 1,
-            'sr_no' => 13
+            'sr_no' => 9
         ]);
 
         ProjectPage::create([
@@ -551,7 +536,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null,
             'icon_class' => 'fa fa-picture-o',
             'is_display_in_menu' => 1,
-            'sr_no' => 14
+            'sr_no' => 8
         ]);
 
     
@@ -591,7 +576,7 @@ class ProjectPageSeeder extends Seeder
             'route_url' => null,
             'icon_class' => 'fa fa-cog',
             'is_display_in_menu' => 1,
-            'sr_no' => 15
+            'sr_no' => 11
         ]);
 
         
@@ -655,24 +640,20 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([
             'id' => 65,
-            'parent_menu' => 0,
+            'parent_menu' => 74,
             'label' => 'Faqs',
             'route_url' => 'admin.faqs.list',
-            'is_display_in_menu' => 0,
-            'icon_class' => 'fa fa-question-circle',
-            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.changefaqstatus,admin.faqs.edit,admin.faqs.delete',
-            'sr_no' => 12
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.faqs.list,admin.faqs.addorupdate,admin.allfaqslist,admin.faqs.changefaqstatus,admin.faqs.edit,admin.faqs.delete'
         ]);
 
         ProjectPage::create([
             'id' => 66,
-            'parent_menu' => 0,
+            'parent_menu' => 74,
             'label' => 'Trusted By',
             'route_url' => 'admin.trustedby.list',
-            'is_display_in_menu' => 0,
-            'icon_class' => 'fa fa-handshake-o',
-            'inner_routes' => 'admin.trustedby.list,admin.trustedby.addorupdate,admin.alltrustedbyslist,admin.trustedby.changetrustedbystatus,admin.trustedby.edit,admin.trustedby.delete',
-            'sr_no' => 12
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.trustedby.list,admin.trustedby.addorupdate,admin.alltrustedbyslist,admin.trustedby.changetrustedbystatus,admin.trustedby.edit,admin.trustedby.delete'
         ]);
 
         ProjectPage::create([ 
@@ -682,8 +663,7 @@ class ProjectPageSeeder extends Seeder
             'is_display_in_menu' => 1,
             'route_url' => 'admin.footerpage',  
             'inner_routes' => 'admin.footerpage,admin.menupage.updatefooterpage', 
-            'icon_class' => 'fa fa-picture-o', 
-            'sr_no' => 16 
+            'icon_class' => 'fa fa-picture-o'
         ]);
 
         ProjectPage::create([
@@ -692,8 +672,7 @@ class ProjectPageSeeder extends Seeder
             'label' => 'Size Chart',
             'route_url' => 'admin.sizechart.list',
             'is_display_in_menu' => 1,
-            'inner_routes' => 'admin.sizechart.list,admin.sizechart.addorupdate,admin.allsizechartslist,admin.sizechart.changesizechartstatus,admin.sizechart.edit,admin.sizechart.delete',
-            'sr_no' => 12
+            'inner_routes' => 'admin.sizechart.list,admin.sizechart.addorupdate,admin.allsizechartslist,admin.sizechart.changesizechartstatus,admin.sizechart.edit,admin.sizechart.delete'
         ]);
 
         ProjectPage::create([
@@ -707,13 +686,11 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([ 
             'id' => 69, 
-            'parent_menu' => 0, 
+            'parent_menu' => 74, 
             'label' => 'Social Feed', 
             'route_url' => 'admin.socialfeed.list', 
-            'is_display_in_menu' => 0,
-            'icon_class' => 'fa fa-handshake-o',
-            'inner_routes' => 'admin.socialfeed.list,admin.socialfeed.add,admin.socialfeed.save,admin.allbloglist,admin.socialfeed.changesocialfeedtatus,admin.socialfeed.delete,admin.socialfeed.edit,admin.socialfeed.uploadfile,admin.socialfeed.removefile',
-            'sr_no' => 12
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.socialfeed.list,admin.socialfeed.add,admin.socialfeed.save,admin.allbloglist,admin.socialfeed.changesocialfeedtatus,admin.socialfeed.delete,admin.socialfeed.edit,admin.socialfeed.uploadfile,admin.socialfeed.removefile'
         ]);
 
         ProjectPage::create([
@@ -728,24 +705,40 @@ class ProjectPageSeeder extends Seeder
 
         ProjectPage::create([
             'id' => 72,
-            'parent_menu' => 0,
+            'parent_menu' => 74,
             'label' => 'Deal',
             'route_url' => 'admin.deals.list',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.deals.list,admin.deals.add,admin.deals.save,admin.alldeallist,admin.deals.edit,admin.deals.delete',
-            'icon_class' => 'icon-clock', 
-            'sr_no' => 11
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.deals.list,admin.deals.add,admin.deals.save,admin.alldeallist,admin.deals.edit,admin.deals.delete'
         ]);
 
         ProjectPage::create([
             'id' => 73,
-            'parent_menu' => 0,
-            'label' => ' Redirect URL',
+            'parent_menu' => 75,
+            'label' => 'Redirect URL',
             'route_url' => 'admin.redirect.list',
-            'is_display_in_menu' => 0,
-            'inner_routes' => 'admin.redirect.list,admin.redirect.add,admin.redirect.save,admin.allredirectlist,admin.redirect.edit,admin.redirect.delete',
-            'icon_class' => 'fa fa-external-link', 
-            'sr_no' => 11
+            'is_display_in_menu' => 1,
+            'inner_routes' => 'admin.redirect.list,admin.redirect.add,admin.redirect.save,admin.allredirectlist,admin.redirect.edit,admin.redirect.delete'
+        ]);
+
+        ProjectPage::create([
+            'id' => 74,
+            'parent_menu' => 0,
+            'label' => 'Front Sections',
+            'route_url' => null,
+            'icon_class' => 'fa fa-sliders',
+            'is_display_in_menu' => 1,
+            'sr_no' => 7
+        ]);
+
+        ProjectPage::create([
+            'id' => 75,
+            'parent_menu' => 0,
+            'label' => 'Others',
+            'route_url' => null,
+            'icon_class' => 'fa fa-circle',
+            'is_display_in_menu' => 1,
+            'sr_no' => 10
         ]);
 
         
