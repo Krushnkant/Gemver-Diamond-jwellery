@@ -83,16 +83,19 @@
                 <label class="col-form-label" for="url_button">Button Redirect URL <span class="text-danger">*</span>
                 </label>
                 <select class="form-control" id="BannerInfo" name="BannerInfo">
-                    @foreach($application_dropdowns as $application_dropdown)
+                    {{-- @foreach($application_dropdowns as $application_dropdown)
                     <option value="{{ $application_dropdown->id }}" @if($application_dropdown->id == $deal->application_dropdown_id) selected @endif>{{ $application_dropdown->title }}</option>
-                    @endforeach
+                    @endforeach --}}
+                    <option value="4" @if(4 == $deal->application_dropdown_id) selected @endif>URL</option>
+                    <option value="2" @if(2 == $deal->application_dropdown_id) selected @endif>Product</option>
+                    <option value="3" @if(3 == $deal->application_dropdown_id) selected @endif>Category</option>
                 </select>
             </div>
     
             <div id="infoBox" class="">
                 @if($deal->application_dropdown_id == 2)
                     <div class="form-group" id="category_dropdown">
-                        <label class="col-form-label" for="category">Select Category</label>
+                        <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                         <select id="value" name="value" class="category_dropdown_catalog">
                             <option></option>
                             @foreach($categories as $category)
@@ -103,7 +106,7 @@
                     </div>
                 @elseif($deal->application_dropdown_id == 3)
                     <div class="form-group" id="category_dropdown">
-                        <label class="col-form-label" for="category">Select Category</label>
+                        <label class="col-form-label" for="category">Select Category <span class="text-danger">*</span></label>
                         <select id="value" name="value" class="">
                             <option></option>
                             @foreach($categories as $category)
@@ -115,7 +118,7 @@
             
                 @elseif($deal->application_dropdown_id == 4)
                     <div class="form-group">
-                        <label class="col-form-label" for="bannerUrl">Banner URL</label>
+                        <label class="col-form-label" for="bannerUrl">Redirect URL <span class="text-danger">*</span></label>
                         <input type="text" class="form-control input-flat" id="value" name="value" value="{{ $deal->value }}">
                         <div id="value-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                     </div>
@@ -125,7 +128,7 @@
             <div id="productDropdownBox" class="pb-2">
                 @if($deal->application_dropdown_id == 2)
                     <div class="form-group" id="">
-                        <label class="col-form-label" for="product">Select Product</label>
+                        <label class="col-form-label" for="product">Select Product <span class="text-danger">*</span></label>
                         <select id="product" name="product" class="">
                             <option></option>
                             @foreach($products as $product)

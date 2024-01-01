@@ -33,6 +33,8 @@
 <!-- deal JS start -->
 <script type="text/javascript">
 $(document).ready(function() {
+
+    
     
     $('#BannerInfo').select2({
         width: '100%',
@@ -52,6 +54,11 @@ $(document).ready(function() {
         placeholder: "Select Product",
         allowClear: true
     });
+
+    if("{{ !isset($deal->application_dropdown_id) || $deal->application_dropdown_id  == null }}"){
+       $('#BannerInfo').select2();
+       $('#BannerInfo').val('4').trigger('change');
+    }
 
 
 
@@ -174,6 +181,18 @@ function save_deal(btn,btn_type){
                     $('#date_title-error').hide();
                 }
 
+                if (res.errors.product) {
+                    $('#product-error').show().text(res.errors.product);
+                } else {
+                    $('#product-error').hide();
+                }
+
+                if (res.errors.value) {
+                    $('#value-error').show().text(res.errors.value);
+                } else {
+                    $('#value-error').hide();
+                }
+
               
             }
 
@@ -183,7 +202,6 @@ function save_deal(btn,btn_type){
                     $(btn).find('.loadericonfa').hide();
                     location.href="{{ route('admin.deals.list')}}";
                     toastr.success("Deal Updated",'Success',{timeOut: 5000});
-                    
                 
             }
 

@@ -37,6 +37,9 @@ class DealController extends Controller
             'title' => 'required',
             'start_date' => 'required',
             'date_title' => 'required',
+            'BannerInfo' => 'required',
+            'value' => 'required',
+            'product' => $request->BannerInfo == 2 ? 'required|exists:products,id' : 'nullable|exists:products,id'
         ], $messages);
 
         if ($validator->fails()) {
