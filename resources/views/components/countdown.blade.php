@@ -13,19 +13,19 @@ if($deal->start_date > $currentDateTime){
  <?php $button_url =  "#" ?>
  @elseif($deal->application_dropdown_id == 2)
  <?php 
-             $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$deal->product_variant_id)->first(['slug']);
-             $button_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
-         ?>
+    $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$deal->product_variant_id)->first(['slug']);
+    $button_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
+ ?>
  @elseif($deal->application_dropdown_id == 3)
  <?php 
-             $category = \App\Models\Category::where('estatus',1)->where('id',$deal->value)->first(['slug']);
-             $button_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
-         ?>
+    $category = \App\Models\Category::where('estatus',1)->where('id',$deal->value)->first(['slug']);
+    $button_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
+ ?>
 
  @elseif($deal->application_dropdown_id == 4)
  <?php $button_url = $deal->value; ?>
  @endif  
-<div class="" style="background-color:  {{ $deal->background_color }}; color: {{ $deal->text_color }}; ">
+<div class="counter-section" style="background-color:  {{ $deal->background_color }}; color: {{ $deal->text_color }}; ">
     <div class="container">
     <div class="row countdown justify-content-center align-items-center gx-3 gy-4 gy-md-0">
       <div class="col-lg-4 col-md-6 col-sm-12 mt-0">
@@ -81,6 +81,11 @@ if($deal->start_date > $currentDateTime){
     var x = setInterval( function() {
         var now = new Date().getTime();
         var d = count - now;
+        if (d <= 0) {
+            clearInterval(x); // Stop the countdown
+            document.querySelector('.counter-section').style.display = 'none'; // Hide the counter section
+            return; // Exit the function
+        }
         var days = Math.floor(d/(1000*60*60*24));
         var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
         var minutes = Math.floor((d%(1000*60*60))/(1000*60));
