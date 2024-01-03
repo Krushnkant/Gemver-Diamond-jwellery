@@ -5,7 +5,7 @@
     <div class="">
         <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
         <div class="about_us_background">
-            <h1 class="sub_heading mb-lg-3 main_header_title">{{ $Category->category_name }}</h1>
+            <h1 class="sub_heading mb-lg-3 main_header_title">{{ isset($Category)?$Category->category_name:' Shop ' }}</h1>
             <div class="about_us_link">
                 <a href="{{ URL('/') }}">home</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none"
@@ -17,13 +17,13 @@
                         d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z"
                         fill="white" />
                 </svg>
-                <a href="#" class="main_header_title">{{ $Category->category_name }}</a>
+                <a href="#" class="main_header_title">{{ isset($Category)?$Category->category_name:' Shop ' }}</a>
             </div>
         </div>
     </div>
 </div>
 <input type="hidden" id="slug" value="{{ $id }}" />
-@if($Category->category_description)
+@if(isset($Category) && $Category->category_description)
 <div class="container shop_page round_cut_lab_diamonds_page">
     <div class="row my-3">
         <div class="col-md-12 px-0">
@@ -181,7 +181,7 @@
         @else
 
         @if($attribute->id == 19)
-        @if($Category->mainparentid == 4)
+        @if(isset($Category) && $Category->mainparentid == 4)
         <div class="col-lg-6 mb-3 mb-md-2">
             <div class="round_cut_lab_range_slider">
                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -204,7 +204,7 @@
         @endif
 
         @elseif($attribute->id == 20)
-        @if($Category->mainparentid == 24)
+        @if(isset($Category) && $Category->mainparentid == 24)
         <div class="col-lg-6 mb-3 mb-md-2">
             <div class="round_cut_lab_range_slider">
                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -226,7 +226,7 @@
         </div>
         @endif
         @elseif($attribute->id == 21 || $attribute->id == 9)
-        @if($Category->mainparentid == 46)
+        @if(isset($Category) && $Category->mainparentid == 46)
         <div class="col-lg-6 mb-3 mb-md-2">
             <div class="round_cut_lab_range_slider">
                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -248,7 +248,7 @@
         </div>
         @endif
         @elseif($attribute->id == 22)
-        @if($Category->mainparentid == 50)
+        @if(isset($Category) && $Category->mainparentid == 50)
         <div class="col-lg-6 mb-3 mb-md-2">
             <div class="round_cut_lab_range_slider">
                 <ul class="right_side_ul round_cut_lab_range_slider row">
@@ -270,7 +270,7 @@
         </div>
         @endif
         @elseif($attribute->id == 23)
-        @if($Category->mainparentid == 55)
+        @if(isset($Category) && $Category->mainparentid == 55)
         <div class="col-lg-6 mb-3 mb-md-2">
             <div class="round_cut_lab_range_slider">
                 <ul class="right_side_ul round_cut_lab_range_slider row">

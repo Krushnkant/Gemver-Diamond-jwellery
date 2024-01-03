@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Http;
 use Response;
 
 class ProductController extends Controller {
-    public function index($id = 0) {
+    public function index($id = '') {
         $CatId = getSlugId('Category', $id);
         $Category = Category::where(['id' => $CatId, 'estatus' => 1])->first(['id', 'parent_category_id', 'category_name', 'category_description', 'meta_title', 'meta_description']);
-        if(!$Category) {
-            return view('frontend/404');
+        if($id != '') {
+            if(!$Category) {
+                return view('frontend/404');
+            }
         }
         //$Products= Product::where(['estatus' => 1,'is_custom' => 0])->get();
-        if($id != 0) {
+        if($id != '') {
             if($Category->parent_category_id == 0) {
                 $Categories = Category::where(['estatus' => 1, 'is_custom' => 0])->where('parent_category_id', $Category->id)->orwhere('id', $Category->id)->get(['id', 'category_name']);
             } else {
@@ -37,8 +39,8 @@ class ProductController extends Controller {
         $Maxprice = ProductVariant::max('sale_price');
         $Maxprice = ceil($Maxprice / 100) * 100;
 
-        $meta_title = isset($Category->meta_title) ? $Category->meta_title : "";
-        $meta_description = isset($Category->meta_description) ? $Category->meta_description : "";
+        $meta_title = isset($Category->meta_title) ? $Category->meta_title : "shop";
+        $meta_description = isset($Category->meta_description) ? $Category->meta_description : "shop";
         return view('frontend.shop', compact('Categories', 'Attributes', 'Maxprice', 'CatId', 'Category', 'id'))->with(['meta_title' => $meta_title, 'meta_description' => $meta_description]);
     }
 
