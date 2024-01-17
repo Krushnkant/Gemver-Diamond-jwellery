@@ -574,6 +574,10 @@
                     $('#diamondcron1').prop('disabled',false);
                     $('#diamondcron1').find('.loadericonfa').hide();
                     toastr.success("Round Heart Cushion Updated",'Success');
+                } else {
+                    $('#diamondcron1').prop('disabled',false);
+                    $('#diamondcron1').find('.loadericonfa').hide();
+                    toastr.error(res.msg);
                 }
 
                 if(res.status == 400){

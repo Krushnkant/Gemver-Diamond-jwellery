@@ -118,18 +118,18 @@
                             <?php 
                             $url = "";
                             if($BlogBanner['dropdown_id'] == 1){
-                            $category = \App\Models\Category::('slug')->where('estatus',1)->where('id',$BlogBanner['value'])->first();
-                            $url = isset($category->slug)?url('shop/'.$category->slug):"";
-                            }elseif($BlogBanner['dropdown_id'] == 2){
-                            $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
-                             if(isset($Product->product_variant)){
-                                $slug = $Product->product_variant[0]->slug;
-                                $url = url('product-details/'.$slug);
-                             }else{
-                                $url ="#";
-                             }
+                                // Using Eloquent to retrieve a single field's data
+                                $category = \App\Models\Category::where('estatus', 1)->where('id',$BlogBanner['value'])->value('slug');
+                                $url = isset($category->slug) ? url('shop/'.$category->slug) : "";
+                            } elseif($BlogBanner['dropdown_id'] == 2) {
+                                $Product = \App\Models\Product::with('product_variant')->where('id',$BlogBanner['value'])->first();
+                                if(isset($Product->product_variant)){
+                                    $slug = $Product->product_variant[0]->slug;
+                                    $url = url('product-details/'.$slug);
+                                } else {
+                                    $url ="#";
+                                }
                             }
-                            
                             ?>
                             @if($key != 0)
                                 <div class="mt-4">

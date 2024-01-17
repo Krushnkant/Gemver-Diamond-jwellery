@@ -217,26 +217,27 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-        ),
+            CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
+            ),
         ));
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        if ($err) {
-           return "cURL Error #:" . $err;
+
+        $diamonds = json_decode($response);
+        if (isset($diamonds->error)) {
+            return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
         } else {
-            $diamonds = json_decode($response);
             
             if(isset($diamonds->response->body->diamonds)){ 
                 $per_page = count($diamonds->response->body->diamonds);
@@ -428,7 +429,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Round&shapes[]=Heart&shapes[]=Cushion&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -444,10 +445,11 @@ class DiamondController extends Controller
                 $response = curl_exec($curl);
                 $err = curl_error($curl);
                 curl_close($curl);
-                if ($err) {
-                   return "cURL Error #:" . $err;
+                $diamonds = json_decode($response);
+                if (isset($diamonds->error)) {
+                    return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
                 } else {
-                    $diamonds = json_decode($response);
+                    
                     if(isset($diamonds->response->body->diamonds)){ 
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
@@ -646,7 +648,7 @@ class DiamondController extends Controller
         }
 
         $action = "add";
-        return response()->json(['status' => '200', 'action' => $action]);
+        return response()->json(['status' => '200', 'action' => $action, 'response' => $response]);
     }
 
     public function importnewdiamond1(Request $request){
@@ -659,7 +661,7 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true',
+        CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -675,10 +677,11 @@ class DiamondController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        if ($err) {
-           return "cURL Error #:" . $err;
+        $diamonds = json_decode($response);
+        if (isset($diamonds->error)) {
+            return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
         } else {
-            $diamonds = json_decode($response);
+            
             if(isset($diamonds->response->body->diamonds)){ 
                 $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
@@ -867,7 +870,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -883,10 +886,11 @@ class DiamondController extends Controller
                 $response = curl_exec($curl);
                 $err = curl_error($curl);
                 curl_close($curl);
-                if ($err) {
-                   return "cURL Error #:" . $err;
+                $diamonds = json_decode($response);
+                if (isset($diamonds->error)) {
+                    return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
                 } else {
-                    $diamonds = json_decode($response);
+                    
                     if(isset($diamonds->response->body->diamonds)){ 
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
@@ -1061,7 +1065,7 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true',
+        CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1077,10 +1081,11 @@ class DiamondController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        if ($err) {
-           return "cURL Error #:" . $err;
+        $diamonds = json_decode($response);
+        if (isset($diamonds->error)) {
+            return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
         } else {
-            $diamonds = json_decode($response);
+            
             if(isset($diamonds->response->body->diamonds)){ 
                 $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
@@ -1269,7 +1274,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
+                CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -1285,10 +1290,11 @@ class DiamondController extends Controller
                 $response = curl_exec($curl);
                 $err = curl_error($curl);
                 curl_close($curl);
-                if ($err) {
-                   return "cURL Error #:" . $err;
+                $diamonds = json_decode($response);
+                if (isset($diamonds->error)) {
+                    return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
                 } else {
-                    $diamonds = json_decode($response);
+                    
                     if(isset($diamonds->response->body->diamonds)){ 
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
@@ -1461,7 +1467,7 @@ class DiamondController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number=1',
+        CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number=1',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1477,10 +1483,11 @@ class DiamondController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        if ($err) {
-           return "cURL Error #:" . $err;
+        $diamonds = json_decode($response);
+        if (isset($diamonds->error)) {
+            return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
         } else {
-            $diamonds = json_decode($response);
+            
             if(isset($diamonds->response->body->diamonds)){ 
                 $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
@@ -1669,7 +1676,7 @@ class DiamondController extends Controller
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'http://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number='.$x,
+                CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number='.$x,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -1685,10 +1692,11 @@ class DiamondController extends Controller
                 $response = curl_exec($curl);
                 $err = curl_error($curl);
                 curl_close($curl);
-                if ($err) {
-                   return "cURL Error #:" . $err;
+                $diamonds = json_decode($response);
+                if (isset($diamonds->error)) {
+                    return response()->json(['status' => $diamonds->status, 'action' => 'error', 'msg' => $diamonds->error]);
                 } else {
-                    $diamonds = json_decode($response);
+                    
                     if(isset($diamonds->response->body->diamonds)){ 
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
