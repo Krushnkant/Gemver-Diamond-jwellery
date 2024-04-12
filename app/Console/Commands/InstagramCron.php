@@ -44,6 +44,6 @@ class InstagramCron extends Command
         $contents = json_decode($json_feed, true, 512, JSON_BIGINT_AS_STRING);
         $setting->instagram_token = $contents['access_token'];
         $setting->save();
-        \Log::info("instagram refresh access token successfully!");
+        // \Log::info("instagram refresh access token successfully!");
     }
 }

@@ -45,7 +45,7 @@ class DiamondCron extends Command
     {
         
         set_time_limit(0);
-        \Log::info("Diamond Round Heart Cushion Uploaded start !");
+        // \Log::info("Diamond Round Heart Cushion Uploaded start !");
         $oldids = Diamond::whereIn('Shape',['Round','Heart','Cushion'])->get()->pluck('diamond_id')->toarray();
 
         $PriceRanges = PriceRange::where('estatus',1)->get();
@@ -372,7 +372,7 @@ class DiamondCron extends Command
         //$stockstatusupdate = Diamond::whereIn('diamond_id',$oldids)->where('StockStatus','<>',0)->update(['StockStatus' => '0']);
         $stockstatusupdate = Diamond::whereIn('diamond_id',$oldids)->delete();
     
-        \Log::info("Diamond Round Heart Cushion Uploaded end !");
+        // \Log::info("Diamond Round Heart Cushion Uploaded end !");
     }
 
     public function createSlug($title, $id = 0)
