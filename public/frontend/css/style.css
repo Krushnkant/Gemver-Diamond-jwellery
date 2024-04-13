@@ -2344,7 +2344,9 @@ background-size: cover;
         background: var(--secondary);
         color: #fff;
     }
-
+    .home-slider-box {
+        height: 1080px;
+    }
     .round_cut_lab_checkbox input:checked+.attr-img {}
 
     .round_cut_lab_checkbox .round_checkbox_part {
