@@ -15,16 +15,16 @@ $settings = \App\Models\Settings::first();
     <link rel="canonical" href="{{ url()->full() }}" />
     <meta name="title" content="{{ isset($meta_title) ? $meta_title:'' }}" />
     <meta name="description" content="{{ isset($meta_description) ? $meta_description :'' }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/responsive.css') }}" media="(max-width: 1600px)">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/animate.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/slick.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/slick-theme.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}"> -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ asset('frontend/css/select2.min.css') }}">
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
 
     <!-- TrustBox script -->
