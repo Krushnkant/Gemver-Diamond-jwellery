@@ -4544,6 +4544,10 @@ width: 100%;
 
     /* ------------------------------------------ */
 
+    .category-slider-box {
+        height: 536px;
+    }
+    
     .catrgory_img {
         overflow: hidden;
         border-radius: 10px 10px 0 0;
@@ -6822,7 +6826,7 @@ width: 100%;
     .shop-colorful-bg .heading-h2 {
         color: #fff !important;
         text-transform: none;
-        font-family: 'Poppins';
+        /* font-family: 'Poppins'; */
         font-style: normal;
         font-weight: 600;
         font-size: 40px;

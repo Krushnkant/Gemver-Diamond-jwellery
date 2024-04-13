@@ -178,8 +178,7 @@ $settings = \App\Models\Settings::first();
         <div class="container">
             <div class="shop_by_category shop_by_category_padding">
                 <div class="row">
-                    <div
-                        class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
+                    <div class="col-md-12 text-center d-flex justify-content-center align-items-center position-relative">
                         <div class="mb-3 mt-md-0">
                             <h2 class="heading-h2">{{ $homesetting->section_category_title }}</h2>
                             <div class="sub_title">
@@ -187,20 +186,21 @@ $settings = \App\Models\Settings::first();
                             </div>
                         </div>
                     </div>
-                    <div class="owl-carousel owl-theme shop-by-category mb-5">
-                        @foreach($categories as $category)
-                        <div class="item">
-                            <a href="{{ URL('shop/'.$category->slug)}}">
-                                <div class="catrgery_box">
-                                    <span class="catrgory_img">
-                                        <img src="{{ url($category->category_thumb) }}"
-                                            alt="{{ $category->category_name }}">
-                                    </span>
-                                    <span class="catrgery_heading">{{ $category->category_name }}</span>
-                                </div>
-                            </a>
+                    <div class="category-slider-box">
+                        <div class="owl-carousel owl-theme shop-by-category mb-5">
+                            @foreach($categories as $category)
+                            <div class="item">
+                                <a href="{{ URL('shop/'.$category->slug)}}">
+                                    <div class="catrgery_box">
+                                        <span class="catrgory_img">
+                                            <img src="{{ url($category->category_thumb) }}" alt="{{ $category->category_name }}" width="300" height="400">
+                                        </span>
+                                        <span class="catrgery_heading">{{ $category->category_name }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
@@ -220,7 +220,7 @@ $settings = \App\Models\Settings::first();
                 <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                         <div class="shop-colorful-img">
-                            <img src="{{ asset('frontend/image/diamond-part.png') }}" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/diamond-part.png') }}" width="300" height="300" alt="" loading="lazy">
                         </div>
                     </div>
                     <div
