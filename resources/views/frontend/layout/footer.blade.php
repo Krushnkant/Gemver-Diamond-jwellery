@@ -3,7 +3,7 @@
         <div class="row mb-md-5">
             <div class="col-lg-3">
                 <div class="footer-logo mb-3">
-                    <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="">
+                    <img src="{{ URL('images/company/'.$settings->company_logo) }}" width="150" height="70" alt="">
                 </div>
             </div>
             <div class="col-lg-9">
@@ -94,28 +94,28 @@
                         @if($settings->instagram_url != "")
                         <li>
                             <a href="{{ $settings->instagram_url}}" target="_blank">
-                                <img src="{{ asset('frontend/image/instagram.png') }}" alt="Instagram">
+                                <img src="{{ asset('frontend/image/instagram.png') }}" width="32" height="32" alt="Instagram">
                             </a>
                         </li>
                         @endif
                         @if($settings->youtub_url != "")
                         <li>
                             <a href="{{ $settings->youtub_url}}" target="_blank">
-                                <img src="{{ asset('frontend/image/youtube.png') }}" alt="Youtube">
+                                <img src="{{ asset('frontend/image/youtube.png') }}" width="32" height="32" alt="Youtube">
                             </a>
                         </li>
                         @endif
                         @if($settings->facebook_url != "")
                         <li>
                             <a href="{{ $settings->facebook_url}}" target="_blank">
-                                <img src="{{ asset('frontend/image/facebook.png') }}" alt="Facebook">
+                                <img src="{{ asset('frontend/image/facebook.png') }}" width="32" height="32" alt="Facebook">
                             </a>
                         </li>
                         @endif
                         @if($settings->twiter_url != "")
                         <li class="me-0">
                             <a href="{{ $settings->twiter_url}}" target="_blank">
-                                <img src="{{ asset('frontend/image/pinterest.png') }}" alt="Pinterest">
+                                <img src="{{ asset('frontend/image/pinterest.png') }}" width="32" height="32" alt="Pinterest">
                             </a>
                         </li>
                         @endif 
