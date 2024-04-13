@@ -110,20 +110,20 @@ $settings = \App\Models\Settings::first();
         <div class="owl-carousel owl-theme home-page-slider">
             @foreach($banners as $banner)
                 @if($banner->application_dropdown_id == 1)
-                <?php  $banner_url =  "#"?>
+                    <?php  $banner_url =  "#"?>
                 @elseif($banner->application_dropdown_id == 2)
-                <?php 
-                            $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
-                            $banner_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
-                        ?>
+                    <?php 
+                        $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
+                        $banner_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
+                    ?>
                 @elseif($banner->application_dropdown_id == 3)
-                <?php 
-                            $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
-                            $banner_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
-                        ?>
+                    <?php 
+                        $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
+                        $banner_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
+                    ?>
 
                 @elseif($banner->application_dropdown_id == 4)
-                <?php $banner_url = $banner->value; ?>
+                    <?php $banner_url = $banner->value; ?>
                 @endif
 
                 @if($banner->button_name == "")
@@ -133,8 +133,7 @@ $settings = \App\Models\Settings::first();
                             <div class="background-slider ">
                                 <div class="background-smoke-slider position-relative">
                                     <div class="d-block d-md-none mobile-view-img">
-                                        <img src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}"
-                                            alt=" " loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver" loading="lazy">
                                     </div>
                                     <div class="d-none d-md-block desktop-view-img">
                                         <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
