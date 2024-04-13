@@ -135,7 +135,7 @@ $settings = \App\Models\Settings::first();
                                         <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver" loading="lazy">
                                     </div>
                                     <div class="d-none d-md-block desktop-view-img">
-                                        <img src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
                                     </div>
                                     <div class="">
                                         <div class="background-text-part px-3 px-lg-4 container" style="text-align: {{ isset($banner->direction)?$banner->direction:'left' }}">
