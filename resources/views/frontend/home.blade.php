@@ -132,10 +132,10 @@ $settings = \App\Models\Settings::first();
                             <div class="background-slider ">
                                 <div class="background-smoke-slider position-relative">
                                     <div class="d-block d-md-none mobile-view-img">
-                                        <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver" loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver"  width="768" height="320" loading="lazy">
                                     </div>
                                     <div class="d-none d-md-block desktop-view-img">
-                                        <img fetchpriority="high" src="{{ asset($banner->banner_thumb) }}" alt=" " loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset($banner->banner_thumb) }}" width="1920" height="740" alt=" " loading="lazy">
                                     </div>
                                     <div class="">
                                         <div class="background-text-part px-3 px-lg-4 container" style="text-align: {{ isset($banner->direction)?$banner->direction:'left' }}">
@@ -145,14 +145,11 @@ $settings = \App\Models\Settings::first();
                                             </div>
                                             @if($banner->button_name != "")
                                             @if($banner->application_dropdown_id == 1)
-                                            <button
-                                                class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button">
+                                            <button class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect  shop-now-button">
                                                 {{ $banner->button_name }}
                                             </button>
                                             @else
-                                            <button
-                                                class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button"
-                                                data-value='{{ ($banner_url != "") ? $banner_url : "#" }}'>
+                                            <button class="explore-ring-btn mt-3 mt-md-4 mt-xxl-4 btn-hover-effect banner-url shop-now-button" data-value='{{ ($banner_url != "") ? $banner_url : "#" }}'>
                                                 {{ $banner->button_name }}
                                             </button>
                                             @endif

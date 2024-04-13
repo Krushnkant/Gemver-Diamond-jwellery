@@ -54,6 +54,9 @@
     .home-slider-box {
         height: 590px;
     }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 600px;
+    }
 }
 
 @media (max-width:1366px) {
@@ -71,6 +74,9 @@
     }
     .category-slider-box .catrgory_img img {
         height: 310px;
+    }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 540px;
     }
 }
 
@@ -1059,6 +1065,9 @@
     }
     .engagement_diamond_img img {
         height: 530px;
+    }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 424px;
     }
 }
 
@@ -2096,6 +2105,9 @@
     .engagement_diamond_img img {
         height: 410px;
     }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 385px;
+    }
 }
 
 @media (max-width:853px) {
@@ -2104,6 +2116,9 @@
     }
     .category-slider-box .catrgory_img img {
         height: 240px;
+    }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 340px;
     }
 }
 
@@ -2117,9 +2132,16 @@
     .engagement_diamond_img img {
         height: 380px;
     }
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 340px;
+    }
 }
 
 @media (max-width: 768px) {
+
+    .home-slider-box .background-slider .desktop-view-img img {
+        height: 320px;
+    }
 
     .home-slider-box {
         height: 318px;
@@ -2687,7 +2709,9 @@
         height: 460px;
     }
     
-    
+    .home-slider-box .background-slider .mobile-view-img img {
+        height: 230px;
+    }
 }
 
 @media (max-width:430px) {
@@ -2702,6 +2726,9 @@
     }
     .engagement_diamond_img img {
         height: 565px;
+    }
+    .home-slider-box .background-slider .mobile-view-img img {
+        height: 160px;
     }
 }
 
@@ -2849,6 +2876,9 @@
     }
     .category-slider-box {
         height: 310px;
+    }
+    .home-slider-box .background-slider .mobile-view-img img {
+        height: 130px;
     }
 }
 
