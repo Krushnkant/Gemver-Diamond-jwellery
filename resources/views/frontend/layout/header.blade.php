@@ -35,7 +35,7 @@
                 <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
                     <div class="logo-image header-logo mx-lg-auto mb-0">
                         <a href="{{ URL('/') }}">
-                            <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" loading="lazy">
+                            <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" width="120" height="60" loading="lazy">
                         </a>
                     </div>
                     <span class="d-flex align-items-center justify-content-end header_logo_cart">
@@ -43,8 +43,8 @@
                             <div class="position-relative ">
                                 <input type="text"  value="" class="form-control" id="main_search" autocomplete="off">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" id="searchBtn" width="22" height="22" version="1.1" viewBox="0 0 700 700">
-                                        <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
-                                    </svg>
+                                    <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
+                                </svg>
                             </div>
                             <div class="mega-menu-part " id="mega-menu-scrollbar" style="display: none;">
                                 <div class="mega-menu-spinner serach-load" style="display: none;align-items: center;justify-content: center;">
@@ -61,11 +61,11 @@
                             <span class="position-relative dropdown d-lg-none search-box-icon">
                                 <a href="#" class="mobile-search-close">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" width="22" height="22" version="1.1" viewBox="0 0 700 700">
-                                            <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="close-icon" width="15" height="15" viewBox="0 0 50 50" fill="none">
+                                        <path d="m450.6 347.61c29.238-37.629 43.031-84.992 38.574-132.44s-26.828-91.406-62.562-122.93c-35.734-31.527-82.141-48.25-129.77-46.762-47.629 1.4844-92.902 21.07-126.6 54.77-33.699 33.695-53.285 78.969-54.77 126.6-1.4883 47.629 15.234 94.035 46.762 129.77 31.527 35.734 75.492 58.105 122.94 62.562 47.445 4.457 94.805-9.3359 132.43-38.574l125.9 125.89c5.9102 5.8047 14.457 8.0391 22.453 5.8711 7.9961-2.168 14.242-8.4141 16.41-16.41 2.168-7.9961-0.066407-16.543-5.8711-22.453zm-287.27-114.28c0-37.129 14.75-72.738 41.008-98.992 26.254-26.258 61.863-41.008 98.992-41.008 37.133 0 72.742 14.75 98.996 41.008 26.254 26.254 41.004 61.863 41.004 98.992 0 37.133-14.75 72.742-41.004 98.996s-61.863 41.004-98.996 41.004c-37.117-0.039062-72.703-14.801-98.949-41.047-26.246-26.246-41.008-61.832-41.051-98.953z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="close-icon" width="15" height="15" viewBox="0 0 50 50" fill="none">
                                         <path d="M0.474356 0.97997L0.708614 0.708614C1.56755 -0.150322 2.91162 -0.228386 3.85875 0.474356L4.1301 0.708614L25 21.5774L45.87 0.708614C46.8149 -0.236193 48.3465 -0.236193 49.2913 0.708614C50.2362 1.65342 50.2362 3.18529 49.2913 4.1301L28.4226 25L49.2913 45.87C50.1504 46.7287 50.2284 48.0729 49.5255 49.02L49.2913 49.2913C48.4326 50.1504 47.0884 50.2284 46.1413 49.5255L45.87 49.2913L25 28.4226L4.1301 49.2913C3.18529 50.2362 1.65342 50.2362 0.708614 49.2913C-0.236193 48.3465 -0.236193 46.8149 0.708614 45.87L21.5774 25L0.708614 4.1301C-0.150322 3.27117 -0.228386 1.9271 0.474356 0.97997L0.708614 0.708614L0.474356 0.97997Z" fill="#212121"/>
-                                        </svg>
+                                    </svg>
                                     </a>
                             </span>
                             <span class="position-relative dropdown">
@@ -162,61 +162,61 @@
                                                 <ul class="mega-menu-two-colum">
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/ROUND') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/round.png') }}" alt="ROUND" class="diamond-mega-menu-img" width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">round</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/HEART') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/heart.png') }}" alt="HEART" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">heart</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/PRINCESS') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/princess.png') }}" alt="PRINCESS" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">princess</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/PEAR') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/pear.png') }}" alt="PEAR" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">pear</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/OVAL') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/oval.png') }}" alt="OVAL" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">oval</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/CUSHION') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/cushion.png') }}" alt="CUSHION" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">cushion</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/EMERALD') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/emerald.png') }}" alt="EMERALD" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">emerald</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/MARQUISE') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/marquise.png') }}" alt="MARQUISE" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">marquise</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/ASSCHER') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/asscher.png') }}" alt="ASSCHER" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">asscher</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/RADIANT') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img " loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('/frontend/image/header-image/radiant.png') }}" alt="RADIANT" class="diamond-mega-menu-img " width="30" height="30" loading="lazy"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">radiant</span>
                                                         </a>
                                                     </li>
@@ -230,73 +230,73 @@
                                                 <ul class="mega-menu-two-colum loose-lab-diamonds-diamond">
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Yellow') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/yellow.png') }}" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/yellow.png') }}" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Yellow</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Orange') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/orange.png') }}" alt="Orange" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/orange.png') }}" alt="Orange" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Orange</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Pink') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/pink.png') }}" alt="Pink" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/pink.png') }}" alt="Pink" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Pink</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Blue') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/blue.png') }}" alt="Blue" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/blue.png') }}" alt="Blue" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Blue</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Green') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/green.png') }}" alt="Green" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/green.png') }}" alt="Green" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Green</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Brown') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/brown.png') }}" alt="Brown" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/brown.png') }}" alt="Brown" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Brown</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Red') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/red.png') }}" alt="Red" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/red.png') }}" alt="Red" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Red</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/White') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/white.png') }}" alt="White" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/white.png') }}" alt="White" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">White</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Violet') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/violet.png') }}" alt="Violet" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/violet.png') }}" alt="Violet" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Violet</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Purple') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/purple.png') }}" alt="Purple" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/purple.png') }}" alt="Purple" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Purple</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Olive') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/olive.png') }}" alt="Olive" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/olive.png') }}" alt="Olive" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Olive</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="{{ url('/lab-diamond/fancy-color/Black') }}" class="d-flex">
-                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/black.png') }}" alt="Black" class="diamond-mega-menu-img" loading="lazy"></span>
+                                                            <span class="d-inline-block"><img src="{{ url('frontend/image/black.png') }}" alt="Black" class="diamond-mega-menu-img" loading="lazy" width="30" height="30"></span>
                                                             <span class="ms-2 ms-md-2 d-inline-block">Black</span>
                                                         </a>
                                                     </li>
@@ -306,7 +306,7 @@
                                             <div class="submenu-box mt-4">
                                                 <ul>
                                                     <li class="menu-part-img two_part_padding ">
-                                                        <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" loading="lazy">
+                                                        <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" width="250" height="250" alt="" loading="lazy">
                                                     </li>
                                                 </ul>
                                             </div>
@@ -393,7 +393,7 @@
                                                             ?>
                                                                 <li>
                                                                     <a href="{{ URL('/shop/'.$car->category->slug)}}">
-                                                                        <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                                        <img src="{{ $icon }}" alt=""  width="30" height="30" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                     </a>
                                                                 </li>
                                                             <?php
@@ -408,7 +408,7 @@
                                             ?>
                                             <div class="submenu-box">
                                                 <ul class="">
-                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
+                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -489,7 +489,7 @@
                                                             ?>
                                                                 <li>
                                                                     <a href="{{ URL('shop/'.$car->category->slug)}}">
-                                                                        <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img "> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                                        <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img " width="30" height="30"> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                     </a>
                                                                 </li>
                                                             <?php
@@ -504,7 +504,7 @@
                                             ?>
                                             <div class="submenu-box">
                                                 <ul class="">
-                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
+                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -585,7 +585,7 @@
                                                             ?>
                                                                 <li>
                                                                     <a href="{{ URL('shop/'.$car->category->slug)}}">
-                                                                        <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img " loading="lazy"> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
+                                                                        <img src="{{ $icon }}" alt="" class="diamond-mega-menu-img " loading="lazy" width="30" height="30"> <span class="ms-3 ms-lg-2">{{ $car->title }}</span>
                                                                     </a>
                                                                 </li>
                                                             <?php
@@ -599,7 +599,7 @@
                                             ?>
                                             <div class="submenu-box">
                                                 <ul class="">
-                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" "></li>
+                                                    <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -651,10 +651,10 @@
                                                         </li>
                                                         <li>
                                                             <a href="{{ URL('product-setting/'.$car->slug)}}" class="d-flex">
-                                                                <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img " loading="lazy"> <span class="ms-3 ms-lg-2">Start with a Setting</span></a>
+                                                                <img src="{{ url($car->category_thumb) }}" alt=" " class="mega-menu-img " loading="lazy"> <span class="ms-3 ms-lg-2" width="30" height="30">Start with a Setting</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="{{ URL('diamond-setting/'.$car->slug)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img "><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
+                                                            <a href="{{ URL('diamond-setting/'.$car->slug)}}" class="d-flex"><img src="{{ url('frontend/image/mega-menu-img-2.png') }}" alt=" " class="mega-menu-img " width="30" height="30"><span class="ms-3 ms-lg-2">Start with a Lab Diamond</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -663,7 +663,7 @@
 
                                             <div class="submenu-box1">
                                                 <ul>
-                                                    <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                    <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" width="250" height="250">
                                                 </ul>
                                             </div>
 
@@ -766,7 +766,7 @@
                                             </ul>
 
                                             <ul>
-                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="">
+                                                <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" width="250" height="250">
                                             </ul>
 
                                         </div>
@@ -803,7 +803,7 @@ $.ajax({
         method:"POST",
         data:{_token: '{{ csrf_token() }}'},
         success:function(data){ 
-            console.log(data);
+            // console.log(data);
             $('.cart-item-list').html(data);
         
         }

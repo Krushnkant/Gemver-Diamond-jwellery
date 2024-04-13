@@ -1006,7 +1006,7 @@
             var qty = Number(count.val());
             sum = amount * qty;
             total = total + sum;
-            console.log(price.closest('tr').find('.cart-total-price'));
+            // console.log(price.closest('tr').find('.cart-total-price'));
             price.closest('tr').find('.cart-total-price').html(sum);
             qtytotal = qtytotal + qty;
         })

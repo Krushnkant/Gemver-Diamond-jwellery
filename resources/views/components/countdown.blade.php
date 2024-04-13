@@ -83,7 +83,8 @@ if($deal->start_date > $currentDateTime){
         var d = count - now;
         if (d <= 0) {
             clearInterval(x); // Stop the countdown
-            document.querySelector('.counter-section').style.display = 'none'; // Hide the counter section
+            jQuery('.counter-section').hide();
+            // document.querySelector('.counter-section').style.display = 'none'; // Hide the counter section
             return; // Exit the function
         }
         var days = Math.floor(d/(1000*60*60*24));

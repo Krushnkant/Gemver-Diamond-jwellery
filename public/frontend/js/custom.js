@@ -877,7 +877,7 @@ $(document).ready(function () {
                 'item_type': item_type,
             },
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 if (response.action == 'add') {
                     thisdata.html('<i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist');
                     //wishload();
