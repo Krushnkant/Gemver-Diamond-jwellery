@@ -4547,7 +4547,7 @@ width: 100%;
     .category-slider-box {
         height: 536px;
     }
-    
+
     .catrgory_img {
         overflow: hidden;
         border-radius: 10px 10px 0 0;
@@ -7696,4 +7696,8 @@ width: 100%;
         align-items: center;     /* vertically center items if needed */
         list-style-type: none;   /* removes default list styles */
         padding: 0;              /* removes default padding */
+    }
+
+    #trustby-slider img {
+        height: auto;
     }

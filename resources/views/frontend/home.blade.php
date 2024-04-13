@@ -23,7 +23,7 @@ $settings = \App\Models\Settings::first();
     <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/slick-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
 
@@ -476,7 +476,7 @@ $settings = \App\Models\Settings::first();
             <div class="row">
                 <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
                     <div class="engagement_diamond_img">
-                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" loading="lazy">
+                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" width="440" height="655" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
@@ -489,9 +489,9 @@ $settings = \App\Models\Settings::first();
                             class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('step/'.$step->slug.'/one') }}"><img
-                                            src="{{ asset('frontend/image/diamond_1_part.png') }}" alt=""
-                                            loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/one') }}">
+                                        <img src="{{ asset('frontend/image/diamond_1_part.png') }}" width="40" height="40" alt="" loading="lazy">
+                                    </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/one') }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step1_title }}</div>
@@ -508,9 +508,9 @@ $settings = \App\Models\Settings::first();
                             class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('step/'.$step->slug.'/two') }}"><img
-                                            src="{{ asset('frontend/image/diamond_2_part.png') }}" alt=""
-                                            loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/two') }}">
+                                        <img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                    </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/two') }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step2_title }}</div>
@@ -524,9 +524,9 @@ $settings = \App\Models\Settings::first();
                             class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('step/'.$step->slug.'/three') }}"><img
-                                            src="{{ asset('frontend/image/diamond_3_part.png') }}" alt=""
-                                            loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/three') }}">
+                                        <img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                    </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/three') }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step3_title }}</div>
@@ -540,9 +540,9 @@ $settings = \App\Models\Settings::first();
                             class="col-lg-6 col-md-12 mb-3 mb-md-3 mb-lg-5 d-flex d-lg-block align-items-lg-start px-0">
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
-                                    <a href="{{ url('step/'.$step->slug.'/four') }}"><img
-                                            src="{{ asset('frontend/image/diamond_4_part.png') }}" alt=""
-                                            loading="lazy"></a>
+                                    <a href="{{ url('step/'.$step->slug.'/four') }}">
+                                        <img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                    </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/four') }}">
                                     <div class="engagement_diamond_sub_heading mt-0">{{ $step->step4_title }}</div>
@@ -572,7 +572,7 @@ $settings = \App\Models\Settings::first();
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
                 <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" loading="lazy">
+                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" height="550" loading="lazy">
                 </div>
             </div>
         </div>
@@ -586,11 +586,11 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_1.png') }}" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_1.png') }}" width="50" height="50" alt="" loading="lazy">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
-                                {{ $SmilingDifference[0]->title }}
+                                {{ $SmilingDifference[0]->shotline }}
                             </div>
                             <div class="smiling_box_paragraph">
                                 {{ $SmilingDifference[0]->shotline }}
@@ -601,7 +601,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_2.png') }}" width="50" height="50" alt="" loading="lazy">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -616,7 +616,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_3.png') }}" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_3.png') }}" width="50" height="50" alt="" loading="lazy">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -631,7 +631,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_4.png') }}" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_4.png') }}" width="50" height="50" alt="" loading="lazy">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">

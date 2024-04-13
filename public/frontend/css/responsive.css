@@ -1057,6 +1057,9 @@
     .category-slider-box .catrgory_img img {
         height: 260px;
     }
+    .engagement_diamond_img img {
+        height: 530px;
+    }
 }
 
 @media only screen and (max-width: 992px) {
@@ -2090,6 +2093,9 @@
     .shop-colorful-img {
         height: 175px;
     }
+    .engagement_diamond_img img {
+        height: 410px;
+    }
 }
 
 @media (max-width:853px) {
@@ -2107,6 +2113,9 @@
     }
     .category-slider-box .catrgory_img img {
         height: 240px;
+    }
+    .engagement_diamond_img img {
+        height: 380px;
     }
 }
 
@@ -2691,6 +2700,9 @@
     .category-slider-box .catrgory_img img {
         height: 270px;
     }
+    .engagement_diamond_img img {
+        height: 565px;
+    }
 }
 
 @media (max-width:414px) {
@@ -2721,6 +2733,9 @@
 
     .category-slider-box .catrgory_img img {
         height: 240px;
+    }
+    .engagement_diamond_img img {
+        height: 510px;
     }
 }
 

@@ -14,10 +14,9 @@
                             <?php $trustedbies = \App\Models\TrustedBy::where('estatus', 1)->get('trustedbythumb'); ?>
                             @foreach($trustedbies as $trusted)
                             <div class="item">
-                                <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" alt="">
+                                <img src="{{ URL('images/trustedbyThumb/'.$trusted->trustedbythumb) }}" width="170" height="70" alt="">
                             </div>
                             @endforeach
-                            
                         </div>
                     </div>
                 </div>
