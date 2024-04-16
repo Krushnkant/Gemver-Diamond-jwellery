@@ -132,10 +132,10 @@ $settings = \App\Models\Settings::first();
                             <div class="background-slider ">
                                 <div class="background-smoke-slider position-relative">
                                     <div class="d-block d-md-none mobile-view-img">
-                                        <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver"  width="768" height="320" loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset(($banner->mobile_banner_thumb)?$banner->mobile_banner_thumb:$banner->banner_thumb) }}" alt="Gemver"  width="768" height="320">
                                     </div>
                                     <div class="d-none d-md-block desktop-view-img">
-                                        <img fetchpriority="high" src="{{ asset($banner->banner_thumb) }}" width="1920" height="740" alt=" " loading="lazy">
+                                        <img fetchpriority="high" src="{{ asset($banner->banner_thumb) }}" width="1920" height="740" alt=" ">
                                     </div>
                                     <div class="">
                                         <div class="background-text-part px-3 px-lg-4 container" style="text-align: {{ isset($banner->direction)?$banner->direction:'left' }}">
@@ -215,7 +215,7 @@ $settings = \App\Models\Settings::first();
                 <div class="row text-center py-5 align-items-center">
                     <div class="col-12 col-md-6 col-lg-6 col-xl-4">
                         <div class="shop-colorful-img">
-                            <img src="{{ asset('frontend/image/diamond-part.png') }}" width="300" height="300" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/diamond-part.png') }}" width="300" height="300" alt="">
                         </div>
                     </div>
                     <div
@@ -299,7 +299,7 @@ $settings = \App\Models\Settings::first();
                                 // if(in_array($ext, $supported_image)) {  
                             ?>
 
-                                    {{-- <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy"> --}}
+                                    {{-- <img src="{{ $image }}" alt="{{ $alt_text }}"> --}}
                                     <?php // }else{ ?>
 
                                     {{-- <video loop="true" autoplay="autoplay" muted
@@ -307,7 +307,7 @@ $settings = \App\Models\Settings::first();
                                         <source src="{{ $image }}" type="video/mp4">
                                     </video> --}}
                                     <?php // } ?>
-                                    <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy">
+                                    <img src="{{ $image }}" alt="{{ $alt_text }}">
                                 </a>
                             </div>
                             <div class="wire_bangle_description p-2">
@@ -333,7 +333,7 @@ $settings = \App\Models\Settings::first();
                                             <a href="{{ $attributeurl }}">
                                                 <img src="{{ url('images/attrTermThumb/'.$productvariants->attrterm_thumb) }}"
                                                     alt="{{ $productvariants->attrterm_name }}"
-                                                    class="wire_bangle_color_img pe-auto" loading="lazy">
+                                                    class="wire_bangle_color_img pe-auto">
                                             </a>
                                             <div class="wire_bangle_color_input_label"></div>
                                         </span>
@@ -404,61 +404,61 @@ $settings = \App\Models\Settings::first();
                     <div class="owl-carousel owl-theme shop-dimond-by-shape-slider">
                         <div class="item">
                             <a href="{{ url('/lab-diamond/round') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/round.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/round.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">round</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/oval') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/oval.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/oval.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">oval</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/princess') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/princess.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/princess.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">princess</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/cushion') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/cushion.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">cushion</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/marquise') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/marquise.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">marquise</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/pear') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/pear.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/pear.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">pear</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/radiant') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/radiant.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">radiant</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/heart') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/heart.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/heart.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">heart</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/emerald') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/emerald.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/emerald.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">emerald</div>
                             </a>
                         </div>
                         <div class="item">
                             <a href="{{ url('/lab-diamond/asscher') }}" class="shop-dimond-by-shape-img">
-                                <img src="{{ asset('frontend/image/asscher.png') }}" alt="" loading="lazy">
+                                <img src="{{ asset('frontend/image/asscher.png') }}" alt="">
                                 <div class="shop_by_diamond_shpae_name">asscher</div>
                             </a>
                         </div>
@@ -473,7 +473,7 @@ $settings = \App\Models\Settings::first();
             <div class="row">
                 <div class="col-lg-5 col-xl-4 col-md-5 col-sm-5 pe-lg-4">
                     <div class="engagement_diamond_img">
-                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" width="440" height="655" loading="lazy">
+                        <img src="{{ url('images/steps/'.$step->main_image) }}" alt="" width="440" height="655">
                     </div>
                 </div>
                 <div class="col-lg-7 col-xl-8 col-md-7 col-sm-7 mt-4 mt-sm-0 mt-md-0 mt-lg-0">
@@ -487,7 +487,7 @@ $settings = \App\Models\Settings::first();
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
                                     <a href="{{ url('step/'.$step->slug.'/one') }}">
-                                        <img src="{{ asset('frontend/image/diamond_1_part.png') }}" width="40" height="40" alt="" loading="lazy">
+                                        <img src="{{ asset('frontend/image/diamond_1_part.png') }}" width="40" height="40" alt="">
                                     </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/one') }}">
@@ -506,7 +506,7 @@ $settings = \App\Models\Settings::first();
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
                                     <a href="{{ url('step/'.$step->slug.'/two') }}">
-                                        <img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                        <img src="{{ asset('frontend/image/diamond_2_part.png') }}" alt="" width="40" height="40">
                                     </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/two') }}">
@@ -522,7 +522,7 @@ $settings = \App\Models\Settings::first();
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
                                     <a href="{{ url('step/'.$step->slug.'/three') }}">
-                                        <img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                        <img src="{{ asset('frontend/image/diamond_3_part.png') }}" alt="" width="40" height="40">
                                     </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/three') }}">
@@ -538,7 +538,7 @@ $settings = \App\Models\Settings::first();
                             <div class="position-relative">
                                 <div class="engagement_diamond_box mb-3">
                                     <a href="{{ url('step/'.$step->slug.'/four') }}">
-                                        <img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" width="40" height="40" loading="lazy">
+                                        <img src="{{ asset('frontend/image/diamond_4_part.png') }}" alt="" width="40" height="40">
                                     </a>
                                 </div>
                                 <a href="{{ url('step/'.$step->slug.'/four') }}">
@@ -569,7 +569,7 @@ $settings = \App\Models\Settings::first();
             </div>
             <div class="col-md-6 pe-0 px-0 order-1 order-md-2">
                 <div class="own_ring_img">
-                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" height="550" loading="lazy">
+                    <img src="{{ url($homesetting->section_customise_image) }}" alt="" width="100%" height="550">
                 </div>
             </div>
         </div>
@@ -583,7 +583,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_1.png') }}" width="50" height="50" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_1.png') }}" width="50" height="50" alt="">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -598,7 +598,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_2.png') }}" width="50" height="50" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_2.png') }}" width="50" height="50" alt="">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -613,7 +613,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_3.png') }}" width="50" height="50" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_3.png') }}" width="50" height="50" alt="">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -628,7 +628,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 diff-item-box">
                     <div class="diff-box">
                         <div class="smiling_box_icon mb-2 mb-mb-3 mt-2">
-                            <img src="{{ asset('frontend/image/smiling_4.png') }}" width="50" height="50" alt="" loading="lazy">
+                            <img src="{{ asset('frontend/image/smiling_4.png') }}" width="50" height="50" alt="">
                         </div>
                         <div class="ms-3 ms-md-0">
                             <div class="smiling_box_heading">
@@ -687,7 +687,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
                     <a href="{{ $url }}" class="banner_part_img_parent">
                         <figure>
-                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="" loading="lazy">
+                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
                         </figure>
                     </a>
                 </div>
@@ -724,7 +724,7 @@ $settings = \App\Models\Settings::first();
                                     <div class="mt-4">
                                         <div class="testimonial-author-img">
                                             <img src="{{ url('images/testimonials/'.$testimonial->image) }}"
-                                                alt="{{ $testimonial->name }}" loading="lazy">
+                                                alt="{{ $testimonial->name }}">
                                         </div>
                                         <div class="author-info">
                                             <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -760,7 +760,7 @@ $settings = \App\Models\Settings::first();
                         <div class="item">
                             <a href="{{ ($shopby->setting)?$shopby->setting:'#' }}" class="engagement_ring_img"
                                 target="_blank">
-                                <img src="{{ url($shopby->image) }}" alt="" loading="lazy">
+                                <img src="{{ url($shopby->image) }}" alt="">
                                 <div class="shop_by_style_heading text-center">
                                     {{ $shopby->title }}
                                 </div>
@@ -800,13 +800,13 @@ $settings = \App\Models\Settings::first();
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%"
-                            loading="lazy">
+                           >
                     </div>
                 </div>
                 <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
                         <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%"
-                            loading="lazy">
+                           >
                     </div>
                 </div>
                 <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
