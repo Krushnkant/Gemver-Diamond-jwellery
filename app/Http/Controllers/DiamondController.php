@@ -454,22 +454,33 @@ class DiamondController extends Controller
         }
 
         $Category = Category::where(['estatus' => 1, 'id' => $catid])->first();
-        $Diamond = Diamond::where('estatus', 1)->where('slug', $id)->orWhere('id', $id)->first();
-        //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
-        $Weight = isset($Diamond->Weight) ? (int) $Diamond->Weight : 0;
-        // if ($Diamond->FancyColor != Null) {
+        $Weight = 0;
         try {
 
-            if (isset($Diamond->FancyColor) && $Diamond->FancyColor != '') {
-                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
-            } else {
-                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+            $Diamond = Diamond::where('estatus', 1)->where('slug', $id)->orWhere('id', $id)->first();
+            $Weight = isset($Diamond->Weight) ? (int) $Diamond->Weight : 0;
+
+        } catch (\Exception $e) {
+
+            \Log::error('Error occurred: ' . $e->getMessage());
+            $Diamond = array();
+        }
+        //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
+        
+        $DiamondRelated = array();
+        try {
+
+            if(!empty($Diamond)){
+                if (isset($Diamond->FancyColor) && $Diamond->FancyColor != '') {
+                    $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+                } else {
+                    $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+                }
             }
 
         } catch (\Exception $e) {
 
             \Log::error('Error occurred: ' . $e->getMessage());
-            $DiamondRelated = array();
         }
         
         $settings = Settings::first();

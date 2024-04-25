@@ -193,9 +193,13 @@
                             <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->long_title }}</div>
                         @endif
                         <div class="d-flex mb-2 pb-xxl-2 align-items-center">
-                            <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
-                                <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
-                            </span>
+                            @if(isset($Diamond->Sale_Amt) && $Diamond->Sale_Amt != "")
+                                <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
+                                    @if(isset($Diamond->real_Amt) && $Diamond->real_Amt != "")
+                                        <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
+                                    @endif
+                                </span>
+                            @endif
                             <span class="ms-2 off-price-text">
                                 {{ $Diamond->amt_discount }}% OFF
                             </span>
