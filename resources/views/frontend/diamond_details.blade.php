@@ -22,74 +22,74 @@
     <div class="wire_bangle_page container">
        
         <div class="mb-lg-5 pb-lg-5 mb-4 px-3">
-        @if($check_variant == 1)
-            <ul class="d-block d-lg-flex progressbar_ul">
-                   <li class="step-progressbar-part ">
-                        <div class="step-progressbar-step-part">
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                    choose settings
-                                </span> 
-                                <div class="d-flex edit_price_text mt-1">
-                                    <span class="me-2">
-                                        <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
-                                    </span>
-                                    <span>
-                                        |
-                                    </span>
-                                    <div class="d-flex ms-2">
-                                        <span class="price_text me-2">
-                                            price:
+            @if($check_variant == 1)
+                <ul class="d-block d-lg-flex progressbar_ul">
+                    <li class="step-progressbar-part ">
+                            <div class="step-progressbar-step-part">
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_2.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[0]->icon) }}" alt="">
+                                </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                        choose settings
+                                    </span> 
+                                    <div class="d-flex edit_price_text mt-1">
+                                        <span class="me-2">
+                                            <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
                                         </span>
-                                        <span class="price_part">
-                                            ${{ $ProductVariantPrice }}
+                                        <span>
+                                            |
                                         </span>
+                                        <div class="d-flex ms-2">
+                                            <span class="price_text me-2">
+                                                price:
+                                            </span>
+                                            <span class="price_part">
+                                                ${{ $ProductVariantPrice }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                    </li>
-                    <li class="step-progressbar-part active">
-                        <div class="step-progressbar-step-part active">
+                            
+                        </li>
+                        <li class="step-progressbar-part active">
+                            <div class="step-progressbar-step-part active">
 
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                    choose diamonds
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
                                 </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                        choose diamonds
+                                    </span>
+                                        
+                                </div>
+                            </div>
+                        
+                        </li>
+                        
+                        <li class="step-progressbar-part">
+                            <div class="step-progressbar-step-part">
+                                <span class="step-progressbar-img ms-3">
+                                    {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
+                                    <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
+                                </span>
+                                <div>
+                                    <span class="step-progressbar-text">
+                                        complete the {{ $Category->category_name }}
+                                    </span>
                                     
+                                </div>
                             </div>
-                        </div>
-                    
-                    </li>
-                    
-                    <li class="step-progressbar-part">
-                        <div class="step-progressbar-step-part">
-                            <span class="step-progressbar-img ms-3">
-                                {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
-                                <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
-                            </span>
-                            <div>
-                                <span class="step-progressbar-text">
-                                      complete the {{ $Category->category_name }}
-                                </span>
-                                
-                            </div>
-                        </div>
-                    
-                    </li>
-            </ul>
-                @else  
+                        
+                        </li>
+                </ul>
+            @else  
                 <ul class="d-block d-lg-flex progressbar_ul">
-                   <li class="step-progressbar-part active">
+                    <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
         
                             <span class="step-progressbar-img ms-3">
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                     </li>
-            </ul>
+                </ul>
             @endif
         </div>
         <div class="row">
@@ -149,7 +149,7 @@
                 <div class="">
                     <div class="slider slider-single mb-5">
                        
-                        @if($Diamond->Stone_Img_url != '')
+                        @if(isset($Diamond->Stone_Img_url) && $Diamond->Stone_Img_url != '')
                         <div class="product_slider_main_item">
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">
                         </div>
@@ -157,7 +157,7 @@
                         <div class="product_slider_main_item video-player-btn-item video-player-diamond-btn">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
-                        @if($Diamond->Certificate_url != "")
+                        @if(isset($Diamond->Certificate_url) && $Diamond->Certificate_url != "")
                         <div class="product_slider_main_item video-player-btn-item">
                             {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf" frameborder="0" allowfullscreen></iframe> --}}
                             <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
@@ -166,7 +166,7 @@
                        
                     </div>
                     <div class="slider slider-nav">
-                        @if($Diamond->Stone_Img_url != '')
+                        @if(isset($Diamond->Stone_Img_url) && $Diamond->Stone_Img_url != '')
                         <div class="product_slider_item">
                             <h3><img src="{{ $Diamond->Stone_Img_url }}" alt=""></h3>
                         </div>
@@ -174,7 +174,7 @@
                         <div class="product_slider_item video-player-btn">
                             <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                         </div>
-                        @if($Diamond->Certificate_url != "")
+                        @if(isset($Diamond->Certificate_url) && $Diamond->Certificate_url != "")
                         <div class="product_slider_item">
                             <h3><img src="{{ url('frontend/image/certification.png') }}" alt=""></h3>
                         </div>
@@ -673,7 +673,7 @@
 
     {{-- component order include  --}}
     <x-include-order></x-include-order>
-
+    <div style="display:none;"><?php echo '<pre>'; print_r($DiamondRelated); ?></div>
     @if(count($DiamondRelated) > 0)
         <div class="container">
             <div class="shop_by_category pt-0">
