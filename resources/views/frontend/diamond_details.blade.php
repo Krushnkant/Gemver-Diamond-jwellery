@@ -189,7 +189,9 @@
             <div class="col-md-6 wire_bangle_padding_2">
                 <div class="wire_bangle_content">
                     <div class="">
-                        <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->long_title }}</div>
+                        @if(isset($Diamond->long_title) && $Diamond->long_title != "")
+                            <div class="wire_bangle_heading mb-2 pb-xxl-2">{{ $Diamond->long_title }}</div>
+                        @endif
                         <div class="d-flex mb-2 pb-xxl-2 align-items-center">
                             <span class="wire_bangle_price">${{ $Diamond->Sale_Amt }}
                                 <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
