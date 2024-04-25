@@ -458,11 +458,20 @@ class DiamondController extends Controller
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
         $Weight = isset($Diamond->Weight) ? (int) $Diamond->Weight : 0;
         // if ($Diamond->FancyColor != Null) {
-        if (isset($Diamond->FancyColor) && $Diamond->FancyColor != '') {
-            $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
-        } else {
-            $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+        try {
+
+            if (isset($Diamond->FancyColor) && $Diamond->FancyColor != '') {
+                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+            } else {
+                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+            }
+
+        } catch (\Exception $e) {
+            
+            \Log::error('Error occurred: ' . $e->getMessage());
+            $DiamondRelated = array();
         }
+        
         $settings = Settings::first();
         $StepPopup = StepPopup::where(['category_id' => $catid])->get();
         $meta_title = isset($Diamond->short_title) ? $Diamond->short_title : "";

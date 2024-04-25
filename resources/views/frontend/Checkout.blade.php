@@ -61,19 +61,19 @@
                     <div class="col-md-12 col-lg-6" id="other_address" style="display: none;">
                         @if($address)
                         @foreach($address as $addr)
-                        <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
-                            <input class="form-check-input new_address" type="radio" name="new_address" id="new_address"  value="{{ $addr->id }}">
-                            <label class="form-check-label d-flex" for="new_address">
-                                <span class="ms-2">
-                                    <div class="radio_button_part">
-                                        {{ $addr->first_name }} {{ $addr->last_name }}
-                                    </div>
-                                    <div class="radio_button_paragraph">
-                                        {{ $addr->address }},{{ $addr->city }},{{ $addr->state }},{{ $addr->pincode }},{{ $addr->country }}
-                                    </div>
-                                </span>
-                            </label>
-                        </div>
+                            <div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address">
+                                <input class="form-check-input new_address" type="radio" name="new_address" id="new_address"  value="{{ $addr->id }}">
+                                <label class="form-check-label d-flex" for="new_address">
+                                    <span class="ms-2">
+                                        <div class="radio_button_part">
+                                            {{ $addr->first_name }} {{ $addr->last_name }}
+                                        </div>
+                                        <div class="radio_button_paragraph">
+                                            {{ $addr->address }},{{ $addr->city }},{{ $addr->state }},{{ $addr->pincode }},{{ $addr->country }}
+                                        </div>
+                                    </span>
+                                </label>
+                            </div>
                         @endforeach
                         @endif
                     </div>

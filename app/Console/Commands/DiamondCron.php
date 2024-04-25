@@ -84,7 +84,6 @@ class DiamondCron extends Command
                 {
                     unset($oldids[array_search($collection->id, $oldids)]);
                     
-                  
                     if((int)$collection->total_sales_price > 0 && $collection->total_sales_price != ""){
                         $Stone_No = $collection->stock_num;
                         $amount = (int)$collection->total_sales_price;
