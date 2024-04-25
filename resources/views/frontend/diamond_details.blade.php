@@ -154,9 +154,11 @@
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">
                         </div>
                         @endif
+                        @if(isset($Diamond->Stone_Img_url) && $Diamond->Stone_Img_url != '')
                         <div class="product_slider_main_item video-player-btn-item video-player-diamond-btn">
                             <iframe src="{{ $Diamond->Video_url }}"></iframe>
                         </div>
+                        @endif
                         @if(isset($Diamond->Certificate_url) && $Diamond->Certificate_url != "")
                         <div class="product_slider_main_item video-player-btn-item">
                             {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf" frameborder="0" allowfullscreen></iframe> --}}
@@ -673,7 +675,6 @@
 
     {{-- component order include  --}}
     <x-include-order></x-include-order>
-    <div style="display:none;"><?php echo '<pre>'; print_r($DiamondRelated); ?></div>
     @if(count($DiamondRelated) > 0)
         <div class="container">
             <div class="shop_by_category pt-0">
