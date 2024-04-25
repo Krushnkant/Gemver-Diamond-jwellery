@@ -461,13 +461,13 @@ class DiamondController extends Controller
         try {
 
             if (isset($Diamond->FancyColor) && $Diamond->FancyColor != '') {
-                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('FancyColor', $Diamond->FancyColor)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
             } else {
-                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
+                $DiamondRelated = Diamond::where('StockStatus', '<>', 0)->where('id', '<>', $Diamond->id)->where('Shape', $Diamond->Shape)->Where('Color', $Diamond->Color)->Where('Stone_Img_url', '!=', '')->Where('Weight', ">=", $Weight)->orderBy('Weight', 'ASC')->limit(10)->get();
             }
 
         } catch (\Exception $e) {
-            
+
             \Log::error('Error occurred: ' . $e->getMessage());
             $DiamondRelated = array();
         }
