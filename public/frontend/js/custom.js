@@ -322,6 +322,11 @@ $(document).ready(function () {
     $(".blog_filter_btn").click(function () {
         $(".blog_filter_btn_ul").slideToggle();
     });
+    $('#mobile-nav-icon1').click(function() {
+        $(this).toggleClass('open');
+        $(".mobile-sub-menu").toggleClass("active");
+        $("body").toggleClass("mobile-sub-menu-active");
+    });
     $('.menu-toggle-button').click(function () {
         // $(this).toggleClass('open');
         $(".mobile-sub-menu").toggleClass("active");
@@ -361,7 +366,7 @@ $(document).ready(function () {
         }
     });
     $(".mega-menu-mobile-icon").click(function () {
-        $("#nav-icon1").removeClass('open');
+        // $("#nav-icon1").removeClass('open');
         $(".mobile-sub-menu").removeClass("active");
         $("body").removeClass("mobile-sub-menu-active");
         $(".mega-menu").removeClass("slide_up_menu");

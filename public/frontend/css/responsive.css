@@ -346,8 +346,8 @@
     }
 
     #nav-icon1 {
-        /* width: 60px;
-        height: 45px; */
+        width: 25px;
+        /* height: 45px; */
         position: relative;
         margin: 10px 0 10px auto;
         -webkit-transform: rotate(0deg);
@@ -367,9 +367,13 @@
     #nav-icon1.open {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 12px;
         transition: all 1s ease;
         margin-right: 0;
+    }
+
+    ul.mobile-sub-menu > li.lab_grown_diamond_li.lab_grown_diamond_part {
+        margin-top: 30px;
     }
 
     .sub-pack .mobile-sub-menu-icon {
@@ -415,7 +419,7 @@
     #nav-icon1 span {
         display: block;
         position: absolute;
-        height: 9px;
+        height: 3px;
         width: 100%;
         background: var(--primary);
         border-radius: 9px;
@@ -1111,9 +1115,9 @@
 
 @media (max-width:991px) {
 
-    #nav-icon1 {
+    /* #nav-icon1 {
         float: left;
-    }
+    } */
 
     .logo-image.header-logo {
         float: left;
@@ -3015,17 +3019,17 @@
         height: 30px;
     }
 
-    .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.shape_img,
+    /* .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.shape_img,
     .round_cut_lab_checkbox_new.round_cut_lab_checkbox input+.attr-img {
         min-width: 55px;
         min-height: 55px;
-    }
+    } */
 
-    .round_cut_lab_checkbox input+.shape_img,
+    /* .round_cut_lab_checkbox input+.shape_img,
     .round_cut_lab_checkbox input+.attr-img {
         min-width: 47px;
         min-height: 47px;
-    }
+    } */
 
     /* .round_cut_lab_checkbox input[type="checkbox"] {
         width: 47px;

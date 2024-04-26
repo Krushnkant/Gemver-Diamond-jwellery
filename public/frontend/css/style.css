@@ -7701,3 +7701,8 @@ width: 100%;
     #trustby-slider img {
         height: auto;
     }
+
+    #mobile-nav-icon1 a.icon {
+        font-size: 26px;
+        color: var(--primary);
+    }

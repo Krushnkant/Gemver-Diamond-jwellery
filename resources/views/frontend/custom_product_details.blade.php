@@ -1087,7 +1087,7 @@
             var specification = dataarray.join(",");
             var variant_id = $('#variant_id').val();
             var ip_address = '{{ \Request::ip() }}';
-            alert(ip_address);
+            // alert(ip_address);
             var category_id = '{{ $Category->id }}';
             var slug = '{{ $Category->slug }}';
             $.ajax({

@@ -26,16 +26,12 @@
     </div>
 
 </div>
-</div>
-
-
+<!-- </div> -->
 
 <div class="container round_cut_lab_diamonds_page">
     <!-- <div class="round_cut_lab_diamonds_paragraph mt-xxl-5 text-center mt-3 mb-3 mb-md-0">
             Browse through our inventory of certified lab created diamonds, available in various shapes, carat weights, colors and clarities. For a more interactive experience, all our lab diamonds are available to view in 360° HD at 40x superzoom.
         </div> -->
-
-
     <div class="mt-5 px-3">
         @if($check_variant == 1)
         <ul class="d-block d-lg-flex progressbar_ul">
@@ -170,7 +166,7 @@
         <div class="text-end close-icon d-lg-none">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="col-md-6 round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <div class="round_cut_lab_checkbox row">
                 <div class="round_cut_lab_diamonds_heading mb-2 col-md-12">shape </div>
                 <div class="col-md-12 shape-part-img">
@@ -307,7 +303,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <div class="round_cut_lab_range_slider row">
                 <div class="col-md-12 row px-0">
                     <div class="round_cut_lab_diamonds_heading col-md-12 mb-3 filter-carat">carat</div>
@@ -340,7 +336,7 @@
 
             </div>
         </div>
-        <div class="col-md-6 round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2 color-fancy-color-part">
                     <ul class="nav wire_bangle_tabs_part filter-part-shape justify-content-sm-start filter-tab"
@@ -530,7 +526,7 @@
                 </span>
             </div>
         </div>
-        <div class="col-md-6 round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <div class="round_cut_lab_range_slider round_cut_lab_range_color row">
                 <div class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</div>
                 <div class="col-md-12 tab-view-part clarity_tab">
@@ -588,11 +584,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6  round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <!-- Cut - Polish - Symm. -->
             <div class="round_cut_lab_range_slider row mb-4 pb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Symmetry.</span>
-                <span class="col-md-12 filter-checkbox">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Cut - Polish - Symmetry.</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="3X" class="finish" name="finish" id="finish3X">
                         <label for="finish3X">3X</label>
@@ -614,9 +610,9 @@
             </div>
 
             <!-- Cut -->
-            <div class="round_cut_lab_range_slider row mb-2">
-                <div class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</div>
-                <div class="col-md-10 filter-checkbox">
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">cut</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="Ideal" class="cut common_selector" name="cut[]" id="cutID">
                         <label for="cutID">Ideal</label>
@@ -642,13 +638,13 @@
                         <label for="cutP">Poor</label>
                     </div>
 
-                </div>
+                </span>
             </div>
 
             <!-- Polish -->
-            <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
-                <span class="col-md-10 filter-checkbox">
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Polish</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]"
                             id="polishID">
@@ -679,9 +675,9 @@
                 </span>
             </div>
 
-            <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Symmetry</span>
-                <span class="col-md-10 filter-checkbox">
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Symmetry</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3">
                         <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">
                         <label for="symmID">Ideal</label>
@@ -709,7 +705,7 @@
                 </span>
             </div>
         </div>
-        <div class="col-md-6 round_cut_lab_filter">
+        <div class="col-lg-6 round_cut_lab_filter">
             <div class="round_cut_lab_range_slider row">
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">price</span>
                 <span class="round_cut_lab_diamonds_price col-md-12">
@@ -732,7 +728,7 @@
                 <div class="round_cut_lab_diamonds_price col-md-12 col-lg-12 col-xl-12">
                     <div class="align-items-center mb-2 position-relative">
                         <div class="d-lg-flex flex-lg-nowrap">
-                            <div class="position-relative me-md-4 mb-3 d-block d-lg-inline-block">
+                            <div class="position-relative me-2 me-lg-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">L</div>
                                 <div class="d-flex meas_length">
                                     <div class="from_text me-1">
@@ -753,7 +749,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="position-relative me-md-4 mb-3 d-block d-lg-inline-block">
+                            <div class="position-relative me-2 me-lg-4 mb-3 d-block d-lg-inline-block">
                                 <div class="filter_text_part">W</div>
                                 <div class="d-flex meas_width">
                                     <span class="from_text me-1">
@@ -774,8 +770,8 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="position-relative">
-                                <div class="filter_text_part me-md-4">D</div>
+                            <div class="position-relative me-2 me-lg-0">
+                                <div class="filter_text_part">D</div>
                                 <div class="d-flex meas_depth">
                                     <span class="from_text me-1">
                                         <div class="min_max_part">Min</div>
@@ -801,7 +797,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 collapse round_cut_lab_filter" id="collapseExample">
+        <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row mb-2">
                 <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 filter-checkbox">Fluor</span>
                 <span class="col-md-10">
@@ -872,7 +868,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 collapse round_cut_lab_filter" id="collapseExample">
+        <div class="col-lg-6 collapse round_cut_lab_filter" id="collapseExample">
             <div class="round_cut_lab_range_slider row mb-2">
                 <span class="round_cut_lab_diamonds_heading col-lg-3 col-xxl-2 mb-2">Depth %</span>
                 <span class="round_cut_lab_diamonds_price col-lg-9 col-xxl-10">
@@ -949,18 +945,17 @@
                         </div>
                     </div>
                 </span>
-                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                    <!-- <span class="d-inline-block d-lg-none  apply-btn me-3">
-                            <button type="button" id="apply-btn" class= "apply-btn">Apply</button>
-                        </span> -->
+                <!-- <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
                     <span class="d-inline-block reset-btn-part">
-                        <button type="button" id="apply-btn"
-                            class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
+                        <button type="button" id="apply-btn" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Apply</button>
                     </span>
                     <span class="d-inline-block reset-btn reset-btn-part">
-                        <button type="button" id="reSetLab"
-                            class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
+                        <button type="button" id="reSetLab" class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
                     </span>
+                </div> -->
+                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                    <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
+                    <button type="button" id="reSetLab" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                 </div>
             </div>
         </div>
@@ -972,34 +967,27 @@
 
 
     <div class="wire_bangle_line"></div>
-    <div class="mt-4 mt-md-5"></div>
+    <!-- <div class="mt-4 mt-md-5"></div> -->
     <div class=" mb-5">
-        <div class="col-md-4 col-lg-3 text-start">
-        </div>
-
-
+        <div class="col-md-4 col-lg-3 text-start"></div>
         <div id="exTab1" class="container px-0">
-            <div class="row my-4 mb-4">
+            <div class="row my-3 align-items-center">
                 <div class="col-lg-6 text-center text-sm-start">
-                    <div class="row no-gutters mb-3 align-items-center justify-content-start">
+                    <div class="row no-gutters mb-3 mb-lg-0 align-items-center justify-content-start">
                         <div class="col-12 col-md-auto px-0">
                             <ul class="nav wire_bangle_tabs_part justify-content-center" id="myTab" role="tablist">
                                 <li class="active nav-item">
-                                    <a class="nav-link d-inline-block ps-0" href="#1a" data-toggle="tab">Result (<span
-                                            class="total-diamond"> </span>)</a>
+                                    <a class="nav-link d-inline-block ps-0" href="#1a" data-toggle="tab">Result (<span class="total-diamond"> </span>)</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link d-inline-block" href="#2a" data-toggle="tab"><i
-                                            class="fa fa-balance-scale"></i> Compare (<span
-                                            class="totlecpmpare">0</span>)</a>
+                                    <a class="nav-link d-inline-block" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-3 d-lg-none">
-                    <button type="button"
-                        class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
+                    <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center">
                         <i class="fa-solid fa-filter"></i>
                         <span class="ms-2  d-sm-inline-block">filter</span>
                     </button>
@@ -1007,20 +995,20 @@
                 <div class="col-9 col-lg-6 text-end text-sm-end d-md-flex align-items-center justify-content-end">
                     <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                         <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
-                            <option value="price">Sort by price: low to high</option>
+                            <option value="price" selected>Sort by price: low to high</option>
                             <option value="price-desc">Sort by price: high to low</option>
 
                             <option value="carat">Sort by carat: low to high</option>
                             <option value="carat-desc">Sort by carat: high to low</option>
 
-                            <option value="color">Sort by color: low to high</option>
+                            <!-- <option value="color">Sort by color: low to high</option>
                             <option value="color-desc">Sort by color: high to low</option>
 
                             <option value="clarity">Sort by clarity: low to high</option>
                             <option value="clarity-desc" selected>Sort by clarity: high to low</option>
 
                             <option value="cut">Sort by cut: low to high</option>
-                            <option value="cut-desc">Sort by cut: high to low</option>
+                            <option value="cut-desc">Sort by cut: high to low</option> -->
                         </select>
                     </span>
                 </div>
@@ -1171,6 +1159,9 @@
 
         function filter_data(page, scroll = 0) {
 
+            $('.filter-sidebar').removeClass('filter-data-active');
+            $('body').removeClass('mobile-sub-menu-active');
+            $("#data-wrapper").html('');
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
             var catid = '{{ $CatId }}';

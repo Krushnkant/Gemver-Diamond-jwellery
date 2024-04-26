@@ -33,13 +33,20 @@
         <div class="container">
             <div class="row align-items-center header_row">
                 <div class="col-12 col-lg-12 header_col d-flex justify-content-between">
-                    <div class="logo-image header-logo mx-lg-auto mb-0">
-                        <a href="{{ URL('/') }}">
-                            <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" width="120" height="60" loading="lazy">
-                        </a>
+                    <div class="d-flex align-items-center">
+                        <div id="mobile-nav-icon1" class="d-block d-lg-none">
+                            <a href="javascript:void(0);" class="icon">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                        <div class="logo-image header-logo mx-lg-auto mb-0">
+                            <a href="{{ URL('/') }}">
+                                <img src="{{ URL('images/company/'.$settings->company_logo) }}" alt="" width="120" height="60" loading="lazy">
+                            </a>
+                        </div>
                     </div>
                     <span class="d-flex align-items-center justify-content-end header_logo_cart">
-                       <div class="search-icon-part me-3 d-lg-block mobile-menu-search-box-part">
+                        <div class="search-icon-part me-3 d-lg-block mobile-menu-search-box-part">
                             <div class="position-relative ">
                                 <input type="text"  value="" class="form-control" id="main_search" autocomplete="off">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="search-box-icon" id="searchBtn" width="22" height="22" version="1.1" viewBox="0 0 700 700">
@@ -66,7 +73,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="close-icon" width="15" height="15" viewBox="0 0 50 50" fill="none">
                                         <path d="M0.474356 0.97997L0.708614 0.708614C1.56755 -0.150322 2.91162 -0.228386 3.85875 0.474356L4.1301 0.708614L25 21.5774L45.87 0.708614C46.8149 -0.236193 48.3465 -0.236193 49.2913 0.708614C50.2362 1.65342 50.2362 3.18529 49.2913 4.1301L28.4226 25L49.2913 45.87C50.1504 46.7287 50.2284 48.0729 49.5255 49.02L49.2913 49.2913C48.4326 50.1504 47.0884 50.2284 46.1413 49.5255L45.87 49.2913L25 28.4226L4.1301 49.2913C3.18529 50.2362 1.65342 50.2362 0.708614 49.2913C-0.236193 48.3465 -0.236193 46.8149 0.708614 45.87L21.5774 25L0.708614 4.1301C-0.150322 3.27117 -0.228386 1.9271 0.474356 0.97997L0.708614 0.708614L0.474356 0.97997Z" fill="#212121"/>
                                     </svg>
-                                    </a>
+                                </a>
                             </span>
                             <span class="position-relative dropdown">
                                 <a href="{{ URL('/wishlist') }}" class="btn btn-secondary dropdown-toggle" id="">
@@ -111,19 +118,16 @@
                                     <li><a class="dropdown-item" href="{{ URL('frontend/logout') }}">Logout</a></li>
                                 </ul>
                             </span>
-
                         </div>
-                        <div id="nav-icon1" class="d-block d-lg-none">
+                        <!-- <div id="nav-icon1" class="d-block d-lg-none">
                             <span></span>
                             <span></span>
                             <span></span>
-                        </div>
+                        </div> -->
                     </span>
                 </div>
                 <div class="col-6 col-lg-12 text-center header">
                     <div class="mobile-menu text-end text-lg-center">
-                     
-
                         <ul class="mobile-sub-menu">
                             <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                 <span></span>
@@ -148,14 +152,14 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
 
                                         <div class="mega-menu-three-part">
-                                            <div class="submenu-box  mt-4">
+                                            <div class="submenu-box mt-4">
                                                 <div class="d-block mb-2">
                                                     <span class="menus_title menus_title_part">loose lab diamonds</span>
                                                 </div>
@@ -333,11 +337,11 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                         <?php
                                         $menu_no = 1;
                                         $menu_colum = "two";
@@ -406,7 +410,7 @@
                                                 }
                                             }
                                             ?>
-                                            <div class="submenu-box">
+                                            <div class="submenu-box mt-4">
                                                 <ul class="">
                                                     <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
@@ -434,11 +438,11 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                         <?php
                                         $menu_no = 1;
                                         $menu_colum = "two";
@@ -469,7 +473,7 @@
                                                         }
                                                     }
                                             ?>
-                                                    <div class="submenu-box">
+                                                    <div class="submenu-box mt-4">
                                                         <div class="d-block mb-2">
                                                             @if($sub->page_url)
                                                             <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
@@ -502,7 +506,7 @@
                                                 }
                                             }
                                             ?>
-                                            <div class="submenu-box">
+                                            <div class="submenu-box mt-4">
                                                 <ul class="">
                                                     <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
@@ -532,11 +536,11 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                         <?php
                                         $menu_no = 1;
                                         $menu_colum = "two";
@@ -565,7 +569,7 @@
                                                         $twocolum = 'mega-menu-two-colum';
                                                     }
                                             ?>
-                                                    <div class="submenu-box">
+                                                    <div class="submenu-box mt-4">
                                                         <div class="d-block mb-2">
                                                         @if($sub->page_url)
                                                             <a href="{{ $sub->page_url }}" class="menus_title menus_title_part">{{ $sub->title }}</a>
@@ -597,7 +601,7 @@
                                                 }
                                             }
                                             ?>
-                                            <div class="submenu-box">
+                                            <div class="submenu-box mt-4">
                                                 <ul class="">
                                                     <li class="menu-part-img"><img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt=" " width="250" height="250"></li>
                                                 </ul>
@@ -626,11 +630,11 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                         <div class="mega-menu-four-part ">
 
                                             <?php
@@ -644,7 +648,7 @@
                                                 }
                                                 $img_no++;
                                             ?>
-                                                <div class="submenu-box1">
+                                                <div class="submenu-box1 mt-4">
                                                     <ul>
                                                         <li>
                                                             <span class="menus_title ">create your own {{ $car->category_name }}</span>
@@ -661,7 +665,7 @@
                                             <?php $cat_no++;
                                             } ?>
 
-                                            <div class="submenu-box1">
+                                            <div class="submenu-box1 mt-4">
                                                 <ul>
                                                     <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" width="250" height="250">
                                                 </ul>
@@ -691,13 +695,13 @@
                                                 <path d="M5.99997 7.09417L11.0083 2.08584L9.8308 0.90667L5.99997 4.74L2.16997 0.90667L0.991638 2.085L5.99997 7.09417Z" fill="#000" />
                                             </svg>
                                         </div>
-                                        <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
+                                        <!-- <div id="nav-icon1" class="mega-menu-mobile-icon d-block d-lg-none open">
                                             <span></span>
                                             <span></span>
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                         <div class="mega-menu-four-part">
-                                            <ul>
+                                            <ul class="mt-4">
                                                 <li>
                                                     <span class="menus_title">About Us </span>
                                                 </li>
@@ -718,7 +722,7 @@
                                                 </li>
                                             </ul>
 
-                                            <ul>
+                                            <ul class="mt-4">
                                                 <li>
                                                     <span class="menus_title">Diamond Anatomy </span>
                                                 </li>
@@ -736,7 +740,7 @@
                                                 </li>
                                             </ul>
 
-                                            <ul>
+                                            <ul class="mt-4">
                                                 <li>
                                                     <span class="menus_title">Learn More </span>
                                                 </li>
@@ -750,22 +754,19 @@
 
                                             </ul>
 
-                                            <ul>
+                                            <ul class="mt-4">
                                                 <li>
                                                     <span class="menus_title">Pages </span>
                                                 </li>
-                                                
-                                               
                                                 <li>
                                                     <a href="{{ Route('frontend.blogs')}}"><span class="ms-2 ms-lg-0">Blogs</span></a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ Route('frontend.contactus')}}"><span class="ms-2 ms-lg-0">Contact Us</span></a>
                                                 </li>
-
                                             </ul>
 
-                                            <ul>
+                                            <ul class="mt-4">
                                                 <img src="{{ url('images/megamenu/'.$megamenu->menu_thumb) }}" alt="" width="250" height="250">
                                             </ul>
 

@@ -23,7 +23,7 @@
     </div>
 
 </div>
-</div>
+<!-- </div> -->
 
 
 <div class="container round_cut_lab_diamonds_page">
@@ -458,8 +458,8 @@
         <div class="col-lg-6  round_cut_lab_filter">
             <!-- Cut - Polish - Symm. -->
             <div class="round_cut_lab_range_slider row mb-4 pb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">Cut - Polish - Symmetry.</span>
-                <span class="col-md-12 filter-checkbox">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Cut - Polish - Symmetry.</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="3X" class="finish " name="finish" id="finish3X">
                         <label for="finish3X">3X</label>
@@ -479,9 +479,9 @@
                 </span>
             </div>
             <!-- ---- cut---------- -->
-            <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">cut</span>
-                <span class="col-md-10 filter-checkbox">
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">cut</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="Ideal" class="cut common_selector" name="cut[]" id="cutID">
                         <label for="cutID">Ideal</label>
@@ -509,10 +509,9 @@
                 </span>
             </div>
             <!-- ----- polish ------------- -->
-            <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Polish</span>
-                <span class="col-md-10 filter-checkbox">
-
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Polish</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
                         <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]"
                             id="polishID">
@@ -543,9 +542,9 @@
                 </span>
             </div>
             <!-- ------------ sym. ------------ -->
-            <div class="round_cut_lab_range_slider row mb-2">
-                <span class="round_cut_lab_diamonds_heading col-md-2 mb-2">Symmetry</span>
-                <span class="col-md-10 filter-checkbox">
+            <div class="round_cut_lab_range_slider row mb-4 mb-lg-2">
+                <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Symmetry</span>
+                <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3">
                         <input type="checkbox" value="Ideal" class="symm common_selector" name="symm[]" id="symmID">
                         <label for="symmID">Ideal</label>
@@ -580,10 +579,12 @@
                     <div class="align-items-center mb-2 position-relative">
                         <div id="slider-range" class="mb-0"></div>
                         <div class="d-flex mt-3">
-                            <span class="from_text"><input type="text" name="" id="minimum_price_input"
-                                    placeholder="From" class="d-block wire_bangle_input common_input" value="0"></span>
-                            <span class="to_text"><input type="text" name="" id="maximum_price_input" placeholder="To"
-                                    class="d-block wire_bangle_input common_input" value="{{ $Maxprice  }}"></span>
+                            <span class="from_text">
+                                <input type="text" name="" id="minimum_price_input" placeholder="From" class="d-block wire_bangle_input common_input" value="0">
+                            </span>
+                            <span class="to_text">
+                                <input type="text" name="" id="maximum_price_input" placeholder="To" class="d-block wire_bangle_input common_input" value="{{ $Maxprice  }}">
+                            </span>
                         </div>
                     </div>
                     <!-- <p class="mb-0"> <span id="amount" class="ps-0"></span></p> -->
@@ -823,44 +824,38 @@
             <div class="col-md-12 text-center text-lg-end px-0 mt-4">
                 <span class="d-inline-block">
                     <div class="round_cut_lab_range_slider text-end me-3">
-                        <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse"
-                            href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="form-group mb-3 d-inline-block advanced-filter" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             <input type="checkbox" value="" name="" id="checkbox_1">
                             <label for="checkbox_1">Advanced Filters</label>
                         </div>
                     </div>
                 </span>
                 <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                    <button type="button" id="apply-btn"
-                        class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
-                    <button type="button" id="reSetLab"
-                        class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
+                    <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
+                    <button type="button" id="reSetLab" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="wire_bangle_line"></div>
-    <div class="row my-4 mb-2 align-items-center">
+    <div class="row my-3 align-items-center">
         <div class="col-lg-6 text-center text-sm-start px-0 ps-0 px-md-3">
-            <div class="row no-gutters mb-3 align-items-center justify-content-start">
+            <div class="row no-gutters mb-3 mb-lg-0 align-items-center justify-content-start">
                 <div class="col-8 col-md-6 ps-0">
                     <ul class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
                         <li class="active nav-item">
-                            <a class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result (<span
-                                    class="total-diamond"> </span>)</a>
+                            <a class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result (<span class="total-diamond"> </span>)</a>
                         </li>
                         <li>
-                            <a class="nav-link compare-li-part list" href="#2a" data-toggle="tab"><i
-                                    class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
+                            <a class="nav-link compare-li-part list" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-4 col-md-6 d-lg-none ps-0 text-end pe-0">
-                    <button type="button"
-                        class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center me-0 ms-auto">
+                    <button type="button" class="btn btn-primary filter-btn mobile-view-filter-btn d-flex align-items-center me-0 ms-auto">
                         <i class="fa-solid fa-filter"></i>
-                        <span class="ms-2 d-sm-inline-block">search</span>
+                        <span class="ms-2 d-sm-inline-block">Search</span>
                     </button>
                 </div>
             </div>
@@ -869,7 +864,7 @@
             <div class="row justify-content-end align-items-center">
                 <div class="col-3 col-md-6 col-lg-auto px-0">
                     <div class="table-grid-view d-flex justify-content-start mb-md-0">
-                        <div class="me-3 d-none d-md-block">Change view</div>
+                        <span class="me-3 pt-1 d-none d-md-block">Change view</span>
                         <div class="table-view-part list me-3"><i class="fa-solid fa-list"></i></div>
                         <div class="table-view-part grid active grid-active"><i class="fa fa-th-large"></i></div>
                     </div>
@@ -878,20 +873,20 @@
                     class="col-9 col-md-6 col-lg-auto text-end text-sm-end justify-content-end d-md-flex align-items-center pe-0">
                     <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block ms-4">
                         <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
-                            <option value="price">Sort by price: low to high</option>
+                            <option value="price" selected>Sort by price: low to high</option>
                             <option value="price-desc">Sort by price: high to low</option>
 
                             <option value="carat">Sort by carat: low to high</option>
                             <option value="carat-desc">Sort by carat: high to low</option>
 
-                            <option value="color">Sort by color: low to high</option>
+                            <!-- <option value="color">Sort by color: low to high</option>
                             <option value="color-desc">Sort by color: high to low</option>
 
                             <option value="clarity">Sort by clarity: low to high</option>
                             <option value="clarity-desc" selected>Sort by clarity: high to low</option>
 
                             <option value="cut">Sort by cut: low to high</option>
-                            <option value="cut-desc">Sort by cut: high to low</option>
+                            <option value="cut-desc">Sort by cut: high to low</option> -->
                         </select>
                     </span>
                 </div>
@@ -1054,6 +1049,10 @@
 
         function filter_data(page, scroll = 0) {
 
+            
+            $('.filter-sidebar').removeClass('filter-data-active');
+            $('body').removeClass('mobile-sub-menu-active');
+            $("#data-wrapper").html('');
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
             var minimum_price = $('#hidden_minimum_price').val();
@@ -1103,8 +1102,7 @@
                 url: ENDPOINT + "/alllab-diamond?page=" + page,
                 method: "POST",
                 data: {
-                    action: action, maximum_price_input: maximum_price_input, minimum_price_input: minimum_price_input, maximum_table_input: maximum_table_input, minimum_table_input: minimum_table_input, maximum_ratio_input: maximum_ratio_input, minimum_ratio_input: minimum_ratio_input, maximum_depth_input: maximum_depth_input, minimum_carat_input: minimum_carat_input, maximum_carat_input: maximum_carat_input, minimum_depth_input: minimum_depth_input, minimum_price: minimum_price, maximum_price: maximum_price, shape: shape, sorting: sorting, color: color, clarity: clarity, cut: cut, minimum_carat: minimum_carat
-                    , maximum_carat: maximum_carat, minimum_depth: minimum_depth, maximum_depth: maximum_depth, minimum_ratio: minimum_ratio, maximum_ratio: maximum_ratio, minimum_table: minimum_table, maximum_table: maximum_table, report: report, polish: polish, symm: symm, fluor: fluor, growth_type: growth_type, fcolor: fcolor, scolor: scolor, _token: '{{ csrf_token() }}'
+                    action: action, maximum_price_input: maximum_price_input, minimum_price_input: minimum_price_input, maximum_table_input: maximum_table_input, minimum_table_input: minimum_table_input, maximum_ratio_input: maximum_ratio_input, minimum_ratio_input: minimum_ratio_input, maximum_depth_input: maximum_depth_input, minimum_carat_input: minimum_carat_input, maximum_carat_input: maximum_carat_input, minimum_depth_input: minimum_depth_input, minimum_price: minimum_price, maximum_price: maximum_price, shape: shape, sorting: sorting, color: color, clarity: clarity, cut: cut, minimum_carat: minimum_carat, maximum_carat: maximum_carat, minimum_depth: minimum_depth, maximum_depth: maximum_depth, minimum_ratio: minimum_ratio, maximum_ratio: maximum_ratio, minimum_table: minimum_table, maximum_table: maximum_table, report: report, polish: polish, symm: symm, fluor: fluor, growth_type: growth_type, fcolor: fcolor, scolor: scolor, _token: '{{ csrf_token() }}'
                 },
                 beforeSend: function () {
                     $('.auto-load').show();
