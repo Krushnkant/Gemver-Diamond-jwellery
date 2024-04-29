@@ -1119,6 +1119,10 @@
         float: left;
     } */
 
+    .header-logo-row {
+        justify-content: space-between;
+    }
+
     .logo-image.header-logo {
         float: left;
         margin-left: 20px;
