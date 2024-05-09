@@ -1115,20 +1115,20 @@ class DiamondController extends Controller
                                             <li class="">
                                                 <span class="round_product_part_1">COLOR  :</span>
                                                 <span class="round_product_part_2">';
-                if ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE") {
-                    $artilces .= $Diamond->Color;
-                } else {
-                    $artilces .= $Diamond->FancyColor;
-                }
-                $artilces .= ' </span>
+                                                    if ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE") {
+                                                        $artilces .= $Diamond->Color;
+                                                    } else {
+                                                        $artilces .= $Diamond->FancyColor;
+                                                    }
+                                                $artilces .= ' </span>
                                             </li>';
-                if ($Diamond->Cut != "") {
-                    $artilces .= '<li class="">
-                                                <span class="round_product_part_1"> CUT  :</span>
-                                                <span class="round_product_part_2">' . $Diamond->Cut . ' </span>
-                                            </li>';
-                }
-                $artilces .= '<li class="">
+                                            if ($Diamond->Cut != "") {
+                                                $artilces .= '<li class="">
+                                                    <span class="round_product_part_1"> CUT  :</span>
+                                                    <span class="round_product_part_2">' . $Diamond->Cut . ' </span>
+                                                </li>';
+                                            }
+                                            $artilces .= '<li class="">
                                                 <span class="round_product_part_1"> POLISH  :</span>
                                                 <span class="round_product_part_2">' . $Diamond->Polish . ' </span>
                                             </li>

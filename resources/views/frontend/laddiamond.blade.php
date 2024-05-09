@@ -1210,14 +1210,14 @@
         }));
 
         $(function () {
-            var maxPrice = 7;
+            var maxCarat = '{{ $MaxCarat  }}'; //7;
             page = 1;
             $("#slider-range-carat").slider({
                 range: true,
                 min: 0,
-                max: maxPrice,
+                max: maxCarat,
                 step: 0.1,
-                values: [0, maxPrice],
+                values: [0, maxCarat],
                 slide: function (_, { values: [min, max] }) {
 
                     $("#carat-start").html("$" + min);
