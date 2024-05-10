@@ -1017,19 +1017,27 @@
 
         var ENDPOINT = "{{ url('/') }}";
         var page = 1;
+        var isDataLoading = false;
+        // console.log($(document).height());
+        // console.log($(window).height());
         $(window).scroll(function () {
-
+            // console.log('Scroll Rolling:'+ $(window).scrollTop());
+            // console.log('Scroll Rolling 222:'+ $(document).height() - $(window).height());
+            // if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                // console.log('Scrollupto:'+ $(window).scrollTop());
             if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
                 //if($(window).scrollTop() + $(window).height() > $(document).height() - 500){  
-                page++;
-                var scroll = 1;
-                filter_data(page, scroll);
+                if(isDataLoading === false){
+                    page++;
+                    var scroll = 1;
+                    filter_data(page, scroll, false);
+                }
             }
         });
-        filter_data(page);
+        filter_data(page, 0, false);
         $("#sorting").change(function () {
             page = 1;
-            filter_data(page);
+            filter_data(page, 0, true);
         });
 
         $('.clear_filter_btn').click(function () {
@@ -1043,16 +1051,18 @@
 
         $("#apply-btn").click(function () {
             page = 1;
-            filter_data(page);
+            filter_data(page, 0, true);
         });
 
 
-        function filter_data(page, scroll = 0) {
+        function filter_data(page, scroll = 0, isfilterApply) {
 
-            
+            isDataLoading = true;
             $('.filter-sidebar').removeClass('filter-data-active');
             $('body').removeClass('mobile-sub-menu-active');
-            $("#data-wrapper").html('');
+            if(isfilterApply == true){
+                $("#data-wrapper").html('');
+            }
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
             var minimum_price = $('#hidden_minimum_price').val();
@@ -1108,6 +1118,7 @@
                     $('.auto-load').show();
                 },
                 success: function (response) {
+                    isDataLoading = false;
                     $('#datacount').html('showing ' + response['showdata'] + ' of ' + response['totaldata'] + ' results');
 
                     if (scroll == 1) {
@@ -1130,6 +1141,7 @@
                         $(".total-diamond").html(response['showdata']);
                         $('.auto-load').hide();
                     }
+                    console.log($(document).height());
 
                 }
             });
