@@ -92,7 +92,7 @@
                             <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
                         </span>
                         <span class="ms-2 off-price-text">
-                            {{ $Diamond->amt_discount }}% OFF
+                            {{ $Diamond->amt_discount ?? '0' }}% OFF
                         </span>
                     </div>
                     <div class="wire_bangle_share mb-4">

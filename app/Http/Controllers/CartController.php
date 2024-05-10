@@ -356,7 +356,8 @@ class CartController extends Controller
         if(session()->has('customer')){
             $cart_data = ItemCart::select(['id'])->where('user_id',session('customer.id'))->count();
             if($cart_data > 0){
-                return json_encode(array('totalcart' => count($cart_data)));
+                // return json_encode(array('totalcart' => count($cart_data)));
+                return json_encode(array('totalcart' => $cart_data));
             }else{
                 return json_encode(array('totalcart' => $totalcart));
             }
