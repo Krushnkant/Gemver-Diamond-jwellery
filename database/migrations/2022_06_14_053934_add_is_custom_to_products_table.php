@@ -14,7 +14,7 @@ class AddIsCustomToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer('is_custom')->default(0)->comment('1->Is Custom,2->Not Custom')->after('desc');
+            $table->integer('is_custom')->default(0)->comment('1->Is Custom,2->Not Custom')->after('desc')->index();
         });
     }
 

@@ -16,7 +16,7 @@ class AlterTableBlogsChangeManyColumn extends Migration
         Schema::table('blogs', function (Blueprint $table) {
             $table->string('title',255)->nullable()->change();
             $table->text('blog_thumb')->nullable()->change();
-            $table->integer('category_id')->nullable()->change();
+            $table->integer('category_id')->nullable()->change()->index();
         });
     }
 

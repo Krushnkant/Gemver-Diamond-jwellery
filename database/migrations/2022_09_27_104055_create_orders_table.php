@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->nullable()->index();
             $table->string('custom_orderid',150)->nullable()->comment('YYMMDD0001');
             $table->float('sub_totalcost')->nullable();
             $table->float('shipping_charge')->nullable();
@@ -32,9 +32,9 @@ class CreateOrdersTable extends Migration
             $table->json('delivery_address')->nullable();
             $table->float('order_rating')->nullable();
             $table->text('order_note')->nullable();
-            $table->integer('order_status')->nullable()->comment('1->New Order, 2->Out for Delivery, 3->Delivered, 4->Return Request, 5->Return In Transit, 6->Returned, 7->Cancelled(By Customer), 8->Cancelled(By Admin)');
+            $table->integer('order_status')->nullable()->comment('1->New Order, 2->Out for Delivery, 3->Delivered, 4->Return Request, 5->Return In Transit, 6->Returned, 7->Cancelled(By Customer), 8->Cancelled(By Admin)')->index();
             $table->dateTime('delivery_date')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

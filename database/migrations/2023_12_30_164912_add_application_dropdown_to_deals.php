@@ -14,9 +14,9 @@ class AddApplicationDropdownToDeals extends Migration
     public function up()
     {
         Schema::table('deals', function (Blueprint $table) {
-            $table->integer('application_dropdown_id')->nullable()->after('date_title');
+            $table->integer('application_dropdown_id')->nullable()->after('date_title')->index();
             $table->string('value',225)->nullable()->after('application_dropdown_id');
-            $table->integer('product_variant_id')->nullable()->after('value');
+            $table->integer('product_variant_id')->nullable()->after('value')->index();
         });
     }
 

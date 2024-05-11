@@ -14,7 +14,7 @@ class AddMainBannerCategoryIdToMenuPagesTable extends Migration
     public function up()
     {
         Schema::table('menu_pages', function (Blueprint $table) {
-            $table->string('main_banner_category_id',255)->nullable()->after('category_id');
+            $table->string('main_banner_category_id',255)->nullable()->after('category_id')->index();
         });
     }
 

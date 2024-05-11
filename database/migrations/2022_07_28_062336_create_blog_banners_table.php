@@ -14,12 +14,12 @@ class CreateBlogBannersTable extends Migration
     public function up()
     {
         Schema::create('blog_banners', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('title',255);
             $table->text('banner_thumb')->nullable();
-            $table->integer('dropdown_id');
+            $table->integer('dropdown_id')->index();
             $table->integer('value')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

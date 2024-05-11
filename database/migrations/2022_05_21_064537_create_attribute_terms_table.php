@@ -17,10 +17,10 @@ class CreateAttributeTermsTable extends Migration
             $table->id();
             $table->text('attrterm_name');
             $table->text('attrterm_thumb')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
-            $table->integer('attribute_id');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
+            $table->integer('attribute_id')->index();
             $table->text('description')->nullable();
-            $table->dateTime('created_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('created_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'))->index();
             $table->dateTime('updated_at')->default(null)->onUpdate(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
             $table->softDeletes();
         });

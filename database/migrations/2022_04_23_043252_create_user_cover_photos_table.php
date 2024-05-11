@@ -16,8 +16,8 @@ class CreateUserCoverPhotosTable extends Migration
         Schema::create('user_cover_photos', function (Blueprint $table) {
             $table->id();
             $table->text('image');
-            $table->integer('user_id');
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('user_id')->index();
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->dateTime('created_at')->default(\Carbon\Carbon::now());
             $table->dateTime('updated_at')->default(null)->onUpdate(\Carbon\Carbon::now());
             $table->softDeletes();

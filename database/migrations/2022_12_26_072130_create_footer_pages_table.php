@@ -15,7 +15,7 @@ class CreateFooterPagesTable extends Migration
     {
         Schema::create('footer_pages', function (Blueprint $table) {
             $table->id();
-            $table->integer('page_id');
+            $table->integer('page_id')->index();
             $table->text('type')->nullable();
             $table->text('title')->nullable();
             $table->text('value')->nullable();

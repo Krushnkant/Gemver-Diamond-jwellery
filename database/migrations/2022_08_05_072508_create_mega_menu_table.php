@@ -14,10 +14,10 @@ class CreateMegaMenuTable extends Migration
     public function up()
     {
         Schema::create('mega_menus', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('title',255);
             $table->text('menu_thumb')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
         });
     }

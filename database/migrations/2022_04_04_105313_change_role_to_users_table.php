@@ -22,7 +22,7 @@ class ChangeRoleToUsersTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', [1,2,3,4])->nullable()->comment('1->Admin,2->Sub Admin,3->End User,4->Influencer')->after('referral_id');
+            $table->enum('role', [1,2,3,4])->nullable()->comment('1->Admin,2->Sub Admin,3->End User,4->Influencer')->after('referral_id')->index();
         });
     }
 

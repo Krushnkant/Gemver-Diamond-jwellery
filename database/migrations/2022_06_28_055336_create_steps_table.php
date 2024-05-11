@@ -163,7 +163,7 @@ class CreateStepsTable extends Migration
             $table->text('step4_section11_image2')->nullable();
             $table->string('step4_section11_title2',255)->nullable();
 
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

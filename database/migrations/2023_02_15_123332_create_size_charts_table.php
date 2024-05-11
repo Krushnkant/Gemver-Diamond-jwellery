@@ -17,7 +17,7 @@ class CreateSizeChartsTable extends Migration
             $table->id();
             $table->text('title')->nullable();
             $table->text('thumb')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
         });
     }

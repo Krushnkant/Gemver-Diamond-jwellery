@@ -14,7 +14,7 @@ class AddSizechartIdToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->integer('sizechart_id')->nullable()->after('is_custom');
+            $table->integer('sizechart_id')->nullable()->after('is_custom')->index();
         });
     }
 

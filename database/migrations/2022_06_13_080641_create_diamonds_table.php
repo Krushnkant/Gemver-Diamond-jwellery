@@ -14,20 +14,20 @@ class CreateDiamondsTable extends Migration
     public function up()
     {
         Schema::create('diamonds', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->integer('Company_id');
-            $table->string('Stone_No',255)->nullable();
-            $table->string('StockStatus',255)->nullable();
-            $table->string('Shape',255)->nullable();
-            $table->string('Weight',255)->nullable();
-            $table->string('Color',255)->nullable();
-            $table->string('Clarity',255)->nullable();
-            $table->string('Cut',255)->nullable();
-            $table->string('Polish',255)->nullable();
-            $table->string('Symm',255)->nullable();
+            $table->string('Stone_No',255)->nullable()->index();
+            $table->string('StockStatus',255)->nullable()->index();
+            $table->string('Shape',255)->nullable()->index();
+            $table->string('Weight',255)->nullable()->index();
+            $table->string('Color',255)->nullable()->index();
+            $table->string('Clarity',255)->nullable()->index();
+            $table->string('Cut',255)->nullable()->index();
+            $table->string('Polish',255)->nullable()->index();
+            $table->string('Symm',255)->nullable()->index();
             $table->string('FlrIntens',255)->nullable();
             $table->string('FlrColor',255)->nullable();
-            $table->string('FancyColor',255)->nullable();
+            $table->string('FancyColor',255)->nullable()->index();
             $table->string('FancyColorIntens',255)->nullable();
             $table->string('FancyColorOvertone',255)->nullable();
             $table->string('Lab',255)->nullable();
@@ -41,9 +41,9 @@ class CreateDiamondsTable extends Migration
             //$table->float('Amt')->nullable();
             $table->float('Amt', 10, 2);
             //$table->float('Sale_Amt')->nullable();
-            $table->float('Sale_Amt', 10, 2);
+            $table->float('Sale_Amt', 10, 2)->index();
             $table->string('Measurement',255)->nullable();
-            $table->float('Total_Depth_Per')->nullable();
+            $table->float('Total_Depth_Per')->nullable()->index();
             $table->float('Table_Diameter_Per')->nullable();
             $table->string('GirdleThin_ID',255)->nullable();
             $table->string('GirdleThick_ID',255)->nullable();
@@ -81,7 +81,7 @@ class CreateDiamondsTable extends Migration
             $table->text('Stone_Comment',255)->nullable();
             $table->text('Comment',255)->nullable();
             $table->text('CompanyComment',255)->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,7 +15,7 @@ class CreateOrderIncludesDataTable extends Migration
     {
         Schema::create('order_includes_data', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id');
+            $table->integer('order_id')->index();
             $table->string('title',255);
             $table->text('image')->nullable();
             $table->timestamps();

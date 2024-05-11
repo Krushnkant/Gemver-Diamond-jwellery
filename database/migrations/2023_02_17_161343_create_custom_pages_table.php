@@ -20,7 +20,7 @@ class CreateCustomPagesTable extends Migration
             $table->text('content')->nullable();
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
         });
     }

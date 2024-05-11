@@ -15,7 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->index();
             $table->string('first_name',255)->nullable();
             $table->string('last_name',255)->nullable();
             $table->string('email',255)->nullable();
@@ -26,7 +26,7 @@ class CreateAddressesTable extends Migration
             $table->string('state',255)->nullable();
             $table->string('city',255)->nullable();
             $table->string('pincode',255)->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

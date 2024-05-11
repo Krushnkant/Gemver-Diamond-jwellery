@@ -15,8 +15,8 @@ class CreateMenuPageShapeStylesTable extends Migration
     {
         Schema::create('menu_page_shape_styles', function (Blueprint $table) {
             $table->id();
-            $table->integer('page_id');
-            $table->integer('category_id');
+            $table->integer('page_id')->index();
+            $table->integer('category_id')->index();
             $table->string('title',255)->nullable();
             $table->text('image')->nullable();
             $table->timestamps();

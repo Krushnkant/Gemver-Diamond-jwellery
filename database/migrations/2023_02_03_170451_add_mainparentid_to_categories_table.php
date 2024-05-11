@@ -14,7 +14,7 @@ class AddMainparentidToCategoriesTable extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->integer('mainparentid')->after('parent_category_id');
+            $table->integer('mainparentid')->after('parent_category_id')->index();
         });
     }
 

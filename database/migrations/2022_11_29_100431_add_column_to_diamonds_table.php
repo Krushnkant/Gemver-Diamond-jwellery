@@ -14,8 +14,8 @@ class AddColumnToDiamondsTable extends Migration
     public function up()
     {
         Schema::table('diamonds', function (Blueprint $table) {
-            $table->integer('diamond_id')->after('id'); 
-            $table->integer('vendor_id')->after('diamond_id');
+            $table->integer('diamond_id')->after('id')->index(); 
+            $table->integer('vendor_id')->after('diamond_id')->index();
             $table->text('short_title')->after('vendor_id');
             $table->text('long_title')->after('short_title');
         });

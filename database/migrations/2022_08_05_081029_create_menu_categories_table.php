@@ -15,11 +15,11 @@ class CreateMenuCategoriesTable extends Migration
     {
         Schema::create('menu_categories', function (Blueprint $table) {
             $table->id();
-            $table->integer('menu_id');
-            $table->integer('category_id');
+            $table->integer('menu_id')->index();
+            $table->integer('category_id')->index();
             $table->string('title',255);
             $table->text('icon')->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class AddTypeToOpinionsTable extends Migration
     public function up()
     {
         Schema::table('opinions', function (Blueprint $table) {
-            $table->integer('type')->default(1)->comment('1->Product,2->Diamond'); 
+            $table->integer('type')->default(1)->comment('1->Product,2->Diamond')->index(); 
         });
     }
 

@@ -14,7 +14,7 @@ class AddIsReviewToOrderItemsTable extends Migration
     public function up()
     {
         Schema::table('order_items', function (Blueprint $table) {
-            $table->integer('is_review')->after('payment_action_date');
+            $table->integer('is_review')->after('payment_action_date')->index();
         });
     }
 

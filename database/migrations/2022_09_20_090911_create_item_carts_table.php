@@ -15,12 +15,12 @@ class CreateItemCartsTable extends Migration
     {
         Schema::create('item_carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('item_id');
-            $table->integer('diamond_id');
+            $table->integer('user_id')->index();
+            $table->integer('item_id')->index();
+            $table->integer('diamond_id')->index();
             $table->integer('item_quantity');
             $table->text('specification')->nullable();
-            $table->integer('item_type')->default(0)->comment('0->Product,1->Diamond');
+            $table->integer('item_type')->default(0)->comment('0->Product,1->Diamond')->index();
             $table->timestamps();
         });
     }

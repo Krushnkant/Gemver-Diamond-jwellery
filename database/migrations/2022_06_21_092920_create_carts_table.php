@@ -14,12 +14,12 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->id();
-            $table->string('ip_address',255)->nullable();
-            $table->integer('category_id');
-            $table->integer('diamond_id');
-            $table->integer('variant_id');
-            $table->string('specification_term_id',255)->nullable();
+            $table->id()->index();
+            $table->string('ip_address',255)->nullable()->index();
+            $table->integer('category_id')->index();
+            $table->integer('diamond_id')->index();
+            $table->integer('variant_id')->index();
+            $table->string('specification_term_id',255)->nullable()->index();
             $table->timestamps();
         });
     }

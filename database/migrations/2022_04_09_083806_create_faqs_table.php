@@ -14,10 +14,10 @@ class CreateFaqsTable extends Migration
     public function up()
     {
         Schema::create('faqs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('question');
             $table->text('answer');
-            $table->boolean('estatus')->default(1)->comment('0->Deactive,1->Active');
+            $table->boolean('estatus')->default(1)->comment('0->Deactive,1->Active')->index();
             $table->timestamps();
         });
     }

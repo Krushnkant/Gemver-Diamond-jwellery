@@ -14,9 +14,9 @@ class CreateStatesTable extends Migration
     public function up()
     {
         Schema::create('states', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('name');
-            $table->integer('country_id');
+            $table->integer('country_id')->index();
             $table->dateTime('created_at')->default(\Carbon\Carbon::now());
             $table->dateTime('updated_at')->nullable()->onUpdate(\Carbon\Carbon::now());
             $table->softDeletes();

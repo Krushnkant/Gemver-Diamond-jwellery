@@ -16,7 +16,7 @@ class CreateMenuPagesTable extends Migration
         Schema::create('menu_pages', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('category_id');
+            $table->integer('category_id')->index();
             $table->string('main_title',255)->nullable();
             $table->string('main_shotline',255)->nullable();
             $table->string('main_first_button_name',255)->nullable();

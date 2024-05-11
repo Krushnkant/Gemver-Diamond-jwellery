@@ -17,7 +17,7 @@ class AddReviewToProductVariantsTable extends Migration
             $table->integer('total_orders')->after('term_item_id');
             $table->integer('total_review')->after('total_orders');
             $table->integer('total_rate_value')->after('total_review');
-            $table->integer('product_rating')->after('total_rate_value');
+            $table->integer('product_rating')->after('total_rate_value')->index();
         });
     }
 

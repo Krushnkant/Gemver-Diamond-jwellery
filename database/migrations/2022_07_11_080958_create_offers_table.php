@@ -17,7 +17,7 @@ class CreateOffersTable extends Migration
             $table->id();
             $table->string('title',255);
             $table->string('expiry_date',100);
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
         });
     }

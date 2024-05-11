@@ -19,7 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->text('image');
             $table->text('description');
             $table->string('country',100);
-            $table->boolean('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->boolean('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -14,12 +14,12 @@ class CreateProductAttributesTable extends Migration
     public function up()
     {
         Schema::create('product_attributes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('product_id');
-            $table->string('product_u_id',255);
-            $table->integer('attribute_id');
-            $table->string('terms_id',255);
-            $table->integer('use_variation')->default(0);
+            $table->id()->index();
+            $table->integer('product_id')->index();
+            $table->string('product_u_id',255)->index();
+            $table->integer('attribute_id')->index();
+            $table->string('terms_id',255)->index();
+            $table->integer('use_variation')->default(0)->index();
             $table->timestamps();
         });
     }

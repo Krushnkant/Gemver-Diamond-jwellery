@@ -14,9 +14,9 @@ class AddMeasColumnToDiamondsTable extends Migration
     public function up()
     {
         Schema::table('diamonds', function (Blueprint $table) {
-            $table->float('meas_length')->after('Measurement');
-            $table->float('meas_width')->after('meas_length');
-            $table->float('meas_depth')->after('meas_width');
+            $table->float('meas_length')->after('Measurement')->index();
+            $table->float('meas_width')->after('meas_length')->index();
+            $table->float('meas_depth')->after('meas_width')->index();
         });
     }
 

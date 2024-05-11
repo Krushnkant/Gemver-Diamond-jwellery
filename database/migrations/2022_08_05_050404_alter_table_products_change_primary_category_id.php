@@ -14,7 +14,7 @@ class AlterTableProductsChangePrimaryCategoryId extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table){
-            $table->string('primary_category_id',255)->nullable()->change();
+            $table->string('primary_category_id',255)->nullable()->change()->index();
         });
     }
 

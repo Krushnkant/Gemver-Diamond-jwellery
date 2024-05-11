@@ -18,7 +18,7 @@ class CreateTeamMembersTable extends Migration
             $table->string('name',100);
             $table->text('image');
             $table->string('position',100);
-            $table->boolean('estatus')->default(1)->comment('0->Deactive,1->Active');
+            $table->boolean('estatus')->default(1)->comment('0->Deactive,1->Active')->index();
             $table->timestamps();
             $table->softDeletes();
         });

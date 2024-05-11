@@ -15,7 +15,7 @@ class CreateStepPopupsTable extends Migration
     {
         Schema::create('step_popups', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->integer('category_id')->index();
             $table->string('title',255)->nullable();
             $table->text('description')->nullable();
             $table->text('icon')->nullable();

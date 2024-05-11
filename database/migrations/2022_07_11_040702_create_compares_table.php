@@ -14,9 +14,9 @@ class CreateComparesTable extends Migration
     public function up()
     {
         Schema::create('compares', function (Blueprint $table) {
-            $table->id();
-            $table->string('ip_address',255);
-            $table->integer('diamond_id');
+            $table->id()->index();
+            $table->string('ip_address',255)->index();
+            $table->integer('diamond_id')->index();
             $table->timestamps();
         });
     }

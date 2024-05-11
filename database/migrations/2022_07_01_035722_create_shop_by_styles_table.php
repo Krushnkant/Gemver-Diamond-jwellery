@@ -15,13 +15,13 @@ class CreateShopByStylesTable extends Migration
     {
         Schema::create('shop_by_styles', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->integer('category_id')->index();
             $table->string('title',255)->nullable();
             $table->string('setting',255)->nullable();
             $table->text('image')->nullable();
             $table->string('attributes',255)->nullable();
             $table->string('attribute_terms',255)->nullable();
-            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending');
+            $table->integer('estatus')->default(1)->comment('1->Active,2->Deactive,3->Deleted,4->Pending')->index();
             $table->timestamps();
             $table->softDeletes();
         });

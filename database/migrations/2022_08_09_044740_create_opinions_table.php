@@ -15,7 +15,7 @@ class CreateOpinionsTable extends Migration
     {
         Schema::create('opinions', function (Blueprint $table) {
             $table->id();
-            $table->string('product_id',20)->nullable();
+            $table->string('product_id',20)->nullable()->index();
             $table->string('name',100)->nullable();
             $table->string('email',50)->nullable();
             $table->text('message')->nullable();
