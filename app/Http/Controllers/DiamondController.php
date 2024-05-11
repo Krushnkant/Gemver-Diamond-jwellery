@@ -657,7 +657,7 @@ class DiamondController extends Controller
                     }
 
                     $artilces .= '
-                    <div class="col-6 col-sm-4 col-lg-4 col-xl-3 mb-4 wire_bangle_shop_radio">
+                    <div class="col-6 col-sm-4 col-lg-4 col-xl-3 mb-0 wire_bangle_shop_radio">
                         <div class="wire_bangle_product_setting">
                             <div class="wire_bangle_img mb-3 position-relative">
                             <a href="' . $url . '"><img src="' . $image . '" alt="' . $alt_text . '" class="main-product-image-' . $product->id . '"></a>

@@ -900,8 +900,7 @@
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="1a">
                     <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
-                        <div class="row row-grid-list grid" id="data-wrapper">
-                        </div>
+                        <div class="row row-grid-list grid" id="data-wrapper"></div>
                         <div class="auto-load text-center mt-4">
                             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60"
@@ -913,6 +912,7 @@
                                 </path>
                             </svg>
                         </div>
+                        <div class="reponse-msg-box text-center mt-4 mb-5" style="display: none;"></div>
                     </div>
                 </div>
                 <div class="tab-pane" id="2a">
@@ -1018,15 +1018,12 @@
         var ENDPOINT = "{{ url('/') }}";
         var page = 1;
         var isDataLoading = false;
-        // console.log($(document).height());
-        // console.log($(window).height());
+        footerElement = document.querySelector(".footer-part-section");
+        footerHeight = footerElement.offsetHeight;
+        var diffofHeight = 0;
         $(window).scroll(function () {
-            // console.log('Scroll Rolling:'+ $(window).scrollTop());
-            // console.log('Scroll Rolling 222:'+ $(document).height() - $(window).height());
-            // if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                // console.log('Scrollupto:'+ $(window).scrollTop());
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                //if($(window).scrollTop() + $(window).height() > $(document).height() - 500){  
+            diffofHeight = $(document).height() - $(window).height();
+            if ($(window).scrollTop() <= diffofHeight - footerHeight + 100 && $(window).scrollTop() >= diffofHeight - footerHeight) {  
                 if(isDataLoading === false){
                     page++;
                     var scroll = 1;
@@ -1122,29 +1119,38 @@
                     $('#datacount').html('showing ' + response['showdata'] + ' of ' + response['totaldata'] + ' results');
 
                     if (scroll == 1) {
-                        if (response['artilces'] == "") {
-                            $('.auto-load').html("We don't have more data to display ");
+                        if (response['artilces'] == "") {                            
+                            datawrpper_message(true, "We don't have more data to display");
                             $(".total-diamond").html(response['showdata']);
+                            isDataLoading = true;
                             return;
                         }
+                        datawrpper_message(false, "");
                         $("#data-wrapper").append(response['artilces']);
                         $(".total-diamond").html(response['showdata']);
-                        $('.auto-load').hide();
+                        
                     } else {
                         if (response['artilces'] == "") {
-                            $('#data-wrapper').html("No Result Found");
+                            datawrpper_message(true, "No Result Found");
                             $(".total-diamond").html(response['showdata']);
-                            $('.auto-load').hide();
+                            isDataLoading = true;
                             return;
                         }
+                        datawrpper_message(false, "");
                         $("#data-wrapper").html(response['artilces']);
                         $(".total-diamond").html(response['showdata']);
-                        $('.auto-load').hide();
                     }
-                    console.log($(document).height());
-
                 }
             });
+        }
+
+        function datawrpper_message(isDisplay, message){
+            if(isDisplay === true){
+                $('.reponse-msg-box').html(message).fadeIn();
+            } else {
+                $('.reponse-msg-box').html("").fadeOut();
+            }
+            $('.auto-load').hide();
         }
 
         function get_filter(class_name) {

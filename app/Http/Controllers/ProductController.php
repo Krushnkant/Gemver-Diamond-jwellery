@@ -300,9 +300,7 @@ class ProductController extends Controller {
                     </div>
                     ';
                 }
-            } else {
-                $output .= '';  
-            } 
+            }
             $data = ['output' => $output,'datacount' => count($result_total)];   
             return $data;
         }

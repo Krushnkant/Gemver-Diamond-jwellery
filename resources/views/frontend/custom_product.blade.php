@@ -367,7 +367,7 @@
         </div> --}}
         <div class="row align-items-center">
             <div class="col-md-12 text-center text-md-end px-0 mt-4">
-                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                <!-- <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
                     <span class="d-inline-block d-lg-none  apply-btn me-3">
                         <button type="button" class="apply-btn">Apply</button>
                     </span>
@@ -375,6 +375,10 @@
                         <button type="button" id="reSet"
                             class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
                     </span>
+                </div> -->
+                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                    <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
+                    <button type="button" id="reSet" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                 </div>
             </div>
         </div>
@@ -382,11 +386,16 @@
 </div>
 <div class="container">
     <div class="wire_bangle_line"></div>
-    <div class="row align-items-center d-flex justify-content-end mt-3">
+    <div class="row my-3 align-items-center">
         <div class="col-lg-6 text-center text-sm-start">
-            <div class="row no-gutters mb-3 align-items-center justify-content-start">
+            <div class="row no-gutters mb-3 mb-lg-0 align-items-center justify-content-start">
                 <div class="col-12 col-md-auto px-0">
-                    Result (<span class="total-product"> </span>)
+                    <ul class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
+                        <li class="active nav-item">
+                            Result (<span class="total-product"> </span>)
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
         </div>
@@ -396,52 +405,31 @@
                 <span class="ms-2 d-sm-inline-block">Search</span>
             </button>
         </div>
-        <div
-            class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
+        <div class="col-9 col-md-6 text-center text-sm-end mb-sm-0 d-flex justify-content-end justify-content-sm-end pe-0">
             <span class="wire_bangle_select text-center text-md-end select_box_option">
                 <select class="form-control" name="sorting" id="sorting">
                     <option value="price">Sort by price: low to high</option>
                     <option value="price-desc">Sort by price: high to low</option>
                 </select>
             </span>
-            <!-- <span class="d-inline-block ms-4">
-                    <button class="filter-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M5.8335 9.16665H14.1668V10.8333H5.8335V9.16665ZM3.3335 5.83331H16.6668V7.49998H3.3335V5.83331ZM8.3335 12.5H11.6668V14.1666H8.3335V12.5Z" fill="#0B1727"/>
-                        </svg>
-                        <span>Search</span>
-                    </button>
-                </span> -->
-            <!-- <div class="right_side_panel scrollbar" id="style-1">
-                   
-                    <div class="round_cut_lab_range_slider mb-xxl-5 mb-4 mt-3 mt-md-0">
-                            
-                    </div>
-                        
-                            
-                </div> -->
-        </div>
-        <!-- <div class="wire_bangle_line mb-md-5"></div> -->
-        <div class="row mb-5 px-0">
-            <div class="col-md-12 col-lg-12 mt-4 mt-md-0 px-0">
-                <div class="row" id="data-wrapper">
-                    <!-- Results -->
-                </div>
-                <!-- Data Loader -->
-                <div class="auto-load text-center mt-4">
-                    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
-                        enable-background="new 0 0 0 0" xml:space="preserve">
-                        <path fill="#000"
-                            d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
-                                from="0 50 50" to="360 50 50" repeatCount="indefinite" />
-                        </path>
-                    </svg>
-                </div>
-            </div>
         </div>
     </div>
+    <div class="row gx-md-4 gy-md-4 gx-3 gy-3" id="data-wrapper">
+        <!-- Results -->
+    </div>
+    <!-- Data Loader -->
+    <div class="auto-load text-center mt-4 mb-5">
+        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
+            enable-background="new 0 0 0 0" xml:space="preserve">
+            <path fill="#000"
+                d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                    from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+            </path>
+        </svg>
+    </div>
+    <div class="reponse-msg-box text-center mt-4 mb-5" style="display: none;"></div>
 </div>
 
 @php
@@ -486,7 +474,6 @@ $hidemodel = 1;
                     </li>
                     @endforeach
                 </ul>
-
                 <!-- </div> -->
             </div>
         </div>
@@ -509,14 +496,12 @@ $hidemodel = 1;
             closeOnSelect: false,
         });
 
-        $('.selectattribute').on('change', function () {
-            page = 1;
-            filter_data(page);
-        });
+        // $('.selectattribute').on('change', function () {
+        //     page = 1;
+        //     filter_data(page);
+        // });
 
-        $('body').on('mouseover', '.product-image', function () {
-
-        }, function () {
+        $('body').on('mouseover', '.product-image', function () {}, function () {
             var product_image = $(this).attr('src');
             var data_id = $(this).attr('data-id');
             $('.main-product-image-' + data_id).attr("src", product_image);
@@ -525,27 +510,45 @@ $hidemodel = 1;
 
         var ENDPOINT = "{{ url('/') }}";
         var page = 1;
+        var isDataLoading = false;
+        footerElement = document.querySelector(".footer-part-section");
+        footerHeight = footerElement.offsetHeight;
+        var diffofHeight = 0;
         $(window).scroll(function () {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-                page++;
-                var scroll = 1;
-                filter_data(page, scroll);
+            diffofHeight = $(document).height() - $(window).height();
+            if ($(window).scrollTop() <= diffofHeight - footerHeight + 100 && $(window).scrollTop() >= diffofHeight - footerHeight) {  
+                if(isDataLoading === false){
+                    page++;
+                    var scroll = 1;
+                    filter_data(page, scroll, false);
+                }
             }
         });
-        filter_data(page);
+        filter_data(page, 0, false);
         $("#sorting").change(function () {
-            filter_data(page);
+            page = 1;
+            filter_data(page, 0, true);
         });
 
-        $('.clear_filter_btn').click(function () {
+        $("#apply-btn").click(function () {
+            page = 1;
+            filter_data(page, 0, true);
+        });
+
+        $('body').on('click', '#reSet', function () {
             location.reload();
         });
 
-        function filter_data(page, scroll = 0) {
+        function filter_data(page, scroll = 0, isfilterApply) {
             $('.filter_data').html('<div id="loading" style="" ></div>');
 
             var selectedValues = [];
             var array = [];
+            isDataLoading = true;
+            if(isfilterApply == true){
+                $("#data-wrapper").html('');
+            }
+
             $('.selectattribute').each(function () {
                 if ($(this).val() != "") {
                     var array = $(this).val();
@@ -581,27 +584,37 @@ $hidemodel = 1;
 
                     if (scroll == 1) {
                         if (response['artilces'] == "") {
-                            $('.auto-load').html("We don't have more data to display ");
+                            datawrpper_message(true, "We don't have more data to display");
                             return;
                         }
+                        datawrpper_message(false, "");
                         $("#data-wrapper").append(response['artilces']);
                         $(".total-product").html(response['datacount']);
-                        $('.auto-load').hide();
+                        isDataLoading = false;
+
                     } else {
                         if (response['artilces'] == "") {
                             $('#data-wrapper').html("No Result Found");
                             $(".total-product").html(response['datacount']);
-                            $('.auto-load').hide();
+                            datawrpper_message(true, "No Result Found");
                             return;
                         }
                         $("#data-wrapper").html(response['artilces']);
                         $(".total-product").html(response['datacount']);
-                        $('.auto-load').hide();
+                        datawrpper_message(false, "");
+                        isDataLoading = false;
                     }
-
-
                 }
             });
+        }
+
+        function datawrpper_message(isDisplay, message){
+            if(isDisplay === true){
+                $('.reponse-msg-box').html(message).fadeIn();
+            } else {
+                $('.reponse-msg-box').html("").fadeOut();
+            }
+            $('.auto-load').hide();
         }
 
         function get_filter(class_name) {
@@ -612,13 +625,13 @@ $hidemodel = 1;
             return filter;
         }
 
-        $('.common_selector').click(function () {
-            filter_data(page);
-        });
+        // $('.common_selector').click(function () {
+        //     filter_data(page);
+        // });
 
-        $(".amount_input").keyup(function () {
-            filter_data(page);
-        });
+        // $(".amount_input").keyup(function () {
+        //     filter_data(page);
+        // });
 
         ['minimum_price', 'maximum_price'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
             let [minimum_price, maximum_price] = $("#slider-range").slider('values');
@@ -655,7 +668,7 @@ $hidemodel = 1;
                     //filter_data();
                 },
                 stop: function (event, ui) {
-                    filter_data(page);
+                    // filter_data(page);
                 }
             });
             //$( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
@@ -680,19 +693,12 @@ $hidemodel = 1;
                     //filter_data(page);
                 },
                 stop: function (event, ui) {
-                    filter_data(page);
+                    // filter_data(page);
                 }
             });
-            $("#carat").html($("#slider-range-carat").slider("values", 0) +
-                " - " + $("#slider-range-carat").slider("values", 1));
-
+            $("#carat").html($("#slider-range-carat").slider("values", 0) + " - " + $("#slider-range-carat").slider("values", 1));
         });
-
-
-
     });
-
-
 </script>
 
 <script>
@@ -716,10 +722,5 @@ $hidemodel = 1;
             $('#myStep').modal('show');
         }, delayMs);
     });
-
-
 </script>
-
-
-
 @endsection

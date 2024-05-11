@@ -5,7 +5,7 @@
     <div class="">
         <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
         <div class="about_us_background">
-            <h1 class="sub_heading mb-lg-3 main_header_title">{{ isset($Category)?$Category->category_name:' Shop ' }}</h1>
+            <h1 class="sub_heading mb-lg-3 main_header_title">{{ isset($Category) ? $Category->category_name:' Shop ' }}</h1>
             <div class="about_us_link">
                 <a href="{{ URL('/') }}">home</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none"
@@ -17,7 +17,7 @@
                         d="M8.30029 4.32471L10.9761 7L8.30029 9.67529L9.44971 10.8247L13.2739 7L9.44971 3.17529L8.30029 4.32471Z"
                         fill="white" />
                 </svg>
-                <a href="#" class="main_header_title">{{ isset($Category)?$Category->category_name:' Shop ' }}</a>
+                <a href="#" class="main_header_title">{{ isset($Category) ? $Category->category_name:' Shop ' }}</a>
             </div>
         </div>
     </div>
@@ -314,23 +314,20 @@
         @endif
         @endif
         @endforeach
-        {{-- <div class="text-end mb-3">
-            <div class="col-md-12 ">
-                <button type="button" id="reSet" style="border: 1px var(--primary) solid"
-                    class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn mt-4">Reset</button>
-            </div>
-
-        </div> --}}
         <div class="row align-items-center">
             <div class="col-md-12 text-center text-md-end px-0 mt-4">
-                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
-                    <span class="d-inline-block d-lg-none  apply-btn me-3">
-                        <button type="button" class="apply-btn">Apply</button>
+                <!-- <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                    <span class="d-inline-block apply-btn me-3">
+                        <button id="apply-btn" type="button" class="apply-btn">Apply</button>
                     </span>
                     <span class="d-inline-block reset-btn reset-btn-part">
                         <button type="button" id="reSet"
                             class="reset-btn btn-hover-effect btn-hover-effect-black diamond-btn buy_lab_diamonds_btn border-0">Reset</button>
                     </span>
+                </div> -->
+                <div class="reset-btn-position d-inline-block d-flex d-lg-inline-block justify-content-between">
+                    <button type="button" id="apply-btn" class="diamond-btn btn-hover-effect btn-hover-effect-black apply-btn-cust apply-btn-border">Apply</button>
+                    <button type="button" id="reSet" class="btn-hover-effect btn-hover-effect-black diamond-btn apply-btn-border">Reset</button>
                 </div>
             </div>
         </div>
@@ -365,8 +362,7 @@
         </div>
     </div>
 
-    <div class="row mt-0 mb-5 filter_data">
-    </div>
+    <div id="data-wrapper" class="row mt-0 mb-5 filter_data"></div>
     <div class="auto-load text-center mt-4 mb-5">
         <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
             y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
@@ -377,6 +373,7 @@
             </path>
         </svg>
     </div>
+    <div class="reponse-msg-box text-center mt-4 mb-5" style="display: none;"></div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -385,10 +382,10 @@
     $(document).ready(function () {
 
 
-        $('.selectattribute').on('change', function () {
-            page = 1;
-            filter_data(page);
-        });
+        // $('.selectattribute').on('change', function () {
+            // page = 1;
+            // filter_data(page);
+        // });
         // $(".selectattribute").click(function() {
         //     alert();
         //     //You need a id for set values
@@ -407,71 +404,52 @@
         });
 
         var page = 1;
-
+        var isDataLoading = false;
+        footerElement = document.querySelector(".footer-part-section");
+        footerHeight = footerElement.offsetHeight;
+        var diffofHeight = 0;
         $(window).scroll(function () {
-            //if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
-
-            //if($(window).scrollTop() + $(window).height() >= $(document).height()) {  
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - 400) {
-                page++;
-                var scroll = 1;
-                filter_data(page, scroll);
+            diffofHeight = $(document).height() - $(window).height();
+            if ($(window).scrollTop() <= diffofHeight - footerHeight + 100 && $(window).scrollTop() >= diffofHeight - footerHeight) {  
+                if(isDataLoading === false){
+                    page++;
+                    var scroll = 1;
+                    filter_data(page, scroll, false);
+                }
             }
         });
 
+        filter_data(page, 0, false);
 
-        filter_data(page);
-
-        //$('product-image').hover(function () {
-        $('body').on('mouseover', '.product-image', function () {
-        }, function () {
+        $('body').on('mouseover', '.product-image', function () {}, function () {
             var product_image = $(this).attr('src');
             var data_id = $(this).attr('data-id');
             $('.main-product-image-' + data_id).attr("src", product_image);
-
         });
 
         $("#sorting").change(function () {
             page = 1;
-            filter_data(page);
+            filter_data(page, 0, true);
         });
 
-        function filter_data(page, scroll = 0) {
-            // var cart = $('.selectattribute'); //
+        $("#apply-btn").click(function () {
+            page = 1;
+            filter_data(page, 0, true);
+        });
 
-            // var val = [];
-            // $('.selectattribute').each(function(i){
-            // val[i] = $(this).val();
-            // });
-            // console.log(val);
+        $('body').on('click', '#reSet', function () {
+            location.reload();
+        });
 
-
-            //var selectedValues = [];
-            // $('.selectattribute').each(function(i){
-            //     selectedValues[i] = $(this).val();
-            // });
-            // console.log(selectedValues);
-
-
-
-            // $('.selectattribute').on('click', function(){
-            //  alert('dsfdfdsf');   
-            //     console.log($(this));
-            //     selectedValues.push( $(this).val() );
-            //     console.log(selectedValues); // < read the length of the amended array here
-            // });
-
-            // $.each(cart, function(index, value){
-            //     console.log($(value).val());
-            // });
-
-
-            // var selectedValues = $('.selectattribute').select2('data').map(function(elem){ 
-            //     return elem.id 
-            // });
-
+        function filter_data(page, scroll = 0, isfilterApply) {
+            
             var selectedValues = [];
             var array = [];
+            isDataLoading = true;
+            if(isfilterApply == true){
+                $("#data-wrapper").html('');
+            }
+
             $('.selectattribute').each(function () {
                 if ($(this).val() != "") {
                     var array = $(this).val();
@@ -502,33 +480,41 @@
                     $('.auto-load').show();
                 },
                 success: function (data) {
-
+                    
                     if (scroll == 1) {
                         if (data['output'] == "") {
-                            $('.auto-load').html("We don't have more data to display ");
+                            datawrpper_message(true, "We don't have more data to display");
                             return;
                         }
-                        $('.filter_data').append(data['output']);
+                        $('#data-wrapper').append(data['output']);
                         $(".total-product").html(data['datacount']);
-                        $('.auto-load').hide();
-
+                        datawrpper_message(false, "");
+                        isDataLoading = false;
                     } else {
                         if (data['output'] == "") {
-                            $('.filter_data').html(data['output']);
+                            $('#data-wrapper').html(data['output']);
                             $(".total-product").html(data['datacount']);
-                            $('.auto-load').html("We don't have more data to display ");
+                            datawrpper_message(true, "No Result Found");
                             return;
                         } else {
-                            $('.filter_data').html(data['output']);
+                            $('#data-wrapper').html(data['output']);
                             $(".total-product").html(data['datacount']);
-                            $('.auto-load').hide();
+                            datawrpper_message(false, "");
+                            isDataLoading = false;
                         }
-
                     }
-
                     $('#datacount').html('showing ' + data['datacount'] + ' results');
                 }
             });
+        }
+
+        function datawrpper_message(isDisplay, message){
+            if(isDisplay === true){
+                $('.reponse-msg-box').html(message).fadeIn();
+            } else {
+                $('.reponse-msg-box').html("").fadeOut();
+            }
+            $('.auto-load').hide();
         }
 
         function get_filter(class_name) {
@@ -539,17 +525,15 @@
             return filter;
         }
 
+        // $('.common_selector').click(function () {
+        //     page = 1;
+        //     filter_data(page);
+        // });
 
-
-        $('.common_selector').click(function () {
-            page = 1;
-            filter_data(page);
-        });
-
-        $(".amount_input").keyup(function () {
-            page = 1;
-            filter_data(page);
-        });
+        // $(".amount_input").keyup(function () {
+        //     page = 1;
+        //     filter_data(page);
+        // });
 
         ['minimum_price', 'maximum_price'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
             let [minimum_price, maximum_price] = $("#slider-range").slider('values');
@@ -565,14 +549,12 @@
 
             $("#amount-start").html("$" + minimum_price);
             $("#amount-end").html(" $" + maximum_price);
-
         }));
 
 
         $(function () {
 
             var maxPrice = '{{ $Maxprice  }}';
-
             $("#slider-range").slider({
                 range: true,
                 min: 0,
@@ -589,7 +571,7 @@
                     //filter_data(page);
                 },
                 stop: function (event, ui) {
-                    filter_data(page);
+                    // filter_data(page);
                 }
 
             });
@@ -638,7 +620,7 @@
                     //filter_data(page);
                 },
                 stop: function (event, ui) {
-                    filter_data(page);
+                    // filter_data(page);
                 }
 
             });
@@ -665,17 +647,7 @@
         //     }else{
         //         $('.main_header_title').text(array);
         //     }
-
         // });
-
     });
-
-
-
-
 </script>
-
-
-
-
 @endsection

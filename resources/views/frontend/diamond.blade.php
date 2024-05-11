@@ -1033,6 +1033,7 @@
                                 </path>
                             </svg>
                         </div>
+                        <div class="reponse-msg-box text-center mt-4 mb-5" style="display: none;"></div>
                     </div>
                 </div>
 
@@ -1067,8 +1068,8 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        $(this).scrollTop(0);
         compare_data();
-
         $(".slider-color").click(function () {
             var svalue = $(this).attr('value');
             if (svalue == "color") {
@@ -1125,9 +1126,6 @@
                 }
             });
         }
-
-
-
     });
 </script>
 
@@ -1138,30 +1136,43 @@
         });
         var ENDPOINT = "{{ url('/') }}";
         var page = 1;
+        var isDataLoading = false;
+        footerElement = document.querySelector(".footer-part-section");
+        footerHeight = footerElement.offsetHeight;
+        var diffofHeight = 0;
         $(window).scroll(function () {
-            //if($(window).scrollTop() + $(window).height() >= $(document).height() - 500) {
-            // if($(window).scrollTop() + $(window).height() >= $(document).height()) {  
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - 400) {
-                page++;
-                var scroll = 1;
-                filter_data(page, scroll);
+            diffofHeight = $(document).height() - $(window).height();
+            if ($(window).scrollTop() <= diffofHeight - footerHeight + 100 && $(window).scrollTop() >= diffofHeight - footerHeight) {  
+                if(isDataLoading === false){
+                    page++;
+                    var scroll = 1;
+                    filter_data(page, scroll, false);
+                }
             }
         });
-        filter_data(page);
+        filter_data(page, 0, false);
         $("#sorting").change(function () {
             page = 1;
-            filter_data(page);
+            filter_data(page, 0, true);
         });
 
         $('.clear_filter_btn').click(function () {
             location.reload();
         });
 
-        function filter_data(page, scroll = 0) {
+        $("#apply-btn").click(function () {
+            page = 1;
+            filter_data(page, 0, true);
+        });
 
+        function filter_data(page, scroll = 0, isfilterApply) {
+
+            isDataLoading = true;
             $('.filter-sidebar').removeClass('filter-data-active');
             $('body').removeClass('mobile-sub-menu-active');
-            $("#data-wrapper").html('');
+            if(isfilterApply == true){
+                $("#data-wrapper").html('');
+            }
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
             var catid = '{{ $CatId }}';
@@ -1270,32 +1281,41 @@
                 success: function (response) {
 
                     //$('#datacount').html('showing ' + response['showdata'] + ' of ' + response['totaldata'] + ' results');
-
+                    isDataLoading = false;
                     if (scroll == 1) {
                         if (response['artilces'] == "") {
-                            $('.auto-load').html("We don't have more data to display ");
+                            datawrpper_message(true, "We don't have more data to display");
                             $(".total-diamond").html(response['showdata']);
+                            isDataLoading = true;
                             return;
                         }
-
+                        datawrpper_message(false, "");
                         $("#data-wrapper").append(response['artilces']);
                         $(".total-diamond").html(response['showdata']);
-                        $('.auto-load').hide();
+                        
                     } else {
                         if (response['artilces'] == "") {
-                            $('#data-wrapper').html("No Result Found");
+                            datawrpper_message(true, "No Result Found");
                             $(".total-diamond").html(response['showdata']);
-                            $('.auto-load').hide();
+                            isDataLoading = true;
                             return;
                         }
+                        datawrpper_message(false, "");
                         $("#data-wrapper").html(response['artilces']);
                         $(".total-diamond").html(response['showdata']);
-                        $('.auto-load').hide();
-
                     }
 
                 }
             });
+        }
+
+        function datawrpper_message(isDisplay, message){
+            if(isDisplay === true){
+                $('.reponse-msg-box').html(message).fadeIn();
+            } else {
+                $('.reponse-msg-box').html("").fadeOut();
+            }
+            $('.auto-load').hide();
         }
 
         function get_filter(class_name) {
@@ -1316,11 +1336,6 @@
         //     page = 1;
         //     filter_data(page);
         // });
-
-        $('#apply-btn').click(function () {
-            page = 1;
-            filter_data(page);
-        });
 
         ['minimum_price_input', 'maximum_price_input'].map(x => document.getElementById(x)).forEach(x => x.addEventListener('change', function (e) {
             let [minimum_price_input, maximum_price_input] = $("#slider-range").slider('values');
@@ -1630,7 +1645,7 @@
                     $("#symmVG").prop("checked", true);
                     $("#symmG").prop("checked", true);
                 }
-                filter_data(1);
+                // filter_data(1);
 
             }
         });
@@ -1655,12 +1670,6 @@
         //      page = 1;
         //     filter_data(page);
         // });
-
-
-
     });
 </script>
-
-
-
 @endsection
