@@ -1750,10 +1750,14 @@ background-size: cover;
         padding: 0 10px;
     }
 
+    .owl-item .wire_bangle_shop_radio {
+        margin: 20px 0;
+    }
+
     .wire_bangle_shop_radio {
         position: relative;
         border-radius: 10px;
-        /* margin: 20px 0; */
+        margin: 20px 0;
     }
 
     /*.wire_bangle_color_part {

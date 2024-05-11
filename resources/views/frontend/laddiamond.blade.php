@@ -39,7 +39,7 @@
                     <span class="form-check position-relative ps-0 round_checkbox_part " data-toggle="tooltip"
                         data-placement="top" title="Round">
                         <input class="form-check-input shape common_selector" value="round" type="checkbox"
-                            name="shape[]" {{ ( strtolower($shap)=='round' ) ? 'checked' : '' }}
+                            name="shape[]" {{ ( strtolower($shap) == 'round' ) ? 'checked' : '' }}
                             id="flexRadioDefaultround">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none"
                             class="shape_img">
@@ -174,7 +174,7 @@
                             <div class="from_text me-4">
                                 <div class="d-flex align-items-center">
                                     <input type="text" name="" id="minimum_carat_input" placeholder="From"
-                                        class="wire_bangle_input common_input comman_input_part w-100" value="1">
+                                        class="wire_bangle_input common_input comman_input_part w-100" value="0">
                                     <span class="ms-2 filter_ct">ct</span>
                                 </div>
                             </div>
@@ -192,7 +192,6 @@
                     <input type="hidden" id="hidden_maximum_carat" />
                 </span>
             </div>
-
         </div>
 
         <div class="col-lg-6 round_cut_lab_filter">
@@ -201,80 +200,65 @@
                     <ul class="nav diamon-color-tab-title filter-part-shape justify-content-start justify-content-sm-start filter-tab"
                         id="myTab" role="tablist">
                         <li class="active nav-item ps-0">
-                            <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa"
-                                data-toggle="tab">Color </a>
+                            <a class="nav-link ps-0 py-0 slider-color common_selector" value="color" href="#1aa" data-toggle="tab">Color </a>
                         </li>
                         <li>
-                            <a class="nav-link py-0 slider-color common_selector slider-color-fancy" value="fancy-color"
-                                href="#2aa" data-toggle="tab">Fancy Color</a>
+                            <a class="nav-link py-0 slider-color common_selector slider-color-fancy" value="fancy-color" href="#2aa" data-toggle="tab">Fancy Color</a>
                         </li>
                     </ul>
                 </span>
-                <input type="hidden" id="slider-color" value="{{ ($fancycolor == "")?" color":"fancy-color" }}">
+                <input type="hidden" id="slider-color" value="{{ ($fancycolor == '') ? 'color':'fancy-color' }}">
                 <span class="col-md-12">
                     <div id="exTab1" class="container px-0">
-
                         <div class="tab-content clearfix ">
                             <div class="tab-pane active tab-view-part" id="1aa">
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="D" name="color[]" class="color common_selector"
-                                        id="colorsD">
+                                    <input type="checkbox" value="D" name="color[]" class="color common_selector" id="colorsD">
                                     <label for="colorsD">D</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="E" name="color[]" class="color common_selector"
-                                        id="colorsE">
+                                    <input type="checkbox" value="E" name="color[]" class="color common_selector" id="colorsE">
                                     <label for="colorsE">E</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="F" name="color[]" class="color common_selector"
-                                        id="colorsF">
+                                    <input type="checkbox" value="F" name="color[]" class="color common_selector" id="colorsF">
                                     <label for="colorsF">F</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="G" name="color[]" class="color common_selector"
-                                        id="colorsG">
+                                    <input type="checkbox" value="G" name="color[]" class="color common_selector" id="colorsG">
                                     <label for="colorsG">G</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="H" name="color[]" class="color common_selector"
-                                        id="colorsH">
+                                    <input type="checkbox" value="H" name="color[]" class="color common_selector" id="colorsH">
                                     <label for="colorsH">H</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="I" name="color[]" class="color common_selector"
-                                        id="colorsI">
+                                    <input type="checkbox" value="I" name="color[]" class="color common_selector" id="colorsI">
                                     <label for="colorsI">I</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="J" name="color[]" class="color common_selector"
-                                        id="colorsJ">
+                                    <input type="checkbox" value="J" name="color[]" class="color common_selector" id="colorsJ">
                                     <label for="colorsJ">J</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="K" name="color[]" class="color common_selector"
-                                        id="colorsK">
+                                    <input type="checkbox" value="K" name="color[]" class="color common_selector" id="colorsK">
                                     <label for="colorsK">K</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="L" name="color[]" class="color common_selector"
-                                        id="colorsL">
+                                    <input type="checkbox" value="L" name="color[]" class="color common_selector" id="colorsL">
                                     <label for="colorsL">L</label>
                                 </div>
                                 <div class="form-group d-inline-block mb-2">
-                                    <input type="checkbox" value="M" name="color[]" class="color common_selector"
-                                        id="colorsM">
+                                    <input type="checkbox" value="M" name="color[]" class="color common_selector" id="colorsM">
                                     <label for="colorsM">M</label>
                                 </div>
                             </div>
                             <div class="tab-pane" id="2aa">
                                 <div class="form-group d-inline-block mb-2 position-relative">
                                     <input type="checkbox" value="Yellow" name="fancycolor[]"
-                                        class="fancycolor common_selector" id="colorsYellow" {{ ( $fancycolor=='Yellow'
-                                        ) ? 'checked' : '' }}>
+                                        class="fancycolor common_selector" id="colorsYellow" {{ ( $fancycolor == 'Yellow' ) ? 'checked' : '' }}>
                                     <label for="colorsYellow">
-                                        <img src="{{ url('frontend/image/yellow.png') }}" alt="asscher"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/yellow.png') }}" alt="asscher" class="fancy_color_img">
                                         Yellow
                                     </label>
                                 </div>
@@ -283,8 +267,7 @@
                                         class="fancycolor common_selector" id="colorsOrange" {{ ( $fancycolor=='Orange'
                                         ) ? 'checked' : '' }}>
                                     <label for="colorsOrange">
-                                        <img src="{{ url('frontend/image/orange.png') }}" alt="Orange"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/orange.png') }}" alt="Orange" class="fancy_color_img">
                                         Orange
                                     </label>
                                 </div>
@@ -293,8 +276,7 @@
                                         class="fancycolor common_selector" id="colorsPink" {{ ( $fancycolor=='Pink' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsPink">
-                                        <img src="{{ url('frontend/image/pink.png') }}" alt="Pink"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/pink.png') }}" alt="Pink" class="fancy_color_img">
                                         Pink
                                     </label>
                                 </div>
@@ -303,8 +285,7 @@
                                         class="fancycolor common_selector" id="colorsBlue" {{ ( $fancycolor=='Blue' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsBlue">
-                                        <img src="{{ url('frontend/image/blue.png') }}" alt="Blue"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/blue.png') }}" alt="Blue" class="fancy_color_img">
                                         Blue
                                     </label>
                                 </div>
@@ -313,8 +294,7 @@
                                         class="fancycolor common_selector" id="colorsGreen" {{ ( $fancycolor=='Green' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsGreen">
-                                        <img src="{{ url('frontend/image/green.png') }}" alt="Green"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/green.png') }}" alt="Green" class="fancy_color_img">
                                         Green
                                     </label>
                                 </div>
@@ -323,8 +303,7 @@
                                         class="fancycolor common_selector" id="colorsBrown" {{ ( $fancycolor=='Brown' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsBrown">
-                                        <img src="{{ url('frontend/image/brown.png') }}" alt="Brown"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/brown.png') }}" alt="Brown" class="fancy_color_img">
                                         Brown
                                     </label>
                                 </div>
@@ -333,8 +312,7 @@
                                         class="fancycolor common_selector" id="colorsRed" {{ ( $fancycolor=='Red' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsRed">
-                                        <img src="{{ url('frontend/image/red.png') }}" alt="Red"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/red.png') }}" alt="Red" class="fancy_color_img">
                                         Red
                                     </label>
                                 </div>
@@ -343,8 +321,7 @@
                                         class="fancycolor common_selector" id="colorsWhite" {{ ( $fancycolor=='White' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsWhite">
-                                        <img src="{{ url('frontend/image/white.png') }}" alt="asscher"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/white.png') }}" alt="asscher" class="fancy_color_img">
                                         White
                                     </label>
                                 </div>
@@ -353,8 +330,7 @@
                                         class="fancycolor common_selector" id="colorsViolet" {{ ( $fancycolor=='Violet'
                                         ) ? 'checked' : '' }}>
                                     <label for="colorsViolet">
-                                        <img src="{{ url('frontend/image/violet.png') }}" alt="Violet"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/violet.png') }}" alt="Violet" class="fancy_color_img">
                                         Violet
                                     </label>
                                 </div>
@@ -363,8 +339,7 @@
                                         class="fancycolor common_selector" id="colorsPurple" {{ ( $fancycolor=='Purple'
                                         ) ? 'checked' : '' }}>
                                     <label for="colorsPurple">
-                                        <img src="{{ url('frontend/image/purple.png') }}" alt="Purple"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/purple.png') }}" alt="Purple" class="fancy_color_img">
                                         Purple
                                     </label>
                                 </div>
@@ -373,8 +348,7 @@
                                         class="fancycolor common_selector" id="colorsOlive" {{ ( $fancycolor=='Olive' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsOlive">
-                                        <img src="{{ url('frontend/image/olive.png') }}" alt="Olive"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/olive.png') }}" alt="Olive" class="fancy_color_img">
                                         Olive
                                     </label>
                                 </div>
@@ -383,8 +357,7 @@
                                         class="fancycolor common_selector" id="colorsBlack" {{ ( $fancycolor=='Black' )
                                         ? 'checked' : '' }}>
                                     <label for="colorsBlack">
-                                        <img src="{{ url('frontend/image/black.png') }}" alt="Black"
-                                            class="fancy_color_img">
+                                        <img src="{{ url('frontend/image/black.png') }}" alt="Black" class="fancy_color_img">
                                         Black
                                     </label>
                                 </div>
@@ -401,54 +374,45 @@
                 <span class="round_cut_lab_diamonds_heading col-md-12 mb-2">clarity</span>
                 <span class="col-md-12 tab-view-part clarity_tab">
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="FL" name="clarity[]" class="clarity common_selector"
-                            id="clarityFL">
+                        <input type="checkbox" value="FL" name="clarity[]" class="clarity common_selector"  id="clarityFL">
                         <label for="clarityFL">FL</label>
                     </div>
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="IF" name="clarity[]" class="clarity common_selector"
-                            id="clarityIF">
+                        <input type="checkbox" value="IF" name="clarity[]" class="clarity common_selector"  id="clarityIF">
                         <label for="clarityIF">IF</label>
                     </div>
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="VVS1" name="clarity[]" class="clarity common_selector"
-                            id="clarityVVS1">
+                        <input type="checkbox" value="VVS1" name="clarity[]" class="clarity common_selector"  id="clarityVVS1">
                         <label for="clarityVVS1">VVS1</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="VVS2" name="clarity[]" class="clarity common_selector"
-                            id="clarityVVS2">
+                        <input type="checkbox" value="VVS2" name="clarity[]" class="clarity common_selector"  id="clarityVVS2">
                         <label for="clarityVVS2">VVS2</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="VS1" name="clarity[]" class="clarity common_selector"
-                            id="clarityVS1">
+                        <input type="checkbox" value="VS1" name="clarity[]" class="clarity common_selector"  id="clarityVS1">
                         <label for="clarityVS1">VS1</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="VS2" name="clarity[]" class="clarity common_selector"
-                            id="clarityVS2">
+                        <input type="checkbox" value="VS2" name="clarity[]" class="clarity common_selector"  id="clarityVS2">
                         <label for="clarityVS2">VS2</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="SI1" name="clarity[]" class="clarity common_selector"
-                            id="claritySI1">
+                        <input type="checkbox" value="SI1" name="clarity[]" class="clarity common_selector"  id="claritySI1">
                         <label for="claritySI1">SI1</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="SI2" name="clarity[]" class="clarity common_selector"
-                            id="claritySI2">
+                        <input type="checkbox" value="SI2" name="clarity[]" class="clarity common_selector"  id="claritySI2">
                         <label for="claritySI2">SI2</label>
                     </div>
 
                     <div class="form-group d-inline-block mb-2">
-                        <input type="checkbox" value="I1" name="clarity[]" class="clarity common_selector"
-                            id="clarityI1">
+                        <input type="checkbox" value="I1" name="clarity[]" class="clarity common_selector"  id="clarityI1">
                         <label for="clarityI1">I1</label>
                     </div>
 
@@ -513,18 +477,15 @@
                 <span class="round_cut_lab_diamonds_heading col-lg-2 col-md-12 mb-2">Polish</span>
                 <span class="col-lg-10 col-md-12 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-0">
-                        <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]"
-                            id="polishID">
+                        <input type="checkbox" value="Ideal" class="polish common_selector" name="polish[]" id="polishID">
                         <label for="polishID">Ideal</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-0">
-                        <input type="checkbox" value="Excellent" class="polish common_selector" name="polish[]"
-                            id="polishEX">
+                        <input type="checkbox" value="Excellent" class="polish common_selector" name="polish[]" id="polishEX">
                         <label for="polishEX">Excellent</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-0">
-                        <input type="checkbox" value="Very Good" class="polish common_selector" name="polish[]"
-                            id="polishVG">
+                        <input type="checkbox" value="Very Good" class="polish common_selector" name="polish[]" id="polishVG">
                         <label for="polishVG">Very Good</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-0">
@@ -599,8 +560,7 @@
                     <div class="align-items-center mb-2 position-relative">
                         <!-- <div id="slider-range-carat" class="mb-0"></div> -->
                         <div class="d-md-flex flex-wrap flex-lg-nowrap justify-content-between meas_part">
-                            <div
-                                class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
+                            <div class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
                                 <div class="filter_text_part ">L</div>
                                 <div class="d-flex flex-md-nowrap meas_length">
                                     <div class="from_text me-1">
@@ -621,8 +581,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
+                            <div class="position-relative me-sm-4 mb-3 mb-lg-0 d-block d-lg-inline-block filter-meas-box">
                                 <div class="filter_text_part">W</div>
                                 <div class="d-flex flex-md-nowrap meas_width">
                                     <span class="from_text me-1">
@@ -680,8 +639,7 @@
                         <label for="None">NONE</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector"
-                            id="FNTVSLT">
+                        <input type="checkbox" name="fluor[]" value="FNTVSLT" class="report common_selector"  id="FNTVSLT">
                         <label for="FNTVSLT">FNT/V SLT</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-2">
@@ -696,25 +654,21 @@
                         <input type="checkbox" name="fluor[]" value="VSTRG" class="report common_selector" id="VSTRG">
                         <label for="VSTRG">V STRG</label>
                     </div>
-
                 </span>
             </div>
             <div class="round_cut_lab_range_slider row mb-2">
                 <span class="round_cut_lab_diamonds_heading d-inline-block col-md-2 filter-checkbox">Growth Type</span>
                 <span class="col-md-10 filter-checkbox">
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="growth_type[]" value="CVD" class="growth_type common_selector"
-                            id="CVD">
+                        <input type="checkbox" name="growth_type[]" value="CVD" class="growth_type common_selector"  id="CVD">
                         <label for="CVD">CVD</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="growth_type[]" value="HPHT" class="growth_type common_selector"
-                            id="HPHT">
+                        <input type="checkbox" name="growth_type[]" value="HPHT" class="growth_type common_selector"  id="HPHT">
                         <label for="HPHT">HPHT</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="growth_type[]" value="OTHER" class="growth_type common_selector"
-                            id="OTHER">
+                        <input type="checkbox" name="growth_type[]" value="OTHER" class="growth_type common_selector"  id="OTHER">
                         <label for="OTHER">OTHER</label>
                     </div>
                 </span>
@@ -728,13 +682,11 @@
                             <label for="reportGCAL">GCAL</label>
                         </div> -->
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="report[]" value="IGI" class="report common_selector"
-                            id="reportIGI">
+                        <input type="checkbox" name="report[]" value="IGI" class="report common_selector"  id="reportIGI">
                         <label for="reportIGI">IGI</label>
                     </div>
                     <div class="form-group d-inline-block me-3 mb-2">
-                        <input type="checkbox" name="report[]" value="GIA" class="report common_selector"
-                            id="reportGIA">
+                        <input type="checkbox" name="report[]" value="GIA" class="report common_selector"  id="reportGIA">
                         <label for="reportGIA">GIA</label>
                     </div>
 
@@ -845,7 +797,7 @@
                 <div class="col-8 col-md-6 ps-0">
                     <ul class="nav wire_bangle_tabs_part" id="myTab" role="tablist">
                         <li class="active nav-item">
-                            <a class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result (<span class="total-diamond"> </span>)</a>
+                            <a class="nav-link ps-0 result-li-part grid" href="#1a" data-toggle="tab">Result (<span id="display-result" class="total-diamond"></span>)</a>
                         </li>
                         <li>
                             <a class="nav-link compare-li-part list" href="#2a" data-toggle="tab"><i class="fa fa-balance-scale"></i> Compare (<span class="totlecpmpare">0</span>)</a>
@@ -1045,9 +997,11 @@
         //     page = 1;
         //     filter_data(page);
         // });
-
+        
+        var isAppliedFilter = false;
         $("#apply-btn").click(function () {
             page = 1;
+            isAppliedFilter = true;
             filter_data(page, 0, true);
         });
 
@@ -1062,8 +1016,6 @@
             }
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
-            var minimum_price = $('#hidden_minimum_price').val();
-            var maximum_price = $('#hidden_maximum_price').val();
 
             var minimum_price_input = $('#minimum_price_input').val();
             var maximum_price_input = $('#maximum_price_input').val();
@@ -1081,26 +1033,39 @@
             var growth_type = get_filter('growth_type');
             var sorting = $('#sorting :selected').val();
 
-            var minimum_carat = $('#hidden_minimum_carat').val();
-            var maximum_carat = $('#hidden_maximum_carat').val();
+            // var minimum_carat = $('#hidden_minimum_carat').val();
+            // var maximum_carat = $('#hidden_maximum_carat').val();
 
-            var minimum_carat_input = $('#minimum_carat_input').val();
+            var minimum_carat_input = 1;
+            if(isAppliedFilter == true){
+                minimum_carat_input = $('#minimum_carat_input').val();
+            }
+            
             var maximum_carat_input = $('#maximum_carat_input').val();
 
-            var minimum_depth = $('#hidden_minimum_depth').val();
-            var maximum_depth = $('#hidden_maximum_depth').val();
+            // var minimum_depth = $('#hidden_minimum_depth').val();
+            // var maximum_depth = $('#hidden_maximum_depth').val();
+            
+            var meas_length_min = $('#meas_length_min').val();
+            var meas_length_max = $('#meas_length_max').val();
+            
+            var meas_width_min = $('#meas_width_min').val();
+            var meas_width_max = $('#meas_width_max').val();
+
+            var meas_depth_min = $('#meas_depth_min').val();
+            var meas_depth_max = $('#meas_depth_max').val();
 
             var minimum_depth_input = $('#minimum_depth_input').val();
             var maximum_depth_input = $('#maximum_depth_input').val();
 
-            var minimum_ratio = $('#hidden_minimum_ratio').val();
-            var maximum_ratio = $('#hidden_maximum_ratio').val();
+            // var minimum_ratio = $('#hidden_minimum_ratio').val();
+            // var maximum_ratio = $('#hidden_maximum_ratio').val();
 
             var minimum_ratio_input = $('#minimum_ratio_input').val();
             var maximum_ratio_input = $('#maximum_ratio_input').val();
 
-            var minimum_table = $('#hidden_minimum_table').val();
-            var maximum_table = $('#hidden_maximum_table').val();
+            // var minimum_table = $('#hidden_minimum_table').val();
+            // var maximum_table = $('#hidden_maximum_table').val();
 
             var minimum_table_input = $('#minimum_table_input').val();
             var maximum_table_input = $('#maximum_table_input').val();
@@ -1109,7 +1074,44 @@
                 url: ENDPOINT + "/alllab-diamond?page=" + page,
                 method: "POST",
                 data: {
-                    action: action, maximum_price_input: maximum_price_input, minimum_price_input: minimum_price_input, maximum_table_input: maximum_table_input, minimum_table_input: minimum_table_input, maximum_ratio_input: maximum_ratio_input, minimum_ratio_input: minimum_ratio_input, maximum_depth_input: maximum_depth_input, minimum_carat_input: minimum_carat_input, maximum_carat_input: maximum_carat_input, minimum_depth_input: minimum_depth_input, minimum_price: minimum_price, maximum_price: maximum_price, shape: shape, sorting: sorting, color: color, clarity: clarity, cut: cut, minimum_carat: minimum_carat, maximum_carat: maximum_carat, minimum_depth: minimum_depth, maximum_depth: maximum_depth, minimum_ratio: minimum_ratio, maximum_ratio: maximum_ratio, minimum_table: minimum_table, maximum_table: maximum_table, report: report, polish: polish, symm: symm, fluor: fluor, growth_type: growth_type, fcolor: fcolor, scolor: scolor, _token: '{{ csrf_token() }}'
+                    action: action, 
+                    maximum_price_input: maximum_price_input, 
+                    minimum_price_input: minimum_price_input, 
+                    maximum_table_input: maximum_table_input, 
+                    minimum_table_input: minimum_table_input, 
+                    maximum_ratio_input: maximum_ratio_input, 
+                    minimum_ratio_input: minimum_ratio_input,
+                    meas_length_min: meas_length_min,
+                    meas_length_max: meas_length_max,
+                    meas_width_min: meas_width_min,
+                    meas_width_max: meas_width_max,
+                    meas_depth_min: meas_depth_min,
+                    meas_depth_max: meas_depth_max,
+                    maximum_depth_input: maximum_depth_input,
+                    minimum_depth_input: minimum_depth_input,
+                    minimum_carat_input: minimum_carat_input, 
+                    maximum_carat_input: maximum_carat_input, 
+                    shape: shape, 
+                    sorting: sorting, 
+                    color: color, 
+                    clarity: clarity, 
+                    cut: cut, 
+                    // minimum_carat: minimum_carat, 
+                    // maximum_carat: maximum_carat, 
+                    // minimum_depth: minimum_depth, 
+                    // maximum_depth: maximum_depth, 
+                    // minimum_ratio: minimum_ratio, 
+                    // maximum_ratio: maximum_ratio, 
+                    // minimum_table: minimum_table, 
+                    // maximum_table: maximum_table, 
+                    report: report, 
+                    polish: polish, 
+                    symm: symm, 
+                    fluor: fluor, 
+                    growth_type: growth_type, 
+                    fcolor: fcolor, 
+                    scolor: scolor, 
+                    _token: '{{ csrf_token() }}'
                 },
                 beforeSend: function () {
                     $('.auto-load').show();
@@ -1121,25 +1123,23 @@
                     if (scroll == 1) {
                         if (response['artilces'] == "") {                            
                             datawrpper_message(true, "We don't have more data to display");
-                            $(".total-diamond").html(response['showdata']);
                             isDataLoading = true;
                             return;
                         }
                         datawrpper_message(false, "");
                         $("#data-wrapper").append(response['artilces']);
-                        $(".total-diamond").html(response['showdata']);
                         
                     } else {
                         if (response['artilces'] == "") {
                             datawrpper_message(true, "No Result Found");
-                            $(".total-diamond").html(response['showdata']);
                             isDataLoading = true;
                             return;
                         }
                         datawrpper_message(false, "");
                         $("#data-wrapper").html(response['artilces']);
-                        $(".total-diamond").html(response['showdata']);
                     }
+                    $("#display-result").html(response['showdata']);
+                    // $("#total-result").html(response['totaldata']);
                 }
             });
         }

@@ -82,75 +82,47 @@ class DiamondController extends Controller
         $share_array = array("round", "princess", "cushion", "asscher", "emerald", "oval", "radiant", "marquise", "heart", "pear");
         $data = $request->all();
         $query = Diamond::where('StockStatus', '<>', 0)->where('estatus', 1);
-
-
-        if ($data["minimum_price"] && $data["maximum_price"]) {
-            $query = $query->where('Sale_Amt', '>=', $data["minimum_price"]);
-            $query = $query->where('Sale_Amt', '<=', $data["maximum_price"]);
+        
+        if (!empty($data["minimum_price_input"]) || $data["minimum_price_input"] == 0) {
+            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
         }
-
-        if ($data["minimum_price_input"] && $data["maximum_price_input"]) {
-            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
-            $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
-        } elseif (!empty($data["minimum_price_input"])) {
-            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
-        } elseif (!empty($data["maximum_price_input"])) {
+        if (!empty($data["maximum_price_input"])) {
             $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
-
-        if (isset($data["minimum_carat"]) && $data["maximum_carat"]) {
-            $query = $query->where('Weight', '>=', $data["minimum_carat"]);
-            $query = $query->where('Weight', '<=', $data["maximum_carat"]);
+        
+        if (!empty($data["minimum_carat_input"]) || $data["minimum_carat_input"] == 0) {
+            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
         }
-
-        if ($data["minimum_carat_input"] && $data["maximum_carat_input"]) {
-            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
-            $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
-        } elseif (!empty($data["minimum_carat_input"])) {
-            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
-        } elseif (!empty($data["maximum_carat_input"])) {
+        if (!empty($data["maximum_carat_input"])) {
             $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
-        if (isset($data["minimum_depth"]) && $data["maximum_depth"]) {
-            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth"]);
-            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth"]);
+        if (!empty($data["minimum_depth_input"]) || $data["minimum_depth_input"] == 0) {
+            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
         }
-
-        if (isset($data["minimum_depth_input"]) && $data["maximum_depth_input"]) {
-            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
-            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
-        } elseif (!empty($data["minimum_depth_input"])) {
-            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
-        } elseif (!empty($data["maximum_depth_input"])) {
+        if (!empty($data["maximum_depth_input"])) {
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
-
-        if (isset($data["meas_length_min"]) && $data["meas_length_max"]) {
+        
+        if (!empty($data["meas_length_min"]) || $data["meas_length_min"] == 0) {
             $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
-        } elseif (!empty($data["meas_length_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
-        } elseif (!empty($data["meas_length_max"])) {
+        }
+        if (!empty($data["meas_length_max"])) {
             $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
         }
 
-        if (isset($data["meas_width_min"]) && $data["meas_width_max"]) {
-            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
-        } elseif (!empty($data["meas_width_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
-        } elseif (!empty($data["meas_width_max"])) {
-            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
+        if (!empty($data["meas_width_min"]) || $data["meas_width_min"] == 0) {
+            $query = $query->where('meas_width', '>=', $data["meas_width_min"]);
+        }
+        if (!empty($data["meas_width_max"])) {
+            $query = $query->where('meas_width', '<=', $data["meas_width_max"]);
         }
 
-        if (isset($data["meas_depth_min"]) && $data["meas_depth_max"]) {
-            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
-        } elseif (!empty($data["meas_depth_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
-        } elseif (!empty($data["meas_depth_max"])) {
-            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
+        if (!empty($data["meas_depth_min"]) || $data["meas_depth_min"] == 0) {
+            $query = $query->where('meas_depth', '>=', $data["meas_depth_min"]);
+        }
+        if (!empty($data["meas_depth_max"])) {
+            $query = $query->where('meas_depth', '<=', $data["meas_depth_max"]);
         }
 
         // if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -167,19 +139,17 @@ class DiamondController extends Controller
         //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         // }
 
-        if (isset($data["maximum_table"]) && $data["maximum_table"]) {
-            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table"]);
-            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table"]);
-        }
-
-        // if($data["minimum_table_input"] && $data["maximum_table_input"]){ 
-        //     $query = $query->where('Table_Diameter_Per','>=',$data["minimum_table_input"]);
-        //     $query = $query->where('Table_Diameter_Per','<=',$data["maximum_table_input"]);
-        // }elseif (!empty($data["minimum_table_input"])) {
-        //     $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
-        // }elseif (!empty($data["maximum_table_input"])) {
-        //     $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
+        // if (isset($data["maximum_table"]) && $data["maximum_table"]) {
+        //     $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table"]);
+        //     $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table"]);
         // }
+
+        if (!empty($data["minimum_table_input"]) || $data["minimum_table_input"] == 0) {
+            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
+        }
+        if (!empty($data["maximum_table_input"])) {
+            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
+        }
 
         if (isset($data["color"])) {
             $colors = $data["color"];
@@ -196,7 +166,6 @@ class DiamondController extends Controller
         } else {
             $query = $query->where('FancyColor', "!=", $data["scolor"]);
         }
-
 
         if (isset($data["shape"])) {
             if (in_array('other', $data["shape"])) {
@@ -268,7 +237,7 @@ class DiamondController extends Controller
         } else {
             $results = $query->paginate(16);
         }
-
+        $sqlQuery = $query->toSql();
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
@@ -416,7 +385,7 @@ class DiamondController extends Controller
         //$TotalDiamond = Diamond::get();
 
         // $data = ['artilces' => $artilces,'totaldata' => count($TotalDiamond) ,'showdata' => count($results) * $_GET['page']]; 
-        $data = ['artilces' => $artilces, 'totaldata' => 0, 'showdata' => $result_recode];
+        $data = ['artilces' => $artilces, 'totaldata' => 0, 'showdata' => $result_recode, 'sqlQuery' => $sqlQuery];
         return $data;
 
     }
@@ -876,73 +845,57 @@ class DiamondController extends Controller
         $data = $request->all();
         // \DB::enableQueryLog();
         $query = Diamond::where('StockStatus', '<>', 0)->where('estatus', 1);
-        if ($data["minimum_price"] && $data["maximum_price"]) {
-            $query = $query->where('Sale_Amt', '>=', $data["minimum_price"]);
-            $query = $query->where('Sale_Amt', '<=', $data["maximum_price"]);
-        }
 
-        if ($data["minimum_price_input"] && $data["maximum_price_input"]) {
+        if (!empty($data["minimum_price_input"]) || $data["minimum_price_input"] == 0) {
             $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
-            $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
-        } elseif (!empty($data["minimum_price_input"])) {
-            $query = $query->where('Sale_Amt', '>=', $data["minimum_price_input"]);
-        } elseif (!empty($data["maximum_price_input"])) {
+        }
+        if (!empty($data["maximum_price_input"])) {
             $query = $query->where('Sale_Amt', '<=', $data["maximum_price_input"]);
         }
 
-        if (isset($data["minimum_carat"]) && $data["maximum_carat"]) {
-            $query = $query->where('Weight', '>=', $data["minimum_carat"]);
-            $query = $query->where('Weight', '<=', $data["maximum_carat"]);
-        }
+        // if (isset($data["minimum_carat"]) && $data["maximum_carat"]) {
+        //     $query = $query->where('Weight', '>=', $data["minimum_carat"]);
+        //     $query = $query->where('Weight', '<=', $data["maximum_carat"]);
+        // }
 
-        if ($data["minimum_carat_input"] && $data["maximum_carat_input"]) {
+        if (!empty($data["minimum_carat_input"]) || $data["minimum_carat_input"] == 0) {
             $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
-            $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
-        } elseif (!empty($data["minimum_carat_input"])) {
-            $query = $query->where('Weight', '>=', $data["minimum_carat_input"]);
-        } elseif (!empty($data["maximum_carat_input"])) {
+        }
+        if (!empty($data["maximum_carat_input"])) {
             $query = $query->where('Weight', '<=', $data["maximum_carat_input"]);
         }
 
-        if (isset($data["minimum_depth"]) && $data["maximum_depth"]) {
-            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth"]);
-            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth"]);
-        }
+        // if (isset($data["minimum_depth"]) && $data["maximum_depth"]) {
+        //     $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth"]);
+        //     $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth"]);
+        // }
 
-        if ($data["minimum_depth_input"] && $data["maximum_depth_input"]) {
+        if (!empty($data["minimum_depth_input"]) || $data["minimum_depth_input"] == 0) {
             $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
-            $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
-        } elseif (!empty($data["minimum_depth_input"])) {
-            $query = $query->where('Total_Depth_Per', '>=', $data["minimum_depth_input"]);
-        } elseif (!empty($data["maximum_depth_input"])) {
+        }
+        if (!empty($data["maximum_depth_input"])) {
             $query = $query->where('Total_Depth_Per', '<=', $data["maximum_depth_input"]);
         }
 
-        if (isset($data["meas_length_min"]) && $data["meas_length_max"]) {
+        if (!empty($data["meas_length_min"]) || $data["meas_length_min"] == 0) {
             $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
-        } elseif (!empty($data["meas_length_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_length_min"]);
-        } elseif (!empty($data["meas_length_max"])) {
+        }
+        if (!empty($data["meas_length_max"])) {
             $query = $query->where('meas_length', '<=', $data["meas_length_max"]);
         }
 
-        if (isset($data["meas_width_min"]) && $data["meas_width_max"]) {
-            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
-        } elseif (!empty($data["meas_width_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_width_min"]);
-        } elseif (!empty($data["meas_width_max"])) {
-            $query = $query->where('meas_length', '<=', $data["meas_width_max"]);
+        if (!empty($data["meas_width_min"]) || $data["meas_width_min"] == 0) {
+            $query = $query->where('meas_width', '>=', $data["meas_width_min"]);
+        }
+        if (!empty($data["meas_width_max"])) {
+            $query = $query->where('meas_width', '<=', $data["meas_width_max"]);
         }
 
-        if (isset($data["meas_depth_min"]) && $data["meas_depth_max"]) {
-            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
-            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
-        } elseif (!empty($data["meas_depth_min"])) {
-            $query = $query->where('meas_length', '>=', $data["meas_depth_min"]);
-        } elseif (!empty($data["meas_depth_max"])) {
-            $query = $query->where('meas_length', '<=', $data["meas_depth_max"]);
+        if (!empty($data["meas_depth_min"]) || $data["meas_depth_min"] == 0) {
+            $query = $query->where('meas_depth', '>=', $data["meas_depth_min"]);
+        }
+        if (!empty($data["meas_depth_max"])) {
+            $query = $query->where('meas_depth', '<=', $data["meas_depth_max"]);
         }
 
         // if($data["minimum_ratio"] && $data["maximum_ratio"]){
@@ -950,26 +903,22 @@ class DiamondController extends Controller
         //     $query = $query->where('Ratio','<=',$data["maximum_ratio"]);
         // }
 
-        // if($data["minimum_ratio_input"] && $data["maximum_ratio_input"]){
-        //     $query = $query->where('Ratio','>=',$data["minimum_ratio_input"]);
-        //     $query = $query->where('Ratio','<=',$data["maximum_ratio_input"]);
-        // }elseif (!empty($data["minimum_ratio_input"])) {
-        //     $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
-        // }elseif (!empty($data["maximum_ratio_input"])) {
-        //     $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
-        // }
-
-        if (isset($data["minimum_table"]) && $data["maximum_table"]) {
-            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table"]);
-            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table"]);
+        if (!empty($data["minimum_ratio_input"]) || $data["minimum_ratio_input"] == 0) {
+            $query = $query->where('Ratio', '>=', $data["minimum_ratio_input"]);
+        }
+        if (!empty($data["maximum_ratio_input"])) {
+            $query = $query->where('Ratio', '<=', $data["maximum_ratio_input"]);
         }
 
-        if ($data["minimum_table_input"] && $data["maximum_table_input"]) {
+        // if (isset($data["minimum_table"]) && $data["maximum_table"]) {
+        //     $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table"]);
+        //     $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table"]);
+        // }
+
+        if (!empty($data["minimum_table_input"]) || $data["minimum_table_input"] == 0) {
             $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
-            $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
-        } elseif (!empty($data["minimum_table_input"])) {
-            $query = $query->where('Table_Diameter_Per', '>=', $data["minimum_table_input"]);
-        } elseif (!empty($data["maximum_table_input"])) {
+        }
+        if (!empty($data["maximum_table_input"])) {
             $query = $query->where('Table_Diameter_Per', '<=', $data["maximum_table_input"]);
         }
 
@@ -1058,7 +1007,7 @@ class DiamondController extends Controller
         } else {
             $results = $query->paginate(16);
         }
-
+        $querynew = $query->toSql();
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $Diamond) {
@@ -1201,7 +1150,7 @@ class DiamondController extends Controller
         }
 
         $TotalDiamond = Diamond::get();
-        $data = ['artilces' => $artilces, 'totaldata' => count($TotalDiamond), 'showdata' => $result_recode];
+        $data = ['artilces' => $artilces, 'totaldata' => count($TotalDiamond), 'showdata' => $result_recode, 'querynew' => $querynew];
         return $data;
     }
 
