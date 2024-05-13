@@ -687,7 +687,7 @@ $settings = \App\Models\Settings::first();
                 <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
                     <a href="{{ $url }}" class="banner_part_img_parent">
                         <figure>
-                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="">
+                            <img class="" src="{{ url($BlogBanner['banner_thumb']) }}" alt="" width="680" height="400">
                         </figure>
                     </a>
                 </div>
@@ -723,8 +723,7 @@ $settings = \App\Models\Settings::first();
                                     </div>
                                     <div class="mt-4">
                                         <div class="testimonial-author-img">
-                                            <img src="{{ url('images/testimonials/'.$testimonial->image) }}"
-                                                alt="{{ $testimonial->name }}">
+                                            <img src="{{ url('images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}" width="80" height="80">
                                         </div>
                                         <div class="author-info">
                                             <div class="customer-name mt-2 mb-1">{{ $testimonial->name }}</div>
@@ -799,14 +798,12 @@ $settings = \App\Models\Settings::first();
                 </div>
                 <div class="col-md-6 mt-4 mt-md-0 px-0 px-md-3 position-relative order-1 order-md-2">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="100%"
-                           >
+                        <img src="{{ url($homesetting->section_why_gemver_image1) }}" alt="" width="676" height="400">
                     </div>
                 </div>
                 <div class="col-md-6 mt-3 px-0 ps-md-3 position-relative order-3">
                     <div class="gemver_diamods_bg">
-                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="100%"
-                           >
+                        <img src="{{ url($homesetting->section_why_gemver_image2) }}" alt="" width="676" height="400">
                     </div>
                 </div>
                 <div class="col-md-6 mt-md-3 px-0 px-md-3 position-relative order-4">
@@ -820,9 +817,7 @@ $settings = \App\Models\Settings::first();
                             <p class="diamonds_paragraph">
                                 {{ $homesetting->section_why_gemver_description2 }}
                             </p>
-                            <button type="button"
-                                class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal">inquiry now</button>
+                            <button type="button" class="explore-category-btn btn-hover-effect btn-hover-effect-black inquiry_btn_gemver_diamonds" data-bs-toggle="modal" data-bs-target="#exampleModal">Inquiry now</button>
 
                         </div>
                         <div class="modal fade inquiry_now_modal" id="exampleModal"
@@ -831,7 +826,7 @@ $settings = \App\Models\Settings::first();
                                 <div class="modal-content p-3 p-md-4">
                                     <div class="row">
                                         <div class="col-8 col-sm-6 ps-0 text-start">
-                                            <!-- <div class="mb-xl-4 mb-3 product_heading">bulk order inquiry</div> -->
+                                            <!-- <div class="mb-xl-4 mb-3 product_heading">Bulk Order Inquiry</div> -->
                                         </div>
                                         <div class="col-4 col-sm-6 text-end pe-0">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
