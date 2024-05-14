@@ -1021,7 +1021,8 @@ background-size: cover;
     }
 
     .gemver_diamods_bg img {
-        min-height: 400px;
+        /* min-height: 400px; */
+        height: auto;
     }
 
     .diamonds_part {
@@ -2351,6 +2352,7 @@ background-size: cover;
     }
     .home-slider-box {
         height: 1080px;
+        background-color: #d9d9d9;
     }
     .round_cut_lab_checkbox input:checked+.attr-img {}
 
@@ -4569,6 +4571,10 @@ width: 100%;
 
     .banner_part_img_parent {
         cursor: pointer;
+    }
+
+    .banner_part_img_parent img {
+        height: auto;
     }
 
     .banner_part_img_parent>figure {
