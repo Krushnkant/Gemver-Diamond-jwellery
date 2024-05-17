@@ -1162,6 +1162,7 @@
 
         $("#apply-btn").click(function () {
             page = 1;
+            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -1304,7 +1305,7 @@
                         $("#data-wrapper").html(response['artilces']);
                         $(".total-diamond").html(response['showdata']);
                     }
-
+                    $("#apply-btn").prop('disabled', false);
                 }
             });
         }

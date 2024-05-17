@@ -532,6 +532,7 @@ $hidemodel = 1;
 
         $("#apply-btn").click(function () {
             page = 1;
+            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -604,6 +605,7 @@ $hidemodel = 1;
                         datawrpper_message(false, "");
                         isDataLoading = false;
                     }
+                    $("#apply-btn").prop('disabled', false);
                 }
             });
         }

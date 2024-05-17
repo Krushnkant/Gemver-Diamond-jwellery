@@ -1002,6 +1002,7 @@
         $("#apply-btn").click(function () {
             page = 1;
             isAppliedFilter = true;
+            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -1138,6 +1139,7 @@
                         datawrpper_message(false, "");
                         $("#data-wrapper").html(response['artilces']);
                     }
+                    $("#apply-btn").prop('disabled', false);
                     $("#display-result").html(response['showdata']);
                     // $("#total-result").html(response['totaldata']);
                 }

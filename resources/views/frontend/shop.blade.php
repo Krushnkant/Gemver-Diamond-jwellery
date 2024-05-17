@@ -434,6 +434,7 @@
 
         $("#apply-btn").click(function () {
             page = 1;
+            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -503,6 +504,7 @@
                             isDataLoading = false;
                         }
                     }
+                    $("#apply-btn").prop('disabled', false);
                     $('#datacount').html('showing ' + data['datacount'] + ' results');
                 }
             });
