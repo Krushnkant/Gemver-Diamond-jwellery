@@ -825,9 +825,9 @@
                     class="col-9 col-md-6 col-lg-auto text-end text-sm-end justify-content-end d-md-flex align-items-center pe-0">
                     <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block ms-4">
                         <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
-                            <option value="price" selected>Sort by price: low to high</option>
+                            <option value="sort_default" selected>Sort by Default</option>
+                            <option value="price">Sort by price: low to high</option>
                             <option value="price-desc">Sort by price: high to low</option>
-
                             <option value="carat">Sort by carat: low to high</option>
                             <option value="carat-desc">Sort by carat: high to low</option>
 
@@ -985,8 +985,10 @@
         });
         filter_data(page, 0, false);
         $("#sorting").change(function () {
-            page = 1;
-            filter_data(page, 0, true);
+            if(isDataLoading === false){
+                page = 1;
+                filter_data(page, 0, true);
+            }
         });
 
         $('.clear_filter_btn').click(function () {
@@ -1002,7 +1004,6 @@
         $("#apply-btn").click(function () {
             page = 1;
             isAppliedFilter = true;
-            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -1017,15 +1018,16 @@
             }
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
-
+            $('#apply-btn').prop('disabled', true);
+            document.getElementById("sorting").disabled=true;
             var minimum_price_input = $('#minimum_price_input').val();
             var maximum_price_input = $('#maximum_price_input').val();
 
-            var shape = get_filter('shape');
-            var color = get_filter('color');
+            const shape = get_filter('shape');
+            const color = get_filter('color');
             var fcolor = get_filter('fancycolor');
             var scolor = $('#slider-color').val();
-            var clarity = get_filter('clarity');
+            const clarity = get_filter('clarity');
             var cut = get_filter('cut');
             var report = get_filter('report');
             var polish = get_filter('polish');
@@ -1037,12 +1039,28 @@
             // var minimum_carat = $('#hidden_minimum_carat').val();
             // var maximum_carat = $('#hidden_maximum_carat').val();
 
-            var minimum_carat_input = 1;
-            if(isAppliedFilter == true){
-                minimum_carat_input = $('#minimum_carat_input').val();
+            if(shape.length == 0){
+                shape[0] = 'round';
+                shape[1] = 'oval';
+                shape[2] = 'pear';
             }
             
-            var maximum_carat_input = $('#maximum_carat_input').val();
+            if(clarity.length == 0){
+                clarity[0] = 'VS1';
+                clarity[1] = 'VVS2';
+            }
+
+            if(color.length == 0){
+                color[0] = 'D';
+                color[1] = 'E';
+            }
+
+            var minimum_carat_input = 1;
+            var maximum_carat_input = 3;
+            if(isAppliedFilter == true){
+                minimum_carat_input = $('#minimum_carat_input').val();
+                maximum_carat_input = $('#maximum_carat_input').val();
+            }
 
             // var minimum_depth = $('#hidden_minimum_depth').val();
             // var maximum_depth = $('#hidden_maximum_depth').val();
@@ -1140,6 +1158,7 @@
                         $("#data-wrapper").html(response['artilces']);
                     }
                     $("#apply-btn").prop('disabled', false);
+                    document.getElementById("sorting").disabled=false;
                     $("#display-result").html(response['showdata']);
                     // $("#total-result").html(response['totaldata']);
                 }
@@ -1497,7 +1516,4 @@
 
     });
 </script>
-
-
-
 @endsection

@@ -995,9 +995,9 @@
                 <div class="col-9 col-lg-6 text-end text-sm-end d-md-flex align-items-center justify-content-end">
                     <span class="wire_bangle_select text-center text-md-end select_box_option d-inline-block">
                         <select class="form-control w-auto ms-auto" name="sorting" id="sorting">
-                            <option value="price" selected>Sort by price: low to high</option>
+                            <option value="sort_default" selected>Sort by Default</option>
+                            <option value="price">Sort by price: low to high</option>
                             <option value="price-desc">Sort by price: high to low</option>
-
                             <option value="carat">Sort by carat: low to high</option>
                             <option value="carat-desc">Sort by carat: high to low</option>
 
@@ -1152,17 +1152,20 @@
         });
         filter_data(page, 0, false);
         $("#sorting").change(function () {
-            page = 1;
-            filter_data(page, 0, true);
+            if(isDataLoading === false){
+                page = 1;
+                filter_data(page, 0, true);
+            }
         });
 
         $('.clear_filter_btn').click(function () {
             location.reload();
         });
 
+        var isAppliedFilter = false;
         $("#apply-btn").click(function () {
+            isAppliedFilter = true;
             page = 1;
-            $(this).prop('disabled', true);
             filter_data(page, 0, true);
         });
 
@@ -1174,6 +1177,8 @@
             if(isfilterApply == true){
                 $("#data-wrapper").html('');
             }
+            $('#apply-btn').prop('disabled', true);
+            document.getElementById("sorting").disabled=true;
             $('.filter_data').html('<div id="loading" style="" ></div>');
             var action = 'fetch_data';
             var catid = '{{ $CatId }}';
@@ -1183,11 +1188,11 @@
             var minimum_price_input = $('#minimum_price_input').val();
             var maximum_price_input = $('#maximum_price_input').val();
 
-            var shape = get_filter('shape');
-            var color = get_filter('color');
+            const shape = get_filter('shape');
+            const color = get_filter('color');
             var fcolor = get_filter('fancycolor');
             var scolor = $('#slider-color').val();
-            var clarity = get_filter('clarity');
+            const clarity = get_filter('clarity');
             var cut = get_filter('cut');
             var report = get_filter('report');
             var polish = get_filter('polish');
@@ -1198,8 +1203,28 @@
             var minimum_carat = $('#hidden_minimum_carat').val();
             var maximum_carat = $('#hidden_maximum_carat').val();
 
-            var minimum_carat_input = $('#minimum_carat_input').val();
-            var maximum_carat_input = $('#maximum_carat_input').val();
+            if(shape.length == 0){
+                shape[0] = 'round';
+                shape[1] = 'oval';
+                shape[2] = 'pear';
+            }
+            
+            if(clarity.length == 0){
+                clarity[0] = 'VS1';
+                clarity[1] = 'VVS2';
+            }
+
+            if(color.length == 0){
+                color[0] = 'D';
+                color[1] = 'E';
+            }
+
+            var minimum_carat_input = 1;
+            var maximum_carat_input = 3;
+            if(isAppliedFilter == true){
+                minimum_carat_input = $('#minimum_carat_input').val();
+                maximum_carat_input = $('#maximum_carat_input').val();
+            }
 
             var minimum_depth = $('#hidden_minimum_depth').val();
             var maximum_depth = $('#hidden_maximum_depth').val();
@@ -1306,6 +1331,7 @@
                         $(".total-diamond").html(response['showdata']);
                     }
                     $("#apply-btn").prop('disabled', false);
+                    document.getElementById("sorting").disabled=false;
                 }
             });
         }
