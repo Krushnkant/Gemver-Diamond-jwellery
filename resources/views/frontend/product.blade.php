@@ -717,6 +717,8 @@
 </div>
 {{-- component order include --}}
 <x-include-order></x-include-order>
+{{-- component suggestion box --}}
+<x-suggestion-box-component></x-suggestion-box-component>
 {{-- component related product --}}
 <x-related-product :categoryidss="$primary_category_idss" :productid="$Product->id"></x-related-product>
 {{--
