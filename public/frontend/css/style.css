@@ -7732,10 +7732,11 @@ width: 100%;
     }
     h5.suggestion-heading {
         font-weight: 500;
-        font-size: 26px;
+        font-size: 30px;
         line-height: 36px;
         text-transform: capitalize;
-        color: #0B1727;
+        color: #000000;
+        margin-bottom: 15px;
     }
     p.suggestion-content {
         font-size: 18px;

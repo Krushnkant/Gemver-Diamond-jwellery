@@ -7,7 +7,7 @@
             </div>-->
             <div class="col-md-4 col-sm-12">
                 <h5 class="suggestion-sub-heading">Need Suggestions?</h5>
-                <h5 class="suggestion-heading">Talk with professional</h5>
+                <h2 class="suggestion-heading">Talk with professional</h2>
                 <p class="suggestion-content">Build trust by sharing your thoughts and discussing your views with our experts</p>
                 <div class="shop-colorful-bg-btn-div">
                     <a href="#" class="shopnow_diamond suggestion-btn">Chat with Us</a>
