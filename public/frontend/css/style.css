@@ -7721,3 +7721,36 @@ width: 100%;
     .header-logo-row {
         justify-content: center;
     }
+    a.shopnow_diamond.suggestion-btn-outline {
+        background: transparent;
+        border: 1px solid #000000;
+        color: #000000;
+    }
+    h5.suggestion-sub-heading {
+        font-size: 16px;
+        font-weight: normal;
+    }
+    h5.suggestion-heading {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 36px;
+        text-transform: capitalize;
+        color: #0B1727;
+    }
+    p.suggestion-content {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    a.shopnow_diamond.suggestion-btn-outline {
+        background: transparent;
+        border: 1px solid #000000;
+        color: #000000;
+    }
+
+    a.shopnow_diamond.suggestion-btn-outline:hover {
+        color: #ffffff;
+        background: #000000;
+    }
+    a.shopnow_diamond.suggestion-btn:hover {
+        opacity: 0.8;
+    }
