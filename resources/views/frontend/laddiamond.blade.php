@@ -1050,7 +1050,7 @@
                 clarity[1] = 'VVS2';
             }
 
-            if(color.length == 0){
+            if(color.length == 0 && scolor == 'color'){
                 color[0] = 'D';
                 color[1] = 'E';
             }
@@ -1171,6 +1171,8 @@
             } else {
                 $('.reponse-msg-box').html("").fadeOut();
             }
+            $("#apply-btn").prop('disabled', false);
+            document.getElementById("sorting").disabled=false;
             $('.auto-load').hide();
         }
 
