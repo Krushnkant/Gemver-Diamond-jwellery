@@ -85,7 +85,7 @@ $settings = \App\Models\Settings::first();
     <!-- End Google Tag Manager -->
 
     <!-- Meta Pixel Code -->
-    <script>
+    <!-- <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -97,7 +97,7 @@ $settings = \App\Models\Settings::first();
         fbq('init', '1935321983596004');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1935321983596004&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1935321983596004&ev=PageView&noscript=1"/></noscript> -->
     <!-- End Meta Pixel Code -->
     
 </head>
