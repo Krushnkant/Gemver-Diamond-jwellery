@@ -87,13 +87,13 @@
         e.preventDefault();
 
         var permissionArray  = [];
-        (".project_page_ids).each(function  () {
+        (".project_page_ids").each(function  () {
             var page_id = $(this).val();
             var can_read = $(this).next().find('input[name="canReadArr[]"]').val();
             var can_write = $(this).next().find('input[name="canWriteArr[]"]').val();
             var can_delete = $(this).next().find('input[name="canDeleteArr[]"]').val();
 
-            var temp =  { page_id: page_id, can_read: can_read, can_write: can_write, can_delete: can_dele te };
+            var temp =  { page_id: page_id, can_read: can_read, can_write: can_write, can_delete: can_delete };
             permissionArray.push(temp);
         });
 
@@ -107,25 +107,25 @@
         $.ajax({
             type: 'POST',
             url: "{{ route('admin.users.savepermission')  }}",
-            data : { "user_id": $("input[name='permission_user_id']").val(), "permissionData": permissionA rray },
+            data : { "user_id": $("input[name='permission_user_id']").val(), "permissionData": permissionArray },
             // processData: false,
             // contentType: false,
             success: function (res) {
                  if (res.status = = 200) {
                     $("#savePermissionBtn").find('.loadericonfa').hide();
-                    $('#savePermissionBtn').prop('dis abled', false);
-                    toastr.success("User Permission U pdated", ' S uccess', { ti meOut: 5000 });
+                    $('#savePermissionBtn').prop('disabled', false);
+                    toastr.success("User Permission Updated", ' Success', { timeOut: 5000 });
                 }
             },
             error: function (data) {
                 $("#savePermissionBtn").find('.loadericonfa').hide();
                 $('#savePermissionBtn').prop ('disabled', false);
-                toastr.error("Pleas e try ag a in", 'Error',  { timeOut: 5000 });
+                toastr.error("Please try again", 'Error',  { timeOut: 5000 });
             }
         });
     });
 
-    $('.permissionCheckBox ').click(function () {
+    $('.permissionCheckBox').click(function () {
         var thi = $(this);
         if ($(this).is(':checked')) {
             $(thi).attr('checked', true);
