@@ -81,59 +81,61 @@
 @section('js')
 <!-- user Permission JS start-->
 <script type="text/javascript">
-    $('#permissionForm').on('submit', function (e) {
-        $("#savePermissionBtn").find('.loadericonfa').show();
-        $('#savePermissionBtn').prop('disabled',  true);
-        e.preventDefault();
+    $(document).ready(function() {
+        $('#permissionForm').on('submit', function (e) {
+            e.preventDefault();
+            $("#savePermissionBtn").find('.loadericonfa').show();
+            $('#savePermissionBtn').prop('disabled',  true);
+        
+            var permissionArray  = [];
+            $(".project_page_ids").each(function () {
+                var page_id = $(this).val();
+                var can_read = $(this).next().find('input[name="canReadArr[]"]').val();
+                var can_write = $(this).next().find('input[name="canWriteArr[]"]').val();
+                var can_delete = $(this).next().find('input[name="canDeleteArr[]"]').val();
 
-        var permissionArray  = [];
-        (".project_page_ids").each(function  () {
-            var page_id = $(this).val();
-            var can_read = $(this).next().find('input[name="canReadArr[]"]').val();
-            var can_write = $(this).next().find('input[name="canWriteArr[]"]').val();
-            var can_delete = $(this).next().find('input[name="canDeleteArr[]"]').val();
+                var temp =  { page_id: page_id, can_read: can_read, can_write: can_write, can_delete: can_delete };
+                permissionArray.push(temp);
+            });
 
-            var temp =  { page_id: page_id, can_read: can_read, can_write: can_write, can_delete: can_delete };
-            permissionArray.push(temp);
-        });
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        // console.log(permissionArray);
-
-        $.ajax({
-            type: 'POST',
-            url: "{{ route('admin.users.savepermission')  }}",
-            data : { "user_id": $("input[name='permission_user_id']").val(), "permissionData": permissionArray },
-            // processData: false,
-            // contentType: false,
-            success: function (res) {
-                 if (res.status = = 200) {
-                    $("#savePermissionBtn").find('.loadericonfa').hide();
-                    $('#savePermissionBtn').prop('disabled', false);
-                    toastr.success("User Permission Updated", ' Success', { timeOut: 5000 });
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-            },
-            error: function (data) {
-                $("#savePermissionBtn").find('.loadericonfa').hide();
-                $('#savePermissionBtn').prop ('disabled', false);
-                toastr.error("Please try again", 'Error',  { timeOut: 5000 });
+            });
+            // console.log(permissionArray);
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.users.savepermission')  }}",
+                data : { "user_id": $("input[name='permission_user_id']").val(), "permissionData": permissionArray },
+                // processData: false,
+                // contentType: false,
+                success: function (res) {
+                    if (res.status == 200) {
+                        $("#savePermissionBtn").find('.loadericonfa').hide();
+                        $('#savePermissionBtn').prop('disabled', false);
+                        toastr.success("User Permission Updated", ' Success', { timeOut: 5000 });
+                    }
+                },
+                error: function (data) {
+                    $("#savePermissionBtn").find('.loadericonfa').hide();
+                    $('#savePermissionBtn').prop ('disabled', false);
+                    toastr.error("Please try again", 'Error',  { timeOut: 5000 });
+                }
+            });
+        });
+        $('.permissionCheckBox').click(function(){
+            var checkboxval = $(this);
+            if ($(checkboxval).is(':checked')) {
+                $(checkboxval).attr('checked', true);
+                $(checkboxval).val(1);
+            } else {
+                $(checkboxval).attr('checked', false);
+                $(checkboxval).val(0);
             }
         });
     });
-
-    $('.permissionCheckBox').click(function () {
-        var thi = $(this);
-        if ($(this).is(':checked')) {
-            $(thi).attr('checked', true);
-            $(thi).val(1);
-        } else {
-            $(thi).attr('checked', false);
-            $(thi).val(0);
-   });
 </script>
 <!-- user Permission JS end-->
 @endsection
