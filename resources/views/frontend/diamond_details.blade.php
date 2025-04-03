@@ -200,10 +200,11 @@
                                     @endif
                                 </span>
                             @endif
-                            <span class="ms-2 off-price-text">
-                                {{ $Diamond->amt_discount }}% OFF
-                            </span>
-
+                            @isset($Diamond->amt_discount)
+                                <span class="ms-2 off-price-text">
+                                    {{ $Diamond->amt_discount }}
+                                </span>
+                            @endisset
                         </div>
                         <form action="" class="mb-4 mb-lg-5">
                             <div class="wire_bangle_share mb-4">
@@ -211,7 +212,14 @@
                                 <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
-                                            <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span>
+                                            <!-- <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span> -->
+                                            <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">
+                                                @if(isset($Diamond) && $Diamond->Certificate_url !== null)
+                                                    <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
+                                                @else
+                                                    No Certificate
+                                                @endif
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 ps-0">

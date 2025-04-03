@@ -91,33 +91,34 @@
                         <span class="wire_bangle_price product-price">${{ $Diamond->Sale_Amt }}
                             <div class="ms-2 wire_bangle_dublicate_price">${{ $Diamond->real_Amt }}</div>
                         </span>
-                        <span class="ms-2 off-price-text">
-                            {{ $Diamond->amt_discount ?? '0' }}% OFF
-                        </span>
+                        @isset($Diamond->amt_discount)
+                            <span class="ms-2 off-price-text">
+                                {{ $Diamond->amt_discount ?? '0' }}% OFF
+                            </span>
+                        @endisset
                     </div>
                     <div class="wire_bangle_share mb-4">
                         <div class="row">
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span
-                                        class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
-                                    <span role="button"
-                                        class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request
-                                        Certificate</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
+                                    <!-- <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span> -->
+                                    <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">
+                                        @if(isset($Diamond) && $Diamond->Certificate_url !== null)
+                                            <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
+                                        @else
+                                            No Certificate
+                                        @endif
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span
-                                        class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
                                     @if($Diamond->Certificate_url != "")
-                                    <span
-                                        class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 certifiled-IgI-text"><u><a
-                                                href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab
-                                                }}</a></u></span>
+                                        <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 certifiled-IgI-text"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
                                     @else
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Lab }}</span>
+                                        <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
                                     @endif
                                 </div>
                             </div>
