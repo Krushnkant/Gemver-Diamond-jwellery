@@ -47,12 +47,14 @@
                     <div class="product_slider_main_item video-player-btn-item">
                         <iframe src="{{ $Diamond->Video_url }}"></iframe>
                     </div>
-                    @if($Diamond->Certificate_url != "")
-                    <div class="product_slider_main_item video-player-btn-item">
-                        {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf"
-                            frameborder="0" allowfullscreen></iframe> --}}
-                        <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
-                    </div>
+                    @isset($Diamond->Certificate_url)
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_main_item video-player-btn-item">
+                            {{-- <iframe src="{{ $Diamond->Certificate_url .'&zome=100%' }}" type="application/pdf"
+                                frameborder="0" allowfullscreen></iframe> --}}
+                            <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
+                        </div>
+                        @endif
                     @endif
                 </div>
                 <div class="slider slider-nav">
@@ -64,10 +66,12 @@
                     <div class="product_slider_item video-player-btn">
                         <h3><img src="{{ url('frontend/image/video-play.png') }}" alt=""></h3>
                     </div>
-                    @if($Diamond->Certificate_url != "")
-                    <div class="product_slider_item">
-                        <h3><img src="{{ url('frontend/image/certification.png') }}" alt=""></h3>
-                    </div>
+                    @isset($Diamond->Certificate_url)
+                        @if($Diamond->Certificate_url != "")
+                        <div class="product_slider_item">
+                            <h3><img src="{{ url('frontend/image/certification.png') }}" alt=""></h3>
+                        </div>
+                        @endif
                     @endif
                 </div>
                 <!-- <div class="view_360_btn text-center mt-3">
@@ -104,10 +108,12 @@
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
                                     <!-- <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span> -->
                                     <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">
-                                        @if(isset($Diamond) && $Diamond->Certificate_url !== null)
-                                            <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
-                                        @else
-                                            No Certificate
+                                        @isset($Diamond->Certificate_url)
+                                            @if($Diamond->Certificate_url !== null)
+                                                <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
+                                            @else
+                                                No Certificate
+                                            @endif
                                         @endif
                                     </span>
                                 </div>
@@ -115,10 +121,12 @@
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
-                                    @if($Diamond->Certificate_url != "")
-                                        <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 certifiled-IgI-text"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
-                                    @else
-                                        <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
+                                    @isset($Diamond->Certificate_url)
+                                        @if($Diamond->Certificate_url != "")
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 certifiled-IgI-text"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
+                                        @else
+                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
+                                        @endif
                                     @endif
                                 </div>
                             </div>

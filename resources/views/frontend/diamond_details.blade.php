@@ -225,7 +225,7 @@
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
-                                            @if($Diamond->Certificate_url != "")
+                                            @if(isset($Diamond) && $Diamond->Certificate_url != "")
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
                                             @else
                                             <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
