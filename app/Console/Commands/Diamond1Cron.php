@@ -240,7 +240,7 @@ class Diamond1Cron extends Command
                                 $amount = (int)$collection->total_sales_price;
                                 $company_per = 0;
                                 foreach($PriceRanges as $PriceRange){
-                                    if($PriceRange->start_price <=  $amount && $PriceRange->end_price >=  $amount){
+                                    if($PriceRange->start_price <=  $amount && $PriceRange->end_price >= $amount){
                                         $company_per = $PriceRange->percentage;
                                         $type = $PriceRange->type;
                                     }
@@ -256,11 +256,11 @@ class Diamond1Cron extends Command
                                 }
         
                                 $sale_amt = round((int)$collection->total_sales_price + $company_per_amt);
-        
-                                if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){     
-                                    $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth; 
+
+                                if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){
+                                    $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth;
                                 }else{
-                                    $DiamondMeasurement = "-";    
+                                    $DiamondMeasurement = "-";
                                 }
 
                                 $percentage = rand(10, 30);
@@ -268,7 +268,7 @@ class Diamond1Cron extends Command
                                 $real_amt = round($percentage_amount + $sale_amt);
 
                                 if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
-                                    $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                                    $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity;
                                 }else{
                                     $short_title = $collection->short_title;
                                 }

@@ -1064,18 +1064,21 @@ class DiamondController extends Controller
         $vender_array = array(); 
         $curl = curl_init();
 
+        // $url = "https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true";
+        $url = "https://apiservices.vdbapp.com//v2/diamonds?type=Lab_grown_Diamond&page_number=1&page_size=50&with_images=true&stock_nums[]=58751-A";
+
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-        ),
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
+            ),
         ));
 
         $response = curl_exec($curl);
@@ -1145,19 +1148,21 @@ class DiamondController extends Controller
                         
                         $Diamond = Diamond::where('diamond_id',$collection->id)->first();
                         if($Diamond){
-                        
-                            $Diamond->Amt = $collection->total_sales_price;      
-                            $Diamond->Sale_Amt = $sale_amt;      
-                            $Diamond->real_Amt = $real_amt;
-                                    $Diamond->short_title = $short_title;      
-                                    $Diamond->long_title = $long_title;  
-                                    $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
-                            $Diamond->amt_discount = $percentage;       
-                            $Diamond->shape = strtoupper($collection->shape); 
-                            $Diamond->Measurement = $DiamondMeasurement; 
-                                    $Diamond->StockStatus = $collection->available;
-                                    $Diamond->save();    
-                        }else{ 
+                            if($Diamond->Sale_Amt != $sale_amt){
+                                $Diamond->Amt = $collection->total_sales_price;      
+                                $Diamond->Sale_Amt = $sale_amt;      
+                                $Diamond->real_Amt = $real_amt;
+                                $Diamond->short_title = $short_title;      
+                                $Diamond->long_title = $long_title;  
+                                $Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                $Diamond->amt_discount = $percentage;       
+                                $Diamond->shape = strtoupper($collection->shape); 
+                                $Diamond->Measurement = $DiamondMeasurement; 
+                                $Diamond->StockStatus = $collection->available;
+                                $Diamond->save();
+                            }
+
+                        } else { 
                             $data = ([
                                 'Company_id' => 1,  
                                 'Stone_No' => $Stone_No,
