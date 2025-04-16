@@ -108,12 +108,10 @@
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certificate</span>
                                     <!-- <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">Request Certificate</span> -->
                                     <span role="button" class="size-guide-text wire_bangle_color_theme text-primary d-block col-6 col-sm-9 col-md-8 request_diamond_number">
-                                        @isset($Diamond->Certificate_url)
-                                            @if($Diamond->Certificate_url !== null)
-                                                <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
-                                            @else
-                                                No Certificate
-                                            @endif
+                                        @if(isset($Diamond) && $Diamond->Certificate_url !== null)
+                                            <a href="{{ $Diamond->Certificate_url }}" class="text-primary" target="_blank">View</a>
+                                        @else
+                                            No Certificate
                                         @endif
                                     </span>
                                 </div>
@@ -121,228 +119,232 @@
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Certified</span>
-                                    @isset($Diamond->Certificate_url)
-                                        @if($Diamond->Certificate_url != "")
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8 certifiled-IgI-text"><u><a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a></u></span>
-                                        @else
-                                            <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab }}</span>
-                                        @endif
+                                    @if(isset($Diamond) && $Diamond->Lab != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">
+                                        <u>
+                                            @if(isset($Diamond) && $Diamond->Certificate_url !== null)
+                                                <a href="{{ $Diamond->Certificate_url }}" target="_blank">{{ $Diamond->Lab }}</a>
+                                            @else
+                                                {{ $Diamond->Lab }}
+                                            @endif
+                                        </u>
+                                    </span>
                                     @endif
                                 </div>
                             </div>
                             {{-- @if($Diamond->Total_Depth_Per != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Depth</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Total_Depth_Per }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Depth</span>
+                                    @if(isset($Diamond) && $Diamond->Total_Depth_Per != null)
+                                        <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Total_Depth_Per }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
-
+                            
                             {{-- @if($Diamond->Table_Diameter_Per != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Table</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Table_Diameter_Per }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Table</span>
+                                    @if(isset($Diamond) && $Diamond->Table_Diameter_Per != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Table_Diameter_Per }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Cut</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        ($Diamond->Cut)?$Diamond->Cut:"-" }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Cut</span>
+                                    @if(isset($Diamond) && $Diamond->Cut != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->Cut)?$Diamond->Cut:"-"  }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span
-                                        class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">shape</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Shape }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">Shape</span>
+                                    @if(isset($Diamond) && $Diamond->Shape != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Shape }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Polish</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Polish }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Polish</span>
+                                    @if(isset($Diamond) && $Diamond->Polish != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{  $Diamond->Polish  }}</span>
+                                    @endif
                                 </div>
                             </div>
 
-
-
-
+                    
+                            
+                        
                             {{-- @if($Diamond->Girdle_Per != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Girdle</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Girdle_Per }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Girdle</span>
+                                    @if(isset($Diamond) && $Diamond->Girdle_Per != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Girdle_Per }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat
-                                    </span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Weight }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat </span>
+                                    @if(isset($Diamond) && $Diamond->Weight != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Weight }}</span>
+                                    @endif
                                 </div>
                             </div>
 
-
-
+                            
+                            
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Symmetry</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Symm }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Symmetry</span>
+                                    @if(isset($Diamond) && $Diamond->Symm != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{  $Diamond->Symm }}</span>
+                                    @endif
                                 </div>
                             </div>
-
+                        
                             {{-- @if($Diamond->CrownAngle != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Crown</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->CrownAngle .', '.$Diamond->CrownHeight }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Crown</span>
+                                    @if(isset($Diamond) && $Diamond->CrownAngle != null && $Diamond->CrownHeight != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->CrownAngle .', '.$Diamond->CrownHeight }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span
-                                        class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">color</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        ($Diamond->FancyColor == null || $Diamond->FancyColor ==
-                                        "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">color</span>
+                                    @if(isset($Diamond) && $Diamond->FancyColor != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }}</span>
+                                    @endif
                                 </div>
                             </div>
 
-
+                            
                             {{-- @if($Diamond->PavillionAngle != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Pavillion</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->PavillionAngle .', '.$Diamond->PavillionHeight }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Pavillion</span>
+                                    @if(isset($Diamond) && $Diamond->PavillionAngle != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->PavillionAngle .', '.$Diamond->PavillionHeight }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
                             @if($Diamond->Stone_No != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        LOT</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Stone_No }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> LOT</span>
+                                    @if(isset($Diamond) && $Diamond->Stone_No != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Stone_No }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span
-                                        class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Clarity }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
+                                    @if(isset($Diamond) && $Diamond->Clarity != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Clarity }}</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Fluor</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->FlrIntens }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Fluor</span>
+                                    @if(isset($Diamond) && $Diamond->FlrIntens != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->FlrIntens }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @if($Diamond->Lab_Report_No != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Lab
-                                        Report</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Lab_Report_No }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Lab Report</span>
+                                    @if(isset($Diamond) && $Diamond->Lab_Report_No != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Lab_Report_No }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
+                            
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        meas(l*w*d)</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Measurement }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
+                                    @if(isset($Diamond) && $Diamond->Measurement != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Measurement }}</span>
+                                    @endif
                                 </div>
                             </div>
 
                             {{-- @if($Diamond->Culet_Size_ID != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Culet</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Culet_Size_ID }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Culet</span>
+                                    @if(isset($Diamond) && $Diamond->Culet_Size_ID != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Culet_Size_ID }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
-
+                            
                             @if($Diamond->Measurement != "")
-
+                            
                             @endif
                             @if($Diamond->POLISH != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        polish</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Polish }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> polish</span>
+                                    @if(isset($Diamond) && $Diamond->Polish != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Polish }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
-
+                            
                             @if($Diamond->Ratio != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Ratio</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Ratio }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Ratio</span>
+                                    @if(isset($Diamond) && $Diamond->Ratio != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Ratio }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
                             @if($Diamond->Symm != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        symmetry</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->Symm }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> symmetry</span>
+                                    @if(isset($Diamond) && $Diamond->Symm != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->Symm }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif
                             @if($Diamond->growth_type != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
-                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">
-                                        Growth Type</span>
-                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{
-                                        $Diamond->growth_type }}</span>
+                                    <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> Growth Type</span>
+                                    @if(isset($Diamond) && $Diamond->growth_type != null)
+                                    <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Diamond->growth_type }}</span>
+                                    @endif
                                 </div>
                             </div>
                             @endif --}}
-
-
-
+                            
+                            
+                            
                         </div>
                     </div>
                     <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
@@ -813,7 +815,6 @@
                 </div>
             </div>
         </div>
-
     </div> --}}
     <?php 
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
@@ -846,7 +847,7 @@
         </div>
         <div class="owl-carousel owl-theme product-detail mb-5 px-0">
             @foreach($DiamondRelated as $Diamond)
-            <?php
+                <?php
                     $url =  URL('labdiamond-details/'.$Diamond->slug);
                     if($Diamond->Stone_Img_url != ""){
                         $Diamond_image = $Diamond->Stone_Img_url;
@@ -875,111 +876,106 @@
                             $Diamond_image = url('frontend/image/edit_box_2.png');
                         }
                     }
-
                 ?>
+                <div class="round_cut_lab_diamonds_box hover_on_mask">
+                    <a href="{{ $url }}">
+                        <div class="round_cut_lab_diamonds_img">
+                            <img src="{{ $Diamond_image }}" alt="">
+                            <div class="round_cut_lab_diamonds_layer">
+                                <ul>
+                                    <li>
+                                        <span class="round_product_part_1">CARAT :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="round_product_part_1"> CLARITY :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
+                                    </li>
+                                    <li>
+                                        <span class="round_product_part_1">SHAPE :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
+                                    </li>
 
-
-            <div class="round_cut_lab_diamonds_box hover_on_mask">
-                <a href="{{ $url }}">
-                    <div class="round_cut_lab_diamonds_img">
-                        <img src="{{ $Diamond_image }}" alt="">
-                        <div class="round_cut_lab_diamonds_layer">
-                            <ul>
-                                <li>
-                                    <span class="round_product_part_1">CARAT :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Weight }}</span>
-                                </li>
-                                <li>
-                                    <span class="round_product_part_1"> CLARITY :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Clarity }} </span>
-                                </li>
-                                <li>
-                                    <span class="round_product_part_1">SHAPE :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
-                                </li>
-
-                                <li>
-                                    <span class="round_product_part_1">COLOR :</span>
-                                    <span class="round_product_part_2">{{ ($Diamond->FancyColor == null ||
-                                        $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
-                                </li>
-                                @if($Diamond->Cut != "")
-                                <li>
-                                    <span class="round_product_part_1"> CUT :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
-                                </li>
-                                @endif
-                                <li>
-                                    <span class="round_product_part_1"> POLISH :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
-                                </li>
-                                <li>
-                                    <span class="round_product_part_1"> SYMMETRY :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
-                                </li>
-                                @if($Diamond->Measurement != "")
-                                <li>
-                                    <span class="round_product_part_1"> MEASUREMENT :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
-                                </li>
-                                @endif
-                                <li>
-                                    <span class="round_product_part_1"> CERTIFIED :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
-                                </li>
-                                <li>
-                                    <span class="round_product_part_1">LOT :</span>
-                                    <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
-                                </li>
-                            </ul>
+                                    <li>
+                                        <span class="round_product_part_1">COLOR :</span>
+                                        <span class="round_product_part_2">{{ ($Diamond->FancyColor == null ||
+                                            $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
+                                    </li>
+                                    @if($Diamond->Cut != "")
+                                    <li>
+                                        <span class="round_product_part_1"> CUT :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Cut }} </span>
+                                    </li>
+                                    @endif
+                                    <li>
+                                        <span class="round_product_part_1"> POLISH :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Polish }} </span>
+                                    </li>
+                                    <li>
+                                        <span class="round_product_part_1"> SYMMETRY :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
+                                    </li>
+                                    @if($Diamond->Measurement != "")
+                                    <li>
+                                        <span class="round_product_part_1"> MEASUREMENT :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Measurement }} </span>
+                                    </li>
+                                    @endif
+                                    <li>
+                                        <span class="round_product_part_1"> CERTIFIED :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Lab }} </span>
+                                    </li>
+                                    <li>
+                                        <span class="round_product_part_1">LOT :</span>
+                                        <span class="round_product_part_2">{{ $Diamond->Stone_No }} </span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
-                    <div class="round_cut_lab_diamonds_info_heading mb-2">
-                        {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
-                        <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">
-                        <input type="hidden" class="item_type" value="1">
-                        <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn"
-                            data-toggle="tooltip" data-placement="right" title="Wishlist">
-                            @if(is_wishlist($Diamond->id,1))
-                            <i class="fas fa-heart heart-icon-part"></i>
-                            @else
-                            <i class="far fa-heart "></i>
-                            @endif
-                        </span>
-                    </div>
-                    <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title
-                            }}</a></div>
-                    <div class="round_cut_lab_diamonds_info_clarity">
-                        <span>{{ $Diamond->Clarity }} clarity |</span>
-                        <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor ==
-                            "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
-                        <span>{{ $Diamond->Lab }} certified</span>
-                    </div>
-                    <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                            ${{ $Diamond->Sale_Amt }}
-                            <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price regular_price"
-                                style="text-decoration-line: line-through">
-                                <div class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">
-                                    <span class="regular_price">${{ $Diamond->real_Amt }}</span>
+                    </a>
+                    <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
+                        <div class="round_cut_lab_diamonds_info_heading mb-2">
+                            {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
+                            <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">
+                            <input type="hidden" class="item_type" value="1">
+                            <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn"
+                                data-toggle="tooltip" data-placement="right" title="Wishlist">
+                                @if(is_wishlist($Diamond->id,1))
+                                <i class="fas fa-heart heart-icon-part"></i>
+                                @else
+                                <i class="far fa-heart "></i>
+                                @endif
                             </span>
+                        </div>
+                        <div class="round_cut_lab_diamonds_info_main_heading"><a href="{{ $url }}">{{ $Diamond->short_title
+                                }}</a></div>
+                        <div class="round_cut_lab_diamonds_info_clarity">
+                            <span>{{ $Diamond->Clarity }} clarity |</span>
+                            <span>{{ ($Diamond->FancyColor == null || $Diamond->FancyColor ==
+                                "NONE")?$Diamond->Color:$Diamond->FancyColor }} color |</span>
+                            <span>{{ $Diamond->Lab }} certified</span>
+                        </div>
+                        <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
+                            <div class="d-flex align-items-center">
+                                ${{ $Diamond->Sale_Amt }}
+                                <span class="ms-2 wire_bangle_dublicate_price product_detail_regular_price regular_price"
+                                    style="text-decoration-line: line-through">
+                                    <div class="ms-2 wire_bangle_dublicate_price product_detail_regular_price">
+                                        <span class="regular_price">${{ $Diamond->real_Amt }}</span>
+                                    </div>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-
-        @endforeach
     </div>
-</div>
 </div>
 @endif
 <!-- </div> -->
 
-<div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
         <div class="modal-content">
             <div class="row">
@@ -1002,21 +998,18 @@
                         <div id="hintname-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
-
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="hintemail" placeholder="enter your email"
                             class="d-block wire_bangle_input">
                         <div id="hintemail-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
-
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="friendname" placeholder="your friend name"
                             class="d-block wire_bangle_input">
                         <div id="hintfriendname-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
-
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="friendemail" placeholder="enter your friend email"
                             class="d-block wire_bangle_input">
@@ -1030,9 +1023,6 @@
                             style="display: none;"></div>
                     </div>
                 </div>
-
-
-
                 <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn">send
                     <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status"
                         style="display:none;">
@@ -1483,7 +1473,5 @@
 
     });
 </script>
-
-
 
 @endsection

@@ -1064,9 +1064,9 @@ class DiamondController extends Controller
         $vender_array = array(); 
         $curl = curl_init();
 
-        // $url = "https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true";
-        $url = "https://apiservices.vdbapp.com//v2/diamonds?type=Lab_grown_Diamond&page_number=1&page_size=50&with_images=true&stock_nums[]=58751-A";
-
+        $url = "https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=100&page_number=1&shapes[]=Radiant&shapes[]=Marquise&shapes[]=Princess&shapes[]=Pear&with_images=true";
+        // $url = "https://apiservices.vdbapp.com//v2/diamonds?type=Lab_grown_Diamond&page_number=1&page_size=50&with_images=true&stock_nums[]=58751-A";
+        
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,

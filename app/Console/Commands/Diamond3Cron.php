@@ -42,7 +42,7 @@ class Diamond3Cron extends Command
     public function handle()
     {
         
-       // \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
+        \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
         $oldids = Diamond::whereIn('Shape',["Briolette","Eurocut","Flanders","Half Moon","Kite","Old Miner","Bullet","Hexagonal","Lozenge","Tapered Bullet","Octagonal","Triangle","Rose Cut","Ideal Oval","Ideal Square","Square Emerald","Sig81","Cushion Modified Brilliant","Ideal Cushion","Pentagonal","Star","Trapezoid","Trilliant","Baguette","Shield","Tapered Baguette","Square","Ideal Heart","Other"])->get()->pluck('diamond_id')->toarray();
 
         $PriceRanges = PriceRange::where('estatus',1)->get();
@@ -55,17 +55,17 @@ class Diamond3Cron extends Command
         $vender_array = array(); 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number=1',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'GET',
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-        ),
+            CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number=1',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
+            ),
         ));
 
         $response = curl_exec($curl);
@@ -128,14 +128,18 @@ class Diamond3Cron extends Command
                         
                         $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                         if($Diamond){
+                            \Log::info("(Already Exist Diamond: ".$collection->id);
                             if($Diamond->Sale_Amt != $sale_amt){
+                                \Log::info("(Updating this Diamond: ".$collection->id);
                                 $Diamond->Amt = $collection->total_sales_price;      
                                 $Diamond->Sale_Amt = $sale_amt;      
                                 $Diamond->real_Amt = $real_amt; 
                                 //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                 $Diamond->amt_discount = $percentage;
                                 $Diamond->StockStatus = $collection->available;
-                                $Diamond->save();
+                                if($Diamond->save()){
+                                    \Log::info("(Updated Diamond: ".$collection->id);
+                                }
                             }    
                         }else{ 
                             $data = ([
@@ -192,9 +196,8 @@ class Diamond3Cron extends Command
                                 
                             ]);
                             Diamond::insert($data);
-
-                        } 
-                        
+                            \Log::info("(New Added Diamond: ".$collection->id);
+                        }
                     }  
                 } 
             }    
@@ -283,7 +286,9 @@ class Diamond3Cron extends Command
                                         //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                         $Diamond->amt_discount = $percentage;
                                         $Diamond->StockStatus = $collection->available;
-                                        $Diamond->save();
+                                        if($Diamond->save()){
+                                            \Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
+                                        }
                                     }    
                                 }else{ 
                                     $data = ([
@@ -340,18 +345,14 @@ class Diamond3Cron extends Command
                                         
                                     ]);
                                     Diamond::insert($data);
-        
-                                    
+                                    \Log::info("New Added Diamond: ".$collection->id." | page_number=".$x);
+                                    \Log::info("=============================================");
                                 } 
-                                
                             }  
-                        } 
-
-                       
-
+                        }
                     }    
                 }
-           }
+            }
         }
 
         // foreach($oldids as $oldid){

@@ -43,7 +43,7 @@ class Diamond1Cron extends Command
     {
         
        
-        //\Log::info("Diamond Asscher Emerald Oval Uploaded!");
+        \Log::info("Diamond Asscher Emerald Oval Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Asscher','Emerald','Oval'])->get()->pluck('diamond_id')->toarray();
         $PriceRanges = PriceRange::where('estatus',1)->get();
         $Company = Company::where('id',1)->first();
@@ -80,6 +80,7 @@ class Diamond1Cron extends Command
             if(isset($diamonds->response->body->diamonds)){ 
                 $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
+                \Log::info("(Exist Diamonds in DB)total_diamond: ".$total_diamond);
                 foreach($diamonds->response->body->diamonds as $collection)
                 {
                     unset($oldids[array_search($collection->id, $oldids)]);
@@ -129,16 +130,21 @@ class Diamond1Cron extends Command
                             $long_title = $collection->long_title;
                         }
                         
-                        $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
+                        $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id', $collection->id)->first();
                         if($Diamond){
+                            \Log::info("(Already Exist Diamond: ".$collection->id);
                             if($Diamond->Sale_Amt != $sale_amt){
+                                \Log::info("(Updating this Diamond: ".$collection->id);
                                 $Diamond->Amt = $collection->total_sales_price;      
                                 $Diamond->Sale_Amt = $sale_amt;      
                                 $Diamond->real_Amt = $real_amt; 
                                 //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                 $Diamond->amt_discount = $percentage;
                                 $Diamond->StockStatus = $collection->available;
-                                $Diamond->save();
+                                if($Diamond->save()){
+                                    \Log::info("(Updated Diamond: ".$collection->id);
+                                }
+
                             }    
                         }else{ 
                             $data = ([
@@ -195,8 +201,7 @@ class Diamond1Cron extends Command
                                 
                             ]);
                             Diamond::insert($data);
-
-                            
+                            \Log::info("(New Added Diamond: ".$collection->id);
                         } 
                         
                     }  
@@ -207,18 +212,18 @@ class Diamond1Cron extends Command
         if(isset($total_diamond) && $total_diamond > 0){
            $totalpage = (int) floor(($total_diamond / $per_page));
            for ($x = 2; $x <= $totalpage + 1; $x++) {
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true&page_number='.$x,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'GET',
-                CURLOPT_HTTPHEADER => array(
-                    'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
-                ),
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&shapes[]=Asscher&shapes[]=Emerald&shapes[]=Oval&with_images=true&page_number='.$x,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'GET',
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
+                    ),
                 ));
         
                 $response = curl_exec($curl);
@@ -281,14 +286,18 @@ class Diamond1Cron extends Command
                                 
                                 $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                                 if($Diamond){
+                                    \Log::info("(Already Exist Diamond: ".$collection->id);
                                     if($Diamond->Sale_Amt != $sale_amt){
+                                        \Log::info("(Updating this Diamond: ".$collection->id);
                                         $Diamond->Amt = $collection->total_sales_price;      
                                         $Diamond->Sale_Amt = $sale_amt;      
                                         $Diamond->real_Amt = $real_amt; 
                                         //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
                                         $Diamond->amt_discount = $percentage;
                                         $Diamond->StockStatus = $collection->available;
-                                        $Diamond->save();
+                                        if($Diamond->save()){
+                                            \Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
+                                        }
                                     }    
                                 }else{ 
                                     $data = ([
@@ -345,18 +354,14 @@ class Diamond1Cron extends Command
                                         
                                     ]);
                                     Diamond::insert($data);
-        
-                                    
-                                } 
-                                
-                               
+                                    \Log::info("New Added Diamond: ".$collection->id." | page_number=".$x);
+                                    \Log::info("=============================================");
+                                }
                             }  
-                        } 
-
-                        
+                        }
                     }    
                 }
-           }
+            }
         }
 
         // foreach($oldids as $oldid){
