@@ -347,7 +347,6 @@
                                         </div>
                                     </div>
                                     @endif --}}
-                                    @if($Diamond->Stone_No != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> LOT</span>
@@ -356,7 +355,6 @@
                                             @endif
                                         </div>
                                     </div>
-                                    @endif
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">clarity</span>
