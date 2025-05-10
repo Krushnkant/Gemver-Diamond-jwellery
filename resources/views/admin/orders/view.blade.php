@@ -268,6 +268,7 @@
                                 @foreach($Order->order_item as $order_item)
                                 <?php $item_details = json_decode($order_item->item_details,true);
                                       $ProductVariant = \App\Models\ProductVariant::where('id',$item_details['variantId'])->first(); ?>
+                                     
                                 <tr>
                                     <td>{{ $i }}</td>
                                     {{-- <td style="width: 15%">
@@ -297,15 +298,24 @@
                                     @endif
 
                                     <td class="multirow">
+                                        
                                         @if(isset($item_details['ItemType']) && $item_details['ItemType'] == 0)
+                                        @if(isset($item_details['ProductTitle']))
+                                        <span>{{ $item_details['ProductTitle'] }}</span>
+                                        @endif
+                                        @elseif(isset($item_details['ItemType']) && $item_details['ItemType'] == 1)
+                                           
                                             @if(isset($item_details['ProductTitle']))
                                             <span>{{ $item_details['ProductTitle'] }}</span>
-                                            @endif
-                                        @elseif(isset($item_details['ItemType']) && $item_details['ItemType'] == 1)
-                                            @if(isset($item_details['DiamondTitle']))
-                                            <span>{{ $item_details['DiamondTitle'] }}</span>
+                                                @if(isset($item_details['spe']))
+                                                    @foreach($item_details['spe'] as $listData)
+                                                        <span>Term : {{ isset($listData['term_name']) ? $listData['term_name'] :"" }}</span>
+                                                        <span>Term Name : {{ isset($listData['term']) ? $listData['term'] :"" }}</span>
+                                                    @endforeach
+                                                @endif
                                             @endif
                                         @else    
+                                    
                                             @if(isset($item_details['ProductTitle']))
                                             <span>{{ $item_details['ProductTitle'] }}</span><span>{{ $item_details['DiamondTitle'] }}</span>
                                             @endif
