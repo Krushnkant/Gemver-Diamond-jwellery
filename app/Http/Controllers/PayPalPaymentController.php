@@ -200,7 +200,8 @@ class PayPalPaymentController extends Controller
 
                 $diamond_item = \App\Models\Diamond::where('id',$diamond_id)->first(); 
                 $item_name =  $product_item->product->product_title; 
-                $diamond_name = $diamond_item->Shape.' '. round($diamond_item->Weight,2) .' ct ';
+                // $diamond_name = $diamond_item->Shape.' '. round($diamond_item->Weight,2) .' ct ';
+                $diamond_name = isset($diamond_item->long_title) ? $diamond_item->long_title : "";
                 $sale_price = $product_item->sale_price + $diamond_item->Sale_Amt; 
                 $diamond_image = explode(',',$diamond_item->Stone_Img_url); 
 
