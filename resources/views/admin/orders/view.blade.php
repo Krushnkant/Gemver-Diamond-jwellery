@@ -309,8 +309,7 @@
                                             <span>{{ $item_details['ProductTitle'] }}</span>
                                                 @if(isset($item_details['spe']))
                                                     @foreach($item_details['spe'] as $listData)
-                                                        <span>Term : {{ isset($listData['term_name']) ? $listData['term_name'] :"" }}</span>
-                                                        <span>Term Name : {{ isset($listData['term']) ? $listData['term'] :"" }}</span>
+                                                        <span>{{ isset($listData['term']) ? $listData['term'] :"" }} : {{ isset($listData['term_name']) ? $listData['term_name'] :"" }}</span>
                                                     @endforeach
                                                 @endif
                                             @endif
