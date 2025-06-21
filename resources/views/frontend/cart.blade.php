@@ -605,15 +605,16 @@
                                         Delivery Charge
                                     </div>
                                     <div class="col-6 text-end order_summary_price">
-                                        0
+                                        $70
                                     </div>
+                                    <input type="hidden" id="shipping_charge" value="70">
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-6 text-start ps-0 order_table_heading total_amount_part">
                                         Total Amount
                                     </div>
                                     <div class="col-6 text-end order_summary_price total_amount_part_price">
-                                        $<span class="cart-maintotal-price final_price">{{ $total - $coupan_discount_amount  }}</span>
+                                        $<span class="cart-maintotal-price final_price">{{ $total - $coupan_discount_amount + 70  }}</span>
                                     </div>
                                 </div>
                                 <div class="py-3 py-md-4 mt-4 order-payment-methohs">

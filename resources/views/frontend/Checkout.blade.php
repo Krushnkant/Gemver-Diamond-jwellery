@@ -395,6 +395,19 @@
                              <input class="form-check-input" type="hidden" name="coupan_code_id" id="coupan_code_id" value="{{  session('coupon.id') }}">  
                         </div>
                      </div>
+                     <div class="row your_order_row">
+                       <div class="col-6 px-0">
+                            <div class="your_order_sub_heading order-title">
+                                Shipping Charge
+                            </div>   
+                       </div>
+                       <div class="col-6 text-end">
+                            <div class="your_order_sub_heading order-price">
+                                $70 
+                                <input class="form-check-input" type="hidden" name="shipping_charge" id="shipping_charge" value="70">
+                            </div>   
+                       </div>
+                    </div>
                     <div class="row your_order_row">
                        <div class="col-6 px-0">
                             <div class="your_order_sub_heading order-title">
@@ -403,8 +416,8 @@
                        </div>
                        <div class="col-6 text-end">
                             <div class="your_order_sub_heading order-price">
-                                $ {{ $total - $coupan_discount_amount }}
-                                <input class="form-check-input" type="hidden" name="payble_ordercost" id="payble_ordercost" value="{{ $total - $coupan_discount_amount }}"> 
+                                $ {{ $total - $coupan_discount_amount + 70 }}
+                                <input class="form-check-input" type="hidden" name="payble_ordercost" id="payble_ordercost" value="{{ $total - $coupan_discount_amount + 70 }}"> 
                             </div>   
                        </div>
                     </div>
