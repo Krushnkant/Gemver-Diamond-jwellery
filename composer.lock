@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "382c8284f905a4838557aa8f31e7c8a7",
+    "content-hash": "da4587ae5fd2bdf83ef9ded92d8f7092",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5280,32 +5280,39 @@
         },
         {
             "name": "srmklive/paypal",
-            "version": "1.11.0",
+            "version": "3.0.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/srmklive/laravel-paypal.git",
-                "reference": "6591f5431a3e872d04609889c147148413abf493"
+                "reference": "1ddc49fd836a4785933ab953452152f3fedbac63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/6591f5431a3e872d04609889c147148413abf493",
-                "reference": "6591f5431a3e872d04609889c147148413abf493",
+                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/1ddc49fd836a4785933ab953452152f3fedbac63",
+                "reference": "1ddc49fd836a4785933ab953452152f3fedbac63",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~6.0|~7.0",
-                "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5|~5.6|~5.7|~5.8|~6.0|~7.0|~8.0|~9.0|~10.0",
-                "nesbot/carbon": "~1.0|~2.0"
+                "ext-curl": "*",
+                "guzzlehttp/guzzle": "~7.0",
+                "illuminate/support": "~6.0|~7.0|~8.0|~9.0|^10.0|^11.0|^12.0",
+                "nesbot/carbon": "~2.0|^3.0",
+                "php": ">=7.2|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^8.0|^9.0|^10.0|^11.0",
+                "symfony/var-dumper": "~5.0|^6.0|^7.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Srmklive\\PayPal\\Providers\\PayPalServiceProvider"
-                    ],
                     "aliases": {
                         "PayPal": "Srmklive\\PayPal\\Facades\\PayPal"
-                    }
+                    },
+                    "providers": [
+                        "Srmklive\\PayPal\\Providers\\PayPalServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -5333,9 +5340,9 @@
             ],
             "support": {
                 "issues": "https://github.com/srmklive/laravel-paypal/issues",
-                "source": "https://github.com/srmklive/laravel-paypal/tree/1.11.0"
+                "source": "https://github.com/srmklive/laravel-paypal/tree/3.0.40"
             },
-            "time": "2023-02-24T09:55:50+00:00"
+            "time": "2025-02-25T21:38:18+00:00"
         },
         {
             "name": "stella-maris/clock",
@@ -10313,6 +10320,6 @@
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
