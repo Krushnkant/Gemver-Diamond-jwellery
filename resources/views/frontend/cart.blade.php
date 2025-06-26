@@ -1,6 +1,54 @@
 @extends('frontend.layout.layout')
 
 @section('content')
+<style>
+.custom-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;   /* Reduced from 48px */
+  height: 20px;  /* Reduced from 26px */
+}
+
+.custom-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.custom-toggle-switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;  /* Reduced from 20px */
+  width: 14px;   /* Reduced from 20px */
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.custom-toggle-switch input:checked + .slider {
+  background-color: #28a745;
+}
+
+.custom-toggle-switch input:checked + .slider::before {
+  transform: translateX(16px); /* Adjusted to match new size */
+}
+
+
+</style>
     <div class="background-sub-slider">
         <div class="">
             <!-- <img src="{{ asset('frontend/image/about_us.png') }}" alt=""> -->
@@ -102,7 +150,7 @@
             <div class="row">
                 <!-- <div class="wire_bangle_line mb-md-5"></div> -->
                 @if(isset($cart_data) && count($cart_data))
-               
+           
                     <div class="tab-content1 clearfix col-lg-8">
                         <div class="tab-pane">
                             <div class="alert alert-warning inquiry-alert" role="alert" style="display:none;">
@@ -126,6 +174,7 @@
                                                 $diamond_name = "";
                                                 $diamond_terms = "";
                                                 if(isset($data['item_type']) && $data['item_type'] == 2){
+                                                
                                                     $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
                                                     if(!$item){
                                                         if(session()->has('customer')){
@@ -168,6 +217,19 @@
                                                        
                                                     }
                                                     $diamond = \App\Models\Diamond::where('id',$data['diamond_id'])->first();
+
+                                                    $product_value = (float) $diamond->Weight; // e.g., "1.00" becomes 1.0
+                                                    $carat_setting = (float) $setting->carat_size;  // e.g., "0.75" becomes 0.75
+
+                                                    $cartValue = '';
+                                                    if ($product_value >= $carat_setting) {
+                                                         $cartValue = true;
+                                                        // dd("Product value is greater than or equal to setting", $product_value, $carat_setting);
+                                                    } else {
+                                                        $cartValue = false;
+                                                        // dd("Product value is less than setting", $product_value, $carat_setting);
+                                                    }
+
                                                     $diamond_name = $diamond->short_title;
                                                     $diamond_terms = $diamond->Clarity .' Clarity | '. $diamond->Color .' Color | '. $diamond->Lab .' Certified';
                                                     $sale_price_diamond = $diamond->Sale_Amt;
@@ -176,7 +238,9 @@
                                                     $sale_price = $sale_price + $sale_price_diamond;
                                                 } elseif(isset($data['item_type']) && $data['item_type'] == 0){
                                                     $item = \App\Models\ProductVariant::with('product','product_variant_variants.attribute_term.attribute')->where('estatus',1)->where('id',$data['item_id'])->first();
+                                             
                                                     if(!$item){
+                                                        
                                                         if(session()->has('customer')){
                                                             $cart_data = \App\Models\ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
                                                             if($cart_data){
@@ -206,6 +270,35 @@
                                                             }
                                                         }  
                                                     }
+                                                    $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('attribute_name','Total Diamond Weight')->where('product_id',$item->product->id)->groupBy('attributes.id')->first();
+
+                                                    $product_attributes_term_val = [];
+
+                                                    $product_term_cleaned = '';
+                                                    if ($product_attributes_specification && $product_attributes_specification->terms_id) {
+                                                        $term = \App\Models\AttributeTerm::where('estatus', 1)
+                                                            ->where('id', $product_attributes_specification->terms_id)
+                                                            ->pluck('attrterm_name')
+                                                            ->first(); // single string like "1.00 Ct"
+
+                                                        if ($term) {
+                                                            // Keep only numbers and dot
+                                                            $product_term_cleaned = preg_replace('/[^0-9.]/', '', $term);
+                                                        }
+                                                    }
+
+                                                    $product_value = (float) $product_term_cleaned; // e.g., "1.00" becomes 1.0
+                                                    $carat_setting = (float) $setting->carat_size;  // e.g., "0.75" becomes 0.75
+
+                                                    $cartValue = '';
+                                                    if ($product_value >= $carat_setting) {
+                                                         $cartValue = true;
+                                                        // dd("Product value is greater than or equal to setting", $product_value, $carat_setting);
+                                                    } else {
+                                                        $cartValue = false;
+                                                        // dd("Product value is less than setting", $product_value, $carat_setting);
+                                                    }
+
                                                     $item_name = $item->product->product_title;
                                                     $sale_price = $item->sale_price;
                                                     $item_image = explode(',',$item->images); 
@@ -218,6 +311,18 @@
                                                     $url =  URL('product-details/'.$item['slug']); 
                                                 }else{
                                                     $item = \App\Models\Diamond::where('id',$data['item_id'])->first();
+                                                    $product_value = (float) $item->Weight; // e.g., "1.00" becomes 1.0
+                                                    $carat_setting = (float) $setting->carat_size;  // e.g., "0.75" becomes 0.75
+
+                                                    $cartValue = '';
+                                                    if ($product_value >= $carat_setting) {
+                                                         $cartValue = true;
+                                                        // dd("Product value is greater than or equal to setting", $product_value, $carat_setting);
+                                                    } else {
+                                                        $cartValue = false;
+                                                        // dd("Product value is less than setting", $product_value, $carat_setting);
+                                                    }
+
                                                     if(!$item){
                                                         if(session()->has('customer')){
                                                             $cart_datas = \App\Models\ItemCart::where(['user_id' => session('customer.id'),'item_id' => $data['item_id']])->first();
@@ -359,10 +464,32 @@
                                                                             <button  class="plus sp-plus "></button>
                                                                         </div>
                                                                     </div>
+                                                                    
+                                                                    @if((isset($cartValue)) && $cartValue == true)
+                                                                        <div class="mt-3 border-top pt-2">
+                                                                                <label class="custom-toggle-switch">
+                                                                                        <input type="checkbox" 
+                                                                                            class="cert-toggle"  data-cert-price="{{ $setting->certificate_price }}"
+                                                                                            id="certToggle{{ $loop->index }}"
+                                                                                            data-cert-price="{{$setting->certificate_price}}"
+                                                                                            data-index="{{ $loop->index }}"  data-id="{{ $data['id'] }}"
+                                                                                            {{ $data['certificate'] == 1 ? 'checked' : '' }}>
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+                                                                                <div id="certPrice{{ $loop->index }}" class="text-success fw-semibold mt-1 d-none">
+                                                                                    + ${{isset($setting->certificate_price) ? $setting->certificate_price :""}}
+                                                                                </div>
+                                                                                <small id="certNote{{ $loop->index }}" class="text-muted d-block mt-1 d-none">
+                                                                                    Includes official certification by a recognized gemological lab (e.g. IGI/GIA).
+                                                                                </small>
+
+                                                                        </div>
+                                                                    @endif
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
 
                                                         @if($data['item_type'] == 2)
                                                             <div class="row mt-4">
@@ -391,7 +518,7 @@
                                                         
                                                     </td>
                                                     <td class="total_amount">
-                                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * (int)$data['item_quantity'] }}</span>
+                                                        <i class="fa fa-usd" aria-hidden="true"></i><span class="cart-total-price ">{{ $sale_price * (int)$data['item_quantity'] + $data['id'] }}</span>
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -964,8 +1091,58 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.cert-toggle').forEach(toggle => {
+            toggle.addEventListener('change', function () {
+                const index = this.dataset.index;
+                const price = document.getElementById('certPrice' + index);
+                const note = document.getElementById('certNote' + index);
+                if (this.checked) {
+                    price.classList.remove('d-none');
+                    note.classList.remove('d-none');
+                } else {
+                    price.classList.add('d-none');
+                    note.classList.add('d-none');
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('.cert-toggle').on('change', function () {
+            let checkbox = $(this);
+            let itemId = checkbox.data('id');
+            let isChecked = checkbox.is(':checked');
+            let certPrice = checkbox.data('cert-price');
+
+            // Toggle price and note visibility
+            $('#certPrice' + itemId).toggleClass('d-none', !isChecked);
+            $('#certNote' + itemId).toggleClass('d-none', !isChecked);
+
+            // AJAX call
+            $.ajax({
+                url: '{{ route("cart.toggleCertificate") }}',
+                method: 'GET',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: itemId,
+                    is_certificate_added: isChecked ? 1 : 0,
+                    certificate_price: isChecked ? certPrice : 0
+                },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    alert('Something went wrong.');
+                }
+            });
+        });
+    });
+    </script>
     <script type="text/javascript">
+
+    
      // Delete Cart Data
      function isNumber(evt) {
         evt = (evt) ? evt : window.event;

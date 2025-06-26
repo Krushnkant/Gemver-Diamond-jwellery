@@ -24,41 +24,41 @@ class PayPalPaymentController extends Controller
 
             
 
-            // $provider = new PayPalClient;
-            // $provider->setApiCredentials(config('paypal'));
-            // $provider->getAccessToken();
+            $provider = new PayPalClient;
+            $provider->setApiCredentials(config('paypal'));
+            $provider->getAccessToken();
 
-            // // $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
-            // $totalAmount = '1.00'; // default fallback
+            // $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
+            $totalAmount = '1.00'; // default fallback
 
-            // $response = $provider->createOrder([
-            //     "intent" => "CAPTURE",
-            //     "application_context" => [
-            //         "return_url" => route('paypal.payment.success'),
-            //         "cancel_url" => route('success.paymentcancel'),
-            //     ],
-            //     "purchase_units" => [
-            //         [
-            //             "amount" => [
-            //                 "currency_code" => "USD",
-            //                 "value" => $totalAmount,
-            //             ]
-            //         ]
-            //     ]
-            // ]);
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('paypal.payment.success'),
+                    "cancel_url" => route('success.paymentcancel'),
+                ],
+                "purchase_units" => [
+                    [
+                        "amount" => [
+                            "currency_code" => "USD",
+                            "value" => $totalAmount,
+                        ]
+                    ]
+                ]
+            ]);
 
-            // if (isset($response['id']) && $response['id']) {
-            //     foreach ($response['links'] as $link) {
-            //         if ($link['rel'] === 'approve') {
-            //             // Save preliminary order data in session
-            //             session([
-            //                 'order_request_data' => $request->all(),
-            //                 'paypal_order_id' => $response['id'],
-            //             ]);
-            //             return redirect()->away($link['href']);
-            //         }
-            //     }
-            // }
+            if (isset($response['id']) && $response['id']) {
+                foreach ($response['links'] as $link) {
+                    if ($link['rel'] === 'approve') {
+                        // Save preliminary order data in session
+                        session([
+                            'order_request_data' => $request->all(),
+                            'paypal_order_id' => $response['id'],
+                        ]);
+                        return redirect()->away($link['href']);
+                    }
+                }
+            }
 
             return redirect()->route('success.paymentcancel')->with('error', 'Unable to process payment.');
         } catch (Exception $e) {

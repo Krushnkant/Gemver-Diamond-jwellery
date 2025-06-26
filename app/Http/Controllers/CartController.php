@@ -219,6 +219,22 @@ class CartController extends Controller
         return view('frontend.cart',compact('setting','BlogBanners','coupons'))->with('cart_data',$cart_data)->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
+    public function toggleCertificate(Request $request)
+    {
+
+      $iteamCartDetails = ItemCart::where('id',$request->id)->first();
+      if(isset($iteamCartDetails))
+      {
+          $iteamCartDetails->certificate = $request->is_certificate_added;
+          $iteamCartDetails->certificate_price = $request->certificate_price;
+          $iteamCartDetails->save();      
+     }
+     return response()->json([
+        'success' => true,
+        'message' => 'Certificate option updated successfully.'
+     ]);
+    }
+
     public function addtocart(Request $request)
     {
         
