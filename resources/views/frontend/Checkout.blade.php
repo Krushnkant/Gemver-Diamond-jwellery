@@ -396,14 +396,14 @@
                         </div>
                      </div>
                       @php 
-                        $withoutDiscountAmount = $total - $coupan_discount_amount;
+                        $withDiscountAmount = $total - $coupan_discount_amount;
                         $minOrderAmount = isset($settings->min_order_amount_for_free_shipping) ? $settings->min_order_amount_for_free_shipping : 0;
                         $defaultShipping = isset($settings->default_shipping_amount) ? $settings->default_shipping_amount : 0;
 
                         // Apply free shipping if order qualifies
-                        $shippingCharge = ($withoutDiscountAmount > $minOrderAmount) ? 0 : $defaultShipping;
+                        $shippingCharge = ($withDiscountAmount > $minOrderAmount) ? 0 : $defaultShipping;
 
-                        $finalPrice = $withoutDiscountAmount + $shippingCharge;
+                        $finalPrice = $withDiscountAmount + $shippingCharge;
                     @endphp
                      <div class="row your_order_row">
                        <div class="col-6 px-0">

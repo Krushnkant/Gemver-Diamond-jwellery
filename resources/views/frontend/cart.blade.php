@@ -602,14 +602,14 @@
                                     </div>
                                 </div>
                                 @php 
-                                    $withoutDiscountAmount = $total - $coupan_discount_amount;
+                                    $withDiscountAmount = $total - $coupan_discount_amount;
                                     $minOrderAmount = isset($setting->min_order_amount_for_free_shipping) ? $setting->min_order_amount_for_free_shipping : 0;
                                     $defaultShipping = isset($setting->default_shipping_amount) ? $setting->default_shipping_amount : 0;
 
                                     // Apply free shipping if order qualifies
-                                    $shippingCharge = ($withoutDiscountAmount > $minOrderAmount) ? 0 : $defaultShipping;
+                                    $shippingCharge = ($withDiscountAmount > $minOrderAmount) ? 0 : $defaultShipping;
 
-                                    $finalPrice = $withoutDiscountAmount + $shippingCharge;
+                                    $finalPrice = $withDiscountAmount + $shippingCharge;
                                 @endphp
                                 <div class="row mt-3">
                                     <div class="col-6 text-start ps-0 order_table_heading">
