@@ -24,6 +24,7 @@ use App\Http\Controllers\CountryStateCityController;
 use App\Http\Controllers\SocialFeedController;
 use App\Http\Controllers\admin\ShippingSettingsController;
 use Illuminate\Support\Facades\Artisan;
+// use App\Http\Controllers\admin\CertificateSettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -128,6 +129,8 @@ Route::get('/product-setting-edit/{id}/edit',[DiamondController::class,'editprod
 Route::get('/diamond-setting-edit/{id}/edit',[DiamondController::class,'editdiamondsetting']);
 
 Route::post('/cart_products',[CartController::class,'cart_products'])->name('frontend.cart_products');
+Route::get('/cart/toggle-certificate',[CartController::class, 'toggleCertificate'])->name('cart.toggleCertificate');
+
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
@@ -192,11 +195,15 @@ Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity'
  Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
 
  Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
- Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
- Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
+ Route::get('paypal/payment/success', [\App\Http\Controllers\PayPalPaymentController::class, 'paymentSuccess'])->name('paypal.payment.success');
+ Route::get('paypal/payment/cancel', [\App\Http\Controllers\PayPalPaymentController::class, 'paymentCancel'])->name('paypal.payment/cancel');
+ 
+//  Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
+//  Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
 
- Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
+//  Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
  Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
+
 
 });
 
@@ -727,7 +734,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('shipping/settings',[ShippingSettingsController::class,'shippingSettings'])->name('shippingsettings');
     Route::post('store/shipping/settings',[ShippingSettingsController::class,'updateShippingSettings'])->name('menupage.updateshippingsettings');
     
-
+//    Route::get('certificatese/settings',[CertificateSettingsController::class,'certificateseSettings'])->name('certificatesettings');
+//     Route::post('store/certificatese/settings',[CertificateSettingsController::class,'updateCertificateseSettings'])->name('menupage.updatecertificatesettings');
+    
 });
 
 Route::group(['middleware'=>['auth']],function (){

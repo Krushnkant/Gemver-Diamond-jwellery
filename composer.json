@@ -21,7 +21,7 @@
         "maatwebsite/excel": "^3.1",
         "phpfastcache/phpfastcache": "*",
         "raiym/instagram-php-scraper": "^0.12.9",
-        "srmklive/paypal": "~1.0",
+        "srmklive/paypal": "^3.0",
         "symfony/psr-http-message-bridge": "^2.1"
     },
     "require-dev": {
