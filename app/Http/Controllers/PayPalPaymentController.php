@@ -62,6 +62,7 @@ class PayPalPaymentController extends Controller
 
             return redirect()->route('success.paymentcancel')->with('error', 'Unable to process payment.');
         } catch (Exception $e) {
+            dd($e);
             Log::error("PayPal Payment Error: " . $e->getMessage());
             return redirect()->route('success.paymentcancel')->with('error', 'Payment failed.');
         }
