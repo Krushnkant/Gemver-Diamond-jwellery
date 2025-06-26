@@ -395,6 +395,16 @@
                              <input class="form-check-input" type="hidden" name="coupan_code_id" id="coupan_code_id" value="{{  session('coupon.id') }}">  
                         </div>
                      </div>
+                      @php 
+                        $withDiscountAmount = $total - $coupan_discount_amount;
+                        $minOrderAmount = isset($settings->min_order_amount_for_free_shipping) ? $settings->min_order_amount_for_free_shipping : 0;
+                        $defaultShipping = isset($settings->default_shipping_amount) ? $settings->default_shipping_amount : 0;
+
+                        // Apply free shipping if order qualifies
+                        $shippingCharge = ($withDiscountAmount > $minOrderAmount) ? 0 : $defaultShipping;
+
+                        $finalPrice = $withDiscountAmount + $shippingCharge;
+                    @endphp
                      <div class="row your_order_row">
                        <div class="col-6 px-0">
                             <div class="your_order_sub_heading order-title">
@@ -403,8 +413,8 @@
                        </div>
                        <div class="col-6 text-end">
                             <div class="your_order_sub_heading order-price">
-                                $70 
-                                <input class="form-check-input" type="hidden" name="shipping_charge" id="shipping_charge" value="70">
+                                ${{ $shippingCharge }}
+                                <input class="form-check-input" type="hidden" name="shipping_charge" id="shipping_charge" value="{{ $shippingCharge }}">
                             </div>   
                        </div>
                     </div>
@@ -416,8 +426,8 @@
                        </div>
                        <div class="col-6 text-end">
                             <div class="your_order_sub_heading order-price">
-                                $ {{ $total - $coupan_discount_amount + 70 }}
-                                <input class="form-check-input" type="hidden" name="payble_ordercost" id="payble_ordercost" value="{{ $total - $coupan_discount_amount + 70 }}"> 
+                                $ {{ $finalPrice}}
+                                <input class="form-check-input" type="hidden" name="payble_ordercost" id="payble_ordercost" value="{{ $finalPrice }}"> 
                             </div>   
                        </div>
                     </div>

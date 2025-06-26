@@ -139,7 +139,7 @@
                     $totalInquiryCount = 0;
                 @endphp
                 @php $leftMenuPages = getLeftMenuPages(); @endphp
-
+         
                 @foreach($leftMenuPages as $page)
                     @if($page['is_display_in_menu'] == 0)
                         @if(getUSerRole()==1)
@@ -315,6 +315,7 @@
                              @endif
  
                             @endforeach
+                            
                             @if(isset($check_user_permissions) && !empty($check_user_permissions))
                                 <li>
                                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">

@@ -22,7 +22,7 @@ use App\Http\Controllers\CompareController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CountryStateCityController;
 use App\Http\Controllers\SocialFeedController;
-
+use App\Http\Controllers\admin\ShippingSettingsController;
 use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
@@ -723,6 +723,10 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('socialfeed/uploadfile',[\App\Http\Controllers\admin\SocialFeedController::class,'uploadfile'])->name('socialfeed.uploadfile');
     Route::post('socialfeed/removefile',[\App\Http\Controllers\admin\SocialFeedController::class,'removefile'])->name('socialfeed.removefile');
     Route::get('socialfeed/createSlug/{title}',[\App\Http\Controllers\admin\SocialFeedController::class,'createSlug'])->name('socialfeed.createSlug');
+    
+    Route::get('shipping/settings',[ShippingSettingsController::class,'shippingSettings'])->name('shippingsettings');
+    Route::post('store/shipping/settings',[ShippingSettingsController::class,'updateShippingSettings'])->name('menupage.updateshippingsettings');
+    
 
 });
 
