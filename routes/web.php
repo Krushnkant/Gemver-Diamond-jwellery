@@ -201,7 +201,7 @@ Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity'
 //  Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
 //  Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
 
-//  Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
+ Route::get('paymentsuccess', [\App\Http\Controllers\PayPalPaymentController::class,'paymentsuccesspage'])->name('success.paymentsuccess');
  Route::get('paymentcancel', [\App\Http\Controllers\PayPalPaymentController::class,'paymentcancelpage'])->name('success.paymentcancel');
 
 
