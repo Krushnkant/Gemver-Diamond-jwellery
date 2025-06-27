@@ -13,7 +13,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Helpers;
 use Exception;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use Illuminate\Support\Facades\Cookie;
+
 
 class PayPalPaymentController extends Controller
 {
@@ -28,7 +28,8 @@ class PayPalPaymentController extends Controller
             $provider->setApiCredentials(config('paypal'));
             $provider->getAccessToken();
 
-            $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
+            // $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
+            $totalAmount = '1.00'; // default fallback
 
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
@@ -61,6 +62,7 @@ class PayPalPaymentController extends Controller
 
             return redirect()->route('success.paymentcancel')->with('error', 'Unable to process payment.');
         } catch (Exception $e) {
+            dd($e);
             Log::error("PayPal Payment Error: " . $e->getMessage());
             return redirect()->route('success.paymentcancel')->with('error', 'Payment failed.');
         }
@@ -89,7 +91,6 @@ class PayPalPaymentController extends Controller
 
                     // Fetch address info
                     $address_info = Address::find($orderData['address_id']);
-                  
                     $userDetails = [
                         'CustomerName' => $address_info->first_name . ' ' . $address_info->last_name,
                         'CustomerMobile' => $address_info->mobile_no,
@@ -125,7 +126,7 @@ class PayPalPaymentController extends Controller
 
                     // Send confirmation email
                     if ($order) {
-                        $user = User::find($address_info->user_id);
+                        $user = User::find(session('customer.id'));
                         $emailData = [
                             'CustomerFullAddr' => implode(',', [
                                 $address_info->address,
@@ -140,7 +141,6 @@ class PayPalPaymentController extends Controller
                             'OrderMessage' => 'Thank you for shopping with Gemver Affordable Luxury Diamonds! We’re glad to inform you that we’ve received your order.'
                         ];
 
-                       
                         if (!empty($user->email)) {
                             Helpers::MailSending('email.mailDataorder', $emailData, $user->email, 'New Order');
                         }
@@ -236,7 +236,7 @@ class PayPalPaymentController extends Controller
                 ItemCart::where('user_id', session('customer.id'))->delete();
 
                 session()->forget('coupon');
-               Cookie::queue(Cookie::forget('shopping_cart'));
+
             return redirect()
                 ->route('success.paymentsuccess')
                 ->with('success', 'Transaction complete.');
