@@ -64,15 +64,22 @@ class AddressController extends Controller
         if(session()->has('customer')){
             $user_id = $request->user_id;
         }else{
-            $user = new User();
-            $user->full_name = $request->first_name .' '. $request->last_name;
-            $user->email = $request->email;
-            $user->password = Hash::make('123abc');
-            $user->decrypted_password = '123abc';
-            $user->role = 3;
-            $user->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
-            $user->save();
-            $user_id = $user->id;
+            $emailCehck = User::where('email',$request->email)->first();
+  
+            if(isset($emailCehck))
+            {
+               $user_id = $emailCehck->id;  
+            }else{
+                $user = new User();
+                $user->full_name = $request->first_name .' '. $request->last_name;
+                $user->email = $request->email;
+                $user->password = Hash::make('123abc');
+                $user->decrypted_password = '123abc';
+                $user->role = 3;
+                $user->created_at = new \DateTime(null, new \DateTimeZone('Asia/Kolkata'));
+                $user->save();
+                $user_id = $user->id;
+            }
         }
 
         $address = new Address();
