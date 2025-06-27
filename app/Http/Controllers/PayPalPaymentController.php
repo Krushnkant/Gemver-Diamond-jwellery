@@ -22,14 +22,12 @@ class PayPalPaymentController extends Controller
     {
         try {
 
-            
-
             $provider = new PayPalClient;
             $provider->setApiCredentials(config('paypal'));
             $provider->getAccessToken();
 
-            // $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
-            $totalAmount = '1.00'; // default fallback
+            $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
+            // $totalAmount = '1.00'; // default fallback
 
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
