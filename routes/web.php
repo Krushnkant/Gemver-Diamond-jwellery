@@ -129,7 +129,7 @@ Route::get('/product-setting-edit/{id}/edit',[DiamondController::class,'editprod
 Route::get('/diamond-setting-edit/{id}/edit',[DiamondController::class,'editdiamondsetting']);
 
 Route::post('/cart_products',[CartController::class,'cart_products'])->name('frontend.cart_products');
-Route::post('/cart/toggle-certificate',[CartController::class, 'toggleCertificate'])->name('cart.toggleCertificate');
+Route::get('/cart/toggle-certificate',[CartController::class, 'toggleCertificate'])->name('cart.toggleCertificate');
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
