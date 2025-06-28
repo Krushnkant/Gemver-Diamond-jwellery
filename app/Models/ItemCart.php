@@ -10,6 +10,6 @@ class ItemCart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','item_id','item_type','specification','item_quantity'
+        'user_id','item_id','item_type','specification','item_quantity','certificate','certificate_price'
       ];
 }

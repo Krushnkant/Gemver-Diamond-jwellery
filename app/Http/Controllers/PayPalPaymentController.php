@@ -22,8 +22,6 @@ class PayPalPaymentController extends Controller
     {
         try {
 
-            
-
             $provider = new PayPalClient;
             $provider->setApiCredentials(config('paypal'));
             $provider->getAccessToken();
@@ -112,8 +110,8 @@ class PayPalPaymentController extends Controller
                     $order->coupan_code_id = $orderData['coupan_code_id'] ?? 0;
                     $order->total_ordercost = $orderData['payble_ordercost'] ?? null;
                     $order->payment_type = $orderData['payment_type'] ?? 1;
-                    $order->payment_transaction_id = $orderData['payment_transaction_id'] ?? ($response['CORRELATIONID'] ?? null);
-                    $order->payment_currency = $orderData['payment_currency'] ?? ($response['CURRENCYCODE'] ?? 'USD');
+                    $order->payment_transaction_id = isset($response['id']) ? $response['id'] :"";
+                    $order->payment_currency = isset($response['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code']) ? $response['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code'] :"USD";
                     $order->gateway_name = $orderData['gateway_name'] ?? 'PAYPAL';
                     $order->payment_mode = $orderData['payment_mode'] ?? 'PAYPAL';
                     $order->payment_date = Carbon::now()->format('Y-m-d H:i:s');
@@ -158,6 +156,7 @@ class PayPalPaymentController extends Controller
                         $itemType = $orderData['item_type'][$key];
                         $quantity = $orderData['qty'][$key];
                         $diamondId = $orderData['diamond_id'][$key] ?? null;
+                        $certificate_price = $orderData['certificate_price'][$key] ?? null;
 
                         $itemDetails = [];
                         $spe = [];
@@ -225,6 +224,7 @@ class PayPalPaymentController extends Controller
                             'ItemType' => $itemType,
                             'spe' => $spe,
                             'sped' => $sped,
+                            'certificate_price'=>$certificate_price
                         ];
 
                         $OrderItem->item_details = json_encode($itemDetails);
