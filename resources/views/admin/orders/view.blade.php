@@ -374,29 +374,25 @@
                                             <td>{{ $item_details['itemQuantity'] }}</td>
                                             <td> ${{ $item_details['totalItemAmount'] }}</td>
                                         </tr>
-                                         @if ((isset($item_details['certificate_price'])) && ($item_details['certificate_price'] != '0'))
+                                        @if (isset($item_details['certificate_price']) && $item_details['certificate_price'] != '0')
                                             <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td colspan="1"><strong>Certificate Price:</strong></td>
-                                                    <td colspan="1">
-                                                        @if ($item_details['certificate_price'] != '0')
-                                                            ${{ $item_details['certificate_price'] }}
-                                                            <i class="fa fa-info-circle text-info" data-toggle="tooltip"
-                                                                data-placement="top"
-                                                                title="Includes official certification by a recognized gemological lab (e.g. IGI/GIA)."></i>
-                                                        @else
-                                                            $0
-                                                        @endif
-                                                    </td>
-                                                    <td>1</td>
-                                                    <td>@if ($item_details['certificate_price'] != '0')
-                                                            ${{ $item_details['certificate_price'] }}
-                                                    
-                                                        @else
-                                                            $0
-                                                        @endif</dt>
-                                                </tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><strong>Certificate Price:</strong></td>
+                                                <td>
+                                                    @php
+                                                        $quantity = isset($item_details['itemQuantity']) && $item_details['itemQuantity'] > 0 ? $item_details['itemQuantity'] : 1;
+                                                        $unit_price = $item_details['certificate_price'] / $quantity;
+                                                        $tooltip = $item_details['certificate_message'] ?? 'Includes official certification by a recognized gemological lab (e.g. IGI/GIA).';
+                                                    @endphp
+                                                    ${{ $unit_price }}
+                                                    <i class="fa fa-info-circle text-info" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    title="{{ $tooltip }}"></i>
+                                                </td>
+                                                <td>{{ $quantity }}</td>
+                                                <td>${{ $item_details['certificate_price'] }}</td>
+                                            </tr>
                                         @endif
                                         <?php $i++; ?>
                                     @endforeach

@@ -157,6 +157,8 @@ class PayPalPaymentController extends Controller
                         $quantity = $orderData['qty'][$key];
                         $diamondId = $orderData['diamond_id'][$key] ?? null;
                         $certificate_price = $orderData['certificate_price'][$key] ?? null;
+                        $item_message = $orderData['item_message'][$key] ?? null;
+                        
 
                         $itemDetails = [];
                         $spe = [];
@@ -224,7 +226,8 @@ class PayPalPaymentController extends Controller
                             'ItemType' => $itemType,
                             'spe' => $spe,
                             'sped' => $sped,
-                            'certificate_price'=>$certificate_price
+                            'certificate_price'=>$certificate_price,
+                            'certificate_message'=>$item_message
                         ];
 
                         $OrderItem->item_details = json_encode($itemDetails);

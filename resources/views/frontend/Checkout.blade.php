@@ -421,10 +421,16 @@
                                                 @endif
 
                                                 {{-- Show certification message if applicable --}}
-                                                @if ($isCertified && $certPrice)
+                                              @if ($isCertified && $certPrice)
                                                     <div class="text-success mt-1 small">
-                                                        (Includes official certification by a recognized gemological lab
-                                                        (e.g. IGI/GIA). +${{ $certPrice }})
+                                                        @if(isset($settings->certificate_description))
+                                                            {{$settings->certificate_description}}
+                                                        @else
+                                                          (Includes official certification by a recognized gemological lab (e.g. IGI/GIA).
+                                                        @endif
+                                                         +
+                                                        ${{ $certPrice * $cart['item_quantity'] }}
+                                                        (${{ $certPrice }} * {{ $cart['item_quantity'] }} Qty))
                                                     </div>
                                                 @endif
 
@@ -436,13 +442,15 @@
                                                     value="{{ $cart['item_quantity'] }}">
                                                 <input type="hidden" name="item_type[]"
                                                     value="{{ $cart['item_type'] }}">
+                                                <input type="hidden" name="item_message[]"
+                                                    value="{{ isset($settings->certificate_description) ? $settings->certificate_description :"(Includes official certification by a recognized gemological lab (e.g. IGI/GIA)." }}">
                                                 <input type="hidden" name="certificate_price[]"
-                                                    value="{{ isset($cart['certificate_price']) ? $cart['certificate_price'] : '' }}">
+                                                    value="{{ isset($cart['certificate_price']) ? $cart['certificate_price'] * $cart['item_quantity']  : '' }}">
                                             </div>
                                         </div>
 
                                         <?php
-                                        $certificatePrice = isset($cart['certificate_price']) && is_numeric($cart['certificate_price']) ? $cart['certificate_price'] : 0;
+                                        $certificatePrice = isset($cart['certificate_price']) && is_numeric($cart['certificate_price']) ? $cart['certificate_price']  * $cart['item_quantity']  : 0;
                                         ?>
                                         <div class="col-6 text-end">
                                             <div class="your_order_sub_heading order-price">

@@ -15,7 +15,13 @@ class AuthController extends Controller
 
     public function index()
     {
-        return view('admin.auth.login')->with('page',$this->page);
+
+        if (Auth::check()) 
+        {
+            return redirect('admin/dashboard'); // or use ->to()
+        }else{
+            return view('admin.auth.login')->with('page',$this->page);
+        }
     }
 
     public function invalid_page()
