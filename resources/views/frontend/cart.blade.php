@@ -493,7 +493,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        @if (isset($cartValue) && $cartValue == true)
+                                                                        @if (isset($cartValue) && (isset($setting->certificate_price)) && $cartValue == true)
                                                                             <div class="mt-3 border-top pt-2">
                                                                                 <label class="custom-toggle-switch">
                                                                                     <input type="checkbox"
