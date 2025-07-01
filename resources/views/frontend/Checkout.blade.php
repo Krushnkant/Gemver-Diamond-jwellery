@@ -10,6 +10,29 @@
         .select2-dropdown.select2-dropdown--above {
             width: 0px !important;
         }
+
+        .select2-container--default .select2-selection--single {
+            height: 43px !important;
+            padding: 8px 12px;
+            border: 1px solid #F0F0F0;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #808080;
+            box-shadow: none;
+        }
+
+        /* Adjust the rendered text line height */
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 28px !important;
+            /* Or use 46px for vertical centering */
+            padding-left: 8px;
+        }
+
+        /* Arrow alignment */
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 100% !important;
+            top: 0 !important;
+        }
     </style>
     <div class="background-sub-slider">
         <div class="">
@@ -776,7 +799,6 @@
                         $('#pincode-error').html("");
                         $('#address_id').val(res.address.id);
 
-
                         $("#first_name").focus();
                         $(".other_address").append(
                             '<div class="form-check mt-3 mt-md-3 mt-lg-3 mt-xxl-4 mb-4 radio_button_address"><input class="form-check-input" type="radio" name="check_address" id="check_address" class="check_address" value="' +
@@ -1069,19 +1091,52 @@
         // });  
 
         $(document).ready(function() {
-            $('.select2').select2({
+            // Initialize Select2 for all dropdowns
+            $('#country-dropdown').select2({
                 width: '100%',
                 dropdownAutoWidth: true,
-                placeholder: "Select an option",
+                placeholder: "Select Country",
                 allowClear: true
             });
 
+            $('#state-dropdown').select2({
+                width: '100%',
+                dropdownAutoWidth: true,
+                placeholder: "Select State",
+                allowClear: true
+            }).prop('disabled', true); // Initially disabled
+
+            $('#city-dropdown').select2({
+                width: '100%',
+                dropdownAutoWidth: true,
+                placeholder: "Select City",
+                allowClear: true
+            }).prop('disabled', true); // Initially disabled
+
+            // When country is selected or cleared
             $('#country-dropdown').on('change', function() {
                 var country_id = $(this).find(':selected').data('value');
 
-                $("#state-dropdown").html('<option value="">Loading...</option>').trigger('change');
-                $("#city-dropdown").html('<option value="">Select State First</option>').trigger('change');
+                // If country is cleared
+                if (!country_id) {
+                    $('#state-dropdown')
+                        .html('<option value="">Select State</option>')
+                        .prop('disabled', true)
+                        .trigger('change');
 
+                    $('#city-dropdown')
+                        .html('<option value="">Select City</option>')
+                        .prop('disabled', true)
+                        .trigger('change');
+
+                    return;
+                }
+
+                // Disable while loading
+                $('#state-dropdown').prop('disabled', true);
+                $('#city-dropdown').html('<option value="">Select City</option>').prop('disabled', true);
+
+                // AJAX to load states
                 $.ajax({
                     url: "{{ url('get-states-by-country') }}",
                     type: "POST",
@@ -1093,20 +1148,33 @@
                     success: function(result) {
                         $('#state-dropdown').html('<option value="">Select State</option>');
                         $.each(result.states, function(key, value) {
-                            $("#state-dropdown").append('<option data-value="' + value
-                                .id + '" value="' + value.name + '">' + value.name +
-                                '</option>');
+                            $("#state-dropdown").append(
+                                '<option data-value="' + value.id + '" value="' +
+                                value.name + '">' + value.name + '</option>'
+                            );
                         });
-                        $('#state-dropdown').trigger('change');
+                        $('#state-dropdown').prop('disabled', false).trigger('change');
                     }
                 });
             });
 
+            // When state is selected or cleared
             $('#state-dropdown').on('change', function() {
                 var state_id = $(this).find(':selected').data('value');
 
-                $("#city-dropdown").html('<option value="">Loading...</option>').trigger('change');
+                // If state is cleared
+                if (!state_id) {
+                    $('#city-dropdown')
+                        .html('<option value="">Select City</option>')
+                        .prop('disabled', true)
+                        .trigger('change');
+                    return;
+                }
 
+                $('#city-dropdown').html('<option value="">Loading...</option>').prop('disabled', true)
+                    .trigger('change');
+
+                // AJAX to load cities
                 $.ajax({
                     url: "{{ url('get-cities-by-state') }}",
                     type: "POST",
@@ -1118,11 +1186,12 @@
                     success: function(result) {
                         $('#city-dropdown').html('<option value="">Select City</option>');
                         $.each(result.cities, function(key, value) {
-                            $("#city-dropdown").append('<option data-value="' + value
-                                .id + '" value="' + value.name + '">' + value.name +
-                                '</option>');
+                            $("#city-dropdown").append(
+                                '<option data-value="' + value.id + '" value="' +
+                                value.name + '">' + value.name + '</option>'
+                            );
                         });
-                        $('#city-dropdown').trigger('change');
+                        $('#city-dropdown').prop('disabled', false).trigger('change');
                     }
                 });
             });
