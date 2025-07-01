@@ -376,19 +376,14 @@
                                         </tr>
                                         @if (isset($item_details['certificate_price']) && $item_details['certificate_price'] != '0')
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><strong>Certificate Price:</strong></td>
+                                                <td colspan="2"></td>
+                                                <td><strong>Certificate:</strong></td>
                                                 <td>
                                                     @php
                                                         $quantity = isset($item_details['itemQuantity']) && $item_details['itemQuantity'] > 0 ? $item_details['itemQuantity'] : 1;
                                                         $unit_price = $item_details['certificate_price'] / $quantity;
-                                                        $tooltip = $item_details['certificate_message'] ?? 'Includes official certification by a recognized gemological lab (e.g. IGI/GIA).';
                                                     @endphp
                                                     ${{ $unit_price }}
-                                                    <i class="fa fa-info-circle text-info" data-toggle="tooltip"
-                                                    data-placement="top"
-                                                    title="{{ $tooltip }}"></i>
                                                 </td>
                                                 <td>{{ $quantity }}</td>
                                                 <td>${{ $item_details['certificate_price'] }}</td>

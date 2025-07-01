@@ -442,8 +442,6 @@
                                                     value="{{ $cart['item_quantity'] }}">
                                                 <input type="hidden" name="item_type[]"
                                                     value="{{ $cart['item_type'] }}">
-                                                <input type="hidden" name="certificate_message[]"
-                                                    value="{{ isset($settings->certificate_description) ? $settings->certificate_description :"(Includes official certification by a recognized gemological lab (e.g. IGI/GIA)." }}">
                                                 <input type="hidden" name="certificate_price[]"
                                                     value="{{ isset($cart['certificate_price']) ? $cart['certificate_price'] * $cart['item_quantity']  : '' }}">
                                             </div>
