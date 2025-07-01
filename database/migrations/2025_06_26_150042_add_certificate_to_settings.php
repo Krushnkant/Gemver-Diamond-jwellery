@@ -15,7 +15,8 @@ class AddCertificateToSettings extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             $table->float('carat_size')->nullable();
-            $table->integer('certificate_price')->nullable();
+            $table->decimal('certificate_price', 8, 2)->nullable();
+            $table->string('certificate_description')->nullable();
         });
     }
 

@@ -503,11 +503,11 @@
                                                                                         data-cert-price="{{ $setting->certificate_price }}"
                                                                                         data-index="{{ $loop->index }}"
                                                                                         data-id="{{ $data['item_id'] }}"
-                                                                                        {{ isset($data['certificate']) && $data['certificate'] == 1 ? 'checked' : '' }}>
+                                                                                        {{ isset($data['wants_certificate']) && $data['wants_certificate'] == 1 ? 'checked' : '' }}>
                                                                                     <span class="slider round"></span>
                                                                                 </label>
                                                                                <div id="certPrice{{ $loop->index }}"
-                                                                                    class="text-success fw-semibold mt-1 {{ (isset($data['certificate']) && $data['certificate'] == 1) ? '' : 'd-none' }}">
+                                                                                    class="text-success fw-semibold mt-1 {{ (isset($data['wants_certificate']) && $data['wants_certificate'] == 1) ? '' : 'd-none' }}">
                                                                                     +
                                                                                     @if(isset($setting->certificate_price))
                                                                                         ${{ $setting->certificate_price * $data['item_quantity'] }}
@@ -515,7 +515,7 @@
                                                                                     @endif
                                                                                 </div>
                                                                                 <small id="certNote{{ $loop->index }}"
-                                                                                    class="text-muted d-block mt-1 {{ (isset($data['certificate']) && $data['certificate'] == 1) == 1 ? '' : 'd-none' }}">
+                                                                                    class="text-muted d-block mt-1 {{ (isset($data['wants_certificate']) && $data['wants_certificate'] == 1) == 1 ? '' : 'd-none' }}">
                                                                                     @if(isset($setting->certificate_description))
                                                                                       {{$setting->certificate_description}}
                                                                                     @else

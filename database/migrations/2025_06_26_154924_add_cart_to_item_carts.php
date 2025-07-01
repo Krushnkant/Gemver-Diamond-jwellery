@@ -14,9 +14,8 @@ class AddCartToItemCarts extends Migration
     public function up()
     {
         Schema::table('item_carts', function (Blueprint $table) {
-            $table->integer('certificate')->nullable();
-            $table->integer('certificate_price')->nullable();
-            $table->integer('certificate_description')->nullable();
+            $table->integer('wants_certificate')->nullable();
+            $table->decimal('certificate_price', 8, 2)->nullable();
         });
     }
 
