@@ -3,12 +3,13 @@
 @section('content')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
-    .select2-dropdown.select2-dropdown--below{
-        width:0px !important;
-    }
-    .select2-dropdown.select2-dropdown--above{
-            width:0px !important;
-    }
+        .select2-dropdown.select2-dropdown--below {
+            width: 0px !important;
+        }
+
+        .select2-dropdown.select2-dropdown--above {
+            width: 0px !important;
+        }
     </style>
     <div class="background-sub-slider">
         <div class="">
@@ -181,38 +182,36 @@
                                 <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;">
                                 </div>
                             </div> --}}
-                                <div class="col-md-4">
-                                    <label class="form-label form_heading">Country <span
-                                            class="text-danger">*</span></label>
-                                    <select class="form-control select2" id="country-dropdown" name="country">
-                                        <option value="">Select Country</option>
-                                        @foreach ($countries as $country)
-                                            <option data-value="{{ $country->id }}" value="{{ $country->name }}">
-                                                {{ $country->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <div id="country-error" class="invalid-feedback animated fadeInDown"
-                                        style="display: none;"></div>
-                                </div>
+                            <div class="col-md-4">
+                                <label class="form-label form_heading">Country <span class="text-danger">*</span></label>
+                                <select class="form-control select2" id="country-dropdown" name="country">
+                                    <option value="">Select Country</option>
+                                    @foreach ($countries as $country)
+                                        <option data-value="{{ $country->id }}" value="{{ $country->name }}">
+                                            {{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div id="country-error" class="invalid-feedback animated fadeInDown"
+                                    style="display: none;"></div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <label class="form-label form_heading">State <span
-                                            class="text-danger">*</span></label>
-                                    <select class="form-control select2" id="state-dropdown" name="state">
-                                        <option value="">Select Country First</option>
-                                    </select>
-                                    <div id="state-error" class="invalid-feedback animated fadeInDown"
-                                        style="display: none;"></div>
-                                </div>
+                            <div class="col-md-4">
+                                <label class="form-label form_heading">State <span class="text-danger">*</span></label>
+                                <select class="form-control select2" id="state-dropdown" name="state">
+                                    <option value="">Select Country First</option>
+                                </select>
+                                <div id="state-error" class="invalid-feedback animated fadeInDown"
+                                    style="display: none;"></div>
+                            </div>
 
-                                <div class="col-md-4">
-                                    <label class="form-label form_heading">City <span class="text-danger">*</span></label>
-                                    <select class="form-control select2" id="city-dropdown" name="city">
-                                        <option value="">Select State First</option>
-                                    </select>
-                                    <div id="city-error" class="invalid-feedback animated fadeInDown"
-                                        style="display: none;"></div>
+                            <div class="col-md-4">
+                                <label class="form-label form_heading">City <span class="text-danger">*</span></label>
+                                <select class="form-control select2" id="city-dropdown" name="city">
+                                    <option value="">Select State First</option>
+                                </select>
+                                <div id="city-error" class="invalid-feedback animated fadeInDown" style="display: none;">
                                 </div>
+                            </div>
                         </div>
                         <div class="row mb-3 mb-md-4">
 
@@ -403,7 +402,8 @@
                                             <div class="your_order_sub_heading order-title">
                                                 @php
                                                     $isCertified =
-                                                        isset($cart['wants_certificate']) && $cart['wants_certificate'] == 1;
+                                                        isset($cart['wants_certificate']) &&
+                                                        $cart['wants_certificate'] == 1;
                                                     $certPrice =
                                                         $isCertified &&
                                                         isset($cart['certificate_price']) &&
@@ -421,16 +421,16 @@
                                                 @endif
 
                                                 {{-- Show certification message if applicable --}}
-                                              @if ($isCertified && $certPrice)
+                                                @if ($isCertified && $certPrice)
                                                     <div class="text-success mt-1 small">
-                                                        @if(isset($settings->certificate_description))
-                                                            {{$settings->certificate_description}}
+                                                        @if (!empty($settings->certificate_description))
+                                                            {{ $settings->certificate_description }}
                                                         @else
-                                                          (Includes official certification by a recognized gemological lab (e.g. IGI/GIA).
+                                                            Add Diamond Certificate
                                                         @endif
-                                                         +
+                                                        +
                                                         ${{ $certPrice * $cart['item_quantity'] }}
-                                                        (${{ $certPrice }} * {{ $cart['item_quantity'] }} Qty))
+                                                        (${{ $certPrice }} * {{ $cart['item_quantity'] }} Qty)
                                                     </div>
                                                 @endif
 
@@ -443,12 +443,12 @@
                                                 <input type="hidden" name="item_type[]"
                                                     value="{{ $cart['item_type'] }}">
                                                 <input type="hidden" name="certificate_price[]"
-                                                    value="{{ isset($cart['certificate_price']) ? $cart['certificate_price'] * $cart['item_quantity']  : '' }}">
+                                                    value="{{ isset($cart['certificate_price']) ? $cart['certificate_price'] * $cart['item_quantity'] : '' }}">
                                             </div>
                                         </div>
 
                                         <?php
-                                        $certificatePrice = isset($cart['certificate_price']) && is_numeric($cart['certificate_price']) ? $cart['certificate_price']  * $cart['item_quantity']  : 0;
+                                        $certificatePrice = isset($cart['certificate_price']) && is_numeric($cart['certificate_price']) ? $cart['certificate_price'] * $cart['item_quantity'] : 0;
                                         ?>
                                         <div class="col-6 text-end">
                                             <div class="your_order_sub_heading order-price">
@@ -1068,61 +1068,65 @@
         });
         // });  
 
-        $(document).ready(function () {
-                $('.select2').select2({
-                    width: '100%',
-                    dropdownAutoWidth: true,
-                    placeholder: "Select an option",
-                    allowClear: true
-                });
+        $(document).ready(function() {
+            $('.select2').select2({
+                width: '100%',
+                dropdownAutoWidth: true,
+                placeholder: "Select an option",
+                allowClear: true
+            });
 
-                $('#country-dropdown').on('change', function () {
-                    var country_id = $(this).find(':selected').data('value');
+            $('#country-dropdown').on('change', function() {
+                var country_id = $(this).find(':selected').data('value');
 
-                    $("#state-dropdown").html('<option value="">Loading...</option>').trigger('change');
-                    $("#city-dropdown").html('<option value="">Select State First</option>').trigger('change');
+                $("#state-dropdown").html('<option value="">Loading...</option>').trigger('change');
+                $("#city-dropdown").html('<option value="">Select State First</option>').trigger('change');
 
-                    $.ajax({
-                        url: "{{ url('get-states-by-country') }}",
-                        type: "POST",
-                        data: {
-                            country_id: country_id,
-                            _token: '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function (result) {
-                            $('#state-dropdown').html('<option value="">Select State</option>');
-                            $.each(result.states, function (key, value) {
-                                $("#state-dropdown").append('<option data-value="' + value.id + '" value="' + value.name + '">' + value.name + '</option>');
-                            });
-                            $('#state-dropdown').trigger('change');
-                        }
-                    });
-                });
-
-                $('#state-dropdown').on('change', function () {
-                    var state_id = $(this).find(':selected').data('value');
-
-                    $("#city-dropdown").html('<option value="">Loading...</option>').trigger('change');
-
-                    $.ajax({
-                        url: "{{ url('get-cities-by-state') }}",
-                        type: "POST",
-                        data: {
-                            state_id: state_id,
-                            _token: '{{ csrf_token() }}'
-                        },
-                        dataType: 'json',
-                        success: function (result) {
-                            $('#city-dropdown').html('<option value="">Select City</option>');
-                            $.each(result.cities, function (key, value) {
-                                $("#city-dropdown").append('<option data-value="' + value.id + '" value="' + value.name + '">' + value.name + '</option>');
-                            });
-                            $('#city-dropdown').trigger('change');
-                        }
-                    });
+                $.ajax({
+                    url: "{{ url('get-states-by-country') }}",
+                    type: "POST",
+                    data: {
+                        country_id: country_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $('#state-dropdown').html('<option value="">Select State</option>');
+                        $.each(result.states, function(key, value) {
+                            $("#state-dropdown").append('<option data-value="' + value
+                                .id + '" value="' + value.name + '">' + value.name +
+                                '</option>');
+                        });
+                        $('#state-dropdown').trigger('change');
+                    }
                 });
             });
+
+            $('#state-dropdown').on('change', function() {
+                var state_id = $(this).find(':selected').data('value');
+
+                $("#city-dropdown").html('<option value="">Loading...</option>').trigger('change');
+
+                $.ajax({
+                    url: "{{ url('get-cities-by-state') }}",
+                    type: "POST",
+                    data: {
+                        state_id: state_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $('#city-dropdown').html('<option value="">Select City</option>');
+                        $.each(result.cities, function(key, value) {
+                            $("#city-dropdown").append('<option data-value="' + value
+                                .id + '" value="' + value.name + '">' + value.name +
+                                '</option>');
+                        });
+                        $('#city-dropdown').trigger('change');
+                    }
+                });
+            });
+        });
         // $('#country-dropdown').on('change', function() {
         //     //var country_id = this.value;
         //     var country_id = $(this).find(':selected').data('value');
