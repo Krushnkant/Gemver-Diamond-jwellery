@@ -426,6 +426,44 @@
                                                                                 {!! $item_terms !!}
                                                                             </div>
                                                                         @endif
+                                                                        @if (isset($cartValue) && isset($setting->certificate_price) && $cartValue == true)
+                                                                            <div class="mt-3 pt-2 border-top">
+
+                                                                                {{-- Toggle Switch --}}
+                                                                                <div
+                                                                                    class="d-flex align-items-center justify-content-between">
+                                                                                    <label class="mb-0 fw-medium">
+                                                                                        @if (!empty($setting->certificate_description))
+                                                                                            {{ $setting->certificate_description }}
+                                                                                        @else
+                                                                                            Add Diamond Certificate
+                                                                                        @endif:
+                                                                                    </label>
+                                                                                    <label
+                                                                                        class="custom-toggle-switch mb-0">
+                                                                                        <input type="checkbox"
+                                                                                            class="cert-toggle"
+                                                                                            id="certToggle{{ $loop->index }}"
+                                                                                            data-cert-price="{{ $setting->certificate_price }}"
+                                                                                            data-index="{{ $loop->index }}"
+                                                                                            data-id="{{ $data['item_id'] }}"
+                                                                                            {{ !empty($data['wants_certificate']) && $data['wants_certificate'] == 1 ? 'checked' : '' }}>
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+                                                                                </div>
+
+                                                                                {{-- Certificate Price --}}
+                                                                                <div id="certPrice{{ $loop->index }}"
+                                                                                    class="text-success fw-semibold mt-2">
+                                                                                    +
+                                                                                    ${{ $setting->certificate_price * $data['item_quantity'] }}
+                                                                                    <small
+                                                                                        class="text-muted">(${{ $setting->certificate_price }}
+                                                                                        × {{ $data['item_quantity'] }}
+                                                                                        Qty)</small>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
                                                                         <div class="d-flex flex-wrap" id="speci_multi143">
 
                                                                             <?php
@@ -436,12 +474,12 @@
                                                                                 foreach ($ProductVariantSpecification as $productvariants) {
                                                                                     $spe .=
                                                                                         '<div class="me-4"><span class="wire_bangle_select mb-3 me-3 d-inline-block">
-                                                                                                                                                            <select name="AtributeSpecification' .
+                                                                                                                                                                                                                                        <select name="AtributeSpecification' .
                                                                                         $productvariants->id .
                                                                                         '" id="AtributeSpecification' .
                                                                                         $productvariants->id .
                                                                                         '" class="specification">
-                                                                                                                                                                <option value="">-- ' .
+                                                                                                                                                                                                                                            <option value="">-- ' .
                                                                                         $productvariants->display_attrname .
                                                                                         '--</option>';
                                                                             
@@ -463,10 +501,10 @@
                                                                                     }
                                                                                     $spe .=
                                                                                         '</select>
-                                                                                                                                                            <div id="AtributeSpecification' .
+                                                                                                                                                                                                                                        <div id="AtributeSpecification' .
                                                                                         $productvariants->id .
                                                                                         '-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
-                                                                                                                                                        </span> </div>';
+                                                                                                                                                                                                                                    </span> </div>';
                                                                                 }
                                                                             
                                                                                 echo $spe;
@@ -492,40 +530,6 @@
                                                                                 <button class="plus sp-plus "></button>
                                                                             </div>
                                                                         </div>
-
-                                                                        @if (isset($cartValue) && (isset($setting->certificate_price)) && $cartValue == true)
-                                                                            <div class="mt-3 border-top pt-2">
-                                                                                <label class="custom-toggle-switch">
-                                                                                    <input type="checkbox"
-                                                                                        class="cert-toggle"
-                                                                                        data-cert-price="{{ $setting->certificate_price }}"
-                                                                                        id="certToggle{{ $loop->index }}"
-                                                                                        data-cert-price="{{ $setting->certificate_price }}"
-                                                                                        data-index="{{ $loop->index }}"
-                                                                                        data-id="{{ $data['item_id'] }}"
-                                                                                        {{ isset($data['wants_certificate']) && $data['wants_certificate'] == 1 ? 'checked' : '' }}>
-                                                                                    <span class="slider round"></span>
-                                                                                </label>
-                                                                               <div id="certPrice{{ $loop->index }}"
-                                                                                    class="text-success fw-semibold mt-1 {{ (isset($data['wants_certificate']) && $data['wants_certificate'] == 1) ? '' : 'd-none' }}">
-                                                                                    +
-                                                                                    @if(isset($setting->certificate_price))
-                                                                                        ${{ $setting->certificate_price * $data['item_quantity'] }}
-                                                                                        (${{ $setting->certificate_price }} * {{ $data['item_quantity'] }} Qty)
-                                                                                    @endif
-                                                                                </div>
-                                                                                <small id="certNote{{ $loop->index }}"
-                                                                                    class="text-muted d-block mt-1 {{ (isset($data['wants_certificate']) && $data['wants_certificate'] == 1) == 1 ? '' : 'd-none' }}">
-                                                                                    @if(isset($setting->certificate_description))
-                                                                                      {{$setting->certificate_description}}
-                                                                                    @else
-                                                                                        Includes official certification by a
-                                                                                        recognized gemological lab (e.g.
-                                                                                        IGI/GIA).
-                                                                                    @endif
-                                                                                </small>
-                                                                            </div>
-                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -547,6 +551,7 @@
                                                                     <div class="cart_product_specification d-block mt-1">
                                                                         {!! $diamond_terms !!}
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         @endif
@@ -560,7 +565,7 @@
                                                         </div>
                                                     </td>
                                                     <?php
-                                                    $certificate_price = isset($data['certificate_price']) ? $data['certificate_price']   * $data['item_quantity']  : 0;
+                                                    $certificate_price = isset($data['certificate_price']) ? $data['certificate_price'] * $data['item_quantity'] : 0;
                                                     
                                                     ?>
                                                     <td class="total_amount">
@@ -580,24 +585,24 @@
                         </div>
                         <button type="button" class="continue_shopping_btn mb-3">Continue Shopping</button>
                         <!-- <div class="row mt-3 mt-lg-5 checkout_box mb-4">
-                                <div class="col-sm-6 col-lg-6 checkout_box_col">
-                                    <div class="checkout_box_part_img">
-                                        <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
+                                    <div class="col-sm-6 col-lg-6 checkout_box_col">
+                                        <div class="checkout_box_part_img">
+                                            <img src="{{ asset('frontend/image/checkout-true.png') }}" alt="">
+                                        </div>
+                                        <div class="checkout_box_part_paragraph mt-3">
+                                            Insured Shipping WorldWide <br> Delivered At Your Door Step
+                                        </div>
                                     </div>
-                                    <div class="checkout_box_part_paragraph mt-3">
-                                        Insured Shipping WorldWide <br> Delivered At Your Door Step
+                                    <div class="col-sm-6 col-lg-6 checkout_box_col mt-3 mt-sm-0">
+                                        <div class="checkout_box_part_img">
+                                            <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
+                                        </div>
+                                        <div class="checkout_box_part_paragraph mt-3">
+                                            Estimated date of shipment<br>
+                                            {{ date('dS M, Y', strtotime('+10 day')) }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-6 checkout_box_col mt-3 mt-sm-0">
-                                    <div class="checkout_box_part_img">
-                                        <img src="{{ asset('frontend/image/checkout-calendar.png') }}" alt="">
-                                    </div>
-                                    <div class="checkout_box_part_paragraph mt-3">
-                                        Estimated date of shipment<br>
-                                        {{ date('dS M, Y', strtotime('+10 day')) }}
-                                    </div>
-                                </div>
-                            </div>  -->
+                                </div>  -->
                         <div class="row mt-3 mt-lg-5  mb-4">
                             @if (isset($BlogBanners) && $BlogBanners != '')
                                 @foreach ($BlogBanners as $key => $BlogBanner)
@@ -1398,7 +1403,7 @@
 
                             if (response.errors.coupon_code) {
                                 $('#coupon_code-error').show().text(response.errors
-                                .coupon_code);
+                                    .coupon_code);
                             } else {
                                 $('#coupon_code-error').hide();
                             }
@@ -1454,7 +1459,7 @@
 
                             if (response.errors.coupon_code) {
                                 $('#coupon_code-error').show().text(response.errors
-                                .coupon_code);
+                                    .coupon_code);
                             } else {
                                 $('#coupon_code-error').hide();
                             }
