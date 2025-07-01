@@ -22,6 +22,7 @@ class CertificateSettingsController extends Controller
          {
            $settingsData->carat_size = $request->carat_size;
            $settingsData->certificate_price = $request->certificate_price;
+           $settingsData->certificate_description = $request->certificate_description;
            $settingsData->update();
          }
          return response()->json(['status' => '200']);

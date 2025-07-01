@@ -493,7 +493,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        @if (isset($cartValue) && $cartValue == true)
+                                                                        @if (isset($cartValue) && (isset($setting->certificate_price)) && $cartValue == true)
                                                                             <div class="mt-3 border-top pt-2">
                                                                                 <label class="custom-toggle-switch">
                                                                                     <input type="checkbox"
@@ -506,16 +506,23 @@
                                                                                         {{ isset($data['certificate']) && $data['certificate'] == 1 ? 'checked' : '' }}>
                                                                                     <span class="slider round"></span>
                                                                                 </label>
-                                                                                <div id="certPrice{{ $loop->index }}"
-                                                                                    class="text-success fw-semibold mt-1 {{ (isset($data['certificate']) && $data['certificate'] == 1) == 1 ? '' : 'd-none' }}">
+                                                                               <div id="certPrice{{ $loop->index }}"
+                                                                                    class="text-success fw-semibold mt-1 {{ (isset($data['certificate']) && $data['certificate'] == 1) ? '' : 'd-none' }}">
                                                                                     +
-                                                                                    ${{ isset($setting->certificate_price) ? $setting->certificate_price : '' }}
+                                                                                    @if(isset($setting->certificate_price))
+                                                                                        ${{ $setting->certificate_price * $data['item_quantity'] }}
+                                                                                        (${{ $setting->certificate_price }} * {{ $data['item_quantity'] }} Qty)
+                                                                                    @endif
                                                                                 </div>
                                                                                 <small id="certNote{{ $loop->index }}"
                                                                                     class="text-muted d-block mt-1 {{ (isset($data['certificate']) && $data['certificate'] == 1) == 1 ? '' : 'd-none' }}">
-                                                                                    Includes official certification by a
-                                                                                    recognized gemological lab (e.g.
-                                                                                    IGI/GIA).
+                                                                                    @if(isset($setting->certificate_description))
+                                                                                      {{$setting->certificate_description}}
+                                                                                    @else
+                                                                                        Includes official certification by a
+                                                                                        recognized gemological lab (e.g.
+                                                                                        IGI/GIA).
+                                                                                    @endif
                                                                                 </small>
                                                                             </div>
                                                                         @endif
@@ -553,7 +560,7 @@
                                                         </div>
                                                     </td>
                                                     <?php
-                                                    $certificate_price = isset($data['certificate_price']) ? $data['certificate_price'] : 0;
+                                                    $certificate_price = isset($data['certificate_price']) ? $data['certificate_price']   * $data['item_quantity']  : 0;
                                                     
                                                     ?>
                                                     <td class="total_amount">

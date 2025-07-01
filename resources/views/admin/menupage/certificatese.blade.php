@@ -57,6 +57,21 @@
                             </div>
                         </div>
 
+                         <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="certificate_description">Certificate Description <span class="text-danger">*</span></label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="certificate_description"
+                                           name="certificate_description"
+                                           value="{{ $certificateseSettings->certificate_description ?? '' }}"
+                                           placeholder="Enter Certificate Description">
+                                    <div class="invalid-feedback" id="certificate_description_error"></div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Submit -->
                         <div class="row">
                             <div class="col">
@@ -100,11 +115,14 @@
         // Clear errors
         $('#carat_size_error').text('');
         $('#certificate_price_error').text('');
+        $('#certificate_description_error').text('');
         $('#carat_size').removeClass('is-invalid');
         $('#certificate_price').removeClass('is-invalid');
+        $('#certificate_description').removeClass('is-invalid');
 
         let caratSize = $('#carat_size').val().trim();
         let certificatePrice = $('#certificate_price').val().trim();
+        let certificateDescription = $('#certificate_description').val().trim();
         let isValid = true;
 
         // Validate Carat Size
@@ -128,6 +146,12 @@
             $('#certificate_price_error').text('Enter a valid positive number.');
             isValid = false;
         }
+
+         if (certificateDescription === '') {
+            $('#certificate_description').addClass('is-invalid');
+            $('#certificate_description_error').text('Please enter certificate description.');
+            isValid = false;
+        } 
 
         if (!isValid) {
             $('.loadericonfa').hide();
