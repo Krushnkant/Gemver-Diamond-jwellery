@@ -234,7 +234,7 @@ class CartController extends Controller
 
                 if ($itemCart) {
                     // Update certificate values
-                    $itemCart->certificate = $is_certificate_added;
+                    $itemCart->wants_certificate = $is_certificate_added;
                     $itemCart->certificate_price = $certificate_price;
                     $itemCart->save();
 
@@ -253,7 +253,7 @@ class CartController extends Controller
                 foreach ($cart_data as $key => $item) {
                     if ($item['item_id'] == $prod_id) {
                         // Update certificate values
-                        $cart_data[$key]['certificate'] = $is_certificate_added;
+                        $cart_data[$key]['wants_certificate'] = $is_certificate_added;
                         $cart_data[$key]['certificate_price'] = $certificate_price;
                         $item_found = true;
                         break;

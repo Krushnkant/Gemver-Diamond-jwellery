@@ -445,7 +445,7 @@ class OrderController extends Controller
                             $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
                        if ((isset($item_details['certificate_price'])) && ($item_details['certificate_price'] != '0')) {
-                            $table .= '<span>Certificate Price: $ ' . $item_details['certificate_price'] . '</span><br>';
+                            $table .= '<span>Certificate: $ ' . $item_details['certificate_price'] . '</span><br>';
                         }
 
                         if (isset($item_details['itemPayableAmt'])) {
