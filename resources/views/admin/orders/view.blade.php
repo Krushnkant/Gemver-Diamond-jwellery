@@ -377,7 +377,7 @@
                                         @if (isset($item_details['certificate_price']) && $item_details['certificate_price'] != '0')
                                             <tr>
                                                 <td colspan="2"></td>
-                                                <td><strong>Customer Want Certificate for the Diamond:</strong></td>
+                                                <td>Customer requested a certificate for the diamond.</td>
                                                 <td>
                                                     @php
                                                         $quantity = isset($item_details['itemQuantity']) && $item_details['itemQuantity'] > 0 ? $item_details['itemQuantity'] : 1;

@@ -426,44 +426,6 @@
                                                                                 {!! $item_terms !!}
                                                                             </div>
                                                                         @endif
-                                                                        @if (isset($cartValue) && isset($setting->certificate_price) && $cartValue == true)
-                                                                            <div class="mt-3 pt-2 border-top">
-
-                                                                                {{-- Toggle Switch --}}
-                                                                                <div
-                                                                                    class="d-flex align-items-center justify-content-between">
-                                                                                    <label class="mb-0 fw-medium">
-                                                                                        @if (!empty($setting->certificate_description))
-                                                                                            {{ $setting->certificate_description }}
-                                                                                        @else
-                                                                                            Add Diamond Certificate
-                                                                                        @endif:
-                                                                                    </label>
-                                                                                    <label
-                                                                                        class="custom-toggle-switch mb-0">
-                                                                                        <input type="checkbox"
-                                                                                            class="cert-toggle"
-                                                                                            id="certToggle{{ $loop->index }}"
-                                                                                            data-cert-price="{{ $setting->certificate_price }}"
-                                                                                            data-index="{{ $loop->index }}"
-                                                                                            data-id="{{ $data['item_id'] }}"
-                                                                                            {{ !empty($data['wants_certificate']) && $data['wants_certificate'] == 1 ? 'checked' : '' }}>
-                                                                                        <span class="slider round"></span>
-                                                                                    </label>
-                                                                                </div>
-
-                                                                                {{-- Certificate Price --}}
-                                                                                <div id="certPrice{{ $loop->index }}"
-                                                                                    class="text-success fw-semibold mt-2">
-                                                                                    +
-                                                                                    ${{ $setting->certificate_price * $data['item_quantity'] }}
-                                                                                    <small
-                                                                                        class="text-muted">(${{ $setting->certificate_price }}
-                                                                                        × {{ $data['item_quantity'] }}
-                                                                                        Qty)</small>
-                                                                                </div>
-                                                                            </div>
-                                                                        @endif
                                                                         <div class="d-flex flex-wrap" id="speci_multi143">
 
                                                                             <?php
@@ -473,7 +435,7 @@
                                                                                 $spe = '';
                                                                                 foreach ($ProductVariantSpecification as $productvariants) {
                                                                                     $spe .=
-                                                                                        '<div class="me-4"><span class="wire_bangle_select mb-3 me-3 d-inline-block">
+                                                                                        '<div class="me-4"><span class="wire_bangle_select mt-1 mb-1 me-3 d-inline-block">
                                                                                                                                                                                                                                         <select name="AtributeSpecification' .
                                                                                         $productvariants->id .
                                                                                         '" id="AtributeSpecification' .
@@ -511,6 +473,44 @@
                                                                             }
                                                                             ?>
                                                                         </div>
+                                                                        @if (isset($cartValue) && isset($setting->certificate_price) && $cartValue == true)
+                                                                            <div class="mt-3 pt-2 border-top">
+
+                                                                                {{-- Toggle Switch --}}
+                                                                                <div
+                                                                                    class="d-flex align-items-center justify-content-between">
+                                                                                    <label class="mb-0 fw-medium">
+                                                                                        @if (!empty($setting->certificate_description))
+                                                                                            {{ $setting->certificate_description }}
+                                                                                        @else
+                                                                                            Add Diamond Certificate
+                                                                                        @endif
+                                                                                    </label>
+                                                                                    <label
+                                                                                        class="custom-toggle-switch mb-0">
+                                                                                        <input type="checkbox"
+                                                                                            class="cert-toggle"
+                                                                                            id="certToggle{{ $loop->index }}"
+                                                                                            data-cert-price="{{ $setting->certificate_price }}"
+                                                                                            data-index="{{ $loop->index }}"
+                                                                                            data-id="{{ $data['item_id'] }}"
+                                                                                            {{ !empty($data['wants_certificate']) && $data['wants_certificate'] == 1 ? 'checked' : '' }}>
+                                                                                        <span class="slider round"></span>
+                                                                                    </label>
+                                                                                </div>
+
+                                                                                {{-- Certificate Price --}}
+                                                                                <div id="certPrice{{ $loop->index }}"
+                                                                                    class="text-success fw-semibold mt-2">
+                                                                                    +
+                                                                                    ${{ $setting->certificate_price * $data['item_quantity'] }}
+                                                                                    <small
+                                                                                        class="text-muted">(${{ $setting->certificate_price }}
+                                                                                        × {{ $data['item_quantity'] }}
+                                                                                        Qty)</small>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
                                                                     </div>
                                                                     <div class="col-md-5 col-sm-12 mt-md-0 mt-2">
                                                                         <div class="">
