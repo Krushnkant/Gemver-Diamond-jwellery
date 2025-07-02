@@ -219,6 +219,64 @@ class CartController extends Controller
         return view('frontend.cart',compact('setting','BlogBanners','coupons'))->with('cart_data',$cart_data)->with(['meta_title'=>$meta_title,'meta_description'=>$meta_description]);
     }
 
+    public function toggleCertificate(Request $request)
+    {
+            $prod_id = $request->input('id');
+            $is_certificate_added = $request->input('is_certificate_added'); // expected "1" or "0"
+            $certificate_price = $request->input('certificate_price');       // expected string/float like "0" or "10"
+
+            if (session()->has('customer')) {
+                // Logged-in user - use DB cart
+                $itemCart = ItemCart::where([
+                    'user_id' => session('customer.id'),
+                    'item_id' => $prod_id,
+                ])->first();
+
+                if ($itemCart) {
+                    // Update certificate values
+                    $itemCart->wants_certificate = $is_certificate_added;
+                    $itemCart->certificate_price = $certificate_price;
+                    $itemCart->save();
+
+                    return response()->json(['status' => 'Certificate updated in cart']);
+                }
+
+                return response()->json(['status' => 'Item not found in cart']);
+            } else {
+                
+                // Guest user - use cookie cart
+                $cookie_data = Cookie::get('shopping_cart');
+                $cart_data = $cookie_data ? json_decode(stripslashes($cookie_data), true) : [];
+
+                $item_found = false;
+
+                foreach ($cart_data as $key => $item) {
+                    if ($item['item_id'] == $prod_id) {
+                        // Update certificate values
+                        $cart_data[$key]['wants_certificate'] = $is_certificate_added;
+                        $cart_data[$key]['certificate_price'] = $certificate_price;
+                        $item_found = true;
+                        break;
+                    }
+                }
+
+                if ($item_found) {
+                    $item_data = json_encode($cart_data);
+                    $minutes = Config::get('constants.cookie_time', 60); // fallback to 60 minutes
+                    Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+
+                    return response()->json(['status' => 'Certificate updated in cart']);
+                } else {
+                    return response()->json(['status' => 'Item not found in cart']);
+                }
+            }
+  
+     return response()->json([
+        'success' => true,
+        'message' => 'Certificate option updated successfully.'
+     ]);
+    }
+
     public function addtocart(Request $request)
     {
         

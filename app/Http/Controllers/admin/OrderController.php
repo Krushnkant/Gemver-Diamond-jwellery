@@ -209,6 +209,7 @@ class OrderController extends Controller
                         if (isset($item_details['totalItemAmount'])){
                             $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
+                        
                         if (isset($item_details['itemPayableAmt'])){
                             $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
                         }
@@ -443,9 +444,18 @@ class OrderController extends Controller
                         if (isset($item_details['totalItemAmount'])){
                             $table .= '<span>total Amount: $ '.$item_details['totalItemAmount'].'</span>';
                         }
-                        if (isset($item_details['itemPayableAmt'])){
-                            $table .= '<span>Payable Amount: $ '.$item_details['itemPayableAmt'].'</span></td>';
+                       if ((isset($item_details['certificate_price'])) && ($item_details['certificate_price'] != '0')) {
+                            $table .= '<span>Certificate: $ ' . $item_details['certificate_price'] . '</span><br>';
                         }
+
+                        if (isset($item_details['itemPayableAmt'])) {
+                            $payableAmt = $item_details['itemPayableAmt'];
+                            if (isset($item_details['certificate_price'])) {
+                                $payableAmt += $item_details['certificate_price'];
+                            }
+                            $table .= '<strong>Payable Amount: $ ' . number_format($payableAmt, 2) . '</strong>';
+                        }
+
                         $table .= '</tr>';
                         $item++;
                     }

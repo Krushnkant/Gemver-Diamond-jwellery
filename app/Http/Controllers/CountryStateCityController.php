@@ -20,4 +20,6 @@ class CountryStateCityController extends Controller
                     ->get(["name","id"]);
         return response()->json($data);
     }
+
+
 }

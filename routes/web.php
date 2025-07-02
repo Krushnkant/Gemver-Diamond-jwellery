@@ -24,7 +24,7 @@ use App\Http\Controllers\CountryStateCityController;
 use App\Http\Controllers\SocialFeedController;
 use App\Http\Controllers\admin\ShippingSettingsController;
 use Illuminate\Support\Facades\Artisan;
-// use App\Http\Controllers\admin\CertificateSettingsController;
+use App\Http\Controllers\admin\CertificateSettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -130,7 +130,6 @@ Route::get('/diamond-setting-edit/{id}/edit',[DiamondController::class,'editdiam
 
 Route::post('/cart_products',[CartController::class,'cart_products'])->name('frontend.cart_products');
 Route::get('/cart/toggle-certificate',[CartController::class, 'toggleCertificate'])->name('cart.toggleCertificate');
-
 Route::post('/cart',[CartController::class,'save'])->name('frontend.cart.save');
 Route::post('/compare',[CompareController::class,'save'])->name('frontend.compare.save');
 Route::get('/compare/{id}',[CompareController::class,'index'])->name('frontend.compare.list');
@@ -734,8 +733,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('shipping/settings',[ShippingSettingsController::class,'shippingSettings'])->name('shippingsettings');
     Route::post('store/shipping/settings',[ShippingSettingsController::class,'updateShippingSettings'])->name('menupage.updateshippingsettings');
     
-//    Route::get('certificatese/settings',[CertificateSettingsController::class,'certificateseSettings'])->name('certificatesettings');
-//     Route::post('store/certificatese/settings',[CertificateSettingsController::class,'updateCertificateseSettings'])->name('menupage.updatecertificatesettings');
+   Route::get('certificatese/settings',[CertificateSettingsController::class,'certificateseSettings'])->name('certificatesettings');
+    Route::post('store/certificatese/settings',[CertificateSettingsController::class,'updateCertificateseSettings'])->name('menupage.updatecertificatesettings');
     
 });
 
