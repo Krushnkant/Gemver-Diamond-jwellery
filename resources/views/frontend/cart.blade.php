@@ -289,7 +289,8 @@
                                                         }
                                                     }
                                                 }
-                                                $product_attributes_specification = \App\Models\ProductAttribute::leftJoin('attributes', 'attributes.id', '=', 'product_attributes.attribute_id')->where('is_dropdown', 0)->where('use_variation', 0)->where('display_attrname', 'Carat')->where('product_id', $item->product->id)->groupBy('attributes.id')->first();
+                                                $product_attributes_specification = \App\Models\ProductAttribute::leftJoin('attributes', 'attributes.id', '=', 'product_attributes.attribute_id')->where('is_dropdown', 0)->where('use_variation', 0)->whereRaw('LOWER(display_attrname) = ?', ['carat'])
+                                                ->orWhereRaw('LOWER(display_attrname) = ?', ['ct'])->where('product_id', $item->product->id)->groupBy('attributes.id')->first();
                                             
                                                 $product_attributes_term_val = [];
                                             
