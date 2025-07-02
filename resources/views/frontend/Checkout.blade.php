@@ -449,7 +449,7 @@
                                                         @if (!empty($settings->certificate_description))
                                                             {{ $settings->certificate_description }}
                                                         @else
-                                                            Add Diamond Certificate
+                                                            You added a Diamond Certificate for this Item
                                                         @endif
                                                         +
                                                         ${{ $certPrice * $cart['item_quantity'] }}
