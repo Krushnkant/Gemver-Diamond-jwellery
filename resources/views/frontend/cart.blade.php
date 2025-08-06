@@ -51,6 +51,7 @@
             transform: translateX(16px);
             /* Adjusted to match new size */
         }
+ 
     </style>
     <div class="background-sub-slider">
         <div class="">
@@ -241,8 +242,8 @@
                                                 }
                                                 $diamond = \App\Models\Diamond::where('id', $data['diamond_id'])->first();
                                             
-                                                $product_value = (float) $diamond->Weight; // e.g., "1.00" becomes 1.0
-                                                $carat_setting = (float) $setting->carat_size; // e.g., "0.75" becomes 0.75
+                                                 $product_value = number_format($item->Weight, 2);
+                                                $carat_setting = number_format($setting->carat_size, 2);
                                             
                                                 $cartValue = '';
                                                 if ($product_value >= $carat_setting) {
@@ -292,21 +293,25 @@
                                                 $product_attributes_specification = \App\Models\ProductAttribute::leftJoin('attributes', 'attributes.id', '=', 'product_attributes.attribute_id')->where('is_dropdown', 0)->where('use_variation', 0)->whereRaw('LOWER(display_attrname) = ?', ['carat'])
                                                 ->orWhereRaw('LOWER(display_attrname) = ?', ['ct'])->where('product_id', $item->product->id)->groupBy('attributes.id')->first();
                                             
-                                                $product_attributes_term_val = [];
-                                            
+                                               $product_attributes_term_val = [];
+
                                                 $product_term_cleaned = '';
+
                                                 if ($product_attributes_specification && $product_attributes_specification->terms_id) {
-                                                    $term = \App\Models\AttributeTerm::where('estatus', 1)->where('id', $product_attributes_specification->terms_id)->pluck('attrterm_name')->first(); // single string like "1.00 Ct"
-                                            
+                                                    // Get attribute term name like "1.10 Ct"
+                                                    $term = \App\Models\AttributeTerm::where('estatus', 1)
+                                                        ->where('id', $product_attributes_specification->terms_id)
+                                                        ->value('attrterm_name'); // more concise than pluck()->first()
+
                                                     if ($term) {
-                                                        // Keep only numbers and dot
+                                                        // Extract numeric part with dot — result is string like "1.10"
                                                         $product_term_cleaned = preg_replace('/[^0-9.]/', '', $term);
                                                     }
                                                 }
-                                            
-                                                $product_value = (float) $product_term_cleaned; // e.g., "1.00" becomes 1.0
-                                                $carat_setting = (float) $setting->carat_size; // e.g., "0.75" becomes 0.75
-                                            
+
+                                                $product_value = number_format($product_term_cleaned, 2);
+                                                $carat_setting = number_format($setting->carat_size, 2);
+
                                                 $cartValue = '';
                                                 if ($product_value >= $carat_setting) {
                                                     $cartValue = true;
@@ -326,10 +331,11 @@
                                                 }
                                                 $url = URL('product-details/' . $item['slug']);
                                             } else {
+                                         
                                                 $item = \App\Models\Diamond::where('id', $data['item_id'])->first();
-                                                $product_value = (float) $item->Weight; // e.g., "1.00" becomes 1.0
-                                                $carat_setting = (float) $setting->carat_size; // e.g., "0.75" becomes 0.75
-                                            
+                                                $product_value = number_format($item->Weight, 2);
+                                                $carat_setting = number_format($setting->carat_size, 2);
+
                                                 $cartValue = '';
                                                 if ($product_value >= $carat_setting) {
                                                     $cartValue = true;
@@ -478,17 +484,11 @@
                                                                             <div class="mt-3 pt-2 border-top">
 
                                                                                 {{-- Toggle Switch --}}
-                                                                                <div
-                                                                                    class="d-flex align-items-center justify-content-between">
-                                                                                    <label class="mb-0 fw-medium">
-                                                                                        @if (!empty($setting->certificate_description))
-                                                                                            {{ $setting->certificate_description }}
-                                                                                        @else
-                                                                                            Add Diamond Certificate
-                                                                                        @endif
+                                                                                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
+                                                                                    <label class="mb-1 fw-medium">
+                                                                                        {{ $setting->certificate_description ?? 'Add Diamond Certificate' }}
                                                                                     </label>
-                                                                                    <label
-                                                                                        class="custom-toggle-switch mb-0">
+                                                                                    <label class="custom-toggle-switch mb-0">
                                                                                         <input type="checkbox"
                                                                                             class="cert-toggle"
                                                                                             id="certToggle{{ $loop->index }}"
