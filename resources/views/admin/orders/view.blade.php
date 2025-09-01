@@ -416,12 +416,11 @@
                                         <tr>
                                             <td class="text-right" colspan="4">
                                                 <h5>Coupon Discount</h5>
-                                                <h5>Apply Coupon Code</h5>
+                                                <span>( Apply Coupon Code : {{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }} )</span>
                                             </td>
                                             <td></td>
                                             <td>
                                                 <h5>$ {{ $Order->discount_amount }}</h5>
-                                                <h5>{{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }}</h5>
                                             </td>
                                         </tr>
                                     @endif
