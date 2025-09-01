@@ -525,7 +525,7 @@
                                 <input class="form-check-input" type="hidden" name="coupan_discount"
                                     id="coupan_discount" value="{{ $coupan_discount_amount }}">
                                 <input class="form-check-input" type="hidden" name="coupan_code_id" id="coupan_code_id"
-                                    value="{{ session('coupon.id') }}">
+                                    value="{{ session('coupon.coupon_id') }}">
                             </div>
                         </div>
                         @php

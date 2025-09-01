@@ -14,6 +14,9 @@ use Config;
 use Illuminate\Support\Facades\Validator;
 use App\Models\BlogBanner;
 use Carbon\Carbon;
+use App\Models\Order;
+use App\Models\Address;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -479,6 +482,7 @@ class CartController extends Controller
 
     public function redeem_coupon(Request $request)
     {
+
         $messages = [
             'coupon_code.required' =>'Please provide a coupon code',
         ];
@@ -490,15 +494,38 @@ class CartController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors(),'status'=>'failed']);
         }
+        
 
         $coupon = Coupon::where('coupon_code', $request->coupon_code)->first();
+  
         if (!$coupon) {
             return response()->json(['status' => '400','message'=>' Invalid coupon code. Please try again.']);
         }
+
+        if ($coupon->expiry_date && \Carbon\Carbon::now()->gt($coupon->expiry_date)) {
+            return response()->json(['status' => '400','message'=>'This coupon has expired.']);
+        }
+
+        $orderData = session('order_request_data', []);
+        $address_info = Address::find($orderData['address_id']);
+        $userId = 0;
+        if(isset($address_info->user_id))
+        {
+          $userId =  $address_info->user_id;
+        }else{
+           $userId = Auth::id();
+        }
+
+       $userCheckCouponCode =  Order::where('user_id', $userId)->where('coupan_code_id', $coupon->id)->first();
+        if ($userCheckCouponCode) {
+            return response()->json(['status' => '400', 'message' => 'You have already used this coupon.']);
+        }
+
         $data = [
             'discount_type_id' => $coupon->discount_type_id,
             'coupon_amount' => $coupon->coupon_amount,
-            'usage_per_user' => $coupon->usage_per_user
+            'usage_per_user' => $coupon->usage_per_user,
+            'coupon_id' => $coupon->id,
         ];
         $request->session()->put('coupon',  $data);
 
