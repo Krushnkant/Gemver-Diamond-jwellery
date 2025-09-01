@@ -412,24 +412,20 @@
                                             <h5>$ {{ $Order->shipping_charge }}</h5>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="text-right" colspan="4">
-                                            <h5>Coupon Discount</h5>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h5>$ {{ $Order->discount_amount }}</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right" colspan="4">
-                                            <h5>Coupon Code</h5>
-                                        </td>
-                                        <td></td>
-                                        <td>
-                                            <h5>{{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }}</h5>
-                                        </td>
-                                    </tr>
+                                    @if ((isset($Order->coupan->coupon_code)) && ($Order->coupan_code_id != '0'))      
+                                        <tr>
+                                            <td class="text-right" colspan="4">
+                                                <h5>Coupon Discount</h5>
+                                                <h5>Apply Coupon Code</h5>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <h5>$ {{ $Order->discount_amount }}</h5>
+                                                <h5>{{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }}</h5>
+                                            </td>
+                                        </tr>
+                                    @endif
+
                                     {{-- <tr>
                                     <td class="text-right" colspan="4"><h5>Refund Amount</h5></td>
                                     <td></td>
