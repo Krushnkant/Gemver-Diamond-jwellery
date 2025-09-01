@@ -431,7 +431,7 @@ class DiamondController extends Controller
 
         } catch (\Exception $e) {
 
-            \Log::error('Error occurred: ' . $e->getMessage());
+            // \Log::error('Error occurred: ' . $e->getMessage());
             $Diamond = array();
         }
         //$OrderIncludes = OrderIncludes::with('OrderIncludesData')->where(['estatus' => 1])->first();
@@ -449,7 +449,7 @@ class DiamondController extends Controller
 
         } catch (\Exception $e) {
 
-            \Log::error('Error occurred: ' . $e->getMessage());
+            // \Log::error('Error occurred: ' . $e->getMessage());
         }
         
         $settings = Settings::first();

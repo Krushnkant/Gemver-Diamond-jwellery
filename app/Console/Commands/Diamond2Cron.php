@@ -42,7 +42,7 @@ class Diamond2Cron extends Command
     public function handle()
     {
         
-        \Log::info("Diamond Heart Radiant Marquise Princess Pear Uploaded!");
+        // \Log::info("Diamond Heart Radiant Marquise Princess Pear Uploaded!");
         $oldids = Diamond::whereIn('Shape',['Radiant','Marquise','Princess','Pear'])->get()->pluck('diamond_id')->toarray();
         $PriceRanges = PriceRange::where('estatus',1)->get();
         $Company = Company::where('id',1)->first();
@@ -129,9 +129,9 @@ class Diamond2Cron extends Command
                         
                         $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                         if($Diamond){
-                            \Log::info("(Already Exist Diamond: ".$collection->id);
+                            // \Log::info("(Already Exist Diamond: ".$collection->id);
                             if($Diamond->Sale_Amt != $sale_amt){
-                                \Log::info("(Updating this Diamond: ".$collection->id);
+                                // \Log::info("(Updating this Diamond: ".$collection->id);
                                 $Diamond->Amt = $collection->total_sales_price;      
                                 $Diamond->Sale_Amt = $sale_amt;      
                                 $Diamond->real_Amt = $real_amt; 
@@ -139,7 +139,7 @@ class Diamond2Cron extends Command
                                 $Diamond->amt_discount = $percentage;
                                 $Diamond->StockStatus = $collection->available;
                                 if($Diamond->save()){
-                                    \Log::info("(Updated Diamond: ".$collection->id);
+                                    // \Log::info("(Updated Diamond: ".$collection->id);
                                 }
                             }    
                         }else{ 
@@ -198,7 +198,7 @@ class Diamond2Cron extends Command
                                 
                             ]);
                             Diamond::insert($data);
-                            \Log::info("(New Added Diamond: ".$collection->id);
+                            // \Log::info("(New Added Diamond: ".$collection->id);
                         } 
                         
                     }  
@@ -290,7 +290,7 @@ class Diamond2Cron extends Command
                                     $Diamond->amt_discount = $percentage;
                                     $Diamond->StockStatus = $collection->available;
                                     if($Diamond->save()){
-                                        \Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
+                                        // \Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
                                     }
                                 }    
                             } else { 
@@ -348,8 +348,8 @@ class Diamond2Cron extends Command
                                     
                                 ]);
                                 Diamond::insert($data);
-                                \Log::info("New Added Diamond: ".$collection->id." | page_number=".$x);
-                                \Log::info("=============================================");
+                                // \Log::info("New Added Diamond: ".$collection->id." | page_number=".$x);
+                                // \Log::info("=============================================");
                             }
                         }  
                     }

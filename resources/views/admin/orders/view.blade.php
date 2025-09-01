@@ -154,6 +154,8 @@
                                     </div>
                                 </div>
 
+                                
+
                                 <div class="col-lg-6 col-md-6 col-sm-12" id="shippingAddressBox">
                                     <div class="row custom-row">
                                         <div class="col-sm-4">
@@ -214,16 +216,16 @@
                                                 for="DelAddress2"></label>
                                         </div>
                                     </div>
-                                    {{-- <div class="row custom-row">
-                                    <div class="col-sm-4">
-                                        <b>Landmark <span class="text-danger">*</span></b>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <!-- <input type="text" class="form-control input-flat" id="Landmark" name="Landmark" value="{{ $delivery_address['Landmark'] }}" @if ($Order->order_status == 4) disabled @endif> -->
-                                        <input type="text" class="form-control input-flat" id="Landmark" name="Landmark" value="{{ $delivery_address['Landmark'] }}">
-                                        <label id="Landmark-error" class="error invalid-feedback animated fadeInDown" for="Landmark"></label>
-                                    </div>
-                                </div> --}}
+                                        {{-- <div class="row custom-row">
+                                        <div class="col-sm-4">
+                                            <b>Landmark <span class="text-danger">*</span></b>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <!-- <input type="text" class="form-control input-flat" id="Landmark" name="Landmark" value="{{ $delivery_address['Landmark'] }}" @if ($Order->order_status == 4) disabled @endif> -->
+                                            <input type="text" class="form-control input-flat" id="Landmark" name="Landmark" value="{{ $delivery_address['Landmark'] }}">
+                                            <label id="Landmark-error" class="error invalid-feedback animated fadeInDown" for="Landmark"></label>
+                                        </div>
+                                    </div> --}}
                                     <div class="row custom-row">
                                         <div class="col-sm-4">
                                             <b>City <span class="text-danger">*</span></b>
@@ -273,6 +275,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </form>
@@ -416,6 +419,15 @@
                                         <td></td>
                                         <td>
                                             <h5>$ {{ $Order->discount_amount }}</h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right" colspan="4">
+                                            <h5>Coupon Code</h5>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <h5>{{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }}</h5>
                                         </td>
                                     </tr>
                                     {{-- <tr>
