@@ -416,7 +416,7 @@
                                         <tr>
                                             <td class="text-right" colspan="4">
                                                 <h5>Coupon Discount</h5>
-                                                <span>( Apply Coupon Code : {{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }} )</span>
+                                                <span>( Applied Coupon : {{ isset($Order->coupan->coupon_code) ? $Order->coupan->coupon_code :"" }} )</span>
                                             </td>
                                             <td></td>
                                             <td>
@@ -424,12 +424,11 @@
                                             </td>
                                         </tr>
                                     @endif
-
-                                    {{-- <tr>
-                                    <td class="text-right" colspan="4"><h5>Refund Amount</h5></td>
-                                    <td></td>
-                                    <td><h5>$ {{ $Order->total_refund_amount }}</h5></td>
-                                </tr> --}}
+                                     {{-- <tr>
+                                        <td class="text-right" colspan="4"><h5>Refund Amount</h5></td>
+                                        <td></td>
+                                        <td><h5>$ {{ $Order->total_refund_amount }}</h5></td>
+                                    </tr> --}}
                                     <tr>
                                         <td class="text-right" colspan="4">
                                             <h5>Order Total Cost</h5>
