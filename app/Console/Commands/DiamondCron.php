@@ -295,7 +295,7 @@ class DiamondCron extends Command
                                         $Diamond->amt_discount = $percentage;
                                         $Diamond->StockStatus = $collection->available;
                                         if($Diamond->save()){
-                                            ::info("Updated Diamond: ".$collection->id." | page_number=".$x);
+                                            //Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
                                         }
                                     }    
                                 }else{ 
