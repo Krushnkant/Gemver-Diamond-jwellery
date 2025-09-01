@@ -800,7 +800,7 @@ class OrderController extends Controller
                     if ($request->order_status == 8 && $Order->payment_type == 1){
                         $Order->total_refund_amount = $Order->total_refund_amount + $order_item->item_payable_amt;
                         $Order->total_ordercost = $Order->total_ordercost - $order_item->total_item_amount;
-                        $Order->payble_ordercost = $Order->payble_ordercost - $order_item->item_payable_amt;
+                        // $Order->payble_ordercost = $Order->payble_ordercost - $order_item->item_payable_amt;
                         $Order->save();
                     }
                     elseif ($request->order_status == 8 && $Order->payment_type != 1){
@@ -876,15 +876,18 @@ class OrderController extends Controller
              
                 $item_details = json_decode($order_item->item_details,true);
                 $ProductVariant = ProductVariant::where('id',$item_details['variantId'])->first();
-                $ProductVariant->stock = $ProductVariant->stock + $item_details['itemQuantity'];
-                $ProductVariant->save();
+                if ($ProductVariant) 
+                {
+                    $ProductVariant->stock = $ProductVariant->stock + $item_details['itemQuantity'];
+                    $ProductVariant->save();
+                }
 
                 if ($order_item->order_status != 6 && $order_item->order_status != 7 && $order_item->order_status != 8) {
                     $order_item->order_status = $request->order_status;
                     //For refund amount in case of Returned item
                     if ($request->order_status == 6){
                         $Order->total_refund_amount = $Order->total_refund_amount + $order_item->item_payable_amt;
-                        $Order->payble_ordercost = $Order->payble_ordercost - $order_item->item_payable_amt;
+                        // $Order->payble_ordercost = $Order->payble_ordercost - $order_item->item_payable_amt;
                         $Order->save();
                     }
                     //For tillreturned_date
