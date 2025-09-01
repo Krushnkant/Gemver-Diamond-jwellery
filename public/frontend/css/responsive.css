@@ -1,13 +1,3 @@
-@media (min-width: 1530px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1440px;
-    }
-}
 @media (max-width:1920px) {
     .home-slider-box {
         height: 780px;
@@ -50,12 +40,33 @@
     }
 }
 
+@media (min-width: 1530px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1440px;
+    }
+}
+
 @media (max-width:1440px) {
     .home-slider-box {
         height: 590px;
     }
     .home-slider-box .background-slider .desktop-view-img img {
         height: 600px;
+    }
+}
+
+@media (max-width:1430px) {
+    .shape-part-img {
+        display: inline-block;
+    }
+
+    .round_cut_lab_checkbox .round_checkbox_part {
+        margin-bottom: 5px;
     }
 }
 
@@ -2703,74 +2714,14 @@
     }
 }
 
-@media (max-width: 540px) {
-    .select_setting_btn {
-        min-width: 164px;
-    }
-    .home-slider-box {
-        height: 225px;
-    }
-    .category-slider-box .catrgory_img img {
-        height: 350px;
-    }
-    .category-slider-box {
-        height: 460px;
-    }
-    
-    .home-slider-box .background-slider .mobile-view-img img {
-        height: 230px;
-    }
-}
-
-@media (max-width:430px) {
-    .home-slider-box {
-        height: 180px;
-    }
-    .category-slider-box {
-        height: 370px;
-    }
-    .category-slider-box .catrgory_img img {
-        height: 270px;
-    }
-    .engagement_diamond_img img {
-        height: 565px;
-    }
-    .home-slider-box .background-slider .mobile-view-img img {
-        height: 160px;
-    }
-}
-
-@media (max-width:414px) {
-    .home-slider-box {
-        height: 170px;
-    }
-    .category-slider-box {
-        height: 360px;
+@media (max-width:576px) {
+    .engagement_bg_slider {
+        padding: 45px 0;
     }
 
-    .category-slider-box .catrgory_img img {
-        height: 260px;
-    }
-}
-
-@media (max-width: 390px) {
-    .home-slider-box {
-        height: 160px;
-    }
-
-    .select_setting_btn {
-        min-width: 142px;
-    }
-
-    .category-slider-box {
-        height: 335px;
-    }
-
-    .category-slider-box .catrgory_img img {
-        height: 240px;
-    }
-    .engagement_diamond_img img {
-        height: 510px;
+    .custom_made_heading {
+        font-size: 20px;
+        line-height: normal;
     }
 }
 
@@ -2852,6 +2803,77 @@
     }
 }
 
+@media (max-width: 540px) {
+    .select_setting_btn {
+        min-width: 164px;
+    }
+    .home-slider-box {
+        height: 225px;
+    }
+    .category-slider-box .catrgory_img img {
+        height: 350px;
+    }
+    .category-slider-box {
+        height: 460px;
+    }
+    
+    .home-slider-box .background-slider .mobile-view-img img {
+        height: 230px;
+    }
+}
+
+@media (max-width:430px) {
+    .home-slider-box {
+        height: 180px;
+    }
+    .category-slider-box {
+        height: 370px;
+    }
+    .category-slider-box .catrgory_img img {
+        height: 270px;
+    }
+    .engagement_diamond_img img {
+        height: 565px;
+    }
+    .home-slider-box .background-slider .mobile-view-img img {
+        height: 160px;
+    }
+}
+
+@media (max-width:414px) {
+    .home-slider-box {
+        height: 170px;
+    }
+    .category-slider-box {
+        height: 360px;
+    }
+
+    .category-slider-box .catrgory_img img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 390px) {
+    .home-slider-box {
+        height: 160px;
+    }
+
+    .select_setting_btn {
+        min-width: 142px;
+    }
+
+    .category-slider-box {
+        height: 335px;
+    }
+
+    .category-slider-box .catrgory_img img {
+        height: 240px;
+    }
+    .engagement_diamond_img img {
+        height: 510px;
+    }
+}
+
 @media (max-width:360px) {
     .home-slider-box {
         height: 150px;
@@ -2861,17 +2883,6 @@
     }
     .category-slider-box .catrgory_img img {
         height: 220px;
-    }
-}
-
-@media (max-width:576px) {
-    .engagement_bg_slider {
-        padding: 45px 0;
-    }
-
-    .custom_made_heading {
-        font-size: 20px;
-        line-height: normal;
     }
 }
 
@@ -3825,16 +3836,6 @@
 
     .lab_grown_diamonds_text {
         top: 84%;
-    }
-}
-
-@media (max-width:1430px) {
-    .shape-part-img {
-        display: inline-block;
-    }
-
-    .round_cut_lab_checkbox .round_checkbox_part {
-        margin-bottom: 5px;
     }
 }
 
