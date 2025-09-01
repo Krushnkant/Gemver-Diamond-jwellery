@@ -26,8 +26,7 @@ class PayPalPaymentController extends Controller
             $provider->setApiCredentials(config('paypal'));
             $provider->getAccessToken();
 
-            // $totalAmount = $request->payble_ordercost ?? '1.00'; // default fallback
-            $totalAmount = '1.00'; // default fallback
+            $totalAmount = $request->payble_ordercost; 
 
             $response = $provider->createOrder([
                 "intent" => "CAPTURE",
@@ -77,6 +76,7 @@ class PayPalPaymentController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
+
          if (is_array($response) && isset($response['status']) && $response['status'] === 'COMPLETED') {
 
                  $orderData = session('order_request_data', []);
@@ -100,6 +100,8 @@ class PayPalPaymentController extends Controller
                         'Pincode' => $address_info->pincode
                     ];
 
+                    $jsonResponse = json_encode($response);
+
                     // Create Order
                     $order = new Order();
                     $order->user_id = $address_info->user_id;
@@ -110,6 +112,7 @@ class PayPalPaymentController extends Controller
                     $order->discount_amount = $orderData['coupan_discount'] ?? 0;
                     $order->coupan_code_id = $orderData['coupan_code_id'] ?? 0;
                     $order->total_ordercost = $orderData['payble_ordercost'] ?? null;
+                    $order->paypal_response = $jsonResponse; 
                     $order->payment_type = $orderData['payment_type'] ?? 1;
                     $order->payment_transaction_id = isset($response['id']) ? $response['id'] :"";
                     $order->payment_currency = isset($response['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code']) ? $response['purchase_units'][0]['payments']['captures'][0]['amount']['currency_code'] :"USD";
