@@ -20,4 +20,8 @@ class Order extends Model
     public function user(){
         return $this->hasOne(User::class,'id','user_id');
     }
+
+     public function coupan(){
+        return $this->hasOne(Coupon::class,'id','coupan_code_id');
+    }
 }
