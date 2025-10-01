@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                             @endif --}}
-                            
+
                             {{-- @if($Diamond->Table_Diameter_Per != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -178,9 +178,9 @@
                                 </div>
                             </div>
 
-                    
-                            
-                        
+
+
+
                             {{-- @if($Diamond->Girdle_Per != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -191,7 +191,7 @@
                                 </div>
                             </div>
                             @endif --}}
-                          
+
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> carat </span>
@@ -201,8 +201,8 @@
                                 </div>
                             </div>
 
-                            
-                            
+
+
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Symmetry</span>
@@ -211,7 +211,7 @@
                                     @endif
                                 </div>
                             </div>
-                        
+
                             {{-- @if($Diamond->CrownAngle != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -231,7 +231,7 @@
                                 </div>
                             </div>
 
-                            
+
                             {{-- @if($Diamond->PavillionAngle != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -276,7 +276,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
@@ -296,9 +296,9 @@
                                 </div>
                             </div>
                             @endif
-                            
+
                             @if($Diamond->Measurement != "")
-                            
+
                             @endif
                             @if($Diamond->POLISH != "")
                             <div class="col-xl-6 ps-0">
@@ -310,7 +310,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+
                             @if($Diamond->Ratio != "")
                             <div class="col-xl-6 ps-0">
                                 <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -341,9 +341,9 @@
                                 </div>
                             </div>
                             @endif --}}
-                            
-                            
-                            
+
+
+
                         </div>
                     </div>
                     <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
@@ -409,6 +409,7 @@
                                 <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
                                     @csrf
                                     <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
+                                     <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <div class="row mb-4">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="name" placeholder="your name"
@@ -490,15 +491,15 @@
 
                             <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-diamond-details"
                                 data-variant_id="{{ $Diamond->id }}" data-item_type="1" target="_blank">
-                                <?php 
-                                    if(is_wishlist($Diamond->id,0)){ 
+                                <?php
+                                    if(is_wishlist($Diamond->id,0)){
                                         ?>
                                 <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
-                                <?php 
-                                    } else { 
+                                <?php
+                                    } else {
                                         ?>
                                 <i class="far fa-heart"></i> &nbsp; Add to Wishlist
-                                <?php 
+                                <?php
                                     }
                                     ?>
                             </a>
@@ -811,7 +812,7 @@
             </div>
         </div>
     </div> --}}
-    <?php 
+    <?php
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
         ?>
     <div class="mt-md-5 mt-4 px-3 mb-md-5 mb-4">
@@ -848,7 +849,7 @@
                         $Diamond_image = $Diamond->Stone_Img_url;
                     }else{
                         if($Diamond->Shape == strtoupper('round')){
-                            $Diamond_image = url('frontend/image/1.png');    
+                            $Diamond_image = url('frontend/image/1.png');
                         }elseif($Diamond->Shape == strtoupper('oval')){
                             $Diamond_image = url('frontend/image/2.png');
                         }elseif($Diamond->Shape == strtoupper('emerald')){
@@ -1269,7 +1270,7 @@
                         //     $('#inquiry-error').show().text(res.errors.inquiry);
                         // } else {
                         //     $('#inquiry-error').hide();
-                        // } 
+                        // }
                     }
                     if (res.status == 200) {
 
