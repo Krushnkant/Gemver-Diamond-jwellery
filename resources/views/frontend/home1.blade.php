@@ -70,12 +70,12 @@ $settings = \App\Models\Settings::first();
             @if($banner->application_dropdown_id == 1)
             <?php  $banner_url =  "#"?>
             @elseif($banner->application_dropdown_id == 2)
-            <?php 
+            <?php
                         $product_variant = \App\Models\ProductVariant::where('estatus',1)->where('product_id',$banner->product_variant_id)->first(['slug']);
                         $banner_url = isset($product_variant->slug)?URL('product-details/'.$product_variant->slug):"#";
                     ?>
             @elseif($banner->application_dropdown_id == 3)
-            <?php 
+            <?php
                         $category = \App\Models\Category::where('estatus',1)->where('id',$banner->value)->first(['slug']);
                         $banner_url = isset($category->slug)?URL('shop/'.$category->slug):"#";
                     ?>
@@ -219,7 +219,7 @@ $settings = \App\Models\Settings::first();
                 </div>
                 <div>
                     <div class="owl-carousel owl-theme products_item">
-                        <?php 
+                        <?php
                     $shape_no = 1;
                     // $supported_video = array(
                     //     'mov',
@@ -227,12 +227,12 @@ $settings = \App\Models\Settings::first();
                     //     '3gp'
                     // );
                     $index = 0;
-                   
+
                     ?>
                         @foreach($products as $product)
 
                         <?php
-                    
+
                        // $video_array = array();
                        // $images_array = array();
                         $images = explode(",",$product->images);
@@ -243,11 +243,11 @@ $settings = \App\Models\Settings::first();
                         //         $video_array[] = $value;
                         //     }else{
                         //         $images_array[] = $value;
-                        //     } 
+                        //     }
                         // }
-                        // $new_array = array_merge($video_array,$images_array);   
+                        // $new_array = array_merge($video_array,$images_array);
                         // $image = URL($new_array['0']);
-                         
+
                         // $supported_image = array(
                         // 'jpg',
                         // 'jpeg',
@@ -255,22 +255,22 @@ $settings = \App\Models\Settings::first();
                         // );
 
                         $sale_price = $product->sale_price;
-                        $url =  URL('product-details/'.$product->slug); 
+                        $url =  URL('product-details/'.$product->slug);
 
                         $alt_text = "";
                         if($product->alt_text != ""){
                             $alt_texts = explode(",",$product->alt_text);
                             $alt_text = $alt_texts['0'];
                         }
-                    
+
                     ?>
                         <div class="hover_effect_part wire_bangle_shop_radio product-data">
                             <div class="wire_bangle_img_radio_button">
                                 <div class="wire_bangle_img position-relative">
                                     <a class="wire_bangle_hover_a" href="{{ $url }}">
-                                        <?php 
-                                  // $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                                  // if(in_array($ext, $supported_image)) {  
+                                        <?php
+                                  // $ext = pathinfo($image, PATHINFO_EXTENSION);
+                                  // if(in_array($ext, $supported_image)) {
                                 ?>
 
                                         {{-- <img src="{{ $image }}" alt="{{ $alt_text }}" loading="lazy"> --}}
@@ -285,9 +285,9 @@ $settings = \App\Models\Settings::first();
                                     </a>
                                 </div>
                                 <div class="wire_bangle_description p-2">
-                                    <?php 
+                                    <?php
                                 //$ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute_terms')->where('estatus',1)->where('product_id',$product->id)->groupBy('attribute_id')->get();
-                             
+
                                 $ProductVariantVariant = \App\Models\ProductVariantVariant::select('slug','attrterm_thumb','attrterm_name')->leftJoin("attribute_terms",function($join){
                                         $join->on("product_variant_variants.attribute_term_id","=","attribute_terms.id")
                                             ->whereNotNull('attrterm_thumb');
@@ -301,7 +301,7 @@ $settings = \App\Models\Settings::first();
                                                // $product_attribute = \App\Models\ProductVariantVariant::with('attribute_terms','product_variant')->where('estatus',1)->where('attribute_id',$productvariants->attribute_id)->where('product_id',$product->id)->groupBy('attribute_term_id')->get();
                                                 $ia = 1;
                                                 foreach($ProductVariantVariant as $productvariants){
-                                                    $attributeurl =  URL('product-details/'.$productvariants->slug); 
+                                                    $attributeurl =  URL('product-details/'.$productvariants->slug);
                                                     ?>
                                             <span class="form-check d-inline-block">
                                                 <a href="{{ $attributeurl }}">
@@ -311,15 +311,15 @@ $settings = \App\Models\Settings::first();
                                                 </a>
                                                 <div class="wire_bangle_color_input_label"></div>
                                             </span>
-                                            <?php        
-                                                    $ia++;    
+                                            <?php
+                                                    $ia++;
                                                 }
                                             ?>
                                         </div>
                                     </span>
                                     <?php
-                                    } 
-                               
+                                    }
+
                             ?>
                                     <div class="wire_bangle_heading mb-2">
                                         {{ $product->primary_category->category_name }}
@@ -327,15 +327,15 @@ $settings = \App\Models\Settings::first();
                                         <input type="hidden" class="item_type" value="0">
                                         <span type="button" class="btn btn-default add-to-wishlist-btn"
                                             data-toggle="tooltip" data-placement="right" title="Wishlist">
-                                            <?php 
+                                            <?php
                                         if(is_wishlist($product->variant_id,0)){
                                             ?>
                                             <i class="fas fa-heart heart-icon-part"></i>
-                                            <?php 
-                                        }else{ 
+                                            <?php
+                                        }else{
                                             ?>
                                             <i class="far fa-heart"></i>
-                                            <?php 
+                                            <?php
                                         }
                                     ?>
                                         </span>
@@ -671,12 +671,12 @@ $settings = \App\Models\Settings::first();
                     $homesetting->section_blog_banner_title }}</h2>
                 <div class="row">
                     @foreach($BlogBanners as $BlogBanner)
-                    <?php 
+                    <?php
                         $blogcount = count($BlogBanners);
                         $url = "";
                         if($BlogBanner['dropdown_id'] == 1){
                             $category = \App\Models\Category::where('estatus',1)->where('id',$BlogBanner['value'])->first(['slug']);
-                            $url = isset($category->slug)?url('shop/'.$category->slug):""; 
+                            $url = isset($category->slug)?url('shop/'.$category->slug):"";
                         }elseif($BlogBanner['dropdown_id'] == 2){
                             $Product = \App\Models\Product::where('id',$BlogBanner['value'])->first(['id']);
                             //$cat_id = explode(',',$Product->primary_category_id);
@@ -687,17 +687,17 @@ $settings = \App\Models\Settings::first();
                             }
                         }
                         if($blogcount == 1){
-                        $blogcol = 12; 
+                        $blogcol = 12;
                         }else if($blogcount == 2){
                         $blogcol = 6;
                         }else if($blogcount == 3){
-                        $blogcol = 4;    
+                        $blogcol = 4;
                         }else if($blogcount == 4){
-                        $blogcol = 3;    
+                        $blogcol = 3;
                         }else if($blogcount == 5){
-                        $blogcol = 2;    
+                        $blogcol = 2;
                         }else if($blogcount == 6){
-                        $blogcol = 2;    
+                        $blogcol = 2;
                         }
                     ?>
                     <div class="col-md-{{ $blogcol }} col-sm-12 banner_part">
@@ -867,8 +867,9 @@ $settings = \App\Models\Settings::first();
                                         <div class="row">
 
                                             <form action="" method="post" id="InquiryCreateForm"
-                                                name="InquiryCreateForm" class="px-0">
+                                                name="InquiryCreateForm" class="px-0 InquiryCreateForm">
                                                 @csrf
+                                                     <input type="hidden" name="recaptcha_token" id="recaptcha_token">
 
                                                 <div class="row mb-4 mb-xxl-4">
                                                     <div class="mb-3 col-md-6 ps-0">
@@ -1822,18 +1823,18 @@ $settings = \App\Models\Settings::first();
                 <?php
                 $media_url = isset($post["media_url"]) ? $post["media_url"] : "";
                 $permalink = isset($post["permalink"]) ? $post["permalink"] : "";
-                $media_type = isset($post["media_type"]) ? $post["media_type"] : ""; 
-                $thumbnail_url = isset($post["thumbnail_url"]) ? $post["thumbnail_url"] : ""; 
+                $media_type = isset($post["media_type"]) ? $post["media_type"] : "";
+                $thumbnail_url = isset($post["thumbnail_url"]) ? $post["thumbnail_url"] : "";
             ?>
                 <a href="{{ $permalink }}" target='_blank'>
                     <div class="custom-col item">
                         <div class="instafeed_inner">
                             <?php
                     if($media_type=="VIDEO"){
-                    
+
                         echo "<img src='{$thumbnail_url}' style='height:300px;'  />";
                     }
- 
+
                     else{
                         echo "<img src='{$media_url}' style='height:300px;'  />";
                     }
@@ -1993,7 +1994,7 @@ $settings = \App\Models\Settings::first();
                             //         $('.auto-load').html("We don't have more data to display ");
                             //         return;
                             //     }
-                            //     $('.auto-load').hide();   
+                            //     $('.auto-load').hide();
                             //     $("#data-wrapper").append(response['artilces']);
                             // }else{
                             //     if (response['artilces'] == "") {
@@ -2001,9 +2002,9 @@ $settings = \App\Models\Settings::first();
                             //         $('.auto-load').hide();
                             //         return;
                             //     }
-                            //     $("#data-wrapper").html(response['artilces']);  
-                            //     $('.auto-load').hide(); 
-                            // }  
+                            //     $("#data-wrapper").html(response['artilces']);
+                            //     $('.auto-load').hide();
+                            // }
 
                         }
                     });

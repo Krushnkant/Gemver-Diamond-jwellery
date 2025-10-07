@@ -406,7 +406,7 @@
                                     </div>
                                 </div>
 
-                                <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm" class="InquiryCreateForm">
                                     @csrf
                                     <input type="hidden" class="d-block mb-3 wire_bangle_input" id='stone_no' name="stone_no" value="{{ $Diamond->Stone_No }}">
                                      <input type="hidden" name="recaptcha_token" id="recaptcha_token">
