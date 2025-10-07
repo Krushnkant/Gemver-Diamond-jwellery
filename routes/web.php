@@ -44,7 +44,7 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-//Frontend Route 
+//Frontend Route
 
 Route::get('/sitemap.xml',[HomeController::class,'sitemap']);
 
@@ -96,13 +96,13 @@ Route::get('custom-made-jewelry',[OtherPageController::class,'custommadejeweller
 Route::get('wedding-bands',[OtherPageController::class,'weddingbands']);
 
 
-Route::get('/shop/{catid?}',[ProductController::class,'index'])->name('frontend.shop'); 
+Route::get('/shop/{catid?}',[ProductController::class,'index'])->name('frontend.shop');
 Route::get('/product-details/{variantslug}',[ProductController::class,'product_detail'])->name('frontend.product.productdetails');
 Route::post('/product-filter',[ProductController::class,'fetchproduct'])->name('frontend.product.productfilter');
 Route::post('/product-details-filter',[ProductController::class,'fetchproductdetails'])->name('frontend.product.productdetailsfilter');
 Route::post('/product-details-variants',[ProductController::class,'fetchvariants'])->name('frontend.product.productdetailsvariants');
-Route::post('/search_products',[ProductController::class,'search_products'])->name('frontend.search_products'); 
- 
+Route::post('/search_products',[ProductController::class,'search_products'])->name('frontend.search_products');
+
 
 Route::get('infopage/blogs',[BlogController::class,'index'])->name('frontend.blogs');
 Route::post('/blogs-filter',[BlogController::class,'fetchblogs'])->name('frontend.blogs.blogfilter');
@@ -196,7 +196,7 @@ Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity'
  Route::post('handle-payment', [\App\Http\Controllers\PayPalPaymentController::class,'handlePayment'])->name('make.payment');
  Route::get('paypal/payment/success', [\App\Http\Controllers\PayPalPaymentController::class, 'paymentSuccess'])->name('paypal.payment.success');
  Route::get('paypal/payment/cancel', [\App\Http\Controllers\PayPalPaymentController::class, 'paymentCancel'])->name('paypal.payment/cancel');
- 
+
 //  Route::get('cancel-payment', [\App\Http\Controllers\PayPalPaymentController::class,'paymentCancel'])->name('cancel.payment');
 //  Route::get('payment-success', [\App\Http\Controllers\PayPalPaymentController::class,'paymentSuccess'])->name('success.payment');
 
@@ -220,7 +220,7 @@ Route::group(['middleware'=>['frontendauth']],function (){
     // Route::post('updateAddress',[\App\Http\Controllers\AddressController::class,'updateAddress'])->name('address.update');
 
 
-   
+
 
 
     Route::get('orders', [\App\Http\Controllers\OrderController::class,'orders'])->name('order.orders');
@@ -229,7 +229,7 @@ Route::group(['middleware'=>['frontendauth']],function (){
     Route::get('account', [\App\Http\Controllers\AuthController::class,'account'])->name('user.account');
     Route::post('updateProfile',[\App\Http\Controllers\AuthController::class,'updateProfile'])->name('user.update');
     Route::post('updatePassword',[\App\Http\Controllers\AuthController::class,'updatePassword'])->name('password.update');
-    
+
 });
 
 Route::get('frontend/logout', function() {
@@ -313,7 +313,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('drafproducts',[\App\Http\Controllers\admin\ProductController::class,'drafproducts'])->name('drafproducts.list');
     Route::post('alldrafproductlist',[\App\Http\Controllers\admin\ProductController::class,'alldrafproductlist'])->name('alldrafproductlist');
-    
+
     Route::get('users',[\App\Http\Controllers\admin\UserController::class,'index'])->name('users.list');
     Route::post('addorupdateuser',[\App\Http\Controllers\admin\UserController::class,'addorupdateuser'])->name('users.addorupdate');
     Route::post('alluserslist',[\App\Http\Controllers\admin\UserController::class,'alluserslist'])->name('alluserslist');
@@ -448,7 +448,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('why_friendly',[\App\Http\Controllers\admin\InfopageController::class,'why_friendly'])->name('why_friendly.list');
     Route::post('updateWhyFriendly',[\App\Http\Controllers\admin\InfopageController::class,'updateWhyFriendly'])->name('market_need.updateWhyFriendly');
-    
+
     Route::get('learn_about_lab_made_diamonds',[\App\Http\Controllers\admin\InfopageController::class,'learn_about_lab_made_diamonds'])->name('learn_about_lab_made_diamonds.list');
     Route::post('updateLearnAboutLabMadeDiamonds',[\App\Http\Controllers\admin\InfopageController::class,'updateLearnAboutLabMadeDiamonds'])->name('market_need.updateLearnAboutLabMadeDiamonds');
 
@@ -495,7 +495,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('blogs/removefile',[\App\Http\Controllers\admin\BlogController::class,'removefile'])->name('blogs.removefile');
     Route::get('blogs/createSlug/{title}',[\App\Http\Controllers\admin\BlogController::class,'createSlug'])->name('blogs.createSlug');
 
-    
+
     Route::get('banners',[\App\Http\Controllers\admin\BannerController::class,'index'])->name('banners.list');
     Route::get('banners/create',[\App\Http\Controllers\admin\BannerController::class,'create'])->name('banners.add');
     Route::post('banners/save',[\App\Http\Controllers\admin\BannerController::class,'save'])->name('banners.save');
@@ -519,7 +519,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('compoanies',[\App\Http\Controllers\admin\CompanyController::class,'index'])->name('company.list');
     Route::post('updateCompanyPercentage',[\App\Http\Controllers\admin\CompanyController::class,'updateCompanyPercentage'])->name('company.updateCompanyPercentage');
     Route::get('company/{id}/edit',[\App\Http\Controllers\admin\CompanyController::class,'editcompany'])->name('company.edit');
-    
+
     Route::get('addDiamond',[\App\Http\Controllers\admin\DiamondController::class,'addDiamond'])->name('addDiamond');
     Route::get('diamond',[\App\Http\Controllers\admin\DiamondController::class,'index'])->name('diamond.list');
     Route::post('alldiamondlist',[\App\Http\Controllers\admin\DiamondController::class,'alldiamondlist'])->name('alldiamondlist');
@@ -531,7 +531,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('importnewdiamond1', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond1'])->name('diamonds.importnewdiamond1');
     Route::get('importnewdiamond2', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond2'])->name('diamonds.importnewdiamond2');
     Route::get('importnewdiamond3', [\App\Http\Controllers\admin\DiamondController::class, 'importnewdiamond3'])->name('diamonds.importnewdiamond3');
-    
+
     Route::get('changediamondstatus/{id}',[\App\Http\Controllers\admin\DiamondController::class,'changediamondstatus'])->name('diamonds.changediamondstatus');
 
 
@@ -655,7 +655,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::get('redirect-file-import',[\App\Http\Controllers\admin\RedirectController::class,'importView'])->name('redirect.importview');
     Route::post('redirect-import',[\App\Http\Controllers\admin\RedirectController::class,'import'])->name('redirect.import.save');
     Route::get('redirect-export', [\App\Http\Controllers\admin\RedirectController::class, 'export'])->name('redirect.export');
-    
+
 
     Route::get('deals',[\App\Http\Controllers\admin\DealController::class,'index'])->name('deals.list');
     Route::get('deals/create',[\App\Http\Controllers\admin\DealController::class,'create'])->name('deals.add');
@@ -698,7 +698,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
 
     Route::get('return_requests',[\App\Http\Controllers\admin\OrderController::class,'return_requests'])->name('return_requests.list');
     Route::post('allReturnRequestlist',[\App\Http\Controllers\admin\OrderController::class,'allReturnRequestlist'])->name('allReturnRequestlist');
-    
+
 
     Route::get('return_requests_order',[\App\Http\Controllers\admin\OrderController::class,'return_requests_order'])->name('return_requests_order.list');
     Route::post('allReturnRequestOrderlist',[\App\Http\Controllers\admin\OrderController::class,'allReturnRequestOrderlist'])->name('allReturnRequestOrderlist');
@@ -715,7 +715,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('updatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'updatefooterpage'])->name('updatefooterpage');
 
     Route::get('footerpagecategory',[\App\Http\Controllers\admin\MenuPageController::class,'category'])->name('footerpagecategory');
-    
+
     Route::post('whyupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'whyupdatefooterpage'])->name('whyupdatefooterpage');
     Route::post('contactupdatefooterpage',[\App\Http\Controllers\admin\MenuPageController::class,'contactupdatefooterpage'])->name('contactupdatefooterpage');
 
@@ -729,20 +729,20 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','userpermission'],'as'=>'a
     Route::post('socialfeed/uploadfile',[\App\Http\Controllers\admin\SocialFeedController::class,'uploadfile'])->name('socialfeed.uploadfile');
     Route::post('socialfeed/removefile',[\App\Http\Controllers\admin\SocialFeedController::class,'removefile'])->name('socialfeed.removefile');
     Route::get('socialfeed/createSlug/{title}',[\App\Http\Controllers\admin\SocialFeedController::class,'createSlug'])->name('socialfeed.createSlug');
-    
+
     Route::get('shipping/settings',[ShippingSettingsController::class,'shippingSettings'])->name('shippingsettings');
     Route::post('store/shipping/settings',[ShippingSettingsController::class,'updateShippingSettings'])->name('menupage.updateshippingsettings');
-    
+
    Route::get('certificatese/settings',[CertificateSettingsController::class,'certificateseSettings'])->name('certificatesettings');
     Route::post('store/certificatese/settings',[CertificateSettingsController::class,'updateCertificateseSettings'])->name('menupage.updatecertificatesettings');
-    
+
 });
 
 Route::group(['middleware'=>['auth']],function (){
     Route::get('profile',[\App\Http\Controllers\admin\ProfileController::class,'profile'])->name('profile');
     Route::get('profile/{id}/edit',[\App\Http\Controllers\admin\ProfileController::class,'edit'])->name('profile.edit');
     Route::post('profile/update',[\App\Http\Controllers\admin\ProfileController::class,'update'])->name('profile.update');
-    
+
 });
 
 

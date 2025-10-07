@@ -28,29 +28,30 @@
                         <div class="alert alert-success" id="success-alert" style="display: none;">
                              Product have added to your wishlist.
                         </div>
-                        <form  method="post" id="ContactCreateForm" name="ContactCreateForm">
+                        <form  method="post" id="ContactCreateForm" name="ContactCreateForm" class="ContactCreateForm">
                             @csrf
+                                         <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                             <div class="mb-3">
-                                <input type="text" name="name" id="name" placeholder="Your Name" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="name" id="name" placeholder="Your Name" class="d-block wire_bangle_input w-100" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                 <div id="name-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="mobile_no" id="mobile_no" placeholder="Your Mobile Number" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="mobile_no" id="mobile_no" placeholder="Your Mobile Number" class="d-block wire_bangle_input w-100" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                 <div id="mobile_no-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="email" name="email" id="email" placeholder="Your Email Address" class="d-block wire_bangle_input w-100">
+                                <input type="email" name="email" id="email" placeholder="Your Email Address" class="d-block wire_bangle_input w-100" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                 <div id="email-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="subject" id="subject" placeholder="Your Subject" class="d-block wire_bangle_input w-100">
+                                <input type="text" name="subject" id="subject" placeholder="Your Subject" class="d-block wire_bangle_input w-100" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                 <div id="subject-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
                             <div class="mb-3">
                                 <textarea type="text" rows="8" name="message" id="message" placeholder="Your Message" class="d-block wire_bangle_input w-100"></textarea>
                                 <div id="message-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </div>
-                            <button type="submit" id="save_newContactBtn" class="send_inquiry_btn btn-hover-effect btn-hover-effect-black d-flex align-items-center justify-content-center">send 
+                            <button type="submit" id="save_newContactBtn" class="send_inquiry_btn btn-hover-effect btn-hover-effect-black d-flex align-items-center justify-content-center">send
                             <div class="spinner-border loadericonfa" role="status" style="display:none;">
                                 <span class="visually-hidden">Loading...</span>
                                 </div>
@@ -96,12 +97,12 @@
                     </div>
                 </div>
             </div>
-          
+
         </div>
     </div>
 
 <script type="text/javascript">
-$( document ).ready(function() {    
+$( document ).ready(function() {
 $('body').on('click', '#save_newContactBtn', function () {
     save_contact($(this),'save_new');
 });
@@ -121,7 +122,7 @@ function save_contact(btn,btn_type){
         processData: false,
         contentType: false,
         success: function (res) {
-           
+
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
@@ -153,7 +154,7 @@ function save_contact(btn,btn_type){
                     $('#message-error').show().text(res.errors.message);
                 } else {
                     $('#message-error').hide();
-                } 
+                }
             }
             if(res.status == 200){
                 $('#message-error').hide();
@@ -182,7 +183,7 @@ function save_contact(btn,btn_type){
 }
 });
 </script>
-  
+
 
 @endsection()
 

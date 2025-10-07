@@ -139,7 +139,7 @@
     <div class="row">
         <div class="col-md-6 wire_bangle_padding mb-4" id="vimage">
             <div class="slider slider-single mb-5">
-                <?php 
+                <?php
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
@@ -147,13 +147,13 @@
                 <div class="product_slider_main_item">
                     <img src="{{ URL($image) }}" alt="">
                 </div>
-                <?php 
+                <?php
                         }
                     }
                     ?>
             </div>
             <div class="slider slider-nav">
-                <?php 
+                <?php
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
@@ -161,7 +161,7 @@
                 <div class="product_slider_item">
                     <h3><img src="{{ URL($image) }}" alt=""></h3>
                 </div>
-                <?php 
+                <?php
                         }
                     }
                     ?>
@@ -203,7 +203,7 @@
                         <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}
                         </div>
                         <div class="wire_bangle_color pb-md-2 wire_bangle_color_img_part">
-                            <?php 
+                            <?php
                                 $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                     $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                   })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
@@ -224,14 +224,14 @@
                             <?php $ia++ ?>
                             @endforeach
                         </div>
-                        <?php 
-                            }else{ 
+                        <?php
+                            }else{
                              $iv = 1;
                             ?>
                         <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}
                         </div>
                         <div class="wire_bangle_carat">
-                            <?php 
+                            <?php
                                  $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                     $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                   })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
@@ -254,9 +254,9 @@
                             @endforeach
 
                         </div>
-                        <?php 
-                               } 
-                            }  
+                        <?php
+                               }
+                            }
                             ?>
 
                         <div class="d-flex flex-wrap" id="speci_multi143">
@@ -264,33 +264,33 @@
                             <?php
 
                             $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$Product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                            
+
                              $spe = '';
                              foreach($ProductVariantSpecification as $productvariants)
                              {
 
                              $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->display_attrname.'</div><span class="wire_bangle_select mb-3 me-3 d-inline-block">
                                        <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                         <option value="">-- '.$productvariants->display_attrname .'--</option>';   
-                            
+                                         <option value="">-- '.$productvariants->display_attrname .'--</option>';
+
                                  $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                                    // dd($product_attribute);
                                 foreach($product_attribute as $attribute_term){
                                     $term_array = explode(',',$attribute_term->terms_id);
-                                    
+
                                     $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                                     //dd($product_attributes);
                                      $v = 1;
                                      foreach($product_attributes as $term){
-                                     $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
-                                    
+                                     $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>';
+
                                     }
-                                 }   
+                                 }
                                 $spe .='</select>
                                     <div id="AtributeSpecification'.$productvariants->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </span> </div>';
                                 }
-                             
+
                             echo $spe;
                              ?>
                         </div>
@@ -300,7 +300,7 @@
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
-                            foreach($product_attributes_specification as $product_attribute_specification){  
+                            foreach($product_attributes_specification as $product_attribute_specification){
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
@@ -325,15 +325,15 @@
                                 <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-details"
                                     data-variant_id="{{ $Product->product_variant[0]->id }}" data-item_type="0"
                                     target="_blank">
-                                    <?php 
-                                        if(is_wishlist($Product->product_variant[0]->id,0)){ 
+                                    <?php
+                                        if(is_wishlist($Product->product_variant[0]->id,0)){
                                             ?>
                                     <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
-                                    <?php 
-                                        } else { 
+                                    <?php
+                                        } else {
                                             ?>
                                     <i class="far fa-heart"></i> &nbsp; Add to Wishlist
-                                    <?php 
+                                    <?php
                                         }
                                         ?>
                                     {{-- <i class="far fa-heart"></i> &nbsp; Add to Wishlist --}}
@@ -449,13 +449,14 @@
                                 <div class="alert alert-success" id="opinionsuccess-alert" style="display: none;">
                                 </div>
 
-                                <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
+                                <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm" class="opinionCreateForm">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $Product->id }}">
+                                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <div class="row mb-0">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="name" placeholder="your name"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="opinionname-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
@@ -463,7 +464,7 @@
 
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="email" placeholder="enter your email"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="opinionemail-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
@@ -551,7 +552,7 @@
                         <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
-                            foreach($product_attributes_specification as $product_attribute_specification){  
+                            foreach($product_attributes_specification as $product_attribute_specification){
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
@@ -643,26 +644,27 @@
             <div class="alert alert-success" id="cartificatesuccess-alert" style="display: none;">
             </div>
 
-            <form method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm">
+            <form method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm" class="requestCertificateCreateForm">
                 @csrf
                 <input type="hidden" name="item_id" value="{{ $Product->id }}">
+                                 <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                 <div class="row mb-0">
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                        <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="customername-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="phone_number" placeholder="enter your phone number"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="phone_number-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-12 ps-0">
                         <input type="text" name="email" placeholder="enter your email"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="customeremail-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
@@ -710,33 +712,34 @@
             <div class="alert alert-success" id="hintsuccess-alert" style="display: none;">
             </div>
 
-            <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
+            <form action="" method="post" id="hintCreateForm" name="hintCreateForm" class="hintCreateForm">
                 @csrf
                 <input type="hidden" class="d-block mb-3 wire_bangle_input SKU" name="SKU" value="">
+                  <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                 <div class="row mb-0">
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input">
+                        <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintname-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="hintemail" placeholder="enter your email"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintemail-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="friendname" placeholder="your friend name"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintfriendname-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="friendemail" placeholder="enter your friend email"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintfriendemail-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
@@ -1391,7 +1394,7 @@
                         //     $('#inquiry-error').show().text(res.errors.inquiry);
                         // } else {
                         //     $('#inquiry-error').hide();
-                        // } 
+                        // }
                     }
                     if (res.status == 200) {
 

@@ -207,14 +207,14 @@
                                     </span>
                                 </div>
                                 <div class="order-col-part-2  col-9">
-                                    <?php 
+                                    <?php
                                         if(isset($orderdetails->order_status)) {
-                                            
+
                                             $order_status = getOrderStatus($orderdetails->order_status);
-                                           
+
                                             $order_status = '<span class="'.$order_status['class'].'">'.$order_status['order_status'].'</span>';
                                         }
-                                        
+
                                         ?>
                                     {!! $order_status !!}
                                 </div>
@@ -249,11 +249,11 @@
                                 </div>
                                 <div class="order-col-part-2 col-9 pending_status">
                                     <?php
-                                       
+
                                             $payment_status = getPaymentStatusUser($orderdetails->payment_status);
                                             $payment_status = '<span class="'.$payment_status['class'].'">'.$payment_status['payment_status'].'</span>';
-                                        
-                                            
+
+
                                         ?>
                                     {!! $payment_status !!}
                                 </div>
@@ -281,10 +281,10 @@
                                 $no = 1;
                                 ?>
                             @foreach($orderdetails->order_item as $items)
-                            <?php  
+                            <?php
                                   $item_details = json_decode($items->item_details,true);
                                   //dd($item_details);
-                                 
+
                                 ?>
                             <tr>
                                 <td class="number_part">{{ $no }}.</td>
@@ -425,9 +425,10 @@
             <div class="alert alert-success" id="success-alert" style="display: none;"></div>
             <div class="row">
 
-                <form action="" method="post" id="AddReviewForm" name="AddReviewForm" class="px-0">
+                <form action="" method="post" id="AddReviewForm" name="AddReviewForm" class="px-0" class="AddReviewForm">
                     @csrf
 
+                     <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                     <div class="row mb-4 mb-xxl-4">
                         <h4 class="text-center mt-2 mb-4">
                             <i class="fas fa-star star-light submit_star mr-1 text-warning" id="submit_star_1"

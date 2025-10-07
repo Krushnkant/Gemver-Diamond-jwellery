@@ -229,7 +229,8 @@ function save_newslatter(btn,btn_type){
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const forms = document.querySelectorAll('.InquiryCreateForm'); // select all forms by class
+    // Select all forms with InquiryCreateForm OR opinionCreateForm classes
+     const forms = document.querySelectorAll('.InquiryCreateForm, .opinionCreateForm, .hintCreateForm, .ContactCreateForm, .requestCertificateCreateForm, .AddReviewForm');
 
     forms.forEach(function(form) {
         form.addEventListener('submit', function(e) {
@@ -238,9 +239,18 @@ document.addEventListener('DOMContentLoaded', function() {
             grecaptcha.ready(function() {
                 grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: 'inquiry' })
                     .then(function(token) {
-                        const tokenInput = form.querySelector('input[name="recaptcha_token"]');
-                        if (tokenInput) tokenInput.value = token; // set token in that form
-                        form.submit(); // submit this specific form
+                        let tokenInput = form.querySelector('input[name="recaptcha_token"]');
+
+                        // Create token input if it doesn't exist
+                        if (!tokenInput) {
+                            tokenInput = document.createElement('input');
+                            tokenInput.type = 'hidden';
+                            tokenInput.name = 'recaptcha_token';
+                            form.appendChild(tokenInput);
+                        }
+
+                        tokenInput.value = token;
+                        form.submit();
                     });
             });
         });
