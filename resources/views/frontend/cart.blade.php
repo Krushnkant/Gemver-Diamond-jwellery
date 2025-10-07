@@ -51,7 +51,7 @@
             transform: translateX(16px);
             /* Adjusted to match new size */
         }
- 
+
     </style>
     <div class="background-sub-slider">
         <div class="">
@@ -214,10 +214,10 @@
                                                     } else {
                                                         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                                                         $cart_data = json_decode($cookie_data, true);
-                                            
+
                                                         $item_id_list = array_column($cart_data, 'item_id');
                                                         $prod_id_is_there = $data['item_id'];
-                                            
+
                                                         if (in_array($prod_id_is_there, $item_id_list)) {
                                                             foreach ($cart_data as $keys => $values) {
                                                                 if ($cart_data[$keys]['item_id'] == $data['item_id']) {
@@ -231,7 +231,7 @@
                                                         }
                                                     }
                                                 }
-                                            
+
                                                 $item_name = $item->product->product_title;
                                                 $sale_price = $item->sale_price;
                                                 $item_image = explode(',', $item->images);
@@ -241,10 +241,10 @@
                                                     $specifications = $data['specification'];
                                                 }
                                                 $diamond = \App\Models\Diamond::where('id', $data['diamond_id'])->first();
-                                            
+
                                                  $product_value = number_format($item->Weight, 2);
                                                 $carat_setting = number_format($setting->carat_size, 2);
-                                            
+
                                                 $cartValue = '';
                                                 if ($product_value >= $carat_setting) {
                                                     $cartValue = true;
@@ -253,7 +253,7 @@
                                                     $cartValue = false;
                                                     // dd("Product value is less than setting", $product_value, $carat_setting);
                                                 }
-                                            
+
                                                 $diamond_name = $diamond->short_title;
                                                 $diamond_terms = $diamond->Clarity . ' Clarity | ' . $diamond->Color . ' Color | ' . $diamond->Lab . ' Certified';
                                                 $sale_price_diamond = $diamond->Sale_Amt;
@@ -262,7 +262,7 @@
                                                 $sale_price = $sale_price + $sale_price_diamond;
                                             } elseif (isset($data['item_type']) && $data['item_type'] == 0) {
                                                 $item = \App\Models\ProductVariant::with('product', 'product_variant_variants.attribute_term.attribute')->where('estatus', 1)->where('id', $data['item_id'])->first();
-                                            
+
                                                 if (!$item) {
                                                     if (session()->has('customer')) {
                                                         $cart_data = \App\Models\ItemCart::where(['user_id' => session('customer.id'), 'item_id' => $data['item_id']])->first();
@@ -273,10 +273,10 @@
                                                     } else {
                                                         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                                                         $cart_data = json_decode($cookie_data, true);
-                                            
+
                                                         $item_id_list = array_column($cart_data, 'item_id');
                                                         $prod_id_is_there = $data['item_id'];
-                                            
+
                                                         if (in_array($prod_id_is_there, $item_id_list)) {
                                                             foreach ($cart_data as $keys => $values) {
                                                                 if ($cart_data[$keys]['item_id'] == $data['item_id']) {
@@ -292,7 +292,7 @@
                                                 }
                                                 $product_attributes_specification = \App\Models\ProductAttribute::leftJoin('attributes', 'attributes.id', '=', 'product_attributes.attribute_id')->where('is_dropdown', 0)->where('use_variation', 0)->whereRaw('LOWER(display_attrname) = ?', ['carat'])
                                                 ->orWhereRaw('LOWER(display_attrname) = ?', ['ct'])->where('product_id', $item->product->id)->groupBy('attributes.id')->first();
-                                            
+
                                                $product_attributes_term_val = [];
 
                                                 $product_term_cleaned = '';
@@ -320,7 +320,7 @@
                                                     $cartValue = false;
                                                     // dd("Product value is less than setting", $product_value, $carat_setting);
                                                 }
-                                            
+
                                                 $item_name = $item->product->product_title;
                                                 $sale_price = $item->sale_price;
                                                 $item_image = explode(',', $item->images);
@@ -331,7 +331,7 @@
                                                 }
                                                 $url = URL('product-details/' . $item['slug']);
                                             } else {
-                                         
+
                                                 $item = \App\Models\Diamond::where('id', $data['item_id'])->first();
                                                 $product_value = number_format($item->Weight, 2);
                                                 $carat_setting = number_format($setting->carat_size, 2);
@@ -344,7 +344,7 @@
                                                     $cartValue = false;
                                                     // dd("Product value is less than setting", $product_value, $carat_setting);
                                                 }
-                                            
+
                                                 if (!$item) {
                                                     if (session()->has('customer')) {
                                                         $cart_datas = \App\Models\ItemCart::where(['user_id' => session('customer.id'), 'item_id' => $data['item_id']])->first();
@@ -355,10 +355,10 @@
                                                     } else {
                                                         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
                                                         $cart_datas = json_decode($cookie_data, true);
-                                            
+
                                                         $item_id_list = array_column($cart_datas, 'item_id');
                                                         $prod_id_is_there = $data['item_id'];
-                                            
+
                                                         if (in_array($prod_id_is_there, $item_id_list)) {
                                                             foreach ($cart_datas as $keys => $values) {
                                                                 if ($cart_datas[$keys]['item_id'] == $data['item_id']) {
@@ -438,7 +438,7 @@
                                                                             <?php
                                                                             if (isset($data['item_type']) && $data['item_type'] != 1) {
                                                                                 $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin('attributes', 'attributes.id', '=', 'product_attributes.attribute_id')->where('product_id', $item->product->id)->where('is_dropdown', 1)->groupBy('product_attributes.attribute_id')->get();
-                                                                            
+
                                                                                 $spe = '';
                                                                                 foreach ($ProductVariantSpecification as $productvariants) {
                                                                                     $spe .=
@@ -451,12 +451,12 @@
                                                                                                                                                                                                                                             <option value="">-- ' .
                                                                                         $productvariants->display_attrname .
                                                                                         '--</option>';
-                                                                            
+
                                                                                     $product_attribute = \App\Models\ProductAttribute::where('attribute_id', $productvariants->attribute_id)->where('product_id', $item->product->id)->groupBy('attribute_id')->get();
                                                                                     // dd($product_attribute);
                                                                                     foreach ($product_attribute as $attribute_term) {
                                                                                         $term_array = explode(',', $attribute_term->terms_id);
-                                                                            
+
                                                                                         $product_attributes = \App\Models\AttributeTerm::where('estatus', 1)->whereIn('id', $term_array)->get();
                                                                                         //dd($product_attributes);
                                                                                         $v = 1;
@@ -475,7 +475,7 @@
                                                                                         '-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                                                                                                                                                                                                                     </span> </div>';
                                                                                 }
-                                                                            
+
                                                                                 echo $spe;
                                                                             }
                                                                             ?>
@@ -567,7 +567,7 @@
                                                     </td>
                                                     <?php
                                                     $certificate_price = isset($data['certificate_price']) ? $data['certificate_price'] * $data['item_quantity'] : 0;
-                                                    
+
                                                     ?>
                                                     <td class="total_amount">
                                                         <i class="fa fa-usd" aria-hidden="true"></i><span
@@ -624,7 +624,7 @@
                                             $url = '#';
                                         }
                                     }
-                                    
+
                                     ?>
                                     @if (count($BlogBanners) > 1)
                                         <div class="col-sm-6 col-lg-6 ">
@@ -754,7 +754,7 @@
                                     <div id="coupon_code-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                 </div>
                                 <div class="col-4 col-sm-4 pe-0 ps-0">
-                                    <button type="button" class="btn btn-primary apply_btn redeem" >Apply 
+                                    <button type="button" class="btn btn-primary apply_btn redeem" >Apply
                                         <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
@@ -898,6 +898,7 @@
                         <form id="InquiryCreateFormCart" name="InquiryCreateFormCart" class="px-0">
                             @csrf
 
+                               <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                             <div class="row mb-4 mb-xxl-4">
                                 <div class="mb-3 col-md-6 ps-0">
                                     <input type="text" name="name" placeholder="your name"
