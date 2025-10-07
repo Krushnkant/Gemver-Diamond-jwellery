@@ -41,8 +41,8 @@ class Diamond3Cron extends Command
      */
     public function handle()
     {
-        
-        \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
+
+        // \Log::info("diamond Briolette  Eurocut  Flanders  Half Moon  Kite  Old Miner  Bullet  Hexagonal  Lozenge  Tapered Bullet  Octagonal  Triangle  Rose Cut  Radiant  Ideal Oval  Ideal Square  Square Emerald  Sig81  Cushion Modified Brilliant  Pear  Ideal Cushion  Asscher  Pentagonal  Star  Trapezoid  Trilliant    Baguette    Shield  Tapered Baguette    Other Uploaded!");
         $oldids = Diamond::whereIn('Shape',["Briolette","Eurocut","Flanders","Half Moon","Kite","Old Miner","Bullet","Hexagonal","Lozenge","Tapered Bullet","Octagonal","Triangle","Rose Cut","Ideal Oval","Ideal Square","Square Emerald","Sig81","Cushion Modified Brilliant","Ideal Cushion","Pentagonal","Star","Trapezoid","Trilliant","Baguette","Shield","Tapered Baguette","Square","Ideal Heart","Other"])->get()->pluck('diamond_id')->toarray();
 
         $PriceRanges = PriceRange::where('estatus',1)->get();
@@ -52,7 +52,7 @@ class Diamond3Cron extends Command
         // $public_path = __DIR__ . '/../../../../public/csv/vdb_LG_diamonds.csv';
         // Excel::import(new ImportDiamondNewLatest, $public_path);
         // $action = "add";
-        $vender_array = array(); 
+        $vender_array = array();
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://apiservices.vdbapp.com/v2/diamonds?type=lab_grown_diamond&page_size=50&with_images=true&shapes%5B%5D=Briolette&shapes%5B%5D=Eurocut&shapes%5B%5D=Flanders&shapes%5B%5D=Half%20Moon&shapes%5B%5D=Kite&shapes%5B%5D=Old%20Miner&shapes%5B%5D=Bullet&shapes%5B%5D=Hexagonal&shapes%5B%5D=Lozenge&shapes%5B%5D=Tapered%20Bullet&shapes%5B%5D=Octagonal&shapes%5B%5D=Triangle&shapes%5B%5D=Rose%20Cut&shapes%5B%5D=Ideal%20Oval&shapes%5B%5D=Ideal%20Square&shapes%5B%5D=Square%20Emerald&shapes%5B%5D=Sig81&shapes%5B%5D=Cushion%20Modified%20Brilliant&shapes%5B%5D=Ideal%20Cushion&shapes%5B%5D=Pentagonal&shapes%5B%5D=Star&shapes%5B%5D=Trapezoid&shapes%5B%5D=Trilliant&shapes%5B%5D=Baguette&shapes%5B%5D=Shield&shapes%5B%5D=Tapered%20Baguette&shapes%5B%5D=Ideal%20Heart&shapes%5B%5D=Other&page_number=1',
@@ -75,7 +75,7 @@ class Diamond3Cron extends Command
            return "cURL Error #:" . $err;
         } else {
             $diamonds = json_decode($response);
-            if(isset($diamonds->response->body->diamonds)){ 
+            if(isset($diamonds->response->body->diamonds)){
                 $per_page = count($diamonds->response->body->diamonds);
                 $total_diamond = $diamonds->response->body->total_diamonds_found;
                 foreach($diamonds->response->body->diamonds as $collection)
@@ -104,10 +104,10 @@ class Diamond3Cron extends Command
 
                         $sale_amt = round((int)$collection->total_sales_price + $company_per_amt);
 
-                        if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){     
-                            $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth; 
+                        if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){
+                            $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth;
                         }else{
-                            $DiamondMeasurement = "-";    
+                            $DiamondMeasurement = "-";
                         }
 
                         $percentage = rand(10, 30);
@@ -115,35 +115,35 @@ class Diamond3Cron extends Command
                         $real_amt = round($percentage_amount + $sale_amt);
 
                         if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
-                            $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                            $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity;
                         }else{
                             $short_title = $collection->short_title;
                         }
 
                         if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                            $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity;
                         }else{
                             $long_title = $collection->long_title;
                         }
-                        
+
                         $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                         if($Diamond){
                             // \Log::info("(Already Exist Diamond: ".$collection->id);
                             if($Diamond->Sale_Amt != $sale_amt){
                                 // \Log::info("(Updating this Diamond: ".$collection->id);
-                                $Diamond->Amt = $collection->total_sales_price;      
-                                $Diamond->Sale_Amt = $sale_amt;      
-                                $Diamond->real_Amt = $real_amt; 
-                                //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                $Diamond->Amt = $collection->total_sales_price;
+                                $Diamond->Sale_Amt = $sale_amt;
+                                $Diamond->real_Amt = $real_amt;
+                                //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);
                                 $Diamond->amt_discount = $percentage;
                                 $Diamond->StockStatus = $collection->available;
                                 if($Diamond->save()){
                                     // \Log::info("(Updated Diamond: ".$collection->id);
                                 }
-                            }    
-                        }else{ 
+                            }
+                        }else{
                             $data = ([
-                                'Company_id' => 1,  
+                                'Company_id' => 1,
                                 'Stone_No' => $Stone_No,
                                 'diamond_id' => $collection->id,
                                 'short_title' => 'Lab Grown Diamond '.$short_title,
@@ -193,15 +193,15 @@ class Diamond3Cron extends Command
                                 'Ratio' => $collection->meas_ratio,
                                 'growth_type' => $collection->growth_type,
                                 'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
-                                
+
                             ]);
                             Diamond::insert($data);
                             // \Log::info("(New Added Diamond: ".$collection->id);
                         }
-                    }  
-                } 
-            }    
-        } 
+                    }
+                }
+            }
+        }
 
         if(isset($total_diamond) && $total_diamond > 0){
            $totalpage = (int) floor(($total_diamond / $per_page));
@@ -219,7 +219,7 @@ class Diamond3Cron extends Command
                     'Authorization: Token token=M2wIRs87_aJJT2vlZjTviGG4m-v7jVvdfuCUHqGdu6k, api_key=_vYN1uFpastNYP2bmCsjtfA'
                 ),
                 ));
-        
+
                 $response = curl_exec($curl);
                 $err = curl_error($curl);
                 curl_close($curl);
@@ -227,7 +227,7 @@ class Diamond3Cron extends Command
                    return "cURL Error #:" . $err;
                 } else {
                     $diamonds = json_decode($response);
-                    if(isset($diamonds->response->body->diamonds)){ 
+                    if(isset($diamonds->response->body->diamonds)){
                         $total_diamond = $diamonds->response->body->total_diamonds_found;
                         foreach($diamonds->response->body->diamonds as $collection)
                         {
@@ -252,13 +252,13 @@ class Diamond3Cron extends Command
                                 }else{
                                     $company_per_amt = 0;
                                 }
-        
+
                                 $sale_amt = round((int)$collection->total_sales_price + $company_per_amt);
-        
-                                if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){     
-                                    $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth; 
+
+                                if($collection->meas_length != "" && $collection->meas_width != "" && $collection->meas_depth != ""){
+                                    $DiamondMeasurement = $collection->meas_length.' * '.$collection->meas_width.' * '.$collection->meas_depth;
                                 }else{
-                                    $DiamondMeasurement = "-";    
+                                    $DiamondMeasurement = "-";
                                 }
 
                                 $percentage = rand(10, 30);
@@ -266,33 +266,33 @@ class Diamond3Cron extends Command
                                 $real_amt = round($percentage_amount + $sale_amt);
 
                                 if($collection->short_title == "" || $collection->short_title == null || $collection->short_title == "N/A"){
-                                    $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                                    $short_title = $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity;
                                 }else{
                                     $short_title = $collection->short_title;
                                 }
 
                                 if($collection->long_title == "" || $collection->long_title == null || $collection->long_title == "N/A"){
-                                    $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity; 
+                                    $long_title =  $collection->shape . " " . $collection->size . "ct " .$collection->color. " " .$collection->clarity;
                                 }else{
                                     $long_title = $collection->long_title;
                                 }
-                                
+
                                 $Diamond = Diamond::select('Amt','Sale_Amt','real_Amt','amt_discount','StockStatus')->where('diamond_id',$collection->id)->first();
                                 if($Diamond){
                                     if($Diamond->Sale_Amt != $sale_amt){
-                                        $Diamond->Amt = $collection->total_sales_price;      
-                                        $Diamond->Sale_Amt = $sale_amt;      
-                                        $Diamond->real_Amt = $real_amt; 
-                                        //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);      
+                                        $Diamond->Amt = $collection->total_sales_price;
+                                        $Diamond->Sale_Amt = $sale_amt;
+                                        $Diamond->real_Amt = $real_amt;
+                                        //$Diamond->slug = $this->createSlug($short_title,$Diamond->id);
                                         $Diamond->amt_discount = $percentage;
                                         $Diamond->StockStatus = $collection->available;
                                         if($Diamond->save()){
                                             // \Log::info("Updated Diamond: ".$collection->id." | page_number=".$x);
                                         }
-                                    }    
-                                }else{ 
+                                    }
+                                }else{
                                     $data = ([
-                                        'Company_id' => 1,  
+                                        'Company_id' => 1,
                                         'Stone_No' => $Stone_No,
                                         'diamond_id' => $collection->id,
                                         'short_title' => 'Lab Grown Diamond '.$short_title,
@@ -342,15 +342,15 @@ class Diamond3Cron extends Command
                                         'Ratio' => $collection->meas_ratio,
                                         'growth_type' => $collection->growth_type,
                                         'created_at' => new \DateTime(null, new \DateTimeZone('Asia/Kolkata')),
-                                        
+
                                     ]);
                                     Diamond::insert($data);
                                     // \Log::info("New Added Diamond: ".$collection->id." | page_number=".$x);
                                     // \Log::info("=============================================");
-                                } 
-                            }  
+                                }
+                            }
                         }
-                    }    
+                    }
                 }
             }
         }
@@ -368,7 +368,7 @@ class Diamond3Cron extends Command
        // Diamond::whereIn('diamond_id',$oldids)->where('StockStatus','<>',0)->update(['StockStatus' => '0']);
         Diamond::whereIn('diamond_id',$oldids)->delete();
 
-       
+
     }
 
     public function createSlug($title, $id = 0)
@@ -390,7 +390,7 @@ class Diamond3Cron extends Command
             $i++;
         } while ($is_contain);
     }
-    
+
     protected function getRelatedSlugs($slug, $id = 0)
     {
         return Diamond::select('slug')->where('slug', 'like', $slug.'%')
