@@ -20,7 +20,7 @@
     <!-- </div> -->
 
     <div class="wire_bangle_page container">
-       
+
         <div class="mb-lg-5 pb-lg-5 mb-4 px-3">
             @if($check_variant == 1)
                 <ul class="d-block d-lg-flex progressbar_ul">
@@ -33,7 +33,7 @@
                                 <div>
                                     <span class="step-progressbar-text">
                                         choose settings
-                                    </span> 
+                                    </span>
                                     <div class="d-flex edit_price_text mt-1">
                                         <span class="me-2">
                                             <a href="{{ url('product-setting-edit/'. $Category->slug .'/edit') }}" class="edit_text">Edit</a>
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </li>
                         <li class="step-progressbar-part active">
                             <div class="step-progressbar-step-part active">
@@ -65,12 +65,12 @@
                                     <span class="step-progressbar-text">
                                         choose diamonds
                                     </span>
-                                        
+
                                 </div>
                             </div>
-                        
+
                         </li>
-                        
+
                         <li class="step-progressbar-part">
                             <div class="step-progressbar-step-part">
                                 <span class="step-progressbar-img ms-3">
@@ -81,17 +81,17 @@
                                     <span class="step-progressbar-text">
                                         complete the {{ $Category->category_name }}
                                     </span>
-                                    
+
                                 </div>
                             </div>
-                        
+
                         </li>
                 </ul>
-            @else  
+            @else
                 <ul class="d-block d-lg-flex progressbar_ul">
                     <li class="step-progressbar-part active">
                         <div class="step-progressbar-step-part">
-        
+
                             <span class="step-progressbar-img ms-3">
                                 {{-- <img src="{{ url('frontend/image/step_1.png') }}" alt=""> --}}
                                 <img src="{{ url('images/steppopup/'.$StepPopup[1]->icon) }}" alt="">
@@ -100,11 +100,11 @@
                                 <span class="step-progressbar-text">
                                     choose diamonds
                                 </span>
-                                   
+
                             </div>
                         </div>
                     </li>
-                    
+
                     <li class="step-progressbar-part ">
                         <div class="step-progressbar-step-part">
 
@@ -120,15 +120,15 @@
                                     <span class="me-2">
                                         <a href="{{ url('product-setting/'. $Category->slug) }}" class="edit_text">Browse Settings</a>
                                     </span>
-                                </div> 
-                                
+                                </div>
+
                             </div>
                         </div>
                     </li>
-                    
+
                     <li class="step-progressbar-part">
                         <div class="step-progressbar-step-part">
-  
+
                             <span class="step-progressbar-img ms-3">
                                 {{-- <img src="{{ url('frontend/image/step_3.png') }}" alt=""> --}}
                                 <img src="{{ url('images/steppopup/'.$StepPopup[2]->icon) }}" alt="">
@@ -137,7 +137,7 @@
                                 <span class="step-progressbar-text">
                                       complete the {{ $Category->category_name }}
                                 </span>
-                                
+
                             </div>
                         </div>
                     </li>
@@ -148,7 +148,7 @@
             <div class="col-md-6 wire_bangle_padding mb-4">
                 <div class="">
                     <div class="slider slider-single mb-5">
-                       
+
                         @if(isset($Diamond->Stone_Img_url) && $Diamond->Stone_Img_url != '')
                         <div class="product_slider_main_item">
                             <img src="{{ $Diamond->Stone_Img_url }}" alt="">
@@ -165,7 +165,7 @@
                             <embed src="{{ $Diamond->Certificate_url .'#page=1&zoom=100'}}" width="100%" height="100%">
                         </div>
                         @endif
-                       
+
                     </div>
                     <div class="slider slider-nav">
                         @if(isset($Diamond->Stone_Img_url) && $Diamond->Stone_Img_url != '')
@@ -181,9 +181,9 @@
                             <h3><img src="{{ url('frontend/image/certification.png') }}" alt=""></h3>
                         </div>
                         @endif
-                      
+
                     </div>
-                  
+
                 </div>
             </div>
             <div class="col-md-6 wire_bangle_padding_2">
@@ -248,7 +248,7 @@
                                         </div>
                                     </div>
                                     @endif --}}
-                                    
+
                                     {{-- @if($Diamond->Table_Diameter_Per != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -284,9 +284,9 @@
                                         </div>
                                     </div>
 
-                          
-                                    
-                             
+
+
+
                                     {{-- @if($Diamond->Girdle_Per != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -306,8 +306,8 @@
                                         </div>
                                     </div>
 
-                                    
-                                    
+
+
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1">  Symmetry</span>
@@ -316,7 +316,7 @@
                                             @endif
                                         </div>
                                     </div>
-                               
+
                                     {{-- @if($Diamond->CrownAngle != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -336,7 +336,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     {{-- @if($Diamond->PavillionAngle != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -381,7 +381,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
+
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
                                             <span class="d-block col-6 col-sm-3 col-md-4 ps-0 wire_bangle_heading_part_1"> meas(l*w*d)</span>
@@ -401,9 +401,9 @@
                                         </div>
                                     </div>
                                     @endif
-                                   
+
                                     @if($Diamond->Measurement != "")
-                                    
+
                                     @endif
                                     @if($Diamond->POLISH != "")
                                     <div class="col-xl-6 ps-0">
@@ -415,7 +415,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                    
+
                                     @if($Diamond->Ratio != "")
                                     <div class="col-xl-6 ps-0">
                                         <div class="mt-2 wire_bangle_share wire_bangle_share_part row ps-0">
@@ -446,31 +446,31 @@
                                         </div>
                                     </div>
                                     @endif --}}
-                                    
-                                    
-                                    
+
+
+
                                 </div>
                             </div>
 
                             <div class="row-images mt-3 mb-4" id="slick-lightbox">
                                 <div class="item">
-                                    
+
                                     <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-diamond-details" data-variant_id="{{ $Diamond->id }}" data-item_type="1" target="_blank">
-                                        <?php 
-                                        if(is_wishlist($Diamond->id,0)){ 
+                                        <?php
+                                        if(is_wishlist($Diamond->id,0)){
                                             ?>
                                             <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
-                                            <?php 
-                                        } else { 
+                                            <?php
+                                        } else {
                                             ?>
                                             <i class="far fa-heart"></i> &nbsp; Add to Wishlist
-                                            <?php 
+                                            <?php
                                         }
                                         ?>
                                     </a>
                                 </div>
-                            </div>     
-                                  
+                            </div>
+
                             <input type="hidden" value="{{ $Diamond->id }}" name="diamond_id" id="diamond_id">
                             <div class="inquiry_now_btn mb-3">
                                 <button id="save_newProductBtn" class="select_setting_btn  btn-hover-effect btn-hover-effect-black diamond-bt">add to {{ $Category->category_name }}</button>
@@ -497,7 +497,7 @@
                             </div>
 
                             <div class="mt-3 text-center">
-                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button"> 
+                                <button class="select_contact_btn diamond-btn get_opinion_btn" type="button">
                                     <i class="fa-solid fa-user me-2"></i>
                                     Get a gemologist opinion
                                 </button>
@@ -537,8 +537,8 @@
                             </div>
                         </form>
 
-                            
-                       
+
+
 
                             <div class="modal fade inquiry_now_modal" id="opinionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
@@ -553,28 +553,29 @@
                                         </div>
                                         <div class="alert alert-success" id="opinionsuccess-alert" style="display: none;">
                                         </div>
-                                        
-                                        <form  method="post" id="opinionCreateForm" name="opinionCreateForm">
+
+                                        <form  method="post" id="opinionCreateForm" name="opinionCreateForm" class="opinionCreateForm">
                                         @csrf
-                                        <input type="hidden" name="product_id" value="{{ $Diamond->id }}"> 
+                                        <input type="hidden" name="product_id" value="{{ $Diamond->id }}">
+                                                  <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                                 <div id="opinionname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                          
+
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                                 <div id="opinionemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
-                                                
+
                                                 <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
                                             </div>
                                         </div>
- 
-                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send 
+
+                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -597,33 +598,34 @@
                                         </div>
                                         <div class="alert alert-success" id="cartificatesuccess-alert" style="display: none;">
                                         </div>
-                                        
-                                        <form  method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm">
+
+                                        <form  method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm" class="requestCertificateCreateForm">
                                         @csrf
-                                        <input type="hidden" name="item_id" value="{{ $Diamond->id }}"> 
+                                        <input type="hidden" name="item_id" value="{{ $Diamond->id }}">
+                                                   <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                                                <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z\s]/i.test(event.key)">
                                                 <div id="customername-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                            
+
                                             <div class="mb-3 col-md-6 ps-0">
-                                                <input type="text" name="phone_number"  placeholder="enter your phone number" class="d-block wire_bangle_input">
+                                                <input type="text" name="phone_number"  placeholder="enter your phone number" class="d-block wire_bangle_input" onkeypress="return /[0-9]/i.test(event.key)">
                                                 <div id="phone_number-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
-                                          
+
                                             <div class="mb-3 col-md-12 ps-0">
-                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input">
+                                                <input type="text" name="email"  placeholder="enter your email" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                                 <div id="customeremail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                                             </div>
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="message"  class="d-block wire_bangle_input" placeholder="message"></textarea>
-                                                
+
                                                 <div id="customermessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
                                             </div>
                                         </div>
- 
-                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newCertificateBtn" >send 
+
+                                        <button type="button" class="send_inquiry_btn product_detail_inquiry_btn" id="save_newCertificateBtn" >send
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -709,15 +711,15 @@
                                     <span class="wire_bangle_color_theme col-7 col-sm-9 col-xl-9">{{ $Diamond->Stone_No }}</span>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </div>
                 </div>
             </div>
-       
+
         </div> --}}
 
-        <?php 
+        <?php
         $diamond_reviews = \App\Models\Review::where('status',1)->where('type',1)->where('item_id',$Diamond->id)->get();
         ?>
         <div class="mt-md-5 mt-4 px-3 mb-md-5 mb-4">
@@ -727,8 +729,8 @@
             {{-- <div class="review_description_heading mb-3">
                 {{ count($diamond_reviews) }} Reviews For Cenforce
             </div> --}}
-            <div class="row resview_list">   
-                 
+            <div class="row resview_list">
+
             </div>
         </div>
     </div>
@@ -755,7 +757,7 @@
                             $Diamond_image = $Diamond->Stone_Img_url;
                         }else{
                             if($Diamond->Shape == strtoupper('round')){
-                                $Diamond_image = url('frontend/image/1.png');    
+                                $Diamond_image = url('frontend/image/1.png');
                             }elseif($Diamond->Shape == strtoupper('oval')){
                                 $Diamond_image = url('frontend/image/2.png');
                             }elseif($Diamond->Shape == strtoupper('emerald')){
@@ -780,8 +782,8 @@
                         }
 
                         ?>
-                    
-                    
+
+
                         <div class="round_cut_lab_diamonds_box hover_on_mask">
                             <a href="{{ $url }}">
                                 <div class="round_cut_lab_diamonds_img">
@@ -800,7 +802,7 @@
                                                     <span class="round_product_part_1">SHAPE :</span>
                                                     <span class="round_product_part_2">{{ $Diamond->Shape }} </span>
                                                 </li>
-                                                
+
                                                 <li>
                                                     <span class="round_product_part_1">COLOR  :</span>
                                                     <span class="round_product_part_2">{{ ($Diamond->FancyColor == null || $Diamond->FancyColor == "NONE")?$Diamond->Color:$Diamond->FancyColor }} </span>
@@ -819,7 +821,7 @@
                                                     <span class="round_product_part_1"> SYMMETRY  :</span>
                                                     <span class="round_product_part_2">{{ $Diamond->Symm }} </span>
                                                 </li>
-                                                
+
                                                 @if($Diamond->Measurement != "")
                                                 <li>
                                                     <span class="round_product_part_1"> MEASUREMENT  :</span>
@@ -841,11 +843,11 @@
                             <div class="mt-4 round_cut_lab_diamonds_layer_part pt-0">
                                 <div class="round_cut_lab_diamonds_info_heading mb-2">
                                     {{-- <a href="{{ $url }}">{{ $Diamond->Shape }}</a> --}}
-                                    <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">    
-                                    <input type="hidden" class="item_type" value="1">    
+                                    <input type="hidden" class="diamond_id" value="{{ $Diamond->id }}">
+                                    <input type="hidden" class="item_type" value="1">
                                     <span type="button" class="btn btn-default add-to-wishlist-btn-diamond add-to-wishlist-btn" data-toggle="tooltip" data-placement="right" title="Wishlist">
-                                    @if(is_wishlist($Diamond->id,1))    
-                                        <i class="fas fa-heart heart-icon-part"></i> 
+                                    @if(is_wishlist($Diamond->id,1))
+                                        <i class="fas fa-heart heart-icon-part"></i>
                                     @else
                                         <i class="far fa-heart"></i>
                                     @endif
@@ -859,22 +861,22 @@
                                 </div>
                                 <div class="round_cut_lab_diamonds_info_price d-flex align-items-center">
                                 <div class="d-flex align-items-center">
-                                    ${{ $Diamond->Sale_Amt }} 
+                                    ${{ $Diamond->Sale_Amt }}
                                     <span class="ms-2 wire_bangle_dublicate_price product_detail_sregular_price" style="text-decoration-line: line-through">
                                 </div>
-                                <div class="product_detail_regular_price"> 
+                                <div class="product_detail_regular_price">
                                     $<span class="regular_price">{{ $Diamond->real_Amt }}</span></span>
                                 </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach 
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     @endif
-        
+
     <!-- </div> -->
 
     <div class="modal fade inquiry_now_modal" id="hintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -890,40 +892,41 @@
                 </div>
                 <div class="alert alert-success" id="hintsuccess-alert" style="display: none;">
                 </div>
-                
-                <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
+
+                <form action="" method="post" id="hintCreateForm" name="hintCreateForm" class="hintCreateForm">
                 @csrf
-                <input type="hidden" class="d-block mb-3 wire_bangle_input SKU"  name="SKU" value=""> 
+                <input type="hidden" class="d-block mb-3 wire_bangle_input SKU"  name="SKU" value="">
+                  <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                 <div class="row mb-0">
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input">
+                        <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                     </div>
-                  
+
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="hintemail"  placeholder="enter your email" class="d-block wire_bangle_input">
+                        <input type="text" name="hintemail"  placeholder="enter your email" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="friendname" placeholder="your friend name" class="d-block wire_bangle_input">
+                        <input type="text" name="friendname" placeholder="your friend name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintfriendname-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                     </div>
-                  
+
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="friendemail"  placeholder="enter your friend email" class="d-block wire_bangle_input">
+                        <input type="text" name="friendemail"  placeholder="enter your friend email" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="hintfriendemail-error" class="invalid-feedback animated fadeInDown text-start" style="display: none;"></div>
                     </div>
                     <div class="mb-3 col-md-12 ps-0 mb-3">
                         <textarea  name="message"  class="d-block wire_bangle_input" placeholder="Message"></textarea>
-                        
+
                         <div id="hintmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;"></div>
                     </div>
                 </div>
 
 
 
-                <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn" >send 
+                <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn" >send
                     <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -934,7 +937,7 @@
     </div>
 
 <script type="text/javascript">
-    $( document ).ready(function() {    
+    $( document ).ready(function() {
         $('body').on('click', '#save_newProductBtn', function () {
             save_cart($(this),'save_new');
         });
@@ -959,7 +962,7 @@
             var ip_address = '{{ \Request::ip() }}';
             var category_id = '{{ $Category->id }}';
             var slug = '{{ $Category->slug }}';
-            
+
             $.ajax({
                 type: 'POST',
                 url: "{{ route('frontend.cart.save') }}",
@@ -968,7 +971,7 @@
                 success: function (res) {
                     if(res.status == 'failed'){
                         $(btn).prop('disabled',false);
-                        $(btn).find('.loadericonfa').hide();    
+                        $(btn).find('.loadericonfa').hide();
                     }
                     if(res.status == 200){
                         var check_variant = '{{ $check_variant }}';
@@ -981,7 +984,7 @@
                                 $url = "{{ url('product_complete') }}" +'/' + slug
                             }
                         }
-                        
+
                         window.location = $url;
                     }
                 },
@@ -1008,12 +1011,12 @@
             var item_type = $(this).closest('.diamond-data').find('#item_type').val();
             var quantity = 1;
             $.ajax({
-                url: "{{ url('/add-to-cart') }}",  
-                method: "POST", 
-                data: { 
-                    'variant_id': diamond_id, 
-                    'quantity': quantity, 
-                    'item_type': item_type 
+                url: "{{ url('/add-to-cart') }}",
+                method: "POST",
+                data: {
+                    'variant_id': diamond_id,
+                    'quantity': quantity,
+                    'item_type': item_type
                 },
                 success: function (response) {
                     $(btn).prop('disabled',false);
@@ -1026,7 +1029,7 @@
                 },
             });
         });
-    
+
 
         $('body').on('click', '.hint-box', function () {
 
@@ -1041,7 +1044,7 @@
                     $("#"+this_err).show();
                     valid = false;
                 }else{
-                    var element = $(this).find('option:selected'); 
+                    var element = $(this).find('option:selected');
                     var DataSpe = element.attr("data-spe");
                     var DataTerm = element.attr("data-term");
                     arrspe.push({'key' : DataSpe,'value' : DataTerm });
@@ -1054,13 +1057,13 @@
                 jQuery("#hintModal").modal('show');
             }
         });
-        
+
         $('body').on('click', '#save_newhintBtn', function () {
             save_hint($(this),'save_new');
         });
 
         function save_hint(btn,btn_type){
-            
+
             $(btn).prop('disabled',true);
             $(btn).find('.loadericonfa').show();
             var action  = $(btn).attr('data-action');
@@ -1070,11 +1073,11 @@
                 dataarray.push($(this).val());
             });
             var dataspecification = dataarray.join(",");
-            
+
             var qty = $('#qty').val();
             formData.append('specification_term_id',dataspecification);
             formData.append('qty',qty);
-            
+
             $.ajax({
                 type: 'POST',
                 url: "{{ route('frontend.hint.save') }}",
@@ -1082,7 +1085,7 @@
                 processData: false,
                 contentType: false,
                 success: function (res) {
-                    
+
                     if(res.status == 'failed'){
                         $(btn).prop('disabled',false);
                         $(btn).find('.loadericonfa').hide();
@@ -1109,12 +1112,12 @@
                             $('#friendemail-error').hide();
                         }
 
-                    
+
                         // if (res.errors.inquiry) {
                         //     $('#inquiry-error').show().text(res.errors.inquiry);
                         // } else {
                         //     $('#inquiry-error').hide();
-                        // } 
+                        // }
                     }
                     if(res.status == 200){
 
@@ -1160,7 +1163,7 @@
             processData: false,
             contentType: false,
             success: function (res) {
-                
+
                 if(res.status == 'failed'){
                     $(btn).prop('disabled',false);
                     $(btn).find('.loadericonfa').hide();
@@ -1178,11 +1181,11 @@
                         $('#opinionmessage-error').show().text(res.errors.message);
                     } else {
                         $('#opinionmessage-error').hide();
-                    } 
+                    }
                 }
                 if(res.status == 200){
                     $('#opinionmessage-error').hide();
-                
+
                     $('#opinionemail-error').hide();
                     $('#opinionname-error').hide();
                     document.getElementById("opinionCreateForm").reset();
@@ -1222,7 +1225,7 @@
             processData: false,
             contentType: false,
             success: function (res) {
-                
+
                 if(res.status == 'failed'){
                     $(btn).prop('disabled',false);
                     $(btn).find('.loadericonfa').hide();
@@ -1245,11 +1248,11 @@
                         $('#customermessage-error').show().text(res.errors.message);
                     } else {
                         $('#customermessage-error').hide();
-                    } 
+                    }
                 }
                 if(res.status == 200){
                     $('#customermessage-error').hide();
-                
+
                     $('#phone_number-error').hide();
                     $('#customeremail-error').hide();
                     $('#customername-error').hide();
@@ -1276,11 +1279,11 @@
 
 <script>
     $(document).ready(function(){
-     
+
         var _token = $('input[name="_token"]').val();
 
         load_data('', _token);
-    
+
         function load_data(id="", _token) {
 
             var variant_id = $('#diamond_id').val();
@@ -1291,7 +1294,7 @@
                 success:function(data) {
                     $('#load_more_button').remove();
                     if(data == ""){
-                        $('.review_description_heading').hide(); 
+                        $('.review_description_heading').hide();
                     }else{
                         $('.review_description_heading').show();
                     }
@@ -1299,15 +1302,14 @@
                 }
             });
         }
-    
+
         $(document).on('click', '#load_more_button', function(){
             var id = $(this).data('id');
             $('#load_more_button').html('<b>Loading...</b>');
             load_data(id, _token);
         });
-    
+
     });
 </script>
 @endsection
 
-    

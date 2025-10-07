@@ -301,13 +301,13 @@
                                     <div class="row mb-0">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="name" placeholder="your name"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input"  onkeypress="return /[0-9a-zA-Z\s]/i.test(event.key)">
                                             <div id="name-error" class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
                                         </div>
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="email" name="email" id="email" placeholder="enter your email"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="email-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
@@ -328,7 +328,7 @@
                                                     </select>
                                                 </div>
                                                 <input type="text" name="mobile_no" id="mobile_no"
-                                                    placeholder="mobile number" class="d-block form-control">
+                                                    placeholder="mobile number" class="d-block form-control"  onkeypress="return /[0-9]/i.test(event.key)">
                                                 <div id="mobile_no-error"
                                                     class="invalid-feedback animated fadeInDown text-start"
                                                     style="display: none;"></div>
@@ -458,20 +458,21 @@
                                 </div>
                                 <div class="alert alert-success" id="opinionsuccess-alert" style="display: none;">
                                 </div>
-                                <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
+                                <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm" class="opinionCreateForm">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $Product->id }}">
+                                               <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <div class="row mb-0">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="name" placeholder="your name"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="opinionname-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
                                         </div>
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="email" placeholder="enter your email"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="opinionemail-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
@@ -510,34 +511,35 @@
                                 </div>
                                 <div class="alert alert-success" id="hintsuccess-alert" style="display: none;">
                                 </div>
-                                <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
+                                <form action="" method="post" id="hintCreateForm" name="hintCreateForm" class="hintCreateForm">
                                     @csrf
                                     <input type="hidden" class="d-block mb-3 wire_bangle_input SKU" name="SKU" value="">
+                                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <div class="row mb-0">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="hintname" placeholder="your name"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="hintname-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
                                         </div>
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="hintemail" placeholder="enter your email"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="hintemail-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
                                         </div>
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="friendname" placeholder="your friend name"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="hintfriendname-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
                                         </div>
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="friendemail" placeholder="enter your friend email"
-                                                class="d-block wire_bangle_input">
+                                                class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                             <div id="hintfriendemail-error"
                                                 class="invalid-feedback animated fadeInDown text-start"
                                                 style="display: none;"></div>
@@ -674,26 +676,27 @@
             <div class="alert alert-success" id="cartificatesuccess-alert" style="display: none;">
             </div>
 
-            <form method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm">
+            <form method="post" id="requestCertificateCreateForm" name="requestCertificateCreateForm" class="requestCertificateCreateForm">
                 @csrf
                 <input type="hidden" name="item_id" value="{{ $Product->id }}">
+                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                 <div class="row mb-0">
                     <div class="mb-3 col-md-6 ps-0">
-                        <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
+                        <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="customername-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-6 ps-0">
                         <input type="text" name="phone_number" placeholder="enter your phone number"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="phone_number-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>
 
                     <div class="mb-3 col-md-12 ps-0">
                         <input type="text" name="email" placeholder="enter your email"
-                            class="d-block wire_bangle_input">
+                            class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                         <div id="customeremail-error" class="invalid-feedback animated fadeInDown text-start"
                             style="display: none;"></div>
                     </div>

@@ -902,13 +902,13 @@
                             <div class="row mb-4 mb-xxl-4">
                                 <div class="mb-3 col-md-6 ps-0">
                                     <input type="text" name="name" placeholder="your name"
-                                        class="d-block wire_bangle_input">
+                                        class="d-block wire_bangle_input" onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                     <div id="name-error" class="invalid-feedback animated fadeInDown text-start"
                                         style="display: none;"></div>
                                 </div>
                                 <div class="mb-3 col-md-6 ps-0">
                                     <input type="text" name="email" id="email" placeholder="enter your email"
-                                        class="d-block wire_bangle_input">
+                                        class="d-block wire_bangle_input"  onkeypress="return /[0-9a-zA-Z@._\-]/i.test(event.key)">
                                     <div id="email-error" class="invalid-feedback animated fadeInDown text-start"
                                         style="display: none;"></div>
                                 </div>
