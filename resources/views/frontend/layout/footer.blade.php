@@ -225,19 +225,25 @@ function save_newslatter(btn,btn_type){
 });
 </script>
 
-<!-- Load reCAPTCHA -->
 <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 
 <script>
-document.getElementById('InquiryCreateForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent default submit until token is ready
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('.InquiryCreateForm'); // select all forms by class
 
-    grecaptcha.ready(function() {
-        grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: 'inquiry' })
-            .then(function(token) {
-                document.getElementById('recaptcha_token').value = token; // set token
-                e.target.submit(); // submit form
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', { action: 'inquiry' })
+                    .then(function(token) {
+                        const tokenInput = form.querySelector('input[name="recaptcha_token"]');
+                        if (tokenInput) tokenInput.value = token; // set token in that form
+                        form.submit(); // submit this specific form
+                    });
             });
+        });
     });
 });
 </script>

@@ -42,12 +42,12 @@
                         'jpg',
                         'jpeg',
                         'png'
-                    ); 
+                    );
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
-                        $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                        if(in_array($ext, $supported_image)){ 
+                        $ext = pathinfo($image, PATHINFO_EXTENSION);
+                        if(in_array($ext, $supported_image)){
                        ?>
                 <div class="product_slider_main_item">
                     <img src="{{ URL($image) }}" alt="">
@@ -58,7 +58,7 @@
                         <source src="{{ URL($image) }}" type="video/mp4">
                     </video>
                 </div>
-                <?php 
+                <?php
                          }
                         }
                     }
@@ -104,7 +104,7 @@
                         <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}
                         </div>
                         <div class="wire_bangle_color wire_bangle_color_img_part">
-                            <?php 
+                            <?php
                                         $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                             $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                           })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
@@ -124,14 +124,14 @@
                             <?php $ia++ ?>
                             @endforeach
                         </div>
-                        <?php 
-                                } else { 
+                        <?php
+                                } else {
                                     $iv = 1;
                                     ?>
                         <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}
                         </div>
                         <div class="wire_bangle_carat">
-                            <?php 
+                            <?php
                                          $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                             $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                           })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
@@ -151,9 +151,9 @@
                             <?php $iv++ ?>
                             @endforeach
                         </div>
-                        <?php 
+                        <?php
                                 }
-                            }  
+                            }
                             ?>
                         <div class="variantmulti" id="variantmulti">
                         </div>
@@ -161,25 +161,25 @@
 
                             <?php
                                 $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$Product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                                
+
                                 $spe = '';
                                 foreach($ProductVariantSpecification as $productvariants) {
                                     $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->display_attrname.'</div><span class="wire_bangle_select me-3 d-inline-block">
                                            <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                             <option value="">-- '.$productvariants->display_attrname .'--</option>';   
-                                
+                                             <option value="">-- '.$productvariants->display_attrname .'--</option>';
+
                                     $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                                        // dd($product_attribute);
                                     foreach($product_attribute as $attribute_term){
                                         $term_array = explode(',',$attribute_term->terms_id);
-                                        
+
                                         $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                                         //dd($product_attributes);
                                         $v = 1;
                                         foreach($product_attributes as $term){
-                                            $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                                            $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>';
                                         }
-                                    }   
+                                    }
                                     $spe .='</select>
                                         <div id="AtributeSpecification'.$productvariants->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     </span> </div>';
@@ -191,15 +191,15 @@
                         <div class="mt-3 mb-4">
                             <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-details"
                                 data-variant_id="{{ $Product->variant_id }}" data-item_type="0" target="_blank">
-                                <?php 
-                                    if(is_wishlist($Product->variant_id,0)){ 
+                                <?php
+                                    if(is_wishlist($Product->variant_id,0)){
                                         ?>
                                 <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
-                                <?php 
-                                    } else { 
+                                <?php
+                                    } else {
                                         ?>
                                 <i class="far fa-heart"></i> &nbsp; Add to Wishlist
-                                <?php 
+                                <?php
                                     }
                                     ?>
                                 {{-- <i class="far fa-heart"></i> &nbsp; Add to Wishlist --}}
@@ -217,7 +217,7 @@
                         @endif
                         <!-- @if($Product->design_number != "")
                             <div class="row">
-                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Design Number</span>
                                     <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Product->design_number }}</span>
                                 </div>
@@ -229,7 +229,7 @@
                             <?php
                                 $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                                 //dd($product_attributes_specification);
-                                foreach($product_attributes_specification as $product_attribute_specification){  
+                                foreach($product_attributes_specification as $product_attribute_specification){
                                     $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                     $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                     $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
@@ -293,10 +293,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm" class="InquiryCreateForm">
                                     @csrf
                                     <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU"
                                         value="">
+                                             <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <div class="row mb-0">
                                         <div class="mb-3 col-md-6 ps-0">
                                             <input type="text" name="name" placeholder="your name"
@@ -625,7 +626,7 @@
                         <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
-                            foreach($product_attributes_specification as $product_attribute_specification){  
+                            foreach($product_attributes_specification as $product_attribute_specification){
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
@@ -1329,7 +1330,7 @@
                         //     $('#inquiry-error').show().text(res.errors.inquiry);
                         // } else {
                         //     $('#inquiry-error').hide();
-                        // } 
+                        // }
                     }
                     if (res.status == 200) {
 

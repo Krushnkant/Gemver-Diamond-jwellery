@@ -32,36 +32,36 @@
                         'jpg',
                         'jpeg',
                         'png'
-                    ); 
+                    );
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
-                        $ext = pathinfo($image, PATHINFO_EXTENSION); 
-                        if(in_array($ext, $supported_image)){ 
+                        $ext = pathinfo($image, PATHINFO_EXTENSION);
+                        if(in_array($ext, $supported_image)){
                        ?>
                             <div class="product_slider_main_item">
                                 <img src="{{ URL($image) }}" alt="">
                             </div>
-                            <?php }else{ ?> 
+                            <?php }else{ ?>
                             <div class="product_slider_main_item">
                                 <video controls="" autoplay="" style="width:100%; height:100%;" name="media"><source src="{{ URL($image) }}" type="video/mp4"></video>
-                            </div>    
-                            <?php 
+                            </div>
+                            <?php
                          }
                         }
                     }
-                    ?> 
+                    ?>
                 </div>
                 <div class="slider slider-nav">
-                    <?php 
+                    <?php
                     foreach($Product->product_variant as $variant){
                         $images = explode(",",$variant->images);
                         foreach($images as $image){
                             ?>
                             <div class="product_slider_item">
                                 <h3><img src="{{ URL($image) }}" alt=""></h3>
-                            </div>    
-                            <?php 
+                            </div>
+                            <?php
                         }
                     }
                     ?>
@@ -82,10 +82,10 @@
                                 @endif
                             </span>
                         </div>
-                        
+
                         <form action="" class="mb-2" >
                             <input type="hidden" value="{{ $Product->id }}" name="product_id" id="product_id">
-                           
+
 
                             <?php
                             $ProductVariantVariant = \App\Models\ProductVariantVariant::with('attribute','attribute_terms')->where('estatus',1)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
@@ -95,33 +95,33 @@
                                     ?>
                                     <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}</div>
                                     <div class="wire_bangle_color wire_bangle_color_img_part">
-                                        <?php 
+                                        <?php
                                         $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                             $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                           })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
                                         //dd($product_attribute);
                                         $ia = 1;
-                                        ?>    
+                                        ?>
                                         @foreach($product_attribute as $attribute_term)
                                             <span class="form-check d-inline-block">
                                                 <input class="form-check-input variant"  @if(in_array($attribute_term->id,$attribute_term_ids)) checked @endif  value="{{ $attribute_term->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute_name }}" id="" title="{{ $attribute_term->attrterm_name }}">
                                                 <img src="{{ url('images/attrTermThumb/'.$attribute_term->attrterm_thumb) }}" alt="{{ $attribute_term->attrterm_name }}"  class="wire_bangle_color_img">
                                                 <div class="wire_bangle_color_input_label"></div>
                                             </span>
-                                        <?php $ia++ ?>    
+                                        <?php $ia++ ?>
                                         @endforeach
                                     </div>
-                                    <?php 
-                                } else { 
+                                    <?php
+                                } else {
                                     $iv = 1;
                                     ?>
                                     <div class="wire_bangle_color_heading mb-2">{{ $productvariants->attribute->display_attrname }}</div>
                                     <div class="wire_bangle_carat">
-                                        <?php 
+                                        <?php
                                          $product_attribute = \App\Models\ProductVariantVariant::leftJoin('attribute_terms', function($join) {
                                             $join->on('product_variant_variants.attribute_term_id', '=', 'attribute_terms.id');
                                           })->with('attribute_terms')->where('product_variant_variants.estatus',1)->where('product_variant_variants.attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_term_id')->orderBy('attribute_terms.sorting','asc')->get();
-                                        ?>    
+                                        ?>
                                         @foreach($product_attribute as $attribute_term)
                                             <span class="form-check d-inline-block position-relative me-2  ps-0 mb-3">
                                                 <input class="form-check-input variant" @if(in_array($attribute_term->attribute_terms[0]->id,$attribute_term_ids)) checked @endif value="{{ $attribute_term->attribute_terms[0]->id }}"  type="radio" name="AtributeVariant{{ $productvariants->attribute->display_attrname }}" id="AtributeVariant{{ $attribute_term->attribute_terms[0]->id }}">
@@ -129,38 +129,38 @@
                                                     {{ $attribute_term->attribute_terms[0]->attrterm_name }}
                                                 </label>
                                             </span>
-                                            <?php $iv++ ?>    
-                                        @endforeach   
+                                            <?php $iv++ ?>
+                                        @endforeach
                                     </div>
-                                    <?php 
+                                    <?php
                                 }
-                            }  
+                            }
                             ?>
                             <div class="variantmulti" id="variantmulti">
                             </div>
                             <div class="d-flex flex-wrap" id="speci_multi143">
-                            
+
                                 <?php
                                 $ProductVariantSpecification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('product_id',$Product->id)->where('is_dropdown',1)->groupBy('product_attributes.attribute_id')->get();
-                                
+
                                 $spe = '';
                                 foreach($ProductVariantSpecification as $productvariants) {
                                     $spe .='<div class="me-4"> <div class="wire_bangle_color_heading mb-2">'.$productvariants->display_attrname.'</div><span class="wire_bangle_select me-3 d-inline-block">
                                            <select name="AtributeSpecification'.$productvariants->id.'" id="AtributeSpecification'.$productvariants->id.'" class="specification">
-                                             <option value="">-- '.$productvariants->display_attrname .'--</option>';   
-                                
+                                             <option value="">-- '.$productvariants->display_attrname .'--</option>';
+
                                     $product_attribute = \App\Models\ProductAttribute::where('attribute_id',$productvariants->attribute_id)->where('product_id',$Product->id)->groupBy('attribute_id')->get();
                                        // dd($product_attribute);
                                     foreach($product_attribute as $attribute_term){
                                         $term_array = explode(',',$attribute_term->terms_id);
-                                        
+
                                         $product_attributes = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id',$term_array)->get();
                                         //dd($product_attributes);
                                         $v = 1;
                                         foreach($product_attributes as $term){
-                                            $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>'; 
+                                            $spe .='<option data-spe="'.$productvariants->display_attrname .'" data-term="'.$term->attrterm_name .'" value="'. $term->id .'">'.$term->attrterm_name .'</option>';
                                         }
-                                    }   
+                                    }
                                     $spe .='</select>
                                         <div id="AtributeSpecification'.$productvariants->id.'-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                                     </span> </div>';
@@ -171,21 +171,21 @@
 
                             <div class="mt-3 mb-4">
                                 <a href="#" class="size-guide-text me-3 add-to-wishlist-btn-details" data-variant_id="{{ $Product->variant_id }}" data-item_type="0" target="_blank">
-                                    <?php 
-                                    if(is_wishlist($Product->variant_id,0)){ 
+                                    <?php
+                                    if(is_wishlist($Product->variant_id,0)){
                                         ?>
                                         <i class="fas fa-heart heart-icon-part"></i> &nbsp; Add to Wishlist
-                                        <?php 
-                                    } else { 
+                                        <?php
+                                    } else {
                                         ?>
                                         <i class="far fa-heart"></i> &nbsp; Add to Wishlist
-                                        <?php 
+                                        <?php
                                     }
                                     ?>
                                     {{-- <i class="far fa-heart"></i>  &nbsp; Add to Wishlist --}}
                                 </a>
                             </div>
-                          
+
                             <div class="row-images mt-3 mb-4" id="slick-lightbox">
                                 <div class="item">
                                     <a href="{{ url('images/sizechart_thumb/'.$Product->sizechart_image) }}" class="size-guide-text mx-4" target="_blank">
@@ -195,7 +195,7 @@
                             </div>
                             <!-- @if($Product->design_number != "")
                             <div class="row">
-                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                     <span class="d-block col-6 col-sm-3 col-md-4 ps-0">Design Number</span>
                                     <span class="wire_bangle_color_theme d-block col-6 col-sm-9 col-md-8">{{ $Product->design_number }}</span>
                                 </div>
@@ -207,12 +207,12 @@
                                 <?php
                                 $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                                 //dd($product_attributes_specification);
-                                foreach($product_attributes_specification as $product_attribute_specification){  
+                                foreach($product_attributes_specification as $product_attribute_specification){
                                     $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                     $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                     $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
                                     ?>
-                                    <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0"> 
+                                    <div class="mt-3 wire_bangle_share wire_bangle_share_part row ps-0">
                                         <span class="d-block col-6 col-sm-4 col-md-5 col-xl-4 ps-0 wire_bangle_heading_part_1">{{ $product_attribute_specification->display_attrname }}</span>
                                         <span class="wire_bangle_color_theme d-block col-6 col-sm-8 col-md-7 col-xl-8">{{ $product_attribute_term_name }}</span>
                                     </div>
@@ -227,13 +227,13 @@
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                             <span class="inquiry_now_btn product-data d-sm-inline-block">
-                                <input type="hidden" class="variant_id" value="{{ $Product->id }}"> 
-                                <input type="hidden" class="item_type" value="0"> 
+                                <input type="hidden" class="variant_id" value="{{ $Product->id }}">
+                                <input type="hidden" class="item_type" value="0">
                                 <button class="select_cart_btn diamond-btn mb-2 mt-2 ms-sm-3" type="button">Add To Cart</button>
                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown" style="display: none;"></div>
                             </span>
                         </div>
-                        
+
                         <div class="modal fade inquiry_now_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable text-center">
                                 <div class="modal-content p-3 p-md-4">
@@ -250,20 +250,21 @@
                                     <div class="row mb-2 mb-xl-3">
                                         <div class="col-3 col-sm-2">
                                             <div class="product_img">
-                                                <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="">  
+                                                <img src="{{ asset('frontend/image/round.png') }}" id="inquiry_image" alt="">
                                             </div>
                                         </div>
                                         <div class="col-9 col-sm-10">
                                             <div class="text-start popup_product_heading mb-2">Product Name</div>
-                                            <div class="row" id="variantstr"> 
+                                            <div class="row" id="variantstr">
                                             </div>
-                                            <div class="row" id="specificationstr"> 
+                                            <div class="row" id="specificationstr">
                                             </div>
                                         </div>
                                     </div>
-                                    <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm">
+                                    <form action="" method="post" id="InquiryCreateForm" name="InquiryCreateForm" class="InquiryCreateForm">
                                         @csrf
                                         <input type="hidden" class="d-block mb-3 wire_bangle_input" id='SKU' name="SKU" value="">
+                                             <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
@@ -276,7 +277,7 @@
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
-                                                        <select class="d-block wire_bangle_input" name="country_code_mobile"> 
+                                                        <select class="d-block wire_bangle_input" name="country_code_mobile">
                                                             <option>+91 </option>
                                                             <option>+1 </option>
                                                             <option>+94 </option>
@@ -289,7 +290,7 @@
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <div class="input-group ">
                                                     <div class="input-group-prepend">
-                                                        <select class="d-block wire_bangle_input" name="country_code_whatsapp"> 
+                                                        <select class="d-block wire_bangle_input" name="country_code_whatsapp">
                                                             <option>+91 </option>
                                                             <option>+1 </option>
                                                             <option>+94 </option>
@@ -305,7 +306,7 @@
                                                 <div id="inquiry-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
                                             </div>
                                         </div>
-                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry 
+                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newInquiryBtn" >send inquiry
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -385,7 +386,7 @@
                                     </div>
                                     <form action="" method="post" id="opinionCreateForm" name="opinionCreateForm">
                                         @csrf
-                                        <input type="hidden" name="product_id" value="{{ $Product->id }}"> 
+                                        <input type="hidden" name="product_id" value="{{ $Product->id }}">
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="name" placeholder="your name" class="d-block wire_bangle_input">
@@ -400,7 +401,7 @@
                                                 <div id="opinionmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;">Please select any value</div>
                                             </div>
                                         </div>
-                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send 
+                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newopinionBtn" >send
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -424,7 +425,7 @@
                                     </div>
                                     <form action="" method="post" id="hintCreateForm" name="hintCreateForm">
                                         @csrf
-                                        <input type="hidden" class="d-block mb-3 wire_bangle_input SKU"  name="SKU" value=""> 
+                                        <input type="hidden" class="d-block mb-3 wire_bangle_input SKU"  name="SKU" value="">
                                         <div class="row mb-0">
                                             <div class="mb-3 col-md-6 ps-0">
                                                 <input type="text" name="hintname" placeholder="your name" class="d-block wire_bangle_input">
@@ -444,11 +445,11 @@
                                             </div>
                                             <div class="mb-3 col-md-12 ps-0 mb-3">
                                                 <textarea  name="message"  class="d-block wire_bangle_input" placeholder="Message"></textarea>
-                                                
+
                                                 <div id="hintmessage-error" class="invalid-feedback animated fadeInDown text-start mt-2" style="display: none;"></div>
                                             </div>
                                         </div>
-                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn" >send 
+                                        <button class="send_inquiry_btn product_detail_inquiry_btn" id="save_newhintBtn" >send
                                             <div class="spinner-border loadericonfa spinner-border-send-inquiry" role="status" style="display:none;">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -460,7 +461,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         @if($Product->desc != "")
             <div class="row mt-xl-5 pt-xxl-0 mb-xxl-4 mt-3" id="description">
@@ -504,7 +505,7 @@
                             <?php
                             $product_attributes_specification = \App\Models\ProductAttribute::leftJoin("attributes", "attributes.id", "=", "product_attributes.attribute_id")->where('is_dropdown',0)->where('use_variation',0)->where('product_id',$Product->id)->groupBy('attributes.id')->get();
                             //dd($product_attributes_specification);
-                            foreach($product_attributes_specification as $product_attribute_specification){  
+                            foreach($product_attributes_specification as $product_attribute_specification){
                                 $product_attribute_terms = explode(',',$product_attribute_specification->terms_id);
                                 $product_attributes_term_val = \App\Models\AttributeTerm::where('estatus',1)->whereIn('id', $product_attribute_terms)->get()->pluck('attrterm_name')->toArray();
                                 $product_attribute_term_name = implode(' | ',$product_attributes_term_val);
@@ -543,7 +544,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script>  --}}
 
- 
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -562,11 +563,11 @@ $(document).ready(function(){
             url:"{{ url('/product-details-variants') }}",
             method:"POST",
             data:{action:action,variant:variant,terms_id:terms_id,product_id:product_id,_token: '{{ csrf_token() }}'},
-            success:function(data){ 
+            success:function(data){
             $('#variantmulti').html(data.variantmulti);
-              filter_data();  
+              filter_data();
             }
-        }); 
+        });
     }
 
 
@@ -583,7 +584,7 @@ $(document).ready(function(){
             success:function(data){
                 //console.log(data);
                 //var result123 = $(data.result.images).text().split(',');
-            
+
                 if(data.result == 'data not found'){
                     $("#inquiry-error").html("product not available");
                     $("#inquiry-error").show();
@@ -598,10 +599,10 @@ $(document).ready(function(){
                     $(".select_setting_btn").css("background-color", "");
                     $(".select_cart_btn").prop('disabled', false);
                     $(".select_cart_btn").css("background-color", "");
-                   
+
                     $('.discount_percent').html(data.result.auto_discount_percent);
                     $('.sale_price').html(data.result.sale_price);
-                    $('.regular_price').html(data.result.regular_price); 
+                    $('.regular_price').html(data.result.regular_price);
                     $('#SKU').val(data.result.SKU);
                     $('.SKU').val(data.result.SKU);
                     $('.variant_id').val(data.result.variant_id);
@@ -618,16 +619,16 @@ $(document).ready(function(){
                     }else{
                        $('.resview_list').html(data.review_list);
                     }
-                    
+
                     if(data.result.product_rating == 0){
-                       $('.review_star').hide(); 
+                       $('.review_star').hide();
                     }else{
                        $('.review_star').show();
                     }
                     $('.total_review_star').html(data.result.product_rating);
                    // console.log($('.wire_bangle_share_my').next());
                     //$('.wire_bangle_share_my').next().html(data.specificationstr123);
-                    
+
                     if(data.speci != ""){
                         $(".detailsspeci").show();
                         $('#specification').html(data.speci);
@@ -635,7 +636,7 @@ $(document).ready(function(){
                     }else{
                         $(".detailsspeci").hide();
                     }
-                    
+
                     $('#speci_multi').html(data.speci_multi);
                     $('#vimage').html(data.vimage);
                     $('#spe_desc').html(data.spe_desc);
@@ -645,12 +646,12 @@ $(document).ready(function(){
                     $('#inquiry_image').attr('src', $img_in);
                     // selectjs();
                      sliderjs();
-                } 
+                }
             }
         });
     }
-    
-    function selectjs(){ 
+
+    function selectjs(){
         $('select').each(function() {
             var $this = $(this),
             numberOfOptions = $(this).children('option').length;
@@ -702,7 +703,7 @@ $(document).ready(function(){
         });
     }
 
-    function sliderjs(){ 
+    function sliderjs(){
         $('.slider-single').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -770,7 +771,7 @@ $(document).ready(function(){
         return filter;
     }
     //$('.variant').click(function(){
-    $('body').on('click', '.variant', function () {    
+    $('body').on('click', '.variant', function () {
         filter_data();
     });
 
@@ -786,7 +787,7 @@ $(document).ready(function(){
             $("#"+this_err).show();
             valid = false;
         }else{
-            var element = $(this).find('option:selected'); 
+            var element = $(this).find('option:selected');
             var DataSpe = element.attr("data-spe");
             var DataTerm = element.attr("data-term");
             arrspe.push({'key' : DataSpe,'value' : DataTerm });
@@ -804,9 +805,9 @@ $(document).ready(function(){
     }
 });
 
-$('body').on('click', '.select_contact_btn', function () { 
+$('body').on('click', '.select_contact_btn', function () {
     jQuery("#opinionModal").modal('show');
-}); 
+});
 
 $('body').on('click', '.hint-box', function () {
     var valid = true;
@@ -820,7 +821,7 @@ $('body').on('click', '.hint-box', function () {
             $("#"+this_err).show();
             valid = false;
         }else{
-            var element = $(this).find('option:selected'); 
+            var element = $(this).find('option:selected');
             var DataSpe = element.attr("data-spe");
             var DataTerm = element.attr("data-term");
             arrspe.push({'key' : DataSpe,'value' : DataTerm });
@@ -833,7 +834,7 @@ $('body').on('click', '.hint-box', function () {
     jQuery("#hintModal").modal('show');
     }
 });
-      
+
 $('body').on('click', '#save_newInquiryBtn', function () {
     save_inquiry($(this),'save_new');
 });
@@ -858,13 +859,13 @@ function save_inquiry(btn,btn_type){
     $(".specification").each(function () {
       dataarray.push($(this).val());
    })
-   
+
     var dataspecification = dataarray.join(",");
-    
+
     var qty = $('#qty').val();
     formData.append('specification_term_id',dataspecification);
     formData.append('qty',qty);
-     
+
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.inquiry.save') }}",
@@ -872,7 +873,7 @@ function save_inquiry(btn,btn_type){
         processData: false,
         contentType: false,
         success: function (res) {
-            
+
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
@@ -905,7 +906,7 @@ function save_inquiry(btn,btn_type){
                     $('#inquiry-error').show().text(res.errors.inquiry);
                 } else {
                     $('#inquiry-error').hide();
-                } 
+                }
             }
             if(res.status == 200){
                 $('#inquiry-error').hide();
@@ -944,7 +945,7 @@ function save_opinion(btn,btn_type){
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
     var formData = new FormData($("#opinionCreateForm")[0]);
-  
+
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.opinion.save') }}",
@@ -952,7 +953,7 @@ function save_opinion(btn,btn_type){
         processData: false,
         contentType: false,
         success: function (res) {
-            
+
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
@@ -970,11 +971,11 @@ function save_opinion(btn,btn_type){
                     $('#opinionmessage-error').show().text(res.errors.message);
                 } else {
                     $('#opinionmessage-error').hide();
-                } 
+                }
             }
             if(res.status == 200){
                 $('#opinionmessage-error').hide();
-               
+
                 $('#opinionemail-error').hide();
                 $('#opinionname-error').hide();
                 document.getElementById("opinionCreateForm").reset();
@@ -1002,7 +1003,7 @@ $('body').on('click', '#save_newhintBtn', function () {
 });
 
 function save_hint(btn,btn_type){
-    
+
     $(btn).prop('disabled',true);
     $(btn).find('.loadericonfa').show();
     var action  = $(btn).attr('data-action');
@@ -1022,13 +1023,13 @@ function save_hint(btn,btn_type){
     $(".specification").each(function () {
       dataarray.push($(this).val());
    })
-   
+
     var dataspecification = dataarray.join(",");
-    
+
     var qty = $('#qty').val();
     formData.append('specification_term_id',dataspecification);
     formData.append('qty',qty);
-     
+
     $.ajax({
         type: 'POST',
         url: "{{ route('frontend.hint.save') }}",
@@ -1036,7 +1037,7 @@ function save_hint(btn,btn_type){
         processData: false,
         contentType: false,
         success: function (res) {
-            
+
             if(res.status == 'failed'){
                 $(btn).prop('disabled',false);
                 $(btn).find('.loadericonfa').hide();
@@ -1063,16 +1064,16 @@ function save_hint(btn,btn_type){
                     $('#friendemail-error').hide();
                 }
 
-            
+
                 // if (res.errors.inquiry) {
                 //     $('#inquiry-error').show().text(res.errors.inquiry);
                 // } else {
                 //     $('#inquiry-error').hide();
-                // } 
+                // }
             }
             if(res.status == 200){
 
-                
+
                 $('#hintemail-error').hide();
                 $('#hintname-error').hide();
                 document.getElementById("hintCreateForm").reset();
@@ -1097,7 +1098,7 @@ function save_hint(btn,btn_type){
 
 
    $('.select_cart_btn').click(function (e) {
-      
+
     e.preventDefault();
 
     var valid = true;
@@ -1111,7 +1112,7 @@ function save_hint(btn,btn_type){
             $("#"+this_err).show();
             valid = false;
         }else{
-            var element = $(this).find('option:selected'); 
+            var element = $(this).find('option:selected');
             var DataSpe = element.attr("data-spe");
             var DataTerm = element.attr("data-term");
             arrspe.push({'key' : DataSpe,'value' : DataTerm });
@@ -1134,15 +1135,15 @@ function save_hint(btn,btn_type){
         var variant_id = $(this).closest('.product-data').find('.variant_id').val();
         var item_type = $(this).closest('.product-data').find('.item_type').val();
         var quantity = 1;
- 
+
         $.ajax({
-            url: "{{ url('/add-to-cart') }}",  
-            method: "POST", 
-            data: { 
-                'variant_id': variant_id, 
-                'quantity': quantity, 
-                'item_type': item_type, 
-                'arrspe': arrspe 
+            url: "{{ url('/add-to-cart') }}",
+            method: "POST",
+            data: {
+                'variant_id': variant_id,
+                'quantity': quantity,
+                'item_type': item_type,
+                'arrspe': arrspe
             },
             success: function (response) {
                 $(btn).prop('disabled',false);
@@ -1161,7 +1162,7 @@ function save_hint(btn,btn_type){
 
 
 
- 
+
  var _token = $('input[name="_token"]').val();
 
  //load_data('', _token);
@@ -1203,7 +1204,6 @@ $(function() {
 </script>
 
 
- 
+
 
 @endsection
-  
